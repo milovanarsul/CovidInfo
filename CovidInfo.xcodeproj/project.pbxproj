@@ -38,12 +38,7 @@
 		B2F65157278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */; };
 		B2F65158278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */; };
 		B2F65159278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */; };
-		B2F65161278F38F700E1BB58 /* RoundedCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F65160278F38F700E1BB58 /* RoundedCornerView.swift */; };
-		B2F65162278F38F700E1BB58 /* RoundedCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F65160278F38F700E1BB58 /* RoundedCornerView.swift */; };
-		B2F65163278F38F700E1BB58 /* RoundedCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F65160278F38F700E1BB58 /* RoundedCornerView.swift */; };
-		B2F65165278F3A4900E1BB58 /* BlurShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F65164278F3A4900E1BB58 /* BlurShadowView.swift */; };
-		B2F65166278F3A4900E1BB58 /* BlurShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F65164278F3A4900E1BB58 /* BlurShadowView.swift */; };
-		B2F65167278F3A4900E1BB58 /* BlurShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F65164278F3A4900E1BB58 /* BlurShadowView.swift */; };
+		B2F65161278F38F700E1BB58 /* InterfaceBuilderInspectables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F65160278F38F700E1BB58 /* InterfaceBuilderInspectables.swift */; };
 		FF957FAACC9259D5D2F19CFA /* Pods_CovidInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0700E74D956AF0D7DAF2DFDE /* Pods_CovidInfo.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,8 +88,7 @@
 		B2F6512E278F32AF00E1BB58 /* IBMPlexSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-ExtraLight.ttf"; sourceTree = "<group>"; };
 		B2F65132278F32B000E1BB58 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
 		B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
-		B2F65160278F38F700E1BB58 /* RoundedCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerView.swift; sourceTree = "<group>"; };
-		B2F65164278F3A4900E1BB58 /* BlurShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurShadowView.swift; sourceTree = "<group>"; };
+		B2F65160278F38F700E1BB58 /* InterfaceBuilderInspectables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceBuilderInspectables.swift; sourceTree = "<group>"; };
 		DA375FD2761274C1B5136B25 /* Pods-CovidInfoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfoTests.debug.xcconfig"; path = "Target Support Files/Pods-CovidInfoTests/Pods-CovidInfoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F28191B4629CF06BA34CECF8 /* Pods-CovidInfoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfoTests.release.xcconfig"; path = "Target Support Files/Pods-CovidInfoTests/Pods-CovidInfoTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,7 +179,7 @@
 				B2F65103278F2BDB00E1BB58 /* Info.plist */,
 				B2F650FB278F2BDA00E1BB58 /* CovidInfo.xcdatamodeld */,
 				B2F65125278F2EEA00E1BB58 /* Onboarding.storyboard */,
-				B2F65168278F3A6500E1BB58 /* Interface Builder */,
+				B2F65160278F38F700E1BB58 /* InterfaceBuilderInspectables.swift */,
 			);
 			path = CovidInfo;
 			sourceTree = "<group>";
@@ -218,15 +212,6 @@
 				B2F6512D278F32AF00E1BB58 /* IBMPlexSans-SemiBold.ttf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		B2F65168278F3A6500E1BB58 /* Interface Builder */ = {
-			isa = PBXGroup;
-			children = (
-				B2F65160278F38F700E1BB58 /* RoundedCornerView.swift */,
-				B2F65164278F3A4900E1BB58 /* BlurShadowView.swift */,
-			);
-			path = "Interface Builder";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -487,12 +472,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2F65161278F38F700E1BB58 /* RoundedCornerView.swift in Sources */,
+				B2F65161278F38F700E1BB58 /* InterfaceBuilderInspectables.swift in Sources */,
 				B2F650F7278F2BDA00E1BB58 /* ViewController.swift in Sources */,
 				B2F650F3278F2BD900E1BB58 /* AppDelegate.swift in Sources */,
 				B2F650F5278F2BD900E1BB58 /* SceneDelegate.swift in Sources */,
 				B2F650FD278F2BDA00E1BB58 /* CovidInfo.xcdatamodeld in Sources */,
-				B2F65165278F3A4900E1BB58 /* BlurShadowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,8 +485,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2F6510D278F2BDB00E1BB58 /* CovidInfoTests.swift in Sources */,
-				B2F65162278F38F700E1BB58 /* RoundedCornerView.swift in Sources */,
-				B2F65166278F3A4900E1BB58 /* BlurShadowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,9 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2F65119278F2BDB00E1BB58 /* CovidInfoUITestsLaunchTests.swift in Sources */,
-				B2F65167278F3A4900E1BB58 /* BlurShadowView.swift in Sources */,
 				B2F65117278F2BDB00E1BB58 /* CovidInfoUITests.swift in Sources */,
-				B2F65163278F38F700E1BB58 /* RoundedCornerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

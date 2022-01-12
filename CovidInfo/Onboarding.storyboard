@@ -27,7 +27,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="mXn-ZM-8Mp">
                                 <rect key="frame" x="0.0" y="-3" width="414" height="902"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueb-w5-UNG">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueb-w5-UNG" customClass="RoundedCornerView" customModule="CovidInfo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="204" width="414" height="488"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
