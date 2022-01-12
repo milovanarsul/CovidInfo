@@ -19,6 +19,25 @@
 		B2F6510D278F2BDB00E1BB58 /* CovidInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6510C278F2BDB00E1BB58 /* CovidInfoTests.swift */; };
 		B2F65117278F2BDB00E1BB58 /* CovidInfoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F65116278F2BDB00E1BB58 /* CovidInfoUITests.swift */; };
 		B2F65119278F2BDB00E1BB58 /* CovidInfoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F65118278F2BDB00E1BB58 /* CovidInfoUITestsLaunchTests.swift */; };
+		B2F65126278F2EEA00E1BB58 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2F65125278F2EEA00E1BB58 /* Onboarding.storyboard */; };
+		B2F65139278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65129278F32AF00E1BB58 /* IBMPlexSans-Light.ttf */; };
+		B2F6513A278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65129278F32AF00E1BB58 /* IBMPlexSans-Light.ttf */; };
+		B2F6513B278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65129278F32AF00E1BB58 /* IBMPlexSans-Light.ttf */; };
+		B2F65142278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512C278F32AF00E1BB58 /* IBMPlexSans-Bold.ttf */; };
+		B2F65143278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512C278F32AF00E1BB58 /* IBMPlexSans-Bold.ttf */; };
+		B2F65144278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512C278F32AF00E1BB58 /* IBMPlexSans-Bold.ttf */; };
+		B2F65145278F32B000E1BB58 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512D278F32AF00E1BB58 /* IBMPlexSans-SemiBold.ttf */; };
+		B2F65146278F32B000E1BB58 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512D278F32AF00E1BB58 /* IBMPlexSans-SemiBold.ttf */; };
+		B2F65147278F32B000E1BB58 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512D278F32AF00E1BB58 /* IBMPlexSans-SemiBold.ttf */; };
+		B2F65148278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512E278F32AF00E1BB58 /* IBMPlexSans-ExtraLight.ttf */; };
+		B2F65149278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512E278F32AF00E1BB58 /* IBMPlexSans-ExtraLight.ttf */; };
+		B2F6514A278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512E278F32AF00E1BB58 /* IBMPlexSans-ExtraLight.ttf */; };
+		B2F65154278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65132278F32B000E1BB58 /* IBMPlexSans-Regular.ttf */; };
+		B2F65155278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65132278F32B000E1BB58 /* IBMPlexSans-Regular.ttf */; };
+		B2F65156278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65132278F32B000E1BB58 /* IBMPlexSans-Regular.ttf */; };
+		B2F65157278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */; };
+		B2F65158278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */; };
+		B2F65159278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */; };
 		FF957FAACC9259D5D2F19CFA /* Pods_CovidInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0700E74D956AF0D7DAF2DFDE /* Pods_CovidInfo.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +80,13 @@
 		B2F65112278F2BDB00E1BB58 /* CovidInfoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidInfoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2F65116278F2BDB00E1BB58 /* CovidInfoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidInfoUITests.swift; sourceTree = "<group>"; };
 		B2F65118278F2BDB00E1BB58 /* CovidInfoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidInfoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B2F65125278F2EEA00E1BB58 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		B2F65129278F32AF00E1BB58 /* IBMPlexSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Light.ttf"; sourceTree = "<group>"; };
+		B2F6512C278F32AF00E1BB58 /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
+		B2F6512D278F32AF00E1BB58 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		B2F6512E278F32AF00E1BB58 /* IBMPlexSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		B2F65132278F32B000E1BB58 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
+		B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
 		DA375FD2761274C1B5136B25 /* Pods-CovidInfoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfoTests.debug.xcconfig"; path = "Target Support Files/Pods-CovidInfoTests/Pods-CovidInfoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F28191B4629CF06BA34CECF8 /* Pods-CovidInfoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfoTests.release.xcconfig"; path = "Target Support Files/Pods-CovidInfoTests/Pods-CovidInfoTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,7 +129,6 @@
 				DA375FD2761274C1B5136B25 /* Pods-CovidInfoTests.debug.xcconfig */,
 				F28191B4629CF06BA34CECF8 /* Pods-CovidInfoTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -142,6 +167,7 @@
 		B2F650F1278F2BD900E1BB58 /* CovidInfo */ = {
 			isa = PBXGroup;
 			children = (
+				B2F65127278F329000E1BB58 /* Fonts */,
 				B2F650F2278F2BD900E1BB58 /* AppDelegate.swift */,
 				B2F650F4278F2BD900E1BB58 /* SceneDelegate.swift */,
 				B2F650F6278F2BDA00E1BB58 /* ViewController.swift */,
@@ -150,6 +176,7 @@
 				B2F65100278F2BDB00E1BB58 /* LaunchScreen.storyboard */,
 				B2F65103278F2BDB00E1BB58 /* Info.plist */,
 				B2F650FB278F2BDA00E1BB58 /* CovidInfo.xcdatamodeld */,
+				B2F65125278F2EEA00E1BB58 /* Onboarding.storyboard */,
 			);
 			path = CovidInfo;
 			sourceTree = "<group>";
@@ -169,6 +196,19 @@
 				B2F65118278F2BDB00E1BB58 /* CovidInfoUITestsLaunchTests.swift */,
 			);
 			path = CovidInfoUITests;
+			sourceTree = "<group>";
+		};
+		B2F65127278F329000E1BB58 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B2F6512C278F32AF00E1BB58 /* IBMPlexSans-Bold.ttf */,
+				B2F6512E278F32AF00E1BB58 /* IBMPlexSans-ExtraLight.ttf */,
+				B2F65129278F32AF00E1BB58 /* IBMPlexSans-Light.ttf */,
+				B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */,
+				B2F65132278F32B000E1BB58 /* IBMPlexSans-Regular.ttf */,
+				B2F6512D278F32AF00E1BB58 /* IBMPlexSans-SemiBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,9 +320,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2F65139278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */,
+				B2F65145278F32B000E1BB58 /* IBMPlexSans-SemiBold.ttf in Resources */,
 				B2F65102278F2BDB00E1BB58 /* LaunchScreen.storyboard in Resources */,
+				B2F65157278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */,
+				B2F65148278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */,
+				B2F65154278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */,
 				B2F650FF278F2BDB00E1BB58 /* Assets.xcassets in Resources */,
 				B2F650FA278F2BDA00E1BB58 /* Main.storyboard in Resources */,
+				B2F65126278F2EEA00E1BB58 /* Onboarding.storyboard in Resources */,
+				B2F65142278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +337,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2F6513A278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */,
+				B2F65143278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */,
+				B2F65158278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */,
+				B2F65149278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */,
+				B2F65146278F32B000E1BB58 /* IBMPlexSans-SemiBold.ttf in Resources */,
+				B2F65155278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +350,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2F6513B278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */,
+				B2F65144278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */,
+				B2F65159278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */,
+				B2F6514A278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */,
+				B2F65147278F32B000E1BB58 /* IBMPlexSans-SemiBold.ttf in Resources */,
+				B2F65156278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,7 +669,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -639,7 +698,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
