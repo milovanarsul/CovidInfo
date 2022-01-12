@@ -23,8 +23,27 @@
                     <view key="view" contentMode="scaleToFill" id="AGT-8F-nVN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="mXn-ZM-8Mp">
+                                <rect key="frame" x="0.0" y="-3" width="414" height="902"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueb-w5-UNG">
+                                <rect key="frame" x="0.0" y="204" width="414" height="488"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="pxr-51-RaL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mXn-ZM-8Mp" firstAttribute="top" secondItem="AGT-8F-nVN" secondAttribute="top" constant="-3" id="1Ka-o6-G5V"/>
+                            <constraint firstItem="ueb-w5-UNG" firstAttribute="centerY" secondItem="AGT-8F-nVN" secondAttribute="centerY" id="Je9-Fd-7IA"/>
+                            <constraint firstItem="pxr-51-RaL" firstAttribute="bottom" secondItem="ueb-w5-UNG" secondAttribute="bottom" constant="170" id="TDm-Mo-Aeq"/>
+                            <constraint firstItem="pxr-51-RaL" firstAttribute="trailing" secondItem="mXn-ZM-8Mp" secondAttribute="trailing" id="Xfk-h9-Dp7"/>
+                            <constraint firstAttribute="bottom" secondItem="mXn-ZM-8Mp" secondAttribute="bottom" constant="-3" id="iJD-iP-avK"/>
+                            <constraint firstItem="mXn-ZM-8Mp" firstAttribute="leading" secondItem="pxr-51-RaL" secondAttribute="leading" id="sDk-bh-2zj"/>
+                            <constraint firstItem="ueb-w5-UNG" firstAttribute="leading" secondItem="pxr-51-RaL" secondAttribute="leading" id="sdM-ax-tRW"/>
+                            <constraint firstItem="ueb-w5-UNG" firstAttribute="centerX" secondItem="AGT-8F-nVN" secondAttribute="centerX" id="wcG-wL-r2c"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rWQ-Ly-iqT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -33,6 +52,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LaunchScreenBackground" width="390" height="844"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
