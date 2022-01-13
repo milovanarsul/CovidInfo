@@ -21,10 +21,10 @@
             </objects>
             <point key="canvasLocation" x="-609" y="104"/>
         </scene>
-        <!--Onboarding Welcome View Controller-->
+        <!--Welcome Onboarding View Controller-->
         <scene sceneID="ahQ-Vu-S3F">
             <objects>
-                <viewController id="EFH-Yn-k3y" customClass="OnboardingWelcomeViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EFH-Yn-k3y" customClass="WelcomeOnboardingViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AGT-8F-nVN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,6 +78,9 @@ aplicatiei. </string>
                                                             <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="skipOnboardingButtonPressed:" destination="EFH-Yn-k3y" eventType="touchUpInside" id="uln-kq-lkK"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ZN-4p-io0" userLabel="Mai departe">
                                                         <rect key="frame" x="172" y="0.0" width="142" height="45"/>
@@ -154,10 +157,10 @@ aplicatiei. </string>
             </objects>
             <point key="canvasLocation" x="176.81159420289856" y="103.79464285714285"/>
         </scene>
-        <!--View Controller-->
+        <!--General Onboarding View Controller-->
         <scene sceneID="EyW-U0-Icu">
             <objects>
-                <viewController id="tRC-mT-exl" sceneMemberID="viewController">
+                <viewController id="tRC-mT-exl" customClass="GeneralOnboardingViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jkx-0P-wOM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,6 +192,9 @@ aplicatiei. </string>
                                             <directionalEdgeInsets key="contentInsets" top="9" leading="20" bottom="9" trailing="20"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="nextOnboardingButtonPressed:" destination="tRC-mT-exl" eventType="touchUpInside" id="OPD-GT-Jb1"/>
+                                        </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YvM-er-GtK">
                                         <rect key="frame" x="148.5" y="558" width="117.5" height="36.5"/>
@@ -201,6 +207,9 @@ aplicatiei. </string>
                                             <directionalEdgeInsets key="contentInsets" top="9" leading="26" bottom="9" trailing="26"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="skipCurrentOnboardingButtonPressed:" destination="tRC-mT-exl" eventType="touchUpInside" id="rQj-fK-TGO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -238,15 +247,21 @@ aplicatiei. </string>
                             <constraint firstItem="JJ5-2i-ptA" firstAttribute="centerY" secondItem="jkx-0P-wOM" secondAttribute="centerY" id="xdN-mi-OG9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="animationLabel" destination="bOw-nt-Yu8" id="Xy9-Hi-KGj"/>
+                        <outlet property="lottieAnimationView" destination="Yj9-y6-Ko0" id="Nh3-b3-6hj"/>
+                        <outlet property="nextOnboardingButton" destination="jle-ah-ikN" id="1Dh-81-eCm"/>
+                        <outlet property="skipCurrentOnboardingButton" destination="YvM-er-GtK" id="a4P-bh-746"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0LQ-mw-EJR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="949" y="104"/>
         </scene>
-        <!--View Controller-->
+        <!--Extra Step Onboarding View Controller-->
         <scene sceneID="ELH-wv-zTX">
             <objects>
-                <viewController id="gIn-qS-T12" sceneMemberID="viewController">
+                <viewController id="gIn-qS-T12" customClass="ExtraStepOnboardingViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fcl-SZ-rGG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -255,7 +270,7 @@ aplicatiei. </string>
                                 <rect key="frame" x="0.0" y="114" width="414" height="668"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b40-eN-1bR" customClass="InterfaceBuilderInspectables" customModule="CovidInfo" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="25" width="364" height="493"/>
+                                        <rect key="frame" x="25" y="25" width="364" height="453"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -264,21 +279,38 @@ aplicatiei. </string>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icp-bS-LqI">
-                                        <rect key="frame" x="25" y="549" width="364" height="20.5"/>
+                                        <rect key="frame" x="25" y="509" width="364" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0KE-eg-UBk">
+                                        <rect key="frame" x="164.5" y="587" width="85" height="36.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Cancel">
+                                            <backgroundConfiguration key="background" cornerRadius="24">
+                                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
+                                            <directionalEdgeInsets key="contentInsets" top="9" leading="20" bottom="9" trailing="20"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="cancelButtonPressed:" destination="gIn-qS-T12" eventType="touchUpInside" id="gps-I0-A92"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92156863209999995" green="0.96470588450000005" blue="0.98823523520000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="b40-eN-1bR" firstAttribute="leading" secondItem="EM2-Db-Aie" secondAttribute="leading" constant="25" id="HE7-Za-8qM"/>
                                     <constraint firstItem="Icp-bS-LqI" firstAttribute="top" secondItem="b40-eN-1bR" secondAttribute="bottom" constant="31" id="Ips-Fp-15f"/>
-                                    <constraint firstAttribute="bottom" secondItem="b40-eN-1bR" secondAttribute="bottom" constant="150" id="LV1-Wj-NPU"/>
+                                    <constraint firstItem="0KE-eg-UBk" firstAttribute="centerX" secondItem="EM2-Db-Aie" secondAttribute="centerX" id="Js6-cN-FDU"/>
+                                    <constraint firstAttribute="bottom" secondItem="b40-eN-1bR" secondAttribute="bottom" constant="190" id="LV1-Wj-NPU"/>
                                     <constraint firstItem="Icp-bS-LqI" firstAttribute="leading" secondItem="EM2-Db-Aie" secondAttribute="leading" constant="25" id="SE0-ec-0pD"/>
                                     <constraint firstItem="Icp-bS-LqI" firstAttribute="centerX" secondItem="EM2-Db-Aie" secondAttribute="centerX" id="Vbl-gr-zBg"/>
                                     <constraint firstAttribute="trailing" secondItem="b40-eN-1bR" secondAttribute="trailing" constant="25" id="fUD-CL-N8h"/>
                                     <constraint firstItem="b40-eN-1bR" firstAttribute="top" secondItem="EM2-Db-Aie" secondAttribute="top" constant="25" id="ujJ-Mr-oDB"/>
+                                    <constraint firstItem="0KE-eg-UBk" firstAttribute="top" secondItem="Icp-bS-LqI" secondAttribute="bottom" constant="57.5" id="z0V-2X-c5p"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -296,15 +328,19 @@ aplicatiei. </string>
                             <constraint firstItem="EM2-Db-Aie" firstAttribute="top" secondItem="S5W-HP-TQ5" secondAttribute="top" constant="70" id="wls-r6-zFR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraView" destination="b40-eN-1bR" id="X6b-nR-fkL"/>
+                        <outlet property="cameraViewLabel" destination="Icp-bS-LqI" id="cwc-qV-plo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0aH-zb-l3N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="948" y="-568"/>
         </scene>
-        <!--View Controller-->
+        <!--Extra Step Confirmation Onboarding View Controller-->
         <scene sceneID="t5j-W5-NZc">
             <objects>
-                <viewController id="w3g-yY-kdp" sceneMemberID="viewController">
+                <viewController id="w3g-yY-kdp" customClass="ExtraStepConfirmationOnboardingViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ihc-tg-Cb7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -339,6 +375,9 @@ aplicatiei. </string>
                                             <directionalEdgeInsets key="contentInsets" top="9" leading="20" bottom="9" trailing="20"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="finishExtraButtonPressed:" destination="w3g-yY-kdp" eventType="touchUpInside" id="roS-fW-6Rb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -372,6 +411,10 @@ aplicatiei. </string>
                             <constraint firstItem="9mm-G7-YHQ" firstAttribute="centerY" secondItem="Ihc-tg-Cb7" secondAttribute="centerY" id="zbU-3k-wzB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="animationLabel" destination="UTz-51-8IS" id="wnb-I7-ds8"/>
+                        <outlet property="lottieAnimationView" destination="Zxx-vQ-YfB" id="T8a-UU-DRA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rsr-OR-Nc2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -380,6 +423,7 @@ aplicatiei. </string>
     </scenes>
     <designables>
         <designable name="Yj9-y6-Ko0"/>
+        <designable name="Zxx-vQ-YfB"/>
     </designables>
     <resources>
         <image name="Cells" width="390" height="840"/>
@@ -390,6 +434,9 @@ aplicatiei. </string>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

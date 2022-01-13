@@ -10,10 +10,12 @@
 		67F7BE5CD5454C3CBF81828E /* Pods_CovidInfo_CovidInfoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F04C8285BE7B316841493C3 /* Pods_CovidInfo_CovidInfoUITests.framework */; };
 		7343CDF72127C92F38A5463A /* Pods_CovidInfoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927C608C5635441DBEB08338 /* Pods_CovidInfoTests.framework */; };
 		B23DC43327906E2700051C6C /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DC43227906E2700051C6C /* MainPageViewController.swift */; };
-		B23DC43627906EB700051C6C /* OnboardingWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DC43527906EB700051C6C /* OnboardingWelcomeViewController.swift */; };
+		B23DC43627906EB700051C6C /* WelcomeOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DC43527906EB700051C6C /* WelcomeOnboardingViewController.swift */; };
 		B23DC43827906EC600051C6C /* GeneralOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DC43727906EC600051C6C /* GeneralOnboardingViewController.swift */; };
 		B23DC43A27906FE000051C6C /* ConciergeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DC43927906FE000051C6C /* ConciergeViewController.swift */; };
 		B23DC43D279070BD00051C6C /* LandscapeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DC43C279070BD00051C6C /* LandscapeManager.swift */; };
+		B2B5A9A427908B7500FC4E61 /* ExtraStepOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5A9A327908B7500FC4E61 /* ExtraStepOnboardingViewController.swift */; };
+		B2B5A9A627908D3F00FC4E61 /* ExtraStepConfirmationOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5A9A527908D3F00FC4E61 /* ExtraStepConfirmationOnboardingViewController.swift */; };
 		B2F650F3278F2BD900E1BB58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F650F2278F2BD900E1BB58 /* AppDelegate.swift */; };
 		B2F650F5278F2BD900E1BB58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F650F4278F2BD900E1BB58 /* SceneDelegate.swift */; };
 		B2F650FA278F2BDA00E1BB58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2F650F8278F2BDA00E1BB58 /* Main.storyboard */; };
@@ -72,10 +74,12 @@
 		6093B6C73F5FDA01AB286717 /* Pods-CovidInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfo.release.xcconfig"; path = "Target Support Files/Pods-CovidInfo/Pods-CovidInfo.release.xcconfig"; sourceTree = "<group>"; };
 		927C608C5635441DBEB08338 /* Pods_CovidInfoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidInfoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23DC43227906E2700051C6C /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
-		B23DC43527906EB700051C6C /* OnboardingWelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeViewController.swift; sourceTree = "<group>"; };
+		B23DC43527906EB700051C6C /* WelcomeOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeOnboardingViewController.swift; sourceTree = "<group>"; };
 		B23DC43727906EC600051C6C /* GeneralOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralOnboardingViewController.swift; sourceTree = "<group>"; };
 		B23DC43927906FE000051C6C /* ConciergeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConciergeViewController.swift; sourceTree = "<group>"; };
 		B23DC43C279070BD00051C6C /* LandscapeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeManager.swift; sourceTree = "<group>"; };
+		B2B5A9A327908B7500FC4E61 /* ExtraStepOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraStepOnboardingViewController.swift; sourceTree = "<group>"; };
+		B2B5A9A527908D3F00FC4E61 /* ExtraStepConfirmationOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraStepConfirmationOnboardingViewController.swift; sourceTree = "<group>"; };
 		B2F650EF278F2BD900E1BB58 /* CovidInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2F650F2278F2BD900E1BB58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2F650F4278F2BD900E1BB58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -231,8 +235,10 @@
 		B23DC43427906E4B00051C6C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				B23DC43527906EB700051C6C /* OnboardingWelcomeViewController.swift */,
+				B23DC43527906EB700051C6C /* WelcomeOnboardingViewController.swift */,
 				B23DC43727906EC600051C6C /* GeneralOnboardingViewController.swift */,
+				B2B5A9A327908B7500FC4E61 /* ExtraStepOnboardingViewController.swift */,
+				B2B5A9A527908D3F00FC4E61 /* ExtraStepConfirmationOnboardingViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -573,7 +579,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B23DC43827906EC600051C6C /* GeneralOnboardingViewController.swift in Sources */,
-				B23DC43627906EB700051C6C /* OnboardingWelcomeViewController.swift in Sources */,
+				B23DC43627906EB700051C6C /* WelcomeOnboardingViewController.swift in Sources */,
+				B2B5A9A427908B7500FC4E61 /* ExtraStepOnboardingViewController.swift in Sources */,
+				B2B5A9A627908D3F00FC4E61 /* ExtraStepConfirmationOnboardingViewController.swift in Sources */,
 				B2F65161278F38F700E1BB58 /* InterfaceBuilderInspectables.swift in Sources */,
 				B2F650F3278F2BD900E1BB58 /* AppDelegate.swift in Sources */,
 				B2F650F5278F2BD900E1BB58 /* SceneDelegate.swift in Sources */,
