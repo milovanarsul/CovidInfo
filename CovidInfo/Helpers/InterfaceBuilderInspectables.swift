@@ -1,5 +1,5 @@
 //
-//  RoundedCornerView.swift
+//  InterfaceBuilderInspectables.swift
 //  CovidInfo
 //
 //  Created by Milovan Arsul on 12.01.2022.
@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class RoundedCornerView: UIView {
+class InterfaceBuilderInspectables: UIView {
     
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
