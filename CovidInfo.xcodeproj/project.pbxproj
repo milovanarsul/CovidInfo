@@ -16,6 +16,13 @@
 		B23DC43D279070BD00051C6C /* LandscapeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DC43C279070BD00051C6C /* LandscapeManager.swift */; };
 		B2B5A9A427908B7500FC4E61 /* ExtraStepOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5A9A327908B7500FC4E61 /* ExtraStepOnboardingViewController.swift */; };
 		B2B5A9A627908D3F00FC4E61 /* ExtraStepConfirmationOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5A9A527908D3F00FC4E61 /* ExtraStepConfirmationOnboardingViewController.swift */; };
+		B2B5A9B02790939500FC4E61 /* onboarding2.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9A92790939500FC4E61 /* onboarding2.json */; };
+		B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AA2790939500FC4E61 /* onboarding4.1.json */; };
+		B2B5A9B22790939500FC4E61 /* onboarding1.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AB2790939500FC4E61 /* onboarding1.json */; };
+		B2B5A9B32790939500FC4E61 /* onboarding3.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AC2790939500FC4E61 /* onboarding3.json */; };
+		B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AD2790939500FC4E61 /* onboarding4.2.json */; };
+		B2B5A9B52790939500FC4E61 /* onboarding4.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AE2790939500FC4E61 /* onboarding4.json */; };
+		B2B5A9B62790939500FC4E61 /* onboarding5.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AF2790939500FC4E61 /* onboarding5.json */; };
 		B2F650F3278F2BD900E1BB58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F650F2278F2BD900E1BB58 /* AppDelegate.swift */; };
 		B2F650F5278F2BD900E1BB58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F650F4278F2BD900E1BB58 /* SceneDelegate.swift */; };
 		B2F650FA278F2BDA00E1BB58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2F650F8278F2BDA00E1BB58 /* Main.storyboard */; };
@@ -80,6 +87,13 @@
 		B23DC43C279070BD00051C6C /* LandscapeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeManager.swift; sourceTree = "<group>"; };
 		B2B5A9A327908B7500FC4E61 /* ExtraStepOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraStepOnboardingViewController.swift; sourceTree = "<group>"; };
 		B2B5A9A527908D3F00FC4E61 /* ExtraStepConfirmationOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraStepConfirmationOnboardingViewController.swift; sourceTree = "<group>"; };
+		B2B5A9A92790939500FC4E61 /* onboarding2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding2.json; sourceTree = "<group>"; };
+		B2B5A9AA2790939500FC4E61 /* onboarding4.1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding4.1.json; sourceTree = "<group>"; };
+		B2B5A9AB2790939500FC4E61 /* onboarding1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding1.json; sourceTree = "<group>"; };
+		B2B5A9AC2790939500FC4E61 /* onboarding3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding3.json; sourceTree = "<group>"; };
+		B2B5A9AD2790939500FC4E61 /* onboarding4.2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding4.2.json; sourceTree = "<group>"; };
+		B2B5A9AE2790939500FC4E61 /* onboarding4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding4.json; sourceTree = "<group>"; };
+		B2B5A9AF2790939500FC4E61 /* onboarding5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding5.json; sourceTree = "<group>"; };
 		B2F650EF278F2BD900E1BB58 /* CovidInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2F650F2278F2BD900E1BB58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2F650F4278F2BD900E1BB58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				B2F65127278F329000E1BB58 /* Fonts */,
+				B2B5A9A72790904600FC4E61 /* Lottie Animations */,
 				B2F650FE278F2BDB00E1BB58 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -249,6 +264,28 @@
 				B23DC43C279070BD00051C6C /* LandscapeManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		B2B5A9A72790904600FC4E61 /* Lottie Animations */ = {
+			isa = PBXGroup;
+			children = (
+				B2B5A9A82790907700FC4E61 /* Onboarding */,
+			);
+			path = "Lottie Animations";
+			sourceTree = "<group>";
+		};
+		B2B5A9A82790907700FC4E61 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B2B5A9AB2790939500FC4E61 /* onboarding1.json */,
+				B2B5A9A92790939500FC4E61 /* onboarding2.json */,
+				B2B5A9AC2790939500FC4E61 /* onboarding3.json */,
+				B2B5A9AA2790939500FC4E61 /* onboarding4.1.json */,
+				B2B5A9AD2790939500FC4E61 /* onboarding4.2.json */,
+				B2B5A9AE2790939500FC4E61 /* onboarding4.json */,
+				B2B5A9AF2790939500FC4E61 /* onboarding5.json */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		B2F650E6278F2BD900E1BB58 = {
@@ -430,15 +467,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2F65139278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */,
+				B2B5A9B22790939500FC4E61 /* onboarding1.json in Resources */,
 				B2F65145278F32B000E1BB58 /* IBMPlexSans-SemiBold.ttf in Resources */,
 				B2F65102278F2BDB00E1BB58 /* LaunchScreen.storyboard in Resources */,
 				B2F65157278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */,
 				B2F65148278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */,
+				B2B5A9B62790939500FC4E61 /* onboarding5.json in Resources */,
+				B2B5A9B02790939500FC4E61 /* onboarding2.json in Resources */,
 				B2F65154278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */,
+				B2B5A9B32790939500FC4E61 /* onboarding3.json in Resources */,
 				B2F650FF278F2BDB00E1BB58 /* Assets.xcassets in Resources */,
+				B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */,
 				B2F650FA278F2BDA00E1BB58 /* Main.storyboard in Resources */,
+				B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */,
 				B2F65126278F2EEA00E1BB58 /* Onboarding.storyboard in Resources */,
 				B2F65142278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */,
+				B2B5A9B52790939500FC4E61 /* onboarding4.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
