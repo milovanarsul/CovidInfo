@@ -1,5 +1,5 @@
 //
-//  ConciergeViewController.swift
+//  ViewController.swift
 //  CovidInfo
 //
 //  Created by Milovan Arsul on 13.01.2022.
@@ -7,16 +7,16 @@
 
 import UIKit
 
-class ConciergeViewController: UIPageViewController {
+class ViewController: UIPageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if LandscapeManager.shared.isFirstLaunch {
+        if OnboardingManager.shared.isFirstLaunch {
             performSegue(withIdentifier: "toOnboarding", sender: nil)
-            LandscapeManager.shared.isFirstLaunch = true
+            OnboardingManager.shared.isFirstLaunch = true
         } else {
             performSegue(withIdentifier: "toMain", sender: nil)
         }

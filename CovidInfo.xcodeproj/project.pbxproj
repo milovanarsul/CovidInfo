@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		67F7BE5CD5454C3CBF81828E /* Pods_CovidInfo_CovidInfoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F04C8285BE7B316841493C3 /* Pods_CovidInfo_CovidInfoUITests.framework */; };
 		7343CDF72127C92F38A5463A /* Pods_CovidInfoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927C608C5635441DBEB08338 /* Pods_CovidInfoTests.framework */; };
-		B23DC43327906E2700051C6C /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DC43227906E2700051C6C /* MainPageViewController.swift */; };
+		B21C9A73279575C500E69864 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B21C9A72279575C500E69864 /* Onboarding.storyboard */; };
+		B23DC43327906E2700051C6C /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DC43227906E2700051C6C /* OnboardingPageViewController.swift */; };
 		B23DC43627906EB700051C6C /* WelcomeOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DC43527906EB700051C6C /* WelcomeOnboardingViewController.swift */; };
 		B23DC43827906EC600051C6C /* GeneralOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DC43727906EC600051C6C /* GeneralOnboardingViewController.swift */; };
-		B23DC43A27906FE000051C6C /* ConciergeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DC43927906FE000051C6C /* ConciergeViewController.swift */; };
-		B23DC43D279070BD00051C6C /* LandscapeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DC43C279070BD00051C6C /* LandscapeManager.swift */; };
+		B23DC43A27906FE000051C6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DC43927906FE000051C6C /* ViewController.swift */; };
+		B23DC43D279070BD00051C6C /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DC43C279070BD00051C6C /* OnboardingManager.swift */; };
+		B26B7A982791C6BD000D4BC1 /* GeneralOnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26B7A972791C6BD000D4BC1 /* GeneralOnboardingData.swift */; };
 		B2B5A9A427908B7500FC4E61 /* ExtraStepOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5A9A327908B7500FC4E61 /* ExtraStepOnboardingViewController.swift */; };
 		B2B5A9A627908D3F00FC4E61 /* ExtraStepConfirmationOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5A9A527908D3F00FC4E61 /* ExtraStepConfirmationOnboardingViewController.swift */; };
 		B2B5A9B02790939500FC4E61 /* onboarding2.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9A92790939500FC4E61 /* onboarding2.json */; };
@@ -32,7 +34,7 @@
 		B2F6510D278F2BDB00E1BB58 /* CovidInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6510C278F2BDB00E1BB58 /* CovidInfoTests.swift */; };
 		B2F65117278F2BDB00E1BB58 /* CovidInfoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F65116278F2BDB00E1BB58 /* CovidInfoUITests.swift */; };
 		B2F65119278F2BDB00E1BB58 /* CovidInfoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F65118278F2BDB00E1BB58 /* CovidInfoUITestsLaunchTests.swift */; };
-		B2F65126278F2EEA00E1BB58 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2F65125278F2EEA00E1BB58 /* Onboarding.storyboard */; };
+		B2F65126278F2EEA00E1BB58 /* Onboarding-ToDo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2F65125278F2EEA00E1BB58 /* Onboarding-ToDo.storyboard */; };
 		B2F65139278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65129278F32AF00E1BB58 /* IBMPlexSans-Light.ttf */; };
 		B2F6513A278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65129278F32AF00E1BB58 /* IBMPlexSans-Light.ttf */; };
 		B2F6513B278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65129278F32AF00E1BB58 /* IBMPlexSans-Light.ttf */; };
@@ -80,11 +82,13 @@
 		5ED1ACAC0B5BCABB0912F760 /* Pods-CovidInfo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfo.debug.xcconfig"; path = "Target Support Files/Pods-CovidInfo/Pods-CovidInfo.debug.xcconfig"; sourceTree = "<group>"; };
 		6093B6C73F5FDA01AB286717 /* Pods-CovidInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfo.release.xcconfig"; path = "Target Support Files/Pods-CovidInfo/Pods-CovidInfo.release.xcconfig"; sourceTree = "<group>"; };
 		927C608C5635441DBEB08338 /* Pods_CovidInfoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidInfoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B23DC43227906E2700051C6C /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		B21C9A72279575C500E69864 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		B23DC43227906E2700051C6C /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		B23DC43527906EB700051C6C /* WelcomeOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeOnboardingViewController.swift; sourceTree = "<group>"; };
 		B23DC43727906EC600051C6C /* GeneralOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralOnboardingViewController.swift; sourceTree = "<group>"; };
-		B23DC43927906FE000051C6C /* ConciergeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConciergeViewController.swift; sourceTree = "<group>"; };
-		B23DC43C279070BD00051C6C /* LandscapeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeManager.swift; sourceTree = "<group>"; };
+		B23DC43927906FE000051C6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B23DC43C279070BD00051C6C /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
+		B26B7A972791C6BD000D4BC1 /* GeneralOnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralOnboardingData.swift; sourceTree = "<group>"; };
 		B2B5A9A327908B7500FC4E61 /* ExtraStepOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraStepOnboardingViewController.swift; sourceTree = "<group>"; };
 		B2B5A9A527908D3F00FC4E61 /* ExtraStepConfirmationOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraStepConfirmationOnboardingViewController.swift; sourceTree = "<group>"; };
 		B2B5A9A92790939500FC4E61 /* onboarding2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding2.json; sourceTree = "<group>"; };
@@ -107,7 +111,7 @@
 		B2F65112278F2BDB00E1BB58 /* CovidInfoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidInfoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2F65116278F2BDB00E1BB58 /* CovidInfoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidInfoUITests.swift; sourceTree = "<group>"; };
 		B2F65118278F2BDB00E1BB58 /* CovidInfoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidInfoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B2F65125278F2EEA00E1BB58 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		B2F65125278F2EEA00E1BB58 /* Onboarding-ToDo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Onboarding-ToDo.storyboard"; sourceTree = "<group>"; };
 		B2F65129278F32AF00E1BB58 /* IBMPlexSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Light.ttf"; sourceTree = "<group>"; };
 		B2F6512C278F32AF00E1BB58 /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
 		B2F6512D278F32AF00E1BB58 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -173,9 +177,9 @@
 		B23DC42027902EB800051C6C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B2F650FE278F2BDB00E1BB58 /* Assets.xcassets */,
 				B2F65127278F329000E1BB58 /* Fonts */,
 				B2B5A9A72790904600FC4E61 /* Lottie Animations */,
-				B2F650FE278F2BDB00E1BB58 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -207,8 +211,8 @@
 		B23DC42427902F1E00051C6C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B23DC43227906E2700051C6C /* MainPageViewController.swift */,
-				B23DC43927906FE000051C6C /* ConciergeViewController.swift */,
+				B23DC43227906E2700051C6C /* OnboardingPageViewController.swift */,
+				B23DC43927906FE000051C6C /* ViewController.swift */,
 				B23DC43427906E4B00051C6C /* Onboarding */,
 			);
 			path = Controllers;
@@ -234,7 +238,8 @@
 		B23DC42727902FE500051C6C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				B2F65125278F2EEA00E1BB58 /* Onboarding.storyboard */,
+				B2F65125278F2EEA00E1BB58 /* Onboarding-ToDo.storyboard */,
+				B21C9A72279575C500E69864 /* Onboarding.storyboard */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 		B23DC42F279030BC00051C6C /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B26B7A962791C69E000D4BC1 /* Onboarding */,
 				B2F650FB278F2BDA00E1BB58 /* CovidInfo.xcdatamodeld */,
 			);
 			path = Data;
@@ -261,9 +267,17 @@
 		B23DC43B2790709400051C6C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				B23DC43C279070BD00051C6C /* LandscapeManager.swift */,
+				B23DC43C279070BD00051C6C /* OnboardingManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		B26B7A962791C69E000D4BC1 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B26B7A972791C6BD000D4BC1 /* GeneralOnboardingData.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		B2B5A9A72790904600FC4E61 /* Lottie Animations */ = {
@@ -480,7 +494,8 @@
 				B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */,
 				B2F650FA278F2BDA00E1BB58 /* Main.storyboard in Resources */,
 				B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */,
-				B2F65126278F2EEA00E1BB58 /* Onboarding.storyboard in Resources */,
+				B2F65126278F2EEA00E1BB58 /* Onboarding-ToDo.storyboard in Resources */,
+				B21C9A73279575C500E69864 /* Onboarding.storyboard in Resources */,
 				B2F65142278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */,
 				B2B5A9B52790939500FC4E61 /* onboarding4.json in Resources */,
 			);
@@ -623,15 +638,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B23DC43827906EC600051C6C /* GeneralOnboardingViewController.swift in Sources */,
+				B26B7A982791C6BD000D4BC1 /* GeneralOnboardingData.swift in Sources */,
 				B23DC43627906EB700051C6C /* WelcomeOnboardingViewController.swift in Sources */,
 				B2B5A9A427908B7500FC4E61 /* ExtraStepOnboardingViewController.swift in Sources */,
 				B2B5A9A627908D3F00FC4E61 /* ExtraStepConfirmationOnboardingViewController.swift in Sources */,
 				B2F65161278F38F700E1BB58 /* InterfaceBuilderInspectables.swift in Sources */,
 				B2F650F3278F2BD900E1BB58 /* AppDelegate.swift in Sources */,
 				B2F650F5278F2BD900E1BB58 /* SceneDelegate.swift in Sources */,
-				B23DC43327906E2700051C6C /* MainPageViewController.swift in Sources */,
-				B23DC43D279070BD00051C6C /* LandscapeManager.swift in Sources */,
-				B23DC43A27906FE000051C6C /* ConciergeViewController.swift in Sources */,
+				B23DC43327906E2700051C6C /* OnboardingPageViewController.swift in Sources */,
+				B23DC43D279070BD00051C6C /* OnboardingManager.swift in Sources */,
+				B23DC43A27906FE000051C6C /* ViewController.swift in Sources */,
 				B2F650FD278F2BDA00E1BB58 /* CovidInfo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

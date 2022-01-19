@@ -10,7 +10,7 @@ import Lottie
 
 class GeneralOnboardingViewController: UIViewController {
 
-    @IBOutlet weak var lottieAnimationView: AnimationView!
+    @IBOutlet var lottieAnimationView: AnimationView!
     @IBOutlet weak var animationLabel: UILabel!
     @IBOutlet weak var nextOnboardingButton: UIButton!
     @IBOutlet weak var skipCurrentOnboardingButton: UIButton!
@@ -19,10 +19,21 @@ class GeneralOnboardingViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    public func createGeneralOnboardingViewFromData(generalOnboardingData: GeneralOnboardingData){
+        
+        lottieAnimationView = .init(name: generalOnboardingData.lottieAnimationName!)
+        animationLabel.text = generalOnboardingData.animationLabel!
+        
+        if generalOnboardingData.hasSkipButton{
+            skipCurrentOnboardingButton.alpha = 1
+        } else {
+            skipCurrentOnboardingButton.alpha = 0
+        }
+    }
+    
     @IBAction func nextOnboardingButtonPressed(_ sender: UIButton) {
         
     }
-    
     
     @IBAction func skipCurrentOnboardingButtonPressed(_ sender: Any) {
         
