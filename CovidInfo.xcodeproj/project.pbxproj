@@ -12,6 +12,7 @@
 		B25AD33927A30B50009EAD38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33827A30B50009EAD38 /* UIView.swift */; };
 		B25AD33B27A30B6C009EAD38 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33A27A30B6C009EAD38 /* UIStoryboard.swift */; };
 		B25AD33D27A30C22009EAD38 /* RounedCornersAndShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33C27A30C22009EAD38 /* RounedCornersAndShadow.swift */; };
+		B25AD33F27A31CE3009EAD38 /* TriajEpidemiologic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25AD33E27A31CE3009EAD38 /* TriajEpidemiologic.storyboard */; };
 		B278D4FD27A2825000511BB2 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B278D4FC27A2825000511BB2 /* Onboarding.storyboard */; };
 		B278D4FF27A2831200511BB2 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D4FE27A2831200511BB2 /* OnboardingPageViewController.swift */; };
 		B278D50127A2834900511BB2 /* FirstOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50027A2834900511BB2 /* FirstOnboardingViewController.swift */; };
@@ -91,6 +92,7 @@
 		B25AD33827A30B50009EAD38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B25AD33A27A30B6C009EAD38 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		B25AD33C27A30C22009EAD38 /* RounedCornersAndShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RounedCornersAndShadow.swift; sourceTree = "<group>"; };
+		B25AD33E27A31CE3009EAD38 /* TriajEpidemiologic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TriajEpidemiologic.storyboard; sourceTree = "<group>"; };
 		B278D4FC27A2825000511BB2 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		B278D4FE27A2831200511BB2 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		B278D50027A2834900511BB2 /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
@@ -213,9 +215,9 @@
 		B23DC42327902F0500051C6C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B278D4FC27A2825000511BB2 /* Onboarding.storyboard */,
 				B2F65100278F2BDB00E1BB58 /* LaunchScreen.storyboard */,
-				B278D50427A2846900511BB2 /* Main.storyboard */,
+				B278D4FC27A2825000511BB2 /* Onboarding.storyboard */,
+				B25AD34027A31D58009EAD38 /* Main Page */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -224,7 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				B278D50627A2848600511BB2 /* MainViewController.swift */,
-				B278D4FE27A2831200511BB2 /* OnboardingPageViewController.swift */,
 				B23DC43427906E4B00051C6C /* Onboarding */,
 			);
 			path = Controllers;
@@ -260,6 +261,7 @@
 		B23DC43427906E4B00051C6C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				B278D4FE27A2831200511BB2 /* OnboardingPageViewController.swift */,
 				B278D50027A2834900511BB2 /* FirstOnboardingViewController.swift */,
 				B278D50227A2835B00511BB2 /* SecondOnboardingViewController.swift */,
 				B278D50C27A289C100511BB2 /* ThirdOnboardingViewController.swift */,
@@ -285,6 +287,15 @@
 				B25AD33A27A30B6C009EAD38 /* UIStoryboard.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B25AD34027A31D58009EAD38 /* Main Page */ = {
+			isa = PBXGroup;
+			children = (
+				B278D50427A2846900511BB2 /* Main.storyboard */,
+				B25AD33E27A31CE3009EAD38 /* TriajEpidemiologic.storyboard */,
+			);
+			path = "Main Page";
 			sourceTree = "<group>";
 		};
 		B2B5A9A72790904600FC4E61 /* Lottie Animations */ = {
@@ -522,6 +533,7 @@
 				B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */,
 				B2F65142278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */,
 				B2B5A9B52790939500FC4E61 /* onboarding4.json in Resources */,
+				B25AD33F27A31CE3009EAD38 /* TriajEpidemiologic.storyboard in Resources */,
 				B278D4FD27A2825000511BB2 /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
