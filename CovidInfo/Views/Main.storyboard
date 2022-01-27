@@ -19,8 +19,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <segue destination="QO2-Mm-IJZ" kind="presentation" identifier="toOnboarding" modalPresentationStyle="fullScreen" id="mm5-9C-RJh"/>
-                        <segue destination="hgV-V2-mFS" kind="presentation" identifier="toMain" modalPresentationStyle="fullScreen" id="Y8O-iy-kW2"/>
+                        <segue destination="QO2-Mm-IJZ" kind="presentation" identifier="toOnboarding" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="mm5-9C-RJh"/>
+                        <segue destination="hgV-V2-mFS" kind="presentation" identifier="toMain" animates="NO" modalPresentationStyle="fullScreen" id="Y8O-iy-kW2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

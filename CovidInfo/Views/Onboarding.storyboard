@@ -16,7 +16,7 @@
         <!--Onboarding Page View Controller-->
         <scene sceneID="ZpP-g6-2ub">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="ppG-ZG-G1u" customClass="OnboardingPageViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="ppG-ZG-G1u" customClass="OnboardingPageViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pM-hk-JHh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-68" y="11"/>
@@ -119,20 +119,41 @@ aplicatiei.</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSH-wj-94O" customClass="InterfaceBuilderInspectables" customModule="CovidInfo" customModuleProvider="target">
+                                <rect key="frame" x="140" y="367" width="110" height="110"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NVo-hc-Kaa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rlx-5d-Ujn" firstAttribute="centerX" secondItem="0Vj-dN-tlN" secondAttribute="centerX" id="7x5-RA-a6B"/>
+                            <constraint firstItem="mSH-wj-94O" firstAttribute="leading" secondItem="NVo-hc-Kaa" secondAttribute="leading" constant="140" id="Jdx-OO-OE8"/>
+                            <constraint firstItem="mSH-wj-94O" firstAttribute="top" secondItem="NVo-hc-Kaa" secondAttribute="top" constant="323" id="MFP-Rf-dOA"/>
                             <constraint firstItem="rlx-5d-Ujn" firstAttribute="leading" secondItem="NVo-hc-Kaa" secondAttribute="leading" id="Q3a-3u-ioP"/>
                             <constraint firstItem="rlx-5d-Ujn" firstAttribute="centerY" secondItem="0Vj-dN-tlN" secondAttribute="centerY" id="U1a-G5-cC6"/>
                             <constraint firstAttribute="bottom" secondItem="hzp-kd-Atr" secondAttribute="bottom" constant="-3" id="U5F-3V-SIA"/>
                             <constraint firstItem="hzp-kd-Atr" firstAttribute="top" secondItem="0Vj-dN-tlN" secondAttribute="top" constant="-3" id="UDw-HN-LrT"/>
+                            <constraint firstItem="NVo-hc-Kaa" firstAttribute="trailing" secondItem="mSH-wj-94O" secondAttribute="trailing" constant="140" id="Z0k-oP-sD6"/>
                             <constraint firstItem="rlx-5d-Ujn" firstAttribute="top" secondItem="NVo-hc-Kaa" secondAttribute="top" multiplier="0.5" constant="150" id="eZN-d9-Jor"/>
                             <constraint firstItem="hzp-kd-Atr" firstAttribute="leading" secondItem="NVo-hc-Kaa" secondAttribute="leading" id="hQW-9s-uWP"/>
                             <constraint firstItem="NVo-hc-Kaa" firstAttribute="trailing" secondItem="hzp-kd-Atr" secondAttribute="trailing" id="q6r-h6-WIN"/>
+                            <constraint firstItem="NVo-hc-Kaa" firstAttribute="bottom" secondItem="mSH-wj-94O" secondAttribute="bottom" constant="333" id="wc8-cH-WrO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="blankIcon" destination="mSH-wj-94O" id="jyj-mz-Hds"/>
+                        <outlet property="blankIconBottomConstraint" destination="wc8-cH-WrO" id="Ypw-v1-mwx"/>
+                        <outlet property="blankIconLeadingConstraint" destination="Jdx-OO-OE8" id="7zX-WW-AL3"/>
+                        <outlet property="blankIconTopConstraint" destination="MFP-Rf-dOA" id="dHQ-qy-bra"/>
+                        <outlet property="blankIconTrailingConstraint" destination="Z0k-oP-sD6" id="IV4-sB-fx4"/>
+                        <outlet property="welcomeView" destination="rlx-5d-Ujn" id="8c7-RR-Ugd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ffr-fy-5XZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
