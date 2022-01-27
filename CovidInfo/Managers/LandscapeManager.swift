@@ -1,14 +1,14 @@
 //
-//  OnboardingManager.swift
+//  LandscapeManager.swift
 //  CovidInfo
 //
-//  Created by Milovan Arsul on 13.01.2022.
+//  Created by Milovan Arsul on 27.01.2022.
 //
 
 import Foundation
 
-class OnboardingManager {
-    static let shared = OnboardingManager()
+class LandscapeManager {
+    static let shared = LandscapeManager()
     var isFirstLaunch: Bool {
         get {
             !UserDefaults.standard.bool(forKey: #function)
