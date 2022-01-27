@@ -19,8 +19,6 @@ class FourthOnboardingViewController: UIViewController {
     }
     
     @IBAction func nextButtonPressed(_ sender: Any) {
-        if let pageController = parent as? OnboardingPageViewController {
-                pageController.pushNext()
-        }
+        
     }
 }

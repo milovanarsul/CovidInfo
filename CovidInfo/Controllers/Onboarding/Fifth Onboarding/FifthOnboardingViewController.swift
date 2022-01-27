@@ -19,8 +19,6 @@ class FifthOnboardingViewController: UIViewController {
     }
     
     @IBAction func laterButtonPressed(_ sender: UIButton) {
-        if let pageController = parent as? OnboardingPageViewController {
-                pageController.pushNext()
-        }
+        
     }
 }

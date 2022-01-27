@@ -22,9 +22,7 @@ class FirstOnboardingViewController: UIViewController {
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        if let pageController = parent as? OnboardingPageViewController {
-                pageController.pushNext()
-        }
+        
     }
     
     @IBOutlet weak var blankIconLeadingConstraint: NSLayoutConstraint!
@@ -38,9 +36,13 @@ class FirstOnboardingViewController: UIViewController {
         self.blankIconBottomConstraint.constant = 150
         self.blankIconTopConstraint.constant = 150
         
-        UIView.animate(withDuration: 10){
+        UIView.animate(withDuration: 0.9, delay: 0.1, options: [], animations: {
             self.blankIcon.layoutIfNeeded()
             self.view.layoutIfNeeded()
-        }
+        }, completion: { [self] (finished: Bool) in
+            blankIcon.isHidden = true
+            welcomeView.isHidden = false
+        })
+         
     }
 }

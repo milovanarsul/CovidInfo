@@ -14,7 +14,6 @@
 		B25AD33D27A30C22009EAD38 /* RounedCornersAndShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33C27A30C22009EAD38 /* RounedCornersAndShadow.swift */; };
 		B25AD33F27A31CE3009EAD38 /* TriajEpidemiologic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25AD33E27A31CE3009EAD38 /* TriajEpidemiologic.storyboard */; };
 		B278D4FD27A2825000511BB2 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B278D4FC27A2825000511BB2 /* Onboarding.storyboard */; };
-		B278D4FF27A2831200511BB2 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D4FE27A2831200511BB2 /* OnboardingPageViewController.swift */; };
 		B278D50127A2834900511BB2 /* FirstOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50027A2834900511BB2 /* FirstOnboardingViewController.swift */; };
 		B278D50327A2835B00511BB2 /* SecondOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50227A2835B00511BB2 /* SecondOnboardingViewController.swift */; };
 		B278D50527A2846900511BB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B278D50427A2846900511BB2 /* Main.storyboard */; };
@@ -94,7 +93,6 @@
 		B25AD33C27A30C22009EAD38 /* RounedCornersAndShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RounedCornersAndShadow.swift; sourceTree = "<group>"; };
 		B25AD33E27A31CE3009EAD38 /* TriajEpidemiologic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TriajEpidemiologic.storyboard; sourceTree = "<group>"; };
 		B278D4FC27A2825000511BB2 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
-		B278D4FE27A2831200511BB2 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		B278D50027A2834900511BB2 /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
 		B278D50227A2835B00511BB2 /* SecondOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingViewController.swift; sourceTree = "<group>"; };
 		B278D50427A2846900511BB2 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -261,7 +259,6 @@
 		B23DC43427906E4B00051C6C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				B278D4FE27A2831200511BB2 /* OnboardingPageViewController.swift */,
 				B278D50027A2834900511BB2 /* FirstOnboardingViewController.swift */,
 				B278D50227A2835B00511BB2 /* SecondOnboardingViewController.swift */,
 				B278D50C27A289C100511BB2 /* ThirdOnboardingViewController.swift */,
@@ -679,7 +676,6 @@
 				B278D51327A289F600511BB2 /* SixthOnboardingViewController.swift in Sources */,
 				B278D50127A2834900511BB2 /* FirstOnboardingViewController.swift in Sources */,
 				B2CA7F5227A2A22D009E4FE6 /* Fifth-FirstOnboardingViewController.swift in Sources */,
-				B278D4FF27A2831200511BB2 /* OnboardingPageViewController.swift in Sources */,
 				B2F650F3278F2BD900E1BB58 /* AppDelegate.swift in Sources */,
 				B2CA7F5927A2A649009E4FE6 /* LottieAnimations.swift in Sources */,
 				B278D51127A289E900511BB2 /* FifthOnboardingViewController.swift in Sources */,

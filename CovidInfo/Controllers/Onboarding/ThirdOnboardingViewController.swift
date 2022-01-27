@@ -19,9 +19,7 @@ class ThirdOnboardingViewController: UIViewController {
     }
 
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        if let pageController = parent as? OnboardingPageViewController {
-                pageController.pushNext()
-        }
+        
     }
     
 }

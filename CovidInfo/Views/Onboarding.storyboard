@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ppG-ZG-G1u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xSW-kw-NRO">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -13,14 +13,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Onboarding Page View Controller-->
-        <scene sceneID="ZpP-g6-2ub">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="ppG-ZG-G1u" customClass="OnboardingPageViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7pM-hk-JHh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-68" y="11"/>
-        </scene>
         <!--First Onboarding View Controller-->
         <scene sceneID="Ikm-8S-0ej">
             <objects>
@@ -32,7 +24,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="hzp-kd-Atr">
                                 <rect key="frame" x="0.0" y="-3" width="390" height="850"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rlx-5d-Ujn">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rlx-5d-Ujn">
                                 <rect key="frame" x="0.0" y="172" width="390" height="500"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YSR-X8-NzE">
@@ -92,6 +84,7 @@ aplicatiei.</string>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="nextButtonPressed:" destination="xSW-kw-NRO" eventType="touchUpInside" id="R5U-wj-JCM"/>
+                                                            <segue destination="cg9-WZ-hES" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="LPq-dJ-kJC"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -117,13 +110,14 @@ aplicatiei.</string>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSH-wj-94O">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSH-wj-94O">
                                 <rect key="frame" x="140" y="367" width="110" height="110"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -165,7 +159,7 @@ aplicatiei.</string>
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKA-Nd-7Ik">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKA-Nd-7Ik">
                                 <rect key="frame" x="0.0" y="63.333333333333314" width="390" height="717.33333333333348"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cells" translatesAutoresizingMaskIntoConstraints="NO" id="bIm-cx-fiX">
@@ -204,6 +198,7 @@ de unde sa te informezi</string>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="nextButtonPressed:" destination="cg9-WZ-hES" eventType="touchUpInside" id="UfC-u1-Ew5"/>
+                                            <segue destination="jSW-v1-y0U" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="XzT-A4-oCs"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -225,18 +220,33 @@ de unde sa te informezi</string>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gr4-GM-KSC">
+                                <rect key="frame" x="0.0" y="194" width="390" height="466"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0U4-wf-ETH"/>
                         <color key="backgroundColor" red="0.84574955699999999" green="0.89786845449999997" blue="0.92172545189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="0U4-wf-ETH" firstAttribute="bottom" secondItem="gr4-GM-KSC" secondAttribute="bottom" constant="150" id="4of-dH-M4I"/>
                             <constraint firstItem="cKA-Nd-7Ik" firstAttribute="centerX" secondItem="ECR-8I-KuO" secondAttribute="centerX" id="75G-BK-6VP"/>
                             <constraint firstItem="cKA-Nd-7Ik" firstAttribute="height" secondItem="ECR-8I-KuO" secondAttribute="height" multiplier="0.85" id="7FL-70-AS1"/>
+                            <constraint firstItem="gr4-GM-KSC" firstAttribute="leading" secondItem="0U4-wf-ETH" secondAttribute="leading" id="JFY-A3-46b"/>
                             <constraint firstItem="cKA-Nd-7Ik" firstAttribute="centerY" secondItem="ECR-8I-KuO" secondAttribute="centerY" id="NFk-bV-BL2"/>
                             <constraint firstItem="cKA-Nd-7Ik" firstAttribute="leading" secondItem="0U4-wf-ETH" secondAttribute="leading" id="YVb-ZR-rrC"/>
+                            <constraint firstItem="gr4-GM-KSC" firstAttribute="top" secondItem="0U4-wf-ETH" secondAttribute="top" constant="150" id="c76-ez-gNU"/>
+                            <constraint firstItem="0U4-wf-ETH" firstAttribute="trailing" secondItem="gr4-GM-KSC" secondAttribute="trailing" id="w4x-G2-Bpq"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blankCard" destination="gr4-GM-KSC" id="knU-eC-k7D"/>
+                        <outlet property="blankCardBottomConstraint" destination="4of-dH-M4I" id="aMA-k3-dai"/>
+                        <outlet property="blankCardTopConstraint" destination="c76-ez-gNU" id="VBC-vp-J8z"/>
                         <outlet property="lottieAnimationView" destination="mOu-PI-Vle" id="EUL-1Z-hb8"/>
+                        <outlet property="secondCard" destination="cKA-Nd-7Ik" id="juI-Pg-WwH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKC-13-fCh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -289,6 +299,7 @@ evolutia pandemiei in Romania</string>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="nextButtonPressed:" destination="jSW-v1-y0U" eventType="touchUpInside" id="rI1-ic-sxl"/>
+                                            <segue destination="OyW-tF-SnI" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="7Kb-cA-VzR"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -375,6 +386,7 @@ pandemiei.</string>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="nextButtonPressed:" destination="OyW-tF-SnI" eventType="touchUpInside" id="hZw-xj-7et"/>
+                                            <segue destination="MiA-WI-dek" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="2b2-hw-LmU"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -457,7 +469,7 @@ pandemiei.</string>
                                             <color key="baseBackgroundColor" red="0.15600556139999999" green="0.25414842370000001" blue="0.60863798859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="qKy-ng-apT" kind="presentation" id="Wad-L0-1pd"/>
+                                            <segue destination="qKy-ng-apT" kind="presentation" animates="NO" id="Wad-L0-1pd"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxg-Z8-rmc">
@@ -471,6 +483,7 @@ pandemiei.</string>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="laterButtonPressed:" destination="MiA-WI-dek" eventType="touchUpInside" id="A25-4K-cOP"/>
+                                            <segue destination="2jw-EN-K3t" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="PFx-th-43T"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -514,7 +527,7 @@ pandemiei.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCN-bM-fA5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3711" y="424"/>
+            <point key="canvasLocation" x="3754" y="424"/>
         </scene>
         <!--Fifth First Onboarding View Controller-->
         <scene sceneID="K0E-N5-X5K">
@@ -626,6 +639,9 @@ a fost inrolat cu succes!</string>
                                             <directionalEdgeInsets key="contentInsets" top="10" leading="25" bottom="10" trailing="25"/>
                                             <color key="baseBackgroundColor" red="0.15600556139999999" green="0.25414842370000001" blue="0.60863798859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="2jw-EN-K3t" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="Dxd-9M-KFu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -709,7 +725,7 @@ intr-un loc sigur</string>
                                             <color key="baseBackgroundColor" red="0.15600556139999999" green="0.25414842370000001" blue="0.60863798859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="PAg-hQ-0LG" kind="presentation" id="mOW-mW-Njj"/>
+                                            <segue destination="PAg-hQ-0LG" kind="presentation" animates="NO" id="mOW-mW-Njj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itK-hg-MRV">
@@ -796,7 +812,7 @@ intr-un loc sigur</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIy-ay-jlE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5491" y="681"/>
+            <point key="canvasLocation" x="5746" y="795"/>
         </scene>
         <!--Main-->
         <scene sceneID="CPj-Vq-00w">
@@ -824,6 +840,9 @@ intr-un loc sigur</string>
         <designable name="ev6-FH-bj8"/>
         <designable name="mOu-PI-Vle"/>
     </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="PFx-th-43T"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Cells" width="390" height="840"/>
         <image name="Icon &amp; Title - Horizontal" width="190" height="59"/>
