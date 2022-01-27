@@ -25,9 +25,14 @@ class OnboardingPageViewController: UIPageViewController {
     
     private var viewControllerList: [UIViewController] = {
         let storyboard = UIStoryboard.onboarding
-        let firstVC = storyboard.instantiateViewController(withIdentifier: "FirstStepVC")
-        let secondVC = storyboard.instantiateViewController(withIdentifier: "SecondStepVC")
-        return [firstVC, secondVC]
+        let firstOnboarding = storyboard.instantiateViewController(withIdentifier: "FirstOnboarding")
+        let secondOnboarding = storyboard.instantiateViewController(withIdentifier: "SecondOnboarding")
+        let thirdOnboarding = storyboard.instantiateViewController(withIdentifier: "ThirdOnboarding")
+        let fourthOnboarding = storyboard.instantiateViewController(withIdentifier: "FourthOnboarding")
+        let fifthOnboarding = storyboard.instantiateViewController(withIdentifier: "FifthOnboarding")
+        let sixthOnboarding = storyboard.instantiateViewController(withIdentifier: "SixthOnboarding")
+        
+        return [firstOnboarding, secondOnboarding, thirdOnboarding, fourthOnboarding, fifthOnboarding, sixthOnboarding]
     }()
 
 }
