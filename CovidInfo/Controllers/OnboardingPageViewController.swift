@@ -16,18 +16,18 @@ class OnboardingPageViewController: UIPageViewController {
         self.setViewControllers([viewControllerList[0]], direction: .forward, animated: false, completion: nil)
     }
     
-    private var viewControllerList: [UIViewController] = {
-        let storyboard = UIStoryboard.onboarding
-        let firstVC = storyboard.instantiateViewController(withIdentifier: "FirstStepVC")
-        let secondVC = storyboard.instantiateViewController(withIdentifier: "SecondStepVC")
-        return [firstVC, secondVC]
-    }()
-    
     func pushNext() {
         if currentIndex + 1 < viewControllerList.count {
           self.setViewControllers([self.viewControllerList[self.currentIndex + 1]], direction: .forward, animated: true, completion: nil)
             currentIndex += 1
         }
     }
+    
+    private var viewControllerList: [UIViewController] = {
+        let storyboard = UIStoryboard.onboarding
+        let firstVC = storyboard.instantiateViewController(withIdentifier: "FirstStepVC")
+        let secondVC = storyboard.instantiateViewController(withIdentifier: "SecondStepVC")
+        return [firstVC, secondVC]
+    }()
 
 }

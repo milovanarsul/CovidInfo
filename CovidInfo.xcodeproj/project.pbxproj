@@ -14,8 +14,9 @@
 		B278D50127A2834900511BB2 /* FirstOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50027A2834900511BB2 /* FirstOnboardingViewController.swift */; };
 		B278D50327A2835B00511BB2 /* LastOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50227A2835B00511BB2 /* LastOnboardingViewController.swift */; };
 		B278D50527A2846900511BB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B278D50427A2846900511BB2 /* Main.storyboard */; };
-		B278D50727A2848600511BB2 /* ConciergeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50627A2848600511BB2 /* ConciergeViewController.swift */; };
-		B278D50927A2851A00511BB2 /* LandscapeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50827A2851A00511BB2 /* LandscapeManager.swift */; };
+		B278D50727A2848600511BB2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50627A2848600511BB2 /* MainViewController.swift */; };
+		B278D50927A2851A00511BB2 /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50827A2851A00511BB2 /* OnboardingManager.swift */; };
+		B278D50B27A2882500511BB2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50A27A2882500511BB2 /* Extensions.swift */; };
 		B2B5A9B02790939500FC4E61 /* onboarding2.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9A92790939500FC4E61 /* onboarding2.json */; };
 		B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AA2790939500FC4E61 /* onboarding4.1.json */; };
 		B2B5A9B22790939500FC4E61 /* onboarding1.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AB2790939500FC4E61 /* onboarding1.json */; };
@@ -83,8 +84,9 @@
 		B278D50027A2834900511BB2 /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
 		B278D50227A2835B00511BB2 /* LastOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingViewController.swift; sourceTree = "<group>"; };
 		B278D50427A2846900511BB2 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		B278D50627A2848600511BB2 /* ConciergeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConciergeViewController.swift; sourceTree = "<group>"; };
-		B278D50827A2851A00511BB2 /* LandscapeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeManager.swift; sourceTree = "<group>"; };
+		B278D50627A2848600511BB2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B278D50827A2851A00511BB2 /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
+		B278D50A27A2882500511BB2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B2B5A9A92790939500FC4E61 /* onboarding2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding2.json; sourceTree = "<group>"; };
 		B2B5A9AA2790939500FC4E61 /* onboarding4.1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding4.1.json; sourceTree = "<group>"; };
 		B2B5A9AB2790939500FC4E61 /* onboarding1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding1.json; sourceTree = "<group>"; };
@@ -205,7 +207,7 @@
 			children = (
 				B23DC43427906E4B00051C6C /* Onboarding */,
 				B278D4FE27A2831200511BB2 /* OnboardingPageViewController.swift */,
-				B278D50627A2848600511BB2 /* ConciergeViewController.swift */,
+				B278D50627A2848600511BB2 /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				B2F65160278F38F700E1BB58 /* InterfaceBuilderInspectables.swift */,
+				B278D50A27A2882500511BB2 /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -230,7 +233,6 @@
 		B23DC42F279030BC00051C6C /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				B26B7A962791C69E000D4BC1 /* Onboarding */,
 				B2F650FB278F2BDA00E1BB58 /* CovidInfo.xcdatamodeld */,
 			);
 			path = Data;
@@ -248,16 +250,9 @@
 		B23DC43B2790709400051C6C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				B278D50827A2851A00511BB2 /* LandscapeManager.swift */,
+				B278D50827A2851A00511BB2 /* OnboardingManager.swift */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		B26B7A962791C69E000D4BC1 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		B2B5A9A72790904600FC4E61 /* Lottie Animations */ = {
@@ -621,9 +616,10 @@
 				B2F65161278F38F700E1BB58 /* InterfaceBuilderInspectables.swift in Sources */,
 				B2F650F3278F2BD900E1BB58 /* AppDelegate.swift in Sources */,
 				B2F650F5278F2BD900E1BB58 /* SceneDelegate.swift in Sources */,
+				B278D50B27A2882500511BB2 /* Extensions.swift in Sources */,
 				B2F650FD278F2BDA00E1BB58 /* CovidInfo.xcdatamodeld in Sources */,
-				B278D50927A2851A00511BB2 /* LandscapeManager.swift in Sources */,
-				B278D50727A2848600511BB2 /* ConciergeViewController.swift in Sources */,
+				B278D50927A2851A00511BB2 /* OnboardingManager.swift in Sources */,
+				B278D50727A2848600511BB2 /* MainViewController.swift in Sources */,
 				B278D50327A2835B00511BB2 /* LastOnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

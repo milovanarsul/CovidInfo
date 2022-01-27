@@ -7,8 +7,8 @@
 
 import Foundation
 
-class LandscapeManager {
-    static let shared = LandscapeManager()
+class OnboardingManager {
+    static let shared = OnboardingManager()
     var isFirstLaunch: Bool {
         get {
             !UserDefaults.standard.bool(forKey: #function)
