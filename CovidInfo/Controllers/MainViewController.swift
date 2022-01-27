@@ -11,17 +11,17 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        //performSegue(withIdentifier: "toOnboarding", sender: nil)
-        //OnboardingManager.shared.isFirstLaunch = true
+        performSegue(withIdentifier: "toOnboarding", sender: nil)
+        OnboardingManager.shared.isFirstLaunch = true
         
-        
-        if OnboardingManager.shared.isFirstLaunch {
+        /*
+        if LandscapeManager.shared.isFirstLaunch {
             performSegue(withIdentifier: "toOnboarding", sender: nil)
-            OnboardingManager.shared.isFirstLaunch = true
+            LandscapeManager.shared.isFirstLaunch = true
         } else {
             performSegue(withIdentifier: "toMain", sender: nil)
         }
-        
+        */
         
     }
 

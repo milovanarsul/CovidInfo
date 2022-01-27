@@ -32,7 +32,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="hzp-kd-Atr">
                                 <rect key="frame" x="0.0" y="-3" width="390" height="850"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rlx-5d-Ujn" customClass="InterfaceBuilderInspectables" customModule="CovidInfo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rlx-5d-Ujn">
                                 <rect key="frame" x="0.0" y="172" width="390" height="500"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YSR-X8-NzE">
@@ -114,12 +114,10 @@ aplicatiei.</string>
                                     <constraint firstItem="YSR-X8-NzE" firstAttribute="top" secondItem="rlx-5d-Ujn" secondAttribute="top" constant="50" id="pb4-eQ-XAQ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="24"/>
-                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSH-wj-94O" customClass="InterfaceBuilderInspectables" customModule="CovidInfo" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSH-wj-94O">
                                 <rect key="frame" x="140" y="367" width="110" height="110"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -159,14 +157,6 @@ aplicatiei.</string>
             </objects>
             <point key="canvasLocation" x="630" y="11"/>
         </scene>
-        <!--Main-->
-        <scene sceneID="CPj-Vq-00w">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="KrG-la-T5g" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ECF-KA-osY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1490" y="-253"/>
-        </scene>
         <!--Second Onboarding View Controller-->
         <scene sceneID="tc4-Jb-Z1P">
             <objects>
@@ -175,11 +165,14 @@ aplicatiei.</string>
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKA-Nd-7Ik" customClass="InterfaceBuilderInspectables" customModule="CovidInfo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKA-Nd-7Ik">
                                 <rect key="frame" x="0.0" y="63.333333333333314" width="390" height="717.33333333333348"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cells" translatesAutoresizingMaskIntoConstraints="NO" id="bIm-cx-fiX">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="717.33333333333337"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOu-PI-Vle" customClass="AnimationView" customModule="Lottie">
                                         <rect key="frame" x="79" y="200" width="232" height="232"/>
@@ -229,9 +222,7 @@ de unde sa te informezi</string>
                                     <constraint firstItem="mOu-PI-Vle" firstAttribute="leading" secondItem="cKA-Nd-7Ik" secondAttribute="leading" constant="79" id="xiv-UF-GQe"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="24"/>
-                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -252,14 +243,6 @@ de unde sa te informezi</string>
             </objects>
             <point key="canvasLocation" x="1518" y="424"/>
         </scene>
-        <!--Main-->
-        <scene sceneID="ZFM-Uj-P1X">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="lxy-fg-KAm" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jGL-Oo-rEZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5492" y="1177"/>
-        </scene>
         <!--Third Onboarding View Controller-->
         <scene sceneID="135-A1-rhf">
             <objects>
@@ -268,11 +251,14 @@ de unde sa te informezi</string>
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3n-Tu-IC0" customClass="InterfaceBuilderInspectables" customModule="CovidInfo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3n-Tu-IC0">
                                 <rect key="frame" x="0.0" y="63.333333333333314" width="390" height="717.33333333333348"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cells" translatesAutoresizingMaskIntoConstraints="NO" id="rec-pi-bCJ">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="717.33333333333337"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4sT-Hw-mC8" customClass="AnimationView" customModule="Lottie">
                                         <rect key="frame" x="79" y="200" width="232" height="232"/>
@@ -321,9 +307,7 @@ evolutia pandemiei in Romania</string>
                                     <constraint firstItem="4sT-Hw-mC8" firstAttribute="centerX" secondItem="k3n-Tu-IC0" secondAttribute="centerX" id="z4E-78-vcE"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="24"/>
-                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -352,11 +336,14 @@ evolutia pandemiei in Romania</string>
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srb-yL-LZc" customClass="InterfaceBuilderInspectables" customModule="CovidInfo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srb-yL-LZc">
                                 <rect key="frame" x="0.0" y="63.333333333333314" width="390" height="717.33333333333348"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cells" translatesAutoresizingMaskIntoConstraints="NO" id="vfL-Nt-rh7">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="717.33333333333337"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BiP-Xh-rPH" customClass="AnimationView" customModule="Lottie">
                                         <rect key="frame" x="79" y="200" width="232" height="232"/>
@@ -406,9 +393,7 @@ pandemiei.</string>
                                     <constraint firstItem="vfL-Nt-rh7" firstAttribute="top" secondItem="Srb-yL-LZc" secondAttribute="top" id="pXL-id-lfy"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="24"/>
-                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -437,7 +422,7 @@ pandemiei.</string>
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8OG-YI-e0Z" customClass="InterfaceBuilderInspectables" customModule="CovidInfo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8OG-YI-e0Z">
                                 <rect key="frame" x="0.0" y="63.333333333333314" width="390" height="717.33333333333348"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cells" translatesAutoresizingMaskIntoConstraints="NO" id="LIL-OA-5A5">
@@ -510,6 +495,7 @@ pandemiei.</string>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -538,7 +524,7 @@ pandemiei.</string>
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4lW-d4-3pG" customClass="InterfaceBuilderInspectables" customModule="CovidInfo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4lW-d4-3pG">
                                 <rect key="frame" x="20" y="50" width="350" height="526"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUW-Wa-sWY" customClass="AnimationView" customModule="Lottie">
@@ -560,6 +546,7 @@ pandemiei.</string>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pozitioneaza codul QR in chenarul de mai sus" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSF-55-pp6">
@@ -606,7 +593,7 @@ pandemiei.</string>
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KmF-dG-VFb" customClass="InterfaceBuilderInspectables" customModule="CovidInfo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KmF-dG-VFb">
                                 <rect key="frame" x="0.0" y="59.333333333333314" width="390" height="671.33333333333348"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cells" translatesAutoresizingMaskIntoConstraints="NO" id="8hD-aL-XTN">
@@ -659,6 +646,7 @@ a fost inrolat cu succes!</string>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -687,7 +675,7 @@ a fost inrolat cu succes!</string>
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Njp-hr-isa" customClass="InterfaceBuilderInspectables" customModule="CovidInfo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Njp-hr-isa">
                                 <rect key="frame" x="0.0" y="63.333333333333314" width="390" height="717.33333333333348"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cells" translatesAutoresizingMaskIntoConstraints="NO" id="Knf-jG-F3N">
@@ -759,6 +747,7 @@ intr-un loc sigur</string>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -800,11 +789,30 @@ intr-un loc sigur</string>
                             <constraint firstItem="gPe-OT-z8O" firstAttribute="centerY" secondItem="LSY-dj-QG0" secondAttribute="centerY" id="KOe-JZ-wWe"/>
                             <constraint firstItem="gPe-OT-z8O" firstAttribute="centerX" secondItem="LSY-dj-QG0" secondAttribute="centerX" id="VOY-e8-lLR"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIy-ay-jlE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5491" y="681"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="CPj-Vq-00w">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="KrG-la-T5g" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ECF-KA-osY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1490" y="-253"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="ZFM-Uj-P1X">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="lxy-fg-KAm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jGL-Oo-rEZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5492" y="1177"/>
         </scene>
     </scenes>
     <designables>

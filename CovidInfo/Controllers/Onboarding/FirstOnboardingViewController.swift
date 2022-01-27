@@ -8,8 +8,9 @@
 import UIKit
 
 class FirstOnboardingViewController: UIViewController {
-    @IBOutlet weak var welcomeView: InterfaceBuilderInspectables!
-    @IBOutlet weak var blankIcon: InterfaceBuilderInspectables!
+    @IBOutlet weak var welcomeView: UIView!
+    @IBOutlet weak var blankIcon: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
