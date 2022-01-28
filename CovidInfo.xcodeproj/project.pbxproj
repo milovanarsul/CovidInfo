@@ -12,7 +12,6 @@
 		B25AD33927A30B50009EAD38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33827A30B50009EAD38 /* UIView.swift */; };
 		B25AD33B27A30B6C009EAD38 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33A27A30B6C009EAD38 /* UIStoryboard.swift */; };
 		B25AD33D27A30C22009EAD38 /* RounedCornersAndShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33C27A30C22009EAD38 /* RounedCornersAndShadow.swift */; };
-		B25AD33F27A31CE3009EAD38 /* TriajEpidemiologic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25AD33E27A31CE3009EAD38 /* TriajEpidemiologic.storyboard */; };
 		B278D4FD27A2825000511BB2 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B278D4FC27A2825000511BB2 /* Onboarding.storyboard */; };
 		B278D50127A2834900511BB2 /* FirstOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50027A2834900511BB2 /* FirstOnboardingViewController.swift */; };
 		B278D50327A2835B00511BB2 /* SecondOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50227A2835B00511BB2 /* SecondOnboardingViewController.swift */; };
@@ -23,6 +22,10 @@
 		B278D50F27A289DB00511BB2 /* FourthOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50E27A289DB00511BB2 /* FourthOnboardingViewController.swift */; };
 		B278D51127A289E900511BB2 /* FifthOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D51027A289E900511BB2 /* FifthOnboardingViewController.swift */; };
 		B278D51327A289F600511BB2 /* SixthOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D51227A289F600511BB2 /* SixthOnboardingViewController.swift */; };
+		B2A389F227A441A30005F9FD /* HomePageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2A389F127A441A30005F9FD /* HomePageViewController.storyboard */; };
+		B2A389F427A442820005F9FD /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A389F327A442820005F9FD /* CustomNavigationBar.swift */; };
+		B2A389F627A442990005F9FD /* CustomNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A389F527A442990005F9FD /* CustomNavigationBar.xib */; };
+		B2A389F827A4435D0005F9FD /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A389F727A4435D0005F9FD /* HomePageViewController.swift */; };
 		B2B5A9B02790939500FC4E61 /* onboarding2.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9A92790939500FC4E61 /* onboarding2.json */; };
 		B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AA2790939500FC4E61 /* onboarding4.1.json */; };
 		B2B5A9B22790939500FC4E61 /* onboarding1.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AB2790939500FC4E61 /* onboarding1.json */; };
@@ -91,7 +94,6 @@
 		B25AD33827A30B50009EAD38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B25AD33A27A30B6C009EAD38 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		B25AD33C27A30C22009EAD38 /* RounedCornersAndShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RounedCornersAndShadow.swift; sourceTree = "<group>"; };
-		B25AD33E27A31CE3009EAD38 /* TriajEpidemiologic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TriajEpidemiologic.storyboard; sourceTree = "<group>"; };
 		B278D4FC27A2825000511BB2 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		B278D50027A2834900511BB2 /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
 		B278D50227A2835B00511BB2 /* SecondOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,10 @@
 		B278D50E27A289DB00511BB2 /* FourthOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthOnboardingViewController.swift; sourceTree = "<group>"; };
 		B278D51027A289E900511BB2 /* FifthOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthOnboardingViewController.swift; sourceTree = "<group>"; };
 		B278D51227A289F600511BB2 /* SixthOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthOnboardingViewController.swift; sourceTree = "<group>"; };
+		B2A389F127A441A30005F9FD /* HomePageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomePageViewController.storyboard; sourceTree = "<group>"; };
+		B2A389F327A442820005F9FD /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		B2A389F527A442990005F9FD /* CustomNavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNavigationBar.xib; sourceTree = "<group>"; };
+		B2A389F727A4435D0005F9FD /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		B2B5A9A92790939500FC4E61 /* onboarding2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding2.json; sourceTree = "<group>"; };
 		B2B5A9AA2790939500FC4E61 /* onboarding4.1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding4.1.json; sourceTree = "<group>"; };
 		B2B5A9AB2790939500FC4E61 /* onboarding1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding1.json; sourceTree = "<group>"; };
@@ -199,23 +205,16 @@
 		B23DC42127902EEB00051C6C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B2A389F327A442820005F9FD /* CustomNavigationBar.swift */,
+				B2A389F527A442990005F9FD /* CustomNavigationBar.xib */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		B23DC42227902EFF00051C6C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		B23DC42327902F0500051C6C /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				B2F65100278F2BDB00E1BB58 /* LaunchScreen.storyboard */,
-				B278D4FC27A2825000511BB2 /* Onboarding.storyboard */,
-				B25AD34027A31D58009EAD38 /* Main Page */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -223,7 +222,10 @@
 		B23DC42427902F1E00051C6C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B278D50427A2846900511BB2 /* Main.storyboard */,
 				B278D50627A2848600511BB2 /* MainViewController.swift */,
+				B2A389F127A441A30005F9FD /* HomePageViewController.storyboard */,
+				B2A389F727A4435D0005F9FD /* HomePageViewController.swift */,
 				B23DC43427906E4B00051C6C /* Onboarding */,
 			);
 			path = Controllers;
@@ -259,6 +261,7 @@
 		B23DC43427906E4B00051C6C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				B278D4FC27A2825000511BB2 /* Onboarding.storyboard */,
 				B278D50027A2834900511BB2 /* FirstOnboardingViewController.swift */,
 				B278D50227A2835B00511BB2 /* SecondOnboardingViewController.swift */,
 				B278D50C27A289C100511BB2 /* ThirdOnboardingViewController.swift */,
@@ -284,15 +287,6 @@
 				B25AD33A27A30B6C009EAD38 /* UIStoryboard.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		B25AD34027A31D58009EAD38 /* Main Page */ = {
-			isa = PBXGroup;
-			children = (
-				B278D50427A2846900511BB2 /* Main.storyboard */,
-				B25AD33E27A31CE3009EAD38 /* TriajEpidemiologic.storyboard */,
-			);
-			path = "Main Page";
 			sourceTree = "<group>";
 		};
 		B2B5A9A72790904600FC4E61 /* Lottie Animations */ = {
@@ -367,9 +361,8 @@
 				B23DC43B2790709400051C6C /* Managers */,
 				B23DC42F279030BC00051C6C /* Data */,
 				B23DC42427902F1E00051C6C /* Controllers */,
-				B23DC42327902F0500051C6C /* Views */,
-				B23DC42227902EFF00051C6C /* Models */,
 				B23DC42127902EEB00051C6C /* ViewModels */,
+				B23DC42327902F0500051C6C /* Views */,
 				B2F65103278F2BDB00E1BB58 /* Info.plist */,
 			);
 			path = CovidInfo;
@@ -520,8 +513,10 @@
 				B2F65102278F2BDB00E1BB58 /* LaunchScreen.storyboard in Resources */,
 				B2F65157278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */,
 				B2F65148278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */,
+				B2A389F627A442990005F9FD /* CustomNavigationBar.xib in Resources */,
 				B278D50527A2846900511BB2 /* Main.storyboard in Resources */,
 				B2B5A9B62790939500FC4E61 /* onboarding5.json in Resources */,
+				B2A389F227A441A30005F9FD /* HomePageViewController.storyboard in Resources */,
 				B2B5A9B02790939500FC4E61 /* onboarding2.json in Resources */,
 				B2F65154278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */,
 				B2B5A9B32790939500FC4E61 /* onboarding3.json in Resources */,
@@ -530,7 +525,6 @@
 				B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */,
 				B2F65142278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */,
 				B2B5A9B52790939500FC4E61 /* onboarding4.json in Resources */,
-				B25AD33F27A31CE3009EAD38 /* TriajEpidemiologic.storyboard in Resources */,
 				B278D4FD27A2825000511BB2 /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -679,6 +673,7 @@
 				B2F650F3278F2BD900E1BB58 /* AppDelegate.swift in Sources */,
 				B2CA7F5927A2A649009E4FE6 /* LottieAnimations.swift in Sources */,
 				B278D51127A289E900511BB2 /* FifthOnboardingViewController.swift in Sources */,
+				B2A389F827A4435D0005F9FD /* HomePageViewController.swift in Sources */,
 				B2F650F5278F2BD900E1BB58 /* SceneDelegate.swift in Sources */,
 				B2CA7F5427A2A23A009E4FE6 /* Fifth-SecondOnboardingViewController.swift in Sources */,
 				B25AD33D27A30C22009EAD38 /* RounedCornersAndShadow.swift in Sources */,
@@ -686,6 +681,7 @@
 				B2F650FD278F2BDA00E1BB58 /* CovidInfo.xcdatamodeld in Sources */,
 				B278D50D27A289C100511BB2 /* ThirdOnboardingViewController.swift in Sources */,
 				B278D50927A2851A00511BB2 /* OnboardingManager.swift in Sources */,
+				B2A389F427A442820005F9FD /* CustomNavigationBar.swift in Sources */,
 				B278D50727A2848600511BB2 /* MainViewController.swift in Sources */,
 				B25AD33927A30B50009EAD38 /* UIView.swift in Sources */,
 				B278D50327A2835B00511BB2 /* SecondOnboardingViewController.swift in Sources */,
