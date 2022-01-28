@@ -40,8 +40,8 @@ class FirstOnboardingViewController: UIViewController {
             self.blankIcon.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }, completion: { [self] (finished: Bool) in
-            blankIcon.isHidden = true
             welcomeView.isHidden = false
+            blankIcon.isHidden = true
         })
          
     }

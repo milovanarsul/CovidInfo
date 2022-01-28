@@ -11,8 +11,7 @@ import Lottie
 class SecondOnboardingViewController: UIViewController {
     
     @IBOutlet weak var lottieAnimationView: AnimationView!
-    @IBOutlet weak var blankCard: UIView!
-    @IBOutlet weak var secondCard: UIView!
+    @IBOutlet weak var contentCard: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,23 +25,18 @@ class SecondOnboardingViewController: UIViewController {
     }
     
     
-    @IBAction func nextButtonPressed(_ sender: Any) {
-        
-    }
-    
-    @IBOutlet weak var blankCardTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var blankCardBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var contentCardTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var contentCardBottomConstraint: NSLayoutConstraint!
     
     func secondStartupAnimation(){
-        blankCardTopConstraint.constant = 30
-        blankCardBottomConstraint.constant = 30
+        contentCardTopConstraint.constant = 20
+        contentCardBottomConstraint.constant = 20
         
         UIView.animate(withDuration: 0.7, delay: 0.2, options: [], animations:{
-            self.blankCard.layoutIfNeeded()
+            self.contentCard.layoutIfNeeded()
             self.view.layoutIfNeeded()
-        }, completion: { [self] (finished: Bool) in
-            blankCard.isHidden = true
-            secondCard.isHidden = false
+        }, completion: {_ in
+            self.contentCard.isHidden = false
         })
     }
 }

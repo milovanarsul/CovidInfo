@@ -27,84 +27,89 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rlx-5d-Ujn">
                                 <rect key="frame" x="0.0" y="172" width="390" height="500"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YSR-X8-NzE">
-                                        <rect key="frame" x="48" y="50" width="294" height="111"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="115" translatesAutoresizingMaskIntoConstraints="NO" id="J5k-on-bDa">
+                                        <rect key="frame" x="0.0" y="50" width="390" height="430"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salut!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXh-uN-vuq">
-                                                <rect key="frame" x="0.0" y="0.0" width="294" height="65"/>
-                                                <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="50"/>
-                                                <color key="textColor" red="0.15600556139999999" green="0.25414842370000001" blue="0.60863798859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suntem incantati de cunostinta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ln0-Xp-oK3">
-                                                <rect key="frame" x="0.0" y="85" width="294" height="26"/>
-                                                <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Chl-bD-qbU">
-                                        <rect key="frame" x="30.333333333333343" y="276" width="329.33333333333326" height="196"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Slq-0v-qvA">
-                                                <rect key="frame" x="0.0" y="0.0" width="329.33333333333331" height="62.666666666666664"/>
-                                                <string key="text">In urmatoarele momente iti vom 
-prezenta functionalitatiile
-aplicatiei.</string>
-                                                <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Keg-80-hH5">
-                                                <rect key="frame" x="0.0" y="78.666666666666629" width="329.33333333333331" height="42.333333333333343"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YSR-X8-NzE">
+                                                <rect key="frame" x="48" y="0.0" width="294" height="111"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aId-Wg-lj9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="144.66666666666666" height="42.333333333333336"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Omite tutorialul">
-                                                            <backgroundConfiguration key="background" cornerRadius="24"/>
-                                                            <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
-                                                            <directionalEdgeInsets key="contentInsets" top="12" leading="20" bottom="12" trailing="20"/>
-                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <color key="baseBackgroundColor" red="0.5696388483" green="0.70387756820000003" blue="0.98125416040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </buttonConfiguration>
-                                                        <connections>
-                                                            <segue destination="KrG-la-T5g" kind="presentation" identifier="toMain" animates="NO" modalPresentationStyle="fullScreen" id="xFf-jf-YGF"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Yf-md-2Ze">
-                                                        <rect key="frame" x="184.66666666666669" y="0.0" width="144.66666666666669" height="42.333333333333336"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Mai departe">
-                                                            <backgroundConfiguration key="background" cornerRadius="24"/>
-                                                            <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
-                                                            <directionalEdgeInsets key="contentInsets" top="12" leading="25" bottom="12" trailing="25"/>
-                                                            <color key="baseBackgroundColor" red="0.15600556139999999" green="0.25414842370000001" blue="0.60863798859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </buttonConfiguration>
-                                                        <connections>
-                                                            <action selector="nextButtonPressed:" destination="xSW-kw-NRO" eventType="touchUpInside" id="R5U-wj-JCM"/>
-                                                            <segue destination="cg9-WZ-hES" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="LPq-dJ-kJC"/>
-                                                        </connections>
-                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salut!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXh-uN-vuq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="65"/>
+                                                        <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="50"/>
+                                                        <color key="textColor" red="0.15600556139999999" green="0.25414842370000001" blue="0.60863798859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suntem incantati de cunostinta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ln0-Xp-oK3">
+                                                        <rect key="frame" x="0.0" y="85" width="294" height="26"/>
+                                                        <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                             </stackView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon &amp; Title - Horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="Rnl-IX-5Ie">
-                                                <rect key="frame" x="0.0" y="137" width="329.33333333333331" height="59"/>
-                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Chl-bD-qbU">
+                                                <rect key="frame" x="30.333333333333343" y="226" width="329.33333333333326" height="204"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Slq-0v-qvA">
+                                                        <rect key="frame" x="0.0" y="0.0" width="329.33333333333331" height="62.666666666666664"/>
+                                                        <string key="text">In urmatoarele momente iti vom 
+prezenta functionalitatiile
+aplicatiei.</string>
+                                                        <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Keg-80-hH5">
+                                                        <rect key="frame" x="0.0" y="78.666666666666629" width="329.33333333333331" height="50.333333333333343"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aId-Wg-lj9">
+                                                                <rect key="frame" x="0.0" y="0.0" width="144.66666666666666" height="50.333333333333336"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="Omite tutorialul">
+                                                                    <backgroundConfiguration key="background" cornerRadius="24"/>
+                                                                    <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
+                                                                    <directionalEdgeInsets key="contentInsets" top="12" leading="20" bottom="12" trailing="20"/>
+                                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="baseBackgroundColor" red="0.5696388483" green="0.70387756820000003" blue="0.98125416040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <segue destination="KrG-la-T5g" kind="presentation" identifier="toMain" animates="NO" modalPresentationStyle="fullScreen" id="xFf-jf-YGF"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Yf-md-2Ze">
+                                                                <rect key="frame" x="184.66666666666669" y="0.0" width="144.66666666666669" height="50.333333333333336"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="Mai departe">
+                                                                    <backgroundConfiguration key="background" cornerRadius="24"/>
+                                                                    <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
+                                                                    <directionalEdgeInsets key="contentInsets" top="12" leading="25" bottom="12" trailing="25"/>
+                                                                    <color key="baseBackgroundColor" red="0.15600556139999999" green="0.25414842370000001" blue="0.60863798859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="nextButtonPressed:" destination="xSW-kw-NRO" eventType="touchUpInside" id="R5U-wj-JCM"/>
+                                                                    <segue destination="cg9-WZ-hES" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="LPq-dJ-kJC"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon &amp; Title - Horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="Rnl-IX-5Ie">
+                                                        <rect key="frame" x="0.0" y="145" width="329.33333333333331" height="59"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Rnl-IX-5Ie" firstAttribute="centerX" secondItem="Chl-bD-qbU" secondAttribute="centerX" id="KyY-3x-aYA"/>
+                                                    <constraint firstItem="Slq-0v-qvA" firstAttribute="centerX" secondItem="Chl-bD-qbU" secondAttribute="centerX" id="Pyq-gP-BZF"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Rnl-IX-5Ie" firstAttribute="centerX" secondItem="Chl-bD-qbU" secondAttribute="centerX" id="KyY-3x-aYA"/>
-                                            <constraint firstItem="Slq-0v-qvA" firstAttribute="centerX" secondItem="Chl-bD-qbU" secondAttribute="centerX" id="Pyq-gP-BZF"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="YSR-X8-NzE" firstAttribute="centerX" secondItem="rlx-5d-Ujn" secondAttribute="centerX" id="EzW-Tt-WsT"/>
-                                    <constraint firstItem="Chl-bD-qbU" firstAttribute="centerX" secondItem="rlx-5d-Ujn" secondAttribute="centerX" id="Rlt-Pj-DDQ"/>
-                                    <constraint firstItem="Chl-bD-qbU" firstAttribute="top" secondItem="YSR-X8-NzE" secondAttribute="bottom" constant="115" id="Y45-lr-mnK"/>
-                                    <constraint firstItem="YSR-X8-NzE" firstAttribute="top" secondItem="rlx-5d-Ujn" secondAttribute="top" constant="50" id="pb4-eQ-XAQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="J5k-on-bDa" secondAttribute="trailing" id="bin-cF-5Cs"/>
+                                    <constraint firstItem="J5k-on-bDa" firstAttribute="top" secondItem="rlx-5d-Ujn" secondAttribute="top" constant="50" id="mF4-qW-FEq"/>
+                                    <constraint firstAttribute="bottom" secondItem="J5k-on-bDa" secondAttribute="bottom" constant="20" id="piG-v0-YHG"/>
+                                    <constraint firstItem="J5k-on-bDa" firstAttribute="leading" secondItem="rlx-5d-Ujn" secondAttribute="leading" id="uKi-Qe-eiH"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
@@ -159,70 +164,75 @@ aplicatiei.</string>
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKA-Nd-7Ik">
-                                <rect key="frame" x="0.0" y="63.333333333333314" width="390" height="717.33333333333348"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pio-ed-NsH">
+                                <rect key="frame" x="0.0" y="194" width="390" height="466"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cells" translatesAutoresizingMaskIntoConstraints="NO" id="bIm-cx-fiX">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="717.33333333333337"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOu-PI-Vle" customClass="AnimationView" customModule="Lottie">
-                                        <rect key="frame" x="79" y="200" width="232" height="232"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="mOu-PI-Vle" secondAttribute="height" multiplier="0.5:0.5" id="K3M-Ls-csx"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="onboarding1"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rU-lW-FmZ">
-                                        <rect key="frame" x="54.666666666666657" y="462.00000000000006" width="280.66666666666674" height="62.666666666666686"/>
-                                        <string key="text">Afla cum sa te protejezi si ce
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ea-fT-V5N">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="466"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cells-Image" translatesAutoresizingMaskIntoConstraints="NO" id="4mM-8d-jg5">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="93.666666666666671"/>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbB-Vq-qgr" customClass="AnimationView" customModule="Lottie">
+                                                <rect key="frame" x="75" y="113.66666666666669" width="240" height="239"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="qbB-Vq-qgr" secondAttribute="height" multiplier="1:1" constant="1" id="0iY-Bb-SRj"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="onboarding1"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxz-ZK-hc4">
+                                                <rect key="frame" x="54.666666666666657" y="353.66666666666663" width="280.66666666666674" height="62.666666666666686"/>
+                                                <string key="text">Afla cum sa te protejezi si ce
 simptome pot aparea, ultimele stiri si
 de unde sa te informezi</string>
-                                        <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBe-Jt-D0Q">
-                                        <rect key="frame" x="130.66666666666669" y="560.33333333333326" width="128.66666666666669" height="38.333333333333371"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Mai departe">
-                                            <backgroundConfiguration key="background" cornerRadius="24"/>
-                                            <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
-                                            <directionalEdgeInsets key="contentInsets" top="10" leading="25" bottom="10" trailing="25"/>
-                                            <color key="baseBackgroundColor" red="0.15600556139999999" green="0.25414842370000001" blue="0.60863798859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="nextButtonPressed:" destination="cg9-WZ-hES" eventType="touchUpInside" id="UfC-u1-Ew5"/>
-                                            <segue destination="jSW-v1-y0U" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="XzT-A4-oCs"/>
-                                        </connections>
-                                    </button>
+                                                <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfQ-y9-Cpc">
+                                                <rect key="frame" x="135.66666666666666" y="476.33333333333337" width="118.66666666666666" height="38.333333333333371"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Mai departe">
+                                                    <backgroundConfiguration key="background" cornerRadius="24"/>
+                                                    <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
+                                                    <directionalEdgeInsets key="contentInsets" top="10" leading="20" bottom="10" trailing="20"/>
+                                                    <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="baseBackgroundColor" red="0.18039217590000001" green="0.25490197539999998" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <segue destination="jSW-v1-y0U" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="3I6-QN-0iM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="lfQ-y9-Cpc" firstAttribute="centerX" secondItem="1Ea-fT-V5N" secondAttribute="centerX" id="1V1-bT-EaM"/>
+                                            <constraint firstAttribute="trailing" secondItem="4mM-8d-jg5" secondAttribute="trailing" constant="150" id="J1s-iX-kji"/>
+                                            <constraint firstItem="qbB-Vq-qgr" firstAttribute="top" secondItem="4mM-8d-jg5" secondAttribute="bottom" constant="20" id="NRr-8g-FTh"/>
+                                            <constraint firstItem="qbB-Vq-qgr" firstAttribute="leading" secondItem="1Ea-fT-V5N" secondAttribute="leading" constant="75" id="W1c-ch-oGP"/>
+                                            <constraint firstItem="4mM-8d-jg5" firstAttribute="top" secondItem="1Ea-fT-V5N" secondAttribute="top" id="m3T-09-6Sc"/>
+                                            <constraint firstItem="qbB-Vq-qgr" firstAttribute="centerX" secondItem="1Ea-fT-V5N" secondAttribute="centerX" id="sUr-VM-2VT"/>
+                                            <constraint firstItem="yxz-ZK-hc4" firstAttribute="top" secondItem="qbB-Vq-qgr" secondAttribute="bottom" constant="1" id="tQx-EL-069"/>
+                                            <constraint firstItem="yxz-ZK-hc4" firstAttribute="centerX" secondItem="1Ea-fT-V5N" secondAttribute="centerX" id="upT-PQ-sd5"/>
+                                            <constraint firstItem="qbB-Vq-qgr" firstAttribute="centerY" secondItem="1Ea-fT-V5N" secondAttribute="centerY" id="vKS-no-Jkq"/>
+                                            <constraint firstItem="4mM-8d-jg5" firstAttribute="leading" secondItem="1Ea-fT-V5N" secondAttribute="leading" id="xzK-WG-hGs"/>
+                                            <constraint firstItem="lfQ-y9-Cpc" firstAttribute="top" secondItem="yxz-ZK-hc4" secondAttribute="bottom" constant="60" id="zia-2c-flv"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="bIm-cx-fiX" firstAttribute="centerX" secondItem="cKA-Nd-7Ik" secondAttribute="centerX" id="2LH-dz-cxu"/>
-                                    <constraint firstItem="mOu-PI-Vle" firstAttribute="top" secondItem="cKA-Nd-7Ik" secondAttribute="top" constant="200" id="HWF-4N-hXU"/>
-                                    <constraint firstItem="4rU-lW-FmZ" firstAttribute="centerX" secondItem="cKA-Nd-7Ik" secondAttribute="centerX" id="SEM-im-dba"/>
-                                    <constraint firstItem="JBe-Jt-D0Q" firstAttribute="top" secondItem="4rU-lW-FmZ" secondAttribute="bottom" constant="35.666666666666629" id="W8v-kH-OBf"/>
-                                    <constraint firstItem="4rU-lW-FmZ" firstAttribute="top" secondItem="mOu-PI-Vle" secondAttribute="bottom" constant="30" id="Wwf-gR-Wug"/>
-                                    <constraint firstItem="bIm-cx-fiX" firstAttribute="top" secondItem="cKA-Nd-7Ik" secondAttribute="top" id="b9D-Tz-cQc"/>
-                                    <constraint firstItem="mOu-PI-Vle" firstAttribute="centerX" secondItem="cKA-Nd-7Ik" secondAttribute="centerX" id="c9N-yi-9mq"/>
-                                    <constraint firstItem="JBe-Jt-D0Q" firstAttribute="centerX" secondItem="cKA-Nd-7Ik" secondAttribute="centerX" id="gAD-4X-8nU"/>
-                                    <constraint firstItem="bIm-cx-fiX" firstAttribute="centerY" secondItem="cKA-Nd-7Ik" secondAttribute="centerY" id="jDo-Qy-i2u"/>
-                                    <constraint firstItem="bIm-cx-fiX" firstAttribute="leading" secondItem="cKA-Nd-7Ik" secondAttribute="leading" id="wlS-r6-OF2"/>
-                                    <constraint firstItem="mOu-PI-Vle" firstAttribute="leading" secondItem="cKA-Nd-7Ik" secondAttribute="leading" constant="79" id="xiv-UF-GQe"/>
+                                    <constraint firstItem="1Ea-fT-V5N" firstAttribute="top" secondItem="Pio-ed-NsH" secondAttribute="top" id="1UD-er-mep"/>
+                                    <constraint firstItem="1Ea-fT-V5N" firstAttribute="leading" secondItem="Pio-ed-NsH" secondAttribute="leading" id="B3e-de-qca"/>
+                                    <constraint firstItem="1Ea-fT-V5N" firstAttribute="centerX" secondItem="Pio-ed-NsH" secondAttribute="centerX" id="VYt-cW-L07"/>
+                                    <constraint firstItem="1Ea-fT-V5N" firstAttribute="centerY" secondItem="Pio-ed-NsH" secondAttribute="centerY" id="oNe-OB-7R6"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gr4-GM-KSC">
-                                <rect key="frame" x="0.0" y="194" width="390" height="466"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -231,22 +241,17 @@ de unde sa te informezi</string>
                         <viewLayoutGuide key="safeArea" id="0U4-wf-ETH"/>
                         <color key="backgroundColor" red="0.84574955699999999" green="0.89786845449999997" blue="0.92172545189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="0U4-wf-ETH" firstAttribute="bottom" secondItem="gr4-GM-KSC" secondAttribute="bottom" constant="150" id="4of-dH-M4I"/>
-                            <constraint firstItem="cKA-Nd-7Ik" firstAttribute="centerX" secondItem="ECR-8I-KuO" secondAttribute="centerX" id="75G-BK-6VP"/>
-                            <constraint firstItem="cKA-Nd-7Ik" firstAttribute="height" secondItem="ECR-8I-KuO" secondAttribute="height" multiplier="0.85" id="7FL-70-AS1"/>
-                            <constraint firstItem="gr4-GM-KSC" firstAttribute="leading" secondItem="0U4-wf-ETH" secondAttribute="leading" id="JFY-A3-46b"/>
-                            <constraint firstItem="cKA-Nd-7Ik" firstAttribute="centerY" secondItem="ECR-8I-KuO" secondAttribute="centerY" id="NFk-bV-BL2"/>
-                            <constraint firstItem="cKA-Nd-7Ik" firstAttribute="leading" secondItem="0U4-wf-ETH" secondAttribute="leading" id="YVb-ZR-rrC"/>
-                            <constraint firstItem="gr4-GM-KSC" firstAttribute="top" secondItem="0U4-wf-ETH" secondAttribute="top" constant="150" id="c76-ez-gNU"/>
-                            <constraint firstItem="0U4-wf-ETH" firstAttribute="trailing" secondItem="gr4-GM-KSC" secondAttribute="trailing" id="w4x-G2-Bpq"/>
+                            <constraint firstItem="0U4-wf-ETH" firstAttribute="trailing" secondItem="Pio-ed-NsH" secondAttribute="trailing" id="64H-Lf-ls5"/>
+                            <constraint firstItem="0U4-wf-ETH" firstAttribute="bottom" secondItem="Pio-ed-NsH" secondAttribute="bottom" constant="150" id="BDn-7a-ejN"/>
+                            <constraint firstItem="Pio-ed-NsH" firstAttribute="leading" secondItem="0U4-wf-ETH" secondAttribute="leading" id="rZh-wi-Yx7"/>
+                            <constraint firstItem="Pio-ed-NsH" firstAttribute="top" secondItem="0U4-wf-ETH" secondAttribute="top" constant="150" id="uBb-3A-g8a"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="blankCard" destination="gr4-GM-KSC" id="knU-eC-k7D"/>
-                        <outlet property="blankCardBottomConstraint" destination="4of-dH-M4I" id="aMA-k3-dai"/>
-                        <outlet property="blankCardTopConstraint" destination="c76-ez-gNU" id="VBC-vp-J8z"/>
-                        <outlet property="lottieAnimationView" destination="mOu-PI-Vle" id="EUL-1Z-hb8"/>
-                        <outlet property="secondCard" destination="cKA-Nd-7Ik" id="juI-Pg-WwH"/>
+                        <outlet property="contentCard" destination="1Ea-fT-V5N" id="Qlb-r7-zql"/>
+                        <outlet property="contentCardBottomConstraint" destination="BDn-7a-ejN" id="J53-1H-GDQ"/>
+                        <outlet property="contentCardTopConstraint" destination="uBb-3A-g8a" id="8hI-Qr-40g"/>
+                        <outlet property="lottieAnimationView" destination="qbB-Vq-qgr" id="5SK-m1-ZUq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKC-13-fCh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -469,7 +474,7 @@ pandemiei.</string>
                                             <color key="baseBackgroundColor" red="0.15600556139999999" green="0.25414842370000001" blue="0.60863798859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="qKy-ng-apT" kind="presentation" animates="NO" id="Wad-L0-1pd"/>
+                                            <segue destination="qKy-ng-apT" kind="presentation" modalPresentationStyle="automatic" modalTransitionStyle="coverVertical" id="Wad-L0-1pd"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxg-Z8-rmc">
@@ -589,6 +594,9 @@ pandemiei.</string>
                             <constraint firstItem="4lW-d4-3pG" firstAttribute="leading" secondItem="GAV-Si-cD3" secondAttribute="leading" constant="20" id="khv-Xg-odt"/>
                             <constraint firstItem="K7g-eJ-nxB" firstAttribute="centerX" secondItem="bWF-Ug-8HE" secondAttribute="centerX" id="zif-nW-eGq"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="lottieAnimationView" destination="IUW-Wa-sWY" id="ltB-rT-bUh"/>
@@ -667,13 +675,16 @@ a fost inrolat cu succes!</string>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QRK-n3-aJH"/>
-                        <color key="backgroundColor" red="0.84574955699999999" green="0.89786845449999997" blue="0.92172545189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="KmF-dG-VFb" firstAttribute="centerX" secondItem="Wsb-a4-1yi" secondAttribute="centerX" id="31c-jK-LZZ"/>
                             <constraint firstItem="KmF-dG-VFb" firstAttribute="leading" secondItem="QRK-n3-aJH" secondAttribute="leading" id="4iN-OT-QJH"/>
                             <constraint firstItem="KmF-dG-VFb" firstAttribute="centerY" secondItem="Wsb-a4-1yi" secondAttribute="centerY" id="Jb2-np-VAj"/>
                             <constraint firstItem="KmF-dG-VFb" firstAttribute="height" secondItem="Wsb-a4-1yi" secondAttribute="height" multiplier="0.85" id="ssA-r6-yfy"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="lottieAnimationView" destination="aBT-q3-pNZ" id="aOC-KE-wwp"/>
@@ -838,15 +849,15 @@ intr-un loc sigur</string>
         <designable name="IUW-Wa-sWY"/>
         <designable name="aBT-q3-pNZ"/>
         <designable name="ev6-FH-bj8"/>
-        <designable name="mOu-PI-Vle"/>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="PFx-th-43T"/>
+        <segue reference="Dxd-9M-KFu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Cells" width="390" height="840"/>
         <image name="Icon &amp; Title - Horizontal" width="190" height="59"/>
         <image name="LaunchScreenBackground" width="390" height="844"/>
+        <image name="cells-Image" width="251.66667175292969" height="202.66667175292969"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
