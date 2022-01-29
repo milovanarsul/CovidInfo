@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IBMPlexSans-Bold.ttf">
+            <string>IBMPlexSans-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Welcome Onboarding View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="WelcomeOnboardingViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="I9j-Vv-JOy">
+                                <rect key="frame" x="0.0" y="-3" width="414" height="902"/>
+                            </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ad3-Ag-QNh">
+                                <rect key="frame" x="0.0" y="224" width="414" height="448"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salut!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J82-q5-Ojc">
+                                        <rect key="frame" x="123" y="20" width="168" height="78"/>
+                                        <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="60"/>
+                                        <color key="textColor" red="0.15600556139999999" green="0.25414842370000001" blue="0.60863798859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suntem incantati de cunostinta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNf-By-f85">
+                                        <rect key="frame" x="60" y="108" width="294" height="26"/>
+                                        <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0i-9Y-U3Y">
+                                        <rect key="frame" x="84" y="226" width="246.5" height="62.5"/>
+                                        <string key="text">In urmatoarele momente iti vom 
+prezenta functionalitatiile
+aplicatiei.</string>
+                                        <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="vhX-OB-NGX">
+                                        <rect key="frame" x="49.5" y="320.5" width="315" height="38.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrH-Xk-dEF">
+                                                <rect key="frame" x="0.0" y="0.0" width="144.5" height="38.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Omite tutorialul">
+                                                    <backgroundConfiguration key="background" cornerRadius="24">
+                                                        <color key="backgroundColor" red="0.5696388483" green="0.70387756820000003" blue="0.98125416040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
+                                                    <directionalEdgeInsets key="contentInsets" top="10" leading="20" bottom="10" trailing="20"/>
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <segue destination="r7e-pd-KNR" kind="presentation" identifier="toMain" animates="NO" modalPresentationStyle="fullScreen" id="o6u-H9-gNp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fh8-Z7-zwv">
+                                                <rect key="frame" x="170.5" y="0.0" width="144.5" height="38.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Mai departe">
+                                                    <backgroundConfiguration key="background" cornerRadius="24">
+                                                        <color key="backgroundColor" red="0.18039217590000001" green="0.25490197539999998" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
+                                                    <directionalEdgeInsets key="contentInsets" top="10" leading="31" bottom="10" trailing="31"/>
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <segue destination="0AD-Ez-wSr" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="WSf-fE-ixM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon &amp; Title - Horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="6mW-wB-t8f">
+                                        <rect key="frame" x="112" y="384" width="190" height="59"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="DNf-By-f85" firstAttribute="centerX" secondItem="ad3-Ag-QNh" secondAttribute="centerX" id="3zN-Qf-ltg"/>
+                                    <constraint firstItem="6mW-wB-t8f" firstAttribute="top" secondItem="vhX-OB-NGX" secondAttribute="bottom" constant="25" id="G5G-ae-xeP"/>
+                                    <constraint firstItem="vhX-OB-NGX" firstAttribute="centerX" secondItem="ad3-Ag-QNh" secondAttribute="centerX" id="N8Q-fb-T5A"/>
+                                    <constraint firstItem="J82-q5-Ojc" firstAttribute="top" secondItem="ad3-Ag-QNh" secondAttribute="top" constant="20" id="SWd-ry-66S"/>
+                                    <constraint firstItem="vhX-OB-NGX" firstAttribute="top" secondItem="N0i-9Y-U3Y" secondAttribute="bottom" constant="32" id="Vkq-rJ-5fK"/>
+                                    <constraint firstAttribute="bottom" secondItem="6mW-wB-t8f" secondAttribute="bottom" constant="5" id="j5c-Rw-Jq0"/>
+                                    <constraint firstItem="6mW-wB-t8f" firstAttribute="centerX" secondItem="ad3-Ag-QNh" secondAttribute="centerX" id="kMm-m9-MSo"/>
+                                    <constraint firstItem="J82-q5-Ojc" firstAttribute="centerX" secondItem="ad3-Ag-QNh" secondAttribute="centerX" id="ltQ-Ru-gaL"/>
+                                    <constraint firstItem="DNf-By-f85" firstAttribute="top" secondItem="J82-q5-Ojc" secondAttribute="bottom" constant="10" id="umP-N0-NJh"/>
+                                    <constraint firstItem="N0i-9Y-U3Y" firstAttribute="centerX" secondItem="ad3-Ag-QNh" secondAttribute="centerX" id="wPW-fm-7Ug"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yv3-GW-WxX" userLabel="blankIcon">
+                                <rect key="frame" x="155" y="384" width="104" height="138"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="yv3-GW-WxX" secondAttribute="bottom" constant="340" id="2MU-oT-plq"/>
+                            <constraint firstItem="I9j-Vv-JOy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="5zG-1C-2JD"/>
+                            <constraint firstItem="ad3-Ag-QNh" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="DIG-sG-1ga"/>
+                            <constraint firstItem="I9j-Vv-JOy" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="-3" id="J4r-6W-AD4"/>
+                            <constraint firstItem="ad3-Ag-QNh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="LTX-2s-hLT"/>
+                            <constraint firstItem="yv3-GW-WxX" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="340" id="SLD-LV-gJ6"/>
+                            <constraint firstItem="yv3-GW-WxX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="155" id="V1i-P1-YO4"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="I9j-Vv-JOy" secondAttribute="trailing" id="Vll-5m-YtD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yv3-GW-WxX" secondAttribute="trailing" constant="155" id="X9h-CL-6Uf"/>
+                            <constraint firstItem="ad3-Ag-QNh" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.5" id="dUI-Xc-QlR"/>
+                            <constraint firstItem="ad3-Ag-QNh" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="pkf-xN-Gob"/>
+                            <constraint firstAttribute="bottom" secondItem="I9j-Vv-JOy" secondAttribute="bottom" constant="-3" id="xaE-l0-rJ4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="blankIconView" destination="yv3-GW-WxX" id="Hua-cG-SO9"/>
+                        <outlet property="blankIconViewBottomConstraint" destination="2MU-oT-plq" id="Ne3-c1-6Pt"/>
+                        <outlet property="blankIconViewLeadinConstraint" destination="V1i-P1-YO4" id="Udm-hx-XAS"/>
+                        <outlet property="blankIconViewTopConstraint" destination="SLD-LV-gJ6" id="ofa-6M-gPr"/>
+                        <outlet property="blankIconViewTrailingConstraint" destination="X9h-CL-6Uf" id="LJy-Pv-kdk"/>
+                        <outlet property="welcomeView" destination="ad3-Ag-QNh" id="CGp-F3-n73"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="366.66666666666669" y="6.6964285714285712"/>
+        </scene>
+        <!--General Onboarding View Controller-->
+        <scene sceneID="sua-7C-Do0">
+            <objects>
+                <viewController id="0AD-Ez-wSr" customClass="GeneralOnboardingViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kWJ-n4-Oc9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ci0-5n-Uak">
+                                <rect key="frame" x="0.0" y="112" width="414" height="672"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cells-Image" translatesAutoresizingMaskIntoConstraints="NO" id="mR4-zJ-oGa">
+                                        <rect key="frame" x="30" y="0.0" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="qRW-tc-piA"/>
+                                            <constraint firstAttribute="height" constant="200" id="x7Q-9H-TD1"/>
+                                        </constraints>
+                                    </imageView>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MtP-Fr-LWP">
+                                        <rect key="frame" x="0.0" y="150" width="414" height="372"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="Jfg-Qk-0Vh" kind="embed" id="hs8-WP-hlv"/>
+                                        </connections>
+                                    </containerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ED5-B2-LTJ">
+                                        <rect key="frame" x="147.5" y="552" width="119" height="39"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Mai departe">
+                                            <backgroundConfiguration key="background" cornerRadius="24">
+                                                <color key="backgroundColor" red="0.18039217590000001" green="0.25490197539999998" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
+                                            <directionalEdgeInsets key="contentInsets" top="10" leading="20" bottom="10" trailing="20"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="nextButtonTapped:" destination="0AD-Ez-wSr" eventType="touchUpInside" id="qqu-v0-hFn"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8k-nh-YXY">
+                                        <rect key="frame" x="147" y="606" width="120" height="39"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Mai tarziu">
+                                            <backgroundConfiguration key="background" cornerRadius="24">
+                                                <color key="backgroundColor" red="0.59607845540000004" green="0.69803923369999998" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
+                                            <directionalEdgeInsets key="contentInsets" top="10" leading="27" bottom="10" trailing="27"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="laterButtonTapped:" destination="0AD-Ez-wSr" eventType="touchUpInside" id="7o2-hd-enz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="MtP-Fr-LWP" firstAttribute="centerX" secondItem="Ci0-5n-Uak" secondAttribute="centerX" id="065-Xf-2fN"/>
+                                    <constraint firstItem="MtP-Fr-LWP" firstAttribute="leading" secondItem="Ci0-5n-Uak" secondAttribute="leading" id="Smh-Qx-Rov"/>
+                                    <constraint firstItem="U8k-nh-YXY" firstAttribute="centerX" secondItem="Ci0-5n-Uak" secondAttribute="centerX" id="etO-JL-W2z"/>
+                                    <constraint firstAttribute="bottom" secondItem="MtP-Fr-LWP" secondAttribute="bottom" constant="150" id="jsu-f4-THn"/>
+                                    <constraint firstItem="mR4-zJ-oGa" firstAttribute="top" secondItem="Ci0-5n-Uak" secondAttribute="top" id="m2X-e9-Vkt"/>
+                                    <constraint firstItem="MtP-Fr-LWP" firstAttribute="top" secondItem="mR4-zJ-oGa" secondAttribute="bottom" constant="-50" id="mCy-r7-uz0"/>
+                                    <constraint firstItem="ED5-B2-LTJ" firstAttribute="centerX" secondItem="Ci0-5n-Uak" secondAttribute="centerX" id="nDK-JH-Bjb"/>
+                                    <constraint firstItem="mR4-zJ-oGa" firstAttribute="leading" secondItem="Ci0-5n-Uak" secondAttribute="leading" constant="30" id="sc4-lE-MGZ"/>
+                                    <constraint firstItem="ED5-B2-LTJ" firstAttribute="top" secondItem="MtP-Fr-LWP" secondAttribute="bottom" constant="30" id="txU-wz-Noc"/>
+                                    <constraint firstItem="U8k-nh-YXY" firstAttribute="top" secondItem="ED5-B2-LTJ" secondAttribute="bottom" constant="15" id="ucj-rK-g8m"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORa-yv-vwI">
+                                <rect key="frame" x="0.0" y="224" width="414" height="448"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hsW-U3-rl3"/>
+                        <color key="backgroundColor" red="0.92156863209999995" green="0.96470588450000005" blue="0.98823523520000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Ci0-5n-Uak" firstAttribute="leading" secondItem="hsW-U3-rl3" secondAttribute="leading" id="Ace-xS-jEi"/>
+                            <constraint firstItem="ORa-yv-vwI" firstAttribute="centerX" secondItem="kWJ-n4-Oc9" secondAttribute="centerX" id="K6q-FQ-ojd"/>
+                            <constraint firstItem="ORa-yv-vwI" firstAttribute="centerY" secondItem="kWJ-n4-Oc9" secondAttribute="centerY" id="OEX-6B-mup"/>
+                            <constraint firstItem="Ci0-5n-Uak" firstAttribute="centerY" secondItem="kWJ-n4-Oc9" secondAttribute="centerY" id="TbP-Bu-0XW"/>
+                            <constraint firstItem="Ci0-5n-Uak" firstAttribute="height" secondItem="kWJ-n4-Oc9" secondAttribute="height" multiplier="0.75" id="gbr-dJ-9ha"/>
+                            <constraint firstItem="ORa-yv-vwI" firstAttribute="height" secondItem="kWJ-n4-Oc9" secondAttribute="height" multiplier="0.5" id="o6e-qT-1os"/>
+                            <constraint firstItem="ORa-yv-vwI" firstAttribute="leading" secondItem="hsW-U3-rl3" secondAttribute="leading" id="yl0-P7-fQ8"/>
+                            <constraint firstItem="Ci0-5n-Uak" firstAttribute="centerX" secondItem="kWJ-n4-Oc9" secondAttribute="centerX" id="zTO-dv-IY5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="blankWelcomeView" destination="ORa-yv-vwI" id="yzW-PG-T3T"/>
+                        <outlet property="blankWelcomeViewHeightConstraint" destination="o6e-qT-1os" id="J38-6c-sqo"/>
+                        <outlet property="generalView" destination="Ci0-5n-Uak" id="DRA-2f-0ea"/>
+                        <outlet property="laterButton" destination="U8k-nh-YXY" id="1ir-fk-KSA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QbB-Mr-4sx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1414" y="375"/>
+        </scene>
+        <!--General Onboarding Page View Controller-->
+        <scene sceneID="Zls-Mg-VtU">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Jfg-Qk-0Vh" customClass="GeneralOnboardingPageViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MOS-2m-1G0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2465" y="375"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="ocb-CI-aVx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="r7e-pd-KNR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o0N-iu-L2w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1146" y="-283"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icon &amp; Title - Horizontal" width="190" height="59"/>
+        <image name="LaunchScreenBackground" width="390" height="844"/>
+        <image name="cells-Image" width="251.5" height="203"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

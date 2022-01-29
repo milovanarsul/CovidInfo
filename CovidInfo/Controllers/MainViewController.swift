@@ -9,9 +9,11 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    private var showOnboarding: Bool = true
+    
     override func viewDidAppear(_ animated: Bool) {
         
-        if OnboardingManager.shared.isFirstLaunch {
+        if showOnboarding || OnboardingManager.shared.isFirstLaunch{
             performSegue(withIdentifier: "toOnboarding", sender: nil)
             OnboardingManager.shared.isFirstLaunch = true
         } else {

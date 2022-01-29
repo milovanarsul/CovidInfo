@@ -17,13 +17,12 @@ class CustomNavigationBar: UIView {
     func setPageTitles(previousPageTitle: String, currentPageTitle: String){
         self.previousPage.titleLabel?.text = previousPageTitle
         self.currentPage.titleLabel?.text = currentPageTitle
-        awakeFromNib()
     }
-    
     
     @IBOutlet weak var currentPageLeadingConstraint: NSLayoutConstraint!
     
     @IBAction func previousPageTapped(_ sender: Any) {
+        
         if self.currentPage.isHidden {
             self.currentPageLeadingConstraint.constant = 10
             self.currentPage.isHidden = false
@@ -61,6 +60,8 @@ class CustomNavigationBar: UIView {
     
     override func awakeFromNib() {
         initWithNib()
+        self.previousPage.titleLabel?.text = "Acasa"
+        self.currentPage.titleLabel?.text = "Test"
     }
     
     private func setup(){

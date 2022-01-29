@@ -1,14 +1,13 @@
 //
-//  Sixth-FirstOnboardingViewController.swift
+//  TriajViewController.swift
 //  CovidInfo
 //
-//  Created by Milovan Arsul on 27.01.2022.
+//  Created by Milovan Arsul on 29.01.2022.
 //
 
 import UIKit
-import Lottie
 
-class Sixth_FirstOnboardingViewController: UIViewController {
+class TriajViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
