@@ -16,6 +16,14 @@
 		B278D50527A2846900511BB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B278D50427A2846900511BB2 /* Main.storyboard */; };
 		B278D50727A2848600511BB2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50627A2848600511BB2 /* MainViewController.swift */; };
 		B278D50927A2851A00511BB2 /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50827A2851A00511BB2 /* OnboardingManager.swift */; };
+		B281283527A5A69700DE7DB8 /* UIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281283427A5A69700DE7DB8 /* UIPageViewController.swift */; };
+		B2902ED127A5C33E0008338D /* EnrollCertificate.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2902ED027A5C33E0008338D /* EnrollCertificate.xib */; };
+		B2902ED727A5C6430008338D /* NibControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2902ED627A5C6430008338D /* NibControllers.swift */; };
+		B2902ED927A5C8930008338D /* EnrollCertificateSuccess.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2902ED827A5C8930008338D /* EnrollCertificateSuccess.xib */; };
+		B2902EDB27A5C8B50008338D /* EnrollCertificateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2902EDA27A5C8B50008338D /* EnrollCertificateView.swift */; };
+		B2902EDD27A5C8CF0008338D /* EnrollCertificateSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2902EDC27A5C8CF0008338D /* EnrollCertificateSuccessView.swift */; };
+		B2902EE027A5C95D0008338D /* EnrollCertificatePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2902EDF27A5C95D0008338D /* EnrollCertificatePageViewController.swift */; };
+		B2902EE227A5DB730008338D /* EnrollCertificateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2902EE127A5DB720008338D /* EnrollCertificateViewController.swift */; };
 		B2A389F227A441A30005F9FD /* HomePageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2A389F127A441A30005F9FD /* HomePageViewController.storyboard */; };
 		B2A389F427A442820005F9FD /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A389F327A442820005F9FD /* CustomNavigationBar.swift */; };
 		B2A389F627A442990005F9FD /* CustomNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A389F527A442990005F9FD /* CustomNavigationBar.xib */; };
@@ -98,6 +106,14 @@
 		B278D50427A2846900511BB2 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B278D50627A2848600511BB2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B278D50827A2851A00511BB2 /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
+		B281283427A5A69700DE7DB8 /* UIPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPageViewController.swift; sourceTree = "<group>"; };
+		B2902ED027A5C33E0008338D /* EnrollCertificate.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnrollCertificate.xib; sourceTree = "<group>"; };
+		B2902ED627A5C6430008338D /* NibControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibControllers.swift; sourceTree = "<group>"; };
+		B2902ED827A5C8930008338D /* EnrollCertificateSuccess.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnrollCertificateSuccess.xib; sourceTree = "<group>"; };
+		B2902EDA27A5C8B50008338D /* EnrollCertificateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollCertificateView.swift; sourceTree = "<group>"; };
+		B2902EDC27A5C8CF0008338D /* EnrollCertificateSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollCertificateSuccessView.swift; sourceTree = "<group>"; };
+		B2902EDF27A5C95D0008338D /* EnrollCertificatePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollCertificatePageViewController.swift; sourceTree = "<group>"; };
+		B2902EE127A5DB720008338D /* EnrollCertificateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollCertificateViewController.swift; sourceTree = "<group>"; };
 		B2A389F127A441A30005F9FD /* HomePageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomePageViewController.storyboard; sourceTree = "<group>"; };
 		B2A389F327A442820005F9FD /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		B2A389F527A442990005F9FD /* CustomNavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNavigationBar.xib; sourceTree = "<group>"; };
@@ -243,6 +259,7 @@
 			children = (
 				B25AD33727A30B3D009EAD38 /* Extensions */,
 				B2CA7F5827A2A649009E4FE6 /* LottieAnimations.swift */,
+				B2902ED627A5C6430008338D /* NibControllers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -282,6 +299,7 @@
 				B25AD33827A30B50009EAD38 /* UIView.swift */,
 				B25AD33A27A30B6C009EAD38 /* UIStoryboard.swift */,
 				B268FF7D27A53FD80083A450 /* NSLayoutConstraint.swift */,
+				B281283427A5A69700DE7DB8 /* UIPageViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -291,8 +309,22 @@
 			children = (
 				B2E6741627A5252600F283B7 /* OnboardingCards.xib */,
 				B2E6741827A5254000F283B7 /* OnboardingCardsView.swift */,
+				B2902EDE27A5C8E10008338D /* Enroll Certificate */,
 			);
 			path = "Onboarding Cards";
+			sourceTree = "<group>";
+		};
+		B2902EDE27A5C8E10008338D /* Enroll Certificate */ = {
+			isa = PBXGroup;
+			children = (
+				B2902EE127A5DB720008338D /* EnrollCertificateViewController.swift */,
+				B2902EDF27A5C95D0008338D /* EnrollCertificatePageViewController.swift */,
+				B2902ED027A5C33E0008338D /* EnrollCertificate.xib */,
+				B2902EDA27A5C8B50008338D /* EnrollCertificateView.swift */,
+				B2902ED827A5C8930008338D /* EnrollCertificateSuccess.xib */,
+				B2902EDC27A5C8CF0008338D /* EnrollCertificateSuccessView.swift */,
+			);
+			path = "Enroll Certificate";
 			sourceTree = "<group>";
 		};
 		B2B5A9A72790904600FC4E61 /* Lottie Animations */ = {
@@ -556,9 +588,11 @@
 				B2F65154278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */,
 				B2B5A9B32790939500FC4E61 /* onboarding3.json in Resources */,
 				B2F650FF278F2BDB00E1BB58 /* Assets.xcassets in Resources */,
+				B2902ED927A5C8930008338D /* EnrollCertificateSuccess.xib in Resources */,
 				B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */,
 				B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */,
 				B2E6741D27A530CF00F283B7 /* Onboarding.storyboard in Resources */,
+				B2902ED127A5C33E0008338D /* EnrollCertificate.xib in Resources */,
 				B2F65142278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */,
 				B2B5A9B52790939500FC4E61 /* onboarding4.json in Resources */,
 			);
@@ -704,19 +738,25 @@
 				B25AD33B27A30B6C009EAD38 /* UIStoryboard.swift in Sources */,
 				B2E6741127A51E9500F283B7 /* TriajViewController.swift in Sources */,
 				B2F650F3278F2BD900E1BB58 /* AppDelegate.swift in Sources */,
+				B281283527A5A69700DE7DB8 /* UIPageViewController.swift in Sources */,
 				B2CA7F5927A2A649009E4FE6 /* LottieAnimations.swift in Sources */,
 				B2A389F827A4435D0005F9FD /* HomePageViewController.swift in Sources */,
+				B2902ED727A5C6430008338D /* NibControllers.swift in Sources */,
 				B2E6741327A51EE800F283B7 /* TriajPageViewController.swift in Sources */,
 				B268FF8327A549C40083A450 /* GeneralOnboardingPageViewController.swift in Sources */,
 				B2E6741F27A5334200F283B7 /* WelcomeOnboardingViewController.swift in Sources */,
 				B2F650F5278F2BD900E1BB58 /* SceneDelegate.swift in Sources */,
+				B2902EDB27A5C8B50008338D /* EnrollCertificateView.swift in Sources */,
 				B268FF7E27A53FD80083A450 /* NSLayoutConstraint.swift in Sources */,
+				B2902EE027A5C95D0008338D /* EnrollCertificatePageViewController.swift in Sources */,
 				B2F650FD278F2BDA00E1BB58 /* CovidInfo.xcdatamodeld in Sources */,
 				B278D50927A2851A00511BB2 /* OnboardingManager.swift in Sources */,
 				B2E6741927A5254000F283B7 /* OnboardingCardsView.swift in Sources */,
 				B2A389F427A442820005F9FD /* CustomNavigationBar.swift in Sources */,
+				B2902EDD27A5C8CF0008338D /* EnrollCertificateSuccessView.swift in Sources */,
 				B2E6741B27A52A8F00F283B7 /* OnboardingData.swift in Sources */,
 				B278D50727A2848600511BB2 /* MainViewController.swift in Sources */,
+				B2902EE227A5DB730008338D /* EnrollCertificateViewController.swift in Sources */,
 				B25AD33927A30B50009EAD38 /* UIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

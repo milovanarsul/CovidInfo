@@ -10,7 +10,8 @@ import UIKit
 class GeneralOnboardingViewController: UIViewController {
     @IBOutlet weak var generalView: UIView!
     @IBOutlet weak var blankWelcomeView: UIView!
-    @IBOutlet var laterButton: UIButton!
+    @IBOutlet var enrollCertificateButton: UIButton!
+    @IBOutlet var createAccountButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,7 @@ class GeneralOnboardingViewController: UIViewController {
         setupAnimation()
         self.view.layoutIfNeeded()
     }
+    
     
     @IBOutlet weak var blankWelcomeViewHeightConstraint: NSLayoutConstraint!
     
@@ -34,12 +36,12 @@ class GeneralOnboardingViewController: UIViewController {
             self.blankWelcomeView.isHidden = true
         })
     }
+}
+
+class OnboardingSheetButtons: NSObject{
+    static let sharedInstance = OnboardingSheetButtons()
     
-    @IBAction func nextButtonTapped(_ sender: Any) {
-        
+    func doSomething(sender: AnyObject){
+        print("This does something")
     }
-    
-    @IBAction func laterButtonTapped(_ sender: Any) {
-    }
-    
 }

@@ -25,7 +25,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="88G-vb-ePo" customClass="AnimationView" customModule="Lottie">
                     <rect key="frame" x="90" y="10" width="214" height="200"/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="XYn-CG-BT3"/>
                     </constraints>
@@ -53,4 +53,7 @@
             <point key="canvasLocation" x="185.50724637681162" y="59.598214285714285"/>
         </view>
     </objects>
+    <designables>
+        <designable name="88G-vb-ePo"/>
+    </designables>
 </document>

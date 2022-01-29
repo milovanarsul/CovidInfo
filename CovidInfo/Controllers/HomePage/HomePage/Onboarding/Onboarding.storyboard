@@ -145,7 +145,7 @@ aplicatiei.</string>
         <!--General Onboarding View Controller-->
         <scene sceneID="sua-7C-Do0">
             <objects>
-                <viewController id="0AD-Ez-wSr" customClass="GeneralOnboardingViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="0AD-Ez-wSr" customClass="GeneralOnboardingViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kWJ-n4-Oc9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -170,49 +170,49 @@ aplicatiei.</string>
                                             <segue destination="Jfg-Qk-0Vh" kind="embed" id="hs8-WP-hlv"/>
                                         </connections>
                                     </containerView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ED5-B2-LTJ">
-                                        <rect key="frame" x="147.5" y="552" width="119" height="39"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8k-nh-YXY">
+                                        <rect key="frame" x="148.5" y="582" width="117.5" height="39"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Mai departe">
+                                        <buttonConfiguration key="configuration" style="plain" title="Inroleaza">
                                             <backgroundConfiguration key="background" cornerRadius="24">
-                                                <color key="backgroundColor" red="0.18039217590000001" green="0.25490197539999998" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </backgroundConfiguration>
-                                            <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
-                                            <directionalEdgeInsets key="contentInsets" top="10" leading="20" bottom="10" trailing="20"/>
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="nextButtonTapped:" destination="0AD-Ez-wSr" eventType="touchUpInside" id="qqu-v0-hFn"/>
-                                        </connections>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8k-nh-YXY">
-                                        <rect key="frame" x="147" y="606" width="120" height="39"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Mai tarziu">
-                                            <backgroundConfiguration key="background" cornerRadius="24">
-                                                <color key="backgroundColor" red="0.59607845540000004" green="0.69803923369999998" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.15600556139999999" green="0.25414842370000001" blue="0.60863798859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
                                             <directionalEdgeInsets key="contentInsets" top="10" leading="27" bottom="10" trailing="27"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="laterButtonTapped:" destination="0AD-Ez-wSr" eventType="touchUpInside" id="7o2-hd-enz"/>
+                                            <segue destination="9Rg-ae-x54" kind="presentation" identifier="setupCertificate" modalPresentationStyle="pageSheet" id="Gyv-kP-OsH"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pad-Jw-bcq" userLabel="Creaza cont">
+                                        <rect key="frame" x="141" y="582" width="132" height="39"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Creaza cont">
+                                            <backgroundConfiguration key="background" cornerRadius="24">
+                                                <color key="backgroundColor" red="0.15600556139999999" green="0.25414842370000001" blue="0.60863798859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
+                                            <directionalEdgeInsets key="contentInsets" top="10" leading="27" bottom="10" trailing="27"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="R08-bL-vaU" kind="presentation" identifier="setupAccount" modalPresentationStyle="pageSheet" id="kKl-5H-lgx"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="MtP-Fr-LWP" firstAttribute="centerX" secondItem="Ci0-5n-Uak" secondAttribute="centerX" id="065-Xf-2fN"/>
+                                    <constraint firstItem="pad-Jw-bcq" firstAttribute="centerX" secondItem="Ci0-5n-Uak" secondAttribute="centerX" id="GkB-AI-ak6"/>
                                     <constraint firstItem="MtP-Fr-LWP" firstAttribute="leading" secondItem="Ci0-5n-Uak" secondAttribute="leading" id="Smh-Qx-Rov"/>
+                                    <constraint firstItem="pad-Jw-bcq" firstAttribute="top" secondItem="MtP-Fr-LWP" secondAttribute="bottom" constant="60" id="ZVf-ST-Qhg"/>
+                                    <constraint firstItem="U8k-nh-YXY" firstAttribute="top" secondItem="MtP-Fr-LWP" secondAttribute="bottom" constant="60" id="aq8-DQ-7RD"/>
                                     <constraint firstItem="U8k-nh-YXY" firstAttribute="centerX" secondItem="Ci0-5n-Uak" secondAttribute="centerX" id="etO-JL-W2z"/>
                                     <constraint firstAttribute="bottom" secondItem="MtP-Fr-LWP" secondAttribute="bottom" constant="150" id="jsu-f4-THn"/>
                                     <constraint firstItem="mR4-zJ-oGa" firstAttribute="top" secondItem="Ci0-5n-Uak" secondAttribute="top" id="m2X-e9-Vkt"/>
                                     <constraint firstItem="MtP-Fr-LWP" firstAttribute="top" secondItem="mR4-zJ-oGa" secondAttribute="bottom" constant="-50" id="mCy-r7-uz0"/>
-                                    <constraint firstItem="ED5-B2-LTJ" firstAttribute="centerX" secondItem="Ci0-5n-Uak" secondAttribute="centerX" id="nDK-JH-Bjb"/>
                                     <constraint firstItem="mR4-zJ-oGa" firstAttribute="leading" secondItem="Ci0-5n-Uak" secondAttribute="leading" constant="30" id="sc4-lE-MGZ"/>
-                                    <constraint firstItem="ED5-B2-LTJ" firstAttribute="top" secondItem="MtP-Fr-LWP" secondAttribute="bottom" constant="30" id="txU-wz-Noc"/>
-                                    <constraint firstItem="U8k-nh-YXY" firstAttribute="top" secondItem="ED5-B2-LTJ" secondAttribute="bottom" constant="15" id="ucj-rK-g8m"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
@@ -239,16 +239,19 @@ aplicatiei.</string>
                             <constraint firstItem="Ci0-5n-Uak" firstAttribute="centerX" secondItem="kWJ-n4-Oc9" secondAttribute="centerX" id="zTO-dv-IY5"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="blankWelcomeView" destination="ORa-yv-vwI" id="yzW-PG-T3T"/>
                         <outlet property="blankWelcomeViewHeightConstraint" destination="o6e-qT-1os" id="J38-6c-sqo"/>
+                        <outlet property="createAccountButton" destination="pad-Jw-bcq" id="hQR-hk-CVf"/>
+                        <outlet property="enrollCertificateButton" destination="U8k-nh-YXY" id="Ajt-2A-B26"/>
                         <outlet property="generalView" destination="Ci0-5n-Uak" id="DRA-2f-0ea"/>
-                        <outlet property="laterButton" destination="U8k-nh-YXY" id="1ir-fk-KSA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QbB-Mr-4sx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1414" y="375"/>
+            <point key="canvasLocation" x="1403" y="376"/>
         </scene>
         <!--General Onboarding Page View Controller-->
         <scene sceneID="Zls-Mg-VtU">
@@ -256,7 +259,80 @@ aplicatiei.</string>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Jfg-Qk-0Vh" customClass="GeneralOnboardingPageViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOS-2m-1G0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2465" y="375"/>
+            <point key="canvasLocation" x="2584" y="-216"/>
+        </scene>
+        <!--Enroll Certificate View Controller-->
+        <scene sceneID="YbV-xK-b9w">
+            <objects>
+                <viewController modalPresentationStyle="pageSheet" id="9Rg-ae-x54" customClass="EnrollCertificateViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y02-Ys-bKF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPu-H0-fwF">
+                                <rect key="frame" x="25" y="50" width="364" height="592"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="mMx-Fq-Otf" kind="embed" id="NCO-yc-1ra"/>
+                                </connections>
+                            </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGt-gf-bSp">
+                                <rect key="frame" x="186" y="670" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4gh-jb-hZC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hPu-H0-fwF" firstAttribute="leading" secondItem="4gh-jb-hZC" secondAttribute="leading" constant="25" id="cj7-mo-ktp"/>
+                            <constraint firstItem="4gh-jb-hZC" firstAttribute="bottom" secondItem="hPu-H0-fwF" secondAttribute="bottom" constant="200" id="dxJ-VC-n5w"/>
+                            <constraint firstItem="4gh-jb-hZC" firstAttribute="trailing" secondItem="hPu-H0-fwF" secondAttribute="trailing" constant="25" id="rPW-fX-nXK"/>
+                            <constraint firstItem="hPu-H0-fwF" firstAttribute="top" secondItem="4gh-jb-hZC" secondAttribute="top" constant="50" id="uh2-kR-FHF"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="containerView" destination="y02-Ys-bKF" id="wPK-30-OXF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b89-kU-4vm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2584" y="392"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="XXc-6a-zIy">
+            <objects>
+                <viewController id="R08-bL-vaU" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BOR-uo-Pqg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="uKA-gd-TJs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zgu-Hs-wyR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2584" y="1129"/>
+        </scene>
+        <!--Enroll Certificate Page View Controller-->
+        <scene sceneID="Klt-eD-pPn">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="mMx-Fq-Otf" customClass="EnrollCertificatePageViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gds-Ok-GR8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3532" y="392"/>
         </scene>
         <!--Main-->
         <scene sceneID="ocb-CI-aVx">

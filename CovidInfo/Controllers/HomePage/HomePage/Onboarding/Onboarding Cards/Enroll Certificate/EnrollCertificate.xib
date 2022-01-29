@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IBMPlexSans-Bold.ttf">
+            <string>IBMPlexSans-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnrollCertificateView" customModule="CovidInfo" customModuleProvider="target">
+            <connections>
+                <outlet property="enrollCertificateView" destination="ep2-gP-efl" id="fxJ-99-Xjx"/>
+                <outlet property="lottieAnimationView" destination="ep2-gP-efl" id="nIC-Lk-ZZp"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="364" height="592"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ep2-gP-efl" customClass="AnimationView" customModule="Lottie">
+                    <rect key="frame" x="0.0" y="0.0" width="364" height="531"/>
+                    <color key="backgroundColor" systemColor="systemBrownColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="onboarding4.1"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pozitioneaza codul QR in chenarul de mai sus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2c-aj-CBF">
+                    <rect key="frame" x="9.5" y="551" width="345" height="21"/>
+                    <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemGreenColor"/>
+            <constraints>
+                <constraint firstItem="R2c-aj-CBF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="9.5" id="EiU-mk-Uri"/>
+                <constraint firstItem="ep2-gP-efl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IQ1-32-tey"/>
+                <constraint firstAttribute="trailing" secondItem="ep2-gP-efl" secondAttribute="trailing" id="IxO-Md-yeU"/>
+                <constraint firstAttribute="trailing" secondItem="R2c-aj-CBF" secondAttribute="trailing" constant="9.5" id="W9H-wG-3Op"/>
+                <constraint firstAttribute="bottom" secondItem="R2c-aj-CBF" secondAttribute="bottom" constant="20" id="dii-9O-cbo"/>
+                <constraint firstItem="R2c-aj-CBF" firstAttribute="top" secondItem="ep2-gP-efl" secondAttribute="bottom" constant="20" id="maJ-Z8-RMf"/>
+                <constraint firstItem="R2c-aj-CBF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="w3R-FZ-Kt0"/>
+                <constraint firstItem="ep2-gP-efl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yH8-aO-sWX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="105.07246376811595" y="33.147321428571431"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="ep2-gP-efl"/>
+    </designables>
+    <resources>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

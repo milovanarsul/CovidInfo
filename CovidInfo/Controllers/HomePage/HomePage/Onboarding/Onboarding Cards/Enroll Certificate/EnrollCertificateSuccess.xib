@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IBMPlexSans-Bold.ttf">
+            <string>IBMPlexSans-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnrollCertificateSuccessView" customModule="CovidInfo" customModuleProvider="target">
+            <connections>
+                <outlet property="enrollCertificateSuccessView" destination="BcU-iW-6KD" id="l2f-YK-CTG"/>
+                <outlet property="lottieAnimationView" destination="hcl-2G-kTy" id="9wr-iZ-kbD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="BcU-iW-6KD">
+            <rect key="frame" x="0.0" y="0.0" width="364" height="592"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hcl-2G-kTy" customClass="AnimationView" customModule="Lottie">
+                    <rect key="frame" x="0.0" y="0.0" width="364" height="392"/>
+                    <color key="backgroundColor" systemColor="systemBrownColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="onboarding4.2"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h77-ka-95Q">
+                    <rect key="frame" x="5" y="422" width="354" height="42"/>
+                    <string key="text">Certificatul tau 
+a fost inrolat cu succes!</string>
+                    <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIj-tH-Wda">
+                    <rect key="frame" x="123" y="523.5" width="118.5" height="38.5"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Mai departe">
+                        <backgroundConfiguration key="background" cornerRadius="24"/>
+                        <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
+                        <directionalEdgeInsets key="contentInsets" top="10" leading="20" bottom="10" trailing="20"/>
+                        <color key="baseBackgroundColor" red="0.15600556139999999" green="0.25414842370000001" blue="0.60863798859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </buttonConfiguration>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="e1Q-HS-lfj"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="h77-ka-95Q" firstAttribute="top" secondItem="hcl-2G-kTy" secondAttribute="bottom" constant="30" id="3vZ-fo-cxh"/>
+                <constraint firstAttribute="trailing" secondItem="hcl-2G-kTy" secondAttribute="trailing" id="7Lq-ii-2il"/>
+                <constraint firstItem="h77-ka-95Q" firstAttribute="leading" secondItem="e1Q-HS-lfj" secondAttribute="leading" constant="5" id="7cR-Jv-DuE"/>
+                <constraint firstItem="h77-ka-95Q" firstAttribute="centerX" secondItem="BcU-iW-6KD" secondAttribute="centerX" id="Abu-Vz-ofX"/>
+                <constraint firstItem="e1Q-HS-lfj" firstAttribute="bottom" secondItem="hcl-2G-kTy" secondAttribute="bottom" constant="200" id="BHg-CC-rbP"/>
+                <constraint firstItem="hcl-2G-kTy" firstAttribute="leading" secondItem="BcU-iW-6KD" secondAttribute="leading" id="IOc-Vl-8Mc"/>
+                <constraint firstItem="ZIj-tH-Wda" firstAttribute="centerX" secondItem="BcU-iW-6KD" secondAttribute="centerX" id="KKR-37-F4Y"/>
+                <constraint firstItem="hcl-2G-kTy" firstAttribute="top" secondItem="BcU-iW-6KD" secondAttribute="top" id="LhN-xt-t3H"/>
+                <constraint firstItem="e1Q-HS-lfj" firstAttribute="trailing" secondItem="h77-ka-95Q" secondAttribute="trailing" constant="5" id="axZ-Vl-viK"/>
+                <constraint firstItem="e1Q-HS-lfj" firstAttribute="bottom" secondItem="ZIj-tH-Wda" secondAttribute="bottom" constant="30" id="hWd-Q0-uGd"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="304" y="69"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="hcl-2G-kTy"/>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

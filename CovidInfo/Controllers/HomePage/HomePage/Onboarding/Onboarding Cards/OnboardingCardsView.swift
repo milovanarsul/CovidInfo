@@ -13,24 +13,14 @@ class OnboardingCardsView: UIView {
     @IBOutlet var lottieAnimation: AnimationView!
     @IBOutlet weak var label: UILabel!
     
+    public var lottieAnimationName: String?
+    
     convenience init(lottieAnimationName: String, labelText: String, isLaterButtonEnabled: Bool){
         self.init()
         
-        self.setupLottieAnimation(lottieAnimationName: lottieAnimationName)
+        self.lottieAnimation = setupLottieAnimation(lottieAnimationName: lottieAnimationName, parentView: onboardingCardsView)
+        self.lottieAnimationName = lottieAnimationName
         self.label.text = labelText
-    }
-    
-    public func setupLottieAnimation(lottieAnimationName: String){
-        lottieAnimation = .init(name: lottieAnimationName)
-        
-        lottieAnimation!.frame = onboardingCardsView.bounds
-        lottieAnimation!.contentMode = .scaleAspectFit
-        
-        lottieAnimation!.loopMode = .playOnce
-        lottieAnimation!.animationSpeed = 0.5
-        onboardingCardsView.addSubview(lottieAnimation!)
-        
-        lottieAnimation!.play()
     }
     
     override init(frame: CGRect){
