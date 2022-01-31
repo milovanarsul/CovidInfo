@@ -15,7 +15,7 @@ class EnrollCertificateSuccessView: UIView {
     convenience init(){
         self.init()
         
-        self.lottieAnimationView = setupLottieAnimation(lottieAnimationName: "onboarding4.2", parentView: enrollCertificateSuccessView)
+        //self.lottieAnimationView = setupLottieAnimation(lottieAnimationName: "onboarding4.2", parentView: enrollCertificateSuccessView)
     }
     
     override init(frame: CGRect){

@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 extension UIPageViewController {
-
     func enableSwipeGesture() {
         for view in self.view.subviews {
             if let subView = view as? UIScrollView {
@@ -24,5 +23,12 @@ extension UIPageViewController {
                 subView.isScrollEnabled = false
             }
         }
+    }
+    
+    func goToNextPage(animated: Bool = true, completion: ((Bool) -> Void)? = nil){
+        guard let currentPage = viewControllers?[0] else {return}
+        guard let nextPage = dataSource?.pageViewController(self, viewControllerAfter: currentPage) else {return}
+        
+        setViewControllers([nextPage], direction: .forward, animated: animated, completion: completion)
     }
 }

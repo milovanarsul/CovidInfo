@@ -35,4 +35,13 @@ extension UIView {
     class func initFromNib<T: UIView>() -> T {
             return Bundle.main.loadNibNamed(String(describing: self), owner: nil, options: nil)?[0] as! T
     }
+    
+    func findParentViewController() -> UIViewController?{
+        if let nextResponder = self.next as? UIViewController {
+            return nextResponder
+        } else if let nextResponder = self.next as? UIView {
+            return nextResponder.findParentViewController()
+        }
+        return nil
+    }
 }

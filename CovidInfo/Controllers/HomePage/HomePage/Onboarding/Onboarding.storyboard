@@ -166,53 +166,67 @@ aplicatiei.</string>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="Jfg-Qk-0Vh" kind="embed" id="hs8-WP-hlv"/>
-                                        </connections>
                                     </containerView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8k-nh-YXY">
-                                        <rect key="frame" x="148.5" y="582" width="117.5" height="39"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8PA-XZ-2Bx">
+                                        <rect key="frame" x="148" y="549" width="118.5" height="38.5"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Inroleaza">
+                                        <buttonConfiguration key="configuration" style="plain" title="Mai departe">
                                             <backgroundConfiguration key="background" cornerRadius="24">
-                                                <color key="backgroundColor" red="0.15600556139999999" green="0.25414842370000001" blue="0.60863798859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.18039217590000001" green="0.25490197539999998" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
-                                            <directionalEdgeInsets key="contentInsets" top="10" leading="27" bottom="10" trailing="27"/>
+                                            <directionalEdgeInsets key="contentInsets" top="10" leading="20" bottom="10" trailing="20"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="9Rg-ae-x54" kind="presentation" identifier="setupCertificate" modalPresentationStyle="pageSheet" id="Gyv-kP-OsH"/>
+                                            <action selector="delegateAction:" destination="0AD-Ez-wSr" eventType="touchUpInside" id="N9e-Vs-Id9"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pad-Jw-bcq" userLabel="Creaza cont">
-                                        <rect key="frame" x="141" y="582" width="132" height="39"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jda-wt-ld0">
+                                        <rect key="frame" x="124" y="605.5" width="166.5" height="38.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Inroleaza certificat">
+                                            <backgroundConfiguration key="background" cornerRadius="24">
+                                                <color key="backgroundColor" red="0.18039217590000001" green="0.25490197539999998" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
+                                            <directionalEdgeInsets key="contentInsets" top="10" leading="20" bottom="10" trailing="20"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="9Rg-ae-x54" kind="presentation" identifier="enrollCertificate" modalPresentationStyle="pageSheet" id="MDz-U0-h0W"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddQ-qq-vAS">
+                                        <rect key="frame" x="148" y="605.5" width="118" height="38.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Creaza cont">
                                             <backgroundConfiguration key="background" cornerRadius="24">
-                                                <color key="backgroundColor" red="0.15600556139999999" green="0.25414842370000001" blue="0.60863798859999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.18039217590000001" green="0.25490197539999998" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
-                                            <directionalEdgeInsets key="contentInsets" top="10" leading="27" bottom="10" trailing="27"/>
+                                            <directionalEdgeInsets key="contentInsets" top="10" leading="20" bottom="10" trailing="20"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="R08-bL-vaU" kind="presentation" identifier="setupAccount" modalPresentationStyle="pageSheet" id="kKl-5H-lgx"/>
+                                            <segue destination="R08-bL-vaU" kind="presentation" identifier="createAccount" modalPresentationStyle="pageSheet" id="uLe-Jv-I5i"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="MtP-Fr-LWP" firstAttribute="centerX" secondItem="Ci0-5n-Uak" secondAttribute="centerX" id="065-Xf-2fN"/>
-                                    <constraint firstItem="pad-Jw-bcq" firstAttribute="centerX" secondItem="Ci0-5n-Uak" secondAttribute="centerX" id="GkB-AI-ak6"/>
+                                    <constraint firstItem="8PA-XZ-2Bx" firstAttribute="top" secondItem="MtP-Fr-LWP" secondAttribute="bottom" constant="27" id="EAD-tU-Egs"/>
+                                    <constraint firstItem="ddQ-qq-vAS" firstAttribute="top" secondItem="8PA-XZ-2Bx" secondAttribute="bottom" constant="18" id="Gik-ef-yr3"/>
                                     <constraint firstItem="MtP-Fr-LWP" firstAttribute="leading" secondItem="Ci0-5n-Uak" secondAttribute="leading" id="Smh-Qx-Rov"/>
-                                    <constraint firstItem="pad-Jw-bcq" firstAttribute="top" secondItem="MtP-Fr-LWP" secondAttribute="bottom" constant="60" id="ZVf-ST-Qhg"/>
-                                    <constraint firstItem="U8k-nh-YXY" firstAttribute="top" secondItem="MtP-Fr-LWP" secondAttribute="bottom" constant="60" id="aq8-DQ-7RD"/>
-                                    <constraint firstItem="U8k-nh-YXY" firstAttribute="centerX" secondItem="Ci0-5n-Uak" secondAttribute="centerX" id="etO-JL-W2z"/>
+                                    <constraint firstItem="8PA-XZ-2Bx" firstAttribute="centerX" secondItem="Ci0-5n-Uak" secondAttribute="centerX" id="TdE-sP-BY9"/>
+                                    <constraint firstItem="jda-wt-ld0" firstAttribute="centerX" secondItem="Ci0-5n-Uak" secondAttribute="centerX" id="bk5-hn-hQv"/>
                                     <constraint firstAttribute="bottom" secondItem="MtP-Fr-LWP" secondAttribute="bottom" constant="150" id="jsu-f4-THn"/>
+                                    <constraint firstItem="ddQ-qq-vAS" firstAttribute="centerX" secondItem="Ci0-5n-Uak" secondAttribute="centerX" id="lqR-qk-09r"/>
                                     <constraint firstItem="mR4-zJ-oGa" firstAttribute="top" secondItem="Ci0-5n-Uak" secondAttribute="top" id="m2X-e9-Vkt"/>
                                     <constraint firstItem="MtP-Fr-LWP" firstAttribute="top" secondItem="mR4-zJ-oGa" secondAttribute="bottom" constant="-50" id="mCy-r7-uz0"/>
                                     <constraint firstItem="mR4-zJ-oGa" firstAttribute="leading" secondItem="Ci0-5n-Uak" secondAttribute="leading" constant="30" id="sc4-lE-MGZ"/>
+                                    <constraint firstItem="jda-wt-ld0" firstAttribute="top" secondItem="8PA-XZ-2Bx" secondAttribute="bottom" constant="18" id="v9D-81-etb"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
@@ -225,15 +239,22 @@ aplicatiei.</string>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="1WR-ct-ekv">
+                                <rect key="frame" x="132" y="73" width="150.5" height="26"/>
+                                <color key="pageIndicatorTintColor" red="0.18039217590000001" green="0.25490197539999998" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="currentPageIndicatorTintColor" red="0.59607845540000004" green="0.69803923369999998" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hsW-U3-rl3"/>
                         <color key="backgroundColor" red="0.92156863209999995" green="0.96470588450000005" blue="0.98823523520000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Ci0-5n-Uak" firstAttribute="leading" secondItem="hsW-U3-rl3" secondAttribute="leading" id="Ace-xS-jEi"/>
                             <constraint firstItem="ORa-yv-vwI" firstAttribute="centerX" secondItem="kWJ-n4-Oc9" secondAttribute="centerX" id="K6q-FQ-ojd"/>
+                            <constraint firstItem="1WR-ct-ekv" firstAttribute="centerX" secondItem="kWJ-n4-Oc9" secondAttribute="centerX" id="NBl-XU-s5E"/>
                             <constraint firstItem="ORa-yv-vwI" firstAttribute="centerY" secondItem="kWJ-n4-Oc9" secondAttribute="centerY" id="OEX-6B-mup"/>
                             <constraint firstItem="Ci0-5n-Uak" firstAttribute="centerY" secondItem="kWJ-n4-Oc9" secondAttribute="centerY" id="TbP-Bu-0XW"/>
                             <constraint firstItem="Ci0-5n-Uak" firstAttribute="height" secondItem="kWJ-n4-Oc9" secondAttribute="height" multiplier="0.75" id="gbr-dJ-9ha"/>
+                            <constraint firstItem="Ci0-5n-Uak" firstAttribute="top" secondItem="1WR-ct-ekv" secondAttribute="bottom" constant="13" id="mYm-8S-Kub"/>
                             <constraint firstItem="ORa-yv-vwI" firstAttribute="height" secondItem="kWJ-n4-Oc9" secondAttribute="height" multiplier="0.5" id="o6e-qT-1os"/>
                             <constraint firstItem="ORa-yv-vwI" firstAttribute="leading" secondItem="hsW-U3-rl3" secondAttribute="leading" id="yl0-P7-fQ8"/>
                             <constraint firstItem="Ci0-5n-Uak" firstAttribute="centerX" secondItem="kWJ-n4-Oc9" secondAttribute="centerX" id="zTO-dv-IY5"/>
@@ -244,22 +265,34 @@ aplicatiei.</string>
                     <connections>
                         <outlet property="blankWelcomeView" destination="ORa-yv-vwI" id="yzW-PG-T3T"/>
                         <outlet property="blankWelcomeViewHeightConstraint" destination="o6e-qT-1os" id="J38-6c-sqo"/>
-                        <outlet property="createAccountButton" destination="pad-Jw-bcq" id="hQR-hk-CVf"/>
-                        <outlet property="enrollCertificateButton" destination="U8k-nh-YXY" id="Ajt-2A-B26"/>
+                        <outlet property="containerView" destination="MtP-Fr-LWP" id="CVA-hQ-RgL"/>
+                        <outlet property="createAccountButton" destination="ddQ-qq-vAS" id="yis-PP-rZi"/>
+                        <outlet property="enrollCertificateButton" destination="jda-wt-ld0" id="Gwf-Z9-k5p"/>
                         <outlet property="generalView" destination="Ci0-5n-Uak" id="DRA-2f-0ea"/>
+                        <outlet property="nextButton" destination="8PA-XZ-2Bx" id="cHr-BB-DQN"/>
+                        <outlet property="pageController" destination="1WR-ct-ekv" id="0f6-xd-udm"/>
+                        <segue destination="WDv-GO-Jtb" kind="presentation" identifier="onboardingComplete" animates="NO" modalPresentationStyle="fullScreen" id="D96-KR-9AQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QbB-Mr-4sx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1403" y="376"/>
         </scene>
+        <!--Main-->
+        <scene sceneID="VdG-f8-a7W">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="WDv-GO-Jtb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G05-bs-apH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2175" y="611"/>
+        </scene>
         <!--General Onboarding Page View Controller-->
         <scene sceneID="Zls-Mg-VtU">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Jfg-Qk-0Vh" customClass="GeneralOnboardingPageViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOS-2m-1G0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pageViewController storyboardIdentifier="generalOnboardingPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Jfg-Qk-0Vh" customClass="GeneralOnboardingPageViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController"/>
             </objects>
-            <point key="canvasLocation" x="2584" y="-216"/>
+            <point key="canvasLocation" x="2352" y="81"/>
         </scene>
         <!--Enroll Certificate View Controller-->
         <scene sceneID="YbV-xK-b9w">
@@ -308,7 +341,7 @@ aplicatiei.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b89-kU-4vm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2584" y="392"/>
+            <point key="canvasLocation" x="2175" y="1167"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="XXc-6a-zIy">
@@ -324,7 +357,7 @@ aplicatiei.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zgu-Hs-wyR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2584" y="1129"/>
+            <point key="canvasLocation" x="759" y="1167"/>
         </scene>
         <!--Enroll Certificate Page View Controller-->
         <scene sceneID="Klt-eD-pPn">
@@ -332,7 +365,7 @@ aplicatiei.</string>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="mMx-Fq-Otf" customClass="EnrollCertificatePageViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gds-Ok-GR8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3532" y="392"/>
+            <point key="canvasLocation" x="3058" y="1167"/>
         </scene>
         <!--Main-->
         <scene sceneID="ocb-CI-aVx">
@@ -340,7 +373,7 @@ aplicatiei.</string>
                 <viewControllerPlaceholder storyboardName="Main" id="r7e-pd-KNR" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o0N-iu-L2w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1146" y="-283"/>
+            <point key="canvasLocation" x="1146" y="-285"/>
         </scene>
     </scenes>
     <resources>

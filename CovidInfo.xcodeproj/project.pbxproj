@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		67F7BE5CD5454C3CBF81828E /* Pods_CovidInfo_CovidInfoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F04C8285BE7B316841493C3 /* Pods_CovidInfo_CovidInfoUITests.framework */; };
 		7343CDF72127C92F38A5463A /* Pods_CovidInfoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927C608C5635441DBEB08338 /* Pods_CovidInfoTests.framework */; };
+		B236F7AB27A7ED6A00C18962 /* OnboardingViewControllersEmbedder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236F7AA27A7ED6A00C18962 /* OnboardingViewControllersEmbedder.swift */; };
 		B25AD33927A30B50009EAD38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33827A30B50009EAD38 /* UIView.swift */; };
 		B25AD33B27A30B6C009EAD38 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33A27A30B6C009EAD38 /* UIStoryboard.swift */; };
 		B268FF7E27A53FD80083A450 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B268FF7D27A53FD80083A450 /* NSLayoutConstraint.swift */; };
@@ -36,6 +37,7 @@
 		B2B5A9B52790939500FC4E61 /* onboarding4.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AE2790939500FC4E61 /* onboarding4.json */; };
 		B2B5A9B62790939500FC4E61 /* onboarding5.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AF2790939500FC4E61 /* onboarding5.json */; };
 		B2CA7F5927A2A649009E4FE6 /* LottieAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA7F5827A2A649009E4FE6 /* LottieAnimations.swift */; };
+		B2CF478F27A7DBF6005F8636 /* OnboardingDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CF478E27A7DBF6005F8636 /* OnboardingDelegates.swift */; };
 		B2E6740F27A51E8900F283B7 /* Triaj.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E6740E27A51E8900F283B7 /* Triaj.storyboard */; };
 		B2E6741127A51E9500F283B7 /* TriajViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6741027A51E9500F283B7 /* TriajViewController.swift */; };
 		B2E6741327A51EE800F283B7 /* TriajPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6741227A51EE800F283B7 /* TriajPageViewController.swift */; };
@@ -99,6 +101,7 @@
 		5ED1ACAC0B5BCABB0912F760 /* Pods-CovidInfo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfo.debug.xcconfig"; path = "Target Support Files/Pods-CovidInfo/Pods-CovidInfo.debug.xcconfig"; sourceTree = "<group>"; };
 		6093B6C73F5FDA01AB286717 /* Pods-CovidInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfo.release.xcconfig"; path = "Target Support Files/Pods-CovidInfo/Pods-CovidInfo.release.xcconfig"; sourceTree = "<group>"; };
 		927C608C5635441DBEB08338 /* Pods_CovidInfoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidInfoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B236F7AA27A7ED6A00C18962 /* OnboardingViewControllersEmbedder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllersEmbedder.swift; sourceTree = "<group>"; };
 		B25AD33827A30B50009EAD38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B25AD33A27A30B6C009EAD38 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		B268FF7D27A53FD80083A450 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
@@ -126,6 +129,7 @@
 		B2B5A9AE2790939500FC4E61 /* onboarding4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding4.json; sourceTree = "<group>"; };
 		B2B5A9AF2790939500FC4E61 /* onboarding5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding5.json; sourceTree = "<group>"; };
 		B2CA7F5827A2A649009E4FE6 /* LottieAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimations.swift; sourceTree = "<group>"; };
+		B2CF478E27A7DBF6005F8636 /* OnboardingDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDelegates.swift; sourceTree = "<group>"; };
 		B2E6740E27A51E8900F283B7 /* Triaj.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Triaj.storyboard; sourceTree = "<group>"; };
 		B2E6741027A51E9500F283B7 /* TriajViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriajViewController.swift; sourceTree = "<group>"; };
 		B2E6741227A51EE800F283B7 /* TriajPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriajPageViewController.swift; sourceTree = "<group>"; };
@@ -250,6 +254,7 @@
 			children = (
 				B2F650F2278F2BD900E1BB58 /* AppDelegate.swift */,
 				B2F650F4278F2BD900E1BB58 /* SceneDelegate.swift */,
+				B2CF478E27A7DBF6005F8636 /* OnboardingDelegates.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 				B25AD33727A30B3D009EAD38 /* Extensions */,
 				B2CA7F5827A2A649009E4FE6 /* LottieAnimations.swift */,
 				B2902ED627A5C6430008338D /* NibControllers.swift */,
+				B236F7AA27A7ED6A00C18962 /* OnboardingViewControllersEmbedder.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -734,6 +740,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2CF478F27A7DBF6005F8636 /* OnboardingDelegates.swift in Sources */,
 				B2E6742127A53AC900F283B7 /* GeneralOnboardingViewController.swift in Sources */,
 				B25AD33B27A30B6C009EAD38 /* UIStoryboard.swift in Sources */,
 				B2E6741127A51E9500F283B7 /* TriajViewController.swift in Sources */,
@@ -745,6 +752,7 @@
 				B2E6741327A51EE800F283B7 /* TriajPageViewController.swift in Sources */,
 				B268FF8327A549C40083A450 /* GeneralOnboardingPageViewController.swift in Sources */,
 				B2E6741F27A5334200F283B7 /* WelcomeOnboardingViewController.swift in Sources */,
+				B236F7AB27A7ED6A00C18962 /* OnboardingViewControllersEmbedder.swift in Sources */,
 				B2F650F5278F2BD900E1BB58 /* SceneDelegate.swift in Sources */,
 				B2902EDB27A5C8B50008338D /* EnrollCertificateView.swift in Sources */,
 				B268FF7E27A53FD80083A450 /* NSLayoutConstraint.swift in Sources */,

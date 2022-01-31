@@ -15,12 +15,24 @@ class OnboardingCardsView: UIView {
     
     public var lottieAnimationName: String?
     
-    convenience init(lottieAnimationName: String, labelText: String, isLaterButtonEnabled: Bool){
+    convenience init(lottieAnimationName: String, labelText: String){
         self.init()
         
-        self.lottieAnimation = setupLottieAnimation(lottieAnimationName: lottieAnimationName, parentView: onboardingCardsView)
         self.lottieAnimationName = lottieAnimationName
         self.label.text = labelText
+    }
+    
+    func lottieAnimationOnboarding(){
+        lottieAnimation = .init(name: "onboarding1")
+        
+        lottieAnimation.frame = self.bounds
+        lottieAnimation.contentMode = .scaleAspectFit
+        
+        lottieAnimation.loopMode = .playOnce
+        lottieAnimation.animationSpeed = 0.5
+        self.addSubview(lottieAnimation)
+        
+        lottieAnimation.play()
     }
     
     override init(frame: CGRect){
@@ -38,5 +50,15 @@ class OnboardingCardsView: UIView {
         onboardingCardsView.frame = self.bounds
         onboardingCardsView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(onboardingCardsView)
+    }
+}
+
+extension OnboardingCardsView: LottieAnimationDelegate{
+    func startAnimation() {
+        lottieAnimationOnboarding()
+    }
+    
+    func test(){
+        print("Delegate works!")
     }
 }

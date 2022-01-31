@@ -7,9 +7,11 @@
 
 import UIKit
 
-class GeneralOnboardingPageViewController: UIPageViewController, UIPageViewControllerDataSource{
+class GeneralOnboardingPageViewController: UIPageViewController{
     
     fileprivate var cards: [UIViewController] = []
+    var laterButtonDelegate: OnboardingViewControllerToOnboardingPageViewController!
+    var lottieAnimationDelegate: LottieAnimationDelegate!
     
     var currentIndex: Int {
         guard let currentViewController = viewControllers?.first else {return 0}
@@ -20,42 +22,40 @@ class GeneralOnboardingPageViewController: UIPageViewController, UIPageViewContr
         super.viewDidLoad()
         
         dataSource = self
+        delegate = self
         createViewControllers()
         if let firstViewController = cards.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
+        
+        disableSwipeGesture()
     }
     
     fileprivate func createViewControllers(){
         let onboardingData = onboardingDataArray
         
         for data in onboardingData{
-            let viewController = createOnboardingCard(with: data.getLottieAnimation(), with: data.getLabelText(), isLaterButtonEnabled: data.getIsLaterButtonEnabled())
+            let viewController = createOnboardingCard(with: data.getLottieAnimation(), with: data.getLabelText())
             cards.append(viewController)
         }
     }
     
-    func presentationCount(for _: UIPageViewController) -> Int {
-            return cards.count
-    }
-        
-    func presentationIndex(for _: UIPageViewController) -> Int {
-        guard
-            let firstViewController = viewControllers?.first,
-            let firstViewControllerIndex = cards.firstIndex(of: firstViewController) else {return 0}
-        
-        return firstViewControllerIndex
-    }
-    
-    fileprivate func createOnboardingCard(with lottieAnimationName: String, with labelText: String, isLaterButtonEnabled: Bool) -> UIViewController{
+    fileprivate func createOnboardingCard(with lottieAnimationName: String, with labelText: String) -> UIViewController{
         let onboardingCard = UIViewController()
-        let onboardingCardView = OnboardingCardsView(lottieAnimationName: lottieAnimationName, labelText: labelText, isLaterButtonEnabled: isLaterButtonEnabled)
+        let onboardingCardView = OnboardingCardsView(lottieAnimationName: lottieAnimationName, labelText: labelText)
+        //onboardingCardView.generalOnboardingDelegate = self
         onboardingCard.view = onboardingCardView
         return onboardingCard
     }
-    
-    let enrollCertificateButton = UIButton()
-    
+}
+
+extension GeneralOnboardingPageViewController: OnboardingPageViewControllerToOnboardingViewController{
+    func nextButtonIsTapped() {
+        goToNextPage()
+    }
+}
+
+extension GeneralOnboardingPageViewController: UIPageViewControllerDataSource{
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         guard let viewControllerIndex = cards.firstIndex(of: viewController) else {return nil} //currentIndex
@@ -69,7 +69,6 @@ class GeneralOnboardingPageViewController: UIPageViewController, UIPageViewContr
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        let generalOnboardingViewController = GeneralOnboardingViewController()
         guard let viewControllerIndex = cards.firstIndex(of: viewController) else {return nil}
         
         let nextIndex = viewControllerIndex + 1
@@ -77,7 +76,26 @@ class GeneralOnboardingPageViewController: UIPageViewController, UIPageViewContr
         
         guard cards.count > nextIndex else {return nil}
         
+        //actions for delegates go here
+        if viewControllerIndex == 2{
+            laterButtonDelegate.showEnrollCertificateButton(show: true)
+        }
         
+        if viewControllerIndex == 3{
+            laterButtonDelegate.showCreateAccountButton(show: true)
+        }
+        
+        lottieAnimationDelegate.test()
         return cards[nextIndex]
+    }
+}
+
+extension GeneralOnboardingPageViewController: UIPageViewControllerDelegate{
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        
+        guard let viewControllers = pageViewController.viewControllers else {return}
+        guard let currentIndex = cards.firstIndex(of: viewControllers[0]) else {return}
+        
+        _ = currentIndex
     }
 }
