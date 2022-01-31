@@ -19,8 +19,8 @@ class GeneralOnboardingViewController: UIViewController {
     @IBOutlet var animationView: UIView!
     
     var nextButtonOnboardingDelegate: OnboardingPageViewControllerToOnboardingViewController!
-    
     var pageControllerIndex = 0
+    private var lottieAnimationView: AnimationView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +37,9 @@ class GeneralOnboardingViewController: UIViewController {
     }
     
     func setupLottieAnimation(lottieAnimationName: String){
-        var lottieAnimationView: AnimationView?
-        
         lottieAnimationView = .init(name: lottieAnimationName)
-        lottieAnimationView!.contentMode = .scaleAspectFit
+        lottieAnimationView!.frame = animationView.bounds
+        lottieAnimationView!.contentMode = .scaleAspectFill
         lottieAnimationView!.loopMode = .playOnce
         lottieAnimationView!.animationSpeed = 0.5
         
@@ -58,7 +57,7 @@ class GeneralOnboardingViewController: UIViewController {
             nextButtonOnboardingDelegate.nextButtonIsTapped()
             self.pageControllerIndex += 1
             self.pageController.currentPage = self.pageControllerIndex
-            //lottieAnimationView.stop()
+            lottieAnimationView?.removeFromSuperview()
             setupLottieAnimation(lottieAnimationName: onboardingDataArray[pageControllerIndex].getLottieAnimation())
         } else{
             performSegue(withIdentifier: "onboardingComplete", sender: nil)
@@ -76,23 +75,27 @@ class GeneralOnboardingViewController: UIViewController {
         }, completion: {(finished: Bool) in
             self.generalView.isHidden = false
             self.blankWelcomeView.isHidden = true
+            //self.pageController.isHidden = false
         })
     }
+    
+    let changedTitle = NSMutableAttributedString(string: "Mai tarziu", attributes: [
+        NSMutableAttributedString.Key.font: UIFont(name: "IBMPLexSans-Bold", size: 14) as Any,
+        NSMutableAttributedString.Key.foregroundColor: UIColor.white
+    ])
 }
 
 extension GeneralOnboardingViewController: OnboardingViewControllerToOnboardingPageViewController{
     func showEnrollCertificateButton(show: Bool) {
         self.createAccountButton.isHidden = show
         self.enrollCertificateButton.isHidden = !show
-        //self.nextButton.titleLabel?.text = "Mai tarziu"
-        self.nextButton.setTitle("Mai tarziu", for: .normal)
+        self.nextButton.setAttributedTitle(changedTitle, for: .normal)
     }
     
     func showCreateAccountButton(show: Bool) {
         self.enrollCertificateButton.isHidden = show
         self.createAccountButton.isHidden = !show
-        //self.nextButton.titleLabel?.text = "Mai tarziu"
-        self.nextButton.setTitle("Mai tarziu", for: .normal)
+        self.nextButton.setAttributedTitle(changedTitle, for: .normal)
     }
     
     func test(){

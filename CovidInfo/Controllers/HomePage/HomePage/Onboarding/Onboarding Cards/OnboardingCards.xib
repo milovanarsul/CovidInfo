@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMK-y7-B9F">
-                    <rect key="frame" x="20" y="30" width="354" height="111"/>
+                    <rect key="frame" x="60" y="30" width="274" height="111"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -32,11 +32,11 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="IMK-y7-B9F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="6J1-7d-NLu"/>
-                <constraint firstItem="IMK-y7-B9F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="G3o-sf-SUG"/>
+                <constraint firstItem="IMK-y7-B9F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="G3o-sf-SUG"/>
                 <constraint firstAttribute="bottom" secondItem="IMK-y7-B9F" secondAttribute="bottom" constant="30" id="ILc-aU-gQc"/>
                 <constraint firstItem="IMK-y7-B9F" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Mke-Vu-16h"/>
                 <constraint firstItem="IMK-y7-B9F" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="kNq-ya-KD2"/>
-                <constraint firstAttribute="trailing" secondItem="IMK-y7-B9F" secondAttribute="trailing" constant="20" id="nbO-1o-ULF"/>
+                <constraint firstAttribute="trailing" secondItem="IMK-y7-B9F" secondAttribute="trailing" constant="60" id="nbO-1o-ULF"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
