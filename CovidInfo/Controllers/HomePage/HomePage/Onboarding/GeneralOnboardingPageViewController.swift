@@ -11,7 +11,6 @@ class GeneralOnboardingPageViewController: UIPageViewController{
     
     fileprivate var cards: [UIViewController] = []
     var laterButtonDelegate: OnboardingViewControllerToOnboardingPageViewController!
-    var lottieAnimationDelegate: LottieAnimationDelegate!
     
     var currentIndex: Int {
         guard let currentViewController = viewControllers?.first else {return 0}
@@ -35,14 +34,14 @@ class GeneralOnboardingPageViewController: UIPageViewController{
         let onboardingData = onboardingDataArray
         
         for data in onboardingData{
-            let viewController = createOnboardingCard(with: data.getLottieAnimation(), with: data.getLabelText())
+            let viewController = createOnboardingCard(with: data.getLabelText())
             cards.append(viewController)
         }
     }
     
-    fileprivate func createOnboardingCard(with lottieAnimationName: String, with labelText: String) -> UIViewController{
+    fileprivate func createOnboardingCard(with labelText: String) -> UIViewController{
         let onboardingCard = UIViewController()
-        let onboardingCardView = OnboardingCardsView(lottieAnimationName: lottieAnimationName, labelText: labelText)
+        let onboardingCardView = OnboardingCardsView(labelText: labelText)
         //onboardingCardView.generalOnboardingDelegate = self
         onboardingCard.view = onboardingCardView
         return onboardingCard
@@ -84,8 +83,8 @@ extension GeneralOnboardingPageViewController: UIPageViewControllerDataSource{
         if viewControllerIndex == 3{
             laterButtonDelegate.showCreateAccountButton(show: true)
         }
+    
         
-        lottieAnimationDelegate.test()
         return cards[nextIndex]
     }
 }

@@ -27,7 +27,7 @@ public extension AnimationView {
     let provider = imageProvider ?? BundleImageProvider(bundle: bundle, searchPath: nil)
     self.init(animation: animation, imageProvider: provider)
   }
-  
+    
   /**
    Loads a Lottie animation from a JSON file in a specific path on disk.
    

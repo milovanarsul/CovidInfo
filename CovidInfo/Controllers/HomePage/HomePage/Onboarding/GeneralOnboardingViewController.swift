@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class GeneralOnboardingViewController: UIViewController {
     @IBOutlet weak var generalView: UIView!
@@ -15,11 +16,11 @@ class GeneralOnboardingViewController: UIViewController {
     @IBOutlet var enrollCertificateButton: UIButton!
     @IBOutlet var createAccountButton: UIButton!
     @IBOutlet var containerView: UIView!
+    @IBOutlet var animationView: UIView!
     
     var nextButtonOnboardingDelegate: OnboardingPageViewControllerToOnboardingViewController!
-    var lottieAnimationDelegate: LottieAnimationDelegate!
-    
     var pageControllerIndex = 0
+    private var lottieAnimationView: AnimationView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +28,23 @@ class GeneralOnboardingViewController: UIViewController {
         let embedPageViewController = OnboardingViewControllersEmbedder()
         embedPageViewController.embed(withIdentifier: "generalOnboardingPageViewController", parent: self, container: self.containerView, completion: nil)
         setupPageController()
-        //lottieAnimationDelegate.startAnimation()
+        setupLottieAnimation(lottieAnimationName: onboardingDataArray[pageControllerIndex].getLottieAnimation())
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setupAnimation()
         self.view.layoutIfNeeded()
+    }
+    
+    func setupLottieAnimation(lottieAnimationName: String){
+        lottieAnimationView = .init(name: lottieAnimationName)
+        lottieAnimationView!.frame = animationView.bounds
+        lottieAnimationView!.contentMode = .scaleAspectFill
+        lottieAnimationView!.loopMode = .playOnce
+        lottieAnimationView!.animationSpeed = 0.5
+        
+        animationView.addSubview(lottieAnimationView!)
+        lottieAnimationView!.play()
     }
     
     func setupPageController(){
@@ -45,6 +57,8 @@ class GeneralOnboardingViewController: UIViewController {
             nextButtonOnboardingDelegate.nextButtonIsTapped()
             self.pageControllerIndex += 1
             self.pageController.currentPage = self.pageControllerIndex
+            lottieAnimationView?.removeFromSuperview()
+            setupLottieAnimation(lottieAnimationName: onboardingDataArray[pageControllerIndex].getLottieAnimation())
         } else{
             performSegue(withIdentifier: "onboardingComplete", sender: nil)
         }
@@ -61,23 +75,27 @@ class GeneralOnboardingViewController: UIViewController {
         }, completion: {(finished: Bool) in
             self.generalView.isHidden = false
             self.blankWelcomeView.isHidden = true
+            //self.pageController.isHidden = false
         })
     }
+    
+    let changedTitle = NSMutableAttributedString(string: "Mai tarziu", attributes: [
+        NSMutableAttributedString.Key.font: UIFont(name: "IBMPLexSans-Bold", size: 14) as Any,
+        NSMutableAttributedString.Key.foregroundColor: UIColor.white
+    ])
 }
 
 extension GeneralOnboardingViewController: OnboardingViewControllerToOnboardingPageViewController{
     func showEnrollCertificateButton(show: Bool) {
         self.createAccountButton.isHidden = show
         self.enrollCertificateButton.isHidden = !show
-        //self.nextButton.titleLabel?.text = "Mai tarziu"
-        self.nextButton.setTitle("Mai tarziu", for: .normal)
+        self.nextButton.setAttributedTitle(changedTitle, for: .normal)
     }
     
     func showCreateAccountButton(show: Bool) {
         self.enrollCertificateButton.isHidden = show
         self.createAccountButton.isHidden = !show
-        //self.nextButton.titleLabel?.text = "Mai tarziu"
-        self.nextButton.setTitle("Mai tarziu", for: .normal)
+        self.nextButton.setAttributedTitle(changedTitle, for: .normal)
     }
     
     func test(){
