@@ -1,13 +1,13 @@
 //
-//  TriajPageViewController.swift
+//  HomePageViewController.swift
 //  CovidInfo
 //
-//  Created by Milovan Arsul on 29.01.2022.
+//  Created by Milovan Arsul on 31.01.2022.
 //
 
 import UIKit
 
-class TriajPageViewController: UIPageViewController {
+class HomePageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

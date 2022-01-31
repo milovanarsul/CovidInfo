@@ -91,7 +91,7 @@ class GeneralOnboardingViewController: UIViewController {
         onboardingFinished.isHidden = false
         
         finishedOnboardingViewBottomConstraint.constant = -3
-        finishedOnboardingViewTopConstraint.constant = 60
+        finishedOnboardingViewTopConstraint.constant = 80
         
         UIView.animate(withDuration: 0.9, delay: 0, options: [], animations: {
             self.onboardingFinished.layoutIfNeeded()
@@ -100,24 +100,19 @@ class GeneralOnboardingViewController: UIViewController {
             self.performSegue(withIdentifier: "onboardingComplete", sender: nil)
         })
     }
-    
-    let changedTitle = NSMutableAttributedString(string: "Mai tarziu", attributes: [
-        NSMutableAttributedString.Key.font: UIFont(name: "IBMPLexSans-Bold", size: 14) as Any,
-        NSMutableAttributedString.Key.foregroundColor: UIColor.white
-    ])
 }
 
 extension GeneralOnboardingViewController: OnboardingViewControllerToOnboardingPageViewController{
     func showEnrollCertificateButton(show: Bool) {
         self.createAccountButton.isHidden = show
         self.enrollCertificateButton.isHidden = !show
-        self.nextButton.setAttributedTitle(changedTitle, for: .normal)
+        self.nextButton.setAttributedTitle(changeButtonTitle(title: "Mai tarziu", font: "IBMPlexSans-Bold", fontSize: 14, color: UIColor.white), for: .normal)
     }
     
     func showCreateAccountButton(show: Bool) {
         self.enrollCertificateButton.isHidden = show
         self.createAccountButton.isHidden = !show
-        self.nextButton.setAttributedTitle(changedTitle, for: .normal)
+        self.nextButton.setAttributedTitle(changeButtonTitle(title: "Mai tarziu", font: "IBMPlexSans-Bold", fontSize: 14, color: UIColor.white), for: .normal)
     }
     
     func test(){
