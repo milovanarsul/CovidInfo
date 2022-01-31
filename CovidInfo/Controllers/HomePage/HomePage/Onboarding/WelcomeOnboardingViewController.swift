@@ -12,6 +12,8 @@ class WelcomeOnboardingViewController: UIViewController {
 
     @IBOutlet weak var welcomeView: UIView!
     @IBOutlet weak var blankIconView: UIView!
+    @IBOutlet var viewBackground: UIImageView!
+    @IBOutlet var skipOnboarding: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,29 @@ class WelcomeOnboardingViewController: UIViewController {
         }, completion: { (finished: Bool) in
             self.welcomeView.isHidden = false
             self.blankIconView.isHidden = true
+        })
+    }
+    
+    @IBAction func omiteTutorialulPressed(_ sender: Any) {
+        skipOnboardingAnimation()
+    }
+    
+    @IBOutlet var skipOnboardingViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var skipOnboardingViewTopConstraint: NSLayoutConstraint!
+    
+    private func skipOnboardingAnimation(){
+        self.viewBackground.isHidden = true
+        self.welcomeView.isHidden = true
+        self.skipOnboarding.isHidden = false
+        
+        self.skipOnboardingViewBottomConstraint.constant = -3
+        self.skipOnboardingViewTopConstraint.constant = 60
+        
+        UIView.animate(withDuration: 0.9, delay: 0, options: [], animations: {
+            self.skipOnboarding.layoutIfNeeded()
+            self.view.layoutIfNeeded()
+        }, completion: { (finished: Bool) in
+            self.performSegue(withIdentifier: "onboardingSkipped", sender: nil)
         })
     }
 }

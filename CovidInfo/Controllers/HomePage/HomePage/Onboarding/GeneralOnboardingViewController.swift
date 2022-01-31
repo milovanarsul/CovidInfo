@@ -17,6 +17,8 @@ class GeneralOnboardingViewController: UIViewController {
     @IBOutlet var createAccountButton: UIButton!
     @IBOutlet var containerView: UIView!
     @IBOutlet var animationView: UIView!
+    @IBOutlet var onboardingFinished: UIView!
+    @IBOutlet var parentView: UIView!
     
     var nextButtonOnboardingDelegate: OnboardingPageViewControllerToOnboardingViewController!
     var pageControllerIndex = 0
@@ -60,7 +62,7 @@ class GeneralOnboardingViewController: UIViewController {
             lottieAnimationView?.removeFromSuperview()
             setupLottieAnimation(lottieAnimationName: onboardingDataArray[pageControllerIndex].getLottieAnimation())
         } else{
-            performSegue(withIdentifier: "onboardingComplete", sender: nil)
+            setupFinsihedOnboardingAnimation()
         }
     }
     
@@ -76,6 +78,26 @@ class GeneralOnboardingViewController: UIViewController {
             self.generalView.isHidden = false
             self.blankWelcomeView.isHidden = true
             //self.pageController.isHidden = false
+        })
+    }
+    
+    @IBOutlet var finishedOnboardingViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var finishedOnboardingViewTopConstraint: NSLayoutConstraint!
+    
+    private func setupFinsihedOnboardingAnimation(){
+        pageController.isHidden = true
+        generalView.isHidden = true
+        parentView.backgroundColor = .white
+        onboardingFinished.isHidden = false
+        
+        finishedOnboardingViewBottomConstraint.constant = -3
+        finishedOnboardingViewTopConstraint.constant = 60
+        
+        UIView.animate(withDuration: 0.9, delay: 0, options: [], animations: {
+            self.onboardingFinished.layoutIfNeeded()
+            self.view.layoutIfNeeded()
+        }, completion: { (finished: Bool) in
+            self.performSegue(withIdentifier: "onboardingComplete", sender: nil)
         })
     }
     

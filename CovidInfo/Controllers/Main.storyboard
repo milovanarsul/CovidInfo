@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,12 +14,40 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4V7-IP-rer">
+                                <rect key="frame" x="0.0" y="104" width="414" height="795"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hus-bU-ri2">
+                                        <rect key="frame" x="157" y="382" width="100" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Onboarding"/>
+                                        <connections>
+                                            <segue destination="QO2-Mm-IJZ" kind="presentation" modalPresentationStyle="fullScreen" id="HE3-6n-zXy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Hus-bU-ri2" firstAttribute="centerY" secondItem="4V7-IP-rer" secondAttribute="centerY" id="IxJ-Q5-lgh"/>
+                                    <constraint firstItem="Hus-bU-ri2" firstAttribute="centerX" secondItem="4V7-IP-rer" secondAttribute="centerX" id="Yiw-r5-BVa"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="4V7-IP-rer" secondAttribute="bottom" constant="-3" id="4LZ-XS-FwM"/>
+                            <constraint firstItem="4V7-IP-rer" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="T8j-VQ-fXL"/>
+                            <constraint firstItem="4V7-IP-rer" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="60" id="ha2-l7-yTQ"/>
+                            <constraint firstItem="4V7-IP-rer" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="q03-yL-uoR"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="QO2-Mm-IJZ" kind="presentation" identifier="toOnboarding" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="mm5-9C-RJh"/>
-                        <segue destination="97W-Nd-llu" kind="presentation" identifier="toHomePage" animates="NO" modalPresentationStyle="fullScreen" id="emW-je-7Mb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -44,9 +71,7 @@
             <point key="canvasLocation" x="890" y="364"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="HE3-6n-zXy"/>
+    </inferredMetricsTieBreakers>
 </document>

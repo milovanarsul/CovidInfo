@@ -23,6 +23,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="I9j-Vv-JOy">
                                 <rect key="frame" x="0.0" y="-3" width="414" height="902"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ad3-Ag-QNh">
                                 <rect key="frame" x="0.0" y="224" width="414" height="448"/>
@@ -63,7 +64,7 @@ aplicatiei.</string>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <segue destination="r7e-pd-KNR" kind="presentation" identifier="toMain" animates="NO" modalPresentationStyle="fullScreen" id="o6u-H9-gNp"/>
+                                                    <action selector="omiteTutorialulPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="D3B-0V-Hqq"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fh8-Z7-zwv">
@@ -104,6 +105,13 @@ aplicatiei.</string>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCx-jY-On4">
+                                <rect key="frame" x="0.0" y="224" width="414" height="448"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yv3-GW-WxX" userLabel="blankIcon">
                                 <rect key="frame" x="155" y="384" width="104" height="138"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -125,8 +133,12 @@ aplicatiei.</string>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="I9j-Vv-JOy" secondAttribute="trailing" id="Vll-5m-YtD"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yv3-GW-WxX" secondAttribute="trailing" constant="155" id="X9h-CL-6Uf"/>
                             <constraint firstItem="ad3-Ag-QNh" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.5" id="dUI-Xc-QlR"/>
+                            <constraint firstItem="eCx-jY-On4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="l4b-hH-tZe"/>
+                            <constraint firstItem="eCx-jY-On4" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="180" id="m5i-Sa-65J"/>
                             <constraint firstItem="ad3-Ag-QNh" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="pkf-xN-Gob"/>
+                            <constraint firstItem="eCx-jY-On4" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="sIP-zo-EtO"/>
                             <constraint firstAttribute="bottom" secondItem="I9j-Vv-JOy" secondAttribute="bottom" constant="-3" id="xaE-l0-rJ4"/>
+                            <constraint firstAttribute="bottom" secondItem="eCx-jY-On4" secondAttribute="bottom" constant="224" id="zeF-Vi-7Fh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -135,7 +147,12 @@ aplicatiei.</string>
                         <outlet property="blankIconViewLeadinConstraint" destination="V1i-P1-YO4" id="Udm-hx-XAS"/>
                         <outlet property="blankIconViewTopConstraint" destination="SLD-LV-gJ6" id="ofa-6M-gPr"/>
                         <outlet property="blankIconViewTrailingConstraint" destination="X9h-CL-6Uf" id="LJy-Pv-kdk"/>
+                        <outlet property="skipOnboarding" destination="eCx-jY-On4" id="8R9-pc-Jqx"/>
+                        <outlet property="skipOnboardingViewBottomConstraint" destination="zeF-Vi-7Fh" id="etd-so-zyl"/>
+                        <outlet property="skipOnboardingViewTopConstraint" destination="m5i-Sa-65J" id="15s-pZ-sfa"/>
+                        <outlet property="viewBackground" destination="I9j-Vv-JOy" id="HdQ-Ru-hof"/>
                         <outlet property="welcomeView" destination="ad3-Ag-QNh" id="CGp-F3-n73"/>
+                        <segue destination="r7e-pd-KNR" kind="presentation" identifier="onboardingSkipped" animates="NO" modalPresentationStyle="fullScreen" id="Jvd-I6-wL2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -254,20 +271,31 @@ aplicatiei.</string>
                                 <color key="pageIndicatorTintColor" red="0.18039217590000001" green="0.25490197539999998" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="currentPageIndicatorTintColor" red="0.59607845540000004" green="0.69803923369999998" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </pageControl>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fy-ej-6Ug">
+                                <rect key="frame" x="0.0" y="112" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hsW-U3-rl3"/>
                         <color key="backgroundColor" red="0.92156863209999995" green="0.96470588450000005" blue="0.98823523520000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="4fy-ej-6Ug" firstAttribute="leading" secondItem="hsW-U3-rl3" secondAttribute="leading" id="20i-5Q-Ljh"/>
                             <constraint firstItem="Ci0-5n-Uak" firstAttribute="leading" secondItem="hsW-U3-rl3" secondAttribute="leading" id="Ace-xS-jEi"/>
                             <constraint firstItem="ORa-yv-vwI" firstAttribute="centerX" secondItem="kWJ-n4-Oc9" secondAttribute="centerX" id="K6q-FQ-ojd"/>
                             <constraint firstItem="1WR-ct-ekv" firstAttribute="centerX" secondItem="kWJ-n4-Oc9" secondAttribute="centerX" id="NBl-XU-s5E"/>
                             <constraint firstItem="ORa-yv-vwI" firstAttribute="centerY" secondItem="kWJ-n4-Oc9" secondAttribute="centerY" id="OEX-6B-mup"/>
-                            <constraint firstItem="Ci0-5n-Uak" firstAttribute="centerY" secondItem="kWJ-n4-Oc9" secondAttribute="centerY" id="TbP-Bu-0XW"/>
                             <constraint firstItem="Ci0-5n-Uak" firstAttribute="height" secondItem="kWJ-n4-Oc9" secondAttribute="height" multiplier="0.75" id="gbr-dJ-9ha"/>
                             <constraint firstItem="Ci0-5n-Uak" firstAttribute="top" secondItem="1WR-ct-ekv" secondAttribute="bottom" constant="13" id="mYm-8S-Kub"/>
                             <constraint firstItem="ORa-yv-vwI" firstAttribute="height" secondItem="kWJ-n4-Oc9" secondAttribute="height" multiplier="0.5" id="o6e-qT-1os"/>
+                            <constraint firstAttribute="bottom" secondItem="4fy-ej-6Ug" secondAttribute="bottom" constant="112" id="oma-Lu-KdH"/>
+                            <constraint firstItem="Ci0-5n-Uak" firstAttribute="centerX" secondItem="kWJ-n4-Oc9" secondAttribute="centerX" id="rWg-oU-Fq4"/>
+                            <constraint firstItem="4fy-ej-6Ug" firstAttribute="centerX" secondItem="kWJ-n4-Oc9" secondAttribute="centerX" id="ty0-Z3-vHp"/>
+                            <constraint firstItem="4fy-ej-6Ug" firstAttribute="top" secondItem="hsW-U3-rl3" secondAttribute="top" constant="68" id="umY-hv-qT0"/>
+                            <constraint firstItem="Ci0-5n-Uak" firstAttribute="centerY" secondItem="kWJ-n4-Oc9" secondAttribute="centerY" id="v3Q-Ve-aIX"/>
                             <constraint firstItem="ORa-yv-vwI" firstAttribute="leading" secondItem="hsW-U3-rl3" secondAttribute="leading" id="yl0-P7-fQ8"/>
-                            <constraint firstItem="Ci0-5n-Uak" firstAttribute="centerX" secondItem="kWJ-n4-Oc9" secondAttribute="centerX" id="zTO-dv-IY5"/>
                         </constraints>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
@@ -279,9 +307,13 @@ aplicatiei.</string>
                         <outlet property="containerView" destination="MtP-Fr-LWP" id="CVA-hQ-RgL"/>
                         <outlet property="createAccountButton" destination="ddQ-qq-vAS" id="yis-PP-rZi"/>
                         <outlet property="enrollCertificateButton" destination="jda-wt-ld0" id="Gwf-Z9-k5p"/>
+                        <outlet property="finishedOnboardingViewBottomConstraint" destination="oma-Lu-KdH" id="b89-Kb-SIL"/>
+                        <outlet property="finishedOnboardingViewTopConstraint" destination="umY-hv-qT0" id="Oq2-b3-ltP"/>
                         <outlet property="generalView" destination="Ci0-5n-Uak" id="DRA-2f-0ea"/>
                         <outlet property="nextButton" destination="8PA-XZ-2Bx" id="cHr-BB-DQN"/>
+                        <outlet property="onboardingFinished" destination="4fy-ej-6Ug" id="w3P-dU-ncU"/>
                         <outlet property="pageController" destination="1WR-ct-ekv" id="0f6-xd-udm"/>
+                        <outlet property="parentView" destination="kWJ-n4-Oc9" id="ke7-Rs-oGf"/>
                         <segue destination="WDv-GO-Jtb" kind="presentation" identifier="onboardingComplete" animates="NO" modalPresentationStyle="fullScreen" id="D96-KR-9AQ"/>
                     </connections>
                 </viewController>
