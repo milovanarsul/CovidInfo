@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class GeneralOnboardingViewController: UIViewController {
     @IBOutlet weak var generalView: UIView!
@@ -15,9 +16,9 @@ class GeneralOnboardingViewController: UIViewController {
     @IBOutlet var enrollCertificateButton: UIButton!
     @IBOutlet var createAccountButton: UIButton!
     @IBOutlet var containerView: UIView!
+    @IBOutlet var animationView: UIView!
     
     var nextButtonOnboardingDelegate: OnboardingPageViewControllerToOnboardingViewController!
-    var lottieAnimationDelegate: LottieAnimationDelegate!
     
     var pageControllerIndex = 0
     
@@ -27,12 +28,24 @@ class GeneralOnboardingViewController: UIViewController {
         let embedPageViewController = OnboardingViewControllersEmbedder()
         embedPageViewController.embed(withIdentifier: "generalOnboardingPageViewController", parent: self, container: self.containerView, completion: nil)
         setupPageController()
-        //lottieAnimationDelegate.startAnimation()
+        setupLottieAnimation(lottieAnimationName: onboardingDataArray[pageControllerIndex].getLottieAnimation())
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setupAnimation()
         self.view.layoutIfNeeded()
+    }
+    
+    func setupLottieAnimation(lottieAnimationName: String){
+        var lottieAnimationView: AnimationView?
+        
+        lottieAnimationView = .init(name: lottieAnimationName)
+        lottieAnimationView!.contentMode = .scaleAspectFit
+        lottieAnimationView!.loopMode = .playOnce
+        lottieAnimationView!.animationSpeed = 0.5
+        
+        animationView.addSubview(lottieAnimationView!)
+        lottieAnimationView!.play()
     }
     
     func setupPageController(){
@@ -45,6 +58,8 @@ class GeneralOnboardingViewController: UIViewController {
             nextButtonOnboardingDelegate.nextButtonIsTapped()
             self.pageControllerIndex += 1
             self.pageController.currentPage = self.pageControllerIndex
+            //lottieAnimationView.stop()
+            setupLottieAnimation(lottieAnimationName: onboardingDataArray[pageControllerIndex].getLottieAnimation())
         } else{
             performSegue(withIdentifier: "onboardingComplete", sender: nil)
         }

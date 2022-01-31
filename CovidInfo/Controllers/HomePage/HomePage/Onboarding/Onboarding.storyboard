@@ -160,8 +160,16 @@ aplicatiei.</string>
                                             <constraint firstAttribute="height" constant="200" id="x7Q-9H-TD1"/>
                                         </constraints>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGE-zB-amj">
+                                        <rect key="frame" x="122" y="150" width="170" height="170"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="170" id="PfT-xy-eaO"/>
+                                            <constraint firstAttribute="width" constant="170" id="Xzk-49-OBT"/>
+                                        </constraints>
+                                    </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MtP-Fr-LWP">
-                                        <rect key="frame" x="0.0" y="150" width="414" height="372"/>
+                                        <rect key="frame" x="0.0" y="350" width="414" height="172"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
@@ -216,6 +224,8 @@ aplicatiei.</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="MtP-Fr-LWP" firstAttribute="centerX" secondItem="Ci0-5n-Uak" secondAttribute="centerX" id="065-Xf-2fN"/>
+                                    <constraint firstItem="dGE-zB-amj" firstAttribute="centerX" secondItem="Ci0-5n-Uak" secondAttribute="centerX" id="7pT-a4-vJr"/>
+                                    <constraint firstItem="mR4-zJ-oGa" firstAttribute="bottom" secondItem="dGE-zB-amj" secondAttribute="top" constant="50" id="7vz-dp-yON"/>
                                     <constraint firstItem="8PA-XZ-2Bx" firstAttribute="top" secondItem="MtP-Fr-LWP" secondAttribute="bottom" constant="27" id="EAD-tU-Egs"/>
                                     <constraint firstItem="ddQ-qq-vAS" firstAttribute="top" secondItem="8PA-XZ-2Bx" secondAttribute="bottom" constant="18" id="Gik-ef-yr3"/>
                                     <constraint firstItem="MtP-Fr-LWP" firstAttribute="leading" secondItem="Ci0-5n-Uak" secondAttribute="leading" id="Smh-Qx-Rov"/>
@@ -224,7 +234,7 @@ aplicatiei.</string>
                                     <constraint firstAttribute="bottom" secondItem="MtP-Fr-LWP" secondAttribute="bottom" constant="150" id="jsu-f4-THn"/>
                                     <constraint firstItem="ddQ-qq-vAS" firstAttribute="centerX" secondItem="Ci0-5n-Uak" secondAttribute="centerX" id="lqR-qk-09r"/>
                                     <constraint firstItem="mR4-zJ-oGa" firstAttribute="top" secondItem="Ci0-5n-Uak" secondAttribute="top" id="m2X-e9-Vkt"/>
-                                    <constraint firstItem="MtP-Fr-LWP" firstAttribute="top" secondItem="mR4-zJ-oGa" secondAttribute="bottom" constant="-50" id="mCy-r7-uz0"/>
+                                    <constraint firstItem="MtP-Fr-LWP" firstAttribute="top" secondItem="mR4-zJ-oGa" secondAttribute="bottom" constant="150" id="mCy-r7-uz0"/>
                                     <constraint firstItem="mR4-zJ-oGa" firstAttribute="leading" secondItem="Ci0-5n-Uak" secondAttribute="leading" constant="30" id="sc4-lE-MGZ"/>
                                     <constraint firstItem="jda-wt-ld0" firstAttribute="top" secondItem="8PA-XZ-2Bx" secondAttribute="bottom" constant="18" id="v9D-81-etb"/>
                                 </constraints>
@@ -263,6 +273,7 @@ aplicatiei.</string>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="animationView" destination="dGE-zB-amj" id="jUM-Yk-Es3"/>
                         <outlet property="blankWelcomeView" destination="ORa-yv-vwI" id="yzW-PG-T3T"/>
                         <outlet property="blankWelcomeViewHeightConstraint" destination="o6e-qT-1os" id="J38-6c-sqo"/>
                         <outlet property="containerView" destination="MtP-Fr-LWP" id="CVA-hQ-RgL"/>
@@ -382,6 +393,9 @@ aplicatiei.</string>
         <image name="cells-Image" width="251.5" height="203"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

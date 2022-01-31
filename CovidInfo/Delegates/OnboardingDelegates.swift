@@ -17,8 +17,3 @@ protocol OnboardingViewControllerToOnboardingPageViewController{
     func showCreateAccountButton(show: Bool)
     func test()
 }
-
-protocol LottieAnimationDelegate{
-    func startAnimation()
-    func test()
-}
