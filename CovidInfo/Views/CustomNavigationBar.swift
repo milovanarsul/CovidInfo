@@ -69,7 +69,7 @@ class CustomNavigationBar: UIView {
     }
 }
 
-extension CustomNavigationBar: NavigationBarDelegate{
+extension CustomNavigationBar: NavigationBarDelegates{
     
     func changeCurrentPageButton(title: String) {
         self.currentPageButton.setAttributedTitle(changeButtonTitle(title: title, font: "IBMPlexSans-Bold", fontSize: 30, color: UIColor.black), for: .normal)

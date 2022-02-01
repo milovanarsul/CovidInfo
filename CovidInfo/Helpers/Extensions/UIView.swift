@@ -31,6 +31,19 @@ extension UIView {
         }
     }
     
+    @IBInspectable var cornerRadius: Bool{
+        set{
+            if newValue {
+                layer.cornerRadius = 24
+            } else {
+                layer.cornerRadius = 0
+            }
+        }
+        get{
+            return layer.cornerRadius == 24
+        }
+    }
+    
     
     class func initFromNib<T: UIView>() -> T {
             return Bundle.main.loadNibNamed(String(describing: self), owner: nil, options: nil)?[0] as! T

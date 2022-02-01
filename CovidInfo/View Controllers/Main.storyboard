@@ -25,18 +25,29 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FF5-bO-kWi">
                                 <rect key="frame" x="0.0" y="134" width="414" height="765"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <segue destination="vbR-Jb-m12" kind="embed" id="cqa-yp-NMr"/>
-                                </connections>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcJ-8D-oWp">
-                                <rect key="frame" x="30" y="802" width="354" height="60"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nye-Dy-1hV">
+                                <rect key="frame" x="24" y="812" width="366" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="ics-xo-rut"/>
+                                    <constraint firstAttribute="height" constant="50" id="pOQ-gK-yyV"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="48"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOffset">
+                                        <integer key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -47,19 +58,19 @@
                             <constraint firstItem="FF5-bO-kWi" firstAttribute="top" secondItem="CxP-T5-fZ9" secondAttribute="bottom" id="76n-DB-2Uu"/>
                             <constraint firstItem="CxP-T5-fZ9" firstAttribute="centerX" secondItem="oHH-li-K6y" secondAttribute="centerX" id="8DT-bZ-x21"/>
                             <constraint firstItem="CxP-T5-fZ9" firstAttribute="top" secondItem="UNW-Tt-dbJ" secondAttribute="top" constant="10" id="Akk-oa-bVJ"/>
-                            <constraint firstItem="UNW-Tt-dbJ" firstAttribute="trailing" secondItem="kcJ-8D-oWp" secondAttribute="trailing" constant="30" id="HVr-Yg-Ngo"/>
-                            <constraint firstItem="kcJ-8D-oWp" firstAttribute="leading" secondItem="UNW-Tt-dbJ" secondAttribute="leading" constant="30" id="Ro0-rX-2oQ"/>
+                            <constraint firstItem="Nye-Dy-1hV" firstAttribute="leading" secondItem="UNW-Tt-dbJ" secondAttribute="leading" constant="24" id="JGV-al-rN5"/>
                             <constraint firstItem="UNW-Tt-dbJ" firstAttribute="trailing" secondItem="FF5-bO-kWi" secondAttribute="trailing" id="SKm-hQ-cz9"/>
                             <constraint firstAttribute="bottom" secondItem="FF5-bO-kWi" secondAttribute="bottom" constant="-3" id="c8c-JN-puO"/>
-                            <constraint firstItem="kcJ-8D-oWp" firstAttribute="centerX" secondItem="oHH-li-K6y" secondAttribute="centerX" id="ccL-v6-kos"/>
                             <constraint firstItem="UNW-Tt-dbJ" firstAttribute="trailing" secondItem="CxP-T5-fZ9" secondAttribute="trailing" id="eAF-pR-CeJ"/>
                             <constraint firstItem="FF5-bO-kWi" firstAttribute="leading" secondItem="UNW-Tt-dbJ" secondAttribute="leading" id="eHL-Et-0io"/>
-                            <constraint firstItem="UNW-Tt-dbJ" firstAttribute="bottom" secondItem="kcJ-8D-oWp" secondAttribute="bottom" id="gjX-sx-3fG"/>
+                            <constraint firstItem="Nye-Dy-1hV" firstAttribute="centerX" secondItem="oHH-li-K6y" secondAttribute="centerX" id="qrc-bT-noO"/>
+                            <constraint firstItem="UNW-Tt-dbJ" firstAttribute="bottom" secondItem="Nye-Dy-1hV" secondAttribute="bottom" id="vhX-7P-RxA"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="containerView" destination="FF5-bO-kWi" id="Sie-jN-7kx"/>
                         <outlet property="customNavigationBar" destination="CxP-T5-fZ9" id="dux-7r-cQc"/>
-                        <outlet property="customTabBar" destination="kcJ-8D-oWp" id="jjx-H1-xbq"/>
+                        <outlet property="customTabBar" destination="Nye-Dy-1hV" id="t4H-6t-Vno"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBl-FE-EqR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -69,7 +80,7 @@
         <!--Main Page View Controller-->
         <scene sceneID="NHY-KO-tk6">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="vbR-Jb-m12" customClass="MainPageViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="MainPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="vbR-Jb-m12" customClass="MainPageViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ngf-f9-qmO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1099" y="143"/>

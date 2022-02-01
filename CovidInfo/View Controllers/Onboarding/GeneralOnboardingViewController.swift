@@ -114,9 +114,5 @@ extension GeneralOnboardingViewController: OnboardingViewControllerToOnboardingP
         self.createAccountButton.isHidden = !show
         self.nextButton.setAttributedTitle(changeButtonTitle(title: "Mai tarziu", font: "IBMPlexSans-Bold", fontSize: 14, color: UIColor.white), for: .normal)
     }
-    
-    func test(){
-        print("Delegate works!")
-    }
 }
 

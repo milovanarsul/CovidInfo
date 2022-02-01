@@ -10,8 +10,8 @@
 		67F7BE5CD5454C3CBF81828E /* Pods_CovidInfo_CovidInfoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F04C8285BE7B316841493C3 /* Pods_CovidInfo_CovidInfoUITests.framework */; };
 		7343CDF72127C92F38A5463A /* Pods_CovidInfoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927C608C5635441DBEB08338 /* Pods_CovidInfoTests.framework */; };
 		B2063B9727A84EF90070B3CA /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2063B9627A84EF90070B3CA /* UIButton.swift */; };
-		B2063B9927A8509C0070B3CA /* NavigationBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2063B9827A8509C0070B3CA /* NavigationBarDelegate.swift */; };
-		B236F7AB27A7ED6A00C18962 /* OnboardingViewControllersEmbedder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236F7AA27A7ED6A00C18962 /* OnboardingViewControllersEmbedder.swift */; };
+		B2063B9927A8509C0070B3CA /* NavigationBarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2063B9827A8509C0070B3CA /* NavigationBarDelegates.swift */; };
+		B236F7AB27A7ED6A00C18962 /* ViewEmbedder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236F7AA27A7ED6A00C18962 /* ViewEmbedder.swift */; };
 		B25AD33927A30B50009EAD38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33827A30B50009EAD38 /* UIView.swift */; };
 		B25AD33B27A30B6C009EAD38 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33A27A30B6C009EAD38 /* UIStoryboard.swift */; };
 		B268FF7E27A53FD80083A450 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B268FF7D27A53FD80083A450 /* NSLayoutConstraint.swift */; };
@@ -35,8 +35,6 @@
 		B2B3C99427A8726D00842DA5 /* StatisticiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2B3C99227A8726D00842DA5 /* StatisticiViewController.xib */; };
 		B2B3C99727A8727A00842DA5 /* DocumenteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3C99527A8727A00842DA5 /* DocumenteViewController.swift */; };
 		B2B3C99827A8727A00842DA5 /* DocumenteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2B3C99627A8727A00842DA5 /* DocumenteViewController.xib */; };
-		B2B3C99E27A875D500842DA5 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3C99D27A875D500842DA5 /* CustomTabBar.swift */; };
-		B2B3C9A027A875E200842DA5 /* CustomTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2B3C99F27A875E200842DA5 /* CustomTabBar.xib */; };
 		B2B5A9B02790939500FC4E61 /* onboarding2.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9A92790939500FC4E61 /* onboarding2.json */; };
 		B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AA2790939500FC4E61 /* onboarding4.1.json */; };
 		B2B5A9B22790939500FC4E61 /* onboarding1.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AB2790939500FC4E61 /* onboarding1.json */; };
@@ -44,6 +42,9 @@
 		B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AD2790939500FC4E61 /* onboarding4.2.json */; };
 		B2B5A9B52790939500FC4E61 /* onboarding4.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AE2790939500FC4E61 /* onboarding4.json */; };
 		B2B5A9B62790939500FC4E61 /* onboarding5.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AF2790939500FC4E61 /* onboarding5.json */; };
+		B2BB039B27A9466700D4801B /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB039A27A9466700D4801B /* CustomTabBar.swift */; };
+		B2BB039D27A9467700D4801B /* CustomTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2BB039C27A9467700D4801B /* CustomTabBar.xib */; };
+		B2BC9F9627A9102200552ABD /* TabBarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BC9F9527A9102200552ABD /* TabBarDelegates.swift */; };
 		B2C59C2127A869340094A984 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C59C2027A869340094A984 /* MainPageViewController.swift */; };
 		B2C59C2427A869AD0094A984 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C59C2227A869AD0094A984 /* HomePageViewController.swift */; };
 		B2C59C2527A869AD0094A984 /* HomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2C59C2327A869AD0094A984 /* HomePageViewController.xib */; };
@@ -116,8 +117,8 @@
 		6093B6C73F5FDA01AB286717 /* Pods-CovidInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfo.release.xcconfig"; path = "Target Support Files/Pods-CovidInfo/Pods-CovidInfo.release.xcconfig"; sourceTree = "<group>"; };
 		927C608C5635441DBEB08338 /* Pods_CovidInfoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidInfoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2063B9627A84EF90070B3CA /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
-		B2063B9827A8509C0070B3CA /* NavigationBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarDelegate.swift; sourceTree = "<group>"; };
-		B236F7AA27A7ED6A00C18962 /* OnboardingViewControllersEmbedder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllersEmbedder.swift; sourceTree = "<group>"; };
+		B2063B9827A8509C0070B3CA /* NavigationBarDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarDelegates.swift; sourceTree = "<group>"; };
+		B236F7AA27A7ED6A00C18962 /* ViewEmbedder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEmbedder.swift; sourceTree = "<group>"; };
 		B25AD33827A30B50009EAD38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B25AD33A27A30B6C009EAD38 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		B268FF7D27A53FD80083A450 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
@@ -141,8 +142,6 @@
 		B2B3C99227A8726D00842DA5 /* StatisticiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisticiViewController.xib; sourceTree = "<group>"; };
 		B2B3C99527A8727A00842DA5 /* DocumenteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumenteViewController.swift; sourceTree = "<group>"; };
 		B2B3C99627A8727A00842DA5 /* DocumenteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumenteViewController.xib; sourceTree = "<group>"; };
-		B2B3C99D27A875D500842DA5 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
-		B2B3C99F27A875E200842DA5 /* CustomTabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabBar.xib; sourceTree = "<group>"; };
 		B2B5A9A92790939500FC4E61 /* onboarding2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding2.json; sourceTree = "<group>"; };
 		B2B5A9AA2790939500FC4E61 /* onboarding4.1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding4.1.json; sourceTree = "<group>"; };
 		B2B5A9AB2790939500FC4E61 /* onboarding1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding1.json; sourceTree = "<group>"; };
@@ -150,6 +149,9 @@
 		B2B5A9AD2790939500FC4E61 /* onboarding4.2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding4.2.json; sourceTree = "<group>"; };
 		B2B5A9AE2790939500FC4E61 /* onboarding4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding4.json; sourceTree = "<group>"; };
 		B2B5A9AF2790939500FC4E61 /* onboarding5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding5.json; sourceTree = "<group>"; };
+		B2BB039A27A9466700D4801B /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		B2BB039C27A9467700D4801B /* CustomTabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabBar.xib; sourceTree = "<group>"; };
+		B2BC9F9527A9102200552ABD /* TabBarDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDelegates.swift; sourceTree = "<group>"; };
 		B2C59C2027A869340094A984 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		B2C59C2227A869AD0094A984 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		B2C59C2327A869AD0094A984 /* HomePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageViewController.xib; sourceTree = "<group>"; };
@@ -255,8 +257,8 @@
 			children = (
 				B2A389F327A442820005F9FD /* CustomNavigationBar.swift */,
 				B2A389F527A442990005F9FD /* CustomNavigationBar.xib */,
-				B2B3C99D27A875D500842DA5 /* CustomTabBar.swift */,
-				B2B3C99F27A875E200842DA5 /* CustomTabBar.xib */,
+				B2BB039A27A9466700D4801B /* CustomTabBar.swift */,
+				B2BB039C27A9467700D4801B /* CustomTabBar.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,7 +288,8 @@
 				B2F650F2278F2BD900E1BB58 /* AppDelegate.swift */,
 				B2F650F4278F2BD900E1BB58 /* SceneDelegate.swift */,
 				B2CF478E27A7DBF6005F8636 /* OnboardingDelegates.swift */,
-				B2063B9827A8509C0070B3CA /* NavigationBarDelegate.swift */,
+				B2063B9827A8509C0070B3CA /* NavigationBarDelegates.swift */,
+				B2BC9F9527A9102200552ABD /* TabBarDelegates.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -297,7 +300,7 @@
 				B25AD33727A30B3D009EAD38 /* Extensions */,
 				B2CA7F5827A2A649009E4FE6 /* LottieAnimations.swift */,
 				B2902ED627A5C6430008338D /* NibControllers.swift */,
-				B236F7AA27A7ED6A00C18962 /* OnboardingViewControllersEmbedder.swift */,
+				B236F7AA27A7ED6A00C18962 /* ViewEmbedder.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -595,7 +598,7 @@
 				B2F65154278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */,
 				B2B5A9B32790939500FC4E61 /* onboarding3.json in Resources */,
 				B2F650FF278F2BDB00E1BB58 /* Assets.xcassets in Resources */,
-				B2B3C9A027A875E200842DA5 /* CustomTabBar.xib in Resources */,
+				B2BB039D27A9467700D4801B /* CustomTabBar.xib in Resources */,
 				B2902ED927A5C8930008338D /* EnrollCertificateSuccess.xib in Resources */,
 				B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */,
 				B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */,
@@ -755,20 +758,21 @@
 				B281283527A5A69700DE7DB8 /* UIPageViewController.swift in Sources */,
 				B2CA7F5927A2A649009E4FE6 /* LottieAnimations.swift in Sources */,
 				B2902ED727A5C6430008338D /* NibControllers.swift in Sources */,
-				B2B3C99E27A875D500842DA5 /* CustomTabBar.swift in Sources */,
 				B2C59C2127A869340094A984 /* MainPageViewController.swift in Sources */,
 				B2C59C2427A869AD0094A984 /* HomePageViewController.swift in Sources */,
 				B2C59C2C27A86B280094A984 /* PreventieViewController.swift in Sources */,
+				B2BC9F9627A9102200552ABD /* TabBarDelegates.swift in Sources */,
 				B268FF8327A549C40083A450 /* GeneralOnboardingPageViewController.swift in Sources */,
 				B2E6741F27A5334200F283B7 /* WelcomeOnboardingViewController.swift in Sources */,
-				B236F7AB27A7ED6A00C18962 /* OnboardingViewControllersEmbedder.swift in Sources */,
+				B236F7AB27A7ED6A00C18962 /* ViewEmbedder.swift in Sources */,
 				B2F650F5278F2BD900E1BB58 /* SceneDelegate.swift in Sources */,
+				B2BB039B27A9466700D4801B /* CustomTabBar.swift in Sources */,
 				B2C59C3027A86B3B0094A984 /* SimptomeViewController.swift in Sources */,
 				B2902EDB27A5C8B50008338D /* EnrollCertificateView.swift in Sources */,
 				B268FF7E27A53FD80083A450 /* NSLayoutConstraint.swift in Sources */,
 				B2902EE027A5C95D0008338D /* EnrollCertificatePageViewController.swift in Sources */,
 				B2F650FD278F2BDA00E1BB58 /* CovidInfo.xcdatamodeld in Sources */,
-				B2063B9927A8509C0070B3CA /* NavigationBarDelegate.swift in Sources */,
+				B2063B9927A8509C0070B3CA /* NavigationBarDelegates.swift in Sources */,
 				B278D50927A2851A00511BB2 /* OnboardingManager.swift in Sources */,
 				B2B3C98D27A8724900842DA5 /* StiriViewController.swift in Sources */,
 				B2E6741927A5254000F283B7 /* OnboardingCardsView.swift in Sources */,

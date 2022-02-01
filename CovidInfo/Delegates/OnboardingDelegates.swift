@@ -15,5 +15,4 @@ protocol OnboardingPageViewControllerToOnboardingViewController{
 protocol OnboardingViewControllerToOnboardingPageViewController{
     func showEnrollCertificateButton(show: Bool)
     func showCreateAccountButton(show: Bool)
-    func test()
 }

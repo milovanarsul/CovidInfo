@@ -19,7 +19,6 @@ class MainPageViewController: UIPageViewController {
         if let firstViewController = pages.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
-        
         disableSwipeGesture()
     }
     
@@ -55,5 +54,12 @@ extension MainPageViewController: UIPageViewControllerDataSource{
         //actions for delegates go here
        
         return pages[nextIndex]
+    }
+}
+
+extension MainPageViewController: TabBarDelegate{
+    func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection) {
+        let viewController = pages[pageIndex]
+        setViewControllers([viewController], direction: direction, animated: true, completion: nil)
     }
 }

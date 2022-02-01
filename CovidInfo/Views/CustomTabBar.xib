@@ -3,75 +3,106 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomTabBar" customModule="CovidInfo" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomTabBar" customModule="CovidInfo" customModuleProvider="target">
+            <connections>
+                <outlet property="customTabBar" destination="iN0-l3-epB" id="BJD-pz-3tc"/>
+                <outlet property="documentsButton" destination="XRI-GO-7JD" id="Rld-fO-rUM"/>
+                <outlet property="homeButton" destination="DT1-pG-Jj6" id="8bK-dD-oMZ"/>
+                <outlet property="newsButton" destination="yja-td-sgJ" id="Ki3-gm-0NW"/>
+                <outlet property="slider" destination="fd5-rm-F7H" id="KDJ-XY-But"/>
+                <outlet property="sliderLeadingConstraint" destination="xEk-3v-EyO" id="rCf-KB-sSp"/>
+                <outlet property="statisticsButton" destination="hcP-oY-lO1" id="dS2-8g-ZVJ"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NTp-dq-3NB">
-            <rect key="frame" x="0.0" y="0.0" width="314" height="40"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="368" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="JVr-XH-8gi">
-                    <rect key="frame" x="20" y="10" width="274" height="20"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="50G-m5-QaF">
+                    <rect key="frame" x="10" y="10" width="334" height="30"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xi5-ng-ICl">
-                            <rect key="frame" x="0.0" y="0.0" width="38.5" height="20"/>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DT1-pG-Jj6" userLabel="Acasa">
+                            <rect key="frame" x="0.0" y="0.0" width="53.5" height="30"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Acasa">
-                                <fontDescription key="titleFontDescription" type="system" pointSize="7"/>
-                                <color key="baseBackgroundColor" systemColor="systemPinkColor"/>
+                            <buttonConfiguration key="configuration" style="filled" image="house" catalog="system">
+                                <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="homeButtonPressed:" destination="-1" eventType="touchUpInside" id="coA-wE-hnK"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBb-47-uWi">
-                            <rect key="frame" x="78.5" y="0.0" width="38.5" height="20"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yja-td-sgJ" userLabel="Stiri">
+                            <rect key="frame" x="93.5" y="0.0" width="53.5" height="30"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Stiri">
-                                <fontDescription key="titleFontDescription" type="system" pointSize="7"/>
-                                <color key="baseBackgroundColor" systemColor="systemYellowColor"/>
+                            <buttonConfiguration key="configuration" style="filled" image="newspaper" catalog="system">
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="newsButtonPressed:" destination="-1" eventType="touchUpInside" id="fKY-wB-aqk"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nig-7U-xKv">
-                            <rect key="frame" x="157" y="0.0" width="38.5" height="20"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcP-oY-lO1" userLabel="Statistici">
+                            <rect key="frame" x="187" y="0.0" width="53.5" height="30"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Statistici">
-                                <fontDescription key="titleFontDescription" type="system" pointSize="5"/>
-                                <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                            <buttonConfiguration key="configuration" style="filled" image="chart.bar" catalog="system">
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="statisticsButtonPressed:" destination="-1" eventType="touchUpInside" id="gqZ-Or-nwX"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ch8-kr-KN7">
-                            <rect key="frame" x="235.5" y="0.0" width="38.5" height="20"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRI-GO-7JD" userLabel="Documente">
+                            <rect key="frame" x="280.5" y="0.0" width="53.5" height="30"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Documente">
-                                <fontDescription key="titleFontDescription" type="system" pointSize="4"/>
+                            <buttonConfiguration key="configuration" style="filled" image="doc.text" catalog="system">
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </buttonConfiguration>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="documentsButtonPressed:" destination="-1" eventType="touchUpInside" id="nm2-Pc-fcB"/>
+                            </connections>
                         </button>
                     </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fd5-rm-F7H">
+                    <rect key="frame" x="18" y="40" width="35" height="2"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="XMU-x9-PNm"/>
+                        <constraint firstAttribute="height" constant="2" id="g70-3S-Ofg"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="JVr-XH-8gi" firstAttribute="top" secondItem="NTp-dq-3NB" secondAttribute="top" constant="10" id="BgR-uL-wMz"/>
-                <constraint firstAttribute="bottom" secondItem="JVr-XH-8gi" secondAttribute="bottom" constant="10" id="CYp-UI-Ldv"/>
-                <constraint firstItem="JVr-XH-8gi" firstAttribute="leading" secondItem="NTp-dq-3NB" secondAttribute="leading" constant="20" id="LMT-iT-qAd"/>
-                <constraint firstAttribute="trailing" secondItem="JVr-XH-8gi" secondAttribute="trailing" constant="20" id="x5U-JF-Imf"/>
+                <constraint firstItem="50G-m5-QaF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="3b5-Id-5wb"/>
+                <constraint firstItem="50G-m5-QaF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="7xF-YS-k2b"/>
+                <constraint firstAttribute="trailing" secondItem="50G-m5-QaF" secondAttribute="trailing" constant="24" id="VhP-fO-2zU"/>
+                <constraint firstItem="fd5-rm-F7H" firstAttribute="top" secondItem="DT1-pG-Jj6" secondAttribute="bottom" id="kCJ-Jy-Sii"/>
+                <constraint firstAttribute="bottom" secondItem="50G-m5-QaF" secondAttribute="bottom" constant="10" id="uOL-3q-aBf"/>
+                <constraint firstItem="fd5-rm-F7H" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="xEk-3v-EyO"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
-            </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="139" y="154"/>
+            <point key="canvasLocation" x="78.260869565217391" y="-62.276785714285708"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="chart.bar" catalog="system" width="128" height="90"/>
+        <image name="doc.text" catalog="system" width="115" height="128"/>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="newspaper" catalog="system" width="128" height="111"/>
     </resources>
 </document>

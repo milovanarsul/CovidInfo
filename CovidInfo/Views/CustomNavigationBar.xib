@@ -47,6 +47,9 @@
                         <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                         <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="testAction:" destination="-1" eventType="touchUpInside" id="wir-yv-B64"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3AX-5E-4JW" userLabel="accountButton">
                     <rect key="frame" x="475" y="17" width="60" height="60"/>
