@@ -7,11 +7,9 @@
 
 import Foundation
 
-protocol NavigationBarDelegates{
-    func changeCurrentPageButton(title: String)
-    func changePreviousPageButton(title: String)
-    func buttonSlider(sliderType: currentPageButtonSlider)
-    func currentPageSettings(shouldShowCurrentPageButton: Bool)
+protocol NavigationBarDelegate{
+    func setup(page: Page)
+    func test()
 }
 
 enum currentPageButtonSlider{

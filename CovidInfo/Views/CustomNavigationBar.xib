@@ -9,10 +9,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomNavigationBar" customModule="CovidInfo" customModuleProvider="target">
             <connections>
-                <outlet property="currentPageButton" destination="Mql-cH-4Ld" id="AHK-Wz-UEt"/>
-                <outlet property="currentPageButtonLeadingConstraint" destination="tkB-bM-Eea" id="hp8-tJ-9Io"/>
+                <outlet property="childPageButton" destination="Mql-cH-4Ld" id="sE6-67-l15"/>
+                <outlet property="childPageButtonLeadingConstraint" destination="tkB-bM-Eea" id="ina-Kx-dl8"/>
                 <outlet property="customNavigationBar" destination="iN0-l3-epB" id="5xg-sN-pyy"/>
-                <outlet property="previousPageButton" destination="xpf-IW-cPw" id="5g7-cB-rF1"/>
+                <outlet property="parentPageButton" destination="xpf-IW-cPw" id="KW2-gD-IhE"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,26 +20,11 @@
             <rect key="frame" x="0.0" y="0.0" width="565" height="94"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mql-cH-4Ld" userLabel="currentPage">
-                    <rect key="frame" x="158" y="27.5" width="130" height="39"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="Current" imagePadding="8">
-                        <imageReference key="image" image="chevron.right" catalog="system" symbolScale="large"/>
-                        <backgroundConfiguration key="background" cornerRadius="0.0">
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </backgroundConfiguration>
-                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large" weight="bold"/>
-                        <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="30"/>
-                        <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
-                        <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </buttonConfiguration>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpf-IW-cPw" userLabel="previousPage">
-                    <rect key="frame" x="25" y="27.5" width="123" height="39"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpf-IW-cPw" userLabel="parentPage">
+                    <rect key="frame" x="25" y="27.5" width="94.5" height="39"/>
                     <inset key="titleEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Previous" titleAlignment="leading">
+                    <buttonConfiguration key="configuration" style="plain" title="Parent" titleAlignment="leading">
                         <backgroundConfiguration key="background" cornerRadius="0.0">
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </backgroundConfiguration>
@@ -50,6 +35,21 @@
                     <connections>
                         <action selector="testAction:" destination="-1" eventType="touchUpInside" id="wir-yv-B64"/>
                     </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mql-cH-4Ld" userLabel="childPage">
+                    <rect key="frame" x="129.5" y="27.5" width="95.5" height="39"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="Child" imagePadding="8">
+                        <imageReference key="image" image="chevron.right" catalog="system" symbolScale="large"/>
+                        <backgroundConfiguration key="background" cornerRadius="0.0">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </backgroundConfiguration>
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large" weight="bold"/>
+                        <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="30"/>
+                        <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                        <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </buttonConfiguration>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3AX-5E-4JW" userLabel="accountButton">
                     <rect key="frame" x="475" y="17" width="60" height="60"/>

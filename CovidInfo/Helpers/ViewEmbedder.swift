@@ -65,8 +65,9 @@ class TabBarEmbedder{
         viewController.removeFromParent()
     }
     
-    func embed(withIdentifier id:String, parent:MainViewController, container:UIView, completion:((UIViewController)->Void)? = nil){
+    func embed(withIdentifier id:String, parent:MainViewController, container:UIView, completion:((UIViewController)->Void)? = nil, navigationBar: CustomNavigationBar){
         let vc = parent.storyboard!.instantiateViewController(withIdentifier: id)
+        (vc as! MainPageViewController).navigationBarDelegate = navigationBar
         embed(
             parent: parent,
             container: container,

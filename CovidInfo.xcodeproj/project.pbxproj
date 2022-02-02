@@ -44,6 +44,7 @@
 		B2B5A9B62790939500FC4E61 /* onboarding5.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AF2790939500FC4E61 /* onboarding5.json */; };
 		B2BB039B27A9466700D4801B /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB039A27A9466700D4801B /* CustomTabBar.swift */; };
 		B2BB039D27A9467700D4801B /* CustomTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2BB039C27A9467700D4801B /* CustomTabBar.xib */; };
+		B2BB039F27A998F700D4801B /* NavigationBarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB039E27A998F700D4801B /* NavigationBarData.swift */; };
 		B2BC9F9627A9102200552ABD /* TabBarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BC9F9527A9102200552ABD /* TabBarDelegates.swift */; };
 		B2C59C2127A869340094A984 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C59C2027A869340094A984 /* MainPageViewController.swift */; };
 		B2C59C2427A869AD0094A984 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C59C2227A869AD0094A984 /* HomePageViewController.swift */; };
@@ -151,6 +152,7 @@
 		B2B5A9AF2790939500FC4E61 /* onboarding5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding5.json; sourceTree = "<group>"; };
 		B2BB039A27A9466700D4801B /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		B2BB039C27A9467700D4801B /* CustomTabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabBar.xib; sourceTree = "<group>"; };
+		B2BB039E27A998F700D4801B /* NavigationBarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarData.swift; sourceTree = "<group>"; };
 		B2BC9F9527A9102200552ABD /* TabBarDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDelegates.swift; sourceTree = "<group>"; };
 		B2C59C2027A869340094A984 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		B2C59C2227A869AD0094A984 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			children = (
 				B2F650FB278F2BDA00E1BB58 /* CovidInfo.xcdatamodeld */,
 				B2E6741A27A52A8F00F283B7 /* OnboardingData.swift */,
+				B2BB039E27A998F700D4801B /* NavigationBarData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -755,6 +758,7 @@
 				B25AD33B27A30B6C009EAD38 /* UIStoryboard.swift in Sources */,
 				B2F650F3278F2BD900E1BB58 /* AppDelegate.swift in Sources */,
 				B2B3C99727A8727A00842DA5 /* DocumenteViewController.swift in Sources */,
+				B2BB039F27A998F700D4801B /* NavigationBarData.swift in Sources */,
 				B281283527A5A69700DE7DB8 /* UIPageViewController.swift in Sources */,
 				B2CA7F5927A2A649009E4FE6 /* LottieAnimations.swift in Sources */,
 				B2902ED727A5C6430008338D /* NibControllers.swift in Sources */,

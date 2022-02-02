@@ -10,6 +10,7 @@ import UIKit
 class MainPageViewController: UIPageViewController {
     
     fileprivate var pages: [UIViewController] = []
+    var navigationBarDelegate: NavigationBarDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +24,21 @@ class MainPageViewController: UIPageViewController {
     }
     
     fileprivate func createViewControllers(){
-        pages.append(HomePageViewController())
-        pages.append(StiriViewController())
-        pages.append(StatisticiViewController())
-        pages.append(DocumenteViewController())
+        let homeViewController = HomePageViewController()
+        homeViewController.navigationBarDelegate = self.navigationBarDelegate
+        pages.append(homeViewController)
+        
+        let newsViewController = StiriViewController()
+        newsViewController.navigationBarDelegate = self.navigationBarDelegate
+        pages.append(newsViewController)
+        
+        let statisticsViewController = StatisticiViewController()
+        statisticsViewController.navigationBarDelegate = self.navigationBarDelegate
+        pages.append(statisticsViewController)
+        
+        let documentsViewController = DocumenteViewController()
+        documentsViewController.navigationBarDelegate = self.navigationBarDelegate
+        pages.append(documentsViewController)
     }
 }
 

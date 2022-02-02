@@ -42,7 +42,6 @@ class GeneralOnboardingPageViewController: UIPageViewController{
     fileprivate func createOnboardingCard(with labelText: String) -> UIViewController{
         let onboardingCard = UIViewController()
         let onboardingCardView = OnboardingCardsView(labelText: labelText)
-        //onboardingCardView.generalOnboardingDelegate = self
         onboardingCard.view = onboardingCardView
         return onboardingCard
     }

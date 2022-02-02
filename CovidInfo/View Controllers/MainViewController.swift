@@ -13,33 +13,35 @@ class MainViewController: UIViewController {
     @IBOutlet var customNavigationBar: UIView!
     @IBOutlet var customTabBar: UIView!
     
-    var navigationBarDelegate: NavigationBarDelegates!
     var tabBarDelegate: TabBarDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        embedMainPageViewController()
         setup()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-    }
+    override func viewDidAppear(_ animated: Bool) {}
     
     func setup(){
-        embedCustomNavigationBar()
+        embedMainPageViewController()
         embedCustomTabBar()
+        //embedCustomNavigationBar()
     }
     
     func embedMainPageViewController(){
+        let customNavigationBar = CustomNavigationBar()
+        customNavigationBar.frame = self.customNavigationBar.bounds
+        self.customNavigationBar.addSubview(customNavigationBar)
+        
         let embedMainPageViewController = TabBarEmbedder()
-        embedMainPageViewController.embed(withIdentifier: "MainPageViewController", parent: self, container: self.containerView, completion: nil)
+        embedMainPageViewController.embed(withIdentifier: "MainPageViewController", parent: self, container: self.containerView, completion: nil, navigationBar: customNavigationBar)
     }
     
     func embedCustomNavigationBar(){
-        let customNavigationBar = CustomNavigationBar(previousPageTitle: "Acasa", currentPageTitle: "")
+        let customNavigationBar = CustomNavigationBar()
         customNavigationBar.frame = self.customNavigationBar.bounds
-        navigationBarDelegate = customNavigationBar as! NavigationBarDelegates
+        //navigationBarDelegate = customNavigationBar
         self.customNavigationBar.addSubview(customNavigationBar)
     }
     

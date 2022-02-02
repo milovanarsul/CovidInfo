@@ -8,22 +8,13 @@
 import UIKit
 
 class StiriViewController: UIViewController {
+    
+    var page: Page = Page(mainPage: .news, childType: .none)
+    var navigationBarDelegate: NavigationBarDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        navigationBarDelegate.setup(page: page)
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

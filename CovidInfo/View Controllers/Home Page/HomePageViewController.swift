@@ -8,10 +8,13 @@
 import UIKit
 
 class HomePageViewController: UIViewController {
+    
+    var page: Page = Page(mainPage: .home, childType: .none)
+    var navigationBarDelegate: NavigationBarDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        navigationBarDelegate.setup(page: page)
     }
 }
