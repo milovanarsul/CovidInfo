@@ -57,7 +57,7 @@ class WelcomeOnboardingViewController: UIViewController {
         self.skipOnboarding.isHidden = false
         
         self.skipOnboardingViewBottomConstraint.constant = -3
-        self.skipOnboardingViewTopConstraint.constant = 80
+        self.skipOnboardingViewTopConstraint.constant = 90
         
         UIView.animate(withDuration: 0.9, delay: 0, options: [], animations: {
             self.skipOnboarding.layoutIfNeeded()

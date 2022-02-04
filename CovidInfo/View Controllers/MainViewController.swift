@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class MainViewController: UIViewController {
 
@@ -17,16 +18,23 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setup()
     }
     
-    override func viewDidAppear(_ animated: Bool) {}
+    override func viewDidAppear(_ animated: Bool) {
+    }
     
     func setup(){
         embedMainPageViewController()
         embedCustomTabBar()
-        //embedCustomNavigationBar()
+        
+        if OnboardingManager.shared.isFirstLaunch {
+            onboardingAnimation()
+            performSegue(withIdentifier: "toOnboarding", sender: nil)
+            OnboardingManager.shared.isFirstLaunch = true
+        }else{
+            launchAnimation()
+        }
     }
     
     func embedMainPageViewController(){
@@ -41,7 +49,6 @@ class MainViewController: UIViewController {
     func embedCustomNavigationBar(){
         let customNavigationBar = CustomNavigationBar()
         customNavigationBar.frame = self.customNavigationBar.bounds
-        //navigationBarDelegate = customNavigationBar
         self.customNavigationBar.addSubview(customNavigationBar)
     }
     
@@ -50,5 +57,47 @@ class MainViewController: UIViewController {
         customTabBar.frame = self.customTabBar.bounds
         customTabBar.tabBarDelegate = self.tabBarDelegate
         self.customTabBar.addSubview(customTabBar)
+    }
+    
+    @IBOutlet var navigationBarTopConstraint: NSLayoutConstraint!
+    @IBOutlet var tabBarBottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet var blankIcon: UIView!
+    @IBOutlet var blankIconLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet var blankIconTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet var blankIconTopConstraint: NSLayoutConstraint!
+    @IBOutlet var blankIconBottomConstraint: NSLayoutConstraint!
+    
+    func launchAnimation(){
+        self.blankIconLeadingConstraint.constant = 0
+        self.blankIconTrailingConstraint.constant = 0
+        self.blankIconTopConstraint.constant = 90
+        self.blankIconBottomConstraint.constant = -3
+        
+        UIView.animate(withDuration: 1.3, animations: {
+            self.blankIcon.layoutIfNeeded()
+            self.view.layoutIfNeeded()
+        }, completion: {(finished: Bool) in
+            self.blankIcon.isHidden = true
+            self.containerView.isHidden = false
+            self.navTabAnimation()
+        })
+    }
+    
+    func onboardingAnimation(){
+        self.blankIcon.isHidden = true
+        self.containerView.isHidden = false
+        navTabAnimation()
+    }
+    
+    func navTabAnimation(){
+        self.navigationBarTopConstraint.constant = 54
+        self.tabBarBottomConstraint.constant = 34
+        
+        UIView.animate(withDuration: 0.9, animations: {
+            self.customNavigationBar.layoutIfNeeded()
+            self.customTabBar.layoutIfNeeded()
+            self.view.layoutIfNeeded()
+        })
     }
 }

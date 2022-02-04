@@ -77,7 +77,6 @@ class GeneralOnboardingViewController: UIViewController {
         }, completion: {(finished: Bool) in
             self.generalView.isHidden = false
             self.blankWelcomeView.isHidden = true
-            //self.pageController.isHidden = false
         })
     }
     
@@ -91,7 +90,7 @@ class GeneralOnboardingViewController: UIViewController {
         onboardingFinished.isHidden = false
         
         finishedOnboardingViewBottomConstraint.constant = -3
-        finishedOnboardingViewTopConstraint.constant = 80
+        finishedOnboardingViewTopConstraint.constant = 90
         
         UIView.animate(withDuration: 0.9, delay: 0, options: [], animations: {
             self.onboardingFinished.layoutIfNeeded()

@@ -16,3 +16,8 @@ protocol OnboardingViewControllerToOnboardingPageViewController{
     func showEnrollCertificateButton(show: Bool)
     func showCreateAccountButton(show: Bool)
 }
+
+enum AnimationOrigin{
+    case launch
+    case onboarding
+}

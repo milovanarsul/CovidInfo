@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,21 +17,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CxP-T5-fZ9">
-                                <rect key="frame" x="0.0" y="54" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="-88" width="414" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="ucV-Cn-ldm"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FF5-bO-kWi">
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FF5-bO-kWi">
                                 <rect key="frame" x="0.0" y="134" width="414" height="765"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKF-zK-j6j">
+                                <rect key="frame" x="155" y="384" width="104" height="138"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nye-Dy-1hV">
-                                <rect key="frame" x="24" y="812" width="366" height="50"/>
+                                <rect key="frame" x="24" y="926" width="366" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="pOQ-gK-yyV"/>
@@ -50,32 +58,61 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYT-n0-NgA">
+                                <rect key="frame" x="157" y="432.5" width="100" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Onboarding"/>
+                                <connections>
+                                    <segue destination="E5Q-Kf-WT8" kind="presentation" identifier="toOnboarding" animates="NO" modalPresentationStyle="fullScreen" id="BxQ-OE-RBN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UNW-Tt-dbJ"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CxP-T5-fZ9" firstAttribute="leading" secondItem="UNW-Tt-dbJ" secondAttribute="leading" id="4n7-bq-WXS"/>
-                            <constraint firstItem="FF5-bO-kWi" firstAttribute="top" secondItem="CxP-T5-fZ9" secondAttribute="bottom" id="76n-DB-2Uu"/>
+                            <constraint firstItem="vKF-zK-j6j" firstAttribute="top" secondItem="UNW-Tt-dbJ" secondAttribute="top" constant="340" id="4uP-tp-3Kg"/>
                             <constraint firstItem="CxP-T5-fZ9" firstAttribute="centerX" secondItem="oHH-li-K6y" secondAttribute="centerX" id="8DT-bZ-x21"/>
-                            <constraint firstItem="CxP-T5-fZ9" firstAttribute="top" secondItem="UNW-Tt-dbJ" secondAttribute="top" constant="10" id="Akk-oa-bVJ"/>
+                            <constraint firstItem="CxP-T5-fZ9" firstAttribute="top" secondItem="oHH-li-K6y" secondAttribute="top" constant="-88" id="Akk-oa-bVJ"/>
+                            <constraint firstItem="FF5-bO-kWi" firstAttribute="top" secondItem="UNW-Tt-dbJ" secondAttribute="top" constant="90" id="Ba8-uO-w1V"/>
+                            <constraint firstItem="lYT-n0-NgA" firstAttribute="centerX" secondItem="oHH-li-K6y" secondAttribute="centerX" id="EUr-Na-qa4"/>
                             <constraint firstItem="Nye-Dy-1hV" firstAttribute="leading" secondItem="UNW-Tt-dbJ" secondAttribute="leading" constant="24" id="JGV-al-rN5"/>
+                            <constraint firstAttribute="bottom" secondItem="vKF-zK-j6j" secondAttribute="bottom" constant="374" id="Jnf-eG-8fJ"/>
                             <constraint firstItem="UNW-Tt-dbJ" firstAttribute="trailing" secondItem="FF5-bO-kWi" secondAttribute="trailing" id="SKm-hQ-cz9"/>
-                            <constraint firstAttribute="bottom" secondItem="FF5-bO-kWi" secondAttribute="bottom" constant="-3" id="c8c-JN-puO"/>
+                            <constraint firstItem="lYT-n0-NgA" firstAttribute="centerY" secondItem="oHH-li-K6y" secondAttribute="centerY" id="Z1y-nr-Pi4"/>
                             <constraint firstItem="UNW-Tt-dbJ" firstAttribute="trailing" secondItem="CxP-T5-fZ9" secondAttribute="trailing" id="eAF-pR-CeJ"/>
                             <constraint firstItem="FF5-bO-kWi" firstAttribute="leading" secondItem="UNW-Tt-dbJ" secondAttribute="leading" id="eHL-Et-0io"/>
+                            <constraint firstItem="UNW-Tt-dbJ" firstAttribute="trailing" secondItem="vKF-zK-j6j" secondAttribute="trailing" constant="155" id="fdm-pW-cDC"/>
+                            <constraint firstItem="vKF-zK-j6j" firstAttribute="leading" secondItem="UNW-Tt-dbJ" secondAttribute="leading" constant="155" id="jb0-1A-ObB"/>
                             <constraint firstItem="Nye-Dy-1hV" firstAttribute="centerX" secondItem="oHH-li-K6y" secondAttribute="centerX" id="qrc-bT-noO"/>
-                            <constraint firstItem="UNW-Tt-dbJ" firstAttribute="bottom" secondItem="Nye-Dy-1hV" secondAttribute="bottom" id="vhX-7P-RxA"/>
+                            <constraint firstAttribute="bottom" secondItem="Nye-Dy-1hV" secondAttribute="bottom" constant="-80" id="vhX-7P-RxA"/>
+                            <constraint firstItem="FF5-bO-kWi" firstAttribute="height" secondItem="oHH-li-K6y" secondAttribute="height" multiplier="0.853795" id="x0P-Nb-I9Y"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="containerView" destination="FF5-bO-kWi" id="Sie-jN-7kx"/>
+                        <outlet property="blankIcon" destination="vKF-zK-j6j" id="V32-aa-LZ1"/>
+                        <outlet property="blankIconBottomConstraint" destination="Jnf-eG-8fJ" id="Fcb-yO-Nr6"/>
+                        <outlet property="blankIconLeadingConstraint" destination="jb0-1A-ObB" id="cH5-da-R11"/>
+                        <outlet property="blankIconTopConstraint" destination="4uP-tp-3Kg" id="ksB-dg-jqk"/>
+                        <outlet property="blankIconTrailingConstraint" destination="fdm-pW-cDC" id="Ke6-bM-tRU"/>
+                        <outlet property="containerView" destination="FF5-bO-kWi" id="Beo-hN-7oY"/>
                         <outlet property="customNavigationBar" destination="CxP-T5-fZ9" id="dux-7r-cQc"/>
                         <outlet property="customTabBar" destination="Nye-Dy-1hV" id="t4H-6t-Vno"/>
+                        <outlet property="navigationBarTopConstraint" destination="Akk-oa-bVJ" id="edM-dm-lyy"/>
+                        <outlet property="tabBarBottomConstraint" destination="vhX-7P-RxA" id="EHd-Dn-kkx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBl-FE-EqR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="306" y="143"/>
+        </scene>
+        <!--Onboarding-->
+        <scene sceneID="vau-rZ-nf1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Onboarding" id="E5Q-Kf-WT8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mba-72-tZb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1234" y="-81"/>
         </scene>
         <!--Main Page View Controller-->
         <scene sceneID="NHY-KO-tk6">
@@ -83,7 +120,12 @@
                 <pageViewController storyboardIdentifier="MainPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="vbR-Jb-m12" customClass="MainPageViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ngf-f9-qmO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1099" y="143"/>
+            <point key="canvasLocation" x="1233" y="667"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
