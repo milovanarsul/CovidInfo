@@ -21,9 +21,6 @@ class MainViewController: UIViewController {
         setup()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-    }
-    
     func setup(){
         embedMainPageViewController()
         embedCustomTabBar()
@@ -32,18 +29,17 @@ class MainViewController: UIViewController {
             onboardingAnimation()
             performSegue(withIdentifier: "toOnboarding", sender: nil)
             OnboardingManager.shared.isFirstLaunch = true
-        }else{
+        } else{
             launchAnimation()
         }
     }
     
     func embedMainPageViewController(){
-        let customNavigationBar = CustomNavigationBar()
-        customNavigationBar.frame = self.customNavigationBar.bounds
-        self.customNavigationBar.addSubview(customNavigationBar)
-        
-        let embedMainPageViewController = TabBarEmbedder()
-        embedMainPageViewController.embed(withIdentifier: "MainPageViewController", parent: self, container: self.containerView, completion: nil, navigationBar: customNavigationBar)
+        let navigationBar = CustomNavigationBar()
+        navigationBar.frame = self.customNavigationBar.bounds
+        self.customNavigationBar.addSubview(navigationBar)
+        let embed = EmbedView()
+        embed.tabBar(parent: self, container: self.containerView, navigationBar: navigationBar)
     }
     
     func embedCustomNavigationBar(){

@@ -20,15 +20,17 @@ class GeneralOnboardingViewController: UIViewController {
     @IBOutlet var onboardingFinished: UIView!
     @IBOutlet var parentView: UIView!
     
-    var nextButtonOnboardingDelegate: OnboardingPageViewControllerToOnboardingViewController!
-    var pageControllerIndex = 0
+    var nextButtonOnboardingDelegate: OnboardingPageViewControllerDelegate!
     private var lottieAnimationView: AnimationView?
+    
+    var pageControllerIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let embedPageViewController = OnboardingViewControllersEmbedder()
-        embedPageViewController.embed(withIdentifier: "generalOnboardingPageViewController", parent: self, container: self.containerView, completion: nil)
+        let embed = EmbedView()
+        embed.generalOnboardingPageViewController(parent: self, container: self.containerView)
+        
         setupPageController()
         setupLottieAnimation(lottieAnimationName: onboardingDataArray[pageControllerIndex].getLottieAnimation())
     }
@@ -69,7 +71,7 @@ class GeneralOnboardingViewController: UIViewController {
     @IBOutlet weak var blankWelcomeViewHeightConstraint: NSLayoutConstraint!
     
     private func setupAnimation(){
-        blankWelcomeViewHeightConstraint.change(multiplier: 0.75)
+        blankWelcomeViewHeightConstraint.changeMultiplier(multiplier: 0.75)
         
         UIView.animate(withDuration: 0.7, delay: 0, options: [], animations: {
             self.blankWelcomeView.layoutIfNeeded()
@@ -101,7 +103,7 @@ class GeneralOnboardingViewController: UIViewController {
     }
 }
 
-extension GeneralOnboardingViewController: OnboardingViewControllerToOnboardingPageViewController{
+extension GeneralOnboardingViewController: OnboardingViewControllerDelegate{
     func showEnrollCertificateButton(show: Bool) {
         self.createAccountButton.isHidden = show
         self.enrollCertificateButton.isHidden = !show

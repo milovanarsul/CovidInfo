@@ -7,37 +7,6 @@
 
 import Foundation
 
-enum MainPages{
-    case home
-    case news
-    case statistics
-    case documents
-}
-
-enum ChildPages{
-    case none
-    case triaj
-    case preventie
-    case simptome
-}
-
-let mainPages: [MainPages:[String:[ChildPages:String]]] = [
-    MainPages.home: ["Acasa":homePages],
-    MainPages.news: ["Stiri":stiriPages],
-    MainPages.statistics: ["Statistici":statisticiPages],
-    MainPages.documents: ["Documente":documentePages]
-]
-
-let homePages: [ChildPages:String] = [
-    ChildPages.triaj: "Triaj",
-    ChildPages.preventie: "Preventie",
-    ChildPages.simptome: "Simptome"
-]
-
-let stiriPages: [ChildPages:String] = [:]
-let statisticiPages: [ChildPages:String] = [:]
-let documentePages: [ChildPages:String] = [:]
-
 class Page{
     private var parentPage: String?
     private var childPage: String?
@@ -65,4 +34,21 @@ class Page{
     }
 }
 
+
+let mainPages: [MainPages:[String:[ChildPages:String]]] = [
+    MainPages.home: ["Acasa":homePages],
+    MainPages.news: ["Stiri":stiriPages],
+    MainPages.statistics: ["Statistici":statisticiPages],
+    MainPages.documents: ["Documente":documentePages]
+]
+
+let homePages: [ChildPages:String] = [
+    ChildPages.triaj: "Triaj",
+    ChildPages.preventie: "Preventie",
+    ChildPages.simptome: "Simptome"
+]
+
+let stiriPages: [ChildPages:String] = [:]
+let statisticiPages: [ChildPages:String] = [:]
+let documentePages: [ChildPages:String] = [:]
 
