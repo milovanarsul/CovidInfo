@@ -58,14 +58,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYT-n0-NgA">
-                                <rect key="frame" x="157" y="432.5" width="100" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Onboarding"/>
-                                <connections>
-                                    <segue destination="E5Q-Kf-WT8" kind="presentation" identifier="toOnboarding" animates="NO" modalPresentationStyle="fullScreen" id="BxQ-OE-RBN"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UNW-Tt-dbJ"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,11 +67,9 @@
                             <constraint firstItem="CxP-T5-fZ9" firstAttribute="centerX" secondItem="oHH-li-K6y" secondAttribute="centerX" id="8DT-bZ-x21"/>
                             <constraint firstItem="CxP-T5-fZ9" firstAttribute="top" secondItem="oHH-li-K6y" secondAttribute="top" constant="-88" id="Akk-oa-bVJ"/>
                             <constraint firstItem="FF5-bO-kWi" firstAttribute="top" secondItem="UNW-Tt-dbJ" secondAttribute="top" constant="90" id="Ba8-uO-w1V"/>
-                            <constraint firstItem="lYT-n0-NgA" firstAttribute="centerX" secondItem="oHH-li-K6y" secondAttribute="centerX" id="EUr-Na-qa4"/>
                             <constraint firstItem="Nye-Dy-1hV" firstAttribute="leading" secondItem="UNW-Tt-dbJ" secondAttribute="leading" constant="24" id="JGV-al-rN5"/>
                             <constraint firstAttribute="bottom" secondItem="vKF-zK-j6j" secondAttribute="bottom" constant="374" id="Jnf-eG-8fJ"/>
                             <constraint firstItem="UNW-Tt-dbJ" firstAttribute="trailing" secondItem="FF5-bO-kWi" secondAttribute="trailing" id="SKm-hQ-cz9"/>
-                            <constraint firstItem="lYT-n0-NgA" firstAttribute="centerY" secondItem="oHH-li-K6y" secondAttribute="centerY" id="Z1y-nr-Pi4"/>
                             <constraint firstItem="UNW-Tt-dbJ" firstAttribute="trailing" secondItem="CxP-T5-fZ9" secondAttribute="trailing" id="eAF-pR-CeJ"/>
                             <constraint firstItem="FF5-bO-kWi" firstAttribute="leading" secondItem="UNW-Tt-dbJ" secondAttribute="leading" id="eHL-Et-0io"/>
                             <constraint firstItem="UNW-Tt-dbJ" firstAttribute="trailing" secondItem="vKF-zK-j6j" secondAttribute="trailing" constant="155" id="fdm-pW-cDC"/>
@@ -105,22 +95,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBl-FE-EqR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="306" y="143"/>
-        </scene>
-        <!--Onboarding-->
-        <scene sceneID="vau-rZ-nf1">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Onboarding" id="E5Q-Kf-WT8" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mba-72-tZb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1234" y="-81"/>
-        </scene>
-        <!--Main Page View Controller-->
-        <scene sceneID="NHY-KO-tk6">
-            <objects>
-                <pageViewController storyboardIdentifier="MainPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="vbR-Jb-m12" customClass="MainPageViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ngf-f9-qmO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1157" y="628"/>
         </scene>
     </scenes>
     <resources>

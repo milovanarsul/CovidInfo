@@ -37,4 +37,17 @@ extension UIPageViewController {
         
         setViewControllers([nextPage], direction: .forward, animated: animated, completion: completion)
     }
+    
+    func goToIndex(pageIndex: Int, direction: UIPageViewController.NavigationDirection, pages: [UIViewController]){
+        let viewController = pages[pageIndex]
+        setViewControllers([viewController], direction: direction, animated: true, completion: nil)
+    }
+    
+    func initialize(pages: [UIViewController]){
+        if let firstViewController = pages.first {
+            setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
+        }
+        
+        disableSwipeGesture()
+    }
 }

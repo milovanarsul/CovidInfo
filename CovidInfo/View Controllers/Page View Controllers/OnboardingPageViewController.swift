@@ -17,10 +17,7 @@ class OnboardingPageViewController: UIPageViewController{
         
         dataSource = self
         createViewControllers()
-        if let firstViewController = cards.first {
-            setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
-        }
-        disableSwipeGesture()
+        initialize(pages: cards)
     }
     
     fileprivate func createViewControllers(){

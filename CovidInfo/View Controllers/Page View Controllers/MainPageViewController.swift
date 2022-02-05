@@ -10,22 +10,22 @@ import UIKit
 class MainPageViewController: UIPageViewController {
     
     fileprivate var pages: [UIViewController] = []
+    
     var navigationBarDelegate: NavigationBarDelegate!
+    var homePageDelegate: HomePageDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dataSource = self
         createViewControllers()
-        if let firstViewController = pages.first {
-            setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
-        }
-        disableSwipeGesture()
+        initialize(pages: pages)
     }
     
     fileprivate func createViewControllers(){
-        let homeViewController = HomeViewController()
+        let homeViewController = HomePageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil)
         homeViewController.navigationBarDelegate = self.navigationBarDelegate
+        self.homePageDelegate = homeViewController
         pages.append(homeViewController)
         
         let newsViewController = StiriViewController()
@@ -63,7 +63,6 @@ extension MainPageViewController: UIPageViewControllerDataSource{
 
 extension MainPageViewController: TabBarDelegate{
     func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection) {
-        let viewController = pages[pageIndex]
-        setViewControllers([viewController], direction: direction, animated: true, completion: nil)
+        goToIndex(pageIndex: pageIndex, direction: direction, pages: pages)
     }
 }

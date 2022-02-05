@@ -22,8 +22,7 @@ class MainViewController: UIViewController {
     }
     
     func setup(){
-        embedMainPageViewController()
-        embedCustomTabBar()
+        embed()
         
         if OnboardingManager.shared.isFirstLaunch {
             onboardingAnimation()
@@ -34,24 +33,19 @@ class MainViewController: UIViewController {
         }
     }
     
-    func embedMainPageViewController(){
+    func embed(){
         let navigationBar = CustomNavigationBar()
+        //navigationBar.homePageDelegate = 
         navigationBar.frame = self.customNavigationBar.bounds
         self.customNavigationBar.addSubview(navigationBar)
+        
         let embed = EmbedView()
-        embed.tabBar(parent: self, container: self.containerView, navigationBar: navigationBar)
-    }
-    
-    func embedCustomNavigationBar(){
-        let customNavigationBar = CustomNavigationBar()
-        customNavigationBar.frame = self.customNavigationBar.bounds
-        self.customNavigationBar.addSubview(customNavigationBar)
-    }
-    
-    func embedCustomTabBar(){
+        embed.mainPageViewController(parent: self, container: self.containerView, navigationBar: navigationBar)
+        
         let customTabBar = CustomTabBar()
         customTabBar.frame = self.customTabBar.bounds
         customTabBar.tabBarDelegate = self.tabBarDelegate
+        customTabBar.navigationBarDelegate = navigationBar
         self.customTabBar.addSubview(customTabBar)
     }
     

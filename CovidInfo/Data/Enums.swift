@@ -32,3 +32,7 @@ enum ChildPages{
     case preventie
     case simptome
 }
+
+enum PagesSettings{
+    
+}

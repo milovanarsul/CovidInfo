@@ -13,37 +13,48 @@ class CustomNavigationBar: XIB {
     @IBOutlet var parentPageButton: UIButton!
     @IBOutlet var childPageButton: UIButton!
     
-    private var parentPageTitle: String?
-    private var childPageTitle: String?
-    private var showChildButton: Bool?
-    
-    func getCurrentPageButtonWidth() -> CGFloat{
-        return self.childPageButton.bounds.width
-    }
-    
     @IBOutlet var childPageButtonLeadingConstraint: NSLayoutConstraint!
     
+    var homePageDelegate: HomePageDelegate!
+    
     func slideOutChildPageButton(){
-        childPageButtonLeadingConstraint.constant = -getCurrentPageButtonWidth() - 10
+        childPageButtonLeadingConstraint.constant = -100
         
-        UIView.animate(withDuration: 0.9, delay: 0.5, options: [], animations: {
+        UIView.animate(withDuration: 0.7, delay: 0.0, options: [], animations: {
             self.childPageButton.layoutIfNeeded()
             self.customNavigationBar.layoutIfNeeded()
         }, completion: {(finished: Bool) in
             self.childPageButton.isHidden = true
+            self.childPageButtonLeadingConstraint.constant = 25
+            
         })
     }
     
     func slideInChildPageButton(){
+        childPageButtonLeadingConstraint.constant = getParentPageButtonWidth() + 10
         self.childPageButton.isHidden = false
-        childPageButtonLeadingConstraint.constant = getCurrentPageButtonWidth() + 10
         
-        UIView.animate(withDuration: 0.9, delay: 0.5, options: [], animations: {
+        UIView.animate(withDuration: 0.7, delay: 0.0, options: [], animations: {
             self.childPageButton.layoutIfNeeded()
             self.customNavigationBar.layoutIfNeeded()
         }, completion: {(finished: Bool) in
+           
         })
     }
+    
+    private var parentPageTitle: String?
+    private var childPageTitle: String?
+    private var showChildButton: Bool?
+    
+    func getParentPageButtonWidth() -> CGFloat{
+        return self.parentPageButton.bounds.width
+    }
+    
+    @IBAction func goToMainView(_ sender: Any) {
+        buttonSlider(sliderType: .left)
+        homePageDelegate.goToPage(pageIndex:0, direction: .reverse)
+    }
+    
 }
 
 extension CustomNavigationBar{
@@ -54,15 +65,6 @@ extension CustomNavigationBar{
     
     func changeParentPageButton(title: String) {
         self.parentPageButton.setAttributedTitle(changeButtonTitle(title: title, font: "IBMPlexSans-Bold", fontSize: 30, color: UIColor.black), for: .normal)
-    }
-    
-    func buttonSlider(sliderType: currentPageButtonSlider) {
-        switch sliderType {
-        case .left:
-            slideOutChildPageButton()
-        case .right:
-            slideInChildPageButton()
-        }
     }
     
     func currentPageSettings(){
@@ -86,7 +88,16 @@ extension CustomNavigationBar: NavigationBarDelegate{
         } else {
             self.showChildButton = false
         }
-        
         currentPageSettings()
     }
+    
+    func buttonSlider(sliderType: currentPageButtonSlider) {
+        switch sliderType {
+        case .left:
+            slideOutChildPageButton()
+        case .right:
+            slideInChildPageButton()
+        }
+    }
+    
 }

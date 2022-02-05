@@ -329,14 +329,6 @@ aplicatiei.</string>
             </objects>
             <point key="canvasLocation" x="2175" y="611"/>
         </scene>
-        <!--Onboarding Page View Controller-->
-        <scene sceneID="Zls-Mg-VtU">
-            <objects>
-                <pageViewController storyboardIdentifier="generalOnboardingPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Jfg-Qk-0Vh" customClass="OnboardingPageViewController" customModule="CovidInfo" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MOS-2m-1G0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2352" y="81"/>
-        </scene>
         <!--Enroll Certificate View Controller-->
         <scene sceneID="YbV-xK-b9w">
             <objects>

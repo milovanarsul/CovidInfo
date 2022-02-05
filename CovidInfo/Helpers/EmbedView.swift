@@ -29,19 +29,17 @@ class EmbedView{
     }
     
     func generalOnboardingPageViewController(parent: GeneralOnboardingViewController, container: UIView){
-        
-        let child = parent.storyboard!.instantiateViewController(withIdentifier: "generalOnboardingPageViewController") as! OnboardingPageViewController
+        let child = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
         parent.nextButtonOnboardingDelegate = child
         child.laterButtonDelegate = parent
     }
     
-    func tabBar(parent: MainViewController, container: UIView, navigationBar: CustomNavigationBar){
-        
-        let child = parent.storyboard!.instantiateViewController(withIdentifier: "MainPageViewController") as! MainPageViewController
+    func mainPageViewController(parent: MainViewController, container: UIView, navigationBar: CustomNavigationBar){
+        let child = MainPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         child.navigationBarDelegate = navigationBar
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
         parent.tabBarDelegate = child
-        
+        navigationBar.homePageDelegate = child.homePageDelegate
     }
 }

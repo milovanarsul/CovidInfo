@@ -10,7 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomNavigationBar" customModule="CovidInfo" customModuleProvider="target">
             <connections>
                 <outlet property="childPageButton" destination="Mql-cH-4Ld" id="sE6-67-l15"/>
-                <outlet property="childPageButtonLeadingConstraint" destination="tkB-bM-Eea" id="ina-Kx-dl8"/>
+                <outlet property="childPageButtonLeadingConstraint" destination="h6F-U8-8lE" id="tGL-WN-iX1"/>
                 <outlet property="customNavigationBar" destination="iN0-l3-epB" id="5xg-sN-pyy"/>
                 <outlet property="parentPageButton" destination="xpf-IW-cPw" id="KW2-gD-IhE"/>
             </connections>
@@ -20,24 +20,8 @@
             <rect key="frame" x="0.0" y="0.0" width="565" height="94"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpf-IW-cPw" userLabel="parentPage">
-                    <rect key="frame" x="25" y="27.5" width="94.5" height="39"/>
-                    <inset key="titleEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Parent" titleAlignment="leading">
-                        <backgroundConfiguration key="background" cornerRadius="0.0">
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </backgroundConfiguration>
-                        <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="30"/>
-                        <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
-                        <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </buttonConfiguration>
-                    <connections>
-                        <action selector="testAction:" destination="-1" eventType="touchUpInside" id="wir-yv-B64"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mql-cH-4Ld" userLabel="childPage">
-                    <rect key="frame" x="129.5" y="27.5" width="95.5" height="39"/>
+                    <rect key="frame" x="-10" y="27.5" width="95.5" height="39"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="Child" imagePadding="8">
@@ -50,6 +34,22 @@
                         <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                         <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </buttonConfiguration>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpf-IW-cPw" userLabel="parentPage">
+                    <rect key="frame" x="0.0" y="27.5" width="119.5" height="39"/>
+                    <inset key="titleEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Parent" titleAlignment="leading">
+                        <backgroundConfiguration key="background" cornerRadius="0.0">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </backgroundConfiguration>
+                        <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="30"/>
+                        <directionalEdgeInsets key="contentInsets" top="0.0" leading="25" bottom="0.0" trailing="0.0"/>
+                        <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="goToMainView:" destination="-1" eventType="touchUpInside" id="gi7-0D-OfR"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3AX-5E-4JW" userLabel="accountButton">
                     <rect key="frame" x="475" y="17" width="60" height="60"/>
@@ -67,10 +67,10 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="3AX-5E-4JW" secondAttribute="trailing" constant="30" id="5Zx-DP-SLF"/>
                 <constraint firstItem="xpf-IW-cPw" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="bDi-b6-HoK"/>
-                <constraint firstItem="xpf-IW-cPw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="c25-v7-9Yv"/>
+                <constraint firstItem="xpf-IW-cPw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="c25-v7-9Yv"/>
+                <constraint firstItem="Mql-cH-4Ld" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-10" id="h6F-U8-8lE"/>
                 <constraint firstItem="3AX-5E-4JW" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="moS-19-HR8"/>
                 <constraint firstItem="Mql-cH-4Ld" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tJV-d2-wfJ"/>
-                <constraint firstItem="Mql-cH-4Ld" firstAttribute="leading" secondItem="xpf-IW-cPw" secondAttribute="trailing" constant="10" id="tkB-bM-Eea"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

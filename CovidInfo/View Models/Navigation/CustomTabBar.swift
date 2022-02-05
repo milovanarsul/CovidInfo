@@ -17,6 +17,7 @@ class CustomTabBar: XIB {
     @IBOutlet var slider: UIView!
     
     var tabBarDelegate: TabBarDelegate!
+    var navigationBarDelegate: NavigationBarDelegate!
     var currentPageIndex: Int = 0
     
     func tabBarPageSliderDirection(tabBarButton: tabBarButtons){
@@ -33,21 +34,25 @@ class CustomTabBar: XIB {
     @IBAction func homeButtonPressed(_ sender: Any) {
         tabBarButtonSetup(tabBarButton: .home)
         tabBarPageSliderDirection(tabBarButton: .home)
+        navigationBarDelegate.setup(page: Page(mainPage: .home, childType: .none))
     }
     
     @IBAction func newsButtonPressed(_ sender: Any) {
         tabBarButtonSetup(tabBarButton: .news)
         tabBarPageSliderDirection(tabBarButton: .news)
+        navigationBarDelegate.setup(page: Page(mainPage: .news, childType: .none))
     }
     
     @IBAction func statisticsButtonPressed(_ sender: Any) {
         tabBarButtonSetup(tabBarButton: .statistics)
         tabBarPageSliderDirection(tabBarButton: .statistics)
+        navigationBarDelegate.setup(page: Page(mainPage: .statistics, childType: .none))
     }
     
     @IBAction func documentsButtonPressed(_ sender: Any) {
         tabBarButtonSetup(tabBarButton: .documents)
         tabBarPageSliderDirection(tabBarButton: .documents)
+        navigationBarDelegate.setup(page: Page(mainPage: .documents, childType: .none))
     }
     
     func tabBarButtonSetup(tabBarButton: tabBarButtons){
