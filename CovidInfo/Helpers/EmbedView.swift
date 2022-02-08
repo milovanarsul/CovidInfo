@@ -38,8 +38,15 @@ class EmbedView{
     func mainPageViewController(parent: MainViewController, container: UIView, navigationBar: CustomNavigationBar){
         let child = MainPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         child.navigationBarDelegate = navigationBar
+        child.mainDelegate = parent
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
         parent.tabBarDelegate = child
         navigationBar.homePageDelegate = child.homePageDelegate
+    }
+    
+    func simptomeAndPreventieViewController(parent: SimptomeAndPreventieViewController, container: UIView){
+        let child = StaticCollectionViewController(collectionViewLayout: CardLayout.init())
+        child.staticDelegate = parent
+        embed(parent: parent, container: container, child: child, previous: parent.children.first)
     }
 }

@@ -33,6 +33,12 @@ enum ChildPages{
     case simptome
 }
 
-enum PagesSettings{
-    
+enum StaticType{
+    case simptome
+    case preventie
+}
+
+enum TabBarVisibility{
+    case show
+    case hide
 }

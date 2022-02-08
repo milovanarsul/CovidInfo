@@ -11,6 +11,7 @@ class Home: XIB {
     
     var homePageDelegate: HomePageDelegate!
     var navigationBarDelegate: NavigationBarDelegate!
+    var mainDelegate: MainDelegate!
     
     @IBAction func button1(_ sender: Any) {
         homePageDelegate.goToPage(pageIndex: 1, direction: .forward)
@@ -22,6 +23,7 @@ class Home: XIB {
         homePageDelegate.goToPage(pageIndex: 2, direction: .forward)
         homePageDelegate.updateNavigationBar(page: Page(mainPage: .home, childType: .simptome))
         navigationBarDelegate.buttonSlider(sliderType: .right)
+        mainDelegate.tabBarVisibility(tabBarVisibility: .hide)
     }
     
     
