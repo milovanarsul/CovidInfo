@@ -13,6 +13,16 @@
 		B21C965427B2BD5400C88A50 /* SimptomeAndPreventieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C965227B2BD5400C88A50 /* SimptomeAndPreventieViewController.swift */; };
 		B21C965527B2BD5400C88A50 /* SimptomeAndPreventieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21C965327B2BD5400C88A50 /* SimptomeAndPreventieViewController.xib */; };
 		B21C965727B2CADA00C88A50 /* SimptomeAndPreventieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C965627B2CADA00C88A50 /* SimptomeAndPreventieData.swift */; };
+		B23DE45A27B3BC4700FD2E10 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE45927B3BC4700FD2E10 /* Constraints.swift */; };
+		B23DE46027B3D01700FD2E10 /* preventie3.json in Resources */ = {isa = PBXBuildFile; fileRef = B23DE45B27B3D01700FD2E10 /* preventie3.json */; };
+		B23DE46127B3D01700FD2E10 /* preventie4.json in Resources */ = {isa = PBXBuildFile; fileRef = B23DE45C27B3D01700FD2E10 /* preventie4.json */; };
+		B23DE46227B3D01700FD2E10 /* preventie2.json in Resources */ = {isa = PBXBuildFile; fileRef = B23DE45D27B3D01700FD2E10 /* preventie2.json */; };
+		B23DE46327B3D01700FD2E10 /* preventie5.json in Resources */ = {isa = PBXBuildFile; fileRef = B23DE45E27B3D01700FD2E10 /* preventie5.json */; };
+		B23DE46427B3D01700FD2E10 /* preventie1.json in Resources */ = {isa = PBXBuildFile; fileRef = B23DE45F27B3D01700FD2E10 /* preventie1.json */; };
+		B23DE46827B3D02400FD2E10 /* simptome3.json in Resources */ = {isa = PBXBuildFile; fileRef = B23DE46527B3D02400FD2E10 /* simptome3.json */; };
+		B23DE46927B3D02400FD2E10 /* simptome1.json in Resources */ = {isa = PBXBuildFile; fileRef = B23DE46627B3D02400FD2E10 /* simptome1.json */; };
+		B23DE46A27B3D02400FD2E10 /* simptome2.json in Resources */ = {isa = PBXBuildFile; fileRef = B23DE46727B3D02400FD2E10 /* simptome2.json */; };
+		B23DE46C27B3FC4D00FD2E10 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE46B27B3FC4D00FD2E10 /* UIColor.swift */; };
 		B256059A27B2AF8000FB039F /* StaticCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256059927B2AF8000FB039F /* StaticCollectionViewController.swift */; };
 		B256059C27B2AFB500FB039F /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256059B27B2AFB500FB039F /* CollectionViewLayout.swift */; };
 		B25AD33927A30B50009EAD38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33827A30B50009EAD38 /* UIView.swift */; };
@@ -36,7 +46,6 @@
 		B2B3C99727A8727A00842DA5 /* DocumenteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3C99527A8727A00842DA5 /* DocumenteViewController.swift */; };
 		B2B3C99827A8727A00842DA5 /* DocumenteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2B3C99627A8727A00842DA5 /* DocumenteViewController.xib */; };
 		B2B45D1A27B2F34B00788918 /* SimptomeAndPreventieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B45D1927B2F34B00788918 /* SimptomeAndPreventieCollectionViewCell.swift */; };
-		B2B45D1C27B2F37600788918 /* SimptomeAndPreventieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2B45D1B27B2F37600788918 /* SimptomeAndPreventieCollectionViewCell.xib */; };
 		B2B5A9B02790939500FC4E61 /* onboarding2.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9A92790939500FC4E61 /* onboarding2.json */; };
 		B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AA2790939500FC4E61 /* onboarding4.1.json */; };
 		B2B5A9B22790939500FC4E61 /* onboarding1.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9AB2790939500FC4E61 /* onboarding1.json */; };
@@ -116,6 +125,16 @@
 		B21C965227B2BD5400C88A50 /* SimptomeAndPreventieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventieViewController.swift; sourceTree = "<group>"; };
 		B21C965327B2BD5400C88A50 /* SimptomeAndPreventieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimptomeAndPreventieViewController.xib; sourceTree = "<group>"; };
 		B21C965627B2CADA00C88A50 /* SimptomeAndPreventieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventieData.swift; sourceTree = "<group>"; };
+		B23DE45927B3BC4700FD2E10 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		B23DE45B27B3D01700FD2E10 /* preventie3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = preventie3.json; sourceTree = "<group>"; };
+		B23DE45C27B3D01700FD2E10 /* preventie4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = preventie4.json; sourceTree = "<group>"; };
+		B23DE45D27B3D01700FD2E10 /* preventie2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = preventie2.json; sourceTree = "<group>"; };
+		B23DE45E27B3D01700FD2E10 /* preventie5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = preventie5.json; sourceTree = "<group>"; };
+		B23DE45F27B3D01700FD2E10 /* preventie1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = preventie1.json; sourceTree = "<group>"; };
+		B23DE46527B3D02400FD2E10 /* simptome3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simptome3.json; sourceTree = "<group>"; };
+		B23DE46627B3D02400FD2E10 /* simptome1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simptome1.json; sourceTree = "<group>"; };
+		B23DE46727B3D02400FD2E10 /* simptome2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simptome2.json; sourceTree = "<group>"; };
+		B23DE46B27B3FC4D00FD2E10 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B256059927B2AF8000FB039F /* StaticCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticCollectionViewController.swift; sourceTree = "<group>"; };
 		B256059B27B2AFB500FB039F /* CollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
 		B25AD33827A30B50009EAD38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -139,7 +158,6 @@
 		B2B3C99527A8727A00842DA5 /* DocumenteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumenteViewController.swift; sourceTree = "<group>"; };
 		B2B3C99627A8727A00842DA5 /* DocumenteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumenteViewController.xib; sourceTree = "<group>"; };
 		B2B45D1927B2F34B00788918 /* SimptomeAndPreventieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventieCollectionViewCell.swift; sourceTree = "<group>"; };
-		B2B45D1B27B2F37600788918 /* SimptomeAndPreventieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimptomeAndPreventieCollectionViewCell.xib; sourceTree = "<group>"; };
 		B2B5A9A92790939500FC4E61 /* onboarding2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding2.json; sourceTree = "<group>"; };
 		B2B5A9AA2790939500FC4E61 /* onboarding4.1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding4.1.json; sourceTree = "<group>"; };
 		B2B5A9AB2790939500FC4E61 /* onboarding1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding1.json; sourceTree = "<group>"; };
@@ -237,6 +255,9 @@
 		B21C965827B2CAFF00C88A50 /* Simptome */ = {
 			isa = PBXGroup;
 			children = (
+				B23DE46627B3D02400FD2E10 /* simptome1.json */,
+				B23DE46727B3D02400FD2E10 /* simptome2.json */,
+				B23DE46527B3D02400FD2E10 /* simptome3.json */,
 			);
 			path = Simptome;
 			sourceTree = "<group>";
@@ -244,6 +265,11 @@
 		B21C965927B2CB0500C88A50 /* Preventie */ = {
 			isa = PBXGroup;
 			children = (
+				B23DE45F27B3D01700FD2E10 /* preventie1.json */,
+				B23DE45D27B3D01700FD2E10 /* preventie2.json */,
+				B23DE45B27B3D01700FD2E10 /* preventie3.json */,
+				B23DE45C27B3D01700FD2E10 /* preventie4.json */,
+				B23DE45E27B3D01700FD2E10 /* preventie5.json */,
 			);
 			path = Preventie;
 			sourceTree = "<group>";
@@ -307,6 +333,7 @@
 				B2F48DE127AD25BC005EE116 /* EmbedView.swift */,
 				B2B079DE27AD3BD900A39107 /* LoadXIB.swift */,
 				B256059B27B2AFB500FB039F /* CollectionViewLayout.swift */,
+				B23DE45927B3BC4700FD2E10 /* Constraints.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -346,7 +373,6 @@
 				B21C965227B2BD5400C88A50 /* SimptomeAndPreventieViewController.swift */,
 				B21C965327B2BD5400C88A50 /* SimptomeAndPreventieViewController.xib */,
 				B2B45D1927B2F34B00788918 /* SimptomeAndPreventieCollectionViewCell.swift */,
-				B2B45D1B27B2F37600788918 /* SimptomeAndPreventieCollectionViewCell.xib */,
 			);
 			path = "Simptome & Preventie";
 			sourceTree = "<group>";
@@ -366,6 +392,7 @@
 				B268FF7D27A53FD80083A450 /* NSLayoutConstraint.swift */,
 				B281283427A5A69700DE7DB8 /* UIPageViewController.swift */,
 				B2063B9627A84EF90070B3CA /* UIButton.swift */,
+				B23DE46B27B3FC4D00FD2E10 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -653,19 +680,21 @@
 				B2B3C98E27A8724900842DA5 /* StiriViewController.xib in Resources */,
 				B2E6741727A5252600F283B7 /* OnboardingCards.xib in Resources */,
 				B2F65139278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */,
-				B2B45D1C27B2F37600788918 /* SimptomeAndPreventieCollectionViewCell.xib in Resources */,
 				B2B5A9B22790939500FC4E61 /* onboarding1.json in Resources */,
 				B2F65145278F32B000E1BB58 /* IBMPlexSans-SemiBold.ttf in Resources */,
 				B2F65102278F2BDB00E1BB58 /* LaunchScreen.storyboard in Resources */,
+				B23DE46327B3D01700FD2E10 /* preventie5.json in Resources */,
 				B2F65157278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */,
 				B2F65148278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */,
 				B2A389F627A442990005F9FD /* CustomNavigationBar.xib in Resources */,
 				B278D50527A2846900511BB2 /* Main.storyboard in Resources */,
+				B23DE46227B3D01700FD2E10 /* preventie2.json in Resources */,
 				B25CC92627AE6FD4000D99F6 /* Home.xib in Resources */,
 				B21C965527B2BD5400C88A50 /* SimptomeAndPreventieViewController.xib in Resources */,
 				B2B5A9B62790939500FC4E61 /* onboarding5.json in Resources */,
 				B2B5A9B02790939500FC4E61 /* onboarding2.json in Resources */,
 				B2F65154278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */,
+				B23DE46027B3D01700FD2E10 /* preventie3.json in Resources */,
 				B2B5A9B32790939500FC4E61 /* onboarding3.json in Resources */,
 				B2F650FF278F2BDB00E1BB58 /* Assets.xcassets in Resources */,
 				B2BB039D27A9467700D4801B /* CustomTabBar.xib in Resources */,
@@ -673,10 +702,15 @@
 				B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */,
 				B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */,
 				B2B3C99827A8727A00842DA5 /* DocumenteViewController.xib in Resources */,
+				B23DE46827B3D02400FD2E10 /* simptome3.json in Resources */,
+				B23DE46A27B3D02400FD2E10 /* simptome2.json in Resources */,
+				B23DE46427B3D01700FD2E10 /* preventie1.json in Resources */,
+				B23DE46127B3D01700FD2E10 /* preventie4.json in Resources */,
 				B2E6741D27A530CF00F283B7 /* Onboarding.storyboard in Resources */,
 				B2F65142278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */,
 				B2B3C99427A8726D00842DA5 /* StatisticiViewController.xib in Resources */,
 				B2B5A9B52790939500FC4E61 /* onboarding4.json in Resources */,
+				B23DE46927B3D02400FD2E10 /* simptome1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -827,6 +861,7 @@
 				B2C59C2127A869340094A984 /* MainPageViewController.swift in Sources */,
 				B268FF8327A549C40083A450 /* OnboardingPageViewController.swift in Sources */,
 				B2E6741F27A5334200F283B7 /* WelcomeOnboardingViewController.swift in Sources */,
+				B23DE45A27B3BC4700FD2E10 /* Constraints.swift in Sources */,
 				B2F650F5278F2BD900E1BB58 /* SceneDelegate.swift in Sources */,
 				B256059A27B2AF8000FB039F /* StaticCollectionViewController.swift in Sources */,
 				B2BB039B27A9466700D4801B /* CustomTabBar.swift in Sources */,
@@ -844,6 +879,7 @@
 				B2A389F427A442820005F9FD /* CustomNavigationBar.swift in Sources */,
 				B2B3C99327A8726D00842DA5 /* StatisticiViewController.swift in Sources */,
 				B256059C27B2AFB500FB039F /* CollectionViewLayout.swift in Sources */,
+				B23DE46C27B3FC4D00FD2E10 /* UIColor.swift in Sources */,
 				B25CC91E27AE6FA7000D99F6 /* Home.swift in Sources */,
 				B2E6741B27A52A8F00F283B7 /* OnboardingData.swift in Sources */,
 				B278D50727A2848600511BB2 /* MainViewController.swift in Sources */,

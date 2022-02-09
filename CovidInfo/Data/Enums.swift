@@ -7,6 +7,20 @@
 
 import Foundation
 
+enum ConstraintType{
+    case leading
+    case trailing
+    case top
+    case bottom
+    case horizontal
+    case vertical
+    case aspectRatio
+    case proportionalHeight
+    case proportionalWidth
+    case verticalSpacing
+    case horizontalSpacing
+}
+
 enum currentPageButtonSlider{
     case left
     case right

@@ -10,6 +10,7 @@ import UIKit
 class SimptomeAndPreventieViewController: UIViewController {
     @IBOutlet var moreInfoWebsite: UILabel!
     @IBOutlet var collectionView: UIView!
+    @IBOutlet var topView: UIView!
     
     var staticType: StaticType
     
@@ -27,6 +28,7 @@ class SimptomeAndPreventieViewController: UIViewController {
         super.viewDidLoad()
         
         embedCollectionView()
+        setup()
     }
     
     func embedCollectionView(){
@@ -34,28 +36,20 @@ class SimptomeAndPreventieViewController: UIViewController {
         embed.simptomeAndPreventieViewController(parent: self, container: self.collectionView)
     }
     
-    func changeMoreInfoWebsite(staticType: StaticType){
-        switch staticType {
-        case .simptome:
-            self.moreInfoWebsite.textColor = .red
-        case .preventie:
-            self.moreInfoWebsite.textColor = .green
-        }
+    func setup(){
+        let cards = getCards()
+        self.moreInfoWebsite.textColor = cards.1
+        self.topView.borderColor = cards.1
     }
 }
 
-extension SimptomeAndPreventieViewController: StaticDelegate{
-
-    func getStaticType() -> StaticType {
-        return self.staticType
-    }
-    
-    func getCards() -> Any {
-        switch self.staticType {
+extension SimptomeAndPreventieViewController: StaticDelegate {
+    func getCards() -> ([SimptomeAndPreventieData], UIColor, Int) {
+        switch self.staticType{
         case .preventie:
-            return preventie
+            return (preventie.cards, preventie.borderColor, preventie.cards.count)
         case .simptome:
-            return simptome
+            return (simptome.cards, simptome.borderColor, simptome.cards.count)
         }
     }
 }

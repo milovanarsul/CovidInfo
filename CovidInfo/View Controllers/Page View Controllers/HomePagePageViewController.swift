@@ -43,6 +43,9 @@ class HomePageViewController: UIPageViewController {
     
         let thirdViewController = SimptomeAndPreventieViewController(staticType: .preventie)
         pages.append(thirdViewController)
+        
+        let fourthViewController = SimptomeAndPreventieViewController(staticType: .simptome)
+        pages.append(fourthViewController)
     }
 }
 

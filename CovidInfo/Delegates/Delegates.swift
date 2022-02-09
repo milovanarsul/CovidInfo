@@ -36,6 +36,5 @@ protocol MainDelegate{
 }
 
 protocol StaticDelegate{
-    func getCards() -> Any
-    func getStaticType() -> StaticType
+    func getCards() -> ([SimptomeAndPreventieData], UIColor, Int)
 }

@@ -59,6 +59,9 @@
                 <constraint firstItem="ly9-PX-jfa" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vSb-G7-bCg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="139" y="154"/>
         </view>
     </objects>
