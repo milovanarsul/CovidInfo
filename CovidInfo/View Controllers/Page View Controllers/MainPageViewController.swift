@@ -13,6 +13,7 @@ class MainPageViewController: UIPageViewController {
     
     var navigationBarDelegate: NavigationBarDelegate!
     var homePageDelegate: HomePageDelegate!
+    var mainDelegate: MainDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class MainPageViewController: UIPageViewController {
     fileprivate func createViewControllers(){
         let homeViewController = HomePageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil)
         homeViewController.navigationBarDelegate = self.navigationBarDelegate
+        homeViewController.mainDelegate = self.mainDelegate
         self.homePageDelegate = homeViewController
         pages.append(homeViewController)
         

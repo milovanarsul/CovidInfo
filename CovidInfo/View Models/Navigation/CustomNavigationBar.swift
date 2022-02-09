@@ -16,6 +16,7 @@ class CustomNavigationBar: XIB {
     @IBOutlet var childPageButtonLeadingConstraint: NSLayoutConstraint!
     
     var homePageDelegate: HomePageDelegate!
+    var mainDelegate: MainDelegate!
     
     func slideOutChildPageButton(){
         childPageButtonLeadingConstraint.constant = -100
@@ -53,6 +54,7 @@ class CustomNavigationBar: XIB {
     @IBAction func goToMainView(_ sender: Any) {
         buttonSlider(sliderType: .left)
         homePageDelegate.goToPage(pageIndex:0, direction: .reverse)
+        mainDelegate.tabBarVisibility(tabBarVisibility: .show)
     }
     
 }
@@ -99,5 +101,4 @@ extension CustomNavigationBar: NavigationBarDelegate{
             slideInChildPageButton()
         }
     }
-    
 }

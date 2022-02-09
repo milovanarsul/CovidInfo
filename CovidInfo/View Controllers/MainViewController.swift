@@ -37,6 +37,7 @@ class MainViewController: UIViewController {
         let navigationBar = CustomNavigationBar()
         //navigationBar.homePageDelegate = 
         navigationBar.frame = self.customNavigationBar.bounds
+        navigationBar.mainDelegate = self
         self.customNavigationBar.addSubview(navigationBar)
         
         let embed = EmbedView()
@@ -91,3 +92,21 @@ class MainViewController: UIViewController {
         })
     }
 }
+
+extension MainViewController: MainDelegate{
+    func tabBarVisibility(tabBarVisibility: TabBarVisibility) {
+        switch tabBarVisibility{
+        case .hide:
+            self.tabBarBottomConstraint.constant = -100
+        case .show:
+            self.tabBarBottomConstraint.constant = 34
+        }
+        
+        UIView.animate(withDuration: 0.9, animations: {
+            self.customTabBar.layoutIfNeeded()
+            self.view.layoutIfNeeded()
+        })
+    }
+}
+
+

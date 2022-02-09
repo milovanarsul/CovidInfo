@@ -30,3 +30,11 @@ protocol HomePageDelegate{
     func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection)
     func updateNavigationBar(page: Page)
 }
+
+protocol MainDelegate{
+    func tabBarVisibility(tabBarVisibility: TabBarVisibility)
+}
+
+protocol StaticDelegate{
+    func getCards() -> ([SimptomeAndPreventieData], UIColor, Int)
+}

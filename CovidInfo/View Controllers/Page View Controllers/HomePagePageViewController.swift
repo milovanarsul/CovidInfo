@@ -13,6 +13,7 @@ class HomePageViewController: UIPageViewController {
     
     var page: Page = Page(mainPage: .home, childType: .none)
     var navigationBarDelegate: NavigationBarDelegate!
+    var mainDelegate: MainDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,7 @@ class HomePageViewController: UIPageViewController {
         let home = Home()
         home.homePageDelegate = self
         home.navigationBarDelegate = self.navigationBarDelegate
+        home.mainDelegate = self.mainDelegate
         firstViewController.view = home
         pages.append(firstViewController)
         
@@ -38,17 +40,11 @@ class HomePageViewController: UIPageViewController {
         triaj.homePageDelegate = self
         secondViewController.view = triaj
         pages.append(secondViewController)
-        
-        let thirdViewController = UIViewController()
-        let simptome = Simptome()
-        simptome.homePageDelegate = self
-        thirdViewController.view = simptome
+    
+        let thirdViewController = SimptomeAndPreventieViewController(staticType: .preventie)
         pages.append(thirdViewController)
         
-        let fourthViewController = UIViewController()
-        let preventie = Preventie()
-        preventie.homePageDelegate = self
-        fourthViewController.view = preventie
+        let fourthViewController = SimptomeAndPreventieViewController(staticType: .simptome)
         pages.append(fourthViewController)
     }
 }

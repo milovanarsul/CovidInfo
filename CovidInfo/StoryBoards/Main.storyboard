@@ -90,11 +90,20 @@
                         <outlet property="customTabBar" destination="Nye-Dy-1hV" id="t4H-6t-Vno"/>
                         <outlet property="navigationBarTopConstraint" destination="Akk-oa-bVJ" id="edM-dm-lyy"/>
                         <outlet property="tabBarBottomConstraint" destination="vhX-7P-RxA" id="EHd-Dn-kkx"/>
+                        <segue destination="chR-Qb-eQh" kind="presentation" identifier="toOnboarding" animates="NO" modalPresentationStyle="fullScreen" id="vkv-N4-DU9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBl-FE-EqR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="306" y="143"/>
+        </scene>
+        <!--Onboarding-->
+        <scene sceneID="SRr-4f-gMO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Onboarding" id="chR-Qb-eQh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HaF-DD-IKD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1190" y="-137"/>
         </scene>
     </scenes>
     <resources>
