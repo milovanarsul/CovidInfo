@@ -12,13 +12,11 @@ class HomePageViewController: UIPageViewController {
     fileprivate var pages: [UIViewController] = []
     
     var page: Page = Page(mainPage: .home, childType: .none)
-    var navigationBarDelegate: NavigationBarDelegate!
-    var mainDelegate: MainDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationBarDelegate.setup(page: page)
+        delegates.navigationBarDelegate.setup(page: page)
         
         dataSource = self
         createViews()
@@ -29,9 +27,7 @@ class HomePageViewController: UIPageViewController {
         
         let firstViewController = UIViewController()
         let home = Home()
-        home.homePageDelegate = self
-        home.navigationBarDelegate = self.navigationBarDelegate
-        home.mainDelegate = self.mainDelegate
+        delegates.homeDelegate = self
         firstViewController.view = home
         pages.append(firstViewController)
         
@@ -68,7 +64,7 @@ extension HomePageViewController: UIPageViewControllerDataSource{
 
 extension HomePageViewController: HomePageDelegate{
     func updateNavigationBar(page: Page) {
-        navigationBarDelegate.setup(page: page)
+        delegates.navigationBarDelegate.setup(page: page)
     }
     
     func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection) {

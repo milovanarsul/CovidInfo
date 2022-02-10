@@ -14,8 +14,6 @@ class MainViewController: UIViewController {
     @IBOutlet var customNavigationBar: UIView!
     @IBOutlet var customTabBar: UIView!
     
-    var tabBarDelegate: TabBarDelegate!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -35,9 +33,7 @@ class MainViewController: UIViewController {
     
     func embed(){
         let navigationBar = CustomNavigationBar()
-        //navigationBar.homePageDelegate = 
         navigationBar.frame = self.customNavigationBar.bounds
-        navigationBar.mainDelegate = self
         self.customNavigationBar.addSubview(navigationBar)
         
         let embed = EmbedView()
@@ -45,8 +41,6 @@ class MainViewController: UIViewController {
         
         let customTabBar = CustomTabBar()
         customTabBar.frame = self.customTabBar.bounds
-        customTabBar.tabBarDelegate = self.tabBarDelegate
-        customTabBar.navigationBarDelegate = navigationBar
         self.customTabBar.addSubview(customTabBar)
     }
     

@@ -20,7 +20,6 @@ class GeneralOnboardingViewController: UIViewController {
     @IBOutlet var onboardingFinished: UIView!
     @IBOutlet var parentView: UIView!
     
-    var nextButtonOnboardingDelegate: OnboardingPageViewControllerDelegate!
     private var lottieAnimationView: AnimationView?
     
     var pageControllerIndex = 0
@@ -58,7 +57,7 @@ class GeneralOnboardingViewController: UIViewController {
     
     @IBAction func delegateAction(_ sender: Any) {
         if pageControllerIndex < 4{
-            nextButtonOnboardingDelegate.nextButtonIsTapped()
+            delegates.onboardingPageViewControllerDelegate.nextButtonIsTapped()
             self.pageControllerIndex += 1
             self.pageController.currentPage = self.pageControllerIndex
             lottieAnimationView?.removeFromSuperview()

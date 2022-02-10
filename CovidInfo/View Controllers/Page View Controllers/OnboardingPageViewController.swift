@@ -10,7 +10,6 @@ import UIKit
 class OnboardingPageViewController: UIPageViewController{
     
     fileprivate var cards: [UIViewController] = []
-    var laterButtonDelegate: OnboardingViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,11 +53,11 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource{
         guard cards.count > nextIndex else {return nil}
         
         if viewControllerIndex == 2{
-            laterButtonDelegate.showEnrollCertificateButton(show: true)
+            delegates.onboardingViewControllerDelegate.showEnrollCertificateButton(show: true)
         }
         
         if viewControllerIndex == 3{
-            laterButtonDelegate.showCreateAccountButton(show: true)
+            delegates.onboardingViewControllerDelegate.showCreateAccountButton(show: true)
         }
         
         return cards[nextIndex]

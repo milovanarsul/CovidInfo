@@ -10,11 +10,10 @@ import UIKit
 class StiriViewController: UIViewController {
     
     var page: Page = Page(mainPage: .news, childType: .none)
-    var navigationBarDelegate: NavigationBarDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBarDelegate.setup(page: page)
+        delegates.navigationBarDelegate.setup(page: page)
     }
 }

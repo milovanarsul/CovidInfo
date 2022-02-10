@@ -10,10 +10,6 @@ import UIKit
 class MainPageViewController: UIPageViewController {
     
     fileprivate var pages: [UIViewController] = []
-    
-    var navigationBarDelegate: NavigationBarDelegate!
-    var homePageDelegate: HomePageDelegate!
-    var mainDelegate: MainDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,21 +21,16 @@ class MainPageViewController: UIPageViewController {
     
     fileprivate func createViewControllers(){
         let homeViewController = HomePageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil)
-        homeViewController.navigationBarDelegate = self.navigationBarDelegate
-        homeViewController.mainDelegate = self.mainDelegate
-        self.homePageDelegate = homeViewController
+        delegates.homeDelegate = homeViewController
         pages.append(homeViewController)
         
         let newsViewController = StiriViewController()
-        newsViewController.navigationBarDelegate = self.navigationBarDelegate
         pages.append(newsViewController)
         
         let statisticsViewController = StatisticiViewController()
-        statisticsViewController.navigationBarDelegate = self.navigationBarDelegate
         pages.append(statisticsViewController)
         
         let documentsViewController = DocumenteViewController()
-        documentsViewController.navigationBarDelegate = self.navigationBarDelegate
         pages.append(documentsViewController)
     }
 }
