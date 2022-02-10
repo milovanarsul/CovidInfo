@@ -66,4 +66,10 @@ extension UIView {
             layer.borderWidth = newValue
         }
     }
+    
+    func addSubView(parentView: UIView, childView: UIView){
+        childView.frame = parentView.bounds
+        childView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        parentView.addSubview(childView)
+    }
 }

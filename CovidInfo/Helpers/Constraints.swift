@@ -8,8 +8,6 @@
 import Foundation
 import UIKit
 
-var constraintTuple: (constraint: ConstraintType, multiplier: CGFloat, constant: CGFloat)? = nil
-
 class Constraints{
     private var childView: UIView
     private var parentView: UIView
@@ -42,7 +40,7 @@ class Constraints{
             constraints.append(constraint.setConstraint())
         }
         
-        self.parentView.addConstraints(constraints)
+        NSLayoutConstraint.activate(constraints)
     }
 }
 
@@ -62,6 +60,10 @@ class Constraint{
     
     func setConstraint() -> NSLayoutConstraint{
         switch self.constraintType{
+        case .width:
+            return NSLayoutConstraint(item: self.childView!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: self.multiplier, constant: self.constant)
+        case .height:
+            return NSLayoutConstraint(item: self.childView!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: self.multiplier, constant: self.constant)
         case .leading:
             return NSLayoutConstraint(item: self.childView!, attribute: .leading, relatedBy: .equal, toItem: self.parentView, attribute: .leading, multiplier: self.multiplier, constant: self.constant)
         case .trailing:
@@ -70,6 +72,8 @@ class Constraint{
             return NSLayoutConstraint(item: self.childView!, attribute: .top, relatedBy: .equal, toItem: self.parentView, attribute: .top, multiplier: self.multiplier, constant: self.constant)
         case.bottom:
             return NSLayoutConstraint(item: self.parentView!, attribute: .bottom, relatedBy: .equal, toItem: self.childView, attribute: .bottom, multiplier: self.multiplier, constant: self.constant)
+        case .bottomReverse:
+            return NSLayoutConstraint(item: self.childView!, attribute: .bottom, relatedBy: .equal, toItem: self.parentView, attribute: .bottom, multiplier: self.multiplier, constant: self.constant)
         case .horizontal:
             return NSLayoutConstraint(item: self.childView!, attribute: .centerX, relatedBy: .equal, toItem: self.parentView, attribute: .centerX, multiplier: 1, constant: self.constant)
         case .vertical:

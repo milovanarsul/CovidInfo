@@ -20,7 +20,7 @@ class CustomTabBar: XIB {
     var navigationBarDelegate: NavigationBarDelegate!
     var currentPageIndex: Int = 0
     
-    func tabBarPageSliderDirection(tabBarButton: tabBarButtons){
+    func tabBarPageSliderDirection(tabBarButton: MainPages){
         let tabBarButtonIndex = tabBarIndex(tabBarButton: tabBarButton)
         
         if tabBarButtonIndex < self.currentPageIndex{
@@ -55,14 +55,14 @@ class CustomTabBar: XIB {
         navigationBarDelegate.setup(page: Page(mainPage: .documents, childType: .none))
     }
     
-    func tabBarButtonSetup(tabBarButton: tabBarButtons){
+    func tabBarButtonSetup(tabBarButton: MainPages){
         fillTabBarButton(tabBarButton: tabBarButton)
         buttonSliderAnimation(tabBarButton: tabBarButton)
     }
     
     @IBOutlet var sliderLeadingConstraint: NSLayoutConstraint!
     
-    func buttonSliderAnimation(tabBarButton: tabBarButtons){
+    func buttonSliderAnimation(tabBarButton: MainPages){
         switch tabBarButton {
         case .home:
             sliderLeadingConstraint.constant = 18
@@ -81,7 +81,7 @@ class CustomTabBar: XIB {
         })
     }
     
-    func fillTabBarButton(tabBarButton: tabBarButtons){
+    func fillTabBarButton(tabBarButton: MainPages){
         switch tabBarButton {
         case .home:
             homeButton.setImage(UIImage(systemName: "house.fill"), for: .normal)
@@ -106,7 +106,7 @@ class CustomTabBar: XIB {
         }
     }
     
-    func tabBarIndex(tabBarButton: tabBarButtons) -> Int{
+    func tabBarIndex(tabBarButton: MainPages) -> Int{
         switch tabBarButton {
         case .home:
             return 0

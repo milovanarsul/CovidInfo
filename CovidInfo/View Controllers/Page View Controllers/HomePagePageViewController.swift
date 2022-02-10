@@ -37,7 +37,6 @@ class HomePageViewController: UIPageViewController {
         
         let secondViewController = UIViewController()
         let triaj = Triaj()
-        triaj.homePageDelegate = self
         secondViewController.view = triaj
         pages.append(secondViewController)
     

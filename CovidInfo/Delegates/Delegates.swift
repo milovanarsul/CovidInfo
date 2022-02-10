@@ -8,6 +8,20 @@
 import Foundation
 import UIKit
 
+class Delegates{
+    var onboardingPageViewControllerDelegate: OnboardingPageViewControllerDelegate! = nil
+    var onboardingViewControllerDelegate: OnboardingViewControllerDelegate! = nil
+    var navigationBarDelegate: NavigationBarDelegate! = nil
+    var tabBarDelegate: TabBarDelegate! = nil
+    var homeDelegate: HomePageDelegate! = nil
+    var mainDelegate: MainDelegate! = nil
+    var staticDelegate: StaticDelegate! = nil
+    
+    init(){}
+}
+
+let delegates: Delegates = Delegates()
+
 protocol OnboardingPageViewControllerDelegate{
     func nextButtonIsTapped()
 }

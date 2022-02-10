@@ -16,6 +16,7 @@ class Home: XIB {
     @IBAction func button1(_ sender: Any) {
         homePageDelegate.goToPage(pageIndex: 1, direction: .forward)
         homePageDelegate.updateNavigationBar(page: Page(mainPage: .home, childType: .none))
+        mainDelegate.tabBarVisibility(tabBarVisibility: .hide)
     }
     
     @IBAction func button2(_ sender: Any) {
@@ -28,5 +29,6 @@ class Home: XIB {
     @IBAction func button3(_ sender: Any) {
         homePageDelegate.goToPage(pageIndex: 3, direction: .forward)
         homePageDelegate.updateNavigationBar(page: Page(mainPage: .home, childType: .preventie))
+        mainDelegate.tabBarVisibility(tabBarVisibility: .hide)
     }
 }

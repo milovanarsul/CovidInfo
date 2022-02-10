@@ -8,10 +8,13 @@
 import Foundation
 
 enum ConstraintType{
+    case height
+    case width
     case leading
     case trailing
     case top
     case bottom
+    case bottomReverse
     case horizontal
     case vertical
     case aspectRatio
@@ -24,13 +27,6 @@ enum ConstraintType{
 enum currentPageButtonSlider{
     case left
     case right
-}
-
-enum tabBarButtons{
-    case home
-    case news
-    case statistics
-    case documents
 }
 
 enum MainPages{
@@ -55,4 +51,11 @@ enum StaticType{
 enum TabBarVisibility{
     case show
     case hide
+}
+
+enum PageController{
+    case onboarding
+    case main
+    case home
+    case triaj
 }
