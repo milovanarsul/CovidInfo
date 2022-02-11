@@ -1,48 +1,69 @@
 //
-//  GeneralOnboardingPageViewController.swift
+//  OnboardingPageViewController.swift
 //  CovidInfo
 //
-//  Created by Milovan Arsul on 29.01.2022.
+//  Created by Milovan Arsul on 11.02.2022.
 //
 
 import UIKit
 
-class OnboardingPageViewController: UIPageViewController{
+class OnboardingPageViewController: UIPageViewController {
     
-    fileprivate var cards: [UIViewController] = []
-    
+    fileprivate var pages: [UIViewController] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegates.onboarding = self
         
-        let pageViewControllerDataSource = PageViewControllerDataSource(pages: cards, pageController: .onboarding)
+        let pageViewControllerDataSource = PageViewControllerDataSource(pages: pages, pageController: .home)
         dataSource = pageViewControllerDataSource
         createViewControllers()
-        initialize(pages: cards)
+        initialize(pages: pages)
     }
     
     fileprivate func createViewControllers(){
         let onboardingData = onboardingDataArray
         
         for data in onboardingData{
-            let viewController = createOnboardingCard(with: data.getLabelText())
-            cards.append(viewController)
+            let viewController = createOnboardingCard(animationName: data.getLottieAnimation(), labelText: data.getLabelText(), modalNext: data.isModalNext)
+            pages.append(viewController)
         }
     }
     
-    fileprivate func createOnboardingCard(with labelText: String) -> UIViewController{
+    fileprivate func createOnboardingCard(animationName: String, labelText: String, modalNext: Bool) -> UIViewController{
         let onboardingCard = UIViewController()
-        let onboardingCardView = OnboardingCards(labelText: labelText)
+        let onboardingCardView = OnboardingCard(animationName: animationName, labelText: labelText, isModalNext: modalNext)
         onboardingCard.view = onboardingCardView
         return onboardingCard
     }
 }
 
 extension OnboardingPageViewController: OnboardingDelegate{
-    func showEnrollCertificateButton(show: Bool) {}
+    func playAnimation() {}
     
-    func showCreateAccountButton(show: Bool) {}
+    func goToPage() {
+        let currentIndex = getCurrentIndex(views: pages)
+        
+        switch currentIndex{
+        case 3:
+            goToIndex(pageIndex: currentIndex + 2, direction: .forward, pages: pages)
+        case 5:
+            delegates.onboardingSubDelegate.finishOnboarding()
+        default:
+            goToIndex(pageIndex: currentIndex + 1, direction: .forward, pages: pages)
+        }
+    }
     
-    func nextButtonIsTapped() {
-        goToNextPage()
+    func modal(){
+        let modal = UIViewController()
+        modal.view = OnboardingModal()
+        modal.isModalInPresentation = true
+        present(modal, animated: true, completion: nil)
+    }
+    
+    func dismissModal(){
+        dismiss(animated: true, completion: {
+            self.goToPage()
+        })
     }
 }

@@ -14,22 +14,17 @@ class MainViewController: UIViewController {
     @IBOutlet var customNavigationBar: UIView!
     @IBOutlet var customTabBar: UIView!
     
+    var presentOnboarding: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        embed()
     }
     
-    func setup(){
-        embed()
-        
-        if OnboardingManager.shared.isFirstLaunch {
-            onboardingAnimation()
-            performSegue(withIdentifier: "toOnboarding", sender: nil)
-            OnboardingManager.shared.isFirstLaunch = true
-        } else{
-            launchAnimation()
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        navTabAnimation()
     }
+    
     
     func embed(){
         let navigationBar = CustomNavigationBar()
@@ -46,34 +41,6 @@ class MainViewController: UIViewController {
     
     @IBOutlet var navigationBarTopConstraint: NSLayoutConstraint!
     @IBOutlet var tabBarBottomConstraint: NSLayoutConstraint!
-    
-    @IBOutlet var blankIcon: UIView!
-    @IBOutlet var blankIconLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet var blankIconTrailingConstraint: NSLayoutConstraint!
-    @IBOutlet var blankIconTopConstraint: NSLayoutConstraint!
-    @IBOutlet var blankIconBottomConstraint: NSLayoutConstraint!
-    
-    func launchAnimation(){
-        self.blankIconLeadingConstraint.constant = 0
-        self.blankIconTrailingConstraint.constant = 0
-        self.blankIconTopConstraint.constant = 90
-        self.blankIconBottomConstraint.constant = -3
-        
-        UIView.animate(withDuration: 1.3, animations: {
-            self.blankIcon.layoutIfNeeded()
-            self.view.layoutIfNeeded()
-        }, completion: {(finished: Bool) in
-            self.blankIcon.isHidden = true
-            self.containerView.isHidden = false
-            self.navTabAnimation()
-        })
-    }
-    
-    func onboardingAnimation(){
-        self.blankIcon.isHidden = true
-        self.containerView.isHidden = false
-        navTabAnimation()
-    }
     
     func navTabAnimation(){
         self.navigationBarTopConstraint.constant = 54

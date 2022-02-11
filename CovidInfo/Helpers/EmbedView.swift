@@ -28,11 +28,9 @@ class EmbedView{
         viewController.removeFromParent()
     }
     
-    func generalOnboardingPageViewController(parent: GeneralOnboardingViewController, container: UIView){
+    func onboardingViewController(parent: GeneralOnboardingViewController, container: UIView){
         let child = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
-        delegates.onboarding = child
-        delegates.onboarding = parent
     }
     
     func mainPageViewController(parent: MainViewController, container: UIView, navigationBar: CustomNavigationBar){
@@ -41,7 +39,6 @@ class EmbedView{
         delegates.main = parent
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
         delegates.tabBar = child
-        //navigationBar.homePageDelegate = child.homePageDelegate
     }
     
     func simptomeAndPreventieViewController(parent: SimptomeAndPreventieViewController, container: UIView){

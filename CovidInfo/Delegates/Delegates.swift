@@ -10,6 +10,7 @@ import UIKit
 
 class Delegates{
     var onboarding: OnboardingDelegate! = nil
+    var onboardingSubDelegate: OnboardingSubDelegate! = nil
     var main: MainDelegate! = nil
     var navigationBar: NavigationBarDelegate! = nil
     var tabBar: TabBarDelegate! = nil
@@ -22,10 +23,16 @@ class Delegates{
 let delegates: Delegates = Delegates()
 
 protocol OnboardingDelegate{
-    func nextButtonIsTapped()
-    func showEnrollCertificateButton(show: Bool)
-    func showCreateAccountButton(show: Bool)
+    func goToPage()
+    func modal()
+    func dismissModal()
+    func playAnimation()
 }
+
+protocol OnboardingSubDelegate{
+    func finishOnboarding()
+}
+
 protocol MainDelegate{
     func tabBarVisibility(tabBarVisibility: TabBarVisibility)
 }

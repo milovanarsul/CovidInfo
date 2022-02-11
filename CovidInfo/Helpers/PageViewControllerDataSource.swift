@@ -17,7 +17,6 @@ class PageViewControllerDataSource: NSObject, UIPageViewControllerDataSource {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
         guard let viewControllerIndex = self.pages.firstIndex(of: viewController) else {return nil}
         let previousIndex = viewControllerIndex - 1
         guard previousIndex >= 0 else {return nil}
@@ -31,20 +30,6 @@ class PageViewControllerDataSource: NSObject, UIPageViewControllerDataSource {
         guard self.pages.count != nextIndex else {return nil}
         guard self.pages.count > nextIndex else {return nil}
         
-        if pageController == .onboarding{
-            onboardingActions(viewControllerIndex: viewControllerIndex)
-        }
-        
         return self.pages[nextIndex]
-    }
-    
-    func onboardingActions(viewControllerIndex: Int){
-        if viewControllerIndex == 2{
-            delegates.onboarding.showEnrollCertificateButton(show: true)
-        }
-        
-        if viewControllerIndex == 3{
-            delegates.onboarding.showCreateAccountButton(show: true)
-        }
     }
 }

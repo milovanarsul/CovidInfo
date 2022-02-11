@@ -25,11 +25,8 @@ class SimptomeAndPreventieCollectionViewCell: UICollectionViewCell {
     }
     
     func setuplottieAnimation(){
-        var lottieAnimation = AnimationView()
-        lottieAnimation = .init(name: "")
-        lottieAnimation.contentMode = .scaleAspectFit
-        lottieAnimation.loopMode = .loop
-        lottieAnimation.animationSpeed = 0.5
+        let lottieAnimation = AnimationView()
+        lottieAnimation.setup(animationName: "", loopMode: .loop, animationSpeed: 0.5)
         
         self.contentView.addSubview(lottieAnimation)
         
@@ -41,7 +38,6 @@ class SimptomeAndPreventieCollectionViewCell: UICollectionViewCell {
         ])
         constraints.addConstraints()
         self.lottieAnimation = lottieAnimation
-        //self.lottieAnimation.play()
     }
     
     func setupTextLabel(){
