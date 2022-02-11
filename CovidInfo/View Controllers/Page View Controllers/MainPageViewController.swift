@@ -14,14 +14,15 @@ class MainPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = self
+        let pageViewControllerDataSource = PageViewControllerDataSource(pages: pages, pageController: .main)
+        dataSource = pageViewControllerDataSource
         createViewControllers()
         initialize(pages: pages)
     }
     
     fileprivate func createViewControllers(){
         let homeViewController = HomePageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil)
-        delegates.homeDelegate = homeViewController
+        delegates.home = homeViewController
         pages.append(homeViewController)
         
         let newsViewController = StiriViewController()
@@ -32,25 +33,6 @@ class MainPageViewController: UIPageViewController {
         
         let documentsViewController = DocumenteViewController()
         pages.append(documentsViewController)
-    }
-}
-
-extension MainPageViewController: UIPageViewControllerDataSource{
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
-        guard let viewControllerIndex = pages.firstIndex(of: viewController) else {return nil}
-        let previousIndex = viewControllerIndex - 1
-        guard previousIndex >= 0 else {return nil}
-        guard pages.count > previousIndex else {return nil}
-        return pages[previousIndex]
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = pages.firstIndex(of: viewController) else {return nil}
-        let nextIndex = viewControllerIndex + 1
-        guard pages.count != nextIndex else {return nil}
-        guard pages.count > nextIndex else {return nil}
-        return pages[nextIndex]
     }
 }
 

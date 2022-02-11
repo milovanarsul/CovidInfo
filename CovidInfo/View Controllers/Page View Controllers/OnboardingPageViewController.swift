@@ -14,7 +14,8 @@ class OnboardingPageViewController: UIPageViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = self
+        let pageViewControllerDataSource = PageViewControllerDataSource(pages: cards, pageController: .onboarding)
+        dataSource = pageViewControllerDataSource
         createViewControllers()
         initialize(pages: cards)
     }
@@ -36,35 +37,11 @@ class OnboardingPageViewController: UIPageViewController{
     }
 }
 
-extension OnboardingPageViewController: UIPageViewControllerDataSource{
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
-        guard let viewControllerIndex = cards.firstIndex(of: viewController) else {return nil}
-        let previousIndex = viewControllerIndex - 1
-        guard previousIndex >= 0 else {return nil}
-        guard cards.count > previousIndex else {return nil}
-        return cards[previousIndex]
-    }
+extension OnboardingPageViewController: OnboardingDelegate{
+    func showEnrollCertificateButton(show: Bool) {}
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = cards.firstIndex(of: viewController) else {return nil}
-        let nextIndex = viewControllerIndex + 1
-        guard cards.count != nextIndex else {return nil}
-        guard cards.count > nextIndex else {return nil}
-        
-        if viewControllerIndex == 2{
-            delegates.onboardingViewControllerDelegate.showEnrollCertificateButton(show: true)
-        }
-        
-        if viewControllerIndex == 3{
-            delegates.onboardingViewControllerDelegate.showCreateAccountButton(show: true)
-        }
-        
-        return cards[nextIndex]
-    }
-}
-
-extension OnboardingPageViewController: OnboardingPageViewControllerDelegate{
+    func showCreateAccountButton(show: Bool) {}
+    
     func nextButtonIsTapped() {
         goToNextPage()
     }

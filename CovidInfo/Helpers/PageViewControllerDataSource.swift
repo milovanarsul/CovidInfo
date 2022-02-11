@@ -11,8 +11,6 @@ class PageViewControllerDataSource: NSObject, UIPageViewControllerDataSource {
     var pages: [UIViewController]
     var pageController: PageController
     
-    var laterButtonDelegate: OnboardingViewControllerDelegate!
-    
     init(pages: [UIViewController], pageController: PageController){
         self.pages = pages
         self.pageController = pageController
@@ -42,11 +40,11 @@ class PageViewControllerDataSource: NSObject, UIPageViewControllerDataSource {
     
     func onboardingActions(viewControllerIndex: Int){
         if viewControllerIndex == 2{
-            laterButtonDelegate.showEnrollCertificateButton(show: true)
+            delegates.onboarding.showEnrollCertificateButton(show: true)
         }
         
         if viewControllerIndex == 3{
-            laterButtonDelegate.showCreateAccountButton(show: true)
+            delegates.onboarding.showCreateAccountButton(show: true)
         }
     }
 }

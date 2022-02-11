@@ -17,14 +17,7 @@ class StaticCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let collectionView = collectionView else {fatalError()}
-        collectionView.dataSource = collectionDataSource
-        collectionView.collectionViewLayout = flowLayout
-        collectionView.contentInsetAdjustmentBehavior = .always
-        collectionView.register(SimptomeAndPreventieCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
-        
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
+        _ = setup(dataSource: collectionDataSource, layout: flowLayout, cell: SimptomeAndPreventieCollectionViewCell.self, cellIdentifier: cellIdentifier)
     }
 }
 
@@ -35,15 +28,15 @@ class StaticCollectionDataSource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     
-        return delegates.staticDelegate.getCards().2
+        return delegates.staticInfo.getCards().2
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! SimptomeAndPreventieCollectionViewCell
         
-        let card = delegates.staticDelegate.getCards().0
+        let card = delegates.staticInfo.getCards().0
         cell.textLabel.text = card[indexPath.row].labelText
-        cell.borderColor = delegates.staticDelegate.getCards().1
+        cell.borderColor = delegates.staticInfo.getCards().1
         cell.lottieAnimation.animation = Animation.named(card[indexPath.row].lottieAnimation)
         cell.lottieAnimation.play()
         return cell

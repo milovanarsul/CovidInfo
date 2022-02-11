@@ -22,9 +22,9 @@ class CustomTabBar: XIB {
         let tabBarButtonIndex = tabBarIndex(tabBarButton: tabBarButton)
         
         if tabBarButtonIndex < self.currentPageIndex{
-            delegates.tabBarDelegate.goToPage(pageIndex: tabBarButtonIndex, direction: .reverse)
+            delegates.tabBar.goToPage(pageIndex: tabBarButtonIndex, direction: .reverse)
         } else {
-            delegates.tabBarDelegate.goToPage(pageIndex: tabBarButtonIndex, direction: .forward)
+            delegates.tabBar.goToPage(pageIndex: tabBarButtonIndex, direction: .forward)
         }
         self.currentPageIndex = tabBarButtonIndex
     }
@@ -32,25 +32,25 @@ class CustomTabBar: XIB {
     @IBAction func homeButtonPressed(_ sender: Any) {
         tabBarButtonSetup(tabBarButton: .home)
         tabBarPageSliderDirection(tabBarButton: .home)
-        delegates.navigationBarDelegate.setup(page: Page(mainPage: .home, childType: .none))
+        delegates.navigationBar.setup(page: Page(mainPage: .home, childType: .none))
     }
     
     @IBAction func newsButtonPressed(_ sender: Any) {
         tabBarButtonSetup(tabBarButton: .news)
         tabBarPageSliderDirection(tabBarButton: .news)
-        delegates.navigationBarDelegate.setup(page: Page(mainPage: .news, childType: .none))
+        delegates.navigationBar.setup(page: Page(mainPage: .news, childType: .none))
     }
     
     @IBAction func statisticsButtonPressed(_ sender: Any) {
         tabBarButtonSetup(tabBarButton: .statistics)
         tabBarPageSliderDirection(tabBarButton: .statistics)
-        delegates.navigationBarDelegate.setup(page: Page(mainPage: .statistics, childType: .none))
+        delegates.navigationBar.setup(page: Page(mainPage: .statistics, childType: .none))
     }
     
     @IBAction func documentsButtonPressed(_ sender: Any) {
         tabBarButtonSetup(tabBarButton: .documents)
         tabBarPageSliderDirection(tabBarButton: .documents)
-        delegates.navigationBarDelegate.setup(page: Page(mainPage: .documents, childType: .none))
+        delegates.navigationBar.setup(page: Page(mainPage: .documents, childType: .none))
     }
     
     func tabBarButtonSetup(tabBarButton: MainPages){

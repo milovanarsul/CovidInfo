@@ -57,7 +57,7 @@ class GeneralOnboardingViewController: UIViewController {
     
     @IBAction func delegateAction(_ sender: Any) {
         if pageControllerIndex < 4{
-            delegates.onboardingPageViewControllerDelegate.nextButtonIsTapped()
+            delegates.onboarding.nextButtonIsTapped()
             self.pageControllerIndex += 1
             self.pageController.currentPage = self.pageControllerIndex
             lottieAnimationView?.removeFromSuperview()
@@ -102,7 +102,9 @@ class GeneralOnboardingViewController: UIViewController {
     }
 }
 
-extension GeneralOnboardingViewController: OnboardingViewControllerDelegate{
+extension GeneralOnboardingViewController: OnboardingDelegate{
+    func nextButtonIsTapped() {}
+    
     func showEnrollCertificateButton(show: Bool) {
         self.createAccountButton.isHidden = show
         self.enrollCertificateButton.isHidden = !show

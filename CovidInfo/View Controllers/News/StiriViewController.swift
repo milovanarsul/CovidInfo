@@ -14,6 +14,6 @@ class StiriViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        delegates.navigationBarDelegate.setup(page: page)
+        delegates.navigationBar.setup(page: page)
     }
 }

@@ -50,8 +50,8 @@ class CustomNavigationBar: XIB {
     
     @IBAction func goToMainView(_ sender: Any) {
         buttonSlider(sliderType: .left)
-        delegates.homeDelegate.goToPage(pageIndex:0, direction: .reverse)
-        delegates.mainDelegate.tabBarVisibility(tabBarVisibility: .show)
+        delegates.home.goToPage(pageIndex:0, direction: .reverse)
+        delegates.main.tabBarVisibility(tabBarVisibility: .show)
     }
     
 }

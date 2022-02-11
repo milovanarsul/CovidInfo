@@ -31,22 +31,22 @@ class EmbedView{
     func generalOnboardingPageViewController(parent: GeneralOnboardingViewController, container: UIView){
         let child = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
-        delegates.onboardingPageViewControllerDelegate = child
-        delegates.onboardingViewControllerDelegate = parent
+        delegates.onboarding = child
+        delegates.onboarding = parent
     }
     
     func mainPageViewController(parent: MainViewController, container: UIView, navigationBar: CustomNavigationBar){
         let child = MainPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        delegates.navigationBarDelegate = navigationBar
-        delegates.mainDelegate = parent
+        delegates.navigationBar = navigationBar
+        delegates.main = parent
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
-        delegates.tabBarDelegate = child
+        delegates.tabBar = child
         //navigationBar.homePageDelegate = child.homePageDelegate
     }
     
     func simptomeAndPreventieViewController(parent: SimptomeAndPreventieViewController, container: UIView){
         let child = StaticCollectionViewController(collectionViewLayout: CardLayout.init())
-        delegates.staticDelegate = parent
+        delegates.staticInfo = parent
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
     }
 }

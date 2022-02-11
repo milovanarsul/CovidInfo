@@ -16,9 +16,10 @@ class HomePageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        delegates.navigationBarDelegate.setup(page: page)
+        delegates.navigationBar.setup(page: page)
         
-        dataSource = self
+        let pageViewControllerDataSource = PageViewControllerDataSource(pages: pages, pageController: .home)
+        dataSource = pageViewControllerDataSource
         createViews()
         initialize(pages: pages)
     }
@@ -27,7 +28,7 @@ class HomePageViewController: UIPageViewController {
         
         let firstViewController = UIViewController()
         let home = Home()
-        delegates.homeDelegate = self
+        delegates.home = self
         firstViewController.view = home
         pages.append(firstViewController)
         
@@ -44,27 +45,9 @@ class HomePageViewController: UIPageViewController {
     }
 }
 
-extension HomePageViewController: UIPageViewControllerDataSource{
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = pages.firstIndex(of: viewController) else {return nil}
-        let previousIndex = viewControllerIndex - 1
-        guard previousIndex >= 0 else {return nil}
-        guard pages.count > previousIndex else {return nil}
-        return pages[previousIndex]
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = pages.firstIndex(of: viewController) else {return nil}
-        let nextIndex = viewControllerIndex + 1
-        guard pages.count != nextIndex else {return nil}
-        guard pages.count > nextIndex else {return nil}
-        return pages[nextIndex]
-    }
-}
-
 extension HomePageViewController: HomePageDelegate{
     func updateNavigationBar(page: Page) {
-        delegates.navigationBarDelegate.setup(page: page)
+        delegates.navigationBar.setup(page: page)
     }
     
     func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection) {
