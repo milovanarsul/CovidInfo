@@ -21,7 +21,7 @@ class HomePageViewController: UIPageViewController {
         let pageViewControllerDataSource = PageViewControllerDataSource(pages: pages, pageController: .home)
         dataSource = pageViewControllerDataSource
         createViews()
-        initialize(pages: pages)
+        initialize(pages: pages, scroll: false)
     }
     
     fileprivate func createViews(){
@@ -53,6 +53,4 @@ extension HomePageViewController: HomePageDelegate{
     func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection) {
         goToIndex(pageIndex: pageIndex, direction: direction, pages: pages)
     }
-    
-    
 }

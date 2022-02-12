@@ -18,7 +18,7 @@ class OnboardingPageViewController: UIPageViewController {
         let pageViewControllerDataSource = PageViewControllerDataSource(pages: pages, pageController: .home)
         dataSource = pageViewControllerDataSource
         createViewControllers()
-        initialize(pages: pages)
+        initialize(pages: pages, scroll: true)
     }
     
     fileprivate func createViewControllers(){
@@ -31,27 +31,27 @@ class OnboardingPageViewController: UIPageViewController {
     }
     
     fileprivate func createOnboardingCard(animationName: String, labelText: String, modalNext: Bool) -> UIViewController{
-        let onboardingCard = UIViewController()
-        let onboardingCardView = OnboardingCard(animationName: animationName, labelText: labelText, isModalNext: modalNext)
-        onboardingCard.view = onboardingCardView
-        return onboardingCard
+        let onboardingCardView = OnboardingCell(animationName: animationName, labelText: labelText, isModalNext: modalNext)
+        return onboardingCardView
     }
 }
 
 extension OnboardingPageViewController: OnboardingDelegate{
+    func getCurrentIndex() -> Int {
+        return getCurrentIndex(views: pages)
+    }
+    
     func playAnimation() {}
     
     func goToPage() {
-        let currentIndex = getCurrentIndex(views: pages)
-        
-        switch currentIndex{
-        case 3:
-            goToIndex(pageIndex: currentIndex + 2, direction: .forward, pages: pages)
-        case 5:
-            delegates.onboardingSubDelegate.finishOnboarding()
-        default:
-            goToIndex(pageIndex: currentIndex + 1, direction: .forward, pages: pages)
-        }
+         let currentIndex = getCurrentIndex(views: pages)
+
+         switch currentIndex{
+         case 3:
+             goToIndex(pageIndex: currentIndex + 2, direction: .forward, pages: pages)
+         default:
+             goToIndex(pageIndex: currentIndex + 1, direction: .forward, pages: pages)
+         }
     }
     
     func modal(){

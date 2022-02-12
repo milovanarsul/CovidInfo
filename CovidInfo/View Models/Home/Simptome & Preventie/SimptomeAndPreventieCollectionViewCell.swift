@@ -26,9 +26,7 @@ class SimptomeAndPreventieCollectionViewCell: UICollectionViewCell {
     
     func setuplottieAnimation(){
         let lottieAnimation = AnimationView()
-        lottieAnimation.setup(animationName: "", loopMode: .loop, animationSpeed: 0.5)
-        
-        self.contentView.addSubview(lottieAnimation)
+        lottieAnimation.setup(animationName: "", loopMode: .loop, animationSpeed: 0.5, container: contentView)
         
         let constraints = Constraints(childView: lottieAnimation, parentView: self.contentView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),

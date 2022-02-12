@@ -17,7 +17,7 @@ class TriajPageViewController: UIPageViewController {
         let pageViewControllerDataSource = PageViewControllerDataSource(pages: pages, pageController: .triaj)
         dataSource = pageViewControllerDataSource
         createViews()
-        initialize(pages: pages)
+        initialize(pages: pages, scroll: false)
     }
     
     fileprivate func createViews(){

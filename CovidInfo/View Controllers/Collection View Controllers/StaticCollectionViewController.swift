@@ -27,7 +27,6 @@ class StaticCollectionDataSource: NSObject, UICollectionViewDataSource {
     var currentAnimation: String = ""
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    
         return delegates.staticInfo.getCards().2
     }
 

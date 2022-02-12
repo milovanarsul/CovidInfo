@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class GeneralOnboardingViewController: UIViewController {
     @IBOutlet var viewContainer: UIView!
@@ -13,16 +14,12 @@ class GeneralOnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        delegates.onboardingSubDelegate = self
-        
         let embed = EmbedView()
         embed.onboardingViewController(parent: self, container: self.viewContainer)
     }
 }
 
-extension GeneralOnboardingViewController: OnboardingSubDelegate{
-    func tabBarVisibility(tabBarVisibility: TabBarVisibility) {}
-    
+extension GeneralOnboardingViewController: OnboardingDelegate{
     func finishOnboarding() {
         performSegue(withIdentifier: "onboardingFinished", sender: self)
     }

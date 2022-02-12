@@ -7,7 +7,7 @@
 
 import UIKit
 
-private var onboardingCompleted: Bool = false
+private var onboardingCompleted: Bool = true
 
 class LaunchViewController: UIViewController {
     @IBOutlet var blankView: UIView!

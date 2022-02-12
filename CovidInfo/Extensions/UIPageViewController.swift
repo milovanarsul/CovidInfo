@@ -34,7 +34,6 @@ extension UIPageViewController {
     func goToNextPage(animated: Bool = true, completion: ((Bool) -> Void)? = nil){
         guard let currentPage = viewControllers?[0] else {return}
         guard let nextPage = dataSource?.pageViewController(self, viewControllerAfter: currentPage) else {return}
-        
         setViewControllers([nextPage], direction: .forward, animated: animated, completion: completion)
     }
     
@@ -43,11 +42,11 @@ extension UIPageViewController {
         setViewControllers([viewController], direction: direction, animated: true, completion: nil)
     }
     
-    func initialize(pages: [UIViewController]){
+    func initialize(pages: [UIViewController], scroll: Bool){
         if let firstViewController = pages.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
         
-        disableSwipeGesture()
+        
     }
 }

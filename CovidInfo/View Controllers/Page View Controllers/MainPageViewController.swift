@@ -17,7 +17,7 @@ class MainPageViewController: UIPageViewController {
         let pageViewControllerDataSource = PageViewControllerDataSource(pages: pages, pageController: .main)
         dataSource = pageViewControllerDataSource
         createViewControllers()
-        initialize(pages: pages)
+        initialize(pages: pages, scroll: false)
     }
     
     fileprivate func createViewControllers(){
