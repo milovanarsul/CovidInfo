@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-func changeButtonTitle(title: String, font: String, fontSize: CGFloat, color: UIColor) -> NSMutableAttributedString{
+func initalizeButton(title: String, font: UIFont, foregroundColor: UIColor, backgroundColor: UIColor? = nil) -> NSMutableAttributedString{
+    let title = NSMutableAttributedString(string: title, attributes: [
+        NSMutableAttributedString.Key.font: font,
+        NSMutableAttributedString.Key.foregroundColor: foregroundColor,
+        NSMutableAttributedString.Key.backgroundColor: backgroundColor!
+    ])
     
-    let newTitle = NSMutableAttributedString(string: title, attributes: [
-     NSMutableAttributedString.Key.font: UIFont(name: font, size: fontSize) as Any,
-     NSMutableAttributedString.Key.foregroundColor: color
- ])
-    
-    return newTitle
+    return title
 }

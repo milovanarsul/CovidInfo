@@ -10,11 +10,13 @@ import UIKit
 
 class Delegates{
     var onboarding: OnboardingDelegate! = nil
+    var onboardingSub: OnboardingSubDelegate! = nil
     var main: MainDelegate! = nil
     var navigationBar: NavigationBarDelegate! = nil
     var tabBar: TabBarDelegate! = nil
     var home: HomePageDelegate! = nil
     var staticInfo: StaticDelegate! = nil
+    var triaj: TriajDelegate! = nil
     
     init(){}
 }
@@ -22,11 +24,14 @@ class Delegates{
 let delegates: Delegates = Delegates()
 
 @objc protocol OnboardingDelegate{
-    @objc optional func goToPage()
+    @objc optional func nextPage()
     @objc optional func modal()
     @objc optional func dismissModal()
     @objc optional func getCurrentIndex() -> Int
-    @objc optional func finishOnboarding()
+}
+
+protocol OnboardingSubDelegate{
+    func finishOnboarding()
 }
 
 protocol MainDelegate{
@@ -49,4 +54,8 @@ protocol HomePageDelegate{
 
 protocol StaticDelegate{
     func getCards() -> ([SimptomeAndPreventieData], UIColor, Int)
+}
+
+protocol TriajDelegate{
+    func nextPage()
 }

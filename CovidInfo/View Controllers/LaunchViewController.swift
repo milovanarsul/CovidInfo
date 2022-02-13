@@ -7,7 +7,8 @@
 
 import UIKit
 
-private var onboardingCompleted: Bool = true
+private var showOnboarding: Bool!
+private var onboardingCompleted: Bool! = false
 
 class LaunchViewController: UIViewController {
     @IBOutlet var blankView: UIView!
@@ -15,13 +16,19 @@ class LaunchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        onboardingCompleted ? finishOnboarding() : onboarding()
+        if OnboardingManager.shared.isFirstLaunch{
+            showOnboarding = true
+            OnboardingManager.shared.isFirstLaunch = true
+        } else {
+            showOnboarding = false
+        }
+        
+        showOnboarding ? onboarding() : main()
+        onboardingCompleted ? finishOnboarding() : ()
     }
-    
     
     @IBOutlet var leadingConstraint: NSLayoutConstraint!
     @IBOutlet var heightConstraint: NSLayoutConstraint!
@@ -34,14 +41,12 @@ class LaunchViewController: UIViewController {
         
         UIView.animate(withDuration: 1.0, animations: {
             self.blankView.layoutIfNeeded()
-            //self.view.layoutIfNeeded()
         }, completion: { (finished: Bool) in
             self.performSegue(withIdentifier: "toOnboarding", sender: self)
             onboardingCompleted = true
             self.blankView.isHidden = true
         })
     }
-    
     
     @IBOutlet var onboardingLeadingConstraint: NSLayoutConstraint!
     @IBOutlet var onboardingTrailingConstraint: NSLayoutConstraint!
@@ -55,7 +60,6 @@ class LaunchViewController: UIViewController {
         self.onboardingHeightConstraint.changeMultiplier(multiplier: 0.853795)
         self.onboardingTopConstraint.constant = 90
         
-        
         UIView.animate(withDuration: 0.9, animations: {
             self.onboardingView.layoutIfNeeded()
             self.view.layoutIfNeeded()
@@ -65,7 +69,6 @@ class LaunchViewController: UIViewController {
     }
     
     func main(){
-        print("called")
         self.leadingConstraint.constant = 0
         self.heightConstraint.changeMultiplier(multiplier: 0.853795)
         self.topConstraint.constant = 90

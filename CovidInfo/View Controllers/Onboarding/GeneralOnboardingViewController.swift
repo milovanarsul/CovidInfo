@@ -14,12 +14,14 @@ class GeneralOnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        delegates.onboardingSub = self
+        
         let embed = EmbedView()
         embed.onboardingViewController(parent: self, container: self.viewContainer)
     }
 }
 
-extension GeneralOnboardingViewController: OnboardingDelegate{
+extension GeneralOnboardingViewController: OnboardingSubDelegate{
     func finishOnboarding() {
         performSegue(withIdentifier: "onboardingFinished", sender: self)
     }

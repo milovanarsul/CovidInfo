@@ -43,12 +43,14 @@ extension OnboardingPageViewController: OnboardingDelegate{
     
     func playAnimation() {}
     
-    func goToPage() {
+    func nextPage() {
          let currentIndex = getCurrentIndex(views: pages)
 
          switch currentIndex{
          case 3:
              goToIndex(pageIndex: currentIndex + 2, direction: .forward, pages: pages)
+         case 5:
+             delegates.onboardingSub.finishOnboarding()
          default:
              goToIndex(pageIndex: currentIndex + 1, direction: .forward, pages: pages)
          }
@@ -63,7 +65,7 @@ extension OnboardingPageViewController: OnboardingDelegate{
     
     func dismissModal(){
         dismiss(animated: true, completion: {
-            self.goToPage()
+            self.nextPage()
         })
     }
 }

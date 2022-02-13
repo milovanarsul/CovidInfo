@@ -47,6 +47,6 @@ extension UIPageViewController {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
         
-        
+       disableSwipeGesture()
     }
 }

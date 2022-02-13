@@ -14,17 +14,14 @@ class Constraints{
     private var secondView: UIView!
     private var constraints: [Constraint]
     
-    init(childView: UIView, parentView: UIView, constraints: [Constraint]){
+    init(childView: UIView, parentView: UIView, secondView: UIView? = nil, constraints: [Constraint]){
         self.childView = childView
         self.parentView = parentView
         self.constraints = constraints
-    }
-    
-    init(childView: UIView, parentView: UIView, secondView: UIView, constraints: [Constraint]){
-        self.childView = childView
-        self.parentView = parentView
-        self.secondView = secondView
-        self.constraints = constraints
+        
+        if let secondView = secondView {
+            self.secondView = secondView
+        }
     }
     
     func addConstraints(){

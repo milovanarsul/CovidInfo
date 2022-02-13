@@ -48,10 +48,10 @@ class OnboardingCell: UIViewController {
     }
     
     @IBAction func maiDeparteButtonTapped(_ sender: Any) {
-        self.isModalNext ? delegates.onboarding.modal!():delegates.onboarding.goToPage!()
+        self.isModalNext ? delegates.onboarding.modal!():delegates.onboarding.nextPage!()
     }
     
     @IBAction func maiTarziuButtonTapped(_ sender: Any) {
-        self.isModalNext ? delegates.onboarding.goToPage!():delegates.onboarding.modal!()
+        self.isModalNext ? delegates.onboarding.nextPage!():delegates.onboarding.modal!()
     }
 }

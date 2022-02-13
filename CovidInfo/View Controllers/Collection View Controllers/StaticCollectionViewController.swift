@@ -21,8 +21,6 @@ class StaticCollectionViewController: UICollectionViewController {
     }
 }
 
-var currentCollectionIndex = 0
-
 class StaticCollectionDataSource: NSObject, UICollectionViewDataSource {
     var currentAnimation: String = ""
     

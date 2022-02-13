@@ -14,8 +14,6 @@ class MainViewController: UIViewController {
     @IBOutlet var customNavigationBar: UIView!
     @IBOutlet var customTabBar: UIView!
     
-    var presentOnboarding: Bool = true
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         embed()
@@ -24,7 +22,6 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navTabAnimation()
     }
-    
     
     func embed(){
         let navigationBar = CustomNavigationBar()

@@ -16,7 +16,6 @@ class FirstOnboardingViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    
     @IBAction func startOnboarding(_ sender: Any) {
         onboarding()
     }

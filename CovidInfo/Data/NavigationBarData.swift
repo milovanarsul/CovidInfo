@@ -34,7 +34,6 @@ class Page{
     }
 }
 
-
 let mainPages: [MainPages:[String:[ChildPages:String]]] = [
     MainPages.home: ["Acasa":homePages],
     MainPages.news: ["Stiri":stiriPages],

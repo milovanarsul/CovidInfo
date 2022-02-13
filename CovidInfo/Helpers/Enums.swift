@@ -59,3 +59,17 @@ enum PageController{
     case home
     case triaj
 }
+
+enum TriajType{
+    case intro
+    case text
+    case form
+    case finish
+}
+
+enum TriajAction{
+    case button
+    case buttonForm
+    case buttonStack
+    case none
+}

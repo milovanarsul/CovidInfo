@@ -32,9 +32,7 @@ class HomePageViewController: UIPageViewController {
         firstViewController.view = home
         pages.append(firstViewController)
         
-        let secondViewController = UIViewController()
-        let triaj = Triaj()
-        secondViewController.view = triaj
+        let secondViewController = TriajPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pages.append(secondViewController)
     
         let thirdViewController = SimptomeAndPreventieViewController(staticType: .preventie)
