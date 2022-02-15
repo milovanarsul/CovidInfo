@@ -52,20 +52,21 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3AX-5E-4JW" userLabel="accountButton">
-                    <rect key="frame" x="475" y="17" width="60" height="60"/>
+                    <rect key="frame" x="485" y="17" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="Qaw-qp-CiL"/>
                         <constraint firstAttribute="height" constant="60" id="opl-Us-arK"/>
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="Profile Picture">
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
                         <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                     </buttonConfiguration>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="3AX-5E-4JW" secondAttribute="trailing" constant="30" id="5Zx-DP-SLF"/>
+                <constraint firstAttribute="trailing" secondItem="3AX-5E-4JW" secondAttribute="trailing" constant="20" id="5Zx-DP-SLF"/>
                 <constraint firstItem="xpf-IW-cPw" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="bDi-b6-HoK"/>
                 <constraint firstItem="xpf-IW-cPw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="c25-v7-9Yv"/>
                 <constraint firstItem="Mql-cH-4Ld" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-10" id="h6F-U8-8lE"/>

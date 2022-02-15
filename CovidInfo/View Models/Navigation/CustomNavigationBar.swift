@@ -58,11 +58,13 @@ class CustomNavigationBar: XIB {
 extension CustomNavigationBar{
     
     func changeChildPageButton(title: String) {
-        self.childPageButton.setAttributedTitle(initalizeButton(title: title, font: UIFont(name: "IBMPlexSans-Bold", size: 30)!, foregroundColor: .black, backgroundColor: .clear), for: .normal)
+        self.childPageButton.setAttributedTitle(setNSMutableString(title: title, font: UIFont(name: "IBMPlexSans-Bold", size: 30)!, foregroundColor: .black), for: .normal)
+        self.childPageButton.backgroundColor = .clear
     }
     
     func changeParentPageButton(title: String) {
-        self.parentPageButton.setAttributedTitle(initalizeButton(title: title, font: UIFont(name: "IBMPlexSans-Bold", size: 30)!, foregroundColor: .black, backgroundColor: .clear), for: .normal)
+        self.parentPageButton.setAttributedTitle(setNSMutableString(title: title, font: UIFont(name: "IBMPlexSans-Bold", size: 30)!, foregroundColor: .black), for: .normal)
+        self.parentPageButton.backgroundColor = .clear
     }
     
     func currentPageSettings(){

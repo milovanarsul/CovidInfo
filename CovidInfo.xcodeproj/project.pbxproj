@@ -74,6 +74,8 @@
 		B2C59C2127A869340094A984 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C59C2027A869340094A984 /* MainPageViewController.swift */; };
 		B2DC74C227B793F700078245 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DC74C027B793F700078245 /* OnboardingCell.swift */; };
 		B2DC74C327B793F700078245 /* OnboardingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2DC74C127B793F700078245 /* OnboardingCell.xib */; };
+		B2E1938727BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E1938627BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib */; };
+		B2E1938927BC248200D0F057 /* PreventieAndSimptomeShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E1938827BC248200D0F057 /* PreventieAndSimptomeShortcut.swift */; };
 		B2E6741B27A52A8F00F283B7 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6741A27A52A8F00F283B7 /* OnboardingData.swift */; };
 		B2F48DDB27AD1D37005EE116 /* HomePagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F48DD927AD1D37005EE116 /* HomePagePageViewController.swift */; };
 		B2F48DDE27AD2453005EE116 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F48DDD27AD2453005EE116 /* Delegates.swift */; };
@@ -198,6 +200,8 @@
 		B2C59C2027A869340094A984 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		B2DC74C027B793F700078245 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
 		B2DC74C127B793F700078245 /* OnboardingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCell.xib; sourceTree = "<group>"; };
+		B2E1938627BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreventieAndSimptomeShortcut.xib; sourceTree = "<group>"; };
+		B2E1938827BC248200D0F057 /* PreventieAndSimptomeShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventieAndSimptomeShortcut.swift; sourceTree = "<group>"; };
 		B2E6741A27A52A8F00F283B7 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
 		B2F48DD927AD1D37005EE116 /* HomePagePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePagePageViewController.swift; sourceTree = "<group>"; };
 		B2F48DDD27AD2453005EE116 /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
@@ -474,6 +478,15 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		B2E1938527BC240600D0F057 /* View Shortcuts */ = {
+			isa = PBXGroup;
+			children = (
+				B2E1938627BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib */,
+				B2E1938827BC248200D0F057 /* PreventieAndSimptomeShortcut.swift */,
+			);
+			path = "View Shortcuts";
+			sourceTree = "<group>";
+		};
 		B2F48DE327AD32C0005EE116 /* Page View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,6 +590,7 @@
 				B2F48DE427AD3386005EE116 /* StoryBoards */,
 				B23DC42427902F1E00051C6C /* View Controllers */,
 				B23DC42327902F0500051C6C /* View Models */,
+				B2E1938527BC240600D0F057 /* View Shortcuts */,
 				B2F65103278F2BDB00E1BB58 /* Info.plist */,
 			);
 			path = CovidInfo;
@@ -745,6 +759,7 @@
 				B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */,
 				B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */,
 				B2B3C99827A8727A00842DA5 /* DocumenteViewController.xib in Resources */,
+				B2E1938727BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib in Resources */,
 				B23DE46827B3D02400FD2E10 /* simptome3.json in Resources */,
 				B23DE46A27B3D02400FD2E10 /* simptome2.json in Resources */,
 				B23DE46427B3D01700FD2E10 /* preventie1.json in Resources */,
@@ -933,6 +948,7 @@
 				B206B62627B64D9100C371B2 /* FirstOnboardingViewController.swift in Sources */,
 				B25CC91E27AE6FA7000D99F6 /* Home.swift in Sources */,
 				B217D45727B9454500DBDED9 /* UIStackView.swift in Sources */,
+				B2E1938927BC248200D0F057 /* PreventieAndSimptomeShortcut.swift in Sources */,
 				B2E6741B27A52A8F00F283B7 /* OnboardingData.swift in Sources */,
 				B2DC74C227B793F700078245 /* OnboardingCell.swift in Sources */,
 				B278D50727A2848600511BB2 /* MainViewController.swift in Sources */,

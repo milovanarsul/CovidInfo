@@ -72,4 +72,26 @@ extension UIView {
         childView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         parentView.addSubview(childView)
     }
+    
+    func fadeIn(duration: TimeInterval = 1.0) {
+         UIView.animate(withDuration: duration, animations: {
+            self.alpha = 1.0
+         })
+    }
+    
+    func fadeOut(duration: TimeInterval = 1.0) {
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 0.0
+        })
+    }
+    
+    func setShadow() {
+            layer.masksToBounds = false
+            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowOpacity = 0.3
+        layer.shadowOffset = CGSize(width: 3, height: 3)
+            layer.shadowRadius = 5
+            layer.shouldRasterize = true
+            layer.rasterizationScale = UIScreen.main.scale
+    }
 }

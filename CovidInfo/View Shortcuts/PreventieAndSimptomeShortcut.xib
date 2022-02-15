@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IBMPlexSans-Bold.ttf">
+            <string>IBMPlexSans-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PreventieAndSimptomeShortcut" customModule="CovidInfo" customModuleProvider="target">
+            <connections>
+                <outlet property="preventieShortcut" destination="3yN-fX-yNu" id="EPf-Li-eUZ"/>
+                <outlet property="simptomeShortcut" destination="HfS-O2-lUS" id="wWb-8i-9YQ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" distribution="fillEqually" spacing="10" id="1vc-b9-l0O">
+            <rect key="frame" x="0.0" y="0.0" width="348" height="177"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" id="3yN-fX-yNu" userLabel="preventieShortcut">
+                    <rect key="frame" x="16" y="5" width="153" height="167"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" image="shortcutPreventie" translatesAutoresizingMaskIntoConstraints="NO" id="DGk-zm-p4z">
+                            <rect key="frame" x="10" y="10" width="133" height="117"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cum sa te protejezi?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRQ-m2-lRK">
+                            <rect key="frame" x="5" y="137" width="143" height="20"/>
+                            <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.92156863209999995" green="0.65882354970000001" blue="0.62745100259999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstItem="ZRQ-m2-lRK" firstAttribute="centerX" secondItem="3yN-fX-yNu" secondAttribute="centerX" id="4mL-qz-q2P"/>
+                        <constraint firstItem="DGk-zm-p4z" firstAttribute="centerX" secondItem="3yN-fX-yNu" secondAttribute="centerX" id="DVX-RI-Dip"/>
+                        <constraint firstItem="DGk-zm-p4z" firstAttribute="leading" secondItem="3yN-fX-yNu" secondAttribute="leading" constant="10" id="bAX-YW-Hfr"/>
+                        <constraint firstAttribute="bottom" secondItem="ZRQ-m2-lRK" secondAttribute="bottom" constant="10" id="bMg-hb-RZc"/>
+                        <constraint firstItem="DGk-zm-p4z" firstAttribute="top" secondItem="3yN-fX-yNu" secondAttribute="top" constant="10" id="glW-ex-Uvb"/>
+                        <constraint firstItem="ZRQ-m2-lRK" firstAttribute="top" secondItem="DGk-zm-p4z" secondAttribute="bottom" constant="10" id="lNj-JG-Q9K"/>
+                        <constraint firstItem="ZRQ-m2-lRK" firstAttribute="leading" secondItem="3yN-fX-yNu" secondAttribute="leading" constant="5" id="qzc-Na-ggQ"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" id="HfS-O2-lUS" userLabel="simptomeShortcut">
+                    <rect key="frame" x="179" y="5" width="153" height="167"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="shortcutSimptome" translatesAutoresizingMaskIntoConstraints="NO" id="5OG-jW-g81">
+                            <rect key="frame" x="10" y="10" width="133" height="116"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ce simptome apar?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K43-Pd-OwR">
+                            <rect key="frame" x="5" y="136" width="143" height="21"/>
+                            <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.94901961089999998" green="0.74901962280000001" blue="0.34117650989999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="K43-Pd-OwR" secondAttribute="bottom" constant="10" id="0o3-UY-H2C"/>
+                        <constraint firstItem="K43-Pd-OwR" firstAttribute="leading" secondItem="HfS-O2-lUS" secondAttribute="leading" constant="5" id="7A4-bv-WhO"/>
+                        <constraint firstItem="5OG-jW-g81" firstAttribute="leading" secondItem="HfS-O2-lUS" secondAttribute="leading" constant="10" id="Iyl-O0-VFw"/>
+                        <constraint firstItem="K43-Pd-OwR" firstAttribute="top" secondItem="5OG-jW-g81" secondAttribute="bottom" constant="10" id="eUv-As-6dz"/>
+                        <constraint firstItem="5OG-jW-g81" firstAttribute="centerX" secondItem="HfS-O2-lUS" secondAttribute="centerX" id="iER-y2-UXi"/>
+                        <constraint firstItem="5OG-jW-g81" firstAttribute="top" secondItem="HfS-O2-lUS" secondAttribute="top" constant="10" id="jQX-Um-4nT"/>
+                        <constraint firstItem="K43-Pd-OwR" firstAttribute="centerX" secondItem="HfS-O2-lUS" secondAttribute="centerX" id="lZL-yt-eX2"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <edgeInsets key="layoutMargins" top="5" left="5" bottom="5" right="5"/>
+            <point key="canvasLocation" x="-88" y="-171"/>
+        </stackView>
+    </objects>
+    <resources>
+        <image name="shortcutPreventie" width="154" height="117"/>
+        <image name="shortcutSimptome" width="168" height="133"/>
+    </resources>
+</document>

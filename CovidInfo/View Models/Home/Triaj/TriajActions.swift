@@ -8,12 +8,14 @@
 import UIKit
 
 class TriajActions: XIB {
-    @IBOutlet var button: UIButton!
+    @IBOutlet var fullButton: UIButton!
     @IBOutlet var formButton: UIButton!
     @IBOutlet var buttonStack: UIStackView!
     
-    convenience init(subviewType: TriajType? = nil , actionType: TriajAction, actionTitle: Any!, actionForegorund: UIColor? = nil, actionColour: UIColor? = nil) {
+    convenience init(actionType: TriajAction, actionTitle: Any!, actionForegorund: UIColor? = nil, actionColour: UIColor? = nil) {
         self.init()
+        
+        self.backgroundColor = .black
         
         switch actionType {
         case .button:
@@ -22,29 +24,36 @@ class TriajActions: XIB {
             formButton(actionTitle: actionTitle as! String)
         case .buttonStack:
             self.buttonStack.isHidden = false
+            self.buttonStack.setShadow()
         case .none:
-            print("no action")
-        }
-        
-        if subviewType != nil {
-            formButton(actionTitle: actionTitle as! String)
-            print(self.formButton.isHidden)
+            ()
         }
     }
     
     func mainButton(actionTitle: String, actionForeground:UIColor, actionColor: UIColor){
-        self.button.isHidden = false
-        self.button.setAttributedTitle(initalizeButton(title: actionTitle, font: UIFont(name: "IBMPlexSans-Bold", size: 14)!, foregroundColor: actionForeground, backgroundColor: actionColor), for: .normal)
-        
+        self.fullButton.isHidden = false
+        self.fullButton.setAttributedTitle(setNSMutableString(title: actionTitle, font: UIFont(name: "IBMPlexSans-Bold", size: 14)!, foregroundColor: actionForeground), for: .normal)
+        self.fullButton.backgroundColor = actionColor
+        self.fullButton.cornerRadius = 8
     }
     
     func formButton(actionTitle: String){
         self.formButton.isHidden = false
-        self.button.setAttributedTitle(initalizeButton(title: actionTitle, font: UIFont(name: "IBMPlexSans-Bold", size: 14)!, foregroundColor: .black, backgroundColor: .white), for: .normal)
+        self.formButton.setShadow()
+        self.formButton.setAttributedTitle(setNSMutableString(title: actionTitle, font: UIFont(name: "IBMPlexSans-Bold", size: 12)!, foregroundColor: .black), for: .normal)
+        self.formButton.backgroundColor = .yellow
     }
     
     @IBAction func fullSimpleButtonTapped(_ sender: Any) {
-        delegates.triaj.nextPage()
+        let index = delegates.triaj.currentIndex()
+        switch index{
+        case 6:
+            delegates.triaj.goToStart()
+        case 7:
+            delegates.triaj.goToStart()
+        default:
+            delegates.triaj.nextPage()
+        }
     }
     
     @IBAction func fullOptionButtonTapped(_ sender: Any) {

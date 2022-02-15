@@ -54,6 +54,8 @@ extension OnboardingPageViewController: OnboardingDelegate{
          default:
              goToIndex(pageIndex: currentIndex + 1, direction: .forward, pages: pages)
          }
+        
+        delegates.onboardingSub.setPageControl()
     }
     
     func modal(){

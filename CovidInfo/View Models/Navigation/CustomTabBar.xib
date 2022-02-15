@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,7 +29,7 @@
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DT1-pG-Jj6" userLabel="Acasa">
                             <rect key="frame" x="0.0" y="0.0" width="53.5" height="30"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" image="house" catalog="system">
+                            <buttonConfiguration key="configuration" style="filled" image="house.fill" catalog="system">
                                 <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,7 +63,11 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRI-GO-7JD" userLabel="Documente">
                             <rect key="frame" x="280.5" y="0.0" width="53.5" height="30"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" image="doc.text" catalog="system">
+                            <buttonConfiguration key="configuration" style="filled">
+                                <imageReference key="image" image="doc.text" catalog="system" symbolScale="large"/>
+                                <backgroundConfiguration key="background"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="15" scale="large"/>
+                                <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </buttonConfiguration>
@@ -102,7 +107,7 @@
     <resources>
         <image name="chart.bar" catalog="system" width="128" height="90"/>
         <image name="doc.text" catalog="system" width="115" height="128"/>
-        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>
     </resources>
 </document>

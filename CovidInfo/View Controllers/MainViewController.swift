@@ -7,33 +7,33 @@
 
 import UIKit
 import Lottie
+import CloudKit
 
 class MainViewController: UIViewController {
 
     @IBOutlet var containerView: UIView!
     @IBOutlet var customNavigationBar: UIView!
     @IBOutlet var customTabBar: UIView!
+    @IBOutlet var background: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        embed()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        background.fadeOut(duration: 0.4)
         navTabAnimation()
+        embed()
     }
     
     func embed(){
         let navigationBar = CustomNavigationBar()
-        navigationBar.frame = self.customNavigationBar.bounds
-        self.customNavigationBar.addSubview(navigationBar)
+        self.customNavigationBar.addSubView(parentView: self.customNavigationBar, childView: navigationBar)
         
         let embed = EmbedView()
         embed.mainPageViewController(parent: self, container: self.containerView, navigationBar: navigationBar)
         
-        let customTabBar = CustomTabBar()
-        customTabBar.frame = self.customTabBar.bounds
-        self.customTabBar.addSubview(customTabBar)
+        self.customTabBar.addSubView(parentView: self.customTabBar, childView: CustomTabBar())
     }
     
     @IBOutlet var navigationBarTopConstraint: NSLayoutConstraint!
@@ -43,7 +43,7 @@ class MainViewController: UIViewController {
         self.navigationBarTopConstraint.constant = 54
         self.tabBarBottomConstraint.constant = 34
         
-        UIView.animate(withDuration: 0.9, animations: {
+        UIView.animate(withDuration: 0.6,animations: {
             self.customNavigationBar.layoutIfNeeded()
             self.customTabBar.layoutIfNeeded()
             self.view.layoutIfNeeded()

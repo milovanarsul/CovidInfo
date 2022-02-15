@@ -7,8 +7,14 @@
 
 import UIKit
 
-private var showOnboarding: Bool!
-private var onboardingCompleted: Bool! = false
+private var showOnboarding: Bool = false //control onboarding
+private var onboardingCompleted: Bool = false
+
+/*
+ onboarding() - start onboarding experience if onboarding is enabled
+ main() - go to MainViewController if onboarding is disabled
+ finishOnboarding() - go to MainViewController if onboarding is skipped or finished
+*/
 
 class LaunchViewController: UIViewController {
     @IBOutlet var blankView: UIView!
@@ -22,61 +28,58 @@ class LaunchViewController: UIViewController {
         if OnboardingManager.shared.isFirstLaunch{
             showOnboarding = true
             OnboardingManager.shared.isFirstLaunch = true
-        } else {
-            showOnboarding = false
         }
         
         showOnboarding ? onboarding() : main()
-        onboardingCompleted ? finishOnboarding() : ()
+        onboardingCompleted ? skipOnboarding() : ()
     }
     
-    @IBOutlet var leadingConstraint: NSLayoutConstraint!
-    @IBOutlet var heightConstraint: NSLayoutConstraint!
-    @IBOutlet var topConstraint: NSLayoutConstraint!
+    @IBOutlet var launchWidthConstraint: NSLayoutConstraint!
+    @IBOutlet var launchHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var launchTopConstraint: NSLayoutConstraint!
     
     func onboarding(){
-        self.leadingConstraint.constant = 24
-        self.heightConstraint.changeMultiplier(multiplier: 0.55)
-        self.topConstraint.constant = 150
+        self.launchWidthConstraint.changeMultiplier(multiplier: 0.883761)
+        self.launchHeightConstraint.changeMultiplier(multiplier: 0.550158)
+        self.launchTopConstraint.constant = 146
         
-        UIView.animate(withDuration: 1.0, animations: {
+        UIView.animate(withDuration: 1.0, delay: 0.5, animations: {
             self.blankView.layoutIfNeeded()
         }, completion: { (finished: Bool) in
-            self.performSegue(withIdentifier: "toOnboarding", sender: self)
             onboardingCompleted = true
-            self.blankView.isHidden = true
+            self.performSegue(withIdentifier: "toOnboarding", sender: self)
         })
     }
     
-    @IBOutlet var onboardingLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet var onboardingTrailingConstraint: NSLayoutConstraint!
     @IBOutlet var onboardingHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var onboardingWidthConstraint: NSLayoutConstraint!
     @IBOutlet var onboardingTopConstraint: NSLayoutConstraint!
     
-    func finishOnboarding(){
+    func skipOnboarding(){
         self.onboardingView.isHidden = false
-        self.onboardingLeadingConstraint.constant = 0
-        self.onboardingTrailingConstraint.constant = 0
         self.onboardingHeightConstraint.changeMultiplier(multiplier: 0.853795)
+        self.onboardingWidthConstraint.changeMultiplier(multiplier: 1)
         self.onboardingTopConstraint.constant = 90
         
         UIView.animate(withDuration: 0.9, animations: {
             self.onboardingView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }, completion: { (finished: Bool) in
+            showOnboarding = false
             self.performSegue(withIdentifier: "toMain", sender: self)
         })
     }
     
     func main(){
-        self.leadingConstraint.constant = 0
-        self.heightConstraint.changeMultiplier(multiplier: 0.853795)
-        self.topConstraint.constant = 90
+        self.launchWidthConstraint.changeMultiplier(multiplier: 1)
+        self.launchHeightConstraint.changeMultiplier(multiplier: 0.853)
+        self.launchTopConstraint.constant = 90
         
         UIView.animate(withDuration: 0.9, animations: {
             self.blankView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }, completion: { (finished: Bool) in
+            
             self.performSegue(withIdentifier: "toMain", sender: self)
         })
     }

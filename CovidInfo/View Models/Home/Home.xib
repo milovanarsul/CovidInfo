@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -51,7 +50,7 @@
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="TVv-0z-QyH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ApD-lI-hac"/>
                 <constraint firstItem="ly9-PX-jfa" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Kq5-is-TJi"/>
@@ -60,14 +59,9 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
             </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="139" y="154"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

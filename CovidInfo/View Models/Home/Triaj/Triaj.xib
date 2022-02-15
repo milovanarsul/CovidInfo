@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -16,6 +15,8 @@
             <connections>
                 <outlet property="actionsView" destination="Dcb-k1-Sgu" id="CP2-8m-sdH"/>
                 <outlet property="containerView" destination="rLu-Fe-h95" id="IEY-GO-bki"/>
+                <outlet property="containerViewHeightConstraint" destination="atw-E9-PTO" id="Mge-WU-E0g"/>
+                <outlet property="containerViewWidthConstraint" destination="bFd-i3-Pue" id="zNM-In-Y7H"/>
                 <outlet property="imageView" destination="Bki-Vv-nhO" id="MIn-86-QyZ"/>
                 <outlet property="label" destination="7lF-MP-Kkw" id="9gg-nB-8MN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -32,35 +33,35 @@
                         <constraint firstAttribute="width" secondItem="Bki-Vv-nhO" secondAttribute="height" multiplier="1:1" id="3sf-iw-NZZ"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lF-MP-Kkw">
-                    <rect key="frame" x="46.5" y="328" width="321" height="35"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lF-MP-Kkw">
+                    <rect key="frame" x="46.5" y="328" width="321" height="39"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="30"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rLu-Fe-h95">
-                    <rect key="frame" x="73" y="393" width="268" height="229.5"/>
+                    <rect key="frame" x="73" y="397" width="268" height="229.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dcb-k1-Sgu">
-                    <rect key="frame" x="73" y="664" width="268" height="61"/>
+                    <rect key="frame" x="73" y="654" width="268" height="61"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Dcb-k1-Sgu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6Wg-Q3-itM"/>
                 <constraint firstItem="7lF-MP-Kkw" firstAttribute="width" secondItem="Bki-Vv-nhO" secondAttribute="width" multiplier="1.2" id="7hJ-uQ-dGX"/>
                 <constraint firstItem="Bki-Vv-nhO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="80h-11-NF9"/>
                 <constraint firstItem="rLu-Fe-h95" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="MSX-RR-uNq"/>
-                <constraint firstAttribute="bottom" secondItem="Dcb-k1-Sgu" secondAttribute="bottom" constant="40" id="NVZ-a3-kzH"/>
+                <constraint firstAttribute="bottom" secondItem="Dcb-k1-Sgu" secondAttribute="bottom" constant="50" id="NVZ-a3-kzH"/>
                 <constraint firstItem="rLu-Fe-h95" firstAttribute="top" secondItem="7lF-MP-Kkw" secondAttribute="bottom" constant="30" id="T4R-Kb-9gy"/>
-                <constraint firstItem="rLu-Fe-h95" firstAttribute="width" secondItem="Bki-Vv-nhO" secondAttribute="width" id="TI9-Io-qkY"/>
                 <constraint firstItem="Bki-Vv-nhO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="U2x-G5-lbz"/>
                 <constraint firstItem="Dcb-k1-Sgu" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.08" id="UCa-eh-25B"/>
-                <constraint firstItem="Dcb-k1-Sgu" firstAttribute="width" secondItem="rLu-Fe-h95" secondAttribute="width" id="Wds-9p-nnR"/>
+                <constraint firstItem="Dcb-k1-Sgu" firstAttribute="width" secondItem="Bki-Vv-nhO" secondAttribute="width" id="X9K-ZG-KPF"/>
                 <constraint firstItem="7lF-MP-Kkw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XfM-lM-b8S"/>
                 <constraint firstItem="rLu-Fe-h95" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.3" id="atw-E9-PTO"/>
+                <constraint firstItem="rLu-Fe-h95" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.647343" id="bFd-i3-Pue"/>
                 <constraint firstItem="Bki-Vv-nhO" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.35" id="o2M-TW-aIT"/>
                 <constraint firstItem="7lF-MP-Kkw" firstAttribute="top" secondItem="Bki-Vv-nhO" secondAttribute="bottom" constant="30" id="xfM-im-FWS"/>
             </constraints>
@@ -68,9 +69,4 @@
             <point key="canvasLocation" x="12" y="126"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

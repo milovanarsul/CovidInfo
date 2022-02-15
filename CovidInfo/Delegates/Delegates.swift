@@ -17,6 +17,7 @@ class Delegates{
     var home: HomePageDelegate! = nil
     var staticInfo: StaticDelegate! = nil
     var triaj: TriajDelegate! = nil
+    var triajSub: TriajSubDelegate! = nil
     
     init(){}
 }
@@ -32,6 +33,7 @@ let delegates: Delegates = Delegates()
 
 protocol OnboardingSubDelegate{
     func finishOnboarding()
+    func setPageControl()
 }
 
 protocol MainDelegate{
@@ -58,4 +60,11 @@ protocol StaticDelegate{
 
 protocol TriajDelegate{
     func nextPage()
+    func currentIndex() -> Int
+    func goToStart()
+}
+
+protocol TriajSubDelegate{
+    func resizeContainerView()
+    func resetContainerView()
 }

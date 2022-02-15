@@ -31,6 +31,24 @@ class TriajPageViewController: UIPageViewController {
 
 extension TriajPageViewController: TriajDelegate{
     func nextPage() {
-        goToIndex(pageIndex: getCurrentIndex(views: pages) + 1, direction: .forward, pages: pages)
+        let index = getCurrentIndex(views: pages) + 1
+        goToIndex(pageIndex: index, direction: .forward, pages: pages)
+        
+        switch index{
+        case 6:
+            delegates.triajSub.resizeContainerView()
+        case 7:
+            delegates.triajSub.resetContainerView()
+        default:
+            ()
+        }
+    }
+    
+    func currentIndex() -> Int{
+        return getCurrentIndex(views: pages)
+    }
+    
+    func goToStart(){
+        goToIndex(pageIndex: 0, direction: .reverse, pages: pages)
     }
 }

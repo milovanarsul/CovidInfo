@@ -34,7 +34,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJu-Re-4dS">
-                    <rect key="frame" x="36" y="316" width="294" height="21"/>
+                    <rect key="frame" x="36" y="279.5" width="294" height="21"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -76,11 +76,11 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="mL9-pF-kSo" firstAttribute="centerX" secondItem="OSB-Ti-3wM" secondAttribute="centerX" id="2by-tg-ZwK"/>
+                <constraint firstItem="PJu-Re-4dS" firstAttribute="top" secondItem="3hg-Qb-R3U" secondAttribute="bottom" constant="20" id="7DL-Ra-wfz"/>
                 <constraint firstItem="3hg-Qb-R3U" firstAttribute="centerX" secondItem="OSB-Ti-3wM" secondAttribute="centerX" id="97b-gs-Nff"/>
                 <constraint firstItem="PJu-Re-4dS" firstAttribute="centerX" secondItem="OSB-Ti-3wM" secondAttribute="centerX" id="Gut-Iy-d4j"/>
                 <constraint firstItem="PJu-Re-4dS" firstAttribute="leading" secondItem="OSB-Ti-3wM" secondAttribute="leading" constant="36" id="HTd-bZ-yZV"/>
-                <constraint firstAttribute="bottom" secondItem="mL9-pF-kSo" secondAttribute="bottom" constant="20" symbolic="YES" id="dqt-h8-m6x"/>
-                <constraint firstItem="mL9-pF-kSo" firstAttribute="top" secondItem="PJu-Re-4dS" secondAttribute="bottom" constant="123.5" id="ji5-uc-uyg"/>
+                <constraint firstAttribute="bottom" secondItem="mL9-pF-kSo" secondAttribute="bottom" constant="20" id="dqt-h8-m6x"/>
                 <constraint firstAttribute="top" secondItem="3hg-Qb-R3U" secondAttribute="top" id="nrz-Yw-bTH"/>
                 <constraint firstItem="3hg-Qb-R3U" firstAttribute="height" secondItem="OSB-Ti-3wM" secondAttribute="height" multiplier="0.5" id="yhq-Io-fy8"/>
             </constraints>

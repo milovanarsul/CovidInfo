@@ -8,11 +8,10 @@
 import Foundation
 import UIKit
 
-func initalizeButton(title: String, font: UIFont, foregroundColor: UIColor, backgroundColor: UIColor? = nil) -> NSMutableAttributedString{
+func setNSMutableString(title: String, font: UIFont, foregroundColor: UIColor) -> NSMutableAttributedString{
     let title = NSMutableAttributedString(string: title, attributes: [
         NSMutableAttributedString.Key.font: font,
-        NSMutableAttributedString.Key.foregroundColor: foregroundColor,
-        NSMutableAttributedString.Key.backgroundColor: backgroundColor!
+        NSMutableAttributedString.Key.foregroundColor: foregroundColor
     ])
     
     return title
