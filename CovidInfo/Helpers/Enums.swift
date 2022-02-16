@@ -27,6 +27,7 @@ enum ConstraintType{
 enum currentPageButtonSlider{
     case left
     case right
+    case hideParent
 }
 
 enum MainPages{

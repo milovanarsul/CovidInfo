@@ -122,15 +122,15 @@ class TriajTextSubview: UIView{
 class TriajFormSubview: UIView{
     convenience init(subview: Any) {
         self.init()
-        form(subview: subview as! [String])
+        form(subview: subview as! [(String, Double)])
     }
     
-    func form(subview: [String]){
+    func form(subview: [(String, Double)]){
         let verticalStackView = UIStackView()
         verticalStackView.initalize(axis: .vertical, alignment: .fill, distribution: .fillEqually, spacing: 5)
         
         for option in subview{
-            let action = TriajActions(actionType: .buttonForm, actionTitle: option)
+            let action = TriajActions(actionType: .buttonForm, actionTitle: option.0, riskFactor: option.1)
             verticalStackView.addArrangedSubview(action)
         }
         

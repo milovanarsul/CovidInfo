@@ -24,7 +24,7 @@ class Page{
             }
         }
     }
-
+    
     func getParentPage() -> String{
         return self.parentPage!
     }

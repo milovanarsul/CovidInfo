@@ -30,8 +30,12 @@ class TriajPageViewController: UIPageViewController {
 }
 
 extension TriajPageViewController: TriajDelegate{
-    func nextPage() {
-        let index = getCurrentIndex(views: pages) + 1
+    func endTriaj() {
+        goToIndex(pageIndex: 0, direction: .reverse, pages: pages, animated: false)
+        riskPrecentage = 0
+    }
+    
+    func nextPage(index: Int) {
         goToIndex(pageIndex: index, direction: .forward, pages: pages)
         
         switch index{
@@ -49,6 +53,7 @@ extension TriajPageViewController: TriajDelegate{
     }
     
     func goToStart(){
-        goToIndex(pageIndex: 0, direction: .reverse, pages: pages)
+        goToIndex(pageIndex: 0, direction: .reverse, pages: pages, animated: true)
+        riskPrecentage = 0
     }
 }

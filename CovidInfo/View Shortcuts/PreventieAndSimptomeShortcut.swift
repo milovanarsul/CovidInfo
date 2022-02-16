@@ -20,10 +20,12 @@ class PreventieAndSimptomeShortcut: XIB {
     }
     
     @objc func preventieShortcutTapped(){
-        delegates.home.goToPage(pageIndex: 2, direction: .reverse)
+        delegates.home.goToPage(pageIndex: 3, direction: .forward)
+        delegates.home.updateNavigationBar(page: Page(mainPage: .home, childType: .preventie))
     }
     
     @objc func simptomeShortcutTapped(){
-        delegates.home.goToPage(pageIndex: 3, direction: .reverse)
+        delegates.home.goToPage(pageIndex: 2, direction: .forward)
+        delegates.home.updateNavigationBar(page: Page(mainPage: .home, childType: .simptome))
     }
 }

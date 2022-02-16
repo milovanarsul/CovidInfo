@@ -6,16 +6,24 @@
 //
 
 import UIKit
+import CoreData
 
 class TriajActions: XIB {
     @IBOutlet var fullButton: UIButton!
     @IBOutlet var formButton: UIButton!
     @IBOutlet var buttonStack: UIStackView!
     
-    convenience init(actionType: TriajAction, actionTitle: Any!, actionForegorund: UIColor? = nil, actionColour: UIColor? = nil) {
+    var riskFactor: Double!
+    var currentIndex: Int!
+    
+    convenience init(actionType: TriajAction, actionTitle: Any!, actionForegorund: UIColor? = nil, actionColour: UIColor? = nil, riskFactor: Double? = nil) {
         self.init()
         
-        self.backgroundColor = .black
+        self.currentIndex = delegates.triaj.currentIndex() + 1
+        
+        if let riskFactor = riskFactor {
+            self.riskFactor = riskFactor
+        }
         
         switch actionType {
         case .button:
@@ -44,27 +52,41 @@ class TriajActions: XIB {
         self.formButton.backgroundColor = .yellow
     }
     
+    func results(){
+        if self.currentIndex == 6 {
+            if riskPrecentage < 2.5{
+                delegates.triaj.nextPage(index: currentIndex)
+            } else{
+                delegates.triaj.nextPage(index: currentIndex + 1)
+            }
+        } else{
+            delegates.triaj.nextPage(index: currentIndex)
+        }
+    }
+    
     @IBAction func fullSimpleButtonTapped(_ sender: Any) {
-        let index = delegates.triaj.currentIndex()
-        switch index{
-        case 6:
-            delegates.triaj.goToStart()
+        switch self.currentIndex{
         case 7:
             delegates.triaj.goToStart()
+        case 8:
+            delegates.triaj.goToStart()
         default:
-            delegates.triaj.nextPage()
+            delegates.triaj.nextPage(index: currentIndex)
         }
     }
     
     @IBAction func fullOptionButtonTapped(_ sender: Any) {
-        delegates.triaj.nextPage()
+        delegates.triaj.nextPage(index: currentIndex)
+        riskPrecentage += riskFactor
     }
     
     @IBAction func stackOptionTrueButtonTapped(_ sender: Any) {
-        delegates.triaj.nextPage()
+        riskPrecentage += 0.8
+        results()
     }
     
     @IBAction func stackOptionFalseButtonTapped(_ sender: Any) {
-        delegates.triaj.nextPage()
+        riskPrecentage += 0.1
+        results()
     }
 }

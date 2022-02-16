@@ -13,18 +13,44 @@ class CustomNavigationBar: XIB {
     @IBOutlet var parentPageButton: UIButton!
     @IBOutlet var childPageButton: UIButton!
     
+    @IBOutlet var parentPageButtonLeadingConstraint: NSLayoutConstraint!
     @IBOutlet var childPageButtonLeadingConstraint: NSLayoutConstraint!
+    
+    func slideOutParentPageButton(){
+        parentPageButtonLeadingConstraint.constant = -100
+        self.makeChildToParent()
+        
+        UIView.animate(withDuration: 0.7, animations: {
+            self.parentPageButton.layoutIfNeeded()
+            self.customNavigationBar.layoutIfNeeded()
+        }, completion: {(finished: Bool) in
+            self.parentPageButton.isHidden = true
+            self.parentPageButtonLeadingConstraint.constant = 0
+        })
+    }
+    
+    func makeChildToParent(){
+        childPageButtonLeadingConstraint.constant = -100
+        
+        UIView.animate(withDuration: 0.7, animations: {
+            self.childPageButton.layoutIfNeeded()
+            self.customNavigationBar.layoutIfNeeded()
+        }, completion: {(finished: Bool) in
+            self.childPageButton.isHidden = true
+            self.parentPageButton.isHidden = false
+            self.slideInChildPageButton()
+        })
+    }
     
     func slideOutChildPageButton(){
         childPageButtonLeadingConstraint.constant = -100
         
-        UIView.animate(withDuration: 0.7, delay: 0.0, options: [], animations: {
+        UIView.animate(withDuration: 0.7, animations: {
             self.childPageButton.layoutIfNeeded()
             self.customNavigationBar.layoutIfNeeded()
         }, completion: {(finished: Bool) in
             self.childPageButton.isHidden = true
             self.childPageButtonLeadingConstraint.constant = 25
-            
         })
     }
     
@@ -35,8 +61,6 @@ class CustomNavigationBar: XIB {
         UIView.animate(withDuration: 0.7, delay: 0.0, options: [], animations: {
             self.childPageButton.layoutIfNeeded()
             self.customNavigationBar.layoutIfNeeded()
-        }, completion: {(finished: Bool) in
-           
         })
     }
     
@@ -52,6 +76,7 @@ class CustomNavigationBar: XIB {
         buttonSlider(sliderType: .left)
         delegates.home.goToPage(pageIndex:0, direction: .reverse)
         delegates.main.tabBarVisibility(tabBarVisibility: .show)
+        delegates.triaj.endTriaj()
     }
 }
 
@@ -97,6 +122,8 @@ extension CustomNavigationBar: NavigationBarDelegate{
             slideOutChildPageButton()
         case .right:
             slideInChildPageButton()
+        case .hideParent:
+            slideOutParentPageButton()
         }
     }
 }

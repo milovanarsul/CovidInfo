@@ -13,6 +13,7 @@
                 <outlet property="childPageButtonLeadingConstraint" destination="h6F-U8-8lE" id="tGL-WN-iX1"/>
                 <outlet property="customNavigationBar" destination="iN0-l3-epB" id="5xg-sN-pyy"/>
                 <outlet property="parentPageButton" destination="xpf-IW-cPw" id="KW2-gD-IhE"/>
+                <outlet property="parentPageButtonLeadingConstraint" destination="c25-v7-9Yv" id="2Hd-nR-b7v"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

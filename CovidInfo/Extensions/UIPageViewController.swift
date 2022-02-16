@@ -37,9 +37,9 @@ extension UIPageViewController {
         setViewControllers([nextPage], direction: .forward, animated: animated, completion: completion)
     }
     
-    func goToIndex(pageIndex: Int, direction: UIPageViewController.NavigationDirection, pages: [UIViewController]){
+    func goToIndex(pageIndex: Int, direction: UIPageViewController.NavigationDirection, pages: [UIViewController], animated: Bool? = true){
         let viewController = pages[pageIndex]
-        setViewControllers([viewController], direction: direction, animated: true, completion: nil)
+        setViewControllers([viewController], direction: direction, animated: animated!, completion: nil)
     }
     
     func initialize(pages: [UIViewController], scroll: Bool){

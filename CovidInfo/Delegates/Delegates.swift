@@ -59,9 +59,10 @@ protocol StaticDelegate{
 }
 
 protocol TriajDelegate{
-    func nextPage()
+    func nextPage(index: Int)
     func currentIndex() -> Int
     func goToStart()
+    func endTriaj()
 }
 
 protocol TriajSubDelegate{

@@ -46,6 +46,8 @@ class HomePageViewController: UIPageViewController {
 extension HomePageViewController: HomePageDelegate{
     func updateNavigationBar(page: Page) {
         delegates.navigationBar.setup(page: page)
+        delegates.navigationBar.buttonSlider(sliderType: .right)
+        delegates.main.tabBarVisibility(tabBarVisibility: .hide)
     }
     
     func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection) {
