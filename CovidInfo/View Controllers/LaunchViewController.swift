@@ -7,14 +7,7 @@
 
 import UIKit
 
-private var showOnboarding: Bool = false //control onboarding
 private var onboardingCompleted: Bool = false
-
-/*
- onboarding() - start onboarding experience if onboarding is enabled
- main() - go to MainViewController if onboarding is disabled
- finishOnboarding() - go to MainViewController if onboarding is skipped or finished
-*/
 
 class LaunchViewController: UIViewController {
     @IBOutlet var blankView: UIView!
@@ -25,11 +18,7 @@ class LaunchViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if OnboardingManager.shared.isFirstLaunch{
-            showOnboarding = true
-            OnboardingManager.shared.isFirstLaunch = true
-        }
-        
+        isFirstLaunch()
         showOnboarding ? onboarding() : main()
         onboardingCompleted ? skipOnboarding() : ()
     }
@@ -47,7 +36,7 @@ class LaunchViewController: UIViewController {
             self.blankView.layoutIfNeeded()
         }, completion: { (finished: Bool) in
             onboardingCompleted = true
-            self.performSegue(withIdentifier: "toOnboarding", sender: self)
+            self.presentView(view: OnboardingWelcomeViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: false)
         })
     }
     
@@ -66,7 +55,7 @@ class LaunchViewController: UIViewController {
             self.view.layoutIfNeeded()
         }, completion: { (finished: Bool) in
             showOnboarding = false
-            self.performSegue(withIdentifier: "toMain", sender: self)
+            self.presentView(view: MainViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: true)
         })
     }
     
@@ -79,8 +68,7 @@ class LaunchViewController: UIViewController {
             self.blankView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }, completion: { (finished: Bool) in
-            
-            self.performSegue(withIdentifier: "toMain", sender: self)
+            self.presentView(view: MainViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: true)
         })
     }
 }

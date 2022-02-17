@@ -8,7 +8,7 @@
 import UIKit
 import Lottie
 
-class GeneralOnboardingViewController: UIViewController {
+class OnboardingViewController: UIViewController {
     @IBOutlet var cv: UIView!
     @IBOutlet var topImage: UIImageView!
     @IBOutlet var pageControl: UIPageControl!
@@ -28,7 +28,7 @@ class GeneralOnboardingViewController: UIViewController {
     @IBOutlet var cvTopConstraint: NSLayoutConstraint!
 }
 
-extension GeneralOnboardingViewController: OnboardingSubDelegate{
+extension OnboardingViewController: OnboardingSubDelegate{
     func finishOnboarding() {
         self.animationView.isHidden = true
         self.topImage.isHidden = true
@@ -43,7 +43,7 @@ extension GeneralOnboardingViewController: OnboardingSubDelegate{
             self.cv.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }, completion: {(finished: Bool) in
-            self.performSegue(withIdentifier: "onboardingFinished", sender: self)
+            self.presentView(view: MainViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: true)
         })
     }
     
