@@ -7,11 +7,6 @@
 
 import Foundation
 
-enum XIBType{
-    case `default`
-    case custom
-}
-
 enum ConstraintType{
     case height
     case width

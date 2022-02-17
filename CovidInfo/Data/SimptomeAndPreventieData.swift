@@ -30,8 +30,8 @@ class SimptomeAndPreventie{
     }
 }
 
-let simptome = SimptomeAndPreventie(cards: simptomeData, staticType: .simptome, borderColor: UIColor("FF3A6C"))
-let preventie = SimptomeAndPreventie(cards: preventieData, staticType: .preventie, borderColor: UIColor("02C8AF"))
+let simptome = SimptomeAndPreventie(cards: simptomeData, staticType: .simptome, borderColor: simptomeBorderColor)
+let preventie = SimptomeAndPreventie(cards: preventieData, staticType: .preventie, borderColor: preventieBorderColor)
 
 let preventieData = [
     SimptomeAndPreventieData(lottieAnimation: "preventie1", labelText: "Spală-te des pe mâini cu apă și săpun timp de cel puțin 20 de secunde, mai ales după ce ai fost într-un loc public sau după ce îți sufli nasul, tușești sau strănuți. Pentru a te șterge pe mâini folosește, de preferat, prosoape de hârtie."),

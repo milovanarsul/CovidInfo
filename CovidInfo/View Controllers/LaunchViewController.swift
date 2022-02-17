@@ -7,14 +7,7 @@
 
 import UIKit
 
-private var showOnboarding: Bool = false //control onboarding
 private var onboardingCompleted: Bool = false
-
-/*
- onboarding() - start onboarding experience if onboarding is enabled
- main() - go to MainViewController if onboarding is disabled
- finishOnboarding() - go to MainViewController if onboarding is skipped or finished
-*/
 
 class LaunchViewController: UIViewController {
     @IBOutlet var blankView: UIView!
@@ -25,11 +18,7 @@ class LaunchViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if OnboardingManager.shared.isFirstLaunch{
-            showOnboarding = true
-            OnboardingManager.shared.isFirstLaunch = true
-        }
-        
+        isFirstLaunch()
         showOnboarding ? onboarding() : main()
         onboardingCompleted ? skipOnboarding() : ()
     }
@@ -39,15 +28,15 @@ class LaunchViewController: UIViewController {
     @IBOutlet var launchTopConstraint: NSLayoutConstraint!
     
     func onboarding(){
-        self.launchWidthConstraint.changeMultiplier(multiplier: 0.883761)
-        self.launchHeightConstraint.changeMultiplier(multiplier: 0.550158)
+        self.launchWidthConstraint.changeMultiplier(multiplier: onboardingWidth)
+        self.launchHeightConstraint.changeMultiplier(multiplier: onboardingHeight)
         self.launchTopConstraint.constant = 146
         
         UIView.animate(withDuration: 1.0, delay: 0.5, animations: {
             self.blankView.layoutIfNeeded()
         }, completion: { (finished: Bool) in
             onboardingCompleted = true
-            self.performSegue(withIdentifier: "toOnboarding", sender: self)
+            self.presentView(view: OnboardingWelcomeViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: false)
         })
     }
     
@@ -57,30 +46,29 @@ class LaunchViewController: UIViewController {
     
     func skipOnboarding(){
         self.onboardingView.isHidden = false
-        self.onboardingHeightConstraint.changeMultiplier(multiplier: 0.853795)
+        self.onboardingHeightConstraint.changeMultiplier(multiplier: homeHeight)
         self.onboardingWidthConstraint.changeMultiplier(multiplier: 1)
-        self.onboardingTopConstraint.constant = 90
+        self.onboardingTopConstraint.constant = homeTopConstraint
         
-        UIView.animate(withDuration: 0.9, animations: {
+        UIView.animate(withDuration: defaultAnimationDuration, animations: {
             self.onboardingView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }, completion: { (finished: Bool) in
             showOnboarding = false
-            self.performSegue(withIdentifier: "toMain", sender: self)
+            self.presentView(view: MainViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: true)
         })
     }
     
     func main(){
         self.launchWidthConstraint.changeMultiplier(multiplier: 1)
-        self.launchHeightConstraint.changeMultiplier(multiplier: 0.853)
-        self.launchTopConstraint.constant = 90
+        self.launchHeightConstraint.changeMultiplier(multiplier: homeHeight)
+        self.launchTopConstraint.constant = homeTopConstraint
         
-        UIView.animate(withDuration: 0.9, animations: {
+        UIView.animate(withDuration: defaultAnimationDuration, animations: {
             self.blankView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }, completion: { (finished: Bool) in
-            
-            self.performSegue(withIdentifier: "toMain", sender: self)
+            self.presentView(view: MainViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: true)
         })
     }
 }

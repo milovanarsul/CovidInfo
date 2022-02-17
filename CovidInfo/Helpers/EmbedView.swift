@@ -28,7 +28,7 @@ class EmbedView{
         viewController.removeFromParent()
     }
     
-    func onboardingViewController(parent: GeneralOnboardingViewController, container: UIView){
+    func onboardingViewController(parent: OnboardingViewController, container: UIView){
         let child = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         embed(parent: parent, container: container, child: child, previous: parent.children.first, y: 0)
     }

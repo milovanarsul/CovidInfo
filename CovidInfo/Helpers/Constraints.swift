@@ -88,3 +88,12 @@ class Constraint{
         }
     }
 }
+
+extension NSLayoutConstraint {
+    func changeMultiplier(multiplier: CGFloat) {
+        let newConstraint = NSLayoutConstraint(item: firstItem as Any, attribute: firstAttribute, relatedBy: relation, toItem: secondItem, attribute: secondAttribute, multiplier: multiplier, constant: constant)
+        newConstraint.priority = self.priority
+        NSLayoutConstraint.deactivate([self])
+        NSLayoutConstraint.activate([newConstraint])
+    }
+}

@@ -7,6 +7,8 @@
 
 import Foundation
 
+var showOnboarding: Bool = false
+
 class OnboardingManager {
     static let shared = OnboardingManager()
     var isFirstLaunch: Bool {
@@ -15,5 +17,12 @@ class OnboardingManager {
         } set {
             UserDefaults.standard.setValue(newValue, forKey: #function)
         }
+    }
+}
+
+func isFirstLaunch() {
+    if OnboardingManager.shared.isFirstLaunch{
+        showOnboarding = true
+        OnboardingManager.shared.isFirstLaunch = true
     }
 }

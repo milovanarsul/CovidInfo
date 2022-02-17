@@ -17,10 +17,10 @@ class CustomNavigationBar: XIB {
     @IBOutlet var childPageButtonLeadingConstraint: NSLayoutConstraint!
     
     func slideOutParentPageButton(){
-        parentPageButtonLeadingConstraint.constant = -100
+        parentPageButtonLeadingConstraint.constant = -parentButtonLeading
         self.makeChildToParent()
         
-        UIView.animate(withDuration: 0.7, animations: {
+        UIView.animate(withDuration: defaultNavigationAnimation, animations: {
             self.parentPageButton.layoutIfNeeded()
             self.customNavigationBar.layoutIfNeeded()
         }, completion: {(finished: Bool) in
@@ -30,9 +30,9 @@ class CustomNavigationBar: XIB {
     }
     
     func makeChildToParent(){
-        childPageButtonLeadingConstraint.constant = -100
+        childPageButtonLeadingConstraint.constant = -parentButtonLeading
         
-        UIView.animate(withDuration: 0.7, animations: {
+        UIView.animate(withDuration: defaultNavigationAnimation, animations: {
             self.childPageButton.layoutIfNeeded()
             self.customNavigationBar.layoutIfNeeded()
         }, completion: {(finished: Bool) in
@@ -43,9 +43,9 @@ class CustomNavigationBar: XIB {
     }
     
     func slideOutChildPageButton(){
-        childPageButtonLeadingConstraint.constant = -100
+        childPageButtonLeadingConstraint.constant = -parentButtonLeading
         
-        UIView.animate(withDuration: 0.7, animations: {
+        UIView.animate(withDuration: defaultNavigationAnimation, animations: {
             self.childPageButton.layoutIfNeeded()
             self.customNavigationBar.layoutIfNeeded()
         }, completion: {(finished: Bool) in
@@ -58,7 +58,7 @@ class CustomNavigationBar: XIB {
         childPageButtonLeadingConstraint.constant = getParentPageButtonWidth() + 10
         self.childPageButton.isHidden = false
         
-        UIView.animate(withDuration: 0.7, delay: 0.0, options: [], animations: {
+        UIView.animate(withDuration: defaultNavigationAnimation, animations: {
             self.childPageButton.layoutIfNeeded()
             self.customNavigationBar.layoutIfNeeded()
         })
@@ -88,12 +88,12 @@ class CustomNavigationBar: XIB {
 extension CustomNavigationBar{
     
     func changeChildPageButton(title: String) {
-        self.childPageButton.setAttributedTitle(setNSMutableString(title: title, font: UIFont(name: "IBMPlexSans-Bold", size: 30)!, foregroundColor: .black), for: .normal)
+        self.childPageButton.setAttributedTitle(setNSMutableString(title: title, font: fontB30, foregroundColor: .black), for: .normal)
         self.childPageButton.backgroundColor = .clear
     }
     
     func changeParentPageButton(title: String) {
-        self.parentPageButton.setAttributedTitle(setNSMutableString(title: title, font: UIFont(name: "IBMPlexSans-Bold", size: 30)!, foregroundColor: .black), for: .normal)
+        self.parentPageButton.setAttributedTitle(setNSMutableString(title: title, font: fontB30, foregroundColor: .black), for: .normal)
         self.parentPageButton.backgroundColor = .clear
     }
     

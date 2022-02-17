@@ -7,7 +7,6 @@
 
 import UIKit
 import Lottie
-import CloudKit
 
 class MainViewController: UIViewController {
 
@@ -25,7 +24,6 @@ class MainViewController: UIViewController {
         background.fadeOut(duration: 0.4)
         navTabAnimation()
         embed()
-
     }
     
     func embed(){
@@ -39,18 +37,14 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func certifficateButtonTapped(_ sender: Any){
-        
-        
     }
     
     @IBOutlet var navigationBarTopConstraint: NSLayoutConstraint!
     @IBOutlet var tabBarBottomConstraint: NSLayoutConstraint!
-    @IBOutlet var certifficateBottomConstraint: NSLayoutConstraint!
     
     func navTabAnimation(){
         self.navigationBarTopConstraint.constant = 54
         self.tabBarBottomConstraint.constant = 34
-        self.certifficateBottomConstraint.constant = 20
         
         UIView.animate(withDuration: 0.6,animations: {
             self.customNavigationBar.layoutIfNeeded()
@@ -70,7 +64,7 @@ extension MainViewController: MainDelegate{
             self.tabBarBottomConstraint.constant = 34
         }
         
-        UIView.animate(withDuration: 0.9, animations: {
+        UIView.animate(withDuration: defaultAnimationDuration, animations: {
             self.customTabBar.layoutIfNeeded()
             self.view.layoutIfNeeded()
         })

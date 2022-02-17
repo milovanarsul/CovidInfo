@@ -1,8 +1,8 @@
 //
-//  UIButton.swift
+//  Strings.swift
 //  CovidInfo
 //
-//  Created by Milovan Arsul on 31.01.2022.
+//  Created by Milovan Arsul on 17.02.2022.
 //
 
 import Foundation
@@ -13,6 +13,5 @@ func setNSMutableString(title: String, font: UIFont, foregroundColor: UIColor) -
         NSMutableAttributedString.Key.font: font,
         NSMutableAttributedString.Key.foregroundColor: foregroundColor
     ])
-    
     return title
 }

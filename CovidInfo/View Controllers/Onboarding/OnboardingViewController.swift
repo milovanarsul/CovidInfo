@@ -8,7 +8,7 @@
 import UIKit
 import Lottie
 
-class GeneralOnboardingViewController: UIViewController {
+class OnboardingViewController: UIViewController {
     @IBOutlet var cv: UIView!
     @IBOutlet var topImage: UIImageView!
     @IBOutlet var pageControl: UIPageControl!
@@ -28,7 +28,7 @@ class GeneralOnboardingViewController: UIViewController {
     @IBOutlet var cvTopConstraint: NSLayoutConstraint!
 }
 
-extension GeneralOnboardingViewController: OnboardingSubDelegate{
+extension OnboardingViewController: OnboardingSubDelegate{
     func finishOnboarding() {
         self.animationView.isHidden = true
         self.topImage.isHidden = true
@@ -36,14 +36,15 @@ extension GeneralOnboardingViewController: OnboardingSubDelegate{
         self.pageControl.isHidden = true
         
         cvLeadingConstraint.constant = 0
-        cvHeightConstraint.changeMultiplier(multiplier: 0.853795)
-        cvTopConstraint.constant = 90
+        cvHeightConstraint.changeMultiplier(multiplier: homeHeight)
+        cvTopConstraint.constant = homeTopConstraint
         
-        UIView.animate(withDuration: 0.9, animations: {
+        UIView.animate(withDuration: defaultAnimationDuration, animations: {
             self.cv.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }, completion: {(finished: Bool) in
-            self.performSegue(withIdentifier: "onboardingFinished", sender: self)
+            self.presentView(view: MainViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: true)
+            self.removeFromParent()
         })
     }
     

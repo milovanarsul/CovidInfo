@@ -1,5 +1,5 @@
 //
-//  FirstOnboardingViewController.swift
+//  WelcomeOnboardingViewController.swift
 //  CovidInfo
 //
 //  Created by Milovan Arsul on 11.02.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FirstOnboardingViewController: UIViewController {
+class OnboardingWelcomeViewController: UIViewController {
     
     @IBOutlet var onboardingParentView: UIView!
     @IBOutlet var onboardingSubView: UIView!
@@ -19,6 +19,10 @@ class FirstOnboardingViewController: UIViewController {
     
     @IBAction func startOnboarding(_ sender: Any) {
         onboarding()
+        
+    }
+    @IBAction func skipTutorial(_ sender: Any) {
+        self.presentView(view: MainViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: true)
     }
     
     @IBOutlet var heightConstraint: NSLayoutConstraint!
@@ -27,11 +31,12 @@ class FirstOnboardingViewController: UIViewController {
         self.onboardingSubView.isHidden = true
         self.heightConstraint.changeMultiplier(multiplier: 0.8)
         
-        UIView.animate(withDuration: 0.9, animations: {
+        UIView.animate(withDuration: defaultAnimationDuration, animations: {
             self.onboardingParentView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }, completion: { (finished: Bool) in
-            self.performSegue(withIdentifier: "startOnboarding", sender: self)
+            self.presentView(view: OnboardingViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: true)
+            self.removeFromParent()
         })
     }
 }
