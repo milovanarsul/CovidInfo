@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum XIBType{
+    case `default`
+    case custom
+}
+
 enum ConstraintType{
     case height
     case width
@@ -31,6 +36,7 @@ enum currentPageButtonSlider{
 }
 
 enum MainPages{
+    case account
     case home
     case news
     case statistics

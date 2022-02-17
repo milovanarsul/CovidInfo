@@ -10,19 +10,16 @@ import Lottie
 
 class OnboardingCell: UIViewController {
     @IBOutlet var containerView: UIView!
-    @IBOutlet var animationView: UIView!
     @IBOutlet var label: UILabel!
     @IBOutlet var maiDeparteButton: UIButton!
     @IBOutlet var maiTarziuButton: UIButton!
     
-    var animationName: String!
     var labelText: String!
     var isModalNext: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupAnimation()
         self.label.text = self.labelText
         
         if self.isModalNext{
@@ -30,13 +27,7 @@ class OnboardingCell: UIViewController {
         }
     }
     
-    func setupAnimation(){
-        let animation = AnimationView()
-        animation.setup(animationName: self.animationName, loopMode: .loop, animationSpeed: 0.5, container: self.animationView)
-    }
-    
-    init(animationName: String, labelText: String, isModalNext: Bool){
-        self.animationName = animationName
+    init(labelText: String, isModalNext: Bool){
         self.labelText = labelText
         self.isModalNext = isModalNext
         

@@ -76,8 +76,13 @@ class CustomNavigationBar: XIB {
         buttonSlider(sliderType: .left)
         delegates.home.goToPage(pageIndex:0, direction: .reverse)
         delegates.main.tabBarVisibility(tabBarVisibility: .show)
-        delegates.triaj.endTriaj()
+        //delegates.triaj.endTriaj()
     }
+    
+    @IBAction func accountButtonTapped(_ sender: Any) {
+        //delegates.tabBar.goToPage(pageIndex: 0, direction: .reverse)
+    }
+    
 }
 
 extension CustomNavigationBar{

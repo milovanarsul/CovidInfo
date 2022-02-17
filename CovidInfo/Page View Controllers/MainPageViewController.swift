@@ -21,6 +21,7 @@ class MainPageViewController: UIPageViewController {
     }
     
     fileprivate func createViewControllers(){
+        
         let homeViewController = HomePageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil)
         delegates.home = homeViewController
         pages.append(homeViewController)

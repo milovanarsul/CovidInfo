@@ -34,8 +34,10 @@
 		B23DE46C27B3FC4D00FD2E10 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE46B27B3FC4D00FD2E10 /* UIColor.swift */; };
 		B23DE46E27B41F2C00FD2E10 /* TriajData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE46D27B41F2B00FD2E10 /* TriajData.swift */; };
 		B23DE47A27B44E3D00FD2E10 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE47927B44E3D00FD2E10 /* UILabel.swift */; };
+		B2497B0A27BEA6B800556D1C /* EnrollCertifficateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2497B0827BEA6B800556D1C /* EnrollCertifficateViewController.swift */; };
+		B2497B0B27BEA6B800556D1C /* EnrollCertifficateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2497B0927BEA6B800556D1C /* EnrollCertifficateViewController.xib */; };
 		B256059A27B2AF8000FB039F /* StaticCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256059927B2AF8000FB039F /* StaticCollectionViewController.swift */; };
-		B256059C27B2AFB500FB039F /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256059B27B2AFB500FB039F /* CollectionViewLayout.swift */; };
+		B256059C27B2AFB500FB039F /* CollectionViewLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256059B27B2AFB500FB039F /* CollectionViewLayouts.swift */; };
 		B259BF8527B6DFA5001F78A6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259BF8427B6DFA5001F78A6 /* LaunchViewController.swift */; };
 		B25AD33927A30B50009EAD38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33827A30B50009EAD38 /* UIView.swift */; };
 		B25CC91E27AE6FA7000D99F6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25CC91D27AE6FA7000D99F6 /* Home.swift */; };
@@ -72,6 +74,8 @@
 		B2BB039D27A9467700D4801B /* CustomTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2BB039C27A9467700D4801B /* CustomTabBar.xib */; };
 		B2BB039F27A998F700D4801B /* NavigationBarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB039E27A998F700D4801B /* NavigationBarData.swift */; };
 		B2C59C2127A869340094A984 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C59C2027A869340094A984 /* MainPageViewController.swift */; };
+		B2CF79EF27BD170100B06843 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CF79ED27BD170100B06843 /* AccountViewController.swift */; };
+		B2CF79F027BD170100B06843 /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2CF79EE27BD170100B06843 /* AccountViewController.xib */; };
 		B2DC74C227B793F700078245 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DC74C027B793F700078245 /* OnboardingCell.swift */; };
 		B2DC74C327B793F700078245 /* OnboardingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2DC74C127B793F700078245 /* OnboardingCell.xib */; };
 		B2E1938727BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E1938627BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib */; };
@@ -160,8 +164,10 @@
 		B23DE46B27B3FC4D00FD2E10 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B23DE46D27B41F2B00FD2E10 /* TriajData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriajData.swift; sourceTree = "<group>"; };
 		B23DE47927B44E3D00FD2E10 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		B2497B0827BEA6B800556D1C /* EnrollCertifficateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollCertifficateViewController.swift; sourceTree = "<group>"; };
+		B2497B0927BEA6B800556D1C /* EnrollCertifficateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnrollCertifficateViewController.xib; sourceTree = "<group>"; };
 		B256059927B2AF8000FB039F /* StaticCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticCollectionViewController.swift; sourceTree = "<group>"; };
-		B256059B27B2AFB500FB039F /* CollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
+		B256059B27B2AFB500FB039F /* CollectionViewLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayouts.swift; sourceTree = "<group>"; };
 		B259BF8427B6DFA5001F78A6 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		B25AD33827A30B50009EAD38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B25CC91D27AE6FA7000D99F6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -198,6 +204,8 @@
 		B2BB039C27A9467700D4801B /* CustomTabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabBar.xib; sourceTree = "<group>"; };
 		B2BB039E27A998F700D4801B /* NavigationBarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarData.swift; sourceTree = "<group>"; };
 		B2C59C2027A869340094A984 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		B2CF79ED27BD170100B06843 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		B2CF79EE27BD170100B06843 /* AccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
 		B2DC74C027B793F700078245 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
 		B2DC74C127B793F700078245 /* OnboardingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCell.xib; sourceTree = "<group>"; };
 		B2E1938627BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreventieAndSimptomeShortcut.xib; sourceTree = "<group>"; };
@@ -280,6 +288,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B202D2A927BE5AF70037C0AA /* Certifficate */ = {
+			isa = PBXGroup;
+			children = (
+				B2497B0827BEA6B800556D1C /* EnrollCertifficateViewController.swift */,
+				B2497B0927BEA6B800556D1C /* EnrollCertifficateViewController.xib */,
+			);
+			path = Certifficate;
+			sourceTree = "<group>";
+		};
 		B21C965827B2CAFF00C88A50 /* Simptome */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,8 +332,8 @@
 			isa = PBXGroup;
 			children = (
 				B2F650FE278F2BDB00E1BB58 /* Assets.xcassets */,
-				B2F65127278F329000E1BB58 /* Fonts */,
 				B2B5A9A72790904600FC4E61 /* Lottie Animations */,
+				B2F65127278F329000E1BB58 /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -324,6 +341,7 @@
 		B23DC42327902F0500051C6C /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				B202D2A927BE5AF70037C0AA /* Certifficate */,
 				B2F48DE527AD340B005EE116 /* Navigation */,
 				B2F48DEB27AD35B7005EE116 /* Onboarding */,
 				B25CC91C27AE6F76000D99F6 /* Home */,
@@ -336,9 +354,8 @@
 			children = (
 				B259BF8427B6DFA5001F78A6 /* LaunchViewController.swift */,
 				B278D50627A2848600511BB2 /* MainViewController.swift */,
-				B2F48DE327AD32C0005EE116 /* Page View Controllers */,
-				B25605A127B2B52E00FB039F /* Collection View Controllers */,
 				B23DC43427906E4B00051C6C /* Onboarding */,
+				B2CF79F127BD170D00B06843 /* Account */,
 				B2F48DE827AD3543005EE116 /* News */,
 				B2F48DE927AD354B005EE116 /* Statistics */,
 				B2F48DEA27AD3554005EE116 /* Documents */,
@@ -362,7 +379,7 @@
 				B2F48DDF27AD249A005EE116 /* Enums.swift */,
 				B2F48DE127AD25BC005EE116 /* EmbedView.swift */,
 				B2B079DE27AD3BD900A39107 /* LoadXIB.swift */,
-				B256059B27B2AFB500FB039F /* CollectionViewLayout.swift */,
+				B256059B27B2AFB500FB039F /* CollectionViewLayouts.swift */,
 				B23DE45927B3BC4700FD2E10 /* Constraints.swift */,
 				B205B3E627B50361008E5874 /* PageViewControllerDataSource.swift */,
 			);
@@ -478,6 +495,15 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		B2CF79F127BD170D00B06843 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				B2CF79ED27BD170100B06843 /* AccountViewController.swift */,
+				B2CF79EE27BD170100B06843 /* AccountViewController.xib */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		B2E1938527BC240600D0F057 /* View Shortcuts */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,6 +607,7 @@
 		B2F650F1278F2BD900E1BB58 /* CovidInfo */ = {
 			isa = PBXGroup;
 			children = (
+				B2F65103278F2BDB00E1BB58 /* Info.plist */,
 				B23DC42527902F2A00051C6C /* Delegates */,
 				B25AD33727A30B3D009EAD38 /* Extensions */,
 				B23DC42627902FD200051C6C /* Helpers */,
@@ -589,9 +616,10 @@
 				B23DC42F279030BC00051C6C /* Data */,
 				B2F48DE427AD3386005EE116 /* StoryBoards */,
 				B23DC42427902F1E00051C6C /* View Controllers */,
+				B2F48DE327AD32C0005EE116 /* Page View Controllers */,
+				B25605A127B2B52E00FB039F /* Collection View Controllers */,
 				B23DC42327902F0500051C6C /* View Models */,
 				B2E1938527BC240600D0F057 /* View Shortcuts */,
-				B2F65103278F2BDB00E1BB58 /* Info.plist */,
 			);
 			path = CovidInfo;
 			sourceTree = "<group>";
@@ -745,6 +773,7 @@
 				B2F65148278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */,
 				B2A389F627A442990005F9FD /* CustomNavigationBar.xib in Resources */,
 				B278D50527A2846900511BB2 /* Main.storyboard in Resources */,
+				B2CF79F027BD170100B06843 /* AccountViewController.xib in Resources */,
 				B23DE46227B3D01700FD2E10 /* preventie2.json in Resources */,
 				B25CC92627AE6FD4000D99F6 /* Home.xib in Resources */,
 				B21C965527B2BD5400C88A50 /* SimptomeAndPreventieViewController.xib in Resources */,
@@ -755,6 +784,7 @@
 				B2B5A9B32790939500FC4E61 /* onboarding3.json in Resources */,
 				B2F650FF278F2BDB00E1BB58 /* Assets.xcassets in Resources */,
 				B2BB039D27A9467700D4801B /* CustomTabBar.xib in Resources */,
+				B2497B0B27BEA6B800556D1C /* EnrollCertifficateViewController.xib in Resources */,
 				B217D45027B93DC500DBDED9 /* Triaj.xib in Resources */,
 				B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */,
 				B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */,
@@ -912,6 +942,7 @@
 			files = (
 				B2F650F3278F2BD900E1BB58 /* AppDelegate.swift in Sources */,
 				B2F48DE227AD25BC005EE116 /* EmbedView.swift in Sources */,
+				B2CF79EF27BD170100B06843 /* AccountViewController.swift in Sources */,
 				B2F48DDB27AD1D37005EE116 /* HomePagePageViewController.swift in Sources */,
 				B205B3E727B50361008E5874 /* PageViewControllerDataSource.swift in Sources */,
 				B2B3C99727A8727A00842DA5 /* DocumenteViewController.swift in Sources */,
@@ -943,10 +974,11 @@
 				B2A389F427A442820005F9FD /* CustomNavigationBar.swift in Sources */,
 				B23DE47A27B44E3D00FD2E10 /* UILabel.swift in Sources */,
 				B2B3C99327A8726D00842DA5 /* StatisticiViewController.swift in Sources */,
-				B256059C27B2AFB500FB039F /* CollectionViewLayout.swift in Sources */,
+				B256059C27B2AFB500FB039F /* CollectionViewLayouts.swift in Sources */,
 				B23DE46C27B3FC4D00FD2E10 /* UIColor.swift in Sources */,
 				B206B62627B64D9100C371B2 /* FirstOnboardingViewController.swift in Sources */,
 				B25CC91E27AE6FA7000D99F6 /* Home.swift in Sources */,
+				B2497B0A27BEA6B800556D1C /* EnrollCertifficateViewController.swift in Sources */,
 				B217D45727B9454500DBDED9 /* UIStackView.swift in Sources */,
 				B2E1938927BC248200D0F057 /* PreventieAndSimptomeShortcut.swift in Sources */,
 				B2E6741B27A52A8F00F283B7 /* OnboardingData.swift in Sources */,

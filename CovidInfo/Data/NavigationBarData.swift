@@ -35,6 +35,7 @@ class Page{
 }
 
 let mainPages: [MainPages:[String:[ChildPages:String]]] = [
+    MainPages.account: ["Cont":[:]],
     MainPages.home: ["Acasa":homePages],
     MainPages.news: ["Stiri":stiriPages],
     MainPages.statistics: ["Statistici":statisticiPages],

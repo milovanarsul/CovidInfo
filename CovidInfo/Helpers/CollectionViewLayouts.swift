@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class CardLayout: UICollectionViewFlowLayout{
+class SimptomeAndPreventieLayout: UICollectionViewFlowLayout{
     let activeDistance: CGFloat = 100
     let zoomFactor: CGFloat = 0.1
 
@@ -16,8 +16,8 @@ class CardLayout: UICollectionViewFlowLayout{
         super.init()
 
         scrollDirection = .horizontal
-        minimumLineSpacing = 40
-        itemSize = CGSize(width: 300, height: 450)
+        minimumLineSpacing = 30
+        itemSize = CGSize(width: 310, height: 510)
     }
 
     required init?(coder aDecoder: NSCoder) {

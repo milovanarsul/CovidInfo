@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     @IBOutlet var customNavigationBar: UIView!
     @IBOutlet var customTabBar: UIView!
     @IBOutlet var background: UIImageView!
+    @IBOutlet var certifficate: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class MainViewController: UIViewController {
         background.fadeOut(duration: 0.4)
         navTabAnimation()
         embed()
+
     }
     
     func embed(){
@@ -36,16 +38,24 @@ class MainViewController: UIViewController {
         self.customTabBar.addSubView(parentView: self.customTabBar, childView: CustomTabBar())
     }
     
+    @IBAction func certifficateButtonTapped(_ sender: Any){
+        
+        
+    }
+    
     @IBOutlet var navigationBarTopConstraint: NSLayoutConstraint!
     @IBOutlet var tabBarBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var certifficateBottomConstraint: NSLayoutConstraint!
     
     func navTabAnimation(){
         self.navigationBarTopConstraint.constant = 54
         self.tabBarBottomConstraint.constant = 34
+        self.certifficateBottomConstraint.constant = 20
         
         UIView.animate(withDuration: 0.6,animations: {
             self.customNavigationBar.layoutIfNeeded()
             self.customTabBar.layoutIfNeeded()
+            self.certifficate.layoutIfNeeded()
             self.view.layoutIfNeeded()
         })
     }

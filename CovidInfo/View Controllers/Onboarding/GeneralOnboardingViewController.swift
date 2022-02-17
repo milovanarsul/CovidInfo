@@ -13,6 +13,7 @@ class GeneralOnboardingViewController: UIViewController {
     @IBOutlet var topImage: UIImageView!
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var viewContainer: UIView!
+    @IBOutlet var animationView: AnimationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class GeneralOnboardingViewController: UIViewController {
 
 extension GeneralOnboardingViewController: OnboardingSubDelegate{
     func finishOnboarding() {
+        self.animationView.isHidden = true
         self.topImage.isHidden = true
         self.viewContainer.isHidden = true
         self.pageControl.isHidden = true
@@ -47,5 +49,10 @@ extension GeneralOnboardingViewController: OnboardingSubDelegate{
     
     func setPageControl(){
         self.pageControl.currentPage += 1
+    }
+    
+    func setupAnimation(animationName: String){
+        self.animationView.animation = Animation.named(animationName)
+        self.animationView.play()
     }
 }

@@ -42,7 +42,7 @@ class EmbedView{
     }
     
     func simptomeAndPreventieViewController(parent: SimptomeAndPreventieViewController, container: UIView){
-        let child = StaticCollectionViewController(collectionViewLayout: CardLayout.init())
+        let child = StaticCollectionViewController(collectionViewLayout: SimptomeAndPreventieLayout.init())
         delegates.staticInfo = parent
         embed(parent: parent, container: container, child: child, previous: parent.children.first, y: 0)
     }

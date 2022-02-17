@@ -12,7 +12,7 @@ private let cellIdentifier = "SimptomeAndPreventieCollectionViewCell"
 
 class StaticCollectionViewController: UICollectionViewController {
     var collectionDataSource = StaticCollectionDataSource()
-    let flowLayout = CardLayout()
+    let flowLayout = SimptomeAndPreventieLayout()
 
     override func viewDidLoad() {
         super.viewDidLoad()

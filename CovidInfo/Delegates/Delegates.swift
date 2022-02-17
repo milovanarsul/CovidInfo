@@ -34,6 +34,7 @@ let delegates: Delegates = Delegates()
 protocol OnboardingSubDelegate{
     func finishOnboarding()
     func setPageControl()
+    func setupAnimation(animationName: String)
 }
 
 protocol MainDelegate{

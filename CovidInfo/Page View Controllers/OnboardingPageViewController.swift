@@ -9,7 +9,7 @@ import UIKit
 
 class OnboardingPageViewController: UIPageViewController {
     
-    fileprivate var pages: [UIViewController] = []
+    var pages: [UIViewController] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,19 +19,23 @@ class OnboardingPageViewController: UIPageViewController {
         dataSource = pageViewControllerDataSource
         createViewControllers()
         initialize(pages: pages, scroll: true)
+        
+        if getCurrentIndex(views: pages) == 0{
+            delegates.onboardingSub.setupAnimation(animationName: "onboarding1")
+        }
     }
     
     fileprivate func createViewControllers(){
         let onboardingData = onboardingDataArray
         
         for data in onboardingData{
-            let viewController = createOnboardingCard(animationName: data.getLottieAnimation(), labelText: data.getLabelText(), modalNext: data.isModalNext)
+            let viewController = createOnboardingCard(labelText: data.getLabelText(), modalNext: data.isModalNext)
             pages.append(viewController)
         }
     }
     
-    fileprivate func createOnboardingCard(animationName: String, labelText: String, modalNext: Bool) -> UIViewController{
-        let onboardingCardView = OnboardingCell(animationName: animationName, labelText: labelText, isModalNext: modalNext)
+    fileprivate func createOnboardingCard(labelText: String, modalNext: Bool) -> UIViewController{
+        let onboardingCardView = OnboardingCell(labelText: labelText, isModalNext: modalNext)
         return onboardingCardView
     }
 }
@@ -41,18 +45,18 @@ extension OnboardingPageViewController: OnboardingDelegate{
         return getCurrentIndex(views: pages)
     }
     
-    func playAnimation() {}
-    
     func nextPage() {
          let currentIndex = getCurrentIndex(views: pages)
 
          switch currentIndex{
          case 3:
              goToIndex(pageIndex: currentIndex + 2, direction: .forward, pages: pages)
+             delegates.onboardingSub.setupAnimation(animationName: onboardingDataArray[currentIndex + 2].getLottieAnimation())
          case 5:
              delegates.onboardingSub.finishOnboarding()
          default:
              goToIndex(pageIndex: currentIndex + 1, direction: .forward, pages: pages)
+             delegates.onboardingSub.setupAnimation(animationName: onboardingDataArray[currentIndex + 1].getLottieAnimation())
          }
         
         delegates.onboardingSub.setPageControl()

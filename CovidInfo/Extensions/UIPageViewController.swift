@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 extension UIPageViewController {
-    
     func getCurrentIndex(views: [UIViewController]) -> Int{
         guard let currentViewController = viewControllers?.first else {return 0}
         return views.firstIndex(of: currentViewController) ?? 0

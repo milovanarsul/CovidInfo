@@ -24,10 +24,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="50G-m5-QaF">
-                    <rect key="frame" x="10" y="10" width="334" height="30"/>
+                    <rect key="frame" x="20" y="10" width="328" height="30"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DT1-pG-Jj6" userLabel="Acasa">
-                            <rect key="frame" x="0.0" y="0.0" width="53.5" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="52" height="30"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" image="house.fill" catalog="system">
                                 <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
@@ -39,7 +39,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yja-td-sgJ" userLabel="Stiri">
-                            <rect key="frame" x="93.5" y="0.0" width="53.5" height="30"/>
+                            <rect key="frame" x="92" y="0.0" width="52" height="30"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" image="newspaper" catalog="system">
                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,7 +50,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcP-oY-lO1" userLabel="Statistici">
-                            <rect key="frame" x="187" y="0.0" width="53.5" height="30"/>
+                            <rect key="frame" x="184" y="0.0" width="52" height="30"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" image="chart.bar" catalog="system">
                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -61,13 +61,11 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRI-GO-7JD" userLabel="Documente">
-                            <rect key="frame" x="280.5" y="0.0" width="53.5" height="30"/>
+                            <rect key="frame" x="276" y="0.0" width="52" height="30"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled">
-                                <imageReference key="image" image="doc.text" catalog="system" symbolScale="large"/>
-                                <backgroundConfiguration key="background"/>
-                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="15" scale="large"/>
-                                <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                <imageReference key="image" image="doc.text" catalog="system"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </buttonConfiguration>
@@ -83,22 +81,22 @@
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fd5-rm-F7H">
-                    <rect key="frame" x="18" y="40" width="35" height="2"/>
+                    <rect key="frame" x="27" y="40" width="35" height="2"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="35" id="XMU-x9-PNm"/>
                         <constraint firstAttribute="height" constant="2" id="g70-3S-Ofg"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="50G-m5-QaF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="0ZB-hH-UXf"/>
                 <constraint firstItem="50G-m5-QaF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="3b5-Id-5wb"/>
-                <constraint firstItem="50G-m5-QaF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="7xF-YS-k2b"/>
-                <constraint firstAttribute="trailing" secondItem="50G-m5-QaF" secondAttribute="trailing" constant="24" id="VhP-fO-2zU"/>
+                <constraint firstItem="50G-m5-QaF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="gfm-XE-JSi"/>
                 <constraint firstItem="fd5-rm-F7H" firstAttribute="top" secondItem="DT1-pG-Jj6" secondAttribute="bottom" id="kCJ-Jy-Sii"/>
-                <constraint firstAttribute="bottom" secondItem="50G-m5-QaF" secondAttribute="bottom" constant="10" id="uOL-3q-aBf"/>
-                <constraint firstItem="fd5-rm-F7H" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="xEk-3v-EyO"/>
+                <constraint firstItem="fd5-rm-F7H" firstAttribute="width" secondItem="DT1-pG-Jj6" secondAttribute="width" multiplier="0.673077" id="oUa-pA-PLb"/>
+                <constraint firstItem="50G-m5-QaF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="wIw-oI-CTy"/>
+                <constraint firstItem="fd5-rm-F7H" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="27" id="xEk-3v-EyO"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="78.260869565217391" y="-62.276785714285708"/>

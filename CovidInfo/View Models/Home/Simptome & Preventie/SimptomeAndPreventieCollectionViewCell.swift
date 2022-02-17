@@ -16,6 +16,7 @@ class SimptomeAndPreventieCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         setup()
+        self.borderColor = .red
     }
     
     func setup(){
@@ -49,7 +50,7 @@ class SimptomeAndPreventieCollectionViewCell: UICollectionViewCell {
         
         let constraints = Constraints(childView: textLabel, parentView: self.contentView, secondView: self.lottieAnimation, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .leading, multiplier: 1, constant: 20),
+            Constraint(constraintType: .leading, multiplier: 1, constant: 30),
             Constraint(constraintType: .bottom, multiplier: 1, constant: -20),
             Constraint(constraintType: .verticalSpacing, multiplier: 1, constant: 0)
         ])

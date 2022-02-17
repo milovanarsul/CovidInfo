@@ -29,28 +29,27 @@ class CustomTabBar: XIB {
         self.currentPageIndex = tabBarButtonIndex
     }
     
+    func buttonSetup(button: MainPages){
+        tabBarButtonSetup(tabBarButton: button)
+        tabBarPageSliderDirection(tabBarButton: button)
+        delegates.navigationBar.setup(page: Page(mainPage: button, childType: .none))
+        
+    }
+    
     @IBAction func homeButtonPressed(_ sender: Any) {
-        tabBarButtonSetup(tabBarButton: .home)
-        tabBarPageSliderDirection(tabBarButton: .home)
-        delegates.navigationBar.setup(page: Page(mainPage: .home, childType: .none))
+        buttonSetup(button: .home)
     }
     
     @IBAction func newsButtonPressed(_ sender: Any) {
-        tabBarButtonSetup(tabBarButton: .news)
-        tabBarPageSliderDirection(tabBarButton: .news)
-        delegates.navigationBar.setup(page: Page(mainPage: .news, childType: .none))
+        buttonSetup(button: .news)
     }
     
     @IBAction func statisticsButtonPressed(_ sender: Any) {
-        tabBarButtonSetup(tabBarButton: .statistics)
-        tabBarPageSliderDirection(tabBarButton: .statistics)
-        delegates.navigationBar.setup(page: Page(mainPage: .statistics, childType: .none))
+        buttonSetup(button: .statistics)
     }
     
     @IBAction func documentsButtonPressed(_ sender: Any) {
-        tabBarButtonSetup(tabBarButton: .documents)
-        tabBarPageSliderDirection(tabBarButton: .documents)
-        delegates.navigationBar.setup(page: Page(mainPage: .documents, childType: .none))
+        buttonSetup(button: .documents)
     }
     
     func tabBarButtonSetup(tabBarButton: MainPages){
@@ -63,19 +62,20 @@ class CustomTabBar: XIB {
     func buttonSliderAnimation(tabBarButton: MainPages){
         switch tabBarButton {
         case .home:
-            sliderLeadingConstraint.constant = 18
+            sliderLeadingConstraint.constant = 27
         case .news:
             sliderLeadingConstraint.constant = 113
         case .statistics:
-            sliderLeadingConstraint.constant = 204
+            sliderLeadingConstraint.constant = 198
         case .documents:
-            sliderLeadingConstraint.constant = 296
+            sliderLeadingConstraint.constant = 283
+        default:
+            ()
         }
         
-        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.slider.layoutIfNeeded()
             self.customTabBar.layoutIfNeeded()
-        }, completion: {(finished: Bool) in
         })
     }
     
@@ -101,6 +101,8 @@ class CustomTabBar: XIB {
             newsButton.setImage(UIImage(systemName: "newspaper"), for: .normal)
             statisticsButton.setImage(UIImage(systemName: "chart.bar"), for: .normal)
             documentsButton.setImage(UIImage(systemName: "doc.text.fill"), for: .normal)
+        default:
+            ()
         }
     }
     
@@ -114,6 +116,8 @@ class CustomTabBar: XIB {
             return 2
         case .documents:
             return 3
+        default:
+            return -1
         }
     }
 }

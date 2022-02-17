@@ -11,7 +11,6 @@ import UIKit
 var riskPrecentage: Double = 0
 let highRisk: Double = 2.5
 
-
 class TriajData{
     var image: String
     var title: String

@@ -63,6 +63,9 @@
                         <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
                         <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="accountButtonTapped:" destination="-1" eventType="touchUpInside" id="HL6-RU-Gyb"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
