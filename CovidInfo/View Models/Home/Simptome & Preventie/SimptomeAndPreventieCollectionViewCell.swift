@@ -68,14 +68,10 @@ class SimptomeAndPreventieCollectionViewCell: UICollectionViewCell {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-
-        fatalError("Interface Builder is not supported!")
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        fatalError("Interface Builder is not supported!")
     }
 
     override func prepareForReuse() {

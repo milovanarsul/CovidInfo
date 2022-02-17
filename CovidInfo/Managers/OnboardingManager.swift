@@ -7,7 +7,7 @@
 
 import Foundation
 
-var showOnboarding: Bool = true
+var showOnboarding: Bool = false
 
 class OnboardingManager {
     static let shared = OnboardingManager()

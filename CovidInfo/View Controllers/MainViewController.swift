@@ -41,12 +41,10 @@ class MainViewController: UIViewController {
     
     @IBOutlet var navigationBarTopConstraint: NSLayoutConstraint!
     @IBOutlet var tabBarBottomConstraint: NSLayoutConstraint!
-    //@IBOutlet var certifficateBottomConstraint: NSLayoutConstraint!
     
     func navTabAnimation(){
         self.navigationBarTopConstraint.constant = 54
         self.tabBarBottomConstraint.constant = 34
-        //self.certifficateBottomConstraint.constant = 20
         
         UIView.animate(withDuration: 0.6,animations: {
             self.customNavigationBar.layoutIfNeeded()
@@ -66,7 +64,7 @@ extension MainViewController: MainDelegate{
             self.tabBarBottomConstraint.constant = 34
         }
         
-        UIView.animate(withDuration: 0.9, animations: {
+        UIView.animate(withDuration: defaultAnimationDuration, animations: {
             self.customTabBar.layoutIfNeeded()
             self.view.layoutIfNeeded()
         })

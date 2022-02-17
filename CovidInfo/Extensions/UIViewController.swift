@@ -11,7 +11,6 @@ import UIKit
 extension UIViewController{
     func presentView(view: UIViewController, animated: Bool, presentationStyle: UIModalPresentationStyle, dismissPrevious: Bool){
         view.modalPresentationStyle = presentationStyle
-        //dismissPrevious ? dismiss(animated: animated) : ()
         present(view, animated: animated, completion: nil)
         show(view, sender: self)
     }

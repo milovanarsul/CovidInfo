@@ -31,11 +31,12 @@ class OnboardingWelcomeViewController: UIViewController {
         self.onboardingSubView.isHidden = true
         self.heightConstraint.changeMultiplier(multiplier: 0.8)
         
-        UIView.animate(withDuration: 0.9, animations: {
+        UIView.animate(withDuration: defaultAnimationDuration, animations: {
             self.onboardingParentView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }, completion: { (finished: Bool) in
             self.presentView(view: OnboardingViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: true)
+            self.removeFromParent()
         })
     }
 }

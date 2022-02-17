@@ -28,8 +28,8 @@ class LaunchViewController: UIViewController {
     @IBOutlet var launchTopConstraint: NSLayoutConstraint!
     
     func onboarding(){
-        self.launchWidthConstraint.changeMultiplier(multiplier: 0.883761)
-        self.launchHeightConstraint.changeMultiplier(multiplier: 0.550158)
+        self.launchWidthConstraint.changeMultiplier(multiplier: onboardingWidth)
+        self.launchHeightConstraint.changeMultiplier(multiplier: onboardingHeight)
         self.launchTopConstraint.constant = 146
         
         UIView.animate(withDuration: 1.0, delay: 0.5, animations: {
@@ -46,11 +46,11 @@ class LaunchViewController: UIViewController {
     
     func skipOnboarding(){
         self.onboardingView.isHidden = false
-        self.onboardingHeightConstraint.changeMultiplier(multiplier: 0.853795)
+        self.onboardingHeightConstraint.changeMultiplier(multiplier: homeHeight)
         self.onboardingWidthConstraint.changeMultiplier(multiplier: 1)
-        self.onboardingTopConstraint.constant = 90
+        self.onboardingTopConstraint.constant = homeTopConstraint
         
-        UIView.animate(withDuration: 0.9, animations: {
+        UIView.animate(withDuration: defaultAnimationDuration, animations: {
             self.onboardingView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }, completion: { (finished: Bool) in
@@ -61,10 +61,10 @@ class LaunchViewController: UIViewController {
     
     func main(){
         self.launchWidthConstraint.changeMultiplier(multiplier: 1)
-        self.launchHeightConstraint.changeMultiplier(multiplier: 0.853)
-        self.launchTopConstraint.constant = 90
+        self.launchHeightConstraint.changeMultiplier(multiplier: homeHeight)
+        self.launchTopConstraint.constant = homeTopConstraint
         
-        UIView.animate(withDuration: 0.9, animations: {
+        UIView.animate(withDuration: defaultAnimationDuration, animations: {
             self.blankView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }, completion: { (finished: Bool) in

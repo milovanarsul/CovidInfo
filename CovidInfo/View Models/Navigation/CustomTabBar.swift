@@ -16,6 +16,7 @@ class CustomTabBar: XIB {
     @IBOutlet var documentsButton: UIButton!
     @IBOutlet var slider: UIView!
     
+    var buttons: [UIButton]!
     var currentPageIndex: Int = 0
     
     func tabBarPageSliderDirection(tabBarButton: MainPages){
@@ -33,7 +34,6 @@ class CustomTabBar: XIB {
         tabBarButtonSetup(tabBarButton: button)
         tabBarPageSliderDirection(tabBarButton: button)
         delegates.navigationBar.setup(page: Page(mainPage: button, childType: .none))
-        
     }
     
     @IBAction func homeButtonPressed(_ sender: Any) {
@@ -53,6 +53,7 @@ class CustomTabBar: XIB {
     }
     
     func tabBarButtonSetup(tabBarButton: MainPages){
+        self.buttons = [homeButton, newsButton, statisticsButton, documentsButton]
         fillTabBarButton(tabBarButton: tabBarButton)
         buttonSliderAnimation(tabBarButton: tabBarButton)
     }
@@ -80,30 +81,14 @@ class CustomTabBar: XIB {
     }
     
     func fillTabBarButton(tabBarButton: MainPages){
-        switch tabBarButton {
-        case .home:
-            homeButton.setImage(UIImage(systemName: "house.fill"), for: .normal)
-            newsButton.setImage(UIImage(systemName: "newspaper"), for: .normal)
-            statisticsButton.setImage(UIImage(systemName: "chart.bar"), for: .normal)
-            documentsButton.setImage(UIImage(systemName: "doc.text"), for: .normal)
-        case .news:
-            homeButton.setImage(UIImage(systemName: "house"), for: .normal)
-            newsButton.setImage(UIImage(systemName: "newspaper.fill"), for: .normal)
-            statisticsButton.setImage(UIImage(systemName: "chart.bar"), for: .normal)
-            documentsButton.setImage(UIImage(systemName: "doc.text"), for: .normal)
-        case .statistics:
-            homeButton.setImage(UIImage(systemName: "house"), for: .normal)
-            newsButton.setImage(UIImage(systemName: "newspaper"), for: .normal)
-            statisticsButton.setImage(UIImage(systemName: "chart.bar.fill"), for: .normal)
-            documentsButton.setImage(UIImage(systemName: "doc.text"), for: .normal)
-        case .documents:
-            homeButton.setImage(UIImage(systemName: "house"), for: .normal)
-            newsButton.setImage(UIImage(systemName: "newspaper"), for: .normal)
-            statisticsButton.setImage(UIImage(systemName: "chart.bar"), for: .normal)
-            documentsButton.setImage(UIImage(systemName: "doc.text.fill"), for: .normal)
-        default:
-            ()
+        let buttonIndex = tabBarIndex(tabBarButton: tabBarButton)
+        let images = [home, news, statistics, documents]
+        
+        for index in 0..<buttons.count{
+            buttons[index].setImage(UIImage(systemName: images[index]), for: .normal)
         }
+        
+        buttons[buttonIndex].setImage(UIImage(systemName: images[buttonIndex] + ".fill"), for: .normal)
     }
     
     func tabBarIndex(tabBarButton: MainPages) -> Int{

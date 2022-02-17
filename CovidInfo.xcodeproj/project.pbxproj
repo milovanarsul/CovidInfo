@@ -33,8 +33,6 @@
 		B23DE46C27B3FC4D00FD2E10 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE46B27B3FC4D00FD2E10 /* UIColor.swift */; };
 		B23DE46E27B41F2C00FD2E10 /* TriajData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE46D27B41F2B00FD2E10 /* TriajData.swift */; };
 		B23DE47A27B44E3D00FD2E10 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE47927B44E3D00FD2E10 /* UILabel.swift */; };
-		B2497B0A27BEA6B800556D1C /* EnrollCertifficateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2497B0827BEA6B800556D1C /* EnrollCertifficateViewController.swift */; };
-		B2497B0B27BEA6B800556D1C /* EnrollCertifficateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2497B0927BEA6B800556D1C /* EnrollCertifficateViewController.xib */; };
 		B2497B0D27BEAB4100556D1C /* StringOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2497B0C27BEAB4100556D1C /* StringOperations.swift */; };
 		B2497B0F27BEAD6C00556D1C /* OnboardingWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2497B0E27BEAD6C00556D1C /* OnboardingWelcomeViewController.xib */; };
 		B2497B1127BEAE9700556D1C /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2497B1027BEAE9700556D1C /* OnboardingViewController.xib */; };
@@ -44,7 +42,6 @@
 		B25AD33927A30B50009EAD38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33827A30B50009EAD38 /* UIView.swift */; };
 		B25CC91E27AE6FA7000D99F6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25CC91D27AE6FA7000D99F6 /* Home.swift */; };
 		B25CC92627AE6FD4000D99F6 /* Home.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25CC92527AE6FD4000D99F6 /* Home.xib */; };
-		B278D50527A2846900511BB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B278D50427A2846900511BB2 /* Main.storyboard */; };
 		B278D50727A2848600511BB2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50627A2848600511BB2 /* MainViewController.swift */; };
 		B278D50927A2851A00511BB2 /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50827A2851A00511BB2 /* OnboardingManager.swift */; };
 		B27AB17D27B66007009A2323 /* LottieAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AB17C27B66007009A2323 /* LottieAnimationView.swift */; };
@@ -58,6 +55,8 @@
 		B2A389F627A442990005F9FD /* CustomNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A389F527A442990005F9FD /* CustomNavigationBar.xib */; };
 		B2B03FA827BEB1FE00A0F634 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2B03FA727BEB1FE00A0F634 /* MainViewController.xib */; };
 		B2B03FAA27BEB36200A0F634 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B03FA927BEB36200A0F634 /* UIViewController.swift */; };
+		B2B03FAC27BEC22600A0F634 /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2B03FAB27BEC22600A0F634 /* LaunchViewController.xib */; };
+		B2B03FAE27BEC4B500A0F634 /* DeclarationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B03FAD27BEC4B500A0F634 /* DeclarationsManager.swift */; };
 		B2B079DF27AD3BD900A39107 /* XIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B079DE27AD3BD900A39107 /* XIB.swift */; };
 		B2B3C98D27A8724900842DA5 /* StiriViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3C98B27A8724900842DA5 /* StiriViewController.swift */; };
 		B2B3C98E27A8724900842DA5 /* StiriViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2B3C98C27A8724900842DA5 /* StiriViewController.xib */; };
@@ -166,8 +165,6 @@
 		B23DE46B27B3FC4D00FD2E10 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B23DE46D27B41F2B00FD2E10 /* TriajData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriajData.swift; sourceTree = "<group>"; };
 		B23DE47927B44E3D00FD2E10 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
-		B2497B0827BEA6B800556D1C /* EnrollCertifficateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollCertifficateViewController.swift; sourceTree = "<group>"; };
-		B2497B0927BEA6B800556D1C /* EnrollCertifficateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnrollCertifficateViewController.xib; sourceTree = "<group>"; };
 		B2497B0C27BEAB4100556D1C /* StringOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringOperations.swift; sourceTree = "<group>"; };
 		B2497B0E27BEAD6C00556D1C /* OnboardingWelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingWelcomeViewController.xib; sourceTree = "<group>"; };
 		B2497B1027BEAE9700556D1C /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
@@ -177,7 +174,6 @@
 		B25AD33827A30B50009EAD38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B25CC91D27AE6FA7000D99F6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		B25CC92527AE6FD4000D99F6 /* Home.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home.xib; sourceTree = "<group>"; };
-		B278D50427A2846900511BB2 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B278D50627A2848600511BB2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B278D50827A2851A00511BB2 /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
 		B27AB17C27B66007009A2323 /* LottieAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationView.swift; sourceTree = "<group>"; };
@@ -191,6 +187,8 @@
 		B2A389F527A442990005F9FD /* CustomNavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNavigationBar.xib; sourceTree = "<group>"; };
 		B2B03FA727BEB1FE00A0F634 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		B2B03FA927BEB36200A0F634 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		B2B03FAB27BEC22600A0F634 /* LaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
+		B2B03FAD27BEC4B500A0F634 /* DeclarationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclarationsManager.swift; sourceTree = "<group>"; };
 		B2B079DE27AD3BD900A39107 /* XIB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIB.swift; sourceTree = "<group>"; };
 		B2B3C98B27A8724900842DA5 /* StiriViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StiriViewController.swift; sourceTree = "<group>"; };
 		B2B3C98C27A8724900842DA5 /* StiriViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StiriViewController.xib; sourceTree = "<group>"; };
@@ -294,15 +292,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B202D2A927BE5AF70037C0AA /* Certifficate */ = {
-			isa = PBXGroup;
-			children = (
-				B2497B0827BEA6B800556D1C /* EnrollCertifficateViewController.swift */,
-				B2497B0927BEA6B800556D1C /* EnrollCertifficateViewController.xib */,
-			);
-			path = Certifficate;
-			sourceTree = "<group>";
-		};
 		B21C965827B2CAFF00C88A50 /* Simptome */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,7 +336,6 @@
 		B23DC42327902F0500051C6C /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				B202D2A927BE5AF70037C0AA /* Certifficate */,
 				B2F48DE527AD340B005EE116 /* Navigation */,
 				B2F48DEB27AD35B7005EE116 /* Onboarding */,
 				B25CC91C27AE6F76000D99F6 /* Home */,
@@ -359,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				B259BF8427B6DFA5001F78A6 /* LaunchViewController.swift */,
+				B2B03FAB27BEC22600A0F634 /* LaunchViewController.xib */,
 				B278D50627A2848600511BB2 /* MainViewController.swift */,
 				B2B03FA727BEB1FE00A0F634 /* MainViewController.xib */,
 				B23DC43427906E4B00051C6C /* Onboarding */,
@@ -419,6 +408,7 @@
 		B23DC43B2790709400051C6C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				B2B03FAD27BEC4B500A0F634 /* DeclarationsManager.swift */,
 				B278D50827A2851A00511BB2 /* OnboardingManager.swift */,
 			);
 			path = Managers;
@@ -533,15 +523,6 @@
 			path = "Page View Controllers";
 			sourceTree = "<group>";
 		};
-		B2F48DE427AD3386005EE116 /* StoryBoards */ = {
-			isa = PBXGroup;
-			children = (
-				B2F65100278F2BDB00E1BB58 /* LaunchScreen.storyboard */,
-				B278D50427A2846900511BB2 /* Main.storyboard */,
-			);
-			path = StoryBoards;
-			sourceTree = "<group>";
-		};
 		B2F48DE527AD340B005EE116 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -616,19 +597,19 @@
 		B2F650F1278F2BD900E1BB58 /* CovidInfo */ = {
 			isa = PBXGroup;
 			children = (
-				B2F65103278F2BDB00E1BB58 /* Info.plist */,
 				B23DC42527902F2A00051C6C /* Delegates */,
 				B25AD33727A30B3D009EAD38 /* Extensions */,
 				B23DC42627902FD200051C6C /* Helpers */,
 				B23DC43B2790709400051C6C /* Managers */,
 				B23DC42027902EB800051C6C /* Resources */,
 				B23DC42F279030BC00051C6C /* Data */,
-				B2F48DE427AD3386005EE116 /* StoryBoards */,
 				B23DC42427902F1E00051C6C /* View Controllers */,
 				B2F48DE327AD32C0005EE116 /* Page View Controllers */,
 				B25605A127B2B52E00FB039F /* Collection View Controllers */,
 				B23DC42327902F0500051C6C /* View Models */,
 				B2E1938527BC240600D0F057 /* View Shortcuts */,
+				B2F65100278F2BDB00E1BB58 /* LaunchScreen.storyboard */,
+				B2F65103278F2BDB00E1BB58 /* Info.plist */,
 			);
 			path = CovidInfo;
 			sourceTree = "<group>";
@@ -782,7 +763,6 @@
 				B2497B1127BEAE9700556D1C /* OnboardingViewController.xib in Resources */,
 				B2F65148278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */,
 				B2A389F627A442990005F9FD /* CustomNavigationBar.xib in Resources */,
-				B278D50527A2846900511BB2 /* Main.storyboard in Resources */,
 				B2CF79F027BD170100B06843 /* AccountViewController.xib in Resources */,
 				B23DE46227B3D01700FD2E10 /* preventie2.json in Resources */,
 				B25CC92627AE6FD4000D99F6 /* Home.xib in Resources */,
@@ -795,7 +775,6 @@
 				B2B5A9B32790939500FC4E61 /* onboarding3.json in Resources */,
 				B2F650FF278F2BDB00E1BB58 /* Assets.xcassets in Resources */,
 				B2BB039D27A9467700D4801B /* CustomTabBar.xib in Resources */,
-				B2497B0B27BEA6B800556D1C /* EnrollCertifficateViewController.xib in Resources */,
 				B217D45027B93DC500DBDED9 /* Triaj.xib in Resources */,
 				B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */,
 				B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */,
@@ -811,6 +790,7 @@
 				B2497B0F27BEAD6C00556D1C /* OnboardingWelcomeViewController.xib in Resources */,
 				B2B3C99427A8726D00842DA5 /* StatisticiViewController.xib in Resources */,
 				B291272727B68041009ECC43 /* OnboardingModal.xib in Resources */,
+				B2B03FAC27BEC22600A0F634 /* LaunchViewController.xib in Resources */,
 				B2B5A9B52790939500FC4E61 /* onboarding4.json in Resources */,
 				B23DE46927B3D02400FD2E10 /* simptome1.json in Resources */,
 			);
@@ -960,6 +940,7 @@
 				B2B3C99727A8727A00842DA5 /* DocumenteViewController.swift in Sources */,
 				B2BB039F27A998F700D4801B /* NavigationBarData.swift in Sources */,
 				B281283527A5A69700DE7DB8 /* UIPageViewController.swift in Sources */,
+				B2B03FAE27BEC4B500A0F634 /* DeclarationsManager.swift in Sources */,
 				B291272527B68035009ECC43 /* OnboardingModal.swift in Sources */,
 				B2B079DF27AD3BD900A39107 /* XIB.swift in Sources */,
 				B2976FD627B94F6C006E4859 /* TriajActions.swift in Sources */,
@@ -991,7 +972,6 @@
 				B23DE46C27B3FC4D00FD2E10 /* UIColor.swift in Sources */,
 				B206B62627B64D9100C371B2 /* OnboardingWelcomeViewController.swift in Sources */,
 				B25CC91E27AE6FA7000D99F6 /* Home.swift in Sources */,
-				B2497B0A27BEA6B800556D1C /* EnrollCertifficateViewController.swift in Sources */,
 				B217D45727B9454500DBDED9 /* UIStackView.swift in Sources */,
 				B2E1938927BC248200D0F057 /* PreventieAndSimptomeShortcut.swift in Sources */,
 				B2E6741B27A52A8F00F283B7 /* OnboardingData.swift in Sources */,
@@ -1177,7 +1157,7 @@
 				INFOPLIST_FILE = CovidInfo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1206,7 +1186,7 @@
 				INFOPLIST_FILE = CovidInfo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
