@@ -10,7 +10,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="CovidInfo" customModuleProvider="target">
             <connections>
                 <outlet property="background" destination="hWg-nt-Uw5" id="soS-JF-cMk"/>
-                <outlet property="certifficate" destination="GV2-PH-rBi" id="tQP-pQ-SaX"/>
                 <outlet property="containerView" destination="D3f-9g-meL" id="dne-mZ-ewe"/>
                 <outlet property="customNavigationBar" destination="78O-Uf-BWU" id="cQf-Gd-wQU"/>
                 <outlet property="customTabBar" destination="eQe-it-aHW" id="834-Qz-QJ6"/>
@@ -27,7 +26,7 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FirstOnboarding" translatesAutoresizingMaskIntoConstraints="NO" id="hWg-nt-Uw5">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78O-Uf-BWU">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78O-Uf-BWU" userLabel="Navigation Bar">
                     <rect key="frame" x="0.0" y="-88" width="414" height="80"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -41,22 +40,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </containerView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GV2-PH-rBi">
-                    <rect key="frame" x="128.5" y="767.5" width="157" height="38.5"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled" image="qrcode.viewfinder" catalog="system" imagePlacement="leading" title="Certificatul tau" imagePadding="5">
-                        <backgroundConfiguration key="background" cornerRadius="24"/>
-                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
-                        <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
-                        <directionalEdgeInsets key="contentInsets" top="10" leading="15" bottom="10" trailing="15"/>
-                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="baseBackgroundColor" red="0.18039217590000001" green="0.25490197539999998" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </buttonConfiguration>
-                    <connections>
-                        <action selector="certifficateButtonTapped:" destination="-1" eventType="touchUpInside" id="buX-1U-SyP"/>
-                    </connections>
-                </button>
-                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQe-it-aHW">
+                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQe-it-aHW" userLabel="Tab Bar">
                     <rect key="frame" x="24" y="826" width="366" height="50"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -77,6 +61,14 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zV-zu-V2s">
+                    <rect key="frame" x="173.5" y="776" width="67" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                    <connections>
+                        <action selector="testButton:" destination="-1" eventType="touchUpInside" id="Sc2-Zy-wmG"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="4Pp-Ej-cSt"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,12 +79,12 @@
                 <constraint firstItem="78O-Uf-BWU" firstAttribute="centerX" secondItem="SoX-gW-WIx" secondAttribute="centerX" id="AMR-j8-XD1"/>
                 <constraint firstItem="eQe-it-aHW" firstAttribute="leading" secondItem="4Pp-Ej-cSt" secondAttribute="leading" constant="24" id="FB8-c9-kHF"/>
                 <constraint firstItem="hWg-nt-Uw5" firstAttribute="height" secondItem="SoX-gW-WIx" secondAttribute="height" id="Gir-ut-N8y"/>
-                <constraint firstItem="eQe-it-aHW" firstAttribute="top" secondItem="GV2-PH-rBi" secondAttribute="bottom" constant="20" id="O3C-VA-H0z"/>
+                <constraint firstItem="6zV-zu-V2s" firstAttribute="centerX" secondItem="SoX-gW-WIx" secondAttribute="centerX" id="JdZ-Vw-IYK"/>
+                <constraint firstItem="eQe-it-aHW" firstAttribute="top" secondItem="6zV-zu-V2s" secondAttribute="bottom" constant="19" id="N0m-1M-FfJ"/>
                 <constraint firstItem="hWg-nt-Uw5" firstAttribute="centerX" secondItem="SoX-gW-WIx" secondAttribute="centerX" id="Pot-HE-Dr5"/>
                 <constraint firstItem="D3f-9g-meL" firstAttribute="top" secondItem="4Pp-Ej-cSt" secondAttribute="top" constant="90" id="QKZ-hw-3Dn"/>
                 <constraint firstItem="78O-Uf-BWU" firstAttribute="leading" secondItem="4Pp-Ej-cSt" secondAttribute="leading" id="R1f-Am-aMI"/>
                 <constraint firstAttribute="bottom" secondItem="eQe-it-aHW" secondAttribute="bottom" constant="20" id="RUb-Wv-8Lv"/>
-                <constraint firstItem="GV2-PH-rBi" firstAttribute="centerX" secondItem="SoX-gW-WIx" secondAttribute="centerX" id="YF9-rq-nrt"/>
                 <constraint firstItem="D3f-9g-meL" firstAttribute="leading" secondItem="4Pp-Ej-cSt" secondAttribute="leading" id="lnb-0h-XYA"/>
                 <constraint firstItem="eQe-it-aHW" firstAttribute="centerX" secondItem="SoX-gW-WIx" secondAttribute="centerX" id="pDm-NX-z2H"/>
                 <constraint firstItem="4Pp-Ej-cSt" firstAttribute="trailing" secondItem="78O-Uf-BWU" secondAttribute="trailing" id="qHI-Jl-EcY"/>
@@ -104,6 +96,5 @@
     </objects>
     <resources>
         <image name="FirstOnboarding" width="390" height="844"/>
-        <image name="qrcode.viewfinder" catalog="system" width="128" height="115"/>
     </resources>
 </document>

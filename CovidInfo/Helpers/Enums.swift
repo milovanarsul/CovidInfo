@@ -75,3 +75,9 @@ enum TriajAction{
     case buttonStack
     case none
 }
+
+enum PresentationSize{
+    case small
+    case medium
+    case large
+}

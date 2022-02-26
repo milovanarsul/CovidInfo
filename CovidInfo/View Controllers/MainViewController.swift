@@ -14,7 +14,6 @@ class MainViewController: UIViewController {
     @IBOutlet var customNavigationBar: UIView!
     @IBOutlet var customTabBar: UIView!
     @IBOutlet var background: UIImageView!
-    @IBOutlet var certifficate: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +35,6 @@ class MainViewController: UIViewController {
         self.customTabBar.addSubView(parentView: self.customTabBar, childView: CustomTabBar())
     }
     
-    @IBAction func certifficateButtonTapped(_ sender: Any){
-    }
-    
     @IBOutlet var navigationBarTopConstraint: NSLayoutConstraint!
     @IBOutlet var tabBarBottomConstraint: NSLayoutConstraint!
     
@@ -49,9 +45,15 @@ class MainViewController: UIViewController {
         UIView.animate(withDuration: 0.6,animations: {
             self.customNavigationBar.layoutIfNeeded()
             self.customTabBar.layoutIfNeeded()
-            self.certifficate.layoutIfNeeded()
             self.view.layoutIfNeeded()
         })
+    }
+    
+    @IBAction func testButton(_ sender: Any) {
+        let slideInViewController = SlideInView()
+        slideInViewController.modalPresentationStyle = .custom
+        slideInViewController.transitioningDelegate = self
+        self.present(slideInViewController, animated: true, completion:  nil)
     }
 }
 
@@ -68,6 +70,12 @@ extension MainViewController: MainDelegate{
             self.customTabBar.layoutIfNeeded()
             self.view.layoutIfNeeded()
         })
+    }
+}
+
+extension MainViewController: UIViewControllerTransitioningDelegate{
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController?{
+        SlideInPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }
 
