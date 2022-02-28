@@ -7,33 +7,6 @@
 
 import UIKit
 
-class CertifficateView: UIView{
-    var parentView: UIView!
-    
-    func setup(certifficateEnrollment: CertifficateEnrollment){
-        switch certifficateEnrollment {
-        case .enrolled:
-            let view = CertifficateEnrolled()
-            view.setup()
-            self.addSubview(view)
-        case .notEnrolled:
-            let view = CertifficateNotEnrolled()
-            view.setup()
-            self.addSubview(view)
-        }
-    }
-    
-    func constraints(){
-        let constraints = Constraints(childView: self, parentView: self.parentView, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalHeight, multiplier: 1, constant: 0)
-        ])
-        constraints.addConstraints()
-    }
-}
-
 class CertifficateNotEnrolled: UIView {
     private var label = UILabel()
     private var button = UIButton()
@@ -85,13 +58,26 @@ class CertifficateEnrolled: UIView{
         self.imageView.image = UIImage(named: "QR")
         self.imageView.contentMode = .scaleAspectFit
         self.addSubview(self.imageView)
-        
-        let constraints = Constraints(childView: imageView, parentView: self, constraints: [
+        contentConstraints()
+    }
+    
+    func contentConstraints(){
+        let constraints = Constraints(childView: self.imageView, parentView: self, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 0.9, constant: 0),
-            Constraint(constraintType: .proportionalHeight, multiplier: 0.9, constant: 0)
+            Constraint(constraintType: .proportionalWidth, multiplier: 0.85, constant: 0),
+            Constraint(constraintType: .proportionalHeight, multiplier: 0.85, constant: 0)
         ])
         constraints.addConstraints()
     }
+}
+
+func certifficateConstraints(childView: UIView, parentView: UIView){
+    let constraints = Constraints(childView: childView, parentView: parentView, constraints: [
+        Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+        Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
+        Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+        Constraint(constraintType: .proportionalHeight, multiplier: 1, constant: 0)
+    ])
+    constraints.addConstraints()
 }

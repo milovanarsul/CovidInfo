@@ -66,10 +66,18 @@ class SlideInView: UIViewController{
     func certifficateView(){
         self.view.backgroundColor = .white
         
-        let view = CertifficateView()
-        view.parentView = self.view
-        view.setup(certifficateEnrollment: .enrolled)
-        self.view.addSubview(view)
-        view.constraints()
+        switch isCertifficateEnrolled{
+        case true:
+            let view = CertifficateEnrolled()
+
+            view.setup()
+            self.view.addSubview(view)
+            certifficateConstraints(childView: view, parentView: self.view)
+        case false:
+            let view = CertifficateNotEnrolled()
+            view.setup()
+            self.view.addSubview(view)
+            certifficateConstraints(childView: view, parentView: self.view)
+        }
     }
 }

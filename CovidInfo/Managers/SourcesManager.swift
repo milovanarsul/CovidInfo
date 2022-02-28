@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+let isCertifficateEnrolled: Bool = false
+
 let mainPages: [MainPages:[String:[ChildPages:String]]] = [
     MainPages.account: ["Cont":[:]],
     MainPages.home: ["Acasa":homePages],
@@ -28,7 +30,7 @@ let documentePages: [ChildPages:String] = [:]
 
 let presentationSizes: [PresentationSize:CGFloat] = [
     .small:0.2,
-    .medium:0.4,
+    .medium:0.5,
     .large: 0.9,
     .fullScreen: 1
 ]

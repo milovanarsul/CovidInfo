@@ -11,7 +11,6 @@ import UIKit
 class SlideInPresentationController: UIPresentationController{
     let blurEffectView: UIVisualEffectView!
     var tapGestureRecognizer: UITapGestureRecognizer!
-    var presentationSize: PresentationSize!
     private var presentationHeight: PresentationSize!
     
     override init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?){
@@ -26,7 +25,7 @@ class SlideInPresentationController: UIPresentationController{
     }
     
     override var frameOfPresentedViewInContainerView: CGRect{
-        presentationFrame(presentationSize: self.presentationHeight)
+        presentationFrame(presentationSize: presentationHeight)
     }
     
     override func presentationTransitionWillBegin() {
