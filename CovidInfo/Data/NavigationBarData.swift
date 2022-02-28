@@ -34,21 +34,3 @@ class Page{
     }
 }
 
-let mainPages: [MainPages:[String:[ChildPages:String]]] = [
-    MainPages.account: ["Cont":[:]],
-    MainPages.home: ["Acasa":homePages],
-    MainPages.news: ["Stiri":stiriPages],
-    MainPages.statistics: ["Statistici":statisticiPages],
-    MainPages.documents: ["Documente":documentePages]
-]
-
-let homePages: [ChildPages:String] = [
-    ChildPages.triaj: "Triaj",
-    ChildPages.preventie: "Preventie",
-    ChildPages.simptome: "Simptome"
-]
-
-let stiriPages: [ChildPages:String] = [:]
-let statisticiPages: [ChildPages:String] = [:]
-let documentePages: [ChildPages:String] = [:]
-

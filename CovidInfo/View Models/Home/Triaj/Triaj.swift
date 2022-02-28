@@ -30,7 +30,7 @@ class Triaj: UIViewController {
         delegates.triajSub = self
         
         self.imageView.image = UIImage(named: data.image)
-        self.label.attributedText = setNSMutableString(title: data.title, font: UIFont(name: "IBMPlexSans-Bold", size: data.actionSize)!, foregroundColor: data.titleColor!)
+        self.label.attributedText = setNSMutableString(title: data.title, font: boldFont(size: data.actionSize), foregroundColor: data.titleColor!)
         
         self.containerView.addSubView(parentView: self.containerView, childView: TriajSubview(type: data.subViewType, subview: data.subView!))
         self.actionsView.addSubView(parentView: self.actionsView, childView: TriajActions(actionType: data.actionType, actionTitle: data.actionTitle, actionForegorund: data.actionForeground, actionColour: data.actionColour))

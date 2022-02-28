@@ -34,6 +34,7 @@ class CustomTabBar: XIB {
         tabBarButtonSetup(tabBarButton: button)
         tabBarPageSliderDirection(tabBarButton: button)
         delegates.navigationBar.setup(page: Page(mainPage: button, childType: .none))
+        
     }
     
     @IBAction func homeButtonPressed(_ sender: Any) {
@@ -56,6 +57,14 @@ class CustomTabBar: XIB {
         self.buttons = [homeButton, newsButton, statisticsButton, documentsButton]
         fillTabBarButton(tabBarButton: tabBarButton)
         buttonSliderAnimation(tabBarButton: tabBarButton)
+        
+        if tabBarButton != .home{
+            delegates.main.certifficateButtonAnimation(visibility: .hide)
+            delegates.navigationBar.certifficateButtonAnimation(visibility: .show)
+        } else {
+            delegates.main.certifficateButtonAnimation(visibility: .show)
+            delegates.navigationBar.certifficateButtonAnimation(visibility: .hide)
+        }
     }
     
     @IBOutlet var sliderLeadingConstraint: NSLayoutConstraint!

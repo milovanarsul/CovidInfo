@@ -32,33 +32,16 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sp8-bL-8NE">
-                    <rect key="frame" x="156" y="739" width="102" height="39"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Anuleaza">
-                        <backgroundConfiguration key="background" cornerRadius="24">
-                            <color key="backgroundColor" red="0.85490196939999996" green="0.31764706970000001" blue="0.26666668059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </backgroundConfiguration>
-                        <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="14"/>
-                        <directionalEdgeInsets key="contentInsets" top="10" leading="20" bottom="10" trailing="20"/>
-                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </buttonConfiguration>
-                    <connections>
-                        <action selector="cancelButton:" destination="-1" eventType="touchUpInside" id="l3t-bZ-RZC"/>
-                    </connections>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.92156863209999995" green="0.96470588450000005" blue="0.98823523520000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
-                <constraint firstItem="sp8-bL-8NE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9Aa-CI-cW3"/>
                 <constraint firstItem="r0j-xt-f30" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="QX0-Ur-uoo"/>
                 <constraint firstItem="Ks7-2n-uzV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="R4X-rx-FaT"/>
                 <constraint firstItem="r0j-xt-f30" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="Sca-Ka-suy"/>
                 <constraint firstItem="r0j-xt-f30" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="SyF-aF-eJ7"/>
                 <constraint firstItem="r0j-xt-f30" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.75" id="fUP-lc-zPJ"/>
                 <constraint firstItem="Ks7-2n-uzV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nd7-Jq-q3w"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="sp8-bL-8NE" secondAttribute="bottom" constant="30" id="pZM-Fn-9Fv"/>
                 <constraint firstItem="Ks7-2n-uzV" firstAttribute="top" secondItem="r0j-xt-f30" secondAttribute="bottom" constant="15" id="qQz-P0-6VT"/>
             </constraints>
             <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

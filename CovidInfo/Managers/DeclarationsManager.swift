@@ -8,10 +8,8 @@
 import Foundation
 import UIKit
 
-
 /// UNIVERSAL
 let signatureBlueDark = UIColor("28429E")
-let fontB30 = UIFont(name: "IBMPlexSans-Bold", size: 30)!
 
 /// SIMPTOME & PREVENTIE
 let simptomeBorderColor = UIColor("FF3A6C")

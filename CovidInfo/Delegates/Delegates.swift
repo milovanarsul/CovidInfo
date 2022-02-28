@@ -18,6 +18,7 @@ class Delegates{
     var staticInfo: StaticDelegate! = nil
     var triaj: TriajDelegate! = nil
     var triajSub: TriajSubDelegate! = nil
+    var customPresentation: CustomPresentationDelegate! = nil
     
     init(){}
 }
@@ -26,7 +27,7 @@ let delegates: Delegates = Delegates()
 
 @objc protocol OnboardingDelegate{
     @objc optional func nextPage()
-    @objc optional func modal()
+    @objc optional func modalView()
     @objc optional func dismissModal()
     @objc optional func getCurrentIndex() -> Int
 }
@@ -38,12 +39,16 @@ protocol OnboardingSubDelegate{
 }
 
 protocol MainDelegate{
-    func tabBarVisibility(tabBarVisibility: TabBarVisibility)
+    func tabBarVisibility(tabBarVisibility: ViewVisibility)
+    func certifficateButtonAnimation(visibility: ViewVisibility)
+    func showCertifficateView()
+    func presentEnrollCertifficate()
 }
 
 protocol NavigationBarDelegate{
     func setup(page: Page)
     func buttonSlider(sliderType: currentPageButtonSlider)
+    func certifficateButtonAnimation(visibility: ViewVisibility)
 }
 
 protocol TabBarDelegate{
@@ -69,4 +74,8 @@ protocol TriajDelegate{
 protocol TriajSubDelegate{
     func resizeContainerView()
     func resetContainerView()
+}
+
+protocol CustomPresentationDelegate{
+    func setPresentationHeight(presentationHeight: PresentationSize)
 }

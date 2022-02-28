@@ -80,6 +80,10 @@
 		B2C59C2127A869340094A984 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C59C2027A869340094A984 /* MainPageViewController.swift */; };
 		B2CF79EF27BD170100B06843 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CF79ED27BD170100B06843 /* AccountViewController.swift */; };
 		B2CF79F027BD170100B06843 /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2CF79EE27BD170100B06843 /* AccountViewController.xib */; };
+		B2D0724327CB81A600FA4BC6 /* SourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0724227CB81A600FA4BC6 /* SourcesManager.swift */; };
+		B2D0724527CB853900FA4BC6 /* CertifficateViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0724427CB853900FA4BC6 /* CertifficateViews.swift */; };
+		B2D0724727CB85A500FA4BC6 /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0724627CB85A500FA4BC6 /* FontsManager.swift */; };
+		B2D0724927CB8A6E00FA4BC6 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D0724827CB8A6E00FA4BC6 /* TestView.xib */; };
 		B2DC74C227B793F700078245 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DC74C027B793F700078245 /* OnboardingCell.swift */; };
 		B2DC74C327B793F700078245 /* OnboardingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2DC74C127B793F700078245 /* OnboardingCell.xib */; };
 		B2E1938727BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E1938627BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib */; };
@@ -214,6 +218,10 @@
 		B2C59C2027A869340094A984 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		B2CF79ED27BD170100B06843 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		B2CF79EE27BD170100B06843 /* AccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
+		B2D0724227CB81A600FA4BC6 /* SourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesManager.swift; sourceTree = "<group>"; };
+		B2D0724427CB853900FA4BC6 /* CertifficateViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertifficateViews.swift; sourceTree = "<group>"; };
+		B2D0724627CB85A500FA4BC6 /* FontsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsManager.swift; sourceTree = "<group>"; };
+		B2D0724827CB8A6E00FA4BC6 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
 		B2DC74C027B793F700078245 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
 		B2DC74C127B793F700078245 /* OnboardingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCell.xib; sourceTree = "<group>"; };
 		B2E1938627BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreventieAndSimptomeShortcut.xib; sourceTree = "<group>"; };
@@ -343,6 +351,7 @@
 				B2F48DE527AD340B005EE116 /* Navigation */,
 				B2F48DEB27AD35B7005EE116 /* Onboarding */,
 				B25CC91C27AE6F76000D99F6 /* Home */,
+				B2D0724427CB853900FA4BC6 /* CertifficateViews.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -415,6 +424,8 @@
 			children = (
 				B2B03FAD27BEC4B500A0F634 /* DeclarationsManager.swift */,
 				B278D50827A2851A00511BB2 /* OnboardingManager.swift */,
+				B2D0724227CB81A600FA4BC6 /* SourcesManager.swift */,
+				B2D0724627CB85A500FA4BC6 /* FontsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -624,6 +635,7 @@
 				B2ED249C27C913F900F5316E /* Reusable Views */,
 				B2F65100278F2BDB00E1BB58 /* LaunchScreen.storyboard */,
 				B2F65103278F2BDB00E1BB58 /* Info.plist */,
+				B2D0724827CB8A6E00FA4BC6 /* TestView.xib */,
 			);
 			path = CovidInfo;
 			sourceTree = "<group>";
@@ -803,6 +815,7 @@
 				B2976FD427B94F53006E4859 /* TriajActions.xib in Resources */,
 				B2497B0F27BEAD6C00556D1C /* OnboardingWelcomeViewController.xib in Resources */,
 				B2B3C99427A8726D00842DA5 /* StatisticiViewController.xib in Resources */,
+				B2D0724927CB8A6E00FA4BC6 /* TestView.xib in Resources */,
 				B291272727B68041009ECC43 /* OnboardingModal.xib in Resources */,
 				B2B03FAC27BEC22600A0F634 /* LaunchViewController.xib in Resources */,
 				B2B5A9B52790939500FC4E61 /* onboarding4.json in Resources */,
@@ -949,6 +962,7 @@
 				B2F650F3278F2BD900E1BB58 /* AppDelegate.swift in Sources */,
 				B2F48DE227AD25BC005EE116 /* EmbedView.swift in Sources */,
 				B2CF79EF27BD170100B06843 /* AccountViewController.swift in Sources */,
+				B2D0724327CB81A600FA4BC6 /* SourcesManager.swift in Sources */,
 				B2F48DDB27AD1D37005EE116 /* HomePagePageViewController.swift in Sources */,
 				B205B3E727B50361008E5874 /* PageViewControllerDataSource.swift in Sources */,
 				B2B3C99727A8727A00842DA5 /* DocumenteViewController.swift in Sources */,
@@ -972,6 +986,7 @@
 				B217D44F27B93DC500DBDED9 /* Triaj.swift in Sources */,
 				B2F48DDE27AD2453005EE116 /* Delegates.swift in Sources */,
 				B2B3C98D27A8724900842DA5 /* StiriViewController.swift in Sources */,
+				B2D0724527CB853900FA4BC6 /* CertifficateViews.swift in Sources */,
 				B23DE46E27B41F2C00FD2E10 /* TriajData.swift in Sources */,
 				B21C965427B2BD5400C88A50 /* SimptomeAndPreventieViewController.swift in Sources */,
 				B259BF8527B6DFA5001F78A6 /* LaunchViewController.swift in Sources */,
@@ -986,6 +1001,7 @@
 				B2B3C99327A8726D00842DA5 /* StatisticiViewController.swift in Sources */,
 				B256059C27B2AFB500FB039F /* CollectionViewLayouts.swift in Sources */,
 				B23DE46C27B3FC4D00FD2E10 /* UIColor.swift in Sources */,
+				B2D0724727CB85A500FA4BC6 /* FontsManager.swift in Sources */,
 				B206B62627B64D9100C371B2 /* OnboardingWelcomeViewController.swift in Sources */,
 				B25CC91E27AE6FA7000D99F6 /* Home.swift in Sources */,
 				B217D45727B9454500DBDED9 /* UIStackView.swift in Sources */,

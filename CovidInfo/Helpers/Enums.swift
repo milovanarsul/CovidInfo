@@ -50,7 +50,7 @@ enum StaticType{
     case preventie
 }
 
-enum TabBarVisibility{
+enum ViewVisibility{
     case show
     case hide
 }
@@ -80,4 +80,10 @@ enum PresentationSize{
     case small
     case medium
     case large
+    case fullScreen
+}
+
+enum CertifficateEnrollment{
+    case enrolled
+    case notEnrolled
 }

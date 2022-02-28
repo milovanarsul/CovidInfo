@@ -84,7 +84,7 @@
                 </view>
             </subviews>
             <edgeInsets key="layoutMargins" top="5" left="5" bottom="5" right="5"/>
-            <point key="canvasLocation" x="-88" y="-171"/>
+            <point key="canvasLocation" x="-88.405797101449281" y="-171.09375"/>
         </stackView>
     </objects>
     <resources>

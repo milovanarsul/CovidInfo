@@ -76,11 +76,13 @@ class CustomNavigationBar: XIB {
         buttonSlider(sliderType: .left)
         delegates.home.goToPage(pageIndex:0, direction: .reverse)
         delegates.main.tabBarVisibility(tabBarVisibility: .show)
-        //delegates.triaj.endTriaj()
     }
     
-    @IBAction func accountButtonTapped(_ sender: Any) {
-        //delegates.tabBar.goToPage(pageIndex: 0, direction: .reverse)
+    @IBOutlet weak var certifficateButon: UIButton!
+    @IBOutlet weak var certifficateButtonHorizontalSpacing: NSLayoutConstraint!
+    
+    @IBAction func certifficateButtonTapped(_ sender: Any) {
+        delegates.main.showCertifficateView()
     }
     
 }
@@ -88,12 +90,12 @@ class CustomNavigationBar: XIB {
 extension CustomNavigationBar{
     
     func changeChildPageButton(title: String) {
-        self.childPageButton.setAttributedTitle(setNSMutableString(title: title, font: fontB30, foregroundColor: .black), for: .normal)
+        self.childPageButton.setAttributedTitle(setNSMutableString(title: title, font: boldFont(size: 30), foregroundColor: .black), for: .normal)
         self.childPageButton.backgroundColor = .clear
     }
     
     func changeParentPageButton(title: String) {
-        self.parentPageButton.setAttributedTitle(setNSMutableString(title: title, font: fontB30, foregroundColor: .black), for: .normal)
+        self.parentPageButton.setAttributedTitle(setNSMutableString(title: title, font: boldFont(size: 30), foregroundColor: .black), for: .normal)
         self.parentPageButton.backgroundColor = .clear
     }
     
@@ -130,5 +132,24 @@ extension CustomNavigationBar: NavigationBarDelegate{
         case .hideParent:
             slideOutParentPageButton()
         }
+    }
+    
+    func certifficateButtonAnimation(visibility: ViewVisibility){
+        switch visibility {
+        case .show:
+            self.certifficateButon.isHidden = false
+            self.certifficateButtonHorizontalSpacing.constant = 7
+        case .hide:
+            self.certifficateButtonHorizontalSpacing.constant = -52
+        }
+        
+        UIView.animate(withDuration: 0.6, animations: {
+            self.certifficateButon.layoutIfNeeded()
+            self.layoutIfNeeded()
+        }, completion: {(finished: Bool) in
+            if visibility == .hide{
+                self.certifficateButon.isHidden = true
+            }
+        })
     }
 }

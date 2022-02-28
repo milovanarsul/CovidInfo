@@ -40,7 +40,7 @@ class TriajActions: XIB {
     
     func mainButton(actionTitle: String, actionForeground:UIColor, actionColor: UIColor){
         self.fullButton.isHidden = false
-        self.fullButton.setAttributedTitle(setNSMutableString(title: actionTitle, font: UIFont(name: "IBMPlexSans-Bold", size: 14)!, foregroundColor: actionForeground), for: .normal)
+        self.fullButton.setAttributedTitle(setNSMutableString(title: actionTitle, font: boldFont(size: 14), foregroundColor: actionForeground), for: .normal)
         self.fullButton.backgroundColor = actionColor
         self.fullButton.cornerRadius = 8
     }
@@ -48,7 +48,7 @@ class TriajActions: XIB {
     func formButton(actionTitle: String){
         self.formButton.isHidden = false
         self.formButton.setShadow()
-        self.formButton.setAttributedTitle(setNSMutableString(title: actionTitle, font: UIFont(name: "IBMPlexSans-Bold", size: 12)!, foregroundColor: .black), for: .normal)
+        self.formButton.setAttributedTitle(setNSMutableString(title: actionTitle, font: boldFont(size: 12), foregroundColor: .black), for: .normal)
         self.formButton.backgroundColor = .yellow
     }
     

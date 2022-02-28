@@ -9,6 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomNavigationBar" customModule="CovidInfo" customModuleProvider="target">
             <connections>
+                <outlet property="certifficateButon" destination="4v2-OH-8kc" id="oTQ-Qr-lP0"/>
+                <outlet property="certifficateButtonHorizontalSpacing" destination="X83-QO-ec6" id="BFk-S3-wH5"/>
                 <outlet property="childPageButton" destination="Mql-cH-4Ld" id="sE6-67-l15"/>
                 <outlet property="childPageButtonLeadingConstraint" destination="h6F-U8-8lE" id="tGL-WN-iX1"/>
                 <outlet property="customNavigationBar" destination="iN0-l3-epB" id="5xg-sN-pyy"/>
@@ -52,6 +54,22 @@
                         <action selector="goToMainView:" destination="-1" eventType="touchUpInside" id="gi7-0D-OfR"/>
                     </connections>
                 </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4v2-OH-8kc" userLabel="certifficateButton">
+                    <rect key="frame" x="493" y="26" width="44" height="42"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain">
+                        <imageReference key="image" image="qrcode.viewfinder" catalog="system" symbolScale="large"/>
+                        <backgroundConfiguration key="background" cornerRadius="100">
+                            <color key="backgroundColor" red="0.18039217590000001" green="0.25490197539999998" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </backgroundConfiguration>
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="18" scale="large" weight="bold"/>
+                        <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="certifficateButtonTapped:" destination="-1" eventType="touchUpInside" id="FrZ-GY-jjD"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3AX-5E-4JW" userLabel="accountButton">
                     <rect key="frame" x="485" y="17" width="60" height="60"/>
                     <constraints>
@@ -60,21 +78,25 @@
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="Profile Picture">
+                        <backgroundConfiguration key="background" cornerRadius="50">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </backgroundConfiguration>
                         <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
                         <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                     </buttonConfiguration>
-                    <connections>
-                        <action selector="accountButtonTapped:" destination="-1" eventType="touchUpInside" id="HL6-RU-Gyb"/>
-                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="3AX-5E-4JW" secondAttribute="trailing" constant="20" id="5Zx-DP-SLF"/>
+                <constraint firstItem="3AX-5E-4JW" firstAttribute="leading" secondItem="4v2-OH-8kc" secondAttribute="trailing" constant="-52" id="X83-QO-ec6"/>
                 <constraint firstItem="xpf-IW-cPw" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="bDi-b6-HoK"/>
                 <constraint firstItem="xpf-IW-cPw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="c25-v7-9Yv"/>
                 <constraint firstItem="Mql-cH-4Ld" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-10" id="h6F-U8-8lE"/>
+                <constraint firstItem="4v2-OH-8kc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="kHY-Ps-42N"/>
+                <constraint firstItem="4v2-OH-8kc" firstAttribute="width" secondItem="3AX-5E-4JW" secondAttribute="width" multiplier="0.73" id="kTX-pA-Z2j"/>
                 <constraint firstItem="3AX-5E-4JW" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="moS-19-HR8"/>
+                <constraint firstItem="4v2-OH-8kc" firstAttribute="height" secondItem="3AX-5E-4JW" secondAttribute="height" multiplier="0.7" id="qfE-Ub-Wmb"/>
                 <constraint firstItem="Mql-cH-4Ld" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tJV-d2-wfJ"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
@@ -86,5 +108,6 @@
     <resources>
         <image name="Profile Picture" width="42" height="41"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="qrcode.viewfinder" catalog="system" width="128" height="115"/>
     </resources>
 </document>

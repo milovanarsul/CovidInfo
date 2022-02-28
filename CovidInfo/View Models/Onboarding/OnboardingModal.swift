@@ -8,7 +8,4 @@
 import UIKit
 
 class OnboardingModal: XIB {
-    @IBAction func cancelButton(_ sender: Any) {
-        delegates.onboarding.dismissModal!()
-    }
 }

@@ -42,9 +42,8 @@ class SimptomeAndPreventieCollectionViewCell: UICollectionViewCell {
     func setupTextLabel(){
         let textLabel = UILabel(frame: .zero)
         textLabel.textColor = .black
-        textLabel.font = UIFont(name: "IBMPlexSans-Bold", size: 14)
+        textLabel.font = boldFont(size: 14)
         textLabel.numberOfLines = 0
-        
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(textLabel)
         

@@ -62,10 +62,10 @@ extension OnboardingPageViewController: OnboardingDelegate{
         delegates.onboardingSub.setPageControl()
     }
     
-    func modal(){
+    func modalView(){
         let modal = UIViewController()
         modal.view = OnboardingModal()
-        modal.isModalInPresentation = true
+        modal.presentationController?.delegate = self
         present(modal, animated: true, completion: nil)
     }
     
@@ -73,5 +73,11 @@ extension OnboardingPageViewController: OnboardingDelegate{
         dismiss(animated: true, completion: {
             self.nextPage()
         })
+    }
+}
+
+extension OnboardingPageViewController: UIAdaptivePresentationControllerDelegate {
+    public func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        nextPage()
     }
 }

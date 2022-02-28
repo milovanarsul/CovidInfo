@@ -7,7 +7,8 @@
 
 import UIKit
 
-class SlideInView: UIViewController {
+class SlideInView: UIViewController{
+    
     private var hasSetPointOrgin: Bool = false
     private var pointOrigin: CGPoint?
     
@@ -17,7 +18,8 @@ class SlideInView: UIViewController {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizer))
         self.view.addGestureRecognizer(panGesture)
         
-        addSampleView()
+        dismissPill()
+        certifficateView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -45,20 +47,29 @@ class SlideInView: UIViewController {
         }
     }
     
-    func addSampleView(){
-        self.view.backgroundColor = .white
+    func dismissPill(){
+        let dismissPill = UIView()
+        dismissPill.backgroundColor = .gray
+        dismissPill.cornerRadius = 4
         
-        let label = UILabel()
-        label.initialize(text: "Test", color: .black, font: fontB30, alignment: .center, lines: 0)
+        self.view.addSubview(dismissPill)
         
-        self.view.addSubview(label)
-        let labelConstraints = Constraints(childView: label, parentView: self.view, constraints: [
+        let constraints = Constraints(childView: dismissPill, parentView: self.view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 0.7, constant: 0),
-            Constraint(constraintType: .proportionalHeight, multiplier: 0.2, constant: 0)
+            Constraint(constraintType: .top, multiplier: 1, constant: 10),
+            Constraint(constraintType: .proportionalWidth, multiplier: 0.1, constant: 0),
+            Constraint(constraintType: .height, multiplier: 1, constant: 7)
         ])
-        labelConstraints.addConstraints()
+        constraints.addConstraints()
     }
     
+    func certifficateView(){
+        self.view.backgroundColor = .white
+        
+        let view = CertifficateView()
+        view.parentView = self.view
+        view.setup(certifficateEnrollment: .enrolled)
+        self.view.addSubview(view)
+        view.constraints()
+    }
 }
