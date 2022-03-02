@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 /// UNIVERSAL
-let signatureBlueDark = UIColor("28429E")
+let signatureDarkBlue = UIColor("28429E")
+let signatureLightBlue = UIColor("91B3FA")
 
 /// SIMPTOME & PREVENTIE
 let simptomeBorderColor = UIColor("FF3A6C")

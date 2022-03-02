@@ -82,7 +82,7 @@ class CustomNavigationBar: XIB {
     @IBOutlet weak var certifficateButtonHorizontalSpacing: NSLayoutConstraint!
     
     @IBAction func certifficateButtonTapped(_ sender: Any) {
-        delegates.main.showCertifficateView()
+        delegates.main.certifficateView(animated: true)
     }
     
 }

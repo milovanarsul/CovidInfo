@@ -35,8 +35,11 @@ class OnboardingPageViewController: UIPageViewController {
     }
     
     fileprivate func createOnboardingCard(labelText: String, modalNext: Bool) -> UIViewController{
-        let onboardingCardView = OnboardingCell(labelText: labelText, isModalNext: modalNext)
-        return onboardingCardView
+        let onboardingCardViewController = UIViewController()
+        let view = OnboardingCell()
+        view.setup(labelText: labelText, isModalNext: modalNext)
+        onboardingCardViewController.view = view
+        return onboardingCardViewController
     }
 }
 
@@ -64,7 +67,7 @@ extension OnboardingPageViewController: OnboardingDelegate{
     
     func modalView(){
         let modal = UIViewController()
-        modal.view = OnboardingModal()
+        //modal.view = OnboardingModal()
         modal.presentationController?.delegate = self
         present(modal, animated: true, completion: nil)
     }

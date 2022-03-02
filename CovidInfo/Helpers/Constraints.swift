@@ -89,6 +89,16 @@ class Constraint{
     }
 }
 
+func defaultConstraints(childView: UIView, parentView: UIView){
+    let constraints = Constraints(childView: childView, parentView: parentView, constraints: [
+        Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+        Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
+        Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 1),
+        Constraint(constraintType: .proportionalHeight, multiplier: 1, constant: 0)
+    ])
+    constraints.addConstraints()
+}
+
 extension NSLayoutConstraint {
     func changeMultiplier(multiplier: CGFloat) {
         let newConstraint = NSLayoutConstraint(item: firstItem as Any, attribute: firstAttribute, relatedBy: relation, toItem: secondItem, attribute: secondAttribute, multiplier: multiplier, constant: constant)

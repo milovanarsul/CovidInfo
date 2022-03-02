@@ -101,4 +101,46 @@ extension UIView {
         mask.path = path.cgPath
         layer.mask = mask
     }
+    
+    func findConstraint(layoutAttribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
+            if let constraints = superview?.constraints {
+                for constraint in constraints where itemMatch(constraint: constraint, layoutAttribute: layoutAttribute) {
+                    return constraint
+                }
+            }
+            return nil
+        }
+
+    func itemMatch(constraint: NSLayoutConstraint, layoutAttribute: NSLayoutConstraint.Attribute) -> Bool {
+        if let firstItem = constraint.firstItem as? UIView, let secondItem = constraint.secondItem as? UIView {
+            let firstItemMatch = firstItem == self && constraint.firstAttribute == layoutAttribute
+            let secondItemMatch = secondItem == self && constraint.secondAttribute == layoutAttribute
+            return firstItemMatch || secondItemMatch
+        }
+        return false
+    }
+    
+    func getConstraint(layoutAttribute: NSLayoutConstraint.Attribute) -> [NSLayoutConstraint]{
+        return self.constraints.filter { $0.firstAttribute == layoutAttribute }
+    }
+    
+    @discardableResult
+    func addBlur(style: UIBlurEffect.Style) -> UIVisualEffectView {
+        let blurEffect = UIBlurEffect(style: style)
+        let blurBackground = UIVisualEffectView(effect: blurEffect)
+        blurBackground.alpha = 0.7
+        blurBackground.tag = 1
+        addSubview(blurBackground)
+        blurBackground.translatesAutoresizingMaskIntoConstraints = false
+        blurBackground.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        blurBackground.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        blurBackground.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        blurBackground.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        return blurBackground
+    }
+    
+    func removeBlur(){
+        let blurBackground = viewWithTag(1)
+        blurBackground?.removeFromSuperview()
+    }
 }

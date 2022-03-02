@@ -23,9 +23,9 @@ class LaunchViewController: UIViewController {
         onboardingCompleted ? skipOnboarding() : ()
     }
     
-    @IBOutlet var launchWidthConstraint: NSLayoutConstraint!
-    @IBOutlet var launchHeightConstraint: NSLayoutConstraint!
-    @IBOutlet var launchTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var launchWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var launchHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var launchTopConstraint: NSLayoutConstraint!
     
     func onboarding(){
         self.launchWidthConstraint.changeMultiplier(multiplier: onboardingWidth)
@@ -40,9 +40,9 @@ class LaunchViewController: UIViewController {
         })
     }
     
-    @IBOutlet var onboardingHeightConstraint: NSLayoutConstraint!
-    @IBOutlet var onboardingWidthConstraint: NSLayoutConstraint!
-    @IBOutlet var onboardingTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var onboardingHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var onboardingWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var onboardingTopConstraint: NSLayoutConstraint!
     
     func skipOnboarding(){
         self.onboardingView.isHidden = false
