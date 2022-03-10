@@ -34,8 +34,7 @@ class MainViewController: UIViewController {
         embed.mainPageViewController(parent: self, container: self.containerView, navigationBar: navigationBar)
         
         self.customTabBar.addSubView(parentView: self.customTabBar, childView: CustomTabBar())
-        
-        self.certifficateButton.initialize(title: isCertifficateEnrolled ? "Certificatul tau" : "Inroleaza certificat", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: isCertifficateEnrolled ? signatureDarkBlue : .red, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "qrcode.viewfinder"))
+        updateCertifficateButton()
     }
     
     @IBOutlet var navigationBarTopConstraint: NSLayoutConstraint!
@@ -56,11 +55,19 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func certifficateButtonTapped(_ sender: Any) {
-        enrollCertifficate()
+        defaults.isCertifficateEnrolled() ? certifficateModal() : enrollCertifficate()
     }
 }
 
 extension MainViewController: MainDelegate{
+    func updateCertifficateButton(){
+        self.certifficateButton.initialize(title: defaults.isCertifficateEnrolled() ? "Certificatul tau" : "Inroleaza certificat", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: defaults.isCertifficateEnrolled() ? signatureDarkBlue : .red, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "qrcode.viewfinder"))
+    }
+    
+    func dimissModal(completion: @escaping (() -> Void)) {
+        dismiss(animated: true, completion: completion)
+    }
+    
     func enrollCertifficate(){
         let modal = EnrollCertifficateViewController()
         modal.modalPresentationStyle = .formSheet
@@ -69,6 +76,21 @@ extension MainViewController: MainDelegate{
             sheet.prefersGrabberVisible = true
             sheet.preferredCornerRadius = 24
         }
+        present(modal, animated: true, completion: nil)
+    }
+    
+    func certifficateModal(){
+        let modal = UIViewController()
+        let view = CertifficateView()
+        view.setup()
+        modal.view = view
+        
+        if let sheet = modal.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 24
+        }
+        
         present(modal, animated: true, completion: nil)
     }
     

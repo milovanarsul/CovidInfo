@@ -14,4 +14,8 @@ extension UIViewController{
         present(view, animated: animated, completion: nil)
         show(view, sender: self)
     }
+    
+    class func loadController() -> Self {
+         return Self(nibName: String(describing: self), bundle: nil)
+    }
 }

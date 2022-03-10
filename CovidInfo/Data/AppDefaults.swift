@@ -1,5 +1,5 @@
 //
-//  Manager Sources.swift
+//  AppDefaults.swift
 //  CovidInfo
 //
 //  Created by Milovan Arsul on 27.02.2022.
@@ -7,8 +7,6 @@
 
 import Foundation
 import UIKit
-
-let isCertifficateEnrolled: Bool = false
 
 /// UNIVERSAL
 let signatureDarkBlue = UIColor("28429E")

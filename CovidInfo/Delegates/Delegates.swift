@@ -42,6 +42,9 @@ protocol MainDelegate{
     func certifficateButtonAnimation(visibility: ViewVisibility)
     func tabBarVisibility(tabBarVisibility: ViewVisibility)
     func accountModal()
+    func certifficateModal()
+    func dimissModal(completion: @escaping (() -> Void))
+    func updateCertifficateButton()
 }
 
 protocol NavigationBarDelegate{

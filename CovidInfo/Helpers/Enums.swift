@@ -87,3 +87,8 @@ enum CertifficateEnrollment{
     case enrolled
     case notEnrolled
 }
+
+enum StorageStye{
+    case userDefaults
+    case fileSystem
+}

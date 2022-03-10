@@ -132,7 +132,7 @@ extension UIView {
         blurBackground.tag = 1
         addSubview(blurBackground)
         blurBackground.translatesAutoresizingMaskIntoConstraints = false
-        blurBackground.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        blurBackground.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 35).isActive = true
         blurBackground.topAnchor.constraint(equalTo: topAnchor).isActive = true
         blurBackground.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         blurBackground.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
