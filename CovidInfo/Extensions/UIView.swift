@@ -143,4 +143,20 @@ extension UIView {
         let blurBackground = viewWithTag(1)
         blurBackground?.removeFromSuperview()
     }
+    
+    func loadView() -> UIView{
+        let bundleName = Bundle(for: type(of: self))
+        let nibName = String(describing: type(of: self))
+        let nib = UINib(nibName: nibName, bundle: bundleName)
+        let view = nib.instantiate(withOwner: nil, options: nil).first as! UIView
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }
+    
+    func addSubviews(views: [UIView]){
+        for view in views{
+            self.addSubview(view)
+        }
+    }
 }

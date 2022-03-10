@@ -36,14 +36,14 @@
                     </constraints>
                 </view>
                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3f-9g-meL">
-                    <rect key="frame" x="0.0" y="134" width="414" height="765"/>
+                    <rect key="frame" x="0.0" y="104" width="414" height="765"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </containerView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zV-zu-V2s">
-                    <rect key="frame" x="121" y="952.5" width="172" height="38.5"/>
+                    <rect key="frame" x="125" y="954" width="164" height="37"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" image="qrcode.viewfinder" catalog="system" title="Certificatul tau" imagePadding="10">
                         <backgroundConfiguration key="background" cornerRadius="24"/>
@@ -91,7 +91,7 @@
                 <constraint firstItem="6zV-zu-V2s" firstAttribute="centerX" secondItem="SoX-gW-WIx" secondAttribute="centerX" id="JdZ-Vw-IYK"/>
                 <constraint firstItem="eQe-it-aHW" firstAttribute="top" secondItem="6zV-zu-V2s" secondAttribute="bottom" constant="-45" id="N0m-1M-FfJ"/>
                 <constraint firstItem="hWg-nt-Uw5" firstAttribute="centerX" secondItem="SoX-gW-WIx" secondAttribute="centerX" id="Pot-HE-Dr5"/>
-                <constraint firstItem="D3f-9g-meL" firstAttribute="top" secondItem="4Pp-Ej-cSt" secondAttribute="top" constant="90" id="QKZ-hw-3Dn"/>
+                <constraint firstItem="D3f-9g-meL" firstAttribute="top" secondItem="4Pp-Ej-cSt" secondAttribute="top" constant="60" id="QKZ-hw-3Dn"/>
                 <constraint firstItem="78O-Uf-BWU" firstAttribute="leading" secondItem="4Pp-Ej-cSt" secondAttribute="leading" id="R1f-Am-aMI"/>
                 <constraint firstAttribute="bottom" secondItem="eQe-it-aHW" secondAttribute="bottom" constant="-100" id="RUb-Wv-8Lv"/>
                 <constraint firstItem="D3f-9g-meL" firstAttribute="leading" secondItem="4Pp-Ej-cSt" secondAttribute="leading" id="lnb-0h-XYA"/>

@@ -12,7 +12,6 @@ class CustomNavigationBar: XIB {
     @IBOutlet var customNavigationBar: UIView!
     @IBOutlet var parentPageButton: UIButton!
     @IBOutlet var childPageButton: UIButton!
-    
     @IBOutlet var parentPageButtonLeadingConstraint: NSLayoutConstraint!
     @IBOutlet var childPageButtonLeadingConstraint: NSLayoutConstraint!
     
@@ -79,12 +78,11 @@ class CustomNavigationBar: XIB {
     }
     
     @IBOutlet weak var certifficateButon: UIButton!
-    @IBOutlet weak var certifficateButtonHorizontalSpacing: NSLayoutConstraint!
+    @IBOutlet weak var certifficateButtonTrailingConstraint: NSLayoutConstraint!
     
     @IBAction func certifficateButtonTapped(_ sender: Any) {
-        delegates.main.certifficateView(animated: true)
+        //delegates.main.accountModal()
     }
-    
 }
 
 extension CustomNavigationBar{
@@ -138,9 +136,9 @@ extension CustomNavigationBar: NavigationBarDelegate{
         switch visibility {
         case .show:
             self.certifficateButon.isHidden = false
-            self.certifficateButtonHorizontalSpacing.constant = 7
+            self.certifficateButtonTrailingConstraint.constant = 20
         case .hide:
-            self.certifficateButtonHorizontalSpacing.constant = -52
+            self.certifficateButtonTrailingConstraint.constant = -70
         }
         
         UIView.animate(withDuration: 0.6, animations: {

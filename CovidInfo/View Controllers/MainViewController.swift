@@ -34,6 +34,8 @@ class MainViewController: UIViewController {
         embed.mainPageViewController(parent: self, container: self.containerView, navigationBar: navigationBar)
         
         self.customTabBar.addSubView(parentView: self.customTabBar, childView: CustomTabBar())
+        
+        self.certifficateButton.initialize(title: isCertifficateEnrolled ? "Certificatul tau" : "Inroleaza certificat", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: isCertifficateEnrolled ? signatureDarkBlue : .red, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "qrcode.viewfinder"))
     }
     
     @IBOutlet var navigationBarTopConstraint: NSLayoutConstraint!
@@ -41,7 +43,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var certifficateButtonConstraint: NSLayoutConstraint!
     
     func navTabAnimation(){
-        self.navigationBarTopConstraint.constant = 54
+        self.navigationBarTopConstraint.constant = 30
         self.tabBarBottomConstraint.constant = 34
         
         UIView.animate(withDuration: 0.6,animations: {
@@ -54,11 +56,35 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func certifficateButtonTapped(_ sender: Any) {
-        showCertifficateView()
+        enrollCertifficate()
     }
 }
 
 extension MainViewController: MainDelegate{
+    func enrollCertifficate(){
+        let modal = EnrollCertifficateViewController()
+        modal.modalPresentationStyle = .formSheet
+        
+        if let sheet = modal.sheetPresentationController {
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 24
+        }
+        present(modal, animated: true, completion: nil)
+    }
+    
+    func accountModal() {
+        let viewController = AccountViewController()
+        viewController.view.backgroundColor = .white
+        viewController.modalPresentationStyle = .pageSheet
+        if let sheet = viewController.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.preferredCornerRadius = 24
+            sheet.prefersGrabberVisible = true
+        }
+        
+        present(viewController, animated: true, completion: nil)
+    }
+    
     func tabBarVisibility(tabBarVisibility: ViewVisibility) {
         switch tabBarVisibility{
         case .hide:
@@ -85,33 +111,6 @@ extension MainViewController: MainDelegate{
             self.certifficateButton.layoutIfNeeded()
             self.view.layoutIfNeeded()
         })
-    }
-    
-    func showCertifficateView(){
-        let slideInViewController = SlideInView()
-        slideInViewController.modalPresentationStyle = .custom
-        slideInViewController.transitioningDelegate = self
-        self.present(slideInViewController, animated: true, completion:  nil)
-    }
-    
-    func presentEnrollCertifficate(){
-        self.dismiss(animated: true, completion: nil)
-        let modal = UIViewController()
-        modal.view = OnboardingModal()
-        modal.presentationController?.delegate = self
-        present(modal, animated: true, completion: nil)
-    }
-}
-
-extension MainViewController: UIViewControllerTransitioningDelegate{
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController?{
-        SlideInPresentationController(presentedViewController: presented, presenting: presenting)
-    }
-}
-
-extension MainViewController:UIAdaptivePresentationControllerDelegate {
-    public func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        
     }
 }
 

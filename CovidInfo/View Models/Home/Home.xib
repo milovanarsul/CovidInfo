@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -48,20 +48,40 @@
                         </button>
                     </subviews>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="79j-9t-yT8">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="153"/>
+                    <color key="backgroundColor" systemColor="systemGrayColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="24"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="TVv-0z-QyH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ApD-lI-hac"/>
                 <constraint firstItem="ly9-PX-jfa" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Kq5-is-TJi"/>
+                <constraint firstItem="79j-9t-yT8" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="MeC-Th-oL8"/>
+                <constraint firstItem="79j-9t-yT8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Raa-Pk-IEa"/>
                 <constraint firstItem="TVv-0z-QyH" firstAttribute="top" secondItem="ly9-PX-jfa" secondAttribute="bottom" constant="65" id="fFm-eb-yHY"/>
+                <constraint firstItem="79j-9t-yT8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="reA-xk-nWU"/>
+                <constraint firstItem="79j-9t-yT8" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.2" id="sZy-iN-GKb"/>
                 <constraint firstItem="ly9-PX-jfa" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vSb-G7-bCg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="24"/>
+                </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="139" y="154"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

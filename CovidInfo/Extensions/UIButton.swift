@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIButton{
-    func initialize(title: String, titleColor: UIColor, cornerRadius: CGFloat, font: UIFont, backgroundColor: UIColor, contentInsets: NSDirectionalEdgeInsets? = nil){
+    func initialize(title: String, titleColor: UIColor, cornerRadius: CGFloat, font: UIFont, backgroundColor: UIColor, contentInsets: NSDirectionalEdgeInsets? = nil, image: UIImage? = nil){
         
         var buttonAttributeContainer: AttributeContainer{
             var container = AttributeContainer()
@@ -25,10 +25,18 @@ extension UIButton{
         configuration.background.cornerRadius = cornerRadius
         configuration.background.backgroundColor = backgroundColor
         
+        if let image = image {
+            configuration.image = image
+            configuration.image?.withTintColor(.white)
+            configuration.imagePadding = 10
+            configuration.imagePlacement = .leading
+        }
+        
         if let contentInsets = contentInsets {
             configuration.contentInsets = contentInsets
         }
         
         self.configuration = configuration
+        self.tintColor = .white
     }
 }

@@ -39,10 +39,9 @@ protocol OnboardingSubDelegate{
 }
 
 protocol MainDelegate{
-    func tabBarVisibility(tabBarVisibility: ViewVisibility)
     func certifficateButtonAnimation(visibility: ViewVisibility)
-    func showCertifficateView()
-    func presentEnrollCertifficate()
+    func tabBarVisibility(tabBarVisibility: ViewVisibility)
+    func accountModal()
 }
 
 protocol NavigationBarDelegate{

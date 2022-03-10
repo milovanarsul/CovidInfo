@@ -13,7 +13,6 @@ class CustomTabBar: XIB {
     @IBOutlet var homeButton: UIButton!
     @IBOutlet var newsButton: UIButton!
     @IBOutlet var statisticsButton: UIButton!
-    @IBOutlet var documentsButton: UIButton!
     @IBOutlet var slider: UIView!
     
     var buttons: [UIButton]!
@@ -34,9 +33,8 @@ class CustomTabBar: XIB {
         tabBarButtonSetup(tabBarButton: button)
         tabBarPageSliderDirection(tabBarButton: button)
         delegates.navigationBar.setup(page: Page(mainPage: button, childType: .none))
-        
     }
-    
+                                                
     @IBAction func homeButtonPressed(_ sender: Any) {
         buttonSetup(button: .home)
     }
@@ -49,12 +47,12 @@ class CustomTabBar: XIB {
         buttonSetup(button: .statistics)
     }
     
-    @IBAction func documentsButtonPressed(_ sender: Any) {
-        buttonSetup(button: .documents)
+    @IBAction func accountButtonTapped(_ sender: Any) {
+        delegates.main.accountModal()
     }
     
     func tabBarButtonSetup(tabBarButton: MainPages){
-        self.buttons = [homeButton, newsButton, statisticsButton, documentsButton]
+        self.buttons = [homeButton, newsButton, statisticsButton]
         fillTabBarButton(tabBarButton: tabBarButton)
         buttonSliderAnimation(tabBarButton: tabBarButton)
         
@@ -91,7 +89,7 @@ class CustomTabBar: XIB {
     
     func fillTabBarButton(tabBarButton: MainPages){
         let buttonIndex = tabBarIndex(tabBarButton: tabBarButton)
-        let images = [home, news, statistics, documents]
+        let images = [home, news, statistics]
         
         for index in 0..<buttons.count{
             buttons[index].setImage(UIImage(systemName: images[index]), for: .normal)

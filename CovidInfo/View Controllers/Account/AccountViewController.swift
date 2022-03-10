@@ -8,13 +8,10 @@
 import UIKit
 
 class AccountViewController: UIViewController {
-    
-    var page: Page = Page(mainPage: .account, childType: .none)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        delegates.navigationBar.setup(page: page)
     }
 
 }

@@ -37,7 +37,7 @@ class EmbedView{
         let child = MainPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         delegates.navigationBar = navigationBar
         delegates.main = parent
-        embed(parent: parent, container: container, child: child, previous: parent.children.first, y: 10)
+        embed(parent: parent, container: container, child: child, previous: parent.children.first, y: 0)
         delegates.tabBar = child
     }
     

@@ -66,9 +66,13 @@ extension OnboardingPageViewController: OnboardingDelegate{
     }
     
     func modalView(){
-        let modal = UIViewController()
-        //modal.view = OnboardingModal()
-        modal.presentationController?.delegate = self
+        let modal = EnrollCertifficateViewController()
+        
+        if let sheet = modal.sheetPresentationController {
+            sheet.detents = [.large()]
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 24
+        }
         present(modal, animated: true, completion: nil)
     }
     
