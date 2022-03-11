@@ -14,7 +14,7 @@ class MainPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let pageViewControllerDataSource = PageViewControllerDataSource(pages: pages, pageController: .main)
+        let pageViewControllerDataSource = PageViewControllerDataSource(pages: pages)
         dataSource = pageViewControllerDataSource
         createViewControllers()
         initialize(pages: pages, scroll: false)
@@ -23,7 +23,7 @@ class MainPageViewController: UIPageViewController {
     fileprivate func createViewControllers(){
         
         let homeViewController = HomePageViewController(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil)
-        delegates.home = homeViewController
+        delegates.homePage = homeViewController
         pages.append(homeViewController)
         
         let newsViewController = StiriViewController()

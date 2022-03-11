@@ -46,4 +46,9 @@ class EmbedView{
         delegates.staticInfo = parent
         embed(parent: parent, container: container, child: child, previous: parent.children.first, y: 0)
     }
+    
+    func headerPageViewController(parent: UIViewController, container: UIView){
+        let child = HeaderPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        embed(parent: parent, container: container, child: child, previous: parent.children.first, y: 0)
+    }
 }

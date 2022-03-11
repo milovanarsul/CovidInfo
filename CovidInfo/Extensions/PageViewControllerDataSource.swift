@@ -9,11 +9,9 @@ import UIKit
 
 class PageViewControllerDataSource: NSObject, UIPageViewControllerDataSource {
     var pages: [UIViewController]
-    var pageController: PageController
     
-    init(pages: [UIViewController], pageController: PageController){
+    init(pages: [UIViewController]){
         self.pages = pages
-        self.pageController = pageController
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {

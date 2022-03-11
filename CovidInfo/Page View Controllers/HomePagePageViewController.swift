@@ -18,7 +18,7 @@ class HomePageViewController: UIPageViewController {
         
         delegates.navigationBar.setup(page: page)
         
-        let pageViewControllerDataSource = PageViewControllerDataSource(pages: pages, pageController: .home)
+        let pageViewControllerDataSource = PageViewControllerDataSource(pages: pages)
         dataSource = pageViewControllerDataSource
         createViews()
         initialize(pages: pages, scroll: false)
@@ -26,10 +26,8 @@ class HomePageViewController: UIPageViewController {
     
     fileprivate func createViews(){
         
-        let firstViewController = UIViewController()
-        let home = Home()
-        delegates.home = self
-        firstViewController.view = home
+        let firstViewController = HomeViewController()
+        delegates.homePage = self
         pages.append(firstViewController)
         
         let secondViewController = TriajPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)

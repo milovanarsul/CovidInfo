@@ -15,7 +15,7 @@ class OnboardingPageViewController: UIPageViewController {
         super.viewDidLoad()
         delegates.onboarding = self
         
-        let pageViewControllerDataSource = PageViewControllerDataSource(pages: pages, pageController: .home)
+        let pageViewControllerDataSource = PageViewControllerDataSource(pages: pages)
         dataSource = pageViewControllerDataSource
         createViewControllers()
         initialize(pages: pages, scroll: true)

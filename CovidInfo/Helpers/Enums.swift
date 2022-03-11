@@ -55,13 +55,6 @@ enum ViewVisibility{
     case hide
 }
 
-enum PageController{
-    case onboarding
-    case main
-    case home
-    case triaj
-}
-
 enum TriajType{
     case intro
     case text

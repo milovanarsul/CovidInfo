@@ -14,12 +14,13 @@ class Delegates{
     var main: MainDelegate! = nil
     var navigationBar: NavigationBarDelegate! = nil
     var tabBar: TabBarDelegate! = nil
-    var home: HomePageDelegate! = nil
+    var homePage: HomePageDelegate! = nil
     var staticInfo: StaticDelegate! = nil
     var triaj: TriajDelegate! = nil
     var triajSub: TriajSubDelegate! = nil
     var customPresentation: CustomPresentationDelegate! = nil
     var enrollCertifficate: EnrollCertifficateDelegate! = nil
+    var home: HomeDelegate! = nil
     
     init(){}
 }
@@ -85,4 +86,8 @@ protocol CustomPresentationDelegate{
 
 protocol EnrollCertifficateDelegate{
     func stopCapture()
+}
+
+protocol HomeDelegate{
+    func setPageControl(index: Int)
 }
