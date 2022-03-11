@@ -15,6 +15,10 @@ class LaunchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        #if targetEnvironment(simulator)
+            defaults.set(true, forKey: "certifficateEnrolled")
+        #endif
     }
     
     override func viewWillAppear(_ animated: Bool) {
