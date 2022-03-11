@@ -55,13 +55,13 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func certifficateButtonTapped(_ sender: Any) {
-        defaults.isCertifficateEnrolled() ? certifficateModal() : enrollCertifficate()
+        defaults.bool(forKey: "certifficateEnrolled") ? certifficateModal() : enrollCertifficate()
     }
 }
 
 extension MainViewController: MainDelegate{
     func updateCertifficateButton(){
-        self.certifficateButton.initialize(title: defaults.isCertifficateEnrolled() ? "Certificatul tau" : "Inroleaza certificat", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: defaults.isCertifficateEnrolled() ? signatureDarkBlue : .red, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "qrcode.viewfinder"))
+        self.certifficateButton.initialize(title: defaults.bool(forKey: "certifficateEnrolled") ? "Certificatul tau" : "Inroleaza certificat", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: defaults.bool(forKey: "certifficateEnrolled") ? signatureDarkBlue : .red, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "qrcode.viewfinder"))
     }
     
     func dimissModal(completion: @escaping (() -> Void)) {
@@ -71,6 +71,7 @@ extension MainViewController: MainDelegate{
     func enrollCertifficate(){
         let modal = EnrollCertifficateViewController()
         modal.modalPresentationStyle = .formSheet
+        modal.transitioningDelegate = self
         
         if let sheet = modal.sheetPresentationController {
             sheet.prefersGrabberVisible = true
@@ -133,6 +134,13 @@ extension MainViewController: MainDelegate{
             self.certifficateButton.layoutIfNeeded()
             self.view.layoutIfNeeded()
         })
+    }
+}
+
+extension MainViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        delegates.enrollCertifficate.stopCapture()
+        return nil
     }
 }
 

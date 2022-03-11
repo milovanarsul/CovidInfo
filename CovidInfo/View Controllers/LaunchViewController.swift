@@ -18,7 +18,8 @@ class LaunchViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        defaults.showOnboarding() ? onboarding() : main()
+        isFirstLaunch()
+        showOnboarding ? onboarding() : main()
         onboardingCompleted ? skipOnboarding() : ()
     }
     
@@ -53,7 +54,7 @@ class LaunchViewController: UIViewController {
             self.onboardingView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }, completion: { (finished: Bool) in
-            defaults.defaults.set(false, forKey: "showOnboarding")
+            showOnboarding = false
             self.presentView(view: MainViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: true)
         })
     }

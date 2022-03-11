@@ -16,17 +16,14 @@ class EnrollCertifficateViewController: UIViewController{
     private var label = UILabel()
     private var animationView: AnimationView!
     private var labelTopConstraint: NSLayoutConstraint!
-    
+
     var captureSession = AVCaptureSession()
     
     override func viewDidLoad(){
+        delegates.enrollCertifficate = self
         initalSetup()
         QRCodeReader(parentViewController: self, videoLayer: videoLayer, captureSession: captureSession)
         captureSession.startRunning()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        //captureSession.stopRunning()
     }
 }
 
@@ -52,12 +49,13 @@ extension EnrollCertifficateViewController {
         localStorageManager.save(image: qrCode, key: "QRCode")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7){
-            self.captureSuccess()
+            defaults.set(true, forKey: "certifficateEnrolled")
+            self.videoLayer.removeFromSuperview()
+            self.mainCaptureSuccess()
         }
     }
     
-    func captureSuccess(){
-        videoLayer.removeFromSuperview()
+    func mainCaptureSuccess(){
         animationView = AnimationView()
         self.view.addSubview(animationView)
         animationView.setup(animationName: "onboarding4.2", loopMode: .playOnce, animationSpeed: 0.5, container: animationView)
@@ -70,15 +68,19 @@ extension EnrollCertifficateViewController {
         ])
         animationViewConstraints.addConstraints()
         animationView.play(completion: {(finished: Bool) in
-            delegates.main.dimissModal(completion: {() in
-                delegates.main.certifficateModal()
-            })
-            defaults.defaults.set(true, forKey: "isCertifficateEnrolled")
+            if self.presentingViewController is MainViewController {
+                delegates.main.dimissModal(completion: {() in
+                    delegates.main.certifficateModal()
+                })
+                delegates.main.updateCertifficateButton()
+            } else {
+                delegates.onboarding.dismissModal?()
+            }
         })
     }
 }
 
-extension EnrollCertifficateViewController: AVCaptureMetadataOutputObjectsDelegate{
+extension EnrollCertifficateViewController: AVCaptureMetadataOutputObjectsDelegate, EnrollCertifficateDelegate{
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         let metaDataObject = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         if metaDataObject.type == AVMetadataObject.ObjectType.qr {
@@ -87,5 +89,9 @@ extension EnrollCertifficateViewController: AVCaptureMetadataOutputObjectsDelega
                 captureProcessing(metaDataObject: metaDataObject)
             }
         }
+    }
+    
+    func stopCapture() {
+        captureSession.stopRunning()
     }
 }

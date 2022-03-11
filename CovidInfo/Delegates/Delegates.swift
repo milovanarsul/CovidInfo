@@ -19,6 +19,7 @@ class Delegates{
     var triaj: TriajDelegate! = nil
     var triajSub: TriajSubDelegate! = nil
     var customPresentation: CustomPresentationDelegate! = nil
+    var enrollCertifficate: EnrollCertifficateDelegate! = nil
     
     init(){}
 }
@@ -80,4 +81,8 @@ protocol TriajSubDelegate{
 
 protocol CustomPresentationDelegate{
     func setPresentationHeight(presentationHeight: PresentationSize)
+}
+
+protocol EnrollCertifficateDelegate{
+    func stopCapture()
 }

@@ -86,5 +86,6 @@ extension OnboardingPageViewController: OnboardingDelegate{
 extension OnboardingPageViewController: UIAdaptivePresentationControllerDelegate {
     public func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         nextPage()
+        delegates.enrollCertifficate.stopCapture()
     }
 }

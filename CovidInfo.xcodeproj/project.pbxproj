@@ -395,8 +395,8 @@
 			children = (
 				B23DC42027902EB800051C6C /* Resources */,
 				B2F650FB278F2BDA00E1BB58 /* CovidInfo.xcdatamodeld */,
-				B2D0724227CB81A600FA4BC6 /* AppDefaults.swift */,
 				B278D50827A2851A00511BB2 /* Defaults.swift */,
+				B2D0724227CB81A600FA4BC6 /* AppDefaults.swift */,
 				B2BB039E27A998F700D4801B /* NavigationBarData.swift */,
 				B2E6741A27A52A8F00F283B7 /* OnboardingData.swift */,
 				B21C965627B2CADA00C88A50 /* SimptomeAndPreventieData.swift */,
