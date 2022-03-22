@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mql-cH-4Ld" userLabel="childPage">
-                    <rect key="frame" x="-10" y="27.5" width="95.5" height="39"/>
+                    <rect key="frame" x="-300" y="27.5" width="95.5" height="39"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="Child" imagePadding="8">
@@ -80,7 +80,7 @@
                 <constraint firstAttribute="trailing" secondItem="4v2-OH-8kc" secondAttribute="trailing" constant="-70" id="RRC-5f-xI9"/>
                 <constraint firstItem="xpf-IW-cPw" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="bDi-b6-HoK"/>
                 <constraint firstItem="xpf-IW-cPw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="c25-v7-9Yv"/>
-                <constraint firstItem="Mql-cH-4Ld" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-10" id="h6F-U8-8lE"/>
+                <constraint firstItem="Mql-cH-4Ld" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-300" id="h6F-U8-8lE"/>
                 <constraint firstItem="4v2-OH-8kc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="kHY-Ps-42N"/>
                 <constraint firstItem="Mql-cH-4Ld" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tJV-d2-wfJ"/>
             </constraints>

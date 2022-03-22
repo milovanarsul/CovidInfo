@@ -42,7 +42,7 @@ class CustomNavigationBar: XIB {
     }
     
     func slideOutChildPageButton(){
-        childPageButtonLeadingConstraint.constant = -parentButtonLeading
+        childPageButtonLeadingConstraint.constant = -200
         
         UIView.animate(withDuration: defaultNavigationAnimation, animations: {
             self.childPageButton.layoutIfNeeded()
@@ -54,8 +54,8 @@ class CustomNavigationBar: XIB {
     }
     
     func slideInChildPageButton(){
-        childPageButtonLeadingConstraint.constant = getParentPageButtonWidth() + 10
         self.childPageButton.isHidden = false
+        childPageButtonLeadingConstraint.constant = getParentPageButtonWidth() + 10
         
         UIView.animate(withDuration: defaultNavigationAnimation, animations: {
             self.childPageButton.layoutIfNeeded()
@@ -81,7 +81,7 @@ class CustomNavigationBar: XIB {
     @IBOutlet weak var certifficateButtonTrailingConstraint: NSLayoutConstraint!
     
     @IBAction func certifficateButtonTapped(_ sender: Any) {
-        //delegates.main.accountModal()
+        defaults.bool(forKey: "certifficateEnrolled") ? delegates.main.certifficateModal() : delegates.main.enrollCertifficate()
     }
 }
 

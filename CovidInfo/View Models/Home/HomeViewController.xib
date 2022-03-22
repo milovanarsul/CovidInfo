@@ -9,7 +9,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="CovidInfo" customModuleProvider="target">
             <connections>
-                <outlet property="headerPageControl" destination="oeE-qv-oeh" id="rYq-vn-jCH"/>
                 <outlet property="headerView" destination="f88-Tv-QjB" id="bwA-Tu-Srb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,22 +20,23 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f88-Tv-QjB" userLabel="Header">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
-                    <subviews>
-                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="oeE-qv-oeh">
-                            <rect key="frame" x="149" y="173.5" width="116" height="26"/>
-                        </pageControl>
-                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="oeE-qv-oeh" secondAttribute="bottom" id="6yI-9m-ts9"/>
-                        <constraint firstItem="oeE-qv-oeh" firstAttribute="centerX" secondItem="f88-Tv-QjB" secondAttribute="centerX" id="txf-yY-09o"/>
-                    </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpI-rW-BOb">
+                    <rect key="frame" x="173.5" y="400.5" width="67" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                    <connections>
+                        <action selector="tap:" destination="-1" eventType="touchUpInside" id="s73-i8-fY0"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="f88-Tv-QjB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LhK-oL-nak"/>
+                <constraint firstItem="bpI-rW-BOb" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Mdr-vW-c1W"/>
                 <constraint firstItem="f88-Tv-QjB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Vo9-HP-z7V"/>
+                <constraint firstItem="bpI-rW-BOb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hoA-ep-In3"/>
                 <constraint firstItem="f88-Tv-QjB" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.24" id="jz2-N1-gQe"/>
                 <constraint firstItem="f88-Tv-QjB" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="tNh-3L-n1P"/>
             </constraints>

@@ -9,24 +9,20 @@ import UIKit
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var headerPageControl: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegates.home = self
         embed()
     }
     
     func embed(){
         let embed = EmbedView()
         embed.headerPageViewController(parent: self, container: headerView)
-        headerView.bringSubviewToFront(headerPageControl)
         headerView.roundCorners([.topLeft], radius: 24)
     }
-}
-
-extension HomeViewController: HomeDelegate{
-    func setPageControl(index: Int) {
-        headerPageControl.currentPage = index
+    
+    @IBAction func tap(_ sender: Any) {
+        delegates.homePage.goToPage(pageIndex: 2, direction: .forward)
+        delegates.homePage.updateNavigationBar(page: Page(mainPage: .home, childType: .simptome))
     }
 }

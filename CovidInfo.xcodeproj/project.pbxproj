@@ -397,15 +397,11 @@
 		B23DC42F279030BC00051C6C /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B2C350D427DDD5F500EAA660 /* Content Data */,
 				B23DC42027902EB800051C6C /* Resources */,
 				B2F650FB278F2BDA00E1BB58 /* CovidInfo.xcdatamodeld */,
 				B278D50827A2851A00511BB2 /* Defaults.swift */,
 				B2D0724227CB81A600FA4BC6 /* AppDefaults.swift */,
-				B2BB039E27A998F700D4801B /* NavigationBarData.swift */,
-				B2E6741A27A52A8F00F283B7 /* OnboardingData.swift */,
-				B21C965627B2CADA00C88A50 /* SimptomeAndPreventieData.swift */,
-				B23DE46D27B41F2B00FD2E10 /* TriajData.swift */,
-				B2CCB58A27DB9A9D0076A52A /* HeadersData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -480,10 +476,10 @@
 		B25CC91C27AE6F76000D99F6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B23DE46F27B4206A00FD2E10 /* Triaj */,
-				B256058827B2A1E000FB039F /* Simptome & Preventie */,
 				B2CCB59027DB9D160076A52A /* HomeViewController.swift */,
 				B2CCB59127DB9D160076A52A /* HomeViewController.xib */,
+				B23DE46F27B4206A00FD2E10 /* Triaj */,
+				B256058827B2A1E000FB039F /* Simptome & Preventie */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -509,6 +505,18 @@
 				B2B5A9AF2790939500FC4E61 /* onboarding5.json */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		B2C350D427DDD5F500EAA660 /* Content Data */ = {
+			isa = PBXGroup;
+			children = (
+				B2BB039E27A998F700D4801B /* NavigationBarData.swift */,
+				B2E6741A27A52A8F00F283B7 /* OnboardingData.swift */,
+				B21C965627B2CADA00C88A50 /* SimptomeAndPreventieData.swift */,
+				B23DE46D27B41F2B00FD2E10 /* TriajData.swift */,
+				B2CCB58A27DB9A9D0076A52A /* HeadersData.swift */,
+			);
+			path = "Content Data";
 			sourceTree = "<group>";
 		};
 		B2CF79F127BD170D00B06843 /* Account */ = {

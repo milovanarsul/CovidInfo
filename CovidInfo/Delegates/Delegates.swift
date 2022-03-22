@@ -20,7 +20,6 @@ class Delegates{
     var triajSub: TriajSubDelegate! = nil
     var customPresentation: CustomPresentationDelegate! = nil
     var enrollCertifficate: EnrollCertifficateDelegate! = nil
-    var home: HomeDelegate! = nil
     
     init(){}
 }
@@ -45,6 +44,7 @@ protocol MainDelegate{
     func tabBarVisibility(tabBarVisibility: ViewVisibility)
     func accountModal()
     func certifficateModal()
+    func enrollCertifficate()
     func dimissModal(completion: @escaping (() -> Void))
     func updateCertifficateButton()
 }
@@ -86,8 +86,4 @@ protocol CustomPresentationDelegate{
 
 protocol EnrollCertifficateDelegate{
     func stopCapture()
-}
-
-protocol HomeDelegate{
-    func setPageControl(index: Int)
 }

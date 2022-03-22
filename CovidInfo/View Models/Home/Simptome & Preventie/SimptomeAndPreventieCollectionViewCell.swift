@@ -9,8 +9,8 @@ import UIKit
 import Lottie
 
 class SimptomeAndPreventieCollectionViewCell: UICollectionViewCell {
-    weak var lottieAnimation: AnimationView!
-    weak var textLabel: UILabel!
+    var lottieAnimation = AnimationView()
+    var textLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,8 +26,8 @@ class SimptomeAndPreventieCollectionViewCell: UICollectionViewCell {
     }
     
     func setuplottieAnimation(){
-        let lottieAnimation = AnimationView()
         lottieAnimation.setup(animationName: "", loopMode: .loop, animationSpeed: 0.5, container: contentView)
+        self.contentView.addSubview(lottieAnimation)
         
         let constraints = Constraints(childView: lottieAnimation, parentView: self.contentView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
@@ -36,14 +36,10 @@ class SimptomeAndPreventieCollectionViewCell: UICollectionViewCell {
             Constraint(constraintType: .aspectRatio, multiplier: (1.0 / 1.0), constant: 0),
         ])
         constraints.addConstraints()
-        self.lottieAnimation = lottieAnimation
     }
     
     func setupTextLabel(){
-        let textLabel = UILabel(frame: .zero)
-        textLabel.textColor = .black
-        textLabel.font = boldFont(size: 14)
-        textLabel.numberOfLines = 0
+        textLabel.initialize(text: "", color: .black, font: boldFont(size: 14), alignment: .center, lines: 0)
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(textLabel)
         
@@ -54,9 +50,6 @@ class SimptomeAndPreventieCollectionViewCell: UICollectionViewCell {
             Constraint(constraintType: .verticalSpacing, multiplier: 1, constant: 0)
         ])
         constraints.addConstraints()
-        
-        self.textLabel = textLabel
-        self.textLabel.textAlignment = .center
     }
     
     func setupContentView(){
