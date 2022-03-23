@@ -24,6 +24,11 @@ enum ConstraintType{
     case horizontalSpacing
 }
 
+enum animateConstraintType{
+    case multiplier
+    case constant
+}
+
 enum currentPageButtonSlider{
     case left
     case right

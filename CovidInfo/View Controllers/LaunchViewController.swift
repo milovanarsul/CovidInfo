@@ -50,9 +50,7 @@ class LaunchViewController: UIViewController {
     
     func skipOnboarding(){
         self.onboardingView.isHidden = false
-        self.onboardingHeightConstraint.changeMultiplier(multiplier: homeHeight)
-        self.onboardingWidthConstraint.changeMultiplier(multiplier: 1)
-        self.onboardingTopConstraint.constant = homeTopConstraint
+        animateConstraints(constraints: [(onboardingHeightConstraint, homeHeight, .multiplier), (onboardingWidthConstraint, 1, .multiplier), (onboardingTopConstraint, homeTopConstraint, .constant)])
         
         UIView.animate(withDuration: defaultAnimationDuration, animations: {
             self.onboardingView.layoutIfNeeded()
@@ -64,9 +62,7 @@ class LaunchViewController: UIViewController {
     }
     
     func main(){
-        self.launchWidthConstraint.changeMultiplier(multiplier: 1)
-        self.launchHeightConstraint.changeMultiplier(multiplier: homeHeight)
-        self.launchTopConstraint.constant = homeTopConstraint
+        animateConstraints(constraints: [(launchWidthConstraint, 1, .multiplier),(launchHeightConstraint, homeHeight, .multiplier), (launchTopConstraint, homeTopConstraint, .constant)])
         
         UIView.animate(withDuration: defaultAnimationDuration, animations: {
             self.blankView.layoutIfNeeded()

@@ -103,13 +103,13 @@ extension UIView {
     }
     
     func findConstraint(layoutAttribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
-            if let constraints = superview?.constraints {
-                for constraint in constraints where itemMatch(constraint: constraint, layoutAttribute: layoutAttribute) {
-                    return constraint
-                }
+        if let constraints = superview?.constraints {
+            for constraint in constraints where itemMatch(constraint: constraint, layoutAttribute: layoutAttribute) {
+                return constraint
             }
-            return nil
         }
+        return nil
+    }
 
     func itemMatch(constraint: NSLayoutConstraint, layoutAttribute: NSLayoutConstraint.Attribute) -> Bool {
         if let firstItem = constraint.firstItem as? UIView, let secondItem = constraint.secondItem as? UIView {

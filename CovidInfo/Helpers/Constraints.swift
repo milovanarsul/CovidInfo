@@ -93,10 +93,32 @@ func defaultConstraints(childView: UIView, parentView: UIView){
     let constraints = Constraints(childView: childView, parentView: parentView, constraints: [
         Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
         Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
-        Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 1),
+        Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
         Constraint(constraintType: .proportionalHeight, multiplier: 1, constant: 0)
     ])
     constraints.addConstraints()
+}
+
+func defaultAnchors(childView: UIView, parentView: UIView){
+    let constraints = Constraints(childView: childView, parentView: parentView, constraints: [
+        Constraint(constraintType: .leading, multiplier: 1, constant: 0),
+        Constraint(constraintType: .trailing, multiplier: 1, constant: 0),
+        Constraint(constraintType: .top, multiplier: 1, constant: 0),
+        Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
+    ])
+    constraints.addConstraints()
+}
+
+func animateConstraints(constraints: [(constraint: NSLayoutConstraint, value: CGFloat, type: animateConstraintType)]){
+    
+    for constraint in constraints {
+        switch constraint.type{
+            case .multiplier:
+            constraint.constraint.changeMultiplier(multiplier: constraint.value)
+            case .constant:
+            constraint.constraint.constant = constraint.value
+        }
+    }
 }
 
 extension NSLayoutConstraint {
