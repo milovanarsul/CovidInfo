@@ -9,15 +9,30 @@ import Foundation
 import UIKit
 import SafariServices
 
-class TrustedSources: UIStackView{
-    
-    func setup(){
-        self.backgroundColor = .clear
-        self.initalize(axis: .horizontal, alignment: .fill, distribution: .fillEqually, spacing: 0)
+class TrustedSources: UIScrollView, UIScrollViewDelegate {
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fillEqually, spacing: 0)
+        stackView.backgroundColor = .clear
         
         for trustedSource in trustedSourcesData{
-            self.addArrangedSubview(TrustedSource(sourceLogo: trustedSource.image, sourceName: trustedSource.text, url: trustedSource.url))
+            stackView.addArrangedSubview(TrustedSource(sourceLogo: trustedSource.image, sourceName: trustedSource.text, url: trustedSource.url))
         }
+        
+        return stackView
+    }()
+    
+    func setup(){
+        backgroundColor = .clear
+        delegate = self
+        showsVerticalScrollIndicator = false
+        showsHorizontalScrollIndicator = false
+        addSubview(stackView)
+        defaultAnchors(childView: stackView, parentView: self)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.contentOffset.y = 0.0
     }
 }
 
@@ -57,21 +72,22 @@ class TrustedSource: UIView{
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 0.6, constant: 0),
             Constraint(constraintType: .proportionalHeight, multiplier: 0.6, constant: 0),
-            Constraint(constraintType: .top, multiplier: 1, constant: 10)
+            Constraint(constraintType: .top, multiplier: 1, constant: 0)
         ])
         logoConstraints.addConstraints()
         
         let nameConstraints = Constraints(childView: label, parentView: self, constraints: [Constraint(constraintType: .horizontal, multiplier: 1, constant: 0)])
         nameConstraints.addConstraints()
-        NSLayoutConstraint.activate([NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: imageView, attribute: .bottom, multiplier: 1, constant: 10)])
+        NSLayoutConstraint.activate([NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: imageView, attribute: .bottom, multiplier: 1, constant: 0)])
         
         let viewConstraints = Constraints(childView: self, parentView: self, constraints: [
             Constraint(constraintType: .width, multiplier: 1, constant: 100),
+            Constraint(constraintType: .height, multiplier: 1, constant: 150)
         ])
         viewConstraints.addConstraints()
     }
     
     @objc func tapGesture(){
-        showWebPage(url: url, viewController: delegates.news as! UIViewController)
+        showWebPage(url: url, viewController: delegates.main as! UIViewController)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum ConstraintType{
     case height
@@ -89,4 +90,28 @@ enum CertifficateEnrollment{
 enum StorageStye{
     case userDefaults
     case fileSystem
+}
+
+enum BackgroundType: String {
+    case light
+    case dark
+    
+    var titleTextColor: UIColor {
+        switch self {
+        case .dark:
+            return .white
+        case .light:
+            return .gray
+        }
+    }
+}
+
+enum ShadowAction{
+    case add
+    case remove
+}
+
+enum CardMode {
+    case full
+    case card
 }

@@ -20,7 +20,7 @@ class Delegates{
     var triajSub: TriajSubDelegate! = nil
     var customPresentation: CustomPresentationDelegate! = nil
     var enrollCertifficate: EnrollCertifficateDelegate! = nil
-    var news: NewsDelegate! = nil
+    var articles: ArticlesDelegate! = nil
     
     init(){}
 }
@@ -48,6 +48,8 @@ protocol MainDelegate{
     func enrollCertifficate()
     func dimissModal(completion: @escaping (() -> Void))
     func updateCertifficateButton()
+    func presentArticleViewController()
+    func dismissArticleViewController()
 }
 
 protocol NavigationBarDelegate{
@@ -89,6 +91,6 @@ protocol EnrollCertifficateDelegate{
     func stopCapture()
 }
 
-protocol NewsDelegate{
-    
+protocol ArticlesDelegate{
+    func tapOnCell() -> CardView?
 }

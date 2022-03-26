@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     @IBOutlet var customNavigationBar: UIView!
     @IBOutlet var customTabBar: UIView!
     @IBOutlet var background: UIImageView!
-    @IBOutlet weak var certifficateButton: UIButton!
+    @IBOutlet var certifficateButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +56,8 @@ class MainViewController: UIViewController {
     @IBAction func certifficateButtonTapped(_ sender: Any) {
         defaults.bool(forKey: "certifficateEnrolled") ? certifficateModal() : enrollCertifficate()
     }
+    
+    var articlesViewController: UIViewController!
 }
 
 extension MainViewController: MainDelegate{
@@ -133,6 +135,30 @@ extension MainViewController: MainDelegate{
             self.certifficateButton.layoutIfNeeded()
             self.view.layoutIfNeeded()
         })
+    }
+    
+    func certifficateButtonVisibility(visibility: ViewVisibility){
+        switch visibility {
+        case .show:
+            certifficateButton.isHidden = false
+        case .hide:
+            certifficateButton.isHidden = true
+        }
+    }
+    
+    func presentArticleViewController() {
+        articlesViewController = ArticlesViewController()
+        articlesViewController.modalPresentationStyle = .overCurrentContext
+        articlesViewController.view.backgroundColor = .clear
+        certifficateButtonVisibility(visibility: .hide)
+        articlesViewControllerHasBeenPresented = true
+        present(articlesViewController, animated: false)
+    }
+    
+    func dismissArticleViewController(){
+        articlesViewControllerHasBeenPresented = false
+        articlesViewController.removeFromParent()
+        dismiss(animated: false)
     }
 }
 

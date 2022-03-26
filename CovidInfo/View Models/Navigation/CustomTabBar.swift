@@ -16,12 +16,12 @@ class CustomTabBar: XIB {
     @IBOutlet var slider: UIView!
     
     var buttons: [UIButton]!
-    var currentPageIndex: Int = 0
+    var currentPageIndex: Int? = 0
     
     func tabBarPageSliderDirection(tabBarButton: MainPages){
         let tabBarButtonIndex = tabBarIndex(tabBarButton: tabBarButton)
         
-        if tabBarButtonIndex < self.currentPageIndex{
+        if tabBarButtonIndex < self.currentPageIndex!{
             delegates.tabBar.goToPage(pageIndex: tabBarButtonIndex, direction: .reverse)
         } else {
             delegates.tabBar.goToPage(pageIndex: tabBarButtonIndex, direction: .forward)
@@ -30,6 +30,7 @@ class CustomTabBar: XIB {
     }
     
     func buttonSetup(button: MainPages){
+        articlesViewControllerHasBeenPresented ? delegates.main.dismissArticleViewController() : ()
         tabBarButtonSetup(tabBarButton: button)
         tabBarPageSliderDirection(tabBarButton: button)
         delegates.navigationBar.setup(page: Page(mainPage: button, childType: .none))
@@ -41,6 +42,7 @@ class CustomTabBar: XIB {
     
     @IBAction func newsButtonPressed(_ sender: Any) {
         buttonSetup(button: .news)
+        delegates.main.presentArticleViewController()
     }
     
     @IBAction func statisticsButtonPressed(_ sender: Any) {
@@ -56,8 +58,9 @@ class CustomTabBar: XIB {
         fillTabBarButton(tabBarButton: tabBarButton)
         buttonSliderAnimation(tabBarButton: tabBarButton)
         
+        
         if tabBarButton != .home{
-            delegates.main.certifficateButtonAnimation(visibility: .hide)
+            articlesViewControllerHasBeenPresented ? () : delegates.main.certifficateButtonAnimation(visibility: .hide)
             delegates.navigationBar.certifficateButtonAnimation(visibility: .show)
         } else {
             delegates.main.certifficateButtonAnimation(visibility: .show)

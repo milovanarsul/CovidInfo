@@ -26,7 +26,7 @@ class MainPageViewController: UIPageViewController {
         delegates.homePage = homeViewController
         pages.append(homeViewController)
         
-        let newsViewController = StiriViewController()
+        let newsViewController = NewsViewController()
         pages.append(newsViewController)
         
         let statisticsViewController = StatisticiViewController()

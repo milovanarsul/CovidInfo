@@ -8,6 +8,8 @@
 import Foundation
 
 var showOnboarding: Bool = false
+var articlesViewControllerHasBeenPresented = false
+
 let defaults = UserDefaults.standard
 
 class OnboardingManager {

@@ -29,3 +29,23 @@ let trustedSourcesData = [
     TrustedSourceData(image: "stirioficiale", text: "Stiri oficiale", url: "https://stirioficiale.ro/informatii"),
     TrustedSourceData(image: "who", text: "WHO", url: "https://www.who.int")
 ]
+
+class Article {
+    var viewMode: CardMode? = .card
+    var backgroundImage: UIImage
+    var backgroundType: BackgroundType
+    var title: String
+    var subtitle: String
+    var description: String
+    
+    init(viewMode: CardMode? = .card, backgroundImage: UIImage, backgroundType: BackgroundType, title: String, subtitle: String, description: String){
+        if let viewMode = viewMode {
+            self.viewMode = viewMode
+        }
+        self.backgroundImage = backgroundImage
+        self.backgroundType = backgroundType
+        self.title = title
+        self.subtitle = subtitle
+        self.description = description
+    }
+}

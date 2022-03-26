@@ -51,4 +51,10 @@ class EmbedView{
         let child = HeaderPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         embed(parent: parent, container: container, child: child, previous: parent.children.first, y: 0)
     }
+    
+    func articleViewController(parent: UIViewController, container: UIView){
+        let child = ArticlesViewController()
+        child.view.cornerRadius = 24
+        embed(parent: parent, container: container, child: child, previous: parent.children.first, y: 0)
+    }
 }
