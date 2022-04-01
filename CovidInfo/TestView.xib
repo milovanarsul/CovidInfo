@@ -10,39 +10,46 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="xet-7b-MJB">
-            <rect key="frame" x="0.0" y="0.0" width="548" height="106"/>
+        <view contentMode="scaleToFill" id="h2E-Qb-onf">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myc-zv-OmZ">
-                    <rect key="frame" x="20" y="10" width="86" height="86"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7R-nO-oFt">
+                    <rect key="frame" x="31" y="806" width="352" height="50"/>
+                    <color key="backgroundColor" systemColor="systemBrownColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="myc-zv-OmZ" secondAttribute="height" multiplier="1:1" id="eC4-g3-JMq"/>
+                        <constraint firstAttribute="height" constant="50" id="oeK-Zx-8bZ"/>
                     </constraints>
-                </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7Zi-5A-Ll0">
-                    <rect key="frame" x="126" y="10" width="402" height="86"/>
-                    <color key="backgroundColor" red="0.99957710499999997" green="0.82170516250000003" blue="0.40472286940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </stackView>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkR-qA-vU1">
+                    <rect key="frame" x="173.5" y="755" width="67" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                </button>
+                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="MBx-SZ-35T">
+                    <rect key="frame" x="219" y="375" width="116" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="pageIndicatorTintColor" red="0.18039217590000001" green="0.25490197539999998" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </pageControl>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="wjt-dy-Eqo"/>
+            <viewLayoutGuide key="safeArea" id="XIz-A5-mte"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="myc-zv-OmZ" firstAttribute="centerY" secondItem="xet-7b-MJB" secondAttribute="centerY" id="EBU-iJ-fh5"/>
-                <constraint firstItem="7Zi-5A-Ll0" firstAttribute="leading" secondItem="myc-zv-OmZ" secondAttribute="trailing" constant="20" id="PrD-eB-Utd"/>
-                <constraint firstItem="7Zi-5A-Ll0" firstAttribute="centerY" secondItem="xet-7b-MJB" secondAttribute="centerY" id="XaR-jr-Wjy"/>
-                <constraint firstItem="myc-zv-OmZ" firstAttribute="top" secondItem="xet-7b-MJB" secondAttribute="top" constant="10" id="azL-2S-HTz"/>
-                <constraint firstAttribute="trailing" secondItem="7Zi-5A-Ll0" secondAttribute="trailing" constant="20" id="hrz-Df-IlV"/>
-                <constraint firstItem="7Zi-5A-Ll0" firstAttribute="height" secondItem="myc-zv-OmZ" secondAttribute="height" id="kOG-WZ-Qdn"/>
-                <constraint firstItem="myc-zv-OmZ" firstAttribute="leading" secondItem="wjt-dy-Eqo" secondAttribute="leading" constant="20" id="lV9-6j-f2n"/>
+                <constraint firstItem="n7R-nO-oFt" firstAttribute="width" secondItem="h2E-Qb-onf" secondAttribute="width" multiplier="0.85" id="AaE-aB-1tT"/>
+                <constraint firstItem="n7R-nO-oFt" firstAttribute="centerX" secondItem="XIz-A5-mte" secondAttribute="centerX" id="blE-Ot-5Oq"/>
+                <constraint firstItem="n7R-nO-oFt" firstAttribute="top" secondItem="XkR-qA-vU1" secondAttribute="bottom" constant="20" id="bve-BO-5Ad"/>
+                <constraint firstItem="XIz-A5-mte" firstAttribute="bottom" secondItem="n7R-nO-oFt" secondAttribute="bottom" constant="6" id="lTF-V9-djs"/>
+                <constraint firstItem="XkR-qA-vU1" firstAttribute="centerX" secondItem="h2E-Qb-onf" secondAttribute="centerX" id="zdl-i6-NC6"/>
             </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="346.37681159420293" y="462.05357142857139"/>
+            <point key="canvasLocation" x="388" y="371"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

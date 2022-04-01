@@ -32,7 +32,6 @@ class SimptomeAndPreventieViewController: UIViewController {
     }
     
     func embedCollectionView(){
-        let embed = EmbedView()
         embed.simptomeAndPreventieViewController(parent: self, container: self.collectionView)
     }
     

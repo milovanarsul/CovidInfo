@@ -20,6 +20,8 @@ enum CardTransitionType {
 }
 
 class CardTransitionManager: NSObject {
+    var transitionOrigin: Bool = false
+    var transitionDeorigin: Bool = false
     let transitionDuration: Double = 1.0
     var transition: CardTransitionType = .presentation
     let shrinkDuration: Double = 0.2
@@ -78,10 +80,10 @@ extension CardTransitionManager: UIViewControllerAnimatedTransitioning {
         
         addBackgroundViews(to: containerView)
         
-        let fromView = transitionContext.viewController(forKey: .from)
-        let toView = transitionContext.viewController(forKey: .to)
+        let fromView = transitionOrigin ? transitionContext.viewController(forKey: .from)?.children.last : transitionContext.viewController(forKey: .from)
+        let toView = transitionDeorigin ? transitionContext.viewController(forKey: .to)?.children.last : transitionContext.viewController(forKey: .to)
         
-        guard let cardView = (transition == .presentation) ? (fromView as! ArticlesViewController).selectedCellCardView() : (toView as! ArticlesViewController).selectedCellCardView() else {return}
+        guard let cardView = (transition == .presentation) ? (fromView as! NewsViewController).selectedCellCardView() : (toView as! NewsViewController).selectedCellCardView() else {return}
         
         let cardViewCopy = createCardViewCopy(cardView: cardView)
         containerView.addSubview(cardViewCopy)
@@ -192,11 +194,15 @@ extension CardTransitionManager: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition = .presentation
+        transitionOrigin = true
+        transitionDeorigin = false
         return self
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition = .dismissal
+        transitionDeorigin = true
+        transitionOrigin = false
         return self
     }
 }

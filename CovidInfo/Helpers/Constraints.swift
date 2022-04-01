@@ -55,6 +55,14 @@ class Constraint{
         self.constant = constant
     }
     
+    init(childView: UIView, parentView: UIView, constraintType: ConstraintType, multiplier: CGFloat, constant: CGFloat){
+        self.childView = childView
+        self.parentView = parentView
+        self.constraintType = constraintType
+        self.multiplier = multiplier
+        self.constant = constant
+    }
+    
     func setConstraint() -> NSLayoutConstraint{
         switch self.constraintType{
         case .width:
@@ -109,6 +117,14 @@ func defaultAnchors(childView: UIView, parentView: UIView){
     constraints.addConstraints()
 }
 
+func xyConstraints(childView: UIView, parentView: UIView){
+    let constraints = Constraints(childView: childView, parentView: parentView, constraints: [
+        Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+        Constraint(constraintType: .vertical, multiplier: 1, constant: 0)
+    ])
+    constraints.addConstraints()
+}
+
 func animateConstraints(constraints: [(constraint: NSLayoutConstraint, value: CGFloat, type: animateConstraintType)]){
     
     for constraint in constraints {
@@ -123,9 +139,9 @@ func animateConstraints(constraints: [(constraint: NSLayoutConstraint, value: CG
 
 extension NSLayoutConstraint {
     func changeMultiplier(multiplier: CGFloat) {
+        NSLayoutConstraint.deactivate([self])
         let newConstraint = NSLayoutConstraint(item: firstItem as Any, attribute: firstAttribute, relatedBy: relation, toItem: secondItem, attribute: secondAttribute, multiplier: multiplier, constant: constant)
         newConstraint.priority = self.priority
-        NSLayoutConstraint.deactivate([self])
         NSLayoutConstraint.activate([newConstraint])
     }
 }

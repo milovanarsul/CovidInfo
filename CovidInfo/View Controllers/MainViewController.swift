@@ -8,56 +8,105 @@
 import UIKit
 import Lottie
 
-class MainViewController: UIViewController {
+import UIKit
+import Lottie
 
-    @IBOutlet var containerView: UIView!
-    @IBOutlet var customNavigationBar: UIView!
-    @IBOutlet var customTabBar: UIView!
-    @IBOutlet var background: UIImageView!
-    @IBOutlet var certifficateButton: UIButton!
+class MainViewController: UIViewController {
+    
+    lazy var navigationBar: UIView = {
+        let view = CustomNavigationBar()
+        view.setup()
+        delegates.navigationBar = view
+        view.backgroundColor = .white
+        return view
+    }()
+    
+    lazy var contentView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.dropShadow = true
+        CovidInfo.embed.mainPageViewController(parent: self, container: view)
+        return view
+    }()
+    
+    lazy var certifficateButton: UIButton = {
+        let button = UIButton()
+        button.initialize(title: "Certificatul tau", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "qrcode.viewfinder"))
+        button.addTarget(self, action: #selector(certifficateButtonTapped(_:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var tabBar: UIView = {
+        let view = CustomTabBar()
+        view.setup()
+        view.backgroundColor = .white
+        view.dropShadow = true
+        view.cornerRadius = 10
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //navTabAnimation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        background.fadeOut(duration: 0.4)
-        navTabAnimation()
-        embed()
+        setup()
     }
     
-    func embed(){
-        let navigationBar = CustomNavigationBar()
-        self.customNavigationBar.addSubView(parentView: self.customNavigationBar, childView: navigationBar)
-        
-        let embed = EmbedView()
-        embed.mainPageViewController(parent: self, container: self.containerView, navigationBar: navigationBar)
-        
-        self.customTabBar.addSubView(parentView: self.customTabBar, childView: CustomTabBar())
-        updateCertifficateButton()
-    }
+    var tabBarBottomConstraint = NSLayoutConstraint()
+    var certifficateButtonBottomConstraint = NSLayoutConstraint()
     
-    @IBOutlet var navigationBarTopConstraint: NSLayoutConstraint!
-    @IBOutlet var tabBarBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var certifficateButtonConstraint: NSLayoutConstraint!
+    func setup(){
+        view.backgroundColor = .white
+        view.addSubviews(views: [navigationBar, contentView, certifficateButton, tabBar])
+        
+        let navigationBarConstraints = Constraints(childView: navigationBar, parentView: view, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .height, multiplier: 1, constant: 80),
+            Constraint(constraintType: .top, multiplier: 1, constant: 30)
+        ])
+        navigationBarConstraints.addConstraints()
+        
+        let contentViewConstraints = Constraints(childView: contentView, parentView: view, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalHeight, multiplier: 0.88, constant: 0),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
+        ])
+        contentViewConstraints.addConstraints()
+        
+        let tabBarConstraints = Constraints(childView: tabBar, parentView: view, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 0.85, constant: 0),
+            Constraint(constraintType: .height, multiplier: 1, constant: 50)
+        ])
+        tabBarConstraints.addConstraints()
+        tabBarBottomConstraint = Constraint(childView: tabBar, parentView: view, constraintType: .bottom, multiplier: 1, constant: 30).setConstraint()
+        NSLayoutConstraint.activate([tabBarBottomConstraint])
+        
+        certifficateButtonBottomConstraint = NSLayoutConstraint(item: view!, attribute: .bottom, relatedBy: .equal, toItem: certifficateButton, attribute: .bottom, multiplier: 1, constant: 90)
+        NSLayoutConstraint.activate([certifficateButtonBottomConstraint, Constraint(childView: certifficateButton, parentView: view, constraintType: .horizontal, multiplier: 1, constant: 0).setConstraint()])
+
+    }
     
     func navTabAnimation(){
-        animateConstraints(constraints: [(navigationBarTopConstraint, 30, .constant), (tabBarBottomConstraint, 34, .constant)])
+        animateConstraints(constraints: [(tabBarBottomConstraint, 34, .constant), (certifficateButtonBottomConstraint, 100, .constant)])
         
         UIView.animate(withDuration: 0.6,animations: {
-            self.customNavigationBar.layoutIfNeeded()
-            self.customTabBar.layoutIfNeeded()
-            self.view.layoutIfNeeded()
+            self.navigationBar.layoutIfNeeded()
+            self.tabBar.layoutIfNeeded()
         }, completion: {(finished: Bool) in
             self.certifficateButtonAnimation(visibility: .show)
+            self.view.layoutIfNeeded()
         })
     }
     
-    @IBAction func certifficateButtonTapped(_ sender: Any) {
+    @objc func certifficateButtonTapped(_ sender: UIButton) {
         defaults.bool(forKey: "certifficateEnrolled") ? certifficateModal() : enrollCertifficate()
     }
-    
-    var articlesViewController: UIViewController!
 }
 
 extension MainViewController: MainDelegate{
@@ -118,7 +167,7 @@ extension MainViewController: MainDelegate{
         }
         
         UIView.animate(withDuration: 0.3, animations: {
-            self.customTabBar.layoutIfNeeded()
+            self.tabBar.layoutIfNeeded()
             self.view.layoutIfNeeded()
         })
     }
@@ -126,9 +175,9 @@ extension MainViewController: MainDelegate{
     func certifficateButtonAnimation(visibility: ViewVisibility){
         switch visibility {
         case .show:
-            self.certifficateButtonConstraint.constant = 15
+            certifficateButtonBottomConstraint.constant = 90
         case .hide:
-            self.certifficateButtonConstraint.constant = -45
+            certifficateButtonBottomConstraint.constant = 40
         }
         
         UIView.animate(withDuration: 0.6, animations: {
@@ -146,19 +195,21 @@ extension MainViewController: MainDelegate{
         }
     }
     
-    func presentArticleViewController() {
-        articlesViewController = ArticlesViewController()
-        articlesViewController.modalPresentationStyle = .overCurrentContext
-        articlesViewController.view.backgroundColor = .clear
-        certifficateButtonVisibility(visibility: .hide)
-        articlesViewControllerHasBeenPresented = true
-        present(articlesViewController, animated: false)
+    func presentArticleViewController(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25){
+            CovidInfo.embed.articleViewController(parent: self, container: self.view)
+            self.view.bringSubviewToFront(self.certifficateButton)
+            self.view.bringSubviewToFront(self.tabBar)
+            articlesViewControllerHasBeenPresented = true
+        }
     }
     
     func dismissArticleViewController(){
-        articlesViewControllerHasBeenPresented = false
-        articlesViewController.removeFromParent()
-        dismiss(animated: false)
+        delegates.news.removeViewController()
+    }
+    
+    func increaseContainerView(size: CGFloat){
+        
     }
 }
 
@@ -168,3 +219,4 @@ extension MainViewController: UIViewControllerTransitioningDelegate {
         return nil
     }
 }
+

@@ -10,8 +10,29 @@ import UIKit
 private var onboardingCompleted: Bool = false
 
 class LaunchViewController: UIViewController {
-    @IBOutlet var blankView: UIView!
-    @IBOutlet var onboardingView: UIView!
+    
+    lazy var backgroundImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "FirstOnboarding")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    lazy var launchView: UIView = {
+        let view = UIView()
+        view.dropShadow = true
+        view.cornerRadius = 24
+        view.backgroundColor = .white
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var onboardingView: UIView = {
+        let view = UIView()
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,35 +43,53 @@ class LaunchViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        setup()
         isFirstLaunch()
-        showOnboarding ? onboarding() : main()
+        showOnboarding ? startOnboarding() : goTomain()
         onboardingCompleted ? skipOnboarding() : ()
     }
     
-    @IBOutlet weak var launchWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var launchHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var launchTopConstraint: NSLayoutConstraint!
+    var launchViewWidthConstraint = NSLayoutConstraint()
+    var launchViewHeightConstraint = NSLayoutConstraint()
+    var launchViewVerticalConstraint = NSLayoutConstraint()
+    var onboardingViewWidthConstraint = NSLayoutConstraint()
+    var onboardingViewHeightConstraint = NSLayoutConstraint()
+    var onboardingViewVerticalConstraint = NSLayoutConstraint()
     
-    func onboarding(){
-        self.launchWidthConstraint.changeMultiplier(multiplier: onboardingWidth)
-        self.launchHeightConstraint.changeMultiplier(multiplier: onboardingHeight)
-        self.launchTopConstraint.constant = 146
+    func setup(){
+        view.addSubviews(views: [backgroundImage, launchView, onboardingView])
         
-        UIView.animate(withDuration: 1.0, delay: 0.5, animations: {
-            self.blankView.layoutIfNeeded()
+        defaultConstraints(childView: backgroundImage, parentView: view)
+        
+        launchViewVerticalConstraint = Constraint(childView: launchView, parentView: view, constraintType: .vertical, multiplier: 1, constant: 0).setConstraint()
+        launchViewWidthConstraint = Constraint(childView: launchView, parentView: view, constraintType: .proportionalWidth, multiplier: 1, constant: 0).setConstraint()
+        launchViewHeightConstraint = Constraint(childView: launchView, parentView: view, constraintType: .proportionalHeight, multiplier: 0.124, constant: 0).setConstraint()
+        NSLayoutConstraint.activate([launchViewWidthConstraint, launchViewHeightConstraint, launchViewVerticalConstraint, Constraint(childView: launchView, parentView: view, constraintType: .horizontal, multiplier: 1, constant: 0).setConstraint()])
+        
+        onboardingViewWidthConstraint = Constraint(childView: onboardingView, parentView: view, constraintType: .proportionalWidth, multiplier: 1, constant: 0).setConstraint()
+        onboardingViewHeightConstraint = Constraint(childView: onboardingView, parentView: view, constraintType: .proportionalHeight, multiplier: 0.124, constant: 0).setConstraint()
+        onboardingViewVerticalConstraint = Constraint(childView: onboardingView, parentView: view, constraintType: .vertical, multiplier: 1, constant: 0).setConstraint()
+        NSLayoutConstraint.activate([onboardingViewWidthConstraint, onboardingViewHeightConstraint, onboardingViewVerticalConstraint, Constraint(childView: onboardingView, parentView: view, constraintType: .horizontal, multiplier: 1, constant: 0).setConstraint()])
+    }
+
+    func startOnboarding(){
+        launchViewWidthConstraint.changeMultiplier(multiplier: onboardingWidth)
+        launchViewHeightConstraint.changeMultiplier(multiplier: onboardingHeight)
+        
+        UIView.animate(withDuration: 1.0, delay: 0, animations: {
+            self.launchView.layoutIfNeeded()
         }, completion: { (finished: Bool) in
             onboardingCompleted = true
             self.presentView(view: OnboardingWelcomeViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: false)
+            self.removeFromParent()
         })
     }
     
-    @IBOutlet weak var onboardingHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var onboardingWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var onboardingTopConstraint: NSLayoutConstraint!
-    
     func skipOnboarding(){
-        self.onboardingView.isHidden = false
-        animateConstraints(constraints: [(onboardingHeightConstraint, homeHeight, .multiplier), (onboardingWidthConstraint, 1, .multiplier), (onboardingTopConstraint, homeTopConstraint, .constant)])
+        onboardingView.isHidden = false
+        animateConstraints(constraints: [(onboardingViewHeightConstraint, 0.89, .multiplier), (onboardingViewWidthConstraint, 1, .multiplier)])
+        NSLayoutConstraint.deactivate([onboardingViewVerticalConstraint])
+        NSLayoutConstraint.activate([Constraint(childView: onboardingView, parentView: view, constraintType: .bottom, multiplier: 1, constant: 0).setConstraint()])
         
         UIView.animate(withDuration: defaultAnimationDuration, animations: {
             self.onboardingView.layoutIfNeeded()
@@ -58,17 +97,21 @@ class LaunchViewController: UIViewController {
         }, completion: { (finished: Bool) in
             showOnboarding = false
             self.presentView(view: MainViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: true)
+            self.removeFromParent()
         })
     }
     
-    func main(){
-        animateConstraints(constraints: [(launchWidthConstraint, 1, .multiplier),(launchHeightConstraint, homeHeight, .multiplier), (launchTopConstraint, homeTopConstraint, .constant)])
+    func goTomain(){
+        animateConstraints(constraints: [(launchViewWidthConstraint, 1, .multiplier),(launchViewHeightConstraint, 0.89, .multiplier)])
+        NSLayoutConstraint.deactivate([launchViewVerticalConstraint])
+        NSLayoutConstraint.activate([Constraint(childView: launchView, parentView: view, constraintType: .bottom, multiplier: 1, constant: 0).setConstraint()])
         
         UIView.animate(withDuration: defaultAnimationDuration, animations: {
-            self.blankView.layoutIfNeeded()
-            self.view.layoutIfNeeded()
+            self.launchView.layoutIfNeeded()
         }, completion: { (finished: Bool) in
             self.presentView(view: MainViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: true)
+            self.view.layoutIfNeeded()
+            self.removeFromParent()
         })
     }
 }

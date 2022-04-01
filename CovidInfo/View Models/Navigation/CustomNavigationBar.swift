@@ -7,21 +7,59 @@
 
 import UIKit
 
-class CustomNavigationBar: XIB {
+class CustomNavigationBar: UIView {
     
-    @IBOutlet var customNavigationBar: UIView!
-    @IBOutlet var parentPageButton: UIButton!
-    @IBOutlet var childPageButton: UIButton!
-    @IBOutlet var parentPageButtonLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet var childPageButtonLeadingConstraint: NSLayoutConstraint!
+    lazy var childPageButton: UIButton = {
+        let button = UIButton()
+        button.initialize(title: "", titleColor: .black, cornerRadius: 0, font: boldFont(size: 30), backgroundColor: .white)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var parentPageButton: UIButton = {
+        let button = UIButton()
+        button.initialize(title: "", titleColor: .black, cornerRadius: 0, font: boldFont(size: 30), backgroundColor: .white, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(goToMainView(_:)), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var certifficateButton: UIButton = {
+        let button = UIButton()
+        button.initialize(title: "", titleColor: .white, cornerRadius: 100, font: boldFont(size: 30), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(), image: UIImage(systemName: "qrcode.viewfinder"))
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(certifficateButtonTapped(_:)), for: .touchUpInside)
+        return button
+    }()
+    
+    var parentPageButtonLeadingConstraint = NSLayoutConstraint()
+    var childPageButtonLeadingConstraint = NSLayoutConstraint()
+    var certifficateButtonTrailingConstraint = NSLayoutConstraint()
+    
+    func setup(){
+        addSubviews(views: [childPageButton, parentPageButton, certifficateButton])
+        
+        parentPageButtonLeadingConstraint = Constraint(childView: parentPageButton, parentView: self, constraintType: .leading, multiplier: 1, constant: 0).setConstraint()
+        childPageButtonLeadingConstraint = Constraint(childView: childPageButton, parentView: self, constraintType:.leading, multiplier: 1, constant: -300).setConstraint()
+        NSLayoutConstraint.activate([childPageButtonLeadingConstraint, Constraint(childView: childPageButton, parentView: self, constraintType: .vertical, multiplier: 1, constant: 0).setConstraint(), parentPageButtonLeadingConstraint, Constraint(childView: parentPageButton, parentView: self, constraintType: .vertical, multiplier: 1, constant: 0).setConstraint()])
+        
+        let certifficateButtonConstraints = Constraints(childView: certifficateButton, parentView: self, constraints: [
+            Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
+            Constraint(constraintType: .width, multiplier: 1, constant: 40),
+            Constraint(constraintType: .height, multiplier: 1, constant: 40),
+        ])
+        certifficateButtonConstraints.addConstraints()
+        certifficateButtonTrailingConstraint = Constraint(childView: certifficateButton, parentView: self, constraintType: .trailing, multiplier: 1, constant: 70).setConstraint()
+        NSLayoutConstraint.activate([certifficateButtonTrailingConstraint])
+    }
     
     func slideOutParentPageButton(){
         parentPageButtonLeadingConstraint.constant = -parentButtonLeading
-        self.makeChildToParent()
+        makeChildToParent()
         
         UIView.animate(withDuration: defaultNavigationAnimation, animations: {
             self.parentPageButton.layoutIfNeeded()
-            self.customNavigationBar.layoutIfNeeded()
+            self.layoutIfNeeded()
         }, completion: {(finished: Bool) in
             self.parentPageButton.isHidden = true
             self.parentPageButtonLeadingConstraint.constant = 0
@@ -33,7 +71,7 @@ class CustomNavigationBar: XIB {
         
         UIView.animate(withDuration: defaultNavigationAnimation, animations: {
             self.childPageButton.layoutIfNeeded()
-            self.customNavigationBar.layoutIfNeeded()
+            self.layoutIfNeeded()
         }, completion: {(finished: Bool) in
             self.childPageButton.isHidden = true
             self.parentPageButton.isHidden = false
@@ -46,7 +84,7 @@ class CustomNavigationBar: XIB {
         
         UIView.animate(withDuration: defaultNavigationAnimation, animations: {
             self.childPageButton.layoutIfNeeded()
-            self.customNavigationBar.layoutIfNeeded()
+            self.layoutIfNeeded()
         }, completion: {(finished: Bool) in
             self.childPageButton.isHidden = true
             self.childPageButtonLeadingConstraint.constant = 25
@@ -54,12 +92,12 @@ class CustomNavigationBar: XIB {
     }
     
     func slideInChildPageButton(){
-        self.childPageButton.isHidden = false
-        childPageButtonLeadingConstraint.constant = getParentPageButtonWidth() + 10
+        childPageButton.isHidden = false
+        childPageButtonLeadingConstraint.constant = getParentPageButtonWidth() + 0
         
         UIView.animate(withDuration: defaultNavigationAnimation, animations: {
             self.childPageButton.layoutIfNeeded()
-            self.customNavigationBar.layoutIfNeeded()
+            self.layoutIfNeeded()
         })
     }
     
@@ -68,19 +106,16 @@ class CustomNavigationBar: XIB {
     private var showChildButton: Bool?
     
     func getParentPageButtonWidth() -> CGFloat{
-        return self.parentPageButton.bounds.width
+        return parentPageButton.bounds.width
     }
     
-    @IBAction func goToMainView(_ sender: Any) {
+    @objc func goToMainView(_ sender: UIButton) {
         buttonSlider(sliderType: .left)
         delegates.homePage.goToPage(pageIndex:0, direction: .reverse)
         delegates.main.tabBarVisibility(tabBarVisibility: .show)
     }
     
-    @IBOutlet weak var certifficateButon: UIButton!
-    @IBOutlet weak var certifficateButtonTrailingConstraint: NSLayoutConstraint!
-    
-    @IBAction func certifficateButtonTapped(_ sender: Any) {
+    @objc func certifficateButtonTapped(_ sender: UIButton) {
         defaults.bool(forKey: "certifficateEnrolled") ? delegates.main.certifficateModal() : delegates.main.enrollCertifficate()
     }
 }
@@ -88,35 +123,35 @@ class CustomNavigationBar: XIB {
 extension CustomNavigationBar{
     
     func changeChildPageButton(title: String) {
-        self.childPageButton.setAttributedTitle(setNSMutableString(title: title, font: boldFont(size: 30), foregroundColor: .black), for: .normal)
-        self.childPageButton.backgroundColor = .clear
+        childPageButton.setAttributedTitle(setNSMutableString(title: title, font: boldFont(size: 30), foregroundColor: .black), for: .normal)
+        childPageButton.backgroundColor = .clear
     }
     
     func changeParentPageButton(title: String) {
-        self.parentPageButton.setAttributedTitle(setNSMutableString(title: title, font: boldFont(size: 30), foregroundColor: .black), for: .normal)
-        self.parentPageButton.backgroundColor = .clear
+        parentPageButton.setAttributedTitle(setNSMutableString(title: title, font: boldFont(size: 30), foregroundColor: .black), for: .normal)
+        parentPageButton.backgroundColor = .clear
     }
     
     func currentPageSettings(){
-        changeParentPageButton(title: self.parentPageTitle!)
+        changeParentPageButton(title: parentPageTitle!)
         
-        if self.childPageTitle != nil{
-            changeChildPageButton(title: self.childPageTitle!)
+        if childPageTitle != nil{
+            changeChildPageButton(title: childPageTitle!)
         }
         
-        self.childPageButton.isHidden = !self.showChildButton!
+        childPageButton.isHidden = !showChildButton!
     }
 }
 
 extension CustomNavigationBar: NavigationBarDelegate{
     func setup(page: Page) {
-        self.parentPageTitle = page.getParentPage()
+        parentPageTitle = page.getParentPage()
         
         if page.childType != ChildPages.none {
-            self.childPageTitle = page.getChildPage()
-            self.showChildButton = true
+            childPageTitle = page.getChildPage()
+            showChildButton = true
         } else {
-            self.showChildButton = false
+            showChildButton = false
         }
         currentPageSettings()
     }
@@ -135,18 +170,18 @@ extension CustomNavigationBar: NavigationBarDelegate{
     func certifficateButtonAnimation(visibility: ViewVisibility){
         switch visibility {
         case .show:
-            self.certifficateButon.isHidden = false
-            self.certifficateButtonTrailingConstraint.constant = 20
+            certifficateButton.isHidden = false
+            certifficateButtonTrailingConstraint.constant = -20
         case .hide:
-            self.certifficateButtonTrailingConstraint.constant = -70
+            certifficateButtonTrailingConstraint.constant = 70
         }
         
         UIView.animate(withDuration: 0.6, animations: {
-            self.certifficateButon.layoutIfNeeded()
+            self.certifficateButton.layoutIfNeeded()
             self.layoutIfNeeded()
         }, completion: {(finished: Bool) in
             if visibility == .hide{
-                self.certifficateButon.isHidden = true
+                self.certifficateButton.isHidden = true
             }
         })
     }

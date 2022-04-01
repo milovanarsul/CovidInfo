@@ -8,21 +8,28 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    @IBOutlet weak var headerView: UIView!
+    
+    lazy var headerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        CovidInfo.embed.headerPageViewController(parent: self, container: view)
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        embed()
+        setup()
     }
     
-    func embed(){
-        let embed = EmbedView()
-        embed.headerPageViewController(parent: self, container: headerView)
-        headerView.roundCorners([.topLeft], radius: 24)
-    }
-    
-    @IBAction func tap(_ sender: Any) {
-        delegates.homePage.goToPage(pageIndex: 2, direction: .forward)
-        delegates.homePage.updateNavigationBar(page: Page(mainPage: .home, childType: .simptome))
+    func setup(){
+        view.addSubview(headerView)
+        
+        let headerViewConstraints = Constraints(childView: headerView, parentView: view, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalHeight, multiplier: 0.24, constant: 0),
+            Constraint(constraintType: .top, multiplier: 1, constant: 0)
+        ])
+        headerViewConstraints.addConstraints()
     }
 }

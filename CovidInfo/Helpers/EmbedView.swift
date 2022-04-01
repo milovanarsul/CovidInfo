@@ -10,11 +10,6 @@ import UIKit
 
 class EmbedView{
     func embed(parent: UIViewController, container: UIView, child: Any, previous: UIViewController?, y: CGFloat){
-        
-        if let previous = previous {
-            removeFromParent(viewController: previous)
-        }
-        
         (child as? UIViewController)!.willMove(toParent: parent)
         parent.addChild((child as? UIViewController)!)
         container.addSubview((child as? UIViewController)!.view)
@@ -33,9 +28,8 @@ class EmbedView{
         embed(parent: parent, container: container, child: child, previous: parent.children.first, y: 0)
     }
     
-    func mainPageViewController(parent: MainViewController, container: UIView, navigationBar: CustomNavigationBar){
+    func mainPageViewController(parent: MainViewController, container: UIView){
         let child = MainPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        delegates.navigationBar = navigationBar
         delegates.main = parent
         embed(parent: parent, container: container, child: child, previous: parent.children.first, y: 0)
         delegates.tabBar = child
@@ -53,8 +47,10 @@ class EmbedView{
     }
     
     func articleViewController(parent: UIViewController, container: UIView){
-        let child = ArticlesViewController()
-        child.view.cornerRadius = 24
+        let child = NewsViewController()
+        delegates.news = child
         embed(parent: parent, container: container, child: child, previous: parent.children.first, y: 0)
     }
 }
+
+let embed = EmbedView()

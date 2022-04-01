@@ -25,8 +25,7 @@ let actionSmall: CGFloat = 20
 /// LAUNCHSCREEN
 let onboardingWidth = 0.883761
 let onboardingHeight = 0.550158
-let homeHeight: CGFloat = 0.853795
-let homeTopConstraint: CGFloat = 90
+let homeHeight: CGFloat = 0.89
 
 /// ANIMATIONS
 let defaultAnimationDuration = 0.9
@@ -52,9 +51,9 @@ let mainPages: [MainPages:[String:[ChildPages:String]]] = [
 ]
 
 let homePages: [ChildPages:String] = [
-    ChildPages.triaj: "Triaj",
-    ChildPages.preventie: "Preventie",
-    ChildPages.simptome: "Simptome"
+    ChildPages.triaj: "> Triaj",
+    ChildPages.preventie: "> Preventie",
+    ChildPages.simptome: "> Simptome"
 ]
 
 let stiriPages: [ChildPages:String] = [:]

@@ -7,16 +7,110 @@
 
 import UIKit
 
-class CustomTabBar: XIB {
+class CustomTabBar: UIView {
+    
+    lazy var homeButton: UIButton = {
+        let button = UIButton()
+        button.initializeIcon(image: UIImage(systemName: "house.fill")!)
+        button.addTarget(self, action: #selector(homeButtonPressed(_:)), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var newsButton: UIButton = {
+        let button = UIButton()
+        button.initializeIcon(image: UIImage(systemName: "newspaper")!)
+        button.addTarget(self, action: #selector(newsButtonPressed(_:)), for: .touchUpInside)
 
-    @IBOutlet var customTabBar: UIView!
-    @IBOutlet var homeButton: UIButton!
-    @IBOutlet var newsButton: UIButton!
-    @IBOutlet var statisticsButton: UIButton!
-    @IBOutlet var slider: UIView!
+        return button
+    }()
+    
+    lazy var statisticsButton: UIButton = {
+        let button = UIButton()
+        button.initializeIcon(image: UIImage(systemName: "chart.bar")!)
+        button.addTarget(self, action: #selector(statisticsButtonPressed(_:)), for: .touchUpInside)
+
+        return button
+    }()
+    
+    lazy var accountButton: UIButton = {
+        let button = UIButton()
+        button.initializeIcon(backgroundImage: UIImage(named: "Profile Picture"))
+        button.addTarget(self, action: #selector(accountButtonPressed(_:)), for: .touchUpInside)
+
+        return button
+    }()
+    
+    lazy var buttonStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fillEqually, spacing: 40)
+        stackView.isBaselineRelativeArrangement = false
+        stackView.addAranagedSubviews(views: [homeButton, newsButton, statisticsButton, accountButton])
+        return stackView
+    }()
+    
+    lazy var buttonSlider: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     var buttons: [UIButton]!
     var currentPageIndex: Int? = 0
+    var buttonSliderLeadingConstraint = NSLayoutConstraint()
+    
+    func setup(){
+        addSubviews(views: [buttonStackView, buttonSlider])
+        
+        let buttonStackViewConstraints = Constraints(childView: buttonStackView, parentView: self, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .leading, multiplier: 1, constant: 20),
+            Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
+            Constraint(constraintType: .top, multiplier: 1, constant: 0)
+        ])
+        buttonStackViewConstraints.addConstraints()
+        
+        buttonSliderLeadingConstraint = NSLayoutConstraint(item: buttonSlider, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 20)
+        NSLayoutConstraint.activate([buttonSliderLeadingConstraint, NSLayoutConstraint(item: buttonSlider, attribute: .width, relatedBy: .equal, toItem: homeButton, attribute: .width, multiplier: 1, constant: 0.673077), NSLayoutConstraint(item: buttonSlider, attribute: .top, relatedBy: .equal, toItem: homeButton, attribute: .bottom, multiplier: 1, constant: -5),NSLayoutConstraint(item: buttonSlider, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 2)])
+    }
+    
+    @objc func homeButtonPressed(_ sender: UIButton) {
+        buttonSetup(button: .home)
+    }
+    
+    @objc func newsButtonPressed(_ sender: UIButton) {
+        buttonSetup(button: .news)
+        delegates.main.presentArticleViewController()
+    }
+    
+    @objc func statisticsButtonPressed(_ sender: UIButton) {
+        buttonSetup(button: .statistics)
+    }
+    
+    @objc func accountButtonPressed(_ sender: UIButton) {
+        delegates.main.accountModal()
+    }
+    
+    func buttonSetup(button: MainPages){
+        articlesViewControllerHasBeenPresented ? delegates.main.dismissArticleViewController() : ()
+        tabBarButtonSetup(tabBarButton: button)
+        tabBarPageSliderDirection(tabBarButton: button)
+        delegates.navigationBar.setup(page: Page(mainPage: button, childType: .none))
+    }
+    
+    func tabBarButtonSetup(tabBarButton: MainPages){
+        buttons = [homeButton, newsButton, statisticsButton]
+        fillTabBarButton(tabBarButton: tabBarButton)
+        buttonSliderAnimation(tabBarButton: tabBarButton)
+        
+        if tabBarButton != .home{
+            articlesViewControllerHasBeenPresented ? () : delegates.main.certifficateButtonAnimation(visibility: .hide)
+            delegates.navigationBar.certifficateButtonAnimation(visibility: .show)
+        } else {
+            delegates.main.certifficateButtonAnimation(visibility: .show)
+            delegates.navigationBar.certifficateButtonAnimation(visibility: .hide)
+        }
+    }
     
     func tabBarPageSliderDirection(tabBarButton: MainPages){
         let tabBarButtonIndex = tabBarIndex(tabBarButton: tabBarButton)
@@ -29,64 +123,23 @@ class CustomTabBar: XIB {
         self.currentPageIndex = tabBarButtonIndex
     }
     
-    func buttonSetup(button: MainPages){
-        articlesViewControllerHasBeenPresented ? delegates.main.dismissArticleViewController() : ()
-        tabBarButtonSetup(tabBarButton: button)
-        tabBarPageSliderDirection(tabBarButton: button)
-        delegates.navigationBar.setup(page: Page(mainPage: button, childType: .none))
-    }
-                                                
-    @IBAction func homeButtonPressed(_ sender: Any) {
-        buttonSetup(button: .home)
-    }
-    
-    @IBAction func newsButtonPressed(_ sender: Any) {
-        buttonSetup(button: .news)
-        delegates.main.presentArticleViewController()
-    }
-    
-    @IBAction func statisticsButtonPressed(_ sender: Any) {
-        buttonSetup(button: .statistics)
-    }
-    
-    @IBAction func accountButtonTapped(_ sender: Any) {
-        delegates.main.accountModal()
-    }
-    
-    func tabBarButtonSetup(tabBarButton: MainPages){
-        self.buttons = [homeButton, newsButton, statisticsButton]
-        fillTabBarButton(tabBarButton: tabBarButton)
-        buttonSliderAnimation(tabBarButton: tabBarButton)
-        
-        
-        if tabBarButton != .home{
-            articlesViewControllerHasBeenPresented ? () : delegates.main.certifficateButtonAnimation(visibility: .hide)
-            delegates.navigationBar.certifficateButtonAnimation(visibility: .show)
-        } else {
-            delegates.main.certifficateButtonAnimation(visibility: .show)
-            delegates.navigationBar.certifficateButtonAnimation(visibility: .hide)
-        }
-    }
-    
-    @IBOutlet var sliderLeadingConstraint: NSLayoutConstraint!
-    
     func buttonSliderAnimation(tabBarButton: MainPages){
         switch tabBarButton {
         case .home:
-            sliderLeadingConstraint.constant = 27
+            buttonSliderLeadingConstraint.constant = 20
         case .news:
-            sliderLeadingConstraint.constant = 113
+            buttonSliderLeadingConstraint.constant = 106
         case .statistics:
-            sliderLeadingConstraint.constant = 198
+            buttonSliderLeadingConstraint.constant = 187
         case .documents:
-            sliderLeadingConstraint.constant = 283
+            buttonSliderLeadingConstraint.constant = 273
         default:
             ()
         }
         
         UIView.animate(withDuration: 0.3, animations: {
-            self.slider.layoutIfNeeded()
-            self.customTabBar.layoutIfNeeded()
+            self.buttonSlider.layoutIfNeeded()
+            self.layoutIfNeeded()
         })
     }
     
