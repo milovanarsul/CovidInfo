@@ -40,11 +40,19 @@ class CustomTabBar: UIView {
         return button
     }()
     
+    lazy var goToTopButton: UIButton = {
+        let button = UIButton()
+        button.initializeIcon(backgroundImage: UIImage(systemName: "arrow.up.circle"))
+        button.isHidden = true
+        button.addTarget(self, action: #selector(goToTopButtonPressed(_:)), for: .touchUpInside)
+        return button
+    }()
+    
     lazy var buttonStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fillEqually, spacing: 40)
         stackView.isBaselineRelativeArrangement = false
-        stackView.addAranagedSubviews(views: [homeButton, newsButton, statisticsButton, accountButton])
+        stackView.addAranagedSubviews(views: [homeButton, newsButton, statisticsButton, accountButton, goToTopButton])
         return stackView
     }()
     
@@ -93,6 +101,10 @@ class CustomTabBar: UIView {
     
     @objc func accountButtonPressed(_ sender: UIButton) {
         delegates.main.accountModal()
+    }
+    
+    @objc func goToTopButtonPressed(_ sender: UIButton) {
+        delegates.news.scrollToTop()
     }
     
     func buttonSetup(button: MainPages){
@@ -180,9 +192,18 @@ extension CustomTabBar: CustomTabBarDelegate{
         tabBarBottomConstraint.constant = size
         
         if size == 30 {
-            buttonSliderLeadingConstraint.constant = 125
+            buttonSliderLeadingConstraint.constant = 105
         } else {
             buttonSliderLeadingConstraint.constant = 109
+        }
+    }
+    
+    func goToTopButtonVisibily(visibily: ViewVisibility){
+        switch visibily {
+        case .show:
+            goToTopButton.isHidden = false
+        case .hide:
+            goToTopButton.isHidden = true
         }
     }
 }

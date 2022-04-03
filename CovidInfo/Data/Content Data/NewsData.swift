@@ -32,20 +32,25 @@ let trustedSourcesData = [
 
 class Article {
     var viewMode: CardMode? = .card
-    var backgroundImage: UIImage
+    var backgroundImage: String
     var backgroundType: BackgroundType
     var title: String
-    var subtitle: String
+    var date: String
+    var link: String
     var description: String
+    var author: String
     
-    init(viewMode: CardMode? = .card, backgroundImage: UIImage, backgroundType: BackgroundType, title: String, subtitle: String, description: String){
+    init(viewMode: CardMode? = .card, backgroundImage: String, backgroundType: BackgroundType, date: String, link: String, title: String, description: String, author: String){
         if let viewMode = viewMode {
             self.viewMode = viewMode
         }
-        self.backgroundImage = backgroundImage
+        
         self.backgroundType = backgroundType
+        self.backgroundImage = backgroundImage
         self.title = title
-        self.subtitle = subtitle
+        self.date = date
+        self.link = link
         self.description = description
+        self.author = author
     }
 }

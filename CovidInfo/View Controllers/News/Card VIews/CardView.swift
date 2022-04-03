@@ -38,7 +38,7 @@ class CardView: UIView {
     
     lazy var bottomView: UIView = {
         let view = UIView()
-        view.backgroundColor = .yellow
+        view.backgroundColor = .white
         return view
     }()
     
@@ -105,8 +105,8 @@ class CardView: UIView {
     }
     
     private func setupBackgroundImage() {
-        let backgroundImage = article.backgroundImage
-        backgroundImageView.image = backgroundImage
+        backgroundImageView.downloaded(from: article.backgroundImage)
+        backgroundImageView.contentMode = .scaleAspectFill
 
         containerView.addSubview(backgroundImageView)
         defaultAnchors(childView: backgroundImageView, parentView: containerView)

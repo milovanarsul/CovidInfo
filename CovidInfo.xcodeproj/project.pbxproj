@@ -10,6 +10,7 @@
 		42EDC11CCE7864A14D314479 /* libPods-CovidInfoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D193FA1DD60D2868D8A1F194 /* libPods-CovidInfoTests.a */; };
 		8C3127B2AFC78370A5578084 /* libPods-CovidInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85B96E91060584C3BD08BA11 /* libPods-CovidInfo.a */; };
 		B201DD3327B8E89600C34C41 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B201DD3227B8E89600C34C41 /* OnboardingPageViewController.swift */; };
+		B2049E4527FA325100303C6A /* WebScraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2049E4427FA325100303C6A /* WebScraper.swift */; };
 		B205B3E727B50361008E5874 /* PageViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B205B3E627B50361008E5874 /* PageViewControllerDataSource.swift */; };
 		B205B3E927B50723008E5874 /* UICollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B205B3E827B50723008E5874 /* UICollectionViewController.swift */; };
 		B20623FB27DA555400CD985E /* EnrollCertifficateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B20623FA27DA555400CD985E /* EnrollCertifficateViewController.xib */; };
@@ -42,8 +43,6 @@
 		B259BF8527B6DFA5001F78A6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259BF8427B6DFA5001F78A6 /* LaunchViewController.swift */; };
 		B25AD33927A30B50009EAD38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33827A30B50009EAD38 /* UIView.swift */; };
 		B25EAE5427F76DD400860B2F /* TabBarExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25EAE5327F76DD400860B2F /* TabBarExtenstion.swift */; };
-		B266A0EF27EF12BF003806E7 /* CardsData.json in Resources */ = {isa = PBXBuildFile; fileRef = B266A0ED27EF12BF003806E7 /* CardsData.json */; };
-		B266A0F027EF12BF003806E7 /* CardsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A0EE27EF12BF003806E7 /* CardsData.swift */; };
 		B266A11527EF12D0003806E7 /* CardTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A0F527EF12D0003806E7 /* CardTransitionManager.swift */; };
 		B266A12927EF1682003806E7 /* FullScreenCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A12827EF1682003806E7 /* FullScreenCardView.swift */; };
 		B266A12B27EF25CC003806E7 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A12A27EF25CC003806E7 /* CardView.swift */; };
@@ -148,6 +147,8 @@
 		6093B6C73F5FDA01AB286717 /* Pods-CovidInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfo.release.xcconfig"; path = "Target Support Files/Pods-CovidInfo/Pods-CovidInfo.release.xcconfig"; sourceTree = "<group>"; };
 		85B96E91060584C3BD08BA11 /* libPods-CovidInfo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CovidInfo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B201DD3227B8E89600C34C41 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		B2049E4327FA159F00303C6A /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B2049E4427FA325100303C6A /* WebScraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebScraper.swift; sourceTree = "<group>"; };
 		B205B3E627B50361008E5874 /* PageViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewControllerDataSource.swift; sourceTree = "<group>"; };
 		B205B3E827B50723008E5874 /* UICollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewController.swift; sourceTree = "<group>"; };
 		B20623FA27DA555400CD985E /* EnrollCertifficateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnrollCertifficateViewController.xib; sourceTree = "<group>"; };
@@ -180,8 +181,6 @@
 		B259BF8427B6DFA5001F78A6 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		B25AD33827A30B50009EAD38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B25EAE5327F76DD400860B2F /* TabBarExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarExtenstion.swift; sourceTree = "<group>"; };
-		B266A0ED27EF12BF003806E7 /* CardsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CardsData.json; sourceTree = "<group>"; };
-		B266A0EE27EF12BF003806E7 /* CardsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsData.swift; sourceTree = "<group>"; };
 		B266A0F527EF12D0003806E7 /* CardTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTransitionManager.swift; sourceTree = "<group>"; };
 		B266A12827EF1682003806E7 /* FullScreenCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenCardView.swift; sourceTree = "<group>"; };
 		B266A12A27EF25CC003806E7 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -308,6 +307,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B2049E3F27FA13BC00303C6A /* Web Scraper */ = {
+			isa = PBXGroup;
+			children = (
+				B2049E4327FA159F00303C6A /* MyPlayground.playground */,
+			);
+			path = "Web Scraper";
+			sourceTree = "<group>";
+		};
 		B21C965827B2CAFF00C88A50 /* Simptome */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,11 +406,13 @@
 		B23DC42F279030BC00051C6C /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B2049E3F27FA13BC00303C6A /* Web Scraper */,
 				B2C350D427DDD5F500EAA660 /* Content Data */,
 				B23DC42027902EB800051C6C /* Resources */,
 				B2F650FB278F2BDA00E1BB58 /* CovidInfo.xcdatamodeld */,
 				B278D50827A2851A00511BB2 /* Defaults.swift */,
 				B2D0724227CB81A600FA4BC6 /* AppDefaults.swift */,
+				B2049E4427FA325100303C6A /* WebScraper.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -486,23 +495,6 @@
 				B256058827B2A1E000FB039F /* Simptome & Preventie */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		B266A0EB27EF12B1003806E7 /* Test App View */ = {
-			isa = PBXGroup;
-			children = (
-				B266A0EC27EF12BF003806E7 /* Data */,
-			);
-			path = "Test App View";
-			sourceTree = "<group>";
-		};
-		B266A0EC27EF12BF003806E7 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				B266A0ED27EF12BF003806E7 /* CardsData.json */,
-				B266A0EE27EF12BF003806E7 /* CardsData.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		B2B5A9A72790904600FC4E61 /* Lottie Animations */ = {
@@ -642,7 +634,6 @@
 		B2F650F1278F2BD900E1BB58 /* CovidInfo */ = {
 			isa = PBXGroup;
 			children = (
-				B266A0EB27EF12B1003806E7 /* Test App View */,
 				B23DC42527902F2A00051C6C /* Delegates */,
 				B25AD33727A30B3D009EAD38 /* Extensions */,
 				B23DC42627902FD200051C6C /* Helpers */,
@@ -816,7 +807,6 @@
 				B2B5A9B32790939500FC4E61 /* onboarding3.json in Resources */,
 				B2F650FF278F2BDB00E1BB58 /* Assets.xcassets in Resources */,
 				B21B3F1927F851B0004171C6 /* TestViewTest.xib in Resources */,
-				B266A0EF27EF12BF003806E7 /* CardsData.json in Resources */,
 				B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */,
 				B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */,
 				B2E1938727BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib in Resources */,
@@ -948,13 +938,13 @@
 				B2CCB58B27DB9A9D0076A52A /* HeadersData.swift in Sources */,
 				B281283527A5A69700DE7DB8 /* UIPageViewController.swift in Sources */,
 				B2B079DF27AD3BD900A39107 /* XIB.swift in Sources */,
-				B266A0F027EF12BF003806E7 /* CardsData.swift in Sources */,
 				B2976FD627B94F6C006E4859 /* TriajActions.swift in Sources */,
 				B218CDC227F849580080CD55 /* TestViewController.swift in Sources */,
 				B2C59C2127A869340094A984 /* MainPageViewController.swift in Sources */,
 				B23DE45A27B3BC4700FD2E10 /* Constraints.swift in Sources */,
 				B2F650F5278F2BD900E1BB58 /* SceneDelegate.swift in Sources */,
 				B256059A27B2AF8000FB039F /* StaticCollectionViewController.swift in Sources */,
+				B2049E4527FA325100303C6A /* WebScraper.swift in Sources */,
 				B2DF4F3027D8A15D0035D5B7 /* CertifficateView.swift in Sources */,
 				B2DABD1827EB6D7700ECA4EB /* UIImage.swift in Sources */,
 				B2BB039B27A9466700D4801B /* CustomTabBar.swift in Sources */,

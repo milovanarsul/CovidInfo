@@ -23,7 +23,7 @@ class NewsViewController: UIViewController{
     }()
     
     let transitionManager = CardTransitionManager()
-    let trustedSourcesCardsViewData: [Article] = CardsData.shared.cards
+    let trustedSourcesCardsViewData: [Article] = articleData
     var trustedSourcesCardsTableViewTopConstraint = NSLayoutConstraint()
     
     override func viewDidLoad() {
@@ -124,5 +124,9 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
 extension NewsViewController: NewsDelegate{
     func removeViewController(){
         embed.removeFromParent(viewController: self)
+    }
+    
+    func scrollToTop(){
+        trustedSourcesCardsTableView.setContentOffset(.zero, animated: true)
     }
 }

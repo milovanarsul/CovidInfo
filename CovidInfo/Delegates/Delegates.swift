@@ -96,8 +96,10 @@ protocol EnrollCertifficateDelegate{
 
 protocol NewsDelegate{
     func removeViewController()
+    func scrollToTop()
 }
 
 protocol CustomTabBarDelegate{
     func increaseBottomConstraint(size: CGFloat)
+    func goToTopButtonVisibily(visibily: ViewVisibility)
 }

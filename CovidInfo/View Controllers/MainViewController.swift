@@ -74,7 +74,7 @@ class MainViewController: UIViewController {
         let navigationBarConstraints = Constraints(childView: navigationBar, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
-            Constraint(constraintType: .height, multiplier: 1, constant: 80),
+            Constraint(constraintType: .height, multiplier: 1, constant: 70),
         ])
         navigationBarConstraints.addConstraints()
         navigationBarTopConstraint = NSLayoutConstraint(item: navigationBar, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 30)
@@ -237,9 +237,11 @@ extension MainViewController: MainDelegate{
     func presentArticleViewController(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25){
             CovidInfo.embed.articleViewController(parent: self, container: self.view)
+            self.view.bringSubviewToFront(self.navigationBar)
             self.view.bringSubviewToFront(self.certifficateButton)
             self.view.bringSubviewToFront(self.tabBar)
             articlesViewControllerHasBeenPresented = true
+            UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75){
@@ -251,6 +253,7 @@ extension MainViewController: MainDelegate{
     func dismissArticleViewController(){
         delegates.news.removeViewController()
         tabBarExtensionAnimation(visibility: .hide)
+        UserDefaults.standard.set(true, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
     }
     
     func scrollAnimation(size: CGFloat){
@@ -293,6 +296,7 @@ extension MainViewController: MainDelegate{
             tabBarHeightConstraint.constant = 70
             tabBarBottomConstraint.constant = 0
             delegates.customTabBar.increaseBottomConstraint(size: 30)
+            delegates.customTabBar.goToTopButtonVisibily(visibily: .show)
         case .hide:
             scrollViewScrollUp = false
             NSLayoutConstraint.deactivate([tabBarWidthConstraint])
@@ -300,6 +304,7 @@ extension MainViewController: MainDelegate{
             tabBarHeightConstraint.constant = 50
             tabBarBottomConstraint.constant = 30
             delegates.customTabBar.increaseBottomConstraint(size: 10)
+            delegates.customTabBar.goToTopButtonVisibily(visibily: .hide)
         }
         
         if resetsAnimation == true {
