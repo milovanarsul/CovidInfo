@@ -21,6 +21,7 @@ class Delegates{
     var customPresentation: CustomPresentationDelegate! = nil
     var enrollCertifficate: EnrollCertifficateDelegate! = nil
     var news: NewsDelegate! = nil
+    var customTabBar: CustomTabBarDelegate! = nil
     
     init(){}
 }
@@ -50,7 +51,8 @@ protocol MainDelegate{
     func updateCertifficateButton()
     func presentArticleViewController()
     func dismissArticleViewController()
-    func increaseContainerView(size: CGFloat)
+    func scrollAnimation(size: CGFloat)
+    func tabBarScrollAnimation(visibility: ViewVisibility, resetsAnimation: Bool)
 }
 
 protocol NavigationBarDelegate{
@@ -94,4 +96,8 @@ protocol EnrollCertifficateDelegate{
 
 protocol NewsDelegate{
     func removeViewController()
+}
+
+protocol CustomTabBarDelegate{
+    func increaseBottomConstraint(size: CGFloat)
 }

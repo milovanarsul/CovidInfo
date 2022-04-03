@@ -36,7 +36,7 @@ class CustomTabBar: UIView {
         let button = UIButton()
         button.initializeIcon(backgroundImage: UIImage(named: "Profile Picture"))
         button.addTarget(self, action: #selector(accountButtonPressed(_:)), for: .touchUpInside)
-
+        button.clipsToBounds = false
         return button
     }()
     
@@ -58,20 +58,24 @@ class CustomTabBar: UIView {
     var buttons: [UIButton]!
     var currentPageIndex: Int? = 0
     var buttonSliderLeadingConstraint = NSLayoutConstraint()
+    var tabBarBottomConstraint = NSLayoutConstraint()
+    var buttonSliderWidth = NSLayoutConstraint()
     
     func setup(){
+        delegates.customTabBar = self
         addSubviews(views: [buttonStackView, buttonSlider])
         
         let buttonStackViewConstraints = Constraints(childView: buttonStackView, parentView: self, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .leading, multiplier: 1, constant: 20),
-            Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
-            Constraint(constraintType: .top, multiplier: 1, constant: 0)
+            Constraint(constraintType: .height, multiplier: 1, constant: 30)
         ])
         buttonStackViewConstraints.addConstraints()
+        buttonSliderLeadingConstraint = NSLayoutConstraint(item: buttonSlider, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 25)
+        tabBarBottomConstraint = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: buttonStackView, attribute: .bottom, multiplier: 1, constant: 10)
         
-        buttonSliderLeadingConstraint = NSLayoutConstraint(item: buttonSlider, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 20)
-        NSLayoutConstraint.activate([buttonSliderLeadingConstraint, NSLayoutConstraint(item: buttonSlider, attribute: .width, relatedBy: .equal, toItem: homeButton, attribute: .width, multiplier: 1, constant: 0.673077), NSLayoutConstraint(item: buttonSlider, attribute: .top, relatedBy: .equal, toItem: homeButton, attribute: .bottom, multiplier: 1, constant: -5),NSLayoutConstraint(item: buttonSlider, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 2)])
+        buttonSliderWidth = NSLayoutConstraint(item: buttonSlider, attribute: .width, relatedBy: .equal, toItem: homeButton, attribute: .width, multiplier: 0.7, constant: 0)
+        NSLayoutConstraint.activate([buttonSliderLeadingConstraint, buttonSliderWidth, NSLayoutConstraint(item: buttonSlider, attribute: .top, relatedBy: .equal, toItem: homeButton, attribute: .bottom, multiplier: 1, constant: 5),NSLayoutConstraint(item: buttonSlider, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 2), tabBarBottomConstraint])
     }
     
     @objc func homeButtonPressed(_ sender: UIButton) {
@@ -93,6 +97,7 @@ class CustomTabBar: UIView {
     
     func buttonSetup(button: MainPages){
         articlesViewControllerHasBeenPresented ? delegates.main.dismissArticleViewController() : ()
+        delegates.main.tabBarScrollAnimation(visibility: .hide, resetsAnimation: true)
         tabBarButtonSetup(tabBarButton: button)
         tabBarPageSliderDirection(tabBarButton: button)
         delegates.navigationBar.setup(page: Page(mainPage: button, childType: .none))
@@ -126,13 +131,13 @@ class CustomTabBar: UIView {
     func buttonSliderAnimation(tabBarButton: MainPages){
         switch tabBarButton {
         case .home:
-            buttonSliderLeadingConstraint.constant = 20
+            buttonSliderLeadingConstraint.constant = 25
         case .news:
-            buttonSliderLeadingConstraint.constant = 106
+            buttonSliderLeadingConstraint.constant = 109
         case .statistics:
-            buttonSliderLeadingConstraint.constant = 187
+            buttonSliderLeadingConstraint.constant = 192
         case .documents:
-            buttonSliderLeadingConstraint.constant = 273
+            buttonSliderLeadingConstraint.constant = 278
         default:
             ()
         }
@@ -166,6 +171,18 @@ class CustomTabBar: UIView {
             return 3
         default:
             return -1
+        }
+    }
+}
+
+extension CustomTabBar: CustomTabBarDelegate{
+    func increaseBottomConstraint(size: CGFloat) {
+        tabBarBottomConstraint.constant = size
+        
+        if size == 30 {
+            buttonSliderLeadingConstraint.constant = 125
+        } else {
+            buttonSliderLeadingConstraint.constant = 109
         }
     }
 }

@@ -1,16 +1,24 @@
 PODS:
+  - BetterSegmentedControl (2.0.1)
   - lottie-ios (3.2.3)
+  - SwiftSoup (2.3.8)
 
 DEPENDENCIES:
+  - BetterSegmentedControl (~> 2.0)
   - lottie-ios
+  - SwiftSoup
 
 SPEC REPOS:
   trunk:
+    - BetterSegmentedControl
     - lottie-ios
+    - SwiftSoup
 
 SPEC CHECKSUMS:
+  BetterSegmentedControl: 09607b27861d49cbce48b7673b74f9150a3d371a
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
+  SwiftSoup: ba8ea2c91151881a298cba4b0628ef31e835a77f
 
-PODFILE CHECKSUM: 6ac89ef592d6028a992fe3542e6330ff200842d1
+PODFILE CHECKSUM: 6fc6b334a5d7f6a0b1efbe1e30532ba5baaccca7
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

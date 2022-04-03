@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class NewsViewController: UIViewController{
-    lazy var cardsTableView: UITableView = {
+    lazy var trustedSourcesCardsTableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
@@ -18,29 +18,35 @@ class NewsViewController: UIViewController{
         tableView.registerCell(GenericTableViewCell<CardView>.self)
         tableView.registerCell(GenericTableViewCell<TrustedSources>.self)
         tableView.cornerRadius = 24
-        tableView.backgroundColor = .clear
+        tableView.backgroundColor = .white
         return tableView
     }()
     
     let transitionManager = CardTransitionManager()
-    let cardsViewData: [Article] = CardsData.shared.cards
+    let trustedSourcesCardsViewData: [Article] = CardsData.shared.cards
+    var trustedSourcesCardsTableViewTopConstraint = NSLayoutConstraint()
     
     override func viewDidLoad() {
         delegates.news = self
         view.backgroundColor = .clear
-        self.view.addSubview(cardsTableView)
+        self.view.addSubview(trustedSourcesCardsTableView)
+        trustedSourcesCardsTableViewTopConstraint = trustedSourcesCardsTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100)
         NSLayoutConstraint.activate([
-            cardsTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 108),
-            cardsTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            cardsTableView.widthAnchor.constraint(equalToConstant: view.frame.size.width),
-            cardsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            trustedSourcesCardsTableViewTopConstraint,
+            trustedSourcesCardsTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            trustedSourcesCardsTableView.widthAnchor.constraint(equalToConstant: view.frame.size.width),
+            trustedSourcesCardsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cardsViewData.count + 1
+        return trustedSourcesCardsViewData.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,7 +71,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
             return cardCell
         default:
             let cardCell = tableView.dequeueReusableCell(forIndexPath: indexPath) as GenericTableViewCell<CardView>
-            let cardViewModel = cardsViewData[indexPath.row - 1]
+            let cardViewModel = trustedSourcesCardsViewData[indexPath.row - 1]
             guard let cellView = cardCell.cellView else {
                 let cardView = CardView(article: cardViewModel)
                 cardCell.cellView = cardView
@@ -90,7 +96,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cardViewModel = cardsViewData[indexPath.row]
+        let cardViewModel = trustedSourcesCardsViewData[indexPath.row]
         let detailView = FullScreenCardView(article: cardViewModel)
         detailView.modalPresentationStyle = .overCurrentContext
         detailView.transitioningDelegate = transitionManager
@@ -99,16 +105,19 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func selectedCellCardView() -> CardView? {
-        guard let indexPath = cardsTableView.indexPathForSelectedRow else { return nil }
-        let cell = cardsTableView.cellForRow(at: indexPath) as! GenericTableViewCell<CardView>
+        guard let indexPath = trustedSourcesCardsTableView.indexPathForSelectedRow else { return nil }
+        let cell = trustedSourcesCardsTableView.cellForRow(at: indexPath) as! GenericTableViewCell<CardView>
         guard let cardView = cell.cellView else { return nil }
 
         return cardView
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //let heightConstraint = 797.5 + scrollView.contentOffset.y/1000
-        //delegates.main.increaseContainerView(size: heightConstraint)
+        let scrollLenghtForContentView = scrollView.contentOffset.y/5
+        delegates.main.scrollAnimation(size: scrollView.contentOffset.y)
+        if 30 - scrollLenghtForContentView > -70 {
+            trustedSourcesCardsTableViewTopConstraint.constant = 100 - scrollLenghtForContentView
+        }
     }
 }
 

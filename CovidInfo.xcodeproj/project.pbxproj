@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		67F7BE5CD5454C3CBF81828E /* Pods_CovidInfo_CovidInfoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F04C8285BE7B316841493C3 /* Pods_CovidInfo_CovidInfoUITests.framework */; };
-		7343CDF72127C92F38A5463A /* Pods_CovidInfoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927C608C5635441DBEB08338 /* Pods_CovidInfoTests.framework */; };
+		42EDC11CCE7864A14D314479 /* libPods-CovidInfoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D193FA1DD60D2868D8A1F194 /* libPods-CovidInfoTests.a */; };
+		8C3127B2AFC78370A5578084 /* libPods-CovidInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85B96E91060584C3BD08BA11 /* libPods-CovidInfo.a */; };
 		B201DD3327B8E89600C34C41 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B201DD3227B8E89600C34C41 /* OnboardingPageViewController.swift */; };
 		B205B3E727B50361008E5874 /* PageViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B205B3E627B50361008E5874 /* PageViewControllerDataSource.swift */; };
 		B205B3E927B50723008E5874 /* UICollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B205B3E827B50723008E5874 /* UICollectionViewController.swift */; };
@@ -19,6 +19,9 @@
 		B217D44F27B93DC500DBDED9 /* Triaj.swift in Sources */ = {isa = PBXBuildFile; fileRef = B217D44D27B93DC500DBDED9 /* Triaj.swift */; };
 		B217D45527B940F600DBDED9 /* TriajSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B217D45427B940F600DBDED9 /* TriajSubviews.swift */; };
 		B217D45727B9454500DBDED9 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B217D45627B9454500DBDED9 /* UIStackView.swift */; };
+		B218CDC027F848D00080CD55 /* Triaj.xib in Resources */ = {isa = PBXBuildFile; fileRef = B218CDBF27F848D00080CD55 /* Triaj.xib */; };
+		B218CDC227F849580080CD55 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218CDC127F849570080CD55 /* TestViewController.swift */; };
+		B21B3F1927F851B0004171C6 /* TestViewTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21B3F1827F851B0004171C6 /* TestViewTest.xib */; };
 		B21C965427B2BD5400C88A50 /* SimptomeAndPreventieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C965227B2BD5400C88A50 /* SimptomeAndPreventieViewController.swift */; };
 		B21C965527B2BD5400C88A50 /* SimptomeAndPreventieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21C965327B2BD5400C88A50 /* SimptomeAndPreventieViewController.xib */; };
 		B21C965727B2CADA00C88A50 /* SimptomeAndPreventieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C965627B2CADA00C88A50 /* SimptomeAndPreventieData.swift */; };
@@ -38,7 +41,7 @@
 		B256059C27B2AFB500FB039F /* CollectionViewLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256059B27B2AFB500FB039F /* CollectionViewLayouts.swift */; };
 		B259BF8527B6DFA5001F78A6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259BF8427B6DFA5001F78A6 /* LaunchViewController.swift */; };
 		B25AD33927A30B50009EAD38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33827A30B50009EAD38 /* UIView.swift */; };
-		B25EAE5127F7678700860B2F /* Triaj.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25EAE5027F7678700860B2F /* Triaj.xib */; };
+		B25EAE5427F76DD400860B2F /* TabBarExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25EAE5327F76DD400860B2F /* TabBarExtenstion.swift */; };
 		B266A0EF27EF12BF003806E7 /* CardsData.json in Resources */ = {isa = PBXBuildFile; fileRef = B266A0ED27EF12BF003806E7 /* CardsData.json */; };
 		B266A0F027EF12BF003806E7 /* CardsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A0EE27EF12BF003806E7 /* CardsData.swift */; };
 		B266A11527EF12D0003806E7 /* CardTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A0F527EF12D0003806E7 /* CardTransitionManager.swift */; };
@@ -79,7 +82,6 @@
 		B2CCB59227DB9D160076A52A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCB59027DB9D160076A52A /* HomeViewController.swift */; };
 		B2D0724327CB81A600FA4BC6 /* AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0724227CB81A600FA4BC6 /* AppDefaults.swift */; };
 		B2D0724727CB85A500FA4BC6 /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0724627CB85A500FA4BC6 /* FontsManager.swift */; };
-		B2D0724927CB8A6E00FA4BC6 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D0724827CB8A6E00FA4BC6 /* TestView.xib */; };
 		B2DABD1427EB27DD00ECA4EB /* TrustedSourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DABD1327EB27DD00ECA4EB /* TrustedSourcesView.swift */; };
 		B2DABD1627EB2A2500ECA4EB /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DABD1527EB2A2500ECA4EB /* NewsData.swift */; };
 		B2DABD1827EB6D7700ECA4EB /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DABD1727EB6D7700ECA4EB /* UIImage.swift */; };
@@ -119,7 +121,7 @@
 		B2F65157278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */; };
 		B2F65158278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */; };
 		B2F65159278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */; };
-		FF957FAACC9259D5D2F19CFA /* Pods_CovidInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0700E74D956AF0D7DAF2DFDE /* Pods_CovidInfo.framework */; };
+		FA29F8BC4DD214A78E56F840 /* libPods-CovidInfo-CovidInfoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D85D7774D380164D182FE /* libPods-CovidInfo-CovidInfoUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,13 +142,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0700E74D956AF0D7DAF2DFDE /* Pods_CovidInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F04C8285BE7B316841493C3 /* Pods_CovidInfo_CovidInfoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidInfo_CovidInfoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F6C5A0490F046E87DD09B5 /* Pods-CovidInfo-CovidInfoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfo-CovidInfoUITests.debug.xcconfig"; path = "Target Support Files/Pods-CovidInfo-CovidInfoUITests/Pods-CovidInfo-CovidInfoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3935D5315BEA97635D6E08EE /* Pods-CovidInfo-CovidInfoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfo-CovidInfoUITests.release.xcconfig"; path = "Target Support Files/Pods-CovidInfo-CovidInfoUITests/Pods-CovidInfo-CovidInfoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5ED1ACAC0B5BCABB0912F760 /* Pods-CovidInfo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfo.debug.xcconfig"; path = "Target Support Files/Pods-CovidInfo/Pods-CovidInfo.debug.xcconfig"; sourceTree = "<group>"; };
 		6093B6C73F5FDA01AB286717 /* Pods-CovidInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfo.release.xcconfig"; path = "Target Support Files/Pods-CovidInfo/Pods-CovidInfo.release.xcconfig"; sourceTree = "<group>"; };
-		927C608C5635441DBEB08338 /* Pods_CovidInfoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidInfoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85B96E91060584C3BD08BA11 /* libPods-CovidInfo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CovidInfo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B201DD3227B8E89600C34C41 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		B205B3E627B50361008E5874 /* PageViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewControllerDataSource.swift; sourceTree = "<group>"; };
 		B205B3E827B50723008E5874 /* UICollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +157,9 @@
 		B217D44D27B93DC500DBDED9 /* Triaj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triaj.swift; sourceTree = "<group>"; };
 		B217D45427B940F600DBDED9 /* TriajSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriajSubviews.swift; sourceTree = "<group>"; };
 		B217D45627B9454500DBDED9 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		B218CDBF27F848D00080CD55 /* Triaj.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Triaj.xib; sourceTree = "<group>"; };
+		B218CDC127F849570080CD55 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		B21B3F1827F851B0004171C6 /* TestViewTest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewTest.xib; sourceTree = "<group>"; };
 		B21C965227B2BD5400C88A50 /* SimptomeAndPreventieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventieViewController.swift; sourceTree = "<group>"; };
 		B21C965327B2BD5400C88A50 /* SimptomeAndPreventieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimptomeAndPreventieViewController.xib; sourceTree = "<group>"; };
 		B21C965627B2CADA00C88A50 /* SimptomeAndPreventieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventieData.swift; sourceTree = "<group>"; };
@@ -176,7 +179,7 @@
 		B256059B27B2AFB500FB039F /* CollectionViewLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayouts.swift; sourceTree = "<group>"; };
 		B259BF8427B6DFA5001F78A6 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		B25AD33827A30B50009EAD38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		B25EAE5027F7678700860B2F /* Triaj.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Triaj.xib; path = ../../../../../../.Trash/Triaj.xib; sourceTree = "<group>"; };
+		B25EAE5327F76DD400860B2F /* TabBarExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarExtenstion.swift; sourceTree = "<group>"; };
 		B266A0ED27EF12BF003806E7 /* CardsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CardsData.json; sourceTree = "<group>"; };
 		B266A0EE27EF12BF003806E7 /* CardsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsData.swift; sourceTree = "<group>"; };
 		B266A0F527EF12D0003806E7 /* CardTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTransitionManager.swift; sourceTree = "<group>"; };
@@ -217,7 +220,6 @@
 		B2CCB59027DB9D160076A52A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B2D0724227CB81A600FA4BC6 /* AppDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDefaults.swift; sourceTree = "<group>"; };
 		B2D0724627CB85A500FA4BC6 /* FontsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsManager.swift; sourceTree = "<group>"; };
-		B2D0724827CB8A6E00FA4BC6 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
 		B2DABD1327EB27DD00ECA4EB /* TrustedSourcesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedSourcesView.swift; sourceTree = "<group>"; };
 		B2DABD1527EB2A2500ECA4EB /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
 		B2DABD1727EB6D7700ECA4EB /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -249,6 +251,8 @@
 		B2F6512E278F32AF00E1BB58 /* IBMPlexSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-ExtraLight.ttf"; sourceTree = "<group>"; };
 		B2F65132278F32B000E1BB58 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
 		B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
+		BF8D85D7774D380164D182FE /* libPods-CovidInfo-CovidInfoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CovidInfo-CovidInfoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D193FA1DD60D2868D8A1F194 /* libPods-CovidInfoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CovidInfoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA375FD2761274C1B5136B25 /* Pods-CovidInfoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfoTests.debug.xcconfig"; path = "Target Support Files/Pods-CovidInfoTests/Pods-CovidInfoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F28191B4629CF06BA34CECF8 /* Pods-CovidInfoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfoTests.release.xcconfig"; path = "Target Support Files/Pods-CovidInfoTests/Pods-CovidInfoTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -258,7 +262,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF957FAACC9259D5D2F19CFA /* Pods_CovidInfo.framework in Frameworks */,
+				8C3127B2AFC78370A5578084 /* libPods-CovidInfo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +270,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7343CDF72127C92F38A5463A /* Pods_CovidInfoTests.framework in Frameworks */,
+				42EDC11CCE7864A14D314479 /* libPods-CovidInfoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +278,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67F7BE5CD5454C3CBF81828E /* Pods_CovidInfo_CovidInfoUITests.framework in Frameworks */,
+				FA29F8BC4DD214A78E56F840 /* libPods-CovidInfo-CovidInfoUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,9 +301,9 @@
 		A3784BFB1DD50000EE142962 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0700E74D956AF0D7DAF2DFDE /* Pods_CovidInfo.framework */,
-				0F04C8285BE7B316841493C3 /* Pods_CovidInfo_CovidInfoUITests.framework */,
-				927C608C5635441DBEB08338 /* Pods_CovidInfoTests.framework */,
+				85B96E91060584C3BD08BA11 /* libPods-CovidInfo.a */,
+				BF8D85D7774D380164D182FE /* libPods-CovidInfo-CovidInfoUITests.a */,
+				D193FA1DD60D2868D8A1F194 /* libPods-CovidInfoTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -427,7 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				B217D44D27B93DC500DBDED9 /* Triaj.swift */,
-				B25EAE5027F7678700860B2F /* Triaj.xib */,
+				B218CDBF27F848D00080CD55 /* Triaj.xib */,
 				B217D45427B940F600DBDED9 /* TriajSubviews.swift */,
 				B2976FD527B94F6C006E4859 /* TriajActions.swift */,
 				B2976FD327B94F53006E4859 /* TriajActions.xib */,
@@ -582,6 +586,7 @@
 			children = (
 				B2A389F327A442820005F9FD /* CustomNavigationBar.swift */,
 				B2BB039A27A9466700D4801B /* CustomTabBar.swift */,
+				B25EAE5327F76DD400860B2F /* TabBarExtenstion.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -650,7 +655,8 @@
 				B2E1938527BC240600D0F057 /* View Shortcuts */,
 				B2F65100278F2BDB00E1BB58 /* LaunchScreen.storyboard */,
 				B2F65103278F2BDB00E1BB58 /* Info.plist */,
-				B2D0724827CB8A6E00FA4BC6 /* TestView.xib */,
+				B218CDC127F849570080CD55 /* TestViewController.swift */,
+				B21B3F1827F851B0004171C6 /* TestViewTest.xib */,
 			);
 			path = CovidInfo;
 			sourceTree = "<group>";
@@ -697,7 +703,6 @@
 				B2F650EB278F2BD900E1BB58 /* Sources */,
 				B2F650EC278F2BD900E1BB58 /* Frameworks */,
 				B2F650ED278F2BD900E1BB58 /* Resources */,
-				B5054AD3A165EB5B33C52550 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -735,7 +740,6 @@
 				B2F6510E278F2BDB00E1BB58 /* Sources */,
 				B2F6510F278F2BDB00E1BB58 /* Frameworks */,
 				B2F65110278F2BDB00E1BB58 /* Resources */,
-				2499194603511993539E9A31 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -807,10 +811,11 @@
 				B2B5A9B62790939500FC4E61 /* onboarding5.json in Resources */,
 				B2B5A9B02790939500FC4E61 /* onboarding2.json in Resources */,
 				B2F65154278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */,
-				B25EAE5127F7678700860B2F /* Triaj.xib in Resources */,
+				B218CDC027F848D00080CD55 /* Triaj.xib in Resources */,
 				B23DE46027B3D01700FD2E10 /* preventie3.json in Resources */,
 				B2B5A9B32790939500FC4E61 /* onboarding3.json in Resources */,
 				B2F650FF278F2BDB00E1BB58 /* Assets.xcassets in Resources */,
+				B21B3F1927F851B0004171C6 /* TestViewTest.xib in Resources */,
 				B266A0EF27EF12BF003806E7 /* CardsData.json in Resources */,
 				B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */,
 				B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */,
@@ -822,7 +827,6 @@
 				B2F65142278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */,
 				B2976FD427B94F53006E4859 /* TriajActions.xib in Resources */,
 				B20623FB27DA555400CD985E /* EnrollCertifficateViewController.xib in Resources */,
-				B2D0724927CB8A6E00FA4BC6 /* TestView.xib in Resources */,
 				B2B5A9B52790939500FC4E61 /* onboarding4.json in Resources */,
 				B23DE46927B3D02400FD2E10 /* simptome1.json in Resources */,
 			);
@@ -901,40 +905,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2499194603511993539E9A31 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CovidInfo-CovidInfoUITests/Pods-CovidInfo-CovidInfoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CovidInfo-CovidInfoUITests/Pods-CovidInfo-CovidInfoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CovidInfo-CovidInfoUITests/Pods-CovidInfo-CovidInfoUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B5054AD3A165EB5B33C52550 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CovidInfo/Pods-CovidInfo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CovidInfo/Pods-CovidInfo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CovidInfo/Pods-CovidInfo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D51E3D8DFD422116B142C568 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -980,6 +950,7 @@
 				B2B079DF27AD3BD900A39107 /* XIB.swift in Sources */,
 				B266A0F027EF12BF003806E7 /* CardsData.swift in Sources */,
 				B2976FD627B94F6C006E4859 /* TriajActions.swift in Sources */,
+				B218CDC227F849580080CD55 /* TestViewController.swift in Sources */,
 				B2C59C2127A869340094A984 /* MainPageViewController.swift in Sources */,
 				B23DE45A27B3BC4700FD2E10 /* Constraints.swift in Sources */,
 				B2F650F5278F2BD900E1BB58 /* SceneDelegate.swift in Sources */,
@@ -1004,6 +975,7 @@
 				B2B45D1A27B2F34B00788918 /* SimptomeAndPreventieCollectionViewCell.swift in Sources */,
 				B205B3E927B50723008E5874 /* UICollectionViewController.swift in Sources */,
 				B2DABD1A27EB790F00ECA4EB /* Safari.swift in Sources */,
+				B25EAE5427F76DD400860B2F /* TabBarExtenstion.swift in Sources */,
 				B2C2E90D27DA4D3E00A79D93 /* EnrollCertifficateViewController.swift in Sources */,
 				B267D10F27F642B60069F2CE /* AccountViewController.swift in Sources */,
 				B266A11527EF12D0003806E7 /* CardTransitionManager.swift in Sources */,
@@ -1127,7 +1099,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1182,7 +1154,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
