@@ -49,21 +49,22 @@ protocol MainDelegate{
     func enrollCertifficate()
     func dimissModal(completion: @escaping (() -> Void))
     func updateCertifficateButton()
-    func presentArticleViewController()
-    func dismissArticleViewController()
     func scrollAnimation(size: CGFloat)
     func tabBarScrollAnimation(visibility: ViewVisibility, resetsAnimation: Bool)
     func tabAnimation(visibility: ViewVisibility)
+    func tabBarExtension(visibility: ViewVisibility)
 }
 
 protocol NavigationBarDelegate{
     func setup(page: Page)
     func buttonSlider(sliderType: currentPageButtonSlider)
     func certifficateButtonAnimation(visibility: ViewVisibility)
+    func changeContainerViewBottomConstraint(visibility: Bool)
 }
 
 protocol TabBarDelegate{
     func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection)
+    func getCurrentPresentedViewController() -> UIViewController
 }
 
 protocol HomePageDelegate{
@@ -96,7 +97,6 @@ protocol EnrollCertifficateDelegate{
 }
 
 protocol NewsDelegate{
-    func removeViewController()
     func scrollToTop()
 }
 

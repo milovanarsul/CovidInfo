@@ -32,24 +32,40 @@ class CustomNavigationBar: UIView {
         return button
     }()
     
+    lazy var containerView: UIView = {
+        let view = UIView()
+        view.addSubviews(views: [childPageButton, parentPageButton, certifficateButton])
+        view.backgroundColor = .white
+        return view
+    }()
+    
     var parentPageButtonLeadingConstraint = NSLayoutConstraint()
     var childPageButtonLeadingConstraint = NSLayoutConstraint()
     var certifficateButtonTrailingConstraint = NSLayoutConstraint()
+    var containerViewBottomConstraint = NSLayoutConstraint()
     
     func setup(){
-        addSubviews(views: [childPageButton, parentPageButton, certifficateButton])
+        addSubview(containerView)
+                
+        let containerViewConstraints = Constraints(childView: containerView, parentView: self, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .height, multiplier: 1, constant: 60),
+            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
+        ])
+        containerViewConstraints.addConstraints()
         
-        parentPageButtonLeadingConstraint = Constraint(childView: parentPageButton, parentView: self, constraintType: .leading, multiplier: 1, constant: 0).setConstraint()
-        childPageButtonLeadingConstraint = Constraint(childView: childPageButton, parentView: self, constraintType:.leading, multiplier: 1, constant: -300).setConstraint()
-        NSLayoutConstraint.activate([childPageButtonLeadingConstraint, Constraint(childView: childPageButton, parentView: self, constraintType: .vertical, multiplier: 1, constant: 0).setConstraint(), parentPageButtonLeadingConstraint, Constraint(childView: parentPageButton, parentView: self, constraintType: .vertical, multiplier: 1, constant: 0).setConstraint()])
+        parentPageButtonLeadingConstraint = Constraint(childView: parentPageButton, parentView: containerView, constraintType: .leading, multiplier: 1, constant: 0).setConstraint()
+        childPageButtonLeadingConstraint = Constraint(childView: childPageButton, parentView: containerView, constraintType:.leading, multiplier: 1, constant: -300).setConstraint()
+        NSLayoutConstraint.activate([childPageButtonLeadingConstraint, Constraint(childView: childPageButton, parentView: containerView, constraintType: .vertical, multiplier: 1, constant: 0).setConstraint(), parentPageButtonLeadingConstraint, Constraint(childView: parentPageButton, parentView: containerView, constraintType: .vertical, multiplier: 1, constant: 0).setConstraint()])
         
-        let certifficateButtonConstraints = Constraints(childView: certifficateButton, parentView: self, constraints: [
+        let certifficateButtonConstraints = Constraints(childView: certifficateButton, parentView: containerView, constraints: [
             Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
             Constraint(constraintType: .width, multiplier: 1, constant: 40),
             Constraint(constraintType: .height, multiplier: 1, constant: 40),
         ])
         certifficateButtonConstraints.addConstraints()
-        certifficateButtonTrailingConstraint = Constraint(childView: certifficateButton, parentView: self, constraintType: .trailing, multiplier: 1, constant: 70).setConstraint()
+        certifficateButtonTrailingConstraint = Constraint(childView: certifficateButton, parentView: containerView, constraintType: .trailing, multiplier: 1, constant: 70).setConstraint()
         NSLayoutConstraint.activate([certifficateButtonTrailingConstraint])
     }
     
@@ -185,5 +201,9 @@ extension CustomNavigationBar: NavigationBarDelegate{
                 self.certifficateButton.isHidden = true
             }
         })
+    }
+    
+    func changeContainerViewBottomConstraint(visibility: Bool){
+        containerView.isHidden = visibility
     }
 }

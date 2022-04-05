@@ -74,10 +74,10 @@ class MainViewController: UIViewController {
         let navigationBarConstraints = Constraints(childView: navigationBar, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
-            Constraint(constraintType: .height, multiplier: 1, constant: 70),
+            Constraint(constraintType: .height, multiplier: 1, constant: 90),
         ])
         navigationBarConstraints.addConstraints()
-        navigationBarTopConstraint = NSLayoutConstraint(item: navigationBar, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 30)
+        navigationBarTopConstraint = NSLayoutConstraint(item: navigationBar, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
         NSLayoutConstraint.activate([navigationBarTopConstraint])
         
         let contentViewConstraints = Constraints(childView: contentView, parentView: view, constraints: [
@@ -86,7 +86,7 @@ class MainViewController: UIViewController {
             Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
         ])
         contentViewConstraints.addConstraints()
-        NSLayoutConstraint.activate([NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal, toItem: navigationBar, attribute: .bottom, multiplier: 1, constant: -10)])
+        NSLayoutConstraint.activate([NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal, toItem: navigationBar, attribute: .bottom, multiplier: 1, constant: 5)])
         
         
         let tabBarConstraints = Constraints(childView: tabBar, parentView: view, constraints: [
@@ -142,6 +142,15 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: MainDelegate{
+    func tabBarExtension(visibility: ViewVisibility){
+        tabBarExtensionSetup()
+        tabBarExtensionAnimation(visibility: visibility)
+        
+        if visibility == .hide {
+            tabBarExtension.removeFromSuperview()
+        }
+    }
+    
     func certifficateButtonAnimation(visibility: ViewVisibility){
         switch visibility {
         case .show:
@@ -215,28 +224,6 @@ extension MainViewController: MainDelegate{
         self.certifficateButton.initialize(title: defaults.bool(forKey: "certifficateEnrolled") ? "Certificatul tau" : "Inroleaza certificat", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: defaults.bool(forKey: "certifficateEnrolled") ? signatureDarkBlue : .red, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "qrcode.viewfinder"))
     }
     
-    func presentArticleViewController(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25){
-            CovidInfo.embed.articleViewController(parent: self, container: self.view)
-            self.view.bringSubviewToFront(self.navigationBar)
-            self.view.bringSubviewToFront(self.certifficateButton)
-            self.view.bringSubviewToFront(self.tabBar)
-            articlesViewControllerHasBeenPresented = true
-            UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75){
-            self.tabBarExtensionSetup()
-            self.tabBarExtensionAnimation(visibility: .show)
-        }
-    }
-    
-    func dismissArticleViewController(){
-        delegates.news.removeViewController()
-        tabBarExtensionAnimation(visibility: .hide)
-        UserDefaults.standard.set(true, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
-    }
-    
     func scrollAnimation(size: CGFloat){
         let scrollLengthForTabBarExtension = size/10
         
@@ -256,17 +243,30 @@ extension MainViewController: MainDelegate{
             tabBarExtension.isHidden = false
         }
         
-        let scrollLengthForContentView = 30 - size/5
-        
-        if scrollLengthForContentView > -70 {
-            navigationBarTopConstraint.constant = scrollLengthForContentView
-        }
-        
         if scrollLengthForTabBarExtension > 47{
             tabBarScrollAnimation(visibility: .show, resetsAnimation: false)
+            navigationBarScrollAnimation(visibility: .hide)
         } else if scrollViewScrollUp == true && scrollLengthForTabBarExtension < 46 {
             tabBarScrollAnimation(visibility: .hide, resetsAnimation: false)
+            navigationBarScrollAnimation(visibility: .show)
         }
+    }
+    
+    func navigationBarScrollAnimation(visibility: ViewVisibility){
+        switch visibility {
+        case .show:
+            delegates.navigationBar.changeContainerViewBottomConstraint(visibility: false)
+            navigationBarTopConstraint.constant = 0
+        case .hide:
+            delegates.navigationBar.changeContainerViewBottomConstraint(visibility: true)
+            navigationBarTopConstraint.constant = -50
+        }
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.navigationBar.layoutIfNeeded()
+            self.view.layoutIfNeeded()
+        })
+        
     }
     
     func tabBarScrollAnimation(visibility: ViewVisibility, resetsAnimation: Bool){
@@ -291,6 +291,8 @@ extension MainViewController: MainDelegate{
         if resetsAnimation == true {
             navigationBarTopConstraint.constant = 30
             certifficateButton.isHidden = false
+            navigationBarTopConstraint.constant = 0
+            delegates.navigationBar.changeContainerViewBottomConstraint(visibility: false)
         }
         
         UIView.animate(withDuration: 0.5, delay: 0, animations: {

@@ -80,8 +80,9 @@ extension CardTransitionManager: UIViewControllerAnimatedTransitioning {
         
         addBackgroundViews(to: containerView)
         
-        let fromView = transitionOrigin ? transitionContext.viewController(forKey: .from)?.children.last : transitionContext.viewController(forKey: .from)
-        let toView = transitionDeorigin ? transitionContext.viewController(forKey: .to)?.children.last : transitionContext.viewController(forKey: .to)
+        let fromView = transitionDeorigin ? transitionContext.viewController(forKey: .from) : delegates.tabBar.getCurrentPresentedViewController()
+        
+        let toView = transitionDeorigin ? delegates.tabBar.getCurrentPresentedViewController() : transitionContext.viewController(forKey: .to)
         
         guard let cardView = (transition == .presentation) ? (fromView as! NewsViewController).selectedCellCardView() : (toView as! NewsViewController).selectedCellCardView() else {return}
         

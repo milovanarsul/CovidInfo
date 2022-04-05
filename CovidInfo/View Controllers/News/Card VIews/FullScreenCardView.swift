@@ -9,7 +9,6 @@ import UIKit
 
 class FullScreenCardView: UIViewController, UIScrollViewDelegate {
     
-    // MARK: Views
     lazy var snapshotView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -38,6 +37,12 @@ class FullScreenCardView: UIViewController, UIScrollViewDelegate {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(close), for: .touchUpInside)
         return button
+    }()
+    
+    lazy var infoView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        return view
     }()
     
     lazy var textLabel: UILabel = {
@@ -90,6 +95,8 @@ class FullScreenCardView: UIViewController, UIScrollViewDelegate {
 extension FullScreenCardView {
     
     func configureView() {
+        print(article.author)
+        print(article.date)
         configureScrollView()
         configureCardView()
     }
@@ -129,6 +136,28 @@ extension FullScreenCardView {
             closeButton.setImage(UIImage(named: "lightOnDark")!, for: UIControl.State.normal)
         }
         
+        
+        let datelabel = UILabel()
+        datelabel.initialize(text: "Publicat in data de: " + article.date, color: .black, font: UIFont.systemFont(ofSize: 18, weight: .medium), alignment: .left, lines: 0)
+        
+        let authorLabel = UILabel()
+        authorLabel.initialize(text: "Autor: " + article.author, color: .black, font: UIFont.systemFont(ofSize: 18, weight: .medium), alignment: .left, lines: 0)
+        
+        let infoStackView = UIStackView()
+        infoStackView.initalize(axis: .vertical, alignment: .fill, distribution: .fill, spacing: 10)
+        infoStackView.addSubviews(views: [datelabel, authorLabel])
+        
+        view.addSubview(infoStackView)
+        let infoViewConstraints = Constraints(childView: infoStackView, parentView: view, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 0.9, constant: 0),
+            Constraint(constraintType: .height, multiplier: 1, constant: 60)
+        ])
+        infoViewConstraints.addConstraints()
+        NSLayoutConstraint.activate([
+            infoStackView.topAnchor.constraint(equalTo: cardView!.bottomAnchor, constant: 20)
+        ])
+        
         let text = article.description
         let firstAttributes: [NSAttributedString.Key: Any] = [
             .font : UIFont.systemFont(ofSize: 20, weight: .medium),
@@ -136,7 +165,6 @@ extension FullScreenCardView {
         ]
         let firstAttributedString = NSMutableAttributedString(string: text, attributes: firstAttributes)
 
-        
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 1.2
         
@@ -152,10 +180,9 @@ extension FullScreenCardView {
         NSLayoutConstraint.activate([
             textLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             textLabel.widthAnchor.constraint(equalToConstant: view.frame.size.width - 40),
-            textLabel.topAnchor.constraint(equalTo: cardView!.bottomAnchor, constant: 20.0),
+            textLabel.topAnchor.constraint(equalTo: infoStackView.bottomAnchor, constant: 20.0),
             textLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 20.0)
         ])
-        
     }
     
     @objc func close() {

@@ -8,8 +8,15 @@
 import Foundation
 import UIKit
 
-class NewsViewController: UIViewController{
-    lazy var trustedSourcesCardsTableView: UITableView = {
+class NewsViewController: UIViewController {
+    
+    lazy var trustedSourcesView: UIView = {
+        let view = TrustedSources()
+        view.setup()
+        return view
+    }()
+    
+    lazy var newsCardsTableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
@@ -24,75 +31,74 @@ class NewsViewController: UIViewController{
     
     let transitionManager = CardTransitionManager()
     let trustedSourcesCardsViewData: [Article] = articleData
-    var trustedSourcesCardsTableViewTopConstraint = NSLayoutConstraint()
     
     override func viewDidLoad() {
         delegates.news = self
+        setup()
+    }
+    
+    var trustedSourcesTopConstraint = NSLayoutConstraint()
+    
+    func setup(){
         view.backgroundColor = .clear
-        self.view.addSubview(trustedSourcesCardsTableView)
-        trustedSourcesCardsTableViewTopConstraint = trustedSourcesCardsTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100)
+        view.addSubview(newsCardsTableView)
+        
+        view.addSubviews(views: [trustedSourcesView, newsCardsTableView])
+        
+        let trustedSourcesConstraints = Constraints(childView: trustedSourcesView, parentView: view, constraints: [
+            Constraint(constraintType: .leading, multiplier: 1, constant: 0),
+            Constraint(constraintType: .trailing, multiplier: 1, constant: 0),
+            Constraint(constraintType: .height, multiplier: 1, constant: 120)
+        ])
+        trustedSourcesConstraints.addConstraints()
+        trustedSourcesTopConstraint = NSLayoutConstraint(item: trustedSourcesView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
+        NSLayoutConstraint.activate([trustedSourcesTopConstraint])
+        
         NSLayoutConstraint.activate([
-            trustedSourcesCardsTableViewTopConstraint,
-            trustedSourcesCardsTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            trustedSourcesCardsTableView.widthAnchor.constraint(equalToConstant: view.frame.size.width),
-            trustedSourcesCardsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            newsCardsTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            newsCardsTableView.widthAnchor.constraint(equalToConstant: view.frame.size.width),
+            newsCardsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            newsCardsTableView.topAnchor.constraint(equalTo: trustedSourcesView.bottomAnchor, constant: -10)
         ])
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
+    override func viewDidAppear(_ animated: Bool) {
+        delegates.main.tabBarExtension(visibility: .show)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        delegates.main.tabBarExtension(visibility: .hide)
     }
 }
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trustedSourcesCardsViewData.count + 1
+        return trustedSourcesCardsViewData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row{
-        case 0:
-            let cardCell = tableView.dequeueReusableCell(forIndexPath: indexPath) as GenericTableViewCell<TrustedSources>
-            guard cardCell.cellView != nil else {
-                let trustedSource = TrustedSources()
-                trustedSource.setup()
-                cardCell.addSubview(trustedSource)
-                defaultAnchors(childView: trustedSource, parentView: cardCell)
-                return cardCell
-            }
-            
-            cardCell.clipsToBounds = false
-            cardCell.contentView.clipsToBounds = false
-            cardCell.cellView?.clipsToBounds = false
-            cardCell.layer.masksToBounds = false
-            cardCell.contentView.layer.masksToBounds = false
-            cardCell.cellView?.layer.masksToBounds = false
-        
-            return cardCell
-        default:
-            let cardCell = tableView.dequeueReusableCell(forIndexPath: indexPath) as GenericTableViewCell<CardView>
-            let cardViewModel = trustedSourcesCardsViewData[indexPath.row - 1]
-            guard let cellView = cardCell.cellView else {
-                let cardView = CardView(article: cardViewModel)
-                cardCell.cellView = cardView
+        let cardCell = tableView.dequeueReusableCell(forIndexPath: indexPath) as GenericTableViewCell<CardView>
+        let cardViewModel = trustedSourcesCardsViewData[indexPath.row]
+        guard let cellView = cardCell.cellView else {
+            let cardView = CardView(article: cardViewModel)
+            cardCell.cellView = cardView
 
-                return cardCell
-            }
-            
-            cellView.configure(with: cardViewModel)
-            cardCell.clipsToBounds = false
-            cardCell.contentView.clipsToBounds = false
-            cardCell.cellView?.clipsToBounds = false
-            cardCell.layer.masksToBounds = false
-            cardCell.contentView.layer.masksToBounds = false
-            cardCell.cellView?.layer.masksToBounds = false
-            
             return cardCell
         }
+        
+        cellView.configure(with: cardViewModel)
+        cardCell.clipsToBounds = false
+        cardCell.contentView.clipsToBounds = false
+        cardCell.cellView?.clipsToBounds = false
+        cardCell.layer.masksToBounds = false
+        cardCell.contentView.layer.masksToBounds = false
+        cardCell.cellView?.layer.masksToBounds = false
+        
+        return cardCell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.row == 0 ? 110 : 450
+        return 450
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -105,28 +111,23 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func selectedCellCardView() -> CardView? {
-        guard let indexPath = trustedSourcesCardsTableView.indexPathForSelectedRow else { return nil }
-        let cell = trustedSourcesCardsTableView.cellForRow(at: indexPath) as! GenericTableViewCell<CardView>
+        guard let indexPath = newsCardsTableView.indexPathForSelectedRow else { return nil }
+        let cell = newsCardsTableView.cellForRow(at: indexPath) as! GenericTableViewCell<CardView>
         guard let cardView = cell.cellView else { return nil }
 
         return cardView
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let scrollLenghtForContentView = scrollView.contentOffset.y/5
         delegates.main.scrollAnimation(size: scrollView.contentOffset.y)
-        if 30 - scrollLenghtForContentView > -70 {
-            trustedSourcesCardsTableViewTopConstraint.constant = 100 - scrollLenghtForContentView
+        if scrollView.contentOffset.y <= 120 {
+            trustedSourcesTopConstraint.constant = -scrollView.contentOffset.y
         }
     }
 }
 
 extension NewsViewController: NewsDelegate{
-    func removeViewController(){
-        embed.removeFromParent(viewController: self)
-    }
-    
     func scrollToTop(){
-        trustedSourcesCardsTableView.setContentOffset(.zero, animated: true)
+        newsCardsTableView.setContentOffset(.zero, animated: true)
     }
 }

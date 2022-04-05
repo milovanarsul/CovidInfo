@@ -100,7 +100,6 @@ class CardView: UIView {
         addConstraints([containerViewLeadingConstraint, containerViewTrailingConstraint, containerViewTopConstraint, containerViewBottomConstraint])
         
         setupBackgroundImage()
-        setupBottomView()
         setupTitle()
     }
     
@@ -130,41 +129,10 @@ class CardView: UIView {
         
         let titleConstraints = Constraints(childView: titleLabel, parentView: containerView, constraints: [
             Constraint(constraintType: .leading, multiplier: 1, constant: 20),
-            Constraint(constraintType: .trailing, multiplier: 1, constant: -20)
+            Constraint(constraintType: .trailing, multiplier: 1, constant: -20),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 20)
         ])
         titleConstraints.addConstraints()
-        NSLayoutConstraint.activate([NSLayoutConstraint(item: bottomView, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1, constant: 10)])
-    }
-    
-    private func setupBottomView(){
-        containerView.addSubview(bottomView)
-        let bottomViewConstraints = Constraints(childView: bottomView, parentView: containerView, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalHeight, multiplier: 0.2, constant: 0),
-            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
-        ])
-        bottomViewConstraints.addConstraints()
-        
-        bottomView.addSubview(newsSourceLogo)
-        let newsSourceLogoConstraints = Constraints(childView: newsSourceLogo, parentView: bottomView, constraints: [
-            Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
-            Constraint(constraintType: .leading, multiplier: 1, constant: 20),
-            Constraint(constraintType: .top, multiplier: 1, constant: 10),
-            Constraint(constraintType: .aspectRatio, multiplier: (1.0/1.0), constant: 0)
-        ])
-        newsSourceLogoConstraints.addConstraints()
-        
-        bottomView.addSubview(sourceInfoStackView)
-        NSLayoutConstraint.activate([
-            NSLayoutConstraint(item: sourceInfoStackView, attribute: .leading, relatedBy: .equal, toItem: newsSourceLogo, attribute: .trailing, multiplier: 1, constant: 20),
-            NSLayoutConstraint(item: sourceInfoStackView, attribute: .height, relatedBy: .equal, toItem: newsSourceLogo, attribute: .height, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: bottomView, attribute: .trailing, relatedBy: .equal, toItem: sourceInfoStackView, attribute: .trailing, multiplier: 1, constant: 20)
-        ])
-        let sourceInfoStackViewConstraints = Constraints(childView: sourceInfoStackView, parentView: bottomView, constraints: [
-            Constraint(constraintType: .vertical, multiplier: 1, constant: 0)
-        ])
-        sourceInfoStackViewConstraints.addConstraints()
     }
     
     func setContainerViewConstraints(leftAnchor: CGFloat, rightAnchor: CGFloat, topAnchor: CGFloat, bottomAnchor: CGFloat){

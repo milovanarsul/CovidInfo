@@ -92,7 +92,6 @@ class CustomTabBar: UIView {
     
     @objc func newsButtonPressed(_ sender: UIButton) {
         buttonSetup(button: .news)
-        delegates.main.presentArticleViewController()
     }
     
     @objc func statisticsButtonPressed(_ sender: UIButton) {
@@ -108,7 +107,6 @@ class CustomTabBar: UIView {
     }
     
     func buttonSetup(button: MainPages){
-        articlesViewControllerHasBeenPresented ? delegates.main.dismissArticleViewController() : ()
         delegates.main.tabBarScrollAnimation(visibility: .hide, resetsAnimation: true)
         tabBarButtonSetup(tabBarButton: button)
         tabBarPageSliderDirection(tabBarButton: button)
