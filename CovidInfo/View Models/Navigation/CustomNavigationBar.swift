@@ -113,6 +113,7 @@ class CustomNavigationBar: UIView {
         buttonSlider(sliderType: .left)
         delegates.homePage.goToPage(pageIndex:0, direction: .reverse)
         delegates.main.tabBarVisibility(tabBarVisibility: .show)
+        delegates.main.certifficateButtonAnimation(visibility: .show)
     }
     
     @objc func certifficateButtonTapped(_ sender: UIButton) {

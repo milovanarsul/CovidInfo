@@ -25,7 +25,7 @@ enum ConstraintType{
     case horizontalSpacing
 }
 
-enum animateConstraintType{
+enum SetConstraintType{
     case multiplier
     case constant
 }

@@ -58,13 +58,13 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setup()
-        navTabAnimation()
+        tabAnimation(visibility: .show)
     }
     
     var tabBarBottomConstraint = NSLayoutConstraint()
     var tabBarHeightConstraint = NSLayoutConstraint()
     var tabBarWidthConstraint = NSLayoutConstraint()
-    var certifficateButtonBottomConstraint = NSLayoutConstraint()
+    var certifficateButtonVerticalConstraint = NSLayoutConstraint()
     var navigationBarTopConstraint = NSLayoutConstraint()
     
     func setup(){
@@ -88,6 +88,7 @@ class MainViewController: UIViewController {
         contentViewConstraints.addConstraints()
         NSLayoutConstraint.activate([NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal, toItem: navigationBar, attribute: .bottom, multiplier: 1, constant: -10)])
         
+        
         let tabBarConstraints = Constraints(childView: tabBar, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0)
         ])
@@ -95,11 +96,11 @@ class MainViewController: UIViewController {
         
         tabBarHeightConstraint = Constraint(childView: tabBar, parentView: view, constraintType: .height, multiplier: 1, constant: 50).setConstraint()
         tabBarWidthConstraint = Constraint(childView: tabBar, parentView: view, constraintType: .proportionalWidth, multiplier: 0.85, constant: 0).setConstraint()
-        tabBarBottomConstraint = Constraint(childView: tabBar, parentView: view, constraintType: .bottom, multiplier: 1, constant: 30).setConstraint()
+        tabBarBottomConstraint = Constraint(childView: tabBar, parentView: view, constraintType: .bottom, multiplier: 1, constant: -100).setConstraint()
         NSLayoutConstraint.activate([tabBarWidthConstraint,tabBarHeightConstraint,tabBarBottomConstraint])
         
-        certifficateButtonBottomConstraint = NSLayoutConstraint(item: view!, attribute: .bottom, relatedBy: .equal, toItem: certifficateButton, attribute: .bottom, multiplier: 1, constant: 90)
-        NSLayoutConstraint.activate([certifficateButtonBottomConstraint, Constraint(childView: certifficateButton, parentView: view, constraintType: .horizontal, multiplier: 1, constant: 0).setConstraint()])
+        certifficateButtonVerticalConstraint = NSLayoutConstraint(item: tabBar, attribute: .top, relatedBy: .equal, toItem: certifficateButton, attribute: .bottom, multiplier: 1, constant: -45)
+        NSLayoutConstraint.activate([Constraint(childView: certifficateButton, parentView: view, constraintType: .horizontal, multiplier: 1, constant: 0).setConstraint(), certifficateButtonVerticalConstraint])
     }
     
     var tabBarExtensionBottomConstraint = NSLayoutConstraint()
@@ -121,8 +122,6 @@ class MainViewController: UIViewController {
         
         UIView.animate(withDuration: 0.5, animations: {
         }, completion: {(finished: Bool) in
-            //self.view.layoutIfNeeded()
-            //self.tabBarExtension.layoutIfNeeded()
             self.view.bringSubviewToFront(self.tabBarExtension)
             if visibility == .hide{
                 self.tabBarExtension.removeFromSuperview()
@@ -130,29 +129,13 @@ class MainViewController: UIViewController {
         })
     }
     
-    func navTabAnimation(){
-        animateConstraints(constraints: [(tabBarBottomConstraint, 30, .constant), (certifficateButtonBottomConstraint, 100, .constant)])
-        
-        UIView.animate(withDuration: 0.6,animations: {
-            self.navigationBar.layoutIfNeeded()
-            self.tabBar.layoutIfNeeded()
-        }, completion: {(finished: Bool) in
-            self.certifficateButtonAnimation(visibility: .show)
-            self.view.layoutIfNeeded()
-        })
+    func tabAnimation(visibility: ViewVisibility){
+        tabBarVisibility(tabBarVisibility: visibility)
+        certifficateButtonAnimation(visibility: visibility)
     }
     
     @objc func certifficateButtonTapped(_ sender: UIButton) {
         defaults.bool(forKey: "certifficateEnrolled") ? certifficateModal() : enrollCertifficate()
-    }
-    
-    func certifficateButtonVisibility(visibility: ViewVisibility){
-        switch visibility {
-        case .show:
-            certifficateButton.isHidden = false
-        case .hide:
-            certifficateButton.isHidden = true
-        }
     }
     
     var scrollViewScrollUp: Bool = false
@@ -162,28 +145,26 @@ extension MainViewController: MainDelegate{
     func certifficateButtonAnimation(visibility: ViewVisibility){
         switch visibility {
         case .show:
-            certifficateButtonBottomConstraint.constant = 90
+            certifficateButtonVerticalConstraint.constant = 10
         case .hide:
-            certifficateButtonBottomConstraint.constant = 40
+            certifficateButtonVerticalConstraint.constant = -45
         }
         
         UIView.animate(withDuration: 0.6, animations: {
             self.certifficateButton.layoutIfNeeded()
-            self.view.layoutIfNeeded()
         })
     }
     
     func tabBarVisibility(tabBarVisibility: ViewVisibility) {
         switch tabBarVisibility{
         case .hide:
-            self.tabBarExtensionBottomConstraint.constant = -150
+            self.tabBarBottomConstraint.constant = -100
         case .show:
-            self.tabBarExtensionBottomConstraint.constant = 34
+            self.tabBarBottomConstraint.constant = 30
         }
         
         UIView.animate(withDuration: 0.3, animations: {
             self.tabBar.layoutIfNeeded()
-            self.view.layoutIfNeeded()
         })
     }
     

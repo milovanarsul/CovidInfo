@@ -32,9 +32,9 @@ extension EnrollCertifficateViewController {
         label.initialize(text: "Pozitioneaza codul QR in interior", color: .black, font: boldFont(size: 17), alignment: .center, lines: 0)
         self.view.addSubview(label)
         
-        let labelConstraints = Constraints(childView: label, parentView: self.view, constraints: [Constraint(constraintType: .horizontal, multiplier: 1, constant: 0)])
+        let labelConstraints = Constraints(childView: label, parentView: view, constraints: [Constraint(constraintType: .horizontal, multiplier: 1, constant: 0)])
         labelConstraints.addConstraints()
-        labelTopConstraint = NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: videoLayer, attribute: .bottom, multiplier: 1, constant: 60)
+        labelTopConstraint = NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: videoLayer, attribute: .bottom, multiplier: 1, constant: 80)
         NSLayoutConstraint.activate([labelTopConstraint])
     }
     

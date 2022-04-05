@@ -43,7 +43,7 @@ class OnboardingViewController: UIViewController {
         let pageControl = UIPageControl()
         pageControl.numberOfPages = 5
         pageControl.currentPage = 0
-        pageControl.tintColor = signatureDarkBlue
+        pageControl.pageIndicatorTintColor = signatureDarkBlue
         pageControl.currentPageIndicatorTintColor = signatureLightBlue
         return pageControl
     }()

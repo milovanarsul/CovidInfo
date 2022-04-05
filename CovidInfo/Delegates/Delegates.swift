@@ -53,6 +53,7 @@ protocol MainDelegate{
     func dismissArticleViewController()
     func scrollAnimation(size: CGFloat)
     func tabBarScrollAnimation(visibility: ViewVisibility, resetsAnimation: Bool)
+    func tabAnimation(visibility: ViewVisibility)
 }
 
 protocol NavigationBarDelegate{

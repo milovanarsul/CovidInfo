@@ -121,7 +121,7 @@ class CustomTabBar: UIView {
         buttonSliderAnimation(tabBarButton: tabBarButton)
         
         if tabBarButton != .home{
-            articlesViewControllerHasBeenPresented ? () : delegates.main.certifficateButtonAnimation(visibility: .hide)
+            delegates.main.certifficateButtonAnimation(visibility: .hide)
             delegates.navigationBar.certifficateButtonAnimation(visibility: .show)
         } else {
             delegates.main.certifficateButtonAnimation(visibility: .show)

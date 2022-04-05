@@ -99,10 +99,12 @@ class OnboardingWelcomeViewController: UIViewController {
         
         defaultConstraints(childView: backgroundImage, parentView: view)
         
-        containerViewVerticalConstraint = NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
-        containerViewWidthConstraint = Constraint(childView: containerView, parentView: view, constraintType: .proportionalWidth, multiplier: onboardingWidth, constant: 0).setConstraint()
-        containerViewHeightConstraint = Constraint(childView: containerView, parentView: view, constraintType: .proportionalHeight, multiplier: onboardingHeight, constant: 0).setConstraint()
-        NSLayoutConstraint.activate([containerViewWidthConstraint, containerViewHeightConstraint, containerViewVerticalConstraint, NSLayoutConstraint(item: containerView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0)])
+        assignConstraints(childView: containerView, parentView: view, constraints: [
+            (variable: nil, type: .horizontal, constraintType: .multiplier, value: 1),
+            (variable: containerViewWidthConstraint, type: .proportionalWidth, constraintType: .multiplier, value: 1),
+            (variable: containerViewHeightConstraint, type: .proportionalHeight, constraintType: .multiplier, value: 1),
+            (variable: containerViewVerticalConstraint, type: .vertical, constraintType: .multiplier, value: 1),
+        ])
         
         defaultConstraints(childView: contentView, parentView: containerView)
         

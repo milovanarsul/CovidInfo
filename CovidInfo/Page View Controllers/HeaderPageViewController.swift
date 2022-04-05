@@ -128,15 +128,18 @@ class HeaderViewController: UIViewController{
     @objc func header1Gesture() {
         delegates.homePage.goToPage(pageIndex: 1, direction: .forward)
         delegates.homePage.updateNavigationBar(page: Page(mainPage: .home, childType: .triaj))
+        delegates.main.tabAnimation(visibility: .hide)
     }
     
     @objc func header2Gesture(){
         delegates.homePage.goToPage(pageIndex: 2, direction: .forward)
         delegates.homePage.updateNavigationBar(page: Page(mainPage: .home, childType: .simptome))
+        delegates.main.tabAnimation(visibility: .hide)
     }
     
     @objc func header3Gesture(){
         delegates.homePage.goToPage(pageIndex: 3, direction: .forward)
         delegates.homePage.updateNavigationBar(page: Page(mainPage: .home, childType: .preventie))
+        delegates.main.tabAnimation(visibility: .hide)
     }
 }

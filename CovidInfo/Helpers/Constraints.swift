@@ -97,6 +97,27 @@ class Constraint{
     }
 }
 
+func assignConstraints(childView: UIView, parentView: UIView, constraints: [(variable: NSLayoutConstraint?, type: ConstraintType, constraintType: SetConstraintType, value: CGFloat)]){
+    
+    childView.translatesAutoresizingMaskIntoConstraints = false
+    for var constraint in constraints {
+        var constraintToBeSet = NSLayoutConstraint()
+        switch constraint.constraintType {
+            case .multiplier:
+                constraintToBeSet = Constraint(childView: childView, parentView: parentView, constraintType: constraint.type, multiplier: constraint.value, constant: 0).setConstraint()
+            case .constant:
+                constraintToBeSet = Constraint(childView: childView, parentView: parentView, constraintType: constraint.type, multiplier: 1, constant: constraint.value).setConstraint()
+        }
+        
+        if constraint.variable != nil {
+            constraint.variable = constraintToBeSet
+            NSLayoutConstraint.activate([constraint.variable!])
+        } else {
+            NSLayoutConstraint.activate([constraintToBeSet])
+        }
+    }
+}
+
 func defaultConstraints(childView: UIView, parentView: UIView){
     let constraints = Constraints(childView: childView, parentView: parentView, constraints: [
         Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
@@ -125,8 +146,15 @@ func xyConstraints(childView: UIView, parentView: UIView){
     constraints.addConstraints()
 }
 
-func animateConstraints(constraints: [(constraint: NSLayoutConstraint, value: CGFloat, type: animateConstraintType)]){
-    
+func heightWidthConstraints(childView: UIView, parentView: UIView){
+    let constraints = Constraints(childView: childView, parentView: parentView, constraints: [
+        Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+        Constraint(constraintType: .proportionalHeight, multiplier: 1, constant: 0)
+    ])
+    constraints.addConstraints()
+}
+
+func animateConstraints(constraints: [(constraint: NSLayoutConstraint, value: CGFloat, type: SetConstraintType)]){
     for constraint in constraints {
         switch constraint.type{
             case .multiplier:
