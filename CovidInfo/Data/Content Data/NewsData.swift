@@ -39,8 +39,9 @@ class Article {
     var link: String
     var description: String
     var author: String
+    var isTrusted: Bool
     
-    init(viewMode: CardMode? = .card, backgroundImage: String, backgroundType: BackgroundType, date: String, link: String, title: String, description: String, author: String){
+    init(viewMode: CardMode? = .card, backgroundImage: String, backgroundType: BackgroundType, date: String, link: String, title: String, description: String, author: String, isTrusted: Bool){
         if let viewMode = viewMode {
             self.viewMode = viewMode
         }
@@ -52,5 +53,6 @@ class Article {
         self.link = link
         self.description = description
         self.author = author
+        self.isTrusted = isTrusted
     }
 }

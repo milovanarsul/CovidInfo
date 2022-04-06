@@ -30,11 +30,14 @@ class NewsViewController: UIViewController {
     }()
     
     let transitionManager = CardTransitionManager()
-    let trustedSourcesCardsViewData: [Article] = articleData
+    var trustedSourcesCardsViewData: [Article] = normalSource
     
     override func viewDidLoad() {
         delegates.news = self
         setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
     }
     
     var trustedSourcesTopConstraint = NSLayoutConstraint()
@@ -129,5 +132,10 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
 extension NewsViewController: NewsDelegate{
     func scrollToTop(){
         newsCardsTableView.setContentOffset(.zero, animated: true)
+    }
+    
+    func refreshData(){
+        trustedSourcesCardsViewData = trusted ? trustedSource : normalSource
+        newsCardsTableView.reloadData()
     }
 }

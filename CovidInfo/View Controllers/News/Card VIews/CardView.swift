@@ -104,7 +104,7 @@ class CardView: UIView {
     }
     
     private func setupBackgroundImage() {
-        backgroundImageView.downloaded(from: article.backgroundImage)
+        article.isTrusted ? backgroundImageView.image = UIImage(named: "MSLogo") :  backgroundImageView.downloaded(from: article.backgroundImage)
         backgroundImageView.contentMode = .scaleAspectFill
 
         containerView.addSubview(backgroundImageView)

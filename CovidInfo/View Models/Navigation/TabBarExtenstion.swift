@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 import BetterSegmentedControl
 
+var trusted: Bool = false
+
 class TabBarExtension: UIView {
     lazy var tabBarExtension: BetterSegmentedControl = {
         let tabBarExtension = BetterSegmentedControl(frame: .zero, segments: LabelSegment.segments(withTitles: ["Surse verificate", "Surse neverificate"], normalFont: boldFont(size: 12), normalTextColor: .black, selectedFont: boldFont(size: 12) ,selectedTextColor: .black), options: [.backgroundColor(.white), .indicatorViewBackgroundColor(.lightGray), .cornerRadius(16), .animationSpringDamping(1.0)])
@@ -28,6 +30,11 @@ class TabBarExtension: UIView {
     }
     
     @objc func navigationSegmentedControlValueChanged(_ sender: BetterSegmentedControl){
+        switch sender.index {
+            case 0: trusted = false
+            default: trusted = true
+        }
         
+        delegates.news.refreshData()
     }
 }

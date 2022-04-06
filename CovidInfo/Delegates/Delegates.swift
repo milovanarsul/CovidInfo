@@ -98,6 +98,7 @@ protocol EnrollCertifficateDelegate{
 
 protocol NewsDelegate{
     func scrollToTop()
+    func refreshData()
 }
 
 protocol CustomTabBarDelegate{

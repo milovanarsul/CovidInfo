@@ -7,6 +7,8 @@
 
 import UIKit
 
+var normalSource: [Article] = []
+var trustedSource: [Article] = []
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -22,6 +24,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = LaunchViewController()
         self.window = window
         window.makeKeyAndVisible()
+        
+        Task.init {
+            do{
+                normalSource = try await digi24(articleCount: 40)!
+                trustedSource = try await stiriOficiale()!
+            } catch {
+                print("error in getting data")
+            }
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

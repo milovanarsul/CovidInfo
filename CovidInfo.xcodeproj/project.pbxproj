@@ -147,7 +147,6 @@
 		6093B6C73F5FDA01AB286717 /* Pods-CovidInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfo.release.xcconfig"; path = "Target Support Files/Pods-CovidInfo/Pods-CovidInfo.release.xcconfig"; sourceTree = "<group>"; };
 		85B96E91060584C3BD08BA11 /* libPods-CovidInfo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CovidInfo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B201DD3227B8E89600C34C41 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
-		B2049E4327FA159F00303C6A /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B2049E4427FA325100303C6A /* WebScraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebScraper.swift; sourceTree = "<group>"; };
 		B205B3E627B50361008E5874 /* PageViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewControllerDataSource.swift; sourceTree = "<group>"; };
 		B205B3E827B50723008E5874 /* UICollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewController.swift; sourceTree = "<group>"; };
@@ -307,14 +306,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B2049E3F27FA13BC00303C6A /* Web Scraper */ = {
-			isa = PBXGroup;
-			children = (
-				B2049E4327FA159F00303C6A /* MyPlayground.playground */,
-			);
-			path = "Web Scraper";
-			sourceTree = "<group>";
-		};
 		B21C965827B2CAFF00C88A50 /* Simptome */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,7 +397,6 @@
 		B23DC42F279030BC00051C6C /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				B2049E3F27FA13BC00303C6A /* Web Scraper */,
 				B2C350D427DDD5F500EAA660 /* Content Data */,
 				B23DC42027902EB800051C6C /* Resources */,
 				B2F650FB278F2BDA00E1BB58 /* CovidInfo.xcdatamodeld */,
