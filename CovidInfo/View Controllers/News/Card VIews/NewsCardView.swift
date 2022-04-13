@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CardView: UIView {
+class NewsCardView: UIView {
     lazy var shadowView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false

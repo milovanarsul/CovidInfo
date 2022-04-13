@@ -66,6 +66,7 @@ class MainViewController: UIViewController {
     var tabBarWidthConstraint = NSLayoutConstraint()
     var certifficateButtonVerticalConstraint = NSLayoutConstraint()
     var navigationBarTopConstraint = NSLayoutConstraint()
+    var contentViewTopConstraint = NSLayoutConstraint()
     
     func setup(){
         view.backgroundColor = .white
@@ -86,8 +87,8 @@ class MainViewController: UIViewController {
             Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
         ])
         contentViewConstraints.addConstraints()
-        NSLayoutConstraint.activate([NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal, toItem: navigationBar, attribute: .bottom, multiplier: 1, constant: 5)])
-        
+        contentViewTopConstraint = NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal, toItem: navigationBar, attribute: .bottom, multiplier: 1, constant: 5)
+        NSLayoutConstraint.activate([contentViewTopConstraint])
         
         let tabBarConstraints = Constraints(childView: tabBar, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0)
@@ -142,6 +143,15 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: MainDelegate{
+    func animateContentView(size: CGFloat){
+        contentViewTopConstraint.constant = size
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.contentView.layoutIfNeeded()
+            self.view.layoutIfNeeded()
+        })
+    }
+    
     func tabBarExtension(visibility: ViewVisibility){
         tabBarExtensionSetup()
         tabBarExtensionAnimation(visibility: visibility)

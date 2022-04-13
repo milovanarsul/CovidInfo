@@ -53,6 +53,7 @@ protocol MainDelegate{
     func tabBarScrollAnimation(visibility: ViewVisibility, resetsAnimation: Bool)
     func tabAnimation(visibility: ViewVisibility)
     func tabBarExtension(visibility: ViewVisibility)
+    func animateContentView(size: CGFloat)
 }
 
 protocol NavigationBarDelegate{
@@ -60,6 +61,7 @@ protocol NavigationBarDelegate{
     func buttonSlider(sliderType: currentPageButtonSlider)
     func certifficateButtonAnimation(visibility: ViewVisibility)
     func changeContainerViewBottomConstraint(visibility: Bool)
+    func locationButtonAnimation(visibility: ViewVisibility)
 }
 
 protocol TabBarDelegate{

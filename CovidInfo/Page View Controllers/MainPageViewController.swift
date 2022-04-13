@@ -31,7 +31,7 @@ class MainPageViewController: UIPageViewController {
         let newsViewController = NewsViewController()
         pages.append(newsViewController)
         
-        let statisticsViewController = StatisticiViewController()
+        let statisticsViewController = StatisticsViewController()
         pages.append(statisticsViewController)
         
         let documentsViewController = DocumenteViewController()

@@ -99,7 +99,7 @@ class CustomTabBar: UIView {
     }
     
     @objc func accountButtonPressed(_ sender: UIButton) {
-        delegates.main.accountModal()
+        delegates.main.animateContentView(size: 500)
     }
     
     @objc func goToTopButtonPressed(_ sender: UIButton) {
@@ -118,12 +118,19 @@ class CustomTabBar: UIView {
         fillTabBarButton(tabBarButton: tabBarButton)
         buttonSliderAnimation(tabBarButton: tabBarButton)
         
-        if tabBarButton != .home{
-            delegates.main.certifficateButtonAnimation(visibility: .hide)
-            delegates.navigationBar.certifficateButtonAnimation(visibility: .show)
-        } else {
+        switch tabBarButton{
+        case .home:
             delegates.main.certifficateButtonAnimation(visibility: .show)
             delegates.navigationBar.certifficateButtonAnimation(visibility: .hide)
+            delegates.navigationBar.locationButtonAnimation(visibility: .hide)
+        case .statistics:
+            delegates.navigationBar.certifficateButtonAnimation(visibility: .show)
+            delegates.main.certifficateButtonAnimation(visibility: .hide)
+            delegates.navigationBar.locationButtonAnimation(visibility: .show)
+        default:
+            delegates.main.certifficateButtonAnimation(visibility: .hide)
+            delegates.navigationBar.certifficateButtonAnimation(visibility: .show)
+            delegates.navigationBar.locationButtonAnimation(visibility: .hide)
         }
     }
     

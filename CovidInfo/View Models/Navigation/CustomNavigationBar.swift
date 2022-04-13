@@ -32,9 +32,16 @@ class CustomNavigationBar: UIView {
         return button
     }()
     
+    lazy var locationButton: UIButton = {
+        let button = UIButton()
+        button.initialize(title: "", titleColor: .white, cornerRadius: 100, font: boldFont(size: 30), backgroundColor: UIColor("00A777"), image: UIImage(systemName: "location.circle"))
+        button.addTarget(self, action: #selector(locationButtonTapped(_:)), for: .touchUpInside)
+        return button
+    }()
+    
     lazy var containerView: UIView = {
         let view = UIView()
-        view.addSubviews(views: [childPageButton, parentPageButton, certifficateButton])
+        view.addSubviews(views: [childPageButton, parentPageButton, locationButton, certifficateButton])
         view.backgroundColor = .white
         return view
     }()
@@ -42,6 +49,7 @@ class CustomNavigationBar: UIView {
     var parentPageButtonLeadingConstraint = NSLayoutConstraint()
     var childPageButtonLeadingConstraint = NSLayoutConstraint()
     var certifficateButtonTrailingConstraint = NSLayoutConstraint()
+    var locationButtonTrailingConstraint = NSLayoutConstraint()
     var containerViewBottomConstraint = NSLayoutConstraint()
     
     func setup(){
@@ -67,6 +75,16 @@ class CustomNavigationBar: UIView {
         certifficateButtonConstraints.addConstraints()
         certifficateButtonTrailingConstraint = Constraint(childView: certifficateButton, parentView: containerView, constraintType: .trailing, multiplier: 1, constant: 70).setConstraint()
         NSLayoutConstraint.activate([certifficateButtonTrailingConstraint])
+        
+        let locationButtonConstraints = Constraints(childView: locationButton, parentView: containerView, constraints: [
+            Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
+            Constraint(constraintType: .width, multiplier: 1, constant: 40),
+            Constraint(constraintType: .height, multiplier: 1, constant: 40)
+        ])
+        locationButtonConstraints.addConstraints()
+        locationButtonTrailingConstraint = Constraint(childView: locationButton, parentView: containerView, constraintType: .trailing, multiplier: 1, constant: 70).setConstraint()
+        NSLayoutConstraint.activate([locationButtonTrailingConstraint])
+        
     }
     
     func slideOutParentPageButton(){
@@ -120,6 +138,7 @@ class CustomNavigationBar: UIView {
     private var parentPageTitle: String?
     private var childPageTitle: String?
     private var showChildButton: Bool?
+    var resetsLocationButton: Bool = false
     
     func getParentPageButtonWidth() -> CGFloat{
         return parentPageButton.bounds.width
@@ -134,6 +153,19 @@ class CustomNavigationBar: UIView {
     
     @objc func certifficateButtonTapped(_ sender: UIButton) {
         defaults.bool(forKey: "certifficateEnrolled") ? delegates.main.certifficateModal() : delegates.main.enrollCertifficate()
+    }
+    
+    @objc func locationButtonTapped(_ sender: UIButton){
+        switch resetsLocationButton{
+        case false:
+            delegates.main.animateContentView(size: 150)
+            locationButton.initialize(title: "", titleColor: .white, cornerRadius: 100, font: boldFont(size: 30), backgroundColor: UIColor("D04545"), image: UIImage(systemName: "x.circle"))
+            resetsLocationButton = true
+        case true:
+            delegates.main.animateContentView(size: 5)
+            locationButton.initialize(title: "", titleColor: .white, cornerRadius: 100, font: boldFont(size: 30), backgroundColor: UIColor("00A777"), image: UIImage(systemName: "location.circle"))
+            resetsLocationButton = false
+        }
     }
 }
 
@@ -199,6 +231,25 @@ extension CustomNavigationBar: NavigationBarDelegate{
         }, completion: {(finished: Bool) in
             if visibility == .hide{
                 self.certifficateButton.isHidden = true
+            }
+        })
+    }
+    
+    func locationButtonAnimation(visibility: ViewVisibility){
+        switch visibility {
+        case .show:
+            locationButton.isHidden = false
+            locationButtonTrailingConstraint.constant = -70
+        case .hide:
+            locationButtonTrailingConstraint.constant = -20
+        }
+        
+        UIView.animate(withDuration: 0.6, animations: {
+            self.locationButton.layoutIfNeeded()
+            self.layoutIfNeeded()
+        }, completion: {(finished: Bool) in
+            if visibility == .hide{
+                self.locationButton.isHidden = true
             }
         })
     }
