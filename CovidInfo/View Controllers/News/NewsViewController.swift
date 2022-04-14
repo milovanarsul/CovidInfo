@@ -22,7 +22,7 @@ class NewsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        tableView.registerCell(GenericTableViewCell<NewsCardView>.self)
+        tableView.registerCell(GenericTableViewCell<CardView>.self)
         tableView.registerCell(GenericTableViewCell<TrustedSources>.self)
         tableView.cornerRadius = 24
         tableView.backgroundColor = .white
@@ -80,10 +80,10 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cardCell = tableView.dequeueReusableCell(forIndexPath: indexPath) as GenericTableViewCell<NewsCardView>
+        let cardCell = tableView.dequeueReusableCell(forIndexPath: indexPath) as GenericTableViewCell<CardView>
         let cardViewModel = trustedSourcesCardsViewData[indexPath.row]
         guard let cellView = cardCell.cellView else {
-            let cardView = NewsCardView(article: cardViewModel)
+            let cardView = CardView(article: cardViewModel)
             cardCell.cellView = cardView
 
             return cardCell
@@ -113,19 +113,21 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
         CFRunLoopWakeUp(CFRunLoopGetCurrent())
     }
     
-    func selectedCellCardView() -> NewsCardView? {
+    func selectedCellCardView() -> CardView? {
         guard let indexPath = newsCardsTableView.indexPathForSelectedRow else { return nil }
-        let cell = newsCardsTableView.cellForRow(at: indexPath) as! GenericTableViewCell<NewsCardView>
+        let cell = newsCardsTableView.cellForRow(at: indexPath) as! GenericTableViewCell<CardView>
         guard let cardView = cell.cellView else { return nil }
 
         return cardView
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        delegates.main.scrollAnimation(size: scrollView.contentOffset.y)
+        //delegates.main.scrollAnimation(size: scrollView.contentOffset.y)
+        /*
         if scrollView.contentOffset.y <= 120 {
             trustedSourcesTopConstraint.constant = -scrollView.contentOffset.y
         }
+         */
     }
 }
 

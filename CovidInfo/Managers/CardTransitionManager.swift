@@ -60,10 +60,10 @@ class CardTransitionManager: NSObject {
         containerView.addSubview(dimmingView)
     }
     
-    private func createCardViewCopy(cardView: NewsCardView) -> NewsCardView {
+    private func createCardViewCopy(cardView: CardView) -> CardView {
         let cardModel = cardView.article
         cardModel.viewMode = transition.cardMode
-        let cardViewCopy = NewsCardView(article: cardModel)
+        let cardViewCopy = CardView(article: cardModel)
         return cardViewCopy
     }
 }
@@ -138,14 +138,14 @@ extension CardTransitionManager: UIViewControllerAnimatedTransitioning {
         }
     }
     
-    func makeShrinkAnimator(for cardView: NewsCardView) -> UIViewPropertyAnimator {
+    func makeShrinkAnimator(for cardView: CardView) -> UIViewPropertyAnimator {
         return UIViewPropertyAnimator(duration: shrinkDuration, curve: .easeOut) {
             cardView.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
             self.dimmingView.alpha = 0.05
         }
     }
     
-    func makeExpandContractAnimator(for cardView: NewsCardView, in containerView: UIView, yOrigin: CGFloat) -> UIViewPropertyAnimator {
+    func makeExpandContractAnimator(for cardView: CardView, in containerView: UIView, yOrigin: CGFloat) -> UIViewPropertyAnimator {
         let springTiming = UISpringTimingParameters(dampingRatio: 0.75, initialVelocity: CGVector(dx: 0, dy: 4))
         let animator = UIViewPropertyAnimator(duration: transitionDuration - shrinkDuration, timingParameters: springTiming)
         
@@ -167,7 +167,7 @@ extension CardTransitionManager: UIViewControllerAnimatedTransitioning {
         return animator
     }
     
-    func moveAndConvertToCardView(cardView: NewsCardView, containerView: UIView, yOriginToMoveTo: CGFloat, completion: @escaping () -> ()) {
+    func moveAndConvertToCardView(cardView: CardView, containerView: UIView, yOriginToMoveTo: CGFloat, completion: @escaping () -> ()) {
         let shrinkAnimator = makeShrinkAnimator(for: cardView)
         let expandContractAnimator = makeExpandContractAnimator(for: cardView, in: containerView, yOrigin: yOriginToMoveTo)
         

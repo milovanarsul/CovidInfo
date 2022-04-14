@@ -173,9 +173,11 @@ func createDataAssets(currentDayStats: CurrentDayStats, historicalData: [String:
     let daysIntoTheMonth: Int = Int(currentDayStats.parsedOnString.suffix(2))!
     let confirmedCasesCurrentMonth: [(String, Double)] = casesWithValues(currentDayStats: currentDayStats, historicalData: sortedHistoricalData, typeOfCase: .cases, days: daysIntoTheMonth)
     let deathsCurrentMonth: [(String, Double)] = casesWithValues(currentDayStats: currentDayStats, historicalData: sortedHistoricalData, typeOfCase: .deaths, days: daysIntoTheMonth)
-
     
-    let genderPie = [("Femei", currentDayStats.percentageOfWomen), ("Barbati", currentDayStats.percentageOfMen)]
+    var countyIncidence = [String : Double]()
+    for (key, value) in currentDayStats.incidence{
+        countyIncidence[counties[key]!] = value
+    }
     
     return StatisticsData(todaysNewsCases: todaysCases,
                           todaysNewDeaths: todaysDeaths,
@@ -192,6 +194,5 @@ func createDataAssets(currentDayStats: CurrentDayStats, historicalData: [String:
                           sevenDaysDeathsWithDates: deathsSevenDays,
                           casesForThePastMonth: confirmedCasesCurrentMonth,
                           deathsForThePastMonth: deathsCurrentMonth,
-                          genderPie: genderPie)
-    
+                          incidence: countyIncidence)
 }

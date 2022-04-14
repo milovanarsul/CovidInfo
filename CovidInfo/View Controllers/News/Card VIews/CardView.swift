@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewsCardView: UIView {
+class CardView: UIView {
     lazy var shadowView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -34,27 +34,6 @@ class NewsCardView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = article.backgroundType.titleTextColor
         return label
-    }()
-    
-    lazy var bottomView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        return view
-    }()
-    
-    lazy var newsSourceLogo: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .green
-        imageView.cornerRadius = 14
-        return imageView
-    }()
-    
-    lazy var sourceInfoStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fill, spacing: 5)
-        stackView.backgroundColor = .blue
-        return stackView
     }()
     
     var containerViewLeadingConstraint: NSLayoutConstraint!

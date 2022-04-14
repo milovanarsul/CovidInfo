@@ -60,27 +60,16 @@ class LaunchViewController: UIViewController {
         view.addSubviews(views: [backgroundImage, launchView, onboardingView])
         
         defaultConstraints(childView: backgroundImage, parentView: view)
-        
-        /*
-        assignConstraints(childView: launchView, parentView: view, constraints: [
-            (variable: nil, type: .horizontal, constraintType: .multiplier, value: 1),
-            (variable: launchViewWidthConstraint, type: .proportionalWidth, constraintType: .multiplier, value: 1),
-            (variable: launchViewHeightConstraint, type: .proportionalHeight, constraintType: .multiplier, value: 0.124),
-            (variable: launchViewVerticalConstraint, type: .vertical, constraintType: .multiplier, value: 1),
-        ])
-        */
     
         launchViewVerticalConstraint = Constraint(childView: launchView, parentView: view, constraintType: .vertical, multiplier: 1, constant: 0).setConstraint()
         launchViewWidthConstraint = Constraint(childView: launchView, parentView: view, constraintType: .proportionalWidth, multiplier: 1, constant: 0).setConstraint()
         launchViewHeightConstraint = Constraint(childView: launchView, parentView: view, constraintType: .proportionalHeight, multiplier: 0.124, constant: 0).setConstraint()
         NSLayoutConstraint.activate([launchViewWidthConstraint, launchViewHeightConstraint, launchViewVerticalConstraint, Constraint(childView: launchView, parentView: view, constraintType: .horizontal, multiplier: 1, constant: 0).setConstraint()])
         
-        assignConstraints(childView: onboardingView, parentView: view, constraints: [
-            (variable: nil, type: .horizontal, constraintType: .multiplier, value: 1),
-            (variable: onboardingViewWidthConstraint, type: .proportionalWidth, constraintType: .multiplier, value: 1),
-            (variable: onboardingViewHeightConstraint, type: .proportionalHeight, constraintType: .multiplier, value: 0.124),
-            (variable: onboardingViewVerticalConstraint, type: .vertical, constraintType: .multiplier, value: 1),
-        ])
+        onboardingViewWidthConstraint = Constraint(childView: onboardingView, parentView: view, constraintType: .proportionalWidth, multiplier: 1, constant: 0).setConstraint()
+        onboardingViewHeightConstraint = Constraint(childView: onboardingView, parentView: view, constraintType: .proportionalHeight, multiplier: 0.124, constant: 0).setConstraint()
+        onboardingViewVerticalConstraint = Constraint(childView: onboardingView, parentView: view, constraintType: .vertical, multiplier: 1, constant: 0).setConstraint()
+        NSLayoutConstraint.activate([onboardingViewWidthConstraint, onboardingViewHeightConstraint, onboardingViewVerticalConstraint, Constraint(childView: onboardingView, parentView: view, constraintType: .horizontal, multiplier: 1, constant: 0).setConstraint()])
     }
 
     func startOnboarding(){

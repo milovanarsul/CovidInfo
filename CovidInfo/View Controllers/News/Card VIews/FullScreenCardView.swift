@@ -39,12 +39,6 @@ class FullScreenCardView: UIViewController, UIScrollViewDelegate {
         return button
     }()
     
-    lazy var infoView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .lightGray
-        return view
-    }()
-    
     lazy var textLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -62,7 +56,7 @@ class FullScreenCardView: UIViewController, UIScrollViewDelegate {
     }
     
     private let article: Article
-    private(set) var cardView: NewsCardView?
+    private(set) var cardView: CardView?
     
     init(article: Article) {
         self.article = article
@@ -101,13 +95,18 @@ extension FullScreenCardView {
     
     func configureScrollView() {
         view.addSubview(scrollView)
-        defaultAnchors(childView: scrollView, parentView: self.view)
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     func configureCardView() {
         let cardModel = article
         article.viewMode = .full
-        cardView = NewsCardView(article: cardModel)
+        cardView = CardView(article: cardModel)
         cardView?.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(cardView!)
         
@@ -156,7 +155,7 @@ extension FullScreenCardView {
             textLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             textLabel.widthAnchor.constraint(equalToConstant: view.frame.size.width - 40),
             textLabel.topAnchor.constraint(equalTo: cardView!.bottomAnchor, constant: 20.0),
-            textLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 20.0)
+            textLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0)
         ])
     }
     

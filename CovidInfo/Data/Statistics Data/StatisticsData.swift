@@ -23,7 +23,7 @@ class StatisticsData {
     var sevenDaysDeathsWithDates: [(String, Double)]
     var casesForThePastMonth: [(String, Double)]
     var deathsForThePastMonth: [(String, Double)]
-    var genderPie: [(String, Double)]
+    var incidence: [String : Double]
     
     init(todaysNewsCases: Int,
          todaysNewDeaths: Int,
@@ -40,7 +40,7 @@ class StatisticsData {
          sevenDaysDeathsWithDates: [(String, Double)],
          casesForThePastMonth: [(String, Double)],
          deathsForThePastMonth: [(String, Double)],
-         genderPie: [(String, Double)]
+         incidence: [String : Double]
     ){
         self.todaysNewCases = todaysNewsCases
         self.todaysNewDeaths = todaysNewDeaths
@@ -57,7 +57,7 @@ class StatisticsData {
         self.sevenDaysDeathsWithDates = sevenDaysDeathsWithDates
         self.casesForThePastMonth = casesForThePastMonth
         self.deathsForThePastMonth = deathsForThePastMonth
-        self.genderPie = genderPie
+        self.incidence = incidence
     }
     
     func getPercentage(array: [Double]) -> Int{

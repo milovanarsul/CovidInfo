@@ -26,7 +26,9 @@
 		B21C965427B2BD5400C88A50 /* SimptomeAndPreventieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C965227B2BD5400C88A50 /* SimptomeAndPreventieViewController.swift */; };
 		B21C965527B2BD5400C88A50 /* SimptomeAndPreventieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21C965327B2BD5400C88A50 /* SimptomeAndPreventieViewController.xib */; };
 		B21C965727B2CADA00C88A50 /* SimptomeAndPreventieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C965627B2CADA00C88A50 /* SimptomeAndPreventieData.swift */; };
-		B220A71328070B6B00A07590 /* IncidenceCardPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220A71228070B6B00A07590 /* IncidenceCardPreview.swift */; };
+		B222EC722807B4DB0070397F /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = B222EC712807B4DB0070397F /* Collections */; };
+		B222EC742807B4DB0070397F /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = B222EC732807B4DB0070397F /* DequeModule */; };
+		B222EC762807B4DB0070397F /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = B222EC752807B4DB0070397F /* OrderedCollections */; };
 		B2342AA12801DF7E00B78354 /* StatisticsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2342AA02801DF7E00B78354 /* StatisticsData.swift */; };
 		B2342AA3280208AB00B78354 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2342AA2280208AB00B78354 /* Array.swift */; };
 		B23496E42802C07900E5B2FF /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = B23496E32802C07900E5B2FF /* SwiftUICharts */; };
@@ -49,7 +51,7 @@
 		B25EAE5427F76DD400860B2F /* TabBarExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25EAE5327F76DD400860B2F /* TabBarExtenstion.swift */; };
 		B266A11527EF12D0003806E7 /* CardTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A0F527EF12D0003806E7 /* CardTransitionManager.swift */; };
 		B266A12927EF1682003806E7 /* FullScreenCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A12827EF1682003806E7 /* FullScreenCardView.swift */; };
-		B266A12B27EF25CC003806E7 /* NewsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A12A27EF25CC003806E7 /* NewsCardView.swift */; };
+		B266A12B27EF25CC003806E7 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A12A27EF25CC003806E7 /* CardView.swift */; };
 		B266A12D27EF71AF003806E7 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A12C27EF71AF003806E7 /* UIWindow.swift */; };
 		B266A12F27EF7278003806E7 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A12E27EF7278003806E7 /* UITableView.swift */; };
 		B267D10F27F642B60069F2CE /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267D10E27F642B60069F2CE /* AccountViewController.swift */; };
@@ -94,8 +96,9 @@
 		B2DF4F3027D8A15D0035D5B7 /* CertifficateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF4F2F27D8A15D0035D5B7 /* CertifficateView.swift */; };
 		B2E1938727BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E1938627BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib */; };
 		B2E1938927BC248200D0F057 /* PreventieAndSimptomeShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E1938827BC248200D0F057 /* PreventieAndSimptomeShortcut.swift */; };
+		B2E1EC3C28076FE600B0F5BD /* MSScraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E1EC3B28076FE600B0F5BD /* MSScraper.swift */; };
 		B2E6741B27A52A8F00F283B7 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6741A27A52A8F00F283B7 /* OnboardingData.swift */; };
-		B2F420662800A40E00935352 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F420642800A40E00935352 /* StatisticsViewController.swift */; };
+		B2F01E202807734B00D0AD6C /* CountiesEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F01E1F2807734B00D0AD6C /* CountiesEnums.swift */; };
 		B2F48DDB27AD1D37005EE116 /* HomePagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F48DD927AD1D37005EE116 /* HomePagePageViewController.swift */; };
 		B2F48DDE27AD2453005EE116 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F48DDD27AD2453005EE116 /* Delegates.swift */; };
 		B2F48DE027AD249A005EE116 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F48DDF27AD249A005EE116 /* Enums.swift */; };
@@ -169,7 +172,6 @@
 		B21C965227B2BD5400C88A50 /* SimptomeAndPreventieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventieViewController.swift; sourceTree = "<group>"; };
 		B21C965327B2BD5400C88A50 /* SimptomeAndPreventieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimptomeAndPreventieViewController.xib; sourceTree = "<group>"; };
 		B21C965627B2CADA00C88A50 /* SimptomeAndPreventieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventieData.swift; sourceTree = "<group>"; };
-		B220A71228070B6B00A07590 /* IncidenceCardPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncidenceCardPreview.swift; sourceTree = "<group>"; };
 		B2342AA02801DF7E00B78354 /* StatisticsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsData.swift; sourceTree = "<group>"; };
 		B2342AA2280208AB00B78354 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		B23DE45927B3BC4700FD2E10 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
@@ -191,7 +193,7 @@
 		B25EAE5327F76DD400860B2F /* TabBarExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarExtenstion.swift; sourceTree = "<group>"; };
 		B266A0F527EF12D0003806E7 /* CardTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTransitionManager.swift; sourceTree = "<group>"; };
 		B266A12827EF1682003806E7 /* FullScreenCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenCardView.swift; sourceTree = "<group>"; };
-		B266A12A27EF25CC003806E7 /* NewsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardView.swift; sourceTree = "<group>"; };
+		B266A12A27EF25CC003806E7 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		B266A12C27EF71AF003806E7 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		B266A12E27EF7278003806E7 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		B267D10E27F642B60069F2CE /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -236,8 +238,9 @@
 		B2DF4F2F27D8A15D0035D5B7 /* CertifficateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertifficateView.swift; sourceTree = "<group>"; };
 		B2E1938627BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreventieAndSimptomeShortcut.xib; sourceTree = "<group>"; };
 		B2E1938827BC248200D0F057 /* PreventieAndSimptomeShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventieAndSimptomeShortcut.swift; sourceTree = "<group>"; };
+		B2E1EC3B28076FE600B0F5BD /* MSScraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSScraper.swift; sourceTree = "<group>"; };
 		B2E6741A27A52A8F00F283B7 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
-		B2F420642800A40E00935352 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		B2F01E1F2807734B00D0AD6C /* CountiesEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountiesEnums.swift; sourceTree = "<group>"; };
 		B2F48DD927AD1D37005EE116 /* HomePagePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePagePageViewController.swift; sourceTree = "<group>"; };
 		B2F48DDD27AD2453005EE116 /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 		B2F48DDF27AD249A005EE116 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -271,6 +274,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B222EC762807B4DB0070397F /* OrderedCollections in Frameworks */,
+				B222EC722807B4DB0070397F /* Collections in Frameworks */,
+				B222EC742807B4DB0070397F /* DequeModule in Frameworks */,
 				8C3127B2AFC78370A5578084 /* libPods-CovidInfo.a in Frameworks */,
 				B23496E42802C07900E5B2FF /* SwiftUICharts in Frameworks */,
 			);
@@ -347,14 +353,6 @@
 				B21C965827B2CAFF00C88A50 /* Simptome */,
 			);
 			path = "Simptome and Preventie";
-			sourceTree = "<group>";
-		};
-		B220A71128070B1800A07590 /* Table View */ = {
-			isa = PBXGroup;
-			children = (
-				B220A71228070B6B00A07590 /* IncidenceCardPreview.swift */,
-			);
-			path = "Table View";
 			sourceTree = "<group>";
 		};
 		B23DC42027902EB800051C6C /* Resources */ = {
@@ -514,6 +512,8 @@
 			children = (
 				B27C859428016BC0005F81DB /* ParseStatisticsData.swift */,
 				B2342AA02801DF7E00B78354 /* StatisticsData.swift */,
+				B2E1EC3B28076FE600B0F5BD /* MSScraper.swift */,
+				B2F01E1F2807734B00D0AD6C /* CountiesEnums.swift */,
 			);
 			path = "Statistics Data";
 			sourceTree = "<group>";
@@ -544,7 +544,7 @@
 		B2BF2C2D27EF78B9008C1FC5 /* Card VIews */ = {
 			isa = PBXGroup;
 			children = (
-				B266A12A27EF25CC003806E7 /* NewsCardView.swift */,
+				B266A12A27EF25CC003806E7 /* CardView.swift */,
 				B266A12827EF1682003806E7 /* FullScreenCardView.swift */,
 			);
 			path = "Card VIews";
@@ -617,9 +617,7 @@
 		B2F48DE927AD354B005EE116 /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
-				B2F420642800A40E00935352 /* StatisticsViewController.swift */,
 				B26CD2FD280602C100DE2780 /* StatisticsGraphs.swift */,
-				B220A71128070B1800A07590 /* Table View */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -725,6 +723,9 @@
 			name = CovidInfo;
 			packageProductDependencies = (
 				B23496E32802C07900E5B2FF /* SwiftUICharts */,
+				B222EC712807B4DB0070397F /* Collections */,
+				B222EC732807B4DB0070397F /* DequeModule */,
+				B222EC752807B4DB0070397F /* OrderedCollections */,
 			);
 			productName = CovidInfo;
 			productReference = B2F650EF278F2BD900E1BB58 /* CovidInfo.app */;
@@ -802,6 +803,7 @@
 			mainGroup = B2F650E6278F2BD900E1BB58;
 			packageReferences = (
 				B23496E22802C07900E5B2FF /* XCRemoteSwiftPackageReference "ChartView" */,
+				B222EC702807B4DB0070397F /* XCRemoteSwiftPackageReference "swift-collections" */,
 			);
 			productRefGroup = B2F650F0278F2BD900E1BB58 /* Products */;
 			projectDirPath = "";
@@ -955,6 +957,7 @@
 			files = (
 				B27C859528016BC0005F81DB /* ParseStatisticsData.swift in Sources */,
 				B2F650F3278F2BD900E1BB58 /* AppDelegate.swift in Sources */,
+				B2E1EC3C28076FE600B0F5BD /* MSScraper.swift in Sources */,
 				B2F48DE227AD25BC005EE116 /* EmbedView.swift in Sources */,
 				B266A12D27EF71AF003806E7 /* UIWindow.swift in Sources */,
 				B2D0724327CB81A600FA4BC6 /* AppDefaults.swift in Sources */,
@@ -964,7 +967,6 @@
 				B2B3C99727A8727A00842DA5 /* DocumenteViewController.swift in Sources */,
 				B289059427DA80720019205D /* LocalStorageManager.swift in Sources */,
 				B2DABD1627EB2A2500ECA4EB /* NewsData.swift in Sources */,
-				B220A71328070B6B00A07590 /* IncidenceCardPreview.swift in Sources */,
 				B2BB039F27A998F700D4801B /* NavigationBarData.swift in Sources */,
 				B2342AA12801DF7E00B78354 /* StatisticsData.swift in Sources */,
 				B2CCB58B27DB9A9D0076A52A /* HeadersData.swift in Sources */,
@@ -995,7 +997,6 @@
 				B2B03FAA27BEB36200A0F634 /* UIViewController.swift in Sources */,
 				B206B62A27B6539400C371B2 /* OnboardingViewController.swift in Sources */,
 				B2B45D1A27B2F34B00788918 /* SimptomeAndPreventieCollectionViewCell.swift in Sources */,
-				B2F420662800A40E00935352 /* StatisticsViewController.swift in Sources */,
 				B205B3E927B50723008E5874 /* UICollectionViewController.swift in Sources */,
 				B2DABD1A27EB790F00ECA4EB /* Safari.swift in Sources */,
 				B25EAE5427F76DD400860B2F /* TabBarExtenstion.swift in Sources */,
@@ -1008,6 +1009,7 @@
 				B256059C27B2AFB500FB039F /* CollectionViewLayouts.swift in Sources */,
 				B2342AA3280208AB00B78354 /* Array.swift in Sources */,
 				B2CCB59227DB9D160076A52A /* HomeViewController.swift in Sources */,
+				B2F01E202807734B00D0AD6C /* CountiesEnums.swift in Sources */,
 				B23DE46C27B3FC4D00FD2E10 /* UIColor.swift in Sources */,
 				B2D0724727CB85A500FA4BC6 /* FontsManager.swift in Sources */,
 				B266A12F27EF7278003806E7 /* UITableView.swift in Sources */,
@@ -1017,7 +1019,7 @@
 				B2E1938927BC248200D0F057 /* PreventieAndSimptomeShortcut.swift in Sources */,
 				B2E6741B27A52A8F00F283B7 /* OnboardingData.swift in Sources */,
 				B2DC74C227B793F700078245 /* OnboardingCell.swift in Sources */,
-				B266A12B27EF25CC003806E7 /* NewsCardView.swift in Sources */,
+				B266A12B27EF25CC003806E7 /* CardView.swift in Sources */,
 				B278D50727A2848600511BB2 /* MainViewController.swift in Sources */,
 				B25AD33927A30B50009EAD38 /* UIView.swift in Sources */,
 				B217D45527B940F600DBDED9 /* TriajSubviews.swift in Sources */,
@@ -1370,6 +1372,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B222EC702807B4DB0070397F /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		B23496E22802C07900E5B2FF /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
@@ -1381,6 +1391,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B222EC712807B4DB0070397F /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B222EC702807B4DB0070397F /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+		B222EC732807B4DB0070397F /* DequeModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B222EC702807B4DB0070397F /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = DequeModule;
+		};
+		B222EC752807B4DB0070397F /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B222EC702807B4DB0070397F /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
 		B23496E32802C07900E5B2FF /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B23496E22802C07900E5B2FF /* XCRemoteSwiftPackageReference "ChartView" */;

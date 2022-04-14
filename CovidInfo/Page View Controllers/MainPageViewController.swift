@@ -31,7 +31,10 @@ class MainPageViewController: UIPageViewController {
         let newsViewController = NewsViewController()
         pages.append(newsViewController)
         
-        let statisticsViewController = StatisticsViewController()
+        let statisticsViewController = UIViewController()
+        statisticsViewController.addSubSwiftUIView(Graphs(), to: statisticsViewController.view)
+        statisticsViewController.view.backgroundColor = UIColor("#f2f2f7")
+        statisticsViewController.view.cornerRadius = 24
         pages.append(statisticsViewController)
         
         let documentsViewController = DocumenteViewController()
