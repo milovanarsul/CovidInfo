@@ -50,6 +50,7 @@ class HomeViewController: UIViewController {
     
     func setup(){
         view.backgroundColor = UIColor("#f2f2f7")
+        view.layer.cornerRadius = 24
         
         view.addSubview(scrollView)
         let scrollViewConstraints = Constraints(childView: scrollView, parentView: view, constraints: [
@@ -64,9 +65,9 @@ class HomeViewController: UIViewController {
         
         let headerViewConstraints = Constraints(childView: headerView, parentView: scrollView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 0.95, constant: 0),
             Constraint(constraintType: .proportionalHeight, multiplier: 0.24, constant: 0),
-            Constraint(constraintType: .top, multiplier: 1, constant: 0)
+            Constraint(constraintType: .top, multiplier: 1, constant: 18)
         ])
         headerViewConstraints.addConstraints()
         
@@ -77,7 +78,7 @@ class HomeViewController: UIViewController {
             Constraint(constraintType: .proportionalHeight, multiplier: 0.35, constant: 0)
         ])
         quickGraphsConstraints.addConstraints()
-        NSLayoutConstraint.activate([quickGraphs.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 10)])
+        NSLayoutConstraint.activate([quickGraphs.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 8)])
         
         scrollView.addSubview(viewShortcuts)
         let viewShortcutsConstraints = Constraints(childView: viewShortcuts, parentView: scrollView, constraints: [

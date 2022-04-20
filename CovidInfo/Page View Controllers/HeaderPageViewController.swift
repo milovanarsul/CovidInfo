@@ -28,7 +28,7 @@ class HeaderPageViewController: UIPageViewController {
     }
     
     fileprivate func createViews(){
-        self.view.roundCorners([.topLeft, .topRight], radius: 24)
+        self.view.layer.cornerRadius = 24
 
         for index in 0..<headersData.count{
             pages.append(HeaderViewController(headerImage: headersData[index].image, headerIndex: index))

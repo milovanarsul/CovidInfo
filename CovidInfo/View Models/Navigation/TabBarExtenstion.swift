@@ -13,7 +13,7 @@ var trusted: Bool = false
 
 class TabBarExtension: UIView {
     lazy var tabBarExtension: BetterSegmentedControl = {
-        let tabBarExtension = BetterSegmentedControl(frame: .zero, segments: LabelSegment.segments(withTitles: ["Surse verificate", "Surse neverificate"], normalFont: boldFont(size: 12), normalTextColor: .black, selectedFont: boldFont(size: 12) ,selectedTextColor: .black), options: [.backgroundColor(.white), .indicatorViewBackgroundColor(.lightGray), .cornerRadius(16), .animationSpringDamping(1.0)])
+        let tabBarExtension = BetterSegmentedControl(frame: .zero, segments: LabelSegment.segments(withTitles: ["Surse media", "Surse oficiale"], normalFont: boldFont(size: 12), normalTextColor: .black, selectedFont: boldFont(size: 12) ,selectedTextColor: .white), options: [.backgroundColor(.white), .indicatorViewBackgroundColor(signatureDarkBlue), .cornerRadius(16), .animationSpringDamping(1.0)])
         tabBarExtension.addTarget(self, action: #selector(navigationSegmentedControlValueChanged(_:)), for: .valueChanged)
         return tabBarExtension
     }()

@@ -54,7 +54,7 @@ struct QuickGraphs: View {
     var body: some View{
         HStack{
             LineChartView(data: statisticsData.casesForTheLastSevenDays, title: "Cazuri noi", legend: "Astazi: \(statisticsData.todaysNewCases)", style: ChartStyle(backgroundColor: .white, accentColor: .white, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .white), rateValue: statisticsData.getPercentage(array: statisticsData.casesForTheLastSevenDays), dropShadow: false)
-            LineChartView(data: statisticsData.deathsForTheLastSevenDays, title: "Decese", legend: "Astazi\(statisticsData.todaysNewDeaths)", style: ChartStyle(backgroundColor: .white, accentColor: .yellow, secondGradientColor: .green, textColor: .black, legendTextColor: .black, dropShadowColor: .white), rateValue: statisticsData.getPercentage(array: statisticsData.deathsForTheLastSevenDays), dropShadow: false)
+            LineChartView(data: statisticsData.deathsForTheLastSevenDays, title: "Decese", legend: "Astazi: \(statisticsData.todaysNewDeaths)", style: ChartStyle(backgroundColor: .white, accentColor: .yellow, secondGradientColor: .green, textColor: .black, legendTextColor: .black, dropShadowColor: .white), rateValue: statisticsData.getPercentage(array: statisticsData.deathsForTheLastSevenDays), dropShadow: false)
         }
     }
 }
