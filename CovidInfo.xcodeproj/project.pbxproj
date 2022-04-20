@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		42EDC11CCE7864A14D314479 /* libPods-CovidInfoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D193FA1DD60D2868D8A1F194 /* libPods-CovidInfoTests.a */; };
 		8C3127B2AFC78370A5578084 /* libPods-CovidInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85B96E91060584C3BD08BA11 /* libPods-CovidInfo.a */; };
 		B201DD3327B8E89600C34C41 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B201DD3227B8E89600C34C41 /* OnboardingPageViewController.swift */; };
 		B2049E4527FA325100303C6A /* ArticlesWebScraperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2049E4427FA325100303C6A /* ArticlesWebScraperManager.swift */; };
@@ -52,7 +51,7 @@
 		B266A12D27EF71AF003806E7 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A12C27EF71AF003806E7 /* UIWindow.swift */; };
 		B266A12F27EF7278003806E7 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A12E27EF7278003806E7 /* UITableView.swift */; };
 		B267D10F27F642B60069F2CE /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267D10E27F642B60069F2CE /* AccountViewController.swift */; };
-		B26CD2FE280602C100DE2780 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26CD2FD280602C100DE2780 /* Statistics.swift */; };
+		B26CD2FE280602C100DE2780 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26CD2FD280602C100DE2780 /* StatisticsView.swift */; };
 		B278D50727A2848600511BB2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50627A2848600511BB2 /* MainViewController.swift */; };
 		B278D50927A2851A00511BB2 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50827A2851A00511BB2 /* UserDefaults.swift */; };
 		B27AB17D27B66007009A2323 /* LottieAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AB17C27B66007009A2323 /* LottieAnimationView.swift */; };
@@ -105,46 +104,13 @@
 		B2F650F5278F2BD900E1BB58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F650F4278F2BD900E1BB58 /* SceneDelegate.swift */; };
 		B2F650FF278F2BDB00E1BB58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2F650FE278F2BDB00E1BB58 /* Assets.xcassets */; };
 		B2F65102278F2BDB00E1BB58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2F65100278F2BDB00E1BB58 /* LaunchScreen.storyboard */; };
-		B2F6510D278F2BDB00E1BB58 /* CovidInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6510C278F2BDB00E1BB58 /* CovidInfoTests.swift */; };
-		B2F65117278F2BDB00E1BB58 /* CovidInfoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F65116278F2BDB00E1BB58 /* CovidInfoUITests.swift */; };
-		B2F65119278F2BDB00E1BB58 /* CovidInfoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F65118278F2BDB00E1BB58 /* CovidInfoUITestsLaunchTests.swift */; };
 		B2F65139278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65129278F32AF00E1BB58 /* IBMPlexSans-Light.ttf */; };
-		B2F6513A278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65129278F32AF00E1BB58 /* IBMPlexSans-Light.ttf */; };
-		B2F6513B278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65129278F32AF00E1BB58 /* IBMPlexSans-Light.ttf */; };
 		B2F65142278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512C278F32AF00E1BB58 /* IBMPlexSans-Bold.ttf */; };
-		B2F65143278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512C278F32AF00E1BB58 /* IBMPlexSans-Bold.ttf */; };
-		B2F65144278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512C278F32AF00E1BB58 /* IBMPlexSans-Bold.ttf */; };
 		B2F65145278F32B000E1BB58 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512D278F32AF00E1BB58 /* IBMPlexSans-SemiBold.ttf */; };
-		B2F65146278F32B000E1BB58 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512D278F32AF00E1BB58 /* IBMPlexSans-SemiBold.ttf */; };
-		B2F65147278F32B000E1BB58 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512D278F32AF00E1BB58 /* IBMPlexSans-SemiBold.ttf */; };
 		B2F65148278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512E278F32AF00E1BB58 /* IBMPlexSans-ExtraLight.ttf */; };
-		B2F65149278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512E278F32AF00E1BB58 /* IBMPlexSans-ExtraLight.ttf */; };
-		B2F6514A278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F6512E278F32AF00E1BB58 /* IBMPlexSans-ExtraLight.ttf */; };
 		B2F65154278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65132278F32B000E1BB58 /* IBMPlexSans-Regular.ttf */; };
-		B2F65155278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65132278F32B000E1BB58 /* IBMPlexSans-Regular.ttf */; };
-		B2F65156278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65132278F32B000E1BB58 /* IBMPlexSans-Regular.ttf */; };
 		B2F65157278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */; };
-		B2F65158278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */; };
-		B2F65159278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */; };
-		FA29F8BC4DD214A78E56F840 /* libPods-CovidInfo-CovidInfoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D85D7774D380164D182FE /* libPods-CovidInfo-CovidInfoUITests.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B2F65109278F2BDB00E1BB58 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B2F650E7278F2BD900E1BB58 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B2F650EE278F2BD900E1BB58;
-			remoteInfo = CovidInfo;
-		};
-		B2F65113278F2BDB00E1BB58 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B2F650E7278F2BD900E1BB58 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B2F650EE278F2BD900E1BB58;
-			remoteInfo = CovidInfo;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		22F6C5A0490F046E87DD09B5 /* Pods-CovidInfo-CovidInfoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfo-CovidInfoUITests.debug.xcconfig"; path = "Target Support Files/Pods-CovidInfo-CovidInfoUITests/Pods-CovidInfo-CovidInfoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -191,7 +157,7 @@
 		B266A12C27EF71AF003806E7 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		B266A12E27EF7278003806E7 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		B267D10E27F642B60069F2CE /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		B26CD2FD280602C100DE2780 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		B26CD2FD280602C100DE2780 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		B278D50627A2848600511BB2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B278D50827A2851A00511BB2 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		B27AB17C27B66007009A2323 /* LottieAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationView.swift; sourceTree = "<group>"; };
@@ -246,19 +212,12 @@
 		B2F650FE278F2BDB00E1BB58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2F65101278F2BDB00E1BB58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B2F65103278F2BDB00E1BB58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B2F65108278F2BDB00E1BB58 /* CovidInfoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidInfoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B2F6510C278F2BDB00E1BB58 /* CovidInfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidInfoTests.swift; sourceTree = "<group>"; };
-		B2F65112278F2BDB00E1BB58 /* CovidInfoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidInfoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B2F65116278F2BDB00E1BB58 /* CovidInfoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidInfoUITests.swift; sourceTree = "<group>"; };
-		B2F65118278F2BDB00E1BB58 /* CovidInfoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidInfoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B2F65129278F32AF00E1BB58 /* IBMPlexSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Light.ttf"; sourceTree = "<group>"; };
 		B2F6512C278F32AF00E1BB58 /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
 		B2F6512D278F32AF00E1BB58 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		B2F6512E278F32AF00E1BB58 /* IBMPlexSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-ExtraLight.ttf"; sourceTree = "<group>"; };
 		B2F65132278F32B000E1BB58 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
 		B2F65133278F32B000E1BB58 /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
-		BF8D85D7774D380164D182FE /* libPods-CovidInfo-CovidInfoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CovidInfo-CovidInfoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D193FA1DD60D2868D8A1F194 /* libPods-CovidInfoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CovidInfoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA375FD2761274C1B5136B25 /* Pods-CovidInfoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfoTests.debug.xcconfig"; path = "Target Support Files/Pods-CovidInfoTests/Pods-CovidInfoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F28191B4629CF06BA34CECF8 /* Pods-CovidInfoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidInfoTests.release.xcconfig"; path = "Target Support Files/Pods-CovidInfoTests/Pods-CovidInfoTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -273,22 +232,6 @@
 				B222EC742807B4DB0070397F /* DequeModule in Frameworks */,
 				8C3127B2AFC78370A5578084 /* libPods-CovidInfo.a in Frameworks */,
 				B23496E42802C07900E5B2FF /* SwiftUICharts in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B2F65105278F2BDB00E1BB58 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42EDC11CCE7864A14D314479 /* libPods-CovidInfoTests.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B2F6510F278F2BDB00E1BB58 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA29F8BC4DD214A78E56F840 /* libPods-CovidInfo-CovidInfoUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,8 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				85B96E91060584C3BD08BA11 /* libPods-CovidInfo.a */,
-				BF8D85D7774D380164D182FE /* libPods-CovidInfo-CovidInfoUITests.a */,
-				D193FA1DD60D2868D8A1F194 /* libPods-CovidInfoTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -377,7 +318,7 @@
 				B23DC43427906E4B00051C6C /* Onboarding */,
 				B278D50627A2848600511BB2 /* MainViewController.swift */,
 				B2F48DE827AD3543005EE116 /* News */,
-				B26CD2FD280602C100DE2780 /* Statistics.swift */,
+				B26CD2FD280602C100DE2780 /* StatisticsView.swift */,
 				B267D10E27F642B60069F2CE /* AccountViewController.swift */,
 			);
 			path = "View Controllers";
@@ -593,8 +534,6 @@
 			isa = PBXGroup;
 			children = (
 				B2F650F1278F2BD900E1BB58 /* CovidInfo */,
-				B2F6510B278F2BDB00E1BB58 /* CovidInfoTests */,
-				B2F65115278F2BDB00E1BB58 /* CovidInfoUITests */,
 				B2F650F0278F2BD900E1BB58 /* Products */,
 				4D99F115CFF44766EBCEEA09 /* Pods */,
 				A3784BFB1DD50000EE142962 /* Frameworks */,
@@ -605,8 +544,6 @@
 			isa = PBXGroup;
 			children = (
 				B2F650EF278F2BD900E1BB58 /* CovidInfo.app */,
-				B2F65108278F2BDB00E1BB58 /* CovidInfoTests.xctest */,
-				B2F65112278F2BDB00E1BB58 /* CovidInfoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -630,23 +567,6 @@
 				B2F65103278F2BDB00E1BB58 /* Info.plist */,
 			);
 			path = CovidInfo;
-			sourceTree = "<group>";
-		};
-		B2F6510B278F2BDB00E1BB58 /* CovidInfoTests */ = {
-			isa = PBXGroup;
-			children = (
-				B2F6510C278F2BDB00E1BB58 /* CovidInfoTests.swift */,
-			);
-			path = CovidInfoTests;
-			sourceTree = "<group>";
-		};
-		B2F65115278F2BDB00E1BB58 /* CovidInfoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				B2F65116278F2BDB00E1BB58 /* CovidInfoUITests.swift */,
-				B2F65118278F2BDB00E1BB58 /* CovidInfoUITestsLaunchTests.swift */,
-			);
-			path = CovidInfoUITests;
 			sourceTree = "<group>";
 		};
 		B2F65127278F329000E1BB58 /* Fonts */ = {
@@ -690,44 +610,6 @@
 			productReference = B2F650EF278F2BD900E1BB58 /* CovidInfo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B2F65107278F2BDB00E1BB58 /* CovidInfoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B2F6511F278F2BDB00E1BB58 /* Build configuration list for PBXNativeTarget "CovidInfoTests" */;
-			buildPhases = (
-				035093D242B830AE0F412E43 /* [CP] Check Pods Manifest.lock */,
-				B2F65104278F2BDB00E1BB58 /* Sources */,
-				B2F65105278F2BDB00E1BB58 /* Frameworks */,
-				B2F65106278F2BDB00E1BB58 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B2F6510A278F2BDB00E1BB58 /* PBXTargetDependency */,
-			);
-			name = CovidInfoTests;
-			productName = CovidInfoTests;
-			productReference = B2F65108278F2BDB00E1BB58 /* CovidInfoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		B2F65111278F2BDB00E1BB58 /* CovidInfoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B2F65122278F2BDB00E1BB58 /* Build configuration list for PBXNativeTarget "CovidInfoUITests" */;
-			buildPhases = (
-				D51E3D8DFD422116B142C568 /* [CP] Check Pods Manifest.lock */,
-				B2F6510E278F2BDB00E1BB58 /* Sources */,
-				B2F6510F278F2BDB00E1BB58 /* Frameworks */,
-				B2F65110278F2BDB00E1BB58 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B2F65114278F2BDB00E1BB58 /* PBXTargetDependency */,
-			);
-			name = CovidInfoUITests;
-			productName = CovidInfoUITests;
-			productReference = B2F65112278F2BDB00E1BB58 /* CovidInfoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -740,14 +622,6 @@
 				TargetAttributes = {
 					B2F650EE278F2BD900E1BB58 = {
 						CreatedOnToolsVersion = 13.2.1;
-					};
-					B2F65107278F2BDB00E1BB58 = {
-						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = B2F650EE278F2BD900E1BB58;
-					};
-					B2F65111278F2BDB00E1BB58 = {
-						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = B2F650EE278F2BD900E1BB58;
 					};
 				};
 			};
@@ -769,8 +643,6 @@
 			projectRoot = "";
 			targets = (
 				B2F650EE278F2BD900E1BB58 /* CovidInfo */,
-				B2F65107278F2BDB00E1BB58 /* CovidInfoTests */,
-				B2F65111278F2BDB00E1BB58 /* CovidInfoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -812,57 +684,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B2F65106278F2BDB00E1BB58 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B2F6513A278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */,
-				B2F65143278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */,
-				B2F65158278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */,
-				B2F65149278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */,
-				B2F65146278F32B000E1BB58 /* IBMPlexSans-SemiBold.ttf in Resources */,
-				B2F65155278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B2F65110278F2BDB00E1BB58 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B2F6513B278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */,
-				B2F65144278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */,
-				B2F65159278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */,
-				B2F6514A278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */,
-				B2F65147278F32B000E1BB58 /* IBMPlexSans-SemiBold.ttf in Resources */,
-				B2F65156278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		035093D242B830AE0F412E43 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CovidInfoTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		08B41DDAB57DEA6731778CB7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -879,28 +703,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-CovidInfo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D51E3D8DFD422116B142C568 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CovidInfo-CovidInfoUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -960,7 +762,7 @@
 				B267D10F27F642B60069F2CE /* AccountViewController.swift in Sources */,
 				B266A11527EF12D0003806E7 /* NewsCardTransitionManager.swift in Sources */,
 				B2A389F427A442820005F9FD /* CustomNavigationBar.swift in Sources */,
-				B26CD2FE280602C100DE2780 /* Statistics.swift in Sources */,
+				B26CD2FE280602C100DE2780 /* StatisticsView.swift in Sources */,
 				B23DE47A27B44E3D00FD2E10 /* UILabel.swift in Sources */,
 				B256059C27B2AFB500FB039F /* CollectionViewLayouts.swift in Sources */,
 				B2CCB59227DB9D160076A52A /* HomeViewController.swift in Sources */,
@@ -986,37 +788,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B2F65104278F2BDB00E1BB58 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B2F6510D278F2BDB00E1BB58 /* CovidInfoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B2F6510E278F2BDB00E1BB58 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B2F65119278F2BDB00E1BB58 /* CovidInfoUITestsLaunchTests.swift in Sources */,
-				B2F65117278F2BDB00E1BB58 /* CovidInfoUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B2F6510A278F2BDB00E1BB58 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B2F650EE278F2BD900E1BB58 /* CovidInfo */;
-			targetProxy = B2F65109278F2BDB00E1BB58 /* PBXContainerItemProxy */;
-		};
-		B2F65114278F2BDB00E1BB58 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B2F650EE278F2BD900E1BB58 /* CovidInfo */;
-			targetProxy = B2F65113278F2BDB00E1BB58 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B2F65100278F2BDB00E1BB58 /* LaunchScreen.storyboard */ = {
@@ -1206,86 +978,6 @@
 			};
 			name = Release;
 		};
-		B2F65120278F2BDB00E1BB58 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA375FD2761274C1B5136B25 /* Pods-CovidInfoTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L2AR479Z2P;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mlvn.CovidInfo.CovidInfoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CovidInfo.app/CovidInfo";
-			};
-			name = Debug;
-		};
-		B2F65121278F2BDB00E1BB58 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F28191B4629CF06BA34CECF8 /* Pods-CovidInfoTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L2AR479Z2P;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mlvn.CovidInfo.CovidInfoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CovidInfo.app/CovidInfo";
-			};
-			name = Release;
-		};
-		B2F65123278F2BDB00E1BB58 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22F6C5A0490F046E87DD09B5 /* Pods-CovidInfo-CovidInfoUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L2AR479Z2P;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mlvn.CovidInfo.CovidInfoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CovidInfo;
-			};
-			name = Debug;
-		};
-		B2F65124278F2BDB00E1BB58 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3935D5315BEA97635D6E08EE /* Pods-CovidInfo-CovidInfoUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L2AR479Z2P;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mlvn.CovidInfo.CovidInfoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CovidInfo;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1303,24 +995,6 @@
 			buildConfigurations = (
 				B2F6511D278F2BDB00E1BB58 /* Debug */,
 				B2F6511E278F2BDB00E1BB58 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B2F6511F278F2BDB00E1BB58 /* Build configuration list for PBXNativeTarget "CovidInfoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B2F65120278F2BDB00E1BB58 /* Debug */,
-				B2F65121278F2BDB00E1BB58 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B2F65122278F2BDB00E1BB58 /* Build configuration list for PBXNativeTarget "CovidInfoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B2F65123278F2BDB00E1BB58 /* Debug */,
-				B2F65124278F2BDB00E1BB58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

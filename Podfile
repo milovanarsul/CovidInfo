@@ -9,14 +9,4 @@ target 'CovidInfo' do
 	pod 'BetterSegmentedControl', '~> 2.0'
 	pod 'lottie-ios'
 	pod 'SwiftSoup'
-
-  target 'CovidInfoTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'CovidInfoUITests' do
-    # Pods for testing
-  end
-
 end
