@@ -6,6 +6,7 @@
 //
 import Foundation
 import SwiftSoup
+import PDFKit
 
 func digi24(articleCount: Int) async -> [Article]?{
     var articleData: [Article] = []
@@ -94,5 +95,31 @@ func stiriOficiale() async -> [Article]?{
     } catch {
         return nil
     }
+}
+
+func parseMSPDF() -> [String.SubSequence]?{
+    if let pdf = PDFDocument(url: URL(string: "https://www.ms.ro/wp-content/uploads/2022/04/Buletin-de-presa-13.04.2022.pdf")!) {
+        let pageCount = pdf.pageCount
+        let documentContent = NSMutableAttributedString()
+        
+        for index in 0..<pageCount {
+            guard let page = pdf.page(at: index) else {continue}
+            guard let pageContent = page.attributedString else {continue}
+            documentContent.append(pageContent)
+        }
+        
+        let content = documentContent.string
+        let eliminateText = content.filter("0123456789 ".contains)
+        let eliminateWhiteSpace = eliminateText.split(whereSeparator: \.isWhitespace)
+        
+        return eliminateWhiteSpace
+    }
+    
+    return nil
+}
+
+func getMSPressBulletin() -> BuletinPresaMS{
+    let pdfContent = parseMSPDF()!
+    return BuletinPresaMS(pacientiReinfectati: String(pdfContent[8]), numarPersoaneInternate: String(pdfContent[97]), ati: String(pdfContent[99]), rtpcr: String(pdfContent[286]), antigen: String(pdfContent[289]), totalTestePCR: String(pdfContent[290]), totalTesteAntigen: String(pdfContent[291]))
 }
 

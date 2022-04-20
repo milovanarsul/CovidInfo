@@ -20,16 +20,6 @@ class TrustedSourceData{
     }
 }
 
-let trustedSourcesData = [
-    TrustedSourceData(image: "datelazi", text: "Date la zi", url: "https://datelazi.ro"),
-    TrustedSourceData(image: "ecdc", text: "ECDC", url: "https://www.ecdc.europa.eu/en"),
-    TrustedSourceData(image: "ema", text: "EMA", url: "https://www.ema.europa.eu/en"),
-    TrustedSourceData(image: "eu", text: "EU", url: "https://european-union.europa.eu/index_ro"),
-    TrustedSourceData(image: "ms", text: "MS", url: "https://www.ms.ro"),
-    TrustedSourceData(image: "stirioficiale", text: "Stiri oficiale", url: "https://stirioficiale.ro/informatii"),
-    TrustedSourceData(image: "who", text: "WHO", url: "https://www.who.int")
-]
-
 class Article {
     var viewMode: CardMode? = .card
     var backgroundImage: String

@@ -15,9 +15,3 @@ class HeadersData{
         self.image = image
     }
 }
-
-var headersData = [
-    HeadersData(image: UIImage(named: "header1")!),
-    HeadersData(image: UIImage(named: "header2")!),
-    HeadersData(image: UIImage(named: "header3")!)
-]
