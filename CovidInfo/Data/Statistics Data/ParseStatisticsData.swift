@@ -123,30 +123,42 @@ func getCasesForDays(currentDayStats: CurrentDayStats, historicalData: [Dictiona
 
 func casesWithValues(currentDayStats: CurrentDayStats, historicalData: [Dictionary<String, HistoricalData>.Element], typeOfCase: typeOfCase, days: Int) -> [(String, Double)]{
     var array = [(String, Double)]()
+    let currentDaydate = formatDate(date: currentDayStats.parsedOnString)
     
     switch typeOfCase {
     case .cases:
-        array = [(currentDayStats.parsedOnString, Double(currentDayStats.numberInfected - historicalData[1].value.numberInfected))]
+        array = [(currentDaydate, Double(currentDayStats.numberInfected - historicalData[1].value.numberInfected))]
     case .recovered:
-        array = [(currentDayStats.parsedOnString, Double(currentDayStats.numberCured - historicalData[1].value.numberCured))]
+        array = [(currentDaydate, Double(currentDayStats.numberCured - historicalData[1].value.numberCured))]
     case .deaths:
-        array = [(currentDayStats.parsedOnString, Double(currentDayStats.numberDeceased - historicalData[1].value.numberDeceased))]
+        array = [(currentDaydate, Double(currentDayStats.numberDeceased - historicalData[1].value.numberDeceased))]
     }
     
     for index in 0...days {
         if index + 1 < days{
+            let historicalDataDate = formatDate(date: historicalData[index].value.parsedOnString)
             switch typeOfCase {
             case .cases:
-                array.append((historicalData[index].value.parsedOnString, Double(historicalData[index].value.numberInfected - historicalData[index + 1].value.numberInfected)))
+                array.append((historicalDataDate, Double(historicalData[index].value.numberInfected - historicalData[index + 1].value.numberInfected)))
             case .recovered:
-                array.append((historicalData[index].value.parsedOnString, Double(historicalData[index].value.numberCured - historicalData[index + 1].value.numberCured)))
+                array.append((historicalDataDate, Double(historicalData[index].value.numberCured - historicalData[index + 1].value.numberCured)))
             case .deaths:
-                array.append((historicalData[index].value.parsedOnString, Double(historicalData[index].value.numberDeceased - historicalData[index + 1].value.numberDeceased)))
+                array.append((historicalDataDate, Double(historicalData[index].value.numberDeceased - historicalData[index + 1].value.numberDeceased)))
             }
         }
     }
     
     return array
+}
+
+func formatDate(date: String) -> String{
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    let formatedDate = dateFormatter.date(from: date)
+    dateFormatter.dateFormat = "dd-MM-yyyy"
+    let resultedDate = dateFormatter.string(from: formatedDate!)
+    
+    return resultedDate
 }
 
 func createDataAssets(currentDayStats: CurrentDayStats, historicalData: [String: HistoricalData]) -> StatisticsData{
