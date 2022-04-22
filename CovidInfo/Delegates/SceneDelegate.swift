@@ -25,7 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
         
-        /*
         Task.init {
             do{
                 normalSource = try await digi24(articleCount: 40)!
@@ -34,7 +33,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 print("error in getting data")
             }
         }
-        */
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

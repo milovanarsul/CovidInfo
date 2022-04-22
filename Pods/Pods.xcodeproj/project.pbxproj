@@ -321,7 +321,7 @@
 		5E412AC3289091B2BC4DD3683E16106B /* TrimPathNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TrimPathNode.swift; path = "lottie-swift/src/Private/NodeRenderSystem/Nodes/ModifierNodes/TrimPathNode.swift"; sourceTree = "<group>"; };
 		5EB02D63ED1648F627BF8601922B7D81 /* NodeTraversor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NodeTraversor.swift; path = Sources/NodeTraversor.swift; sourceTree = "<group>"; };
 		5F0AA33CC84DEACF6D672AEED1E0D863 /* SwiftSoup-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftSoup-prefix.pch"; sourceTree = "<group>"; };
-		5F38EF8DCE7D46A354D1D1BBAC952903 /* SwiftSoup */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = SwiftSoup; path = libSwiftSoup.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F38EF8DCE7D46A354D1D1BBAC952903 /* libSwiftSoup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftSoup.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		614DC445C53889C876CFFEEB12F5A675 /* Comment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = Sources/Comment.swift; sourceTree = "<group>"; };
 		620FBDCFB421DACF71C675E2EC0010F4 /* Element.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Element.swift; path = Sources/Element.swift; sourceTree = "<group>"; };
 		636C7EA9DBF24536EED9EAD9EB6EB6D3 /* BetterSegmentedControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BetterSegmentedControl.modulemap; sourceTree = "<group>"; };
@@ -378,7 +378,7 @@
 		996C164700E48614E64ED725819557FF /* CompatibleAnimationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CompatibleAnimationView.swift; path = "lottie-swift/src/Public/iOS/Compatibility/CompatibleAnimationView.swift"; sourceTree = "<group>"; };
 		9AD8AB8A21CC1FBA26282C63BC30FEE2 /* KeyedDecodingContainerExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyedDecodingContainerExtensions.swift; path = "lottie-swift/src/Private/Model/Extensions/KeyedDecodingContainerExtensions.swift"; sourceTree = "<group>"; };
 		9B7A24C1361ECFB568E9F9CD7C239606 /* GradientFill.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GradientFill.swift; path = "lottie-swift/src/Private/Model/ShapeItems/GradientFill.swift"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DC27ED4CC0F8F9EE052080177C63B7B /* XmlTreeBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XmlTreeBuilder.swift; path = Sources/XmlTreeBuilder.swift; sourceTree = "<group>"; };
 		A0BF2D30406F2135164098911539FC3F /* BetterSegmentedControl+IBDesignable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BetterSegmentedControl+IBDesignable.swift"; path = "Pod/Classes/BetterSegmentedControl+IBDesignable.swift"; sourceTree = "<group>"; };
 		A5FA1BA13A1631920DD19D68499D9B7D /* Tokeniser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tokeniser.swift; path = Sources/Tokeniser.swift; sourceTree = "<group>"; };
@@ -635,7 +635,6 @@
 				0364A341783A62F0335EB5ACF71C542D /* VectorsExtensions.swift */,
 				2F5754C8EBEFD9A308382510C5DD1E34 /* Support Files */,
 			);
-			name = "lottie-ios";
 			path = "lottie-ios";
 			sourceTree = "<group>";
 		};
@@ -645,7 +644,7 @@
 				0971B0AFD3BCBB672F48342DD0F5E060 /* BetterSegmentedControl */,
 				51BA97E8B5085EFFB47BC9C0B785CEA7 /* lottie-ios */,
 				DE8DCAB00062BF7335B62F61D4A5914E /* Pods-CovidInfo */,
-				5F38EF8DCE7D46A354D1D1BBAC952903 /* SwiftSoup */,
+				5F38EF8DCE7D46A354D1D1BBAC952903 /* libSwiftSoup.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -740,7 +739,6 @@
 				9DC27ED4CC0F8F9EE052080177C63B7B /* XmlTreeBuilder.swift */,
 				D9A66D369F18EC5433EA3B167BE85429 /* Support Files */,
 			);
-			name = SwiftSoup;
 			path = SwiftSoup;
 			sourceTree = "<group>";
 		};
@@ -824,7 +822,6 @@
 				0867BDAFBBEC923301E59B9055253E87 /* UIView+Helpers.swift */,
 				A85A766FA1D0F5028C0E167215BEB58A /* Support Files */,
 			);
-			name = BetterSegmentedControl;
 			path = BetterSegmentedControl;
 			sourceTree = "<group>";
 		};
@@ -919,7 +916,7 @@
 			);
 			name = SwiftSoup;
 			productName = SwiftSoup;
-			productReference = 5F38EF8DCE7D46A354D1D1BBAC952903 /* SwiftSoup */;
+			productReference = 5F38EF8DCE7D46A354D1D1BBAC952903 /* libSwiftSoup.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		FFA0A1DD066506A523D6C9452B9CD06B /* BetterSegmentedControl */ = {
@@ -1491,7 +1488,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftSoup/SwiftSoup-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MODULEMAP_FILE = Headers/Public/SwiftSoup/SwiftSoup.modulemap;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -1516,7 +1513,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftSoup/SwiftSoup-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MODULEMAP_FILE = Headers/Public/SwiftSoup/SwiftSoup.modulemap;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
