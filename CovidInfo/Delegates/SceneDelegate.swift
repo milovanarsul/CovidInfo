@@ -21,10 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = LaunchViewController()
+        window.rootViewController = FirebaseTest()
         self.window = window
         window.makeKeyAndVisible()
         
+        /*
         Task.init {
             do{
                 normalSource = try await digi24(articleCount: 40)!
@@ -33,6 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 print("error in getting data")
             }
         }
+        */
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

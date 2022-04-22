@@ -9,4 +9,6 @@ target 'CovidInfo' do
 	pod 'BetterSegmentedControl', '~> 2.0'
 	pod 'lottie-ios'
 	pod 'SwiftSoup'
+	pod 'Firebase/Core'
+	pod 'Firebase/Database'
 end

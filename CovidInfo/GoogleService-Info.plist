@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>767464789377-6d0e3hlsh4ce6fnnddv304hgdna0etld.apps.googleusercontent.com</string>
+	<string>423191634316-ges50jtu2747thnpq77sk2hf8lnfn7qt.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.767464789377-6d0e3hlsh4ce6fnnddv304hgdna0etld</string>
+	<string>com.googleusercontent.apps.423191634316-ges50jtu2747thnpq77sk2hf8lnfn7qt</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCKrG-ZfeTojFxt20Zp7KEJI-AW1SNg83c</string>
+	<string>AIzaSyBjJvECRAzFrwyIwMeSm5g0WyXaZ99SaEs</string>
 	<key>GCM_SENDER_ID</key>
-	<string>767464789377</string>
+	<string>423191634316</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.mlvn.CovidInfo</string>
 	<key>PROJECT_ID</key>
-	<string>covidinfo-25f8b</string>
+	<string>covidinfo-97186</string>
 	<key>STORAGE_BUCKET</key>
-	<string>covidinfo-25f8b.appspot.com</string>
+	<string>covidinfo-97186.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:767464789377:ios:5db7abccbf6a80105c8480</string>
+	<string>1:423191634316:ios:d2a5feb8c76086912276a9</string>
 </dict>
 </plist>
