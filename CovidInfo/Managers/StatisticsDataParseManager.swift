@@ -37,19 +37,18 @@ struct HistoricalData: Codable {
     //var vaccines: Vaccines
 }
 
-func parseStatisticsJSON() -> StatisticsData?{
+func parseStatisticsJSON(){
     let urlString = "https://d35p9e4fm9h3wo.cloudfront.net/smallData.json"
     if let url = URL(string: urlString){
         if let data = try? Data(contentsOf: url){
             do {
                 let stats = try JSONDecoder().decode(CovidData.self, from: data)
-                return createDataAssets(currentDayStats: stats.currentDayStats, historicalData: stats.historicalData)
+                createDataAssets(currentDayStats: stats.currentDayStats, historicalData: stats.historicalData)
             } catch {
                 print(error)
             }
         }
     }
-    return nil
 }
 
 func getNumberdaysGraph(array: [Any], days: Int) -> [Any]{
@@ -161,7 +160,27 @@ func formatDate(date: String) -> String{
     return resultedDate
 }
 
-func createDataAssets(currentDayStats: CurrentDayStats, historicalData: [String: HistoricalData]) -> StatisticsData{
+func stringDoubleTupleArray(array: [(String, Double)]) -> [StringDoubleTuple] {
+    var resultedArray = [StringDoubleTuple]()
+    
+    for arrayItem in array{
+        resultedArray.append(StringDoubleTuple(string: arrayItem.0, double: arrayItem.1))
+    }
+    
+    return resultedArray
+}
+
+func stringDoubleTuple(object: [StringDoubleTuple]) -> [(String, Double)] {
+    var resultedArray = [(String, Double)]()
+    
+    for it in object {
+        resultedArray.append((it.string!, it.double!))
+    }
+    
+    return resultedArray
+}
+
+func createDataAssets(currentDayStats: CurrentDayStats, historicalData: [String: HistoricalData]){
     let sortedHistoricalData = historicalData.sorted( by: {$0.1.parsedOnString > $1.1.parsedOnString})
     
     let todaysCases = currentDayStats.numberInfected - sortedHistoricalData[0].value.numberInfected
@@ -191,20 +210,23 @@ func createDataAssets(currentDayStats: CurrentDayStats, historicalData: [String:
         countyIncidence[counties[key]!] = value
     }
     
-    return StatisticsData(todaysNewsCases: todaysCases,
-                          todaysNewDeaths: todaysDeaths,
-                          todaysRecovered: todaysCured,
-                          totalNumberOfCases: totalNumberOfCases,
-                          totalNumberCured: totalNumberCured,
-                          totalNumberDeceased: totalNumberDeceased,
-                          allTimeConfirmedCasesValues: confirmedCasesValues,
-                          allTimeCuredCasesValues: curedCasesValues,
-                          allTimeMortalitiesValues: mortalitiesValues,
-                          casesForTheLastSevenDays: confirmedCasesDays,
-                          deathsForTheLastSevenDays: deathsDays,
-                          sevenDaysConfirmedCasesWithDates: confirmedCasesSevenDays,
-                          sevenDaysDeathsWithDates: deathsSevenDays,
-                          casesForThePastMonth: confirmedCasesCurrentMonth,
-                          deathsForThePastMonth: deathsCurrentMonth,
-                          incidence: countyIncidence)
+    let statisticsData = StatisticsData(context: context)
+    statisticsData.todaysNewCases = Int64(todaysCases)
+    statisticsData.todaysNewDeaths = Int64(todaysDeaths)
+    statisticsData.todaysRecovered = Int64(todaysCured)
+    statisticsData.totalNumberOfCases = Int64(totalNumberOfCases)
+    statisticsData.totalNumberCured = Int64(totalNumberCured)
+    statisticsData.totalNumberDeceased = Int64(totalNumberDeceased)
+    statisticsData.allTimeConfirmedCasesValues = confirmedCasesValues
+    statisticsData.allTimeCuredCasesValues = curedCasesValues
+    statisticsData.allTimeMortalitiesValues = mortalitiesValues
+    statisticsData.casesForTheLastSevenDays = confirmedCasesDays
+    statisticsData.deathsForTheLastSevenDays = deathsDays
+    statisticsData.sevenDaysConfirmedCasesWithDates = stringDoubleTupleArray(array: confirmedCasesSevenDays)
+    statisticsData.sevenDaysDeathsWithDates = stringDoubleTupleArray(array: deathsSevenDays)
+    statisticsData.casesForThePastMonth = stringDoubleTupleArray(array: confirmedCasesCurrentMonth)
+    statisticsData.deathsForThePastMonth = stringDoubleTupleArray(array: deathsCurrentMonth)
+    statisticsData.incidence = countyIncidence
+    
+    try! context.save()
 }

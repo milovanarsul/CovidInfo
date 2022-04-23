@@ -7,60 +7,26 @@
 
 import SwiftUI
 import SwiftUICharts
-import Collections
-import OrderedCollections
-
-private struct ScrollOffsetPreferenceKey: PreferenceKey {
-    static var defaultValue: CGPoint = .zero
-    static func reduce(value: inout CGPoint, nextValue: () -> CGPoint) {}
-}
-
-struct ScrollView<Content: View>: View {
-    let axes: Axis.Set
-    let showsIndicators: Bool
-    let offsetChanged: (CGPoint) -> Void
-    let content: Content
-
-    init(
-        axes: Axis.Set = .vertical,
-        showsIndicators: Bool = true,
-        offsetChanged: @escaping (CGPoint) -> Void = { _ in },
-        @ViewBuilder content: () -> Content
-    ) {
-        self.axes = axes
-        self.showsIndicators = showsIndicators
-        self.offsetChanged = offsetChanged
-        self.content = content()
-    }
-    
-    var body: some View {
-        SwiftUI.ScrollView(axes, showsIndicators: showsIndicators) {
-            GeometryReader { geometry in
-                Color.clear.preference(
-                    key: ScrollOffsetPreferenceKey.self,
-                    value: geometry.frame(in: .named("scrollView")).origin
-                )
-            }.frame(width: 0, height: 0)
-            content
-        }
-        .coordinateSpace(name: "scrollView")
-        .onPreferenceChange(ScrollOffsetPreferenceKey.self, perform: offsetChanged)
-    }
-}
+import CoreData
 
 struct QuickGraphs: View {
-    @State var statisticsData: StatisticsData = parseStatisticsJSON()!
+    @Environment(\.managedObjectContext) var context
     
     var body: some View{
+        
+        let request = StatisticsData.fetchRequest() as NSFetchRequest<StatisticsData>
+        let statisticsData = (try! context.fetch(request))[0]
+        
         HStack{
-            LineChartView(data: statisticsData.casesForTheLastSevenDays, title: "Cazuri noi", legend: "Astazi: \(statisticsData.todaysNewCases)", style: ChartStyle(backgroundColor: .white, accentColor: .white, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .white), rateValue: statisticsData.getPercentage(array: statisticsData.casesForTheLastSevenDays), dropShadow: false)
-            LineChartView(data: statisticsData.deathsForTheLastSevenDays, title: "Decese", legend: "Astazi: \(statisticsData.todaysNewDeaths)", style: ChartStyle(backgroundColor: .white, accentColor: .yellow, secondGradientColor: .green, textColor: .black, legendTextColor: .black, dropShadowColor: .white), rateValue: statisticsData.getPercentage(array: statisticsData.deathsForTheLastSevenDays), dropShadow: false)
+            LineChartView(data: statisticsData.casesForTheLastSevenDays!, title: "Cazuri noi", legend: "Astazi: \(statisticsData.todaysNewCases)", style: ChartStyle(backgroundColor: .white, accentColor: .white, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .white), rateValue: getPercentage(array: statisticsData.casesForTheLastSevenDays!), dropShadow: false)
+            LineChartView(data: statisticsData.deathsForTheLastSevenDays!, title: "Decese", legend: "Astazi: \(statisticsData.todaysNewDeaths)", style: ChartStyle(backgroundColor: .white, accentColor: .yellow, secondGradientColor: .green, textColor: .black, legendTextColor: .black, dropShadowColor: .white), rateValue: getPercentage(array: statisticsData.deathsForTheLastSevenDays!), dropShadow: false)
         }
     }
 }
 
 struct Graphs: View {
-    @State var statisticsData: StatisticsData = parseStatisticsJSON()!
+    
+    @Environment(\.managedObjectContext) var context
     
     init(){
         UITableView.appearance().backgroundColor = .clear
@@ -68,6 +34,9 @@ struct Graphs: View {
     }
     
     var body: some View {
+        
+        let statisticsData = StatisticsData(context: context)
+        
         ScrollView(axes: .vertical, showsIndicators: false, offsetChanged: {delegates.main.scrollAnimation(size: -$0.y)}){
             VStack(spacing: 15){
                 Text("Astazi")
@@ -77,8 +46,8 @@ struct Graphs: View {
                     .offset(x: -130, y: 10)
                 
                 HStack{
-                    LineChartView(data: statisticsData.casesForTheLastSevenDays, title: "Cazuri noi", legend: "\(statisticsData.todaysNewCases)", style: ChartStyle(backgroundColor: .white, accentColor: .white, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .white), rateValue: statisticsData.getPercentage(array: statisticsData.casesForTheLastSevenDays), dropShadow: false)
-                    LineChartView(data: statisticsData.deathsForTheLastSevenDays, title: "Decese", legend: "\(statisticsData.todaysNewDeaths)", style: ChartStyle(backgroundColor: .white, accentColor: .yellow, secondGradientColor: .green, textColor: .black, legendTextColor: .black, dropShadowColor: .white), rateValue: statisticsData.getPercentage(array: statisticsData.deathsForTheLastSevenDays), dropShadow: false)
+                    LineChartView(data: statisticsData.casesForTheLastSevenDays!, title: "Cazuri noi", legend: "\(statisticsData.todaysNewCases)", style: ChartStyle(backgroundColor: .white, accentColor: .white, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .white), rateValue: getPercentage(array: statisticsData.casesForTheLastSevenDays!), dropShadow: false)
+                    LineChartView(data: statisticsData.deathsForTheLastSevenDays!, title: "Decese", legend: "\(statisticsData.todaysNewDeaths)", style: ChartStyle(backgroundColor: .white, accentColor: .yellow, secondGradientColor: .green, textColor: .black, legendTextColor: .black, dropShadowColor: .white), rateValue: getPercentage(array: statisticsData.deathsForTheLastSevenDays!), dropShadow: false)
                 }
                 
                 Text("Ultimele 7 zile")
@@ -87,19 +56,25 @@ struct Graphs: View {
                     .foregroundColor(.black)
                     .offset(x: -85, y: 3)
                 
-                BarChartView(data: ChartData(values: statisticsData.sevenDaysConfirmedCasesWithDates), title: "Cazuri", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .white), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                let sevenDaysConfirmedCasesWithDates = stringDoubleTuple(object: statisticsData.sevenDaysConfirmedCasesWithDates!)
+                let sevenDaysDeathsWithDates = stringDoubleTuple(object: statisticsData.sevenDaysDeathsWithDates!)
                 
-                BarChartView(data: ChartData(values: statisticsData.sevenDaysDeathsWithDates), title: "Decese", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.green, textColor: .black, legendTextColor: .black, dropShadowColor: .white), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: sevenDaysConfirmedCasesWithDates), title: "Cazuri", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .white), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                
+                BarChartView(data: ChartData(values: sevenDaysDeathsWithDates), title: "Decese", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.green, textColor: .black, legendTextColor: .black, dropShadowColor: .white), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
                 Text("Luna Aprilie")
                     .font(.title)
                     .bold()
                     .foregroundColor(.black)
                     .offset(x: -97, y: 3)
-                                
-                BarChartView(data: ChartData(values: statisticsData.casesForThePastMonth), title: "Cazuri", style: ChartStyle(backgroundColor: .white, accentColor: .green, gradientColor: GradientColors.blue, textColor: .black, legendTextColor: .black, dropShadowColor: .white), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
-                BarChartView(data: ChartData(values: statisticsData.deathsForThePastMonth), title: "Decese", style: ChartStyle(backgroundColor: .white, accentColor: .green, gradientColor: GradientColors.purple, textColor: .black, legendTextColor: .black, dropShadowColor: .white), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                let casesForThePastMonth = stringDoubleTuple(object: statisticsData.casesForThePastMonth!)
+                let deathsForThePastMonth = stringDoubleTuple(object: statisticsData.deathsForThePastMonth!)
+                                
+                BarChartView(data: ChartData(values: casesForThePastMonth), title: "Cazuri", style: ChartStyle(backgroundColor: .white, accentColor: .green, gradientColor: GradientColors.blue, textColor: .black, legendTextColor: .black, dropShadowColor: .white), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                
+                BarChartView(data: ChartData(values: deathsForThePastMonth), title: "Decese", style: ChartStyle(backgroundColor: .white, accentColor: .green, gradientColor: GradientColors.purple, textColor: .black, legendTextColor: .black, dropShadowColor: .white), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
                 Text("Incidenta in ultimele 14 zile")
                     .font(.title)
@@ -126,7 +101,7 @@ struct Graphs: View {
                                 .foregroundColor(.black)
                             
                         }
-                        ForEach(statisticsData.incidence.sorted(by: {$0.0 < $1.0}), id: \.key) { key, value in
+                        ForEach(statisticsData.incidence!.sorted(by: {$0.0 < $1.0}), id: \.key) { key, value in
                             HStack{
                                 Text(key)
                                     .font(.title3)

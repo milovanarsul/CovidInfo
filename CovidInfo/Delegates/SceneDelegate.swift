@@ -7,9 +7,6 @@
 
 import UIKit
 
-var normalSource: [Article] = []
-var trustedSource: [Article] = []
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -21,9 +18,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = FirebaseTest()
+        window.rootViewController = LaunchViewController()
         self.window = window
         window.makeKeyAndVisible()
+        
+        let dataRefreshManager = DataRefreshManager.shared
+        dataRefreshManager.loadDataIfNeeded()
         
         /*
         Task.init {

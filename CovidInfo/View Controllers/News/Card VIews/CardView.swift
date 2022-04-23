@@ -83,7 +83,7 @@ class CardView: UIView {
     }
     
     private func setupBackgroundImage() {
-        article.isTrusted ? backgroundImageView.image = UIImage(named: "MSLogo") :  backgroundImageView.downloaded(from: article.backgroundImage)
+        article.isTrusted ? backgroundImageView.image = UIImage(named: "MSLogo") :  backgroundImageView.downloaded(from: article.backgroundImage!)
         backgroundImageView.contentMode = .scaleAspectFill
 
         containerView.addSubview(backgroundImageView)
@@ -97,7 +97,7 @@ class CardView: UIView {
     }
     
     private func setupTitle() {
-        titleLabel.initialize(text: article.title, color: .white, font: boldFont(size: 28), alignment: .left, lines: 0)
+        titleLabel.initialize(text: article.title!, color: .white, font: boldFont(size: 28), alignment: .left, lines: 0)
         containerView.addSubview(titleLabel)
         
         let topPadding = UIWindow.topPadding

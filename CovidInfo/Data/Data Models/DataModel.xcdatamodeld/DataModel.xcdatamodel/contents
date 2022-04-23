@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Article" representedClassName="Article" syncable="YES">
+        <attribute name="articleDescription" optional="YES" attributeType="String"/>
+        <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="backgroundImage" optional="YES" attributeType="String"/>
+        <attribute name="backgroundType" attributeType="Integer 16" valueTransformerName="NSSecureUnarchiveFromDataTransofrmerName" defaultValueString="0" usesScalarValueType="YES" customClassName="BackgroundType"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="isTrusted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="link" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="viewMode" attributeType="Integer 16" valueTransformerName="NSSecureUnarchiveFromDataTransofrmerName" defaultValueString="1" usesScalarValueType="YES" customClassName=".CardMode"/>
+    </entity>
+    <entity name="MSPressBulettin" representedClassName="MSPressBulettin" syncable="YES">
+        <attribute name="antigen" optional="YES" attributeType="String"/>
+        <attribute name="ati" optional="YES" attributeType="String"/>
+        <attribute name="numarPersoaneInternate" optional="YES" attributeType="String"/>
+        <attribute name="pacientiReinfectati" optional="YES" attributeType="String"/>
+        <attribute name="rtpcr" optional="YES" attributeType="String"/>
+        <attribute name="totalTesteAntigen" optional="YES" attributeType="String"/>
+        <attribute name="totalTestePCR" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="StatisticsData" representedClassName="StatisticsData" syncable="YES">
+        <attribute name="allTimeConfirmedCasesValues" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
+        <attribute name="allTimeCuredCasesValues" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
+        <attribute name="allTimeMortalitiesValues" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
+        <attribute name="casesForTheLastSevenDays" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
+        <attribute name="casesForThePastMonth" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[StringDoubleTuple]"/>
+        <attribute name="deathsForTheLastSevenDays" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
+        <attribute name="deathsForThePastMonth" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[StringDoubleTuple]"/>
+        <attribute name="incidence" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
+        <attribute name="sevenDaysConfirmedCasesWithDates" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[StringDoubleTuple]"/>
+        <attribute name="sevenDaysDeathsWithDates" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[StringDoubleTuple]"/>
+        <attribute name="todaysNewCases" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="todaysNewDeaths" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="todaysRecovered" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalNumberCured" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalNumberDeceased" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalNumberOfCases" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="Article" positionX="-63" positionY="-18" width="128" height="164"/>
+        <element name="MSPressBulettin" positionX="-63" positionY="54" width="128" height="134"/>
+        <element name="StatisticsData" positionX="-54" positionY="81" width="128" height="269"/>
+    </elements>
+</model>

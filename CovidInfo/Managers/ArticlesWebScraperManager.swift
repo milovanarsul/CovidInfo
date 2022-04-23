@@ -8,8 +8,7 @@ import Foundation
 import SwiftSoup
 import PDFKit
 
-func digi24(articleCount: Int) async -> [Article]?{
-    var articleData: [Article] = []
+func digi24(articleCount: Int){
     let url = URL(string: "https://www.digi24.ro/eticheta/coronavirus")!
     do {
         let html = try String(contentsOf: url)
@@ -18,13 +17,18 @@ func digi24(articleCount: Int) async -> [Article]?{
         
         for index in 0...articleCount{
             let article: Element = articlesArray[index]
-            let data = Article(viewMode: .card, backgroundImage: "", backgroundType: .light, date: "", link: "", title: "", description: "", author: "", isTrusted: false)
+            let data = Article(context: context)
+            
+            data.viewMode = .card
+            data.backgroundType = .light
+            data.isTrusted = false
+            
             let a = try article.select("a").first()!
             data.title = try a.attr("title")
             data.link = try a.attr("href")
             data.backgroundImage = try article.select("img").first()!.attr("src")
             
-            let articleURL = URL(string: "https://www.digi24.ro" + data.link)!
+            let articleURL = URL(string: "https://www.digi24.ro" + data.link!)!
             let articleHTML = try String(contentsOf: articleURL)
             let articleDocument: Elements = try SwiftSoup.parse(articleHTML).select("main")
             let div: Element = try articleDocument.select("div.entry").first()!
@@ -34,10 +38,11 @@ func digi24(articleCount: Int) async -> [Article]?{
             for line: Element in p.array(){
                 contents.append(try line.text())
             }
-            
+            var description = ""
             for index in 0...contents.count - 2{
-                data.description += contents[index] + "\n"
+                description += contents[index] + "\n"
             }
+            data.articleDescription = description
             
             data.author = contents[contents.count - 1]
             
@@ -45,21 +50,17 @@ func digi24(articleCount: Int) async -> [Article]?{
             let span = try timeDiv.select("span").first()!
             let date = try span.text()
             data.date = date
-            articleData.append(data)
+            
+            try context.save()
         }
-        
-        return articleData
     } catch Exception.Error(let type, let message) {
         print(message, type)
-        return nil
     } catch {
         print("error")
-        return nil
     }
 }
 
-func stiriOficiale() async -> [Article]?{
-    var articleData: [Article] = []
+func stiriOficiale(){
     let url = URL(string: "https://stirioficiale.ro/informatii")!
     do {
         let html = try String(contentsOf: url)
@@ -67,7 +68,11 @@ func stiriOficiale() async -> [Article]?{
         let articlesArray = document.array()
         
         for article in articlesArray {
-            let data = Article(viewMode: .card, backgroundImage: "", backgroundType: .light, date: "", link: "", title: "", description: "", author: "", isTrusted: true)
+            let data = Article(context: context)
+            
+            data.viewMode = .card
+            data.backgroundType = .light
+            data.isTrusted = true
             
             data.date = try article.select("time").first()!.text()
             
@@ -77,23 +82,24 @@ func stiriOficiale() async -> [Article]?{
             data.title = try h1.text()
             data.link = articleLink
             
-            let articleURL = URL(string: data.link)!
+            let articleURL = URL(string: data.link!)!
             let articleHTML = try String(contentsOf: articleURL)
             let articleDocument: Elements = try SwiftSoup.parse(articleHTML).select("main")
             let div: Element = try articleDocument.select("div.my-8").first()!
             let p = try div.select("p")
             
+            var description = ""
             for text: Element in p.array() {
-                data.description += try text.text() + "\n"
+                description += try text.text() + "\n"
             }
+            data.articleDescription = description
             
-            articleData.append(data)
+            try context.save()
         }
-        return articleData
-    } catch Exception.Error(_, _) {
-        return nil
+    } catch Exception.Error(let type, let message) {
+        print(message, type)
     } catch {
-        return nil
+        print("error")
     }
 }
 
@@ -118,8 +124,18 @@ func parseMSPDF() -> [String.SubSequence]?{
     return nil
 }
 
-func getMSPressBulletin() -> BuletinPresaMS{
+func getMSPressBulletin(){
     let pdfContent = parseMSPDF()!
-    return BuletinPresaMS(pacientiReinfectati: String(pdfContent[8]), numarPersoaneInternate: String(pdfContent[97]), ati: String(pdfContent[99]), rtpcr: String(pdfContent[286]), antigen: String(pdfContent[289]), totalTestePCR: String(pdfContent[290]), totalTesteAntigen: String(pdfContent[291]))
+    let bulletin = MSPressBulettin(context: context)
+    
+    bulletin.pacientiReinfectati = String(pdfContent[8])
+    bulletin.numarPersoaneInternate = String(pdfContent[286])
+    bulletin.ati = String(pdfContent[99])
+    bulletin.rtpcr = String(pdfContent[286])
+    bulletin.antigen = String(pdfContent[289])
+    bulletin.totalTestePCR = String(pdfContent[290])
+    bulletin.totalTesteAntigen = String(pdfContent[291])
+    
+    try! context.save()
 }
 

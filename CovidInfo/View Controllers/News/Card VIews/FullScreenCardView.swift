@@ -133,7 +133,7 @@ extension FullScreenCardView {
             closeButton.setImage(UIImage(named: "lightOnDark")!, for: UIControl.State.normal)
         }
         
-        let text = article.description
+        let text = article.articleDescription
         let textAttributes: [NSAttributedString.Key: Any] = [
             .font : UIFont.systemFont(ofSize: 20, weight: .medium),
             .foregroundColor: UIColor.black
@@ -142,7 +142,7 @@ extension FullScreenCardView {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 1.2
         
-        let attributedString = NSMutableAttributedString(attributedString: NSMutableAttributedString(string: text, attributes: textAttributes))
+        let attributedString = NSMutableAttributedString(attributedString: NSMutableAttributedString(string: text!, attributes: textAttributes))
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedString.length))
         
         textLabel.attributedText = attributedString

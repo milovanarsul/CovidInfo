@@ -92,7 +92,8 @@ enum StorageStye{
     case fileSystem
 }
 
-enum BackgroundType: String {
+@objc
+public enum BackgroundType: Int16 {
     case light
     case dark
     
@@ -111,7 +112,8 @@ enum ShadowAction{
     case remove
 }
 
-enum CardMode {
+@objc
+public enum CardMode: Int16 {
     case full
     case card
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class NewsViewController: UIViewController {
     
@@ -30,15 +31,33 @@ class NewsViewController: UIViewController {
     }()
     
     let transitionManager = CardTransitionManager()
-    var trustedSourcesCardsViewData: [Article] = normalSource
+    var cardsViewData: [Article]?
+    
+    let trustedSources = NSPredicate(format: "isTrusted == true")
+    let untrustedSources = NSPredicate(format: "isTrusted == false")
+    
+    func fetchData(predicate: NSPredicate){
+        
+        let request = Article.fetchRequest() as NSFetchRequest<Article>
+        request.predicate = predicate
+        
+        do {
+            self.cardsViewData = try context.fetch(request)
+            DispatchQueue.main.async {
+                self.newsCardsTableView.reloadData()
+            }
+        } catch {
+            fatalError()
+        }
+    }
     
     override func viewDidLoad() {
         delegates.news = self
+        fetchData(predicate: untrustedSources)
         setup()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-    }
+    override func viewWillAppear(_ animated: Bool) {}
     
     var trustedSourcesTopConstraint = NSLayoutConstraint()
     
@@ -76,12 +95,12 @@ class NewsViewController: UIViewController {
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trustedSourcesCardsViewData.count
+        return cardsViewData!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cardCell = tableView.dequeueReusableCell(forIndexPath: indexPath) as GenericTableViewCell<CardView>
-        let cardViewModel = trustedSourcesCardsViewData[indexPath.row]
+        let cardViewModel = cardsViewData![indexPath.row]
         guard let cellView = cardCell.cellView else {
             let cardView = CardView(article: cardViewModel)
             cardCell.cellView = cardView
@@ -105,7 +124,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cardViewModel = trustedSourcesCardsViewData[indexPath.row]
+        let cardViewModel = cardsViewData![indexPath.row]
         let detailView = FullScreenCardView(article: cardViewModel)
         detailView.modalPresentationStyle = .overCurrentContext
         detailView.transitioningDelegate = transitionManager
@@ -137,7 +156,11 @@ extension NewsViewController: NewsDelegate{
     }
     
     func refreshData(){
-        trustedSourcesCardsViewData = trusted ? trustedSource : normalSource
-        newsCardsTableView.reloadData()
+        switch trusted {
+        case true:
+            fetchData(predicate: trustedSources)
+        case false:
+            fetchData(predicate: untrustedSources)
+        }
     }
 }
