@@ -13,11 +13,18 @@ class DataRefreshManager: NSObject {
     private let defaultsKey = "lastRefresh"
     private let calendar = Calendar.current
     
+    func forceLoadData(){
+        DispatchQueue.main.async {
+            digi24(articleCount: 40)
+            stiriOficiale()
+            parseStatisticsJSON()
+        }
+    }
+    
     func loadDataIfNeeded(){
-        
         if isRefreshRequired(){
             deleteAllCustomEntityObjects(context: context)
-            DispatchQueue.main.async {
+            DispatchQueue.global(qos: .background).async {
                 digi24(articleCount: 40)
                 stiriOficiale()
                 parseStatisticsJSON()

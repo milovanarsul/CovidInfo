@@ -68,6 +68,7 @@
 		B296838E2815CB8B006B6D57 /* MSPressBulettin+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29683882815CB8B006B6D57 /* MSPressBulettin+CoreDataProperties.swift */; };
 		B29683932815D72A006B6D57 /* StatisticsData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29683912815D72A006B6D57 /* StatisticsData+CoreDataClass.swift */; };
 		B29683942815D72A006B6D57 /* StatisticsData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29683922815D72A006B6D57 /* StatisticsData+CoreDataProperties.swift */; };
+		B29683962815E720006B6D57 /* loadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = B29683952815E720006B6D57 /* loadingAnimation.json */; };
 		B2976FD427B94F53006E4859 /* TriajActions.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2976FD327B94F53006E4859 /* TriajActions.xib */; };
 		B2976FD627B94F6C006E4859 /* TriajActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2976FD527B94F6C006E4859 /* TriajActions.swift */; };
 		B2A389F427A442820005F9FD /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A389F327A442820005F9FD /* CustomNavigationBar.swift */; };
@@ -184,6 +185,7 @@
 		B29683882815CB8B006B6D57 /* MSPressBulettin+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MSPressBulettin+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		B29683912815D72A006B6D57 /* StatisticsData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StatisticsData+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		B29683922815D72A006B6D57 /* StatisticsData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StatisticsData+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		B29683952815E720006B6D57 /* loadingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingAnimation.json; sourceTree = "<group>"; };
 		B2976FD327B94F53006E4859 /* TriajActions.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TriajActions.xib; sourceTree = "<group>"; };
 		B2976FD527B94F6C006E4859 /* TriajActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriajActions.swift; sourceTree = "<group>"; };
 		B2A389F327A442820005F9FD /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 		B2B5A9A72790904600FC4E61 /* Lottie Animations */ = {
 			isa = PBXGroup;
 			children = (
+				B29683952815E720006B6D57 /* loadingAnimation.json */,
 				B2B5A9A82790907700FC4E61 /* Onboarding */,
 				B21C965A27B2CB0E00C88A50 /* Simptome and Preventie */,
 			);
@@ -722,6 +725,7 @@
 				B2E1938727BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib in Resources */,
 				B23DE46827B3D02400FD2E10 /* simptome3.json in Resources */,
 				B23DE46A27B3D02400FD2E10 /* simptome2.json in Resources */,
+				B29683962815E720006B6D57 /* loadingAnimation.json in Resources */,
 				B23DE46427B3D01700FD2E10 /* preventie1.json in Resources */,
 				B23DE46127B3D01700FD2E10 /* preventie4.json in Resources */,
 				B2F65142278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */,

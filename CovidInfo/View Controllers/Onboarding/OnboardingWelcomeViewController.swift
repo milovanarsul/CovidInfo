@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class OnboardingWelcomeViewController: UIViewController {
     
@@ -82,6 +83,26 @@ class OnboardingWelcomeViewController: UIViewController {
         return imageView
     }()
     
+    lazy var loadingContentView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.dropShadow = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var loadingAnimation: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        return activityIndicator
+    }()
+    
+    lazy var loadingLabel: UILabel = {
+        let label = UILabel()
+        label.initialize(text: "Pregatim datele pentru tine...", color: .label, font: boldFont(size: 18), alignment: .center, lines: 0)
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -132,11 +153,35 @@ class OnboardingWelcomeViewController: UIViewController {
             self.presentView(view: OnboardingViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: true)
             self.removeFromParent()
         })
-        
     }
     
-    @objc func skipTutorial(_ sender: UIButton) {
+    func awaitDataDownload(){
         contentView.isHidden = true
+        
+        containerView.addSubview(loadingContentView)
+        defaultConstraints(childView: loadingContentView, parentView: containerView)
+        
+        loadingContentView.addSubviews(views: [loadingLabel, loadingAnimation])
+        
+        let loadingAnimationConstraints = Constraints(childView: loadingAnimation, parentView: containerView, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 0.8, constant: 0),
+            Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
+            Constraint(constraintType: .aspectRatio, multiplier: (1.0 / 1.0), constant: 0)
+        ])
+        loadingAnimationConstraints.addConstraints()
+        
+        let loadingLabelConstraints = Constraints(childView: loadingLabel, parentView: containerView, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0)
+        ])
+        loadingLabelConstraints.addConstraints()
+        NSLayoutConstraint.activate([loadingLabel.topAnchor.constraint(equalTo: loadingAnimation.bottomAnchor, constant: 15)])
+        
+        loadingAnimation.startAnimating()
+    }
+    
+    func finishDataDownload(){
+        loadingContentView.isHidden = true
         containerViewWidthConstraint.changeMultiplier(multiplier: 1)
         containerViewHeightConstraint.changeMultiplier(multiplier: 0.89)
         NSLayoutConstraint.deactivate([containerViewVerticalConstraint])
@@ -149,5 +194,15 @@ class OnboardingWelcomeViewController: UIViewController {
             self.presentView(view: MainViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: true)
             self.removeFromParent()
         })
+    }
+    
+    @objc func skipTutorial(_ sender: UIButton) {
+        self.awaitDataDownload()
+        DispatchQueue.main.async {
+            digi24(articleCount: 40)
+            stiriOficiale()
+            parseStatisticsJSON()
+            self.finishDataDownload()
+        }
     }
 }
