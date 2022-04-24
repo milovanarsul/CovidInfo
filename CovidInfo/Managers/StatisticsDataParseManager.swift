@@ -160,21 +160,21 @@ func formatDate(date: String) -> String{
     return resultedDate
 }
 
-func stringDoubleTupleArray(array: [(String, Double)]) -> [StringDoubleTuple] {
-    var resultedArray = [StringDoubleTuple]()
+func tupleToDictionary(array: [(String, Double)]) -> [String : Double] {
+    var resultedDictionary = [String : Double]()
     
-    for arrayItem in array{
-        resultedArray.append(StringDoubleTuple(string: arrayItem.0, double: arrayItem.1))
+    for arrayItem in array {
+        resultedDictionary[arrayItem.0] = arrayItem.1
     }
     
-    return resultedArray
+    return resultedDictionary
 }
 
-func stringDoubleTuple(object: [StringDoubleTuple]) -> [(String, Double)] {
+func dictionaryToTuple(array: [String : Double]) -> [(String, Double)]{
     var resultedArray = [(String, Double)]()
     
-    for it in object {
-        resultedArray.append((it.string!, it.double!))
+    for (key, value) in array {
+        resultedArray.append((key, value))
     }
     
     return resultedArray
@@ -222,11 +222,11 @@ func createDataAssets(currentDayStats: CurrentDayStats, historicalData: [String:
     statisticsData.allTimeMortalitiesValues = mortalitiesValues
     statisticsData.casesForTheLastSevenDays = confirmedCasesDays
     statisticsData.deathsForTheLastSevenDays = deathsDays
-    statisticsData.sevenDaysConfirmedCasesWithDates = stringDoubleTupleArray(array: confirmedCasesSevenDays)
-    statisticsData.sevenDaysDeathsWithDates = stringDoubleTupleArray(array: deathsSevenDays)
-    statisticsData.casesForThePastMonth = stringDoubleTupleArray(array: confirmedCasesCurrentMonth)
-    statisticsData.deathsForThePastMonth = stringDoubleTupleArray(array: deathsCurrentMonth)
     statisticsData.incidence = countyIncidence
+    statisticsData.casesForThePastMonth = tupleToDictionary(array: confirmedCasesCurrentMonth)
+    statisticsData.deathsForThePastMonth = tupleToDictionary(array: deathsCurrentMonth)
+    statisticsData.sevenDaysConfirmedCasesWithDates = tupleToDictionary(array: confirmedCasesSevenDays)
+    statisticsData.sevenDaysDeathsWithDates = tupleToDictionary(array: deathsSevenDays)
     
     try! context.save()
 }

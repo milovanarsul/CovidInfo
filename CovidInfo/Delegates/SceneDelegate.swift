@@ -22,8 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
         
-        let dataRefreshManager = DataRefreshManager.shared
-        dataRefreshManager.loadDataIfNeeded()
+        //let dataRefreshManager = DataRefreshManager.shared
+        //dataRefreshManager.loadDataIfNeeded()
         
         /*
         Task.init {

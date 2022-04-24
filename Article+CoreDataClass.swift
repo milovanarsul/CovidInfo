@@ -1,8 +1,8 @@
 //
 //  Article+CoreDataClass.swift
-//  
+//  CovidInfo
 //
-//  Created by Milovan Arsul on 23.04.2022.
+//  Created by Milovan Arsul on 24.04.2022.
 //
 //
 

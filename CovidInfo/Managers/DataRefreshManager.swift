@@ -14,7 +14,8 @@ class DataRefreshManager: NSObject {
     private let calendar = Calendar.current
     
     func loadDataIfNeeded(){
-        if isRefreshRequired() == false {
+        
+        if isRefreshRequired(){
             deleteAllCustomEntityObjects(context: context)
             DispatchQueue.main.async {
                 digi24(articleCount: 40)

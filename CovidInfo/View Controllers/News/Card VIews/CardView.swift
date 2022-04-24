@@ -32,7 +32,7 @@ class CardView: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = article.backgroundType.titleTextColor
+        label.textColor = .white
         return label
     }()
     

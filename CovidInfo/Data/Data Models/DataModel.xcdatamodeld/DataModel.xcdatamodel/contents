@@ -6,7 +6,7 @@
         <attribute name="backgroundImage" optional="YES" attributeType="String"/>
         <attribute name="backgroundType" attributeType="Integer 16" valueTransformerName="NSSecureUnarchiveFromDataTransofrmerName" defaultValueString="0" usesScalarValueType="YES" customClassName="BackgroundType"/>
         <attribute name="date" optional="YES" attributeType="String"/>
-        <attribute name="isTrusted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isTrusted" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="link" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="viewMode" attributeType="Integer 16" valueTransformerName="NSSecureUnarchiveFromDataTransofrmerName" defaultValueString="1" usesScalarValueType="YES" customClassName=".CardMode"/>
@@ -21,16 +21,16 @@
         <attribute name="totalTestePCR" optional="YES" attributeType="String"/>
     </entity>
     <entity name="StatisticsData" representedClassName="StatisticsData" syncable="YES">
-        <attribute name="allTimeConfirmedCasesValues" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
-        <attribute name="allTimeCuredCasesValues" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
-        <attribute name="allTimeMortalitiesValues" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
-        <attribute name="casesForTheLastSevenDays" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
-        <attribute name="casesForThePastMonth" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[StringDoubleTuple]"/>
-        <attribute name="deathsForTheLastSevenDays" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
-        <attribute name="deathsForThePastMonth" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[StringDoubleTuple]"/>
-        <attribute name="incidence" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
-        <attribute name="sevenDaysConfirmedCasesWithDates" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[StringDoubleTuple]"/>
-        <attribute name="sevenDaysDeathsWithDates" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[StringDoubleTuple]"/>
+        <attribute name="allTimeConfirmedCasesValues" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
+        <attribute name="allTimeCuredCasesValues" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
+        <attribute name="allTimeMortalitiesValues" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
+        <attribute name="casesForTheLastSevenDays" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
+        <attribute name="casesForThePastMonth" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
+        <attribute name="deathsForTheLastSevenDays" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
+        <attribute name="deathsForThePastMonth" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
+        <attribute name="incidence" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
+        <attribute name="sevenDaysConfirmedCasesWithDates" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
+        <attribute name="sevenDaysDeathsWithDates" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
         <attribute name="todaysNewCases" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="todaysNewDeaths" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="todaysRecovered" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>

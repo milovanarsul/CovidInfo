@@ -15,7 +15,8 @@ struct QuickGraphs: View {
     var body: some View{
         
         let request = StatisticsData.fetchRequest() as NSFetchRequest<StatisticsData>
-        let statisticsData = (try! context.fetch(request))[0]
+        let response = try! context.fetch(request)
+        let statisticsData = response[0]
         
         HStack{
             LineChartView(data: statisticsData.casesForTheLastSevenDays!, title: "Cazuri noi", legend: "Astazi: \(statisticsData.todaysNewCases)", style: ChartStyle(backgroundColor: .white, accentColor: .white, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .white), rateValue: getPercentage(array: statisticsData.casesForTheLastSevenDays!), dropShadow: false)
@@ -35,7 +36,9 @@ struct Graphs: View {
     
     var body: some View {
         
-        let statisticsData = StatisticsData(context: context)
+        let request = StatisticsData.fetchRequest() as NSFetchRequest<StatisticsData>
+        let response = try! context.fetch(request)
+        let statisticsData = response[0]
         
         ScrollView(axes: .vertical, showsIndicators: false, offsetChanged: {delegates.main.scrollAnimation(size: -$0.y)}){
             VStack(spacing: 15){
@@ -45,10 +48,7 @@ struct Graphs: View {
                     .foregroundColor(.black)
                     .offset(x: -130, y: 10)
                 
-                HStack{
-                    LineChartView(data: statisticsData.casesForTheLastSevenDays!, title: "Cazuri noi", legend: "\(statisticsData.todaysNewCases)", style: ChartStyle(backgroundColor: .white, accentColor: .white, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .white), rateValue: getPercentage(array: statisticsData.casesForTheLastSevenDays!), dropShadow: false)
-                    LineChartView(data: statisticsData.deathsForTheLastSevenDays!, title: "Decese", legend: "\(statisticsData.todaysNewDeaths)", style: ChartStyle(backgroundColor: .white, accentColor: .yellow, secondGradientColor: .green, textColor: .black, legendTextColor: .black, dropShadowColor: .white), rateValue: getPercentage(array: statisticsData.deathsForTheLastSevenDays!), dropShadow: false)
-                }
+                QuickGraphs()
                 
                 Text("Ultimele 7 zile")
                     .font(.title)
@@ -56,8 +56,8 @@ struct Graphs: View {
                     .foregroundColor(.black)
                     .offset(x: -85, y: 3)
                 
-                let sevenDaysConfirmedCasesWithDates = stringDoubleTuple(object: statisticsData.sevenDaysConfirmedCasesWithDates!)
-                let sevenDaysDeathsWithDates = stringDoubleTuple(object: statisticsData.sevenDaysDeathsWithDates!)
+                let sevenDaysConfirmedCasesWithDates = dictionaryToTuple(array: statisticsData.sevenDaysConfirmedCasesWithDates!)
+                let sevenDaysDeathsWithDates = dictionaryToTuple(array: statisticsData.sevenDaysDeathsWithDates!)
                 
                 BarChartView(data: ChartData(values: sevenDaysConfirmedCasesWithDates), title: "Cazuri", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .white), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
@@ -69,8 +69,8 @@ struct Graphs: View {
                     .foregroundColor(.black)
                     .offset(x: -97, y: 3)
                 
-                let casesForThePastMonth = stringDoubleTuple(object: statisticsData.casesForThePastMonth!)
-                let deathsForThePastMonth = stringDoubleTuple(object: statisticsData.deathsForThePastMonth!)
+                let casesForThePastMonth = dictionaryToTuple(array: statisticsData.casesForThePastMonth!)
+                let deathsForThePastMonth = dictionaryToTuple(array: statisticsData.deathsForThePastMonth!)
                                 
                 BarChartView(data: ChartData(values: casesForThePastMonth), title: "Cazuri", style: ChartStyle(backgroundColor: .white, accentColor: .green, gradientColor: GradientColors.blue, textColor: .black, legendTextColor: .black, dropShadowColor: .white), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 

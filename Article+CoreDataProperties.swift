@@ -1,14 +1,13 @@
 //
 //  Article+CoreDataProperties.swift
-//  
+//  CovidInfo
 //
-//  Created by Milovan Arsul on 23.04.2022.
+//  Created by Milovan Arsul on 24.04.2022.
 //
 //
 
 import Foundation
 import CoreData
-
 
 extension Article {
 
@@ -25,5 +24,9 @@ extension Article {
     @NSManaged public var link: String?
     @NSManaged public var title: String?
     @NSManaged public var viewMode: CardMode
+
+}
+
+extension Article : Identifiable {
 
 }
