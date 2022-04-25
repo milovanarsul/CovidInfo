@@ -28,6 +28,9 @@ class MainPageViewController: UIPageViewController {
         delegates.homePage = homeViewController
         pages.append(homeViewController)
         
+        let infoViewController = InfoViewController()
+        pages.append(infoViewController)
+        
         let newsViewController = NewsViewController()
         pages.append(newsViewController)
         
@@ -37,7 +40,6 @@ class MainPageViewController: UIPageViewController {
         statisticsViewController.view.backgroundColor = UIColor("#f2f2f7")
         statisticsViewController.view.cornerRadius = 24
         pages.append(statisticsViewController)
-    
     }
 }
 

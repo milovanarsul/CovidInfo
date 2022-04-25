@@ -187,19 +187,6 @@ extension MainViewController: MainDelegate{
         })
     }
     
-    func accountModal() {
-        let viewController = AccountViewController()
-        viewController.view.backgroundColor = .white
-        viewController.modalPresentationStyle = .pageSheet
-        if let sheet = viewController.sheetPresentationController {
-            sheet.detents = [.medium()]
-            sheet.preferredCornerRadius = 24
-            sheet.prefersGrabberVisible = true
-        }
-        
-        present(viewController, animated: true, completion: nil)
-    }
-    
     func certifficateModal(){
         let modal = UIViewController()
         let view = CertifficateView()

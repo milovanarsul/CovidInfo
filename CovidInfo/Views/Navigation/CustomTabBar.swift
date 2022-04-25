@@ -16,11 +16,17 @@ class CustomTabBar: UIView {
         return button
     }()
     
+    lazy var infoButton: UIButton = {
+        let button = UIButton()
+        button.initializeIcon(image: UIImage(systemName: "doc.text.image"))
+        button.addTarget(self, action: #selector(infoButtonPressed(_:)), for: .touchUpInside)
+        return button
+    }()
+    
     lazy var newsButton: UIButton = {
         let button = UIButton()
         button.initializeIcon(image: UIImage(systemName: "newspaper")!)
         button.addTarget(self, action: #selector(newsButtonPressed(_:)), for: .touchUpInside)
-
         return button
     }()
     
@@ -29,14 +35,6 @@ class CustomTabBar: UIView {
         button.initializeIcon(image: UIImage(systemName: "chart.bar")!)
         button.addTarget(self, action: #selector(statisticsButtonPressed(_:)), for: .touchUpInside)
 
-        return button
-    }()
-    
-    lazy var accountButton: UIButton = {
-        let button = UIButton()
-        button.initializeIcon(backgroundImage: UIImage(named: "Profile Picture"))
-        button.addTarget(self, action: #selector(accountButtonPressed(_:)), for: .touchUpInside)
-        button.clipsToBounds = false
         return button
     }()
     
@@ -52,7 +50,7 @@ class CustomTabBar: UIView {
         let stackView = UIStackView()
         stackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fillEqually, spacing: 40)
         stackView.isBaselineRelativeArrangement = false
-        stackView.addAranagedSubviews(views: [homeButton, newsButton, statisticsButton, accountButton, goToTopButton])
+        stackView.addAranagedSubviews(views: [homeButton, infoButton, newsButton ,statisticsButton, goToTopButton])
         return stackView
     }()
     
@@ -90,16 +88,16 @@ class CustomTabBar: UIView {
         buttonSetup(button: .home)
     }
     
+    @objc func infoButtonPressed(_ sender: UIButton) {
+        buttonSetup(button: .info)
+    }
+    
     @objc func newsButtonPressed(_ sender: UIButton) {
         buttonSetup(button: .news)
     }
     
     @objc func statisticsButtonPressed(_ sender: UIButton) {
         buttonSetup(button: .statistics)
-    }
-    
-    @objc func accountButtonPressed(_ sender: UIButton) {
-        delegates.main.animateContentView(size: 500)
     }
     
     @objc func goToTopButtonPressed(_ sender: UIButton) {
@@ -114,7 +112,7 @@ class CustomTabBar: UIView {
     }
     
     func tabBarButtonSetup(tabBarButton: MainPages){
-        buttons = [homeButton, newsButton, statisticsButton]
+        buttons = [homeButton, infoButton, newsButton, statisticsButton]
         fillTabBarButton(tabBarButton: tabBarButton)
         buttonSliderAnimation(tabBarButton: tabBarButton)
         
@@ -149,14 +147,12 @@ class CustomTabBar: UIView {
         switch tabBarButton {
         case .home:
             buttonSliderLeadingConstraint.constant = 25
-        case .news:
+        case .info:
             buttonSliderLeadingConstraint.constant = 109
-        case .statistics:
+        case .news:
             buttonSliderLeadingConstraint.constant = 192
-        case .documents:
+        case .statistics:
             buttonSliderLeadingConstraint.constant = 278
-        default:
-            ()
         }
         
         UIView.animate(withDuration: 0.3, animations: {
@@ -167,7 +163,7 @@ class CustomTabBar: UIView {
     
     func fillTabBarButton(tabBarButton: MainPages){
         let buttonIndex = tabBarIndex(tabBarButton: tabBarButton)
-        let images = [home, news, statistics]
+        let images = [home, info, news, statistics]
         
         for index in 0..<buttons.count{
             buttons[index].setImage(UIImage(systemName: images[index]), for: .normal)
@@ -180,14 +176,12 @@ class CustomTabBar: UIView {
         switch tabBarButton {
         case .home:
             return 0
-        case .news:
+        case .info:
             return 1
-        case .statistics:
+        case .news:
             return 2
-        case .documents:
+        case .statistics:
             return 3
-        default:
-            return -1
         }
     }
 }

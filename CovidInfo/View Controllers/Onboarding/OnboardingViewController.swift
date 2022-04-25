@@ -25,14 +25,6 @@ class OnboardingViewController: UIViewController {
         return view
     }()
     
-    lazy var headerImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "cells-image")
-        imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .clear
-        return imageView
-    }()
-    
     lazy var contentView: UIView = {
         let view = UIView()
         embed.onboardingViewController(parent: self, container: view)
@@ -41,7 +33,7 @@ class OnboardingViewController: UIViewController {
     
     lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
-        pageControl.numberOfPages = 5
+        pageControl.numberOfPages = 4
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = signatureDarkBlue
         pageControl.currentPageIndicatorTintColor = signatureLightBlue
@@ -51,6 +43,19 @@ class OnboardingViewController: UIViewController {
     lazy var animationView: AnimationView = {
         let animationView = AnimationView()
         return animationView
+    }()
+    
+    lazy var loadingAnimation: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        return activityIndicator
+    }()
+    
+    lazy var loadingLabel: UILabel = {
+        let label = UILabel()
+        label.initialize(text: "Pregatim datele pentru tine", color: .label, font: boldFont(size: 12), alignment: .center, lines: 0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     override func viewDidLoad() {
@@ -66,7 +71,7 @@ class OnboardingViewController: UIViewController {
     
     func setup(){
         view.addSubviews(views: [backgroundImage, containerView])
-        containerView.addSubviews(views: [headerImage, contentView, pageControl, animationView])
+        containerView.addSubviews(views: [contentView, pageControl, animationView])
         
         defaultConstraints(childView: backgroundImage, parentView: view)
         
@@ -75,21 +80,13 @@ class OnboardingViewController: UIViewController {
         containerViewHeightConstraint = Constraint(childView: containerView, parentView: view, constraintType: .proportionalHeight, multiplier: 0.8, constant: 0).setConstraint()
         NSLayoutConstraint.activate([Constraint(childView: containerView, parentView: view, constraintType: .horizontal, multiplier: 1, constant: 0).setConstraint(), containerViewVerticalConstraint, containerViewWidthConstraint, containerViewHeightConstraint])
         
-        let headerImageConstraints = Constraints(childView: headerImage, parentView: containerView, constraints: [
-            Constraint(constraintType: .leading, multiplier: 1, constant: 24),
-            Constraint(constraintType: .trailing, multiplier: 1, constant: 100),
-            Constraint(constraintType: .top, multiplier: 1, constant: 13),
-            Constraint(constraintType: .proportionalHeight, multiplier: 0.3, constant: 0)
-        ])
-        headerImageConstraints.addConstraints()
-        
         let animationViewConstraints = Constraints(childView: animationView, parentView: containerView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .vertical, multiplier: 1, constant: -40),
             Constraint(constraintType: .proportionalHeight, multiplier: 0.35, constant: 0),
             Constraint(constraintType: .aspectRatio, multiplier: (1.0/1.0), constant: 0)
         ])
         animationViewConstraints.addConstraints()
-        NSLayoutConstraint.activate([NSLayoutConstraint(item: animationView, attribute: .top, relatedBy: .equal, toItem: headerImage, attribute: .bottom, multiplier: 1, constant: -50)])
         
         let pageControlConstraints = Constraints(childView: pageControl, parentView: containerView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
@@ -104,15 +101,31 @@ class OnboardingViewController: UIViewController {
         contentViewConstraints.addConstraints()
         NSLayoutConstraint.activate([NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal, toItem: animationView, attribute: .bottom, multiplier: 1, constant: 30), NSLayoutConstraint(item: pageControl, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: 10)])
     }
-}
-
-extension OnboardingViewController: OnboardingSubDelegate{
-    func finishOnboarding() {
-        animationView.isHidden = true
-        headerImage.isHidden = true
-        contentView.isHidden = true
-        pageControl.isHidden = true
+    
+    func awaitDataDownload(){
+        removeViewsFromSuperView(views: [contentView, pageControl, animationView])
         
+        containerView.addSubviews(views: [loadingAnimation, loadingLabel])
+        
+        let loadingAnimationConstraints = Constraints(childView: loadingAnimation, parentView: containerView, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .vertical, multiplier: 1, constant: -40),
+            Constraint(constraintType: .proportionalHeight, multiplier: 0.35, constant: 0),
+            Constraint(constraintType: .aspectRatio, multiplier: (1.0/1.0), constant: 0)
+        ])
+        loadingAnimationConstraints.addConstraints()
+        
+        containerView.addSubview(loadingLabel)
+        NSLayoutConstraint.activate([
+            loadingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingLabel.topAnchor.constraint(equalTo: loadingAnimation.bottomAnchor, constant: 10)
+        ])
+        
+        loadingAnimation.startAnimating()
+    }
+    
+    func finishDataDownload(){
+        removeViewsFromSuperView(views: [loadingAnimation, loadingLabel])
         containerViewWidthConstraint.changeMultiplier(multiplier: 1)
         containerViewHeightConstraint.changeMultiplier(multiplier: homeHeight)
         containerView.removeConstraint(containerViewVerticalConstraint)
@@ -125,6 +138,19 @@ extension OnboardingViewController: OnboardingSubDelegate{
             self.presentView(view: MainViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: true)
             self.removeFromParent()
         })
+        
+    }
+}
+
+extension OnboardingViewController: OnboardingSubDelegate{
+    func finishOnboarding() {
+        awaitDataDownload()
+        DispatchQueue.main.async {
+            digi24(articleCount: 40)
+            stiriOficiale()
+            parseStatisticsJSON()
+            self.finishDataDownload()
+        }
     }
     
     func setPageControl(){

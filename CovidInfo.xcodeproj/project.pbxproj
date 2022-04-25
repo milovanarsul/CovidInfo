@@ -44,13 +44,13 @@
 		B256059C27B2AFB500FB039F /* CollectionViewLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256059B27B2AFB500FB039F /* CollectionViewLayouts.swift */; };
 		B259BF8527B6DFA5001F78A6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259BF8427B6DFA5001F78A6 /* LaunchViewController.swift */; };
 		B25AD33927A30B50009EAD38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33827A30B50009EAD38 /* UIView.swift */; };
+		B25BA935281694E600C89F14 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25BA934281694E600C89F14 /* InfoViewController.swift */; };
 		B25EAE5427F76DD400860B2F /* TabBarExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25EAE5327F76DD400860B2F /* TabBarExtenstion.swift */; };
 		B266A11527EF12D0003806E7 /* NewsCardTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A0F527EF12D0003806E7 /* NewsCardTransitionManager.swift */; };
 		B266A12927EF1682003806E7 /* FullScreenCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A12827EF1682003806E7 /* FullScreenCardView.swift */; };
 		B266A12B27EF25CC003806E7 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A12A27EF25CC003806E7 /* CardView.swift */; };
 		B266A12D27EF71AF003806E7 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A12C27EF71AF003806E7 /* UIWindow.swift */; };
 		B266A12F27EF7278003806E7 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A12E27EF7278003806E7 /* UITableView.swift */; };
-		B267D10F27F642B60069F2CE /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267D10E27F642B60069F2CE /* AccountViewController.swift */; };
 		B26CB67828148AF900345812 /* DataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26CB67728148AF900345812 /* DataTypes.swift */; };
 		B26CB67B28148F8E00345812 /* StatisticsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26CB67A28148F8E00345812 /* StatisticsConfiguration.swift */; };
 		B26CD2FE280602C100DE2780 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26CD2FD280602C100DE2780 /* StatisticsView.swift */; };
@@ -161,13 +161,13 @@
 		B256059B27B2AFB500FB039F /* CollectionViewLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayouts.swift; sourceTree = "<group>"; };
 		B259BF8427B6DFA5001F78A6 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		B25AD33827A30B50009EAD38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		B25BA934281694E600C89F14 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		B25EAE5327F76DD400860B2F /* TabBarExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarExtenstion.swift; sourceTree = "<group>"; };
 		B266A0F527EF12D0003806E7 /* NewsCardTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCardTransitionManager.swift; sourceTree = "<group>"; };
 		B266A12827EF1682003806E7 /* FullScreenCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenCardView.swift; sourceTree = "<group>"; };
 		B266A12A27EF25CC003806E7 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		B266A12C27EF71AF003806E7 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		B266A12E27EF7278003806E7 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
-		B267D10E27F642B60069F2CE /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		B26CB67728148AF900345812 /* DataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypes.swift; sourceTree = "<group>"; };
 		B26CB67A28148F8E00345812 /* StatisticsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsConfiguration.swift; sourceTree = "<group>"; };
 		B26CD2FD280602C100DE2780 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
@@ -341,7 +341,7 @@
 				B278D50627A2848600511BB2 /* MainViewController.swift */,
 				B2F48DE827AD3543005EE116 /* News */,
 				B26CB67928148F7D00345812 /* Statistics */,
-				B267D10E27F642B60069F2CE /* AccountViewController.swift */,
+				B25BA934281694E600C89F14 /* InfoViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -809,6 +809,7 @@
 				B2049E4527FA325100303C6A /* ArticlesWebScraperManager.swift in Sources */,
 				B2DF4F3027D8A15D0035D5B7 /* CertifficateView.swift in Sources */,
 				B2B758E228100BE600E9D078 /* ViewModelsData.swift in Sources */,
+				B25BA935281694E600C89F14 /* InfoViewController.swift in Sources */,
 				B2DABD1827EB6D7700ECA4EB /* UIImage.swift in Sources */,
 				B2BB039B27A9466700D4801B /* CustomTabBar.swift in Sources */,
 				B2B758DF2810091500E9D078 /* XIB.swift in Sources */,
@@ -835,7 +836,6 @@
 				B2DABD1A27EB790F00ECA4EB /* Safari.swift in Sources */,
 				B25EAE5427F76DD400860B2F /* TabBarExtenstion.swift in Sources */,
 				B2C2E90D27DA4D3E00A79D93 /* EnrollCertifficateViewController.swift in Sources */,
-				B267D10F27F642B60069F2CE /* AccountViewController.swift in Sources */,
 				B266A11527EF12D0003806E7 /* NewsCardTransitionManager.swift in Sources */,
 				B2A389F427A442820005F9FD /* CustomNavigationBar.swift in Sources */,
 				B26CD2FE280602C100DE2780 /* StatisticsView.swift in Sources */,

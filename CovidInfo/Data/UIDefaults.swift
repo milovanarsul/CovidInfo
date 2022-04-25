@@ -36,18 +36,17 @@ let parentButtonLeading: CGFloat = -100
 
 /// CUSTOM TAB BAR
 let home = "house"
+let info = "doc.text.image"
 let news = "newspaper"
 let statistics = "chart.bar"
-let documents = "doc.text"
 let tabBarHeight = 0.0558036
 
 
 let mainPages: [MainPages:[String:[ChildPages:String]]] = [
-    MainPages.account: ["Cont":[:]],
+    MainPages.info: ["Informatii":[:]],
     MainPages.home: ["Acasa":homePages],
     MainPages.news: ["Stiri":stiriPages],
     MainPages.statistics: ["Statistici":statisticiPages],
-    MainPages.documents: ["Documente":documentePages]
 ]
 
 let homePages: [ChildPages:String] = [

@@ -99,7 +99,7 @@ class OnboardingWelcomeViewController: UIViewController {
     
     lazy var loadingLabel: UILabel = {
         let label = UILabel()
-        label.initialize(text: "Pregatim datele pentru tine...", color: .label, font: boldFont(size: 18), alignment: .center, lines: 0)
+        label.initialize(text: "Pregatim datele pentru tine...", color: .label, font: boldFont(size: 14), alignment: .center, lines: 0)
         return label
     }()
     
@@ -160,16 +160,8 @@ class OnboardingWelcomeViewController: UIViewController {
         
         containerView.addSubview(loadingContentView)
         defaultConstraints(childView: loadingContentView, parentView: containerView)
-        
         loadingContentView.addSubviews(views: [loadingLabel, loadingAnimation])
-        
-        let loadingAnimationConstraints = Constraints(childView: loadingAnimation, parentView: containerView, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 0.8, constant: 0),
-            Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
-            Constraint(constraintType: .aspectRatio, multiplier: (1.0 / 1.0), constant: 0)
-        ])
-        loadingAnimationConstraints.addConstraints()
+        xyConstraints(childView: loadingAnimation, parentView: loadingContentView)
         
         let loadingLabelConstraints = Constraints(childView: loadingLabel, parentView: containerView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0)
@@ -197,7 +189,7 @@ class OnboardingWelcomeViewController: UIViewController {
     }
     
     @objc func skipTutorial(_ sender: UIButton) {
-        self.awaitDataDownload()
+        awaitDataDownload()
         DispatchQueue.main.async {
             digi24(articleCount: 40)
             stiriOficiale()

@@ -29,8 +29,8 @@ let onboardingDataArray = [
     OnboardingData(lottieAnimation: "onboarding2", labelText: "Vizualizeaza ultimele statistici si afla evolutia Pandemiei in Romania", isModalNext: false),
     OnboardingData(lottieAnimation: "onboarding3", labelText: "Afla mai multe despre vaccinurile aprobate si cum poti spune stop pandemiei", isModalNext: false),
     OnboardingData(lottieAnimation: "onboarding4", labelText: "Iti poti inrola certificatul pentru a-l avea la indemana", isModalNext: true),
-    OnboardingData(lottieAnimation: "", labelText: "Certificatul tau a fost inrolat cu succes!", isModalNext: false),
-    OnboardingData(lottieAnimation: "onboarding5", labelText: "Poti crea un cont pentru a-ti salva datele intr-un loc sigur", isModalNext: true)
+    OnboardingData(lottieAnimation: "", labelText: "Certificatul tau a fost inrolat cu succes!", isModalNext: true),
+    //OnboardingData(lottieAnimation: "onboarding5", labelText: "Poti crea un cont pentru a-ti salva datele intr-un loc sigur", isModalNext: true)
 ]
 
 let preventieData = [

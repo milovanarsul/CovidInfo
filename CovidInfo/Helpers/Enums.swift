@@ -37,11 +37,10 @@ enum currentPageButtonSlider{
 }
 
 enum MainPages{
-    case account
     case home
+    case info
     case news
     case statistics
-    case documents
 }
 
 enum ChildPages{

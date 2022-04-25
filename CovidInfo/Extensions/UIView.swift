@@ -170,3 +170,9 @@ extension UIView {
         return image
     }
 }
+
+func removeViewsFromSuperView(views: [UIView]){
+    for view in views{
+        view.removeFromSuperview()
+    }
+}

@@ -44,7 +44,6 @@ protocol OnboardingSubDelegate{
 protocol MainDelegate{
     func certifficateButtonAnimation(visibility: ViewVisibility)
     func tabBarVisibility(tabBarVisibility: ViewVisibility)
-    func accountModal()
     func certifficateModal()
     func enrollCertifficate()
     func dimissModal(completion: @escaping (() -> Void))

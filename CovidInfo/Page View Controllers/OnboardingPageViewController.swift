@@ -50,17 +50,14 @@ extension OnboardingPageViewController: OnboardingDelegate{
     
     func nextPage() {
          let currentIndex = getCurrentIndex(views: pages)
-
-         switch currentIndex{
-         case 3:
-             goToIndex(pageIndex: currentIndex + 2, direction: .forward, pages: pages)
-             delegates.onboardingSub.setupAnimation(animationName: onboardingDataArray[currentIndex + 2].getLottieAnimation())
-         case 5:
-             delegates.onboardingSub.finishOnboarding()
-         default:
-             goToIndex(pageIndex: currentIndex + 1, direction: .forward, pages: pages)
-             delegates.onboardingSub.setupAnimation(animationName: onboardingDataArray[currentIndex + 1].getLottieAnimation())
-         }
+        
+        switch currentIndex {
+        case 3:
+            delegates.onboardingSub.finishOnboarding()
+        default:
+            goToIndex(pageIndex: currentIndex + 1, direction: .forward, pages: pages)
+            delegates.onboardingSub.setupAnimation(animationName: onboardingDataArray[currentIndex + 1].getLottieAnimation())
+        }
         
         delegates.onboardingSub.setPageControl()
     }
