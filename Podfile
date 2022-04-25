@@ -11,4 +11,5 @@ target 'CovidInfo' do
 	pod 'SwiftSoup'
 	pod 'Firebase/Core'
 	pod 'Firebase/Database'
+	pod 'Firebase/Storage'
 end

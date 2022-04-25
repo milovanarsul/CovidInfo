@@ -8,6 +8,9 @@ PODS:
   - Firebase/Database (8.15.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 8.15.0)
+  - Firebase/Storage (8.15.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (~> 8.15.0)
   - FirebaseAnalytics (8.15.0):
     - FirebaseAnalytics/AdIdSupport (= 8.15.0)
     - FirebaseCore (~> 8.0)
@@ -43,6 +46,9 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/UserDefaults (~> 7.7)
     - PromisesObjC (< 3.0, >= 1.2)
+  - FirebaseStorage (8.15.0):
+    - FirebaseCore (~> 8.0)
+    - GTMSessionFetcher/Core (~> 1.5)
   - GoogleAppMeasurement (8.15.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.15.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
@@ -86,6 +92,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.7.0):
     - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (1.7.1)
   - leveldb-library (1.22.1)
   - lottie-ios (3.2.3)
   - nanopb (2.30908.0):
@@ -100,6 +107,7 @@ DEPENDENCIES:
   - BetterSegmentedControl (~> 2.0)
   - Firebase/Core
   - Firebase/Database
+  - Firebase/Storage
   - lottie-ios
   - SwiftSoup
 
@@ -112,9 +120,11 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseDatabase
     - FirebaseInstallations
+    - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
+    - GTMSessionFetcher
     - leveldb-library
     - lottie-ios
     - nanopb
@@ -129,15 +139,17 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: 92e07a649aeb66352b319d43bdd2ee3942af84cb
   FirebaseDatabase: f567afd233e54a303d84423207736590a6feb419
   FirebaseInstallations: 40bd9054049b2eae9a2c38ef1c3dd213df3605cd
+  FirebaseStorage: 8019af461599b2c3bc61c6a5dbdfa3d2de66a4d9
   GoogleAppMeasurement: 4c19f031220c72464d460c9daa1fb5d1acce958e
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
+  GTMSessionFetcher: 4577a4cc914a5a07c40a8a0ad0acc22080418c2d
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
   SwiftSoup: ba8ea2c91151881a298cba4b0628ef31e835a77f
 
-PODFILE CHECKSUM: 669091abf0e20b90c2d642f089f903e4c5f5cb47
+PODFILE CHECKSUM: 2ced9d5cbdb4a0178c37c7f0784b4ea79ff2f36a
 
 COCOAPODS: 1.11.3
