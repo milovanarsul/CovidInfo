@@ -7,101 +7,121 @@
 
 import UIKit
 import Firebase
+import BetterSegmentedControl
 
 class InfoViewController: UIViewController {
     
     var infoCardsDataArray: [InfoCardsData]?
+    
+    lazy var categories: BetterSegmentedControl = {
+        let regularFont = UIFont(name: "IBMPLexSans-Regular", size: 14)!
+        let categories = BetterSegmentedControl(frame: .zero, segments: LabelSegment.segments(withTitles: ["Intrebari frecvente", "Vaccinare", "Variante"], normalFont: regularFont, normalTextColor: .black, selectedFont: regularFont ,selectedTextColor: .white), options: [.backgroundColor(.white), .indicatorViewBackgroundColor(.black), .cornerRadius(16), .animationSpringDamping(1.0)])
+        categories.addTarget(self, action: #selector(categoriesTapped(_:)), for: .valueChanged)
+        return categories
+    }()
+    
+    lazy var categoriesScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        
+        scrollView.addSubview(categories)
+        let categoriesConstraints = Constraints(childView: categories, parentView: scrollView, constraints: [
+            Constraint(constraintType: .leading, multiplier: 1, constant: 15),
+            Constraint(constraintType: .trailing, multiplier: 1, constant: 15),
+            Constraint(constraintType: .top, multiplier: 1, constant: 0),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
+        ])
+        categoriesConstraints.addConstraints()
+        
+        scrollView.delegate = self
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        
+        return scrollView
+    }()
+    
+    lazy var collectionViewContainer: UIView = {
+        let view = UIView()
+        embed.infoCardsCollectionViewController(parent: self, container: view)
+        return view
+    }()
+    
+    lazy var variantsViewContainer: UIView = {
+        let view = UIView()
+        embed.variantsViewController(parent: self, container: view)
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        delegates.info = self
         setup()
     }
     
     func setup(){
         view.layer.cornerRadius = 24
         view.layer.masksToBounds = true
-        let embed = EmbedView()
-        embed.infoCardsCollectionViewController(parent: self, container: view)
-    }
-}
-
-class InfoCardsCollectionViewController: UICollectionViewController{
-    
-    var infoCardsDataArray = [InfoCardsData]()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         
-        delegates.infoCardsCollectionView = self
-        pullInfoCardsData()
-        initialize()
+        view.addSubviews(views: [categoriesScrollView, collectionViewContainer])
+        
+        let categoriesScrollViewConstraints = Constraints(childView: categoriesScrollView, parentView: view, constraints: [
+            Constraint(constraintType: .leading, multiplier: 1, constant: 0),
+            Constraint(constraintType: .trailing, multiplier: 1, constant: 0),
+            Constraint(constraintType: .height, multiplier: 1, constant: 30),
+            Constraint(constraintType: .top, multiplier: 1, constant: 15)
+        ])
+        categoriesScrollViewConstraints.addConstraints()
+        
+        let collectionViewContainerConstraints = Constraints(childView: collectionViewContainer, parentView: view, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
+        ])
+        collectionViewContainerConstraints.addConstraints()
+        NSLayoutConstraint.activate([collectionViewContainer.topAnchor.constraint(equalTo: categoriesScrollView.bottomAnchor, constant: 15)])
     }
     
-    func pullInfoCardsData(){
-        databaseReference.child("InfoCards").observe(.value) { (snaphshot) in
-            for card in snaphshot.children.allObjects as! [DataSnapshot]{
-                let object = card.value as? [String: AnyObject]
-                let cardID = object?["cardID"] as! Int
-                let frontTitle = object?["frontTitle"] as! String
-                let contents = object?["contents"] as! String
-                self.infoCardsDataArray.append(InfoCardsData(cardID: cardID, frontTitle: frontTitle, contents: contents))
-            }
-            self.collectionView.reloadData()
+    func setupVariantsViewContainer(){
+        view.addSubview(variantsViewContainer)
+        
+        let variantsViewContainerConstraints = Constraints(childView: variantsViewContainer, parentView: view, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
+        ])
+        variantsViewContainerConstraints.addConstraints()
+        NSLayoutConstraint.activate([variantsViewContainer.topAnchor.constraint(equalTo: categoriesScrollView.bottomAnchor, constant: 10)])
+    }
+    
+    @objc func categoriesTapped(_ sender: BetterSegmentedControl){
+        switch sender.index {
+        case 0:
+            collectionViewContainer.isHidden = false
+            variantsViewContainer.isHidden = true
+            delegates.infoCardsCollectionView.pullInfoCardsData(type: .intrebariFrecvente)
+        case 1:
+            collectionViewContainer.isHidden = false
+            variantsViewContainer.isHidden = true
+            delegates.infoCardsCollectionView.pullInfoCardsData(type: .vaccinare)
+        case 2:
+            collectionViewContainer.isHidden = true
+            variantsViewContainer.isHidden = false
+            setupVariantsViewContainer()
+        default: ()
         }
     }
+}
 
-    func initialize(){
-        collectionView.collectionViewLayout = InfoCardsCollectionViewLayout()
-        collectionView.contentInsetAdjustmentBehavior = .always
-        collectionView.register(InfoCardCellCollectionViewCell.self, forCellWithReuseIdentifier: "InfoCard")
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.contentInset = UIEdgeInsets(top: 23, left: 16, bottom: 10, right: 16)
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return infoCardsDataArray.count
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InfoCard", for: indexPath as IndexPath) as! InfoCardCellCollectionViewCell
-        cell.frontLabel.initialize(text: infoCardsDataArray[indexPath.item].frontTitle, color: .black, font: boldFont(size: 24), alignment: .left, lines: 0)
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) / 2
-        return CGSize(width: size, height: size)
-    }
-    
-    func findIndexes(from collectionView: UICollectionView) -> [IndexPath] {
-        var indexPaths: [IndexPath] = []
-        for item in 0..<collectionView.numberOfItems(inSection: 0){
-            let indexPath = IndexPath(item: item, section: 0)
-            indexPaths.append(indexPath)
-        }
-        
-        return indexPaths
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let data = infoCardsDataArray[indexPath.item]
-        let bottomSheet = InfoBottomSheetView(title: data.frontTitle, contents: data.contents)
-        bottomSheet.modalPresentationStyle = .custom
-        bottomSheet.transitioningDelegate = self
-        present(bottomSheet, animated: true, completion: nil)
+extension InfoViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.contentOffset.y = 0.0
     }
 }
 
-extension InfoCardsCollectionViewController: UIViewControllerTransitioningDelegate{
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        PresentationController(presentedViewController: presented, presenting: presenting)
+extension InfoViewController: InfoViewControllerDelegate{
+    func getCardsViewController() -> UIViewController{
+        return self.children[1]
     }
 }
 
-extension InfoCardsCollectionViewController: InfoCardsCollectionViewDelegate{
-    func getInfoData(index: Int) -> InfoCardsData{
-        return infoCardsDataArray[index]
-    }
-}
+

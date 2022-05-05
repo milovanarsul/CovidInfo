@@ -62,30 +62,29 @@ class InfoBottomSheetView: UIViewController {
         view.layer.cornerRadius = 24
         view.layer.masksToBounds = true
         
-        view.addSubviews(views: [slideIndicator, sheetTile, sheetContents])
+        view.addSubviews(views: [sheetContents, sheetTile, slideIndicator])
         
-        let slideIndicatorConstraints = Constraints(childView: slideIndicator, parentView: view, constraints: [
+        let sheetContentsConstraints = Constraints(childView: sheetContents, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .width, multiplier: 1, constant: 60),
-            Constraint(constraintType: .height, multiplier: 1, constant: 4),
-            Constraint(constraintType: .top, multiplier: 1, constant: 20)
+            Constraint(constraintType: .proportionalWidth, multiplier: 0.9, constant: 0),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 30)
         ])
-        slideIndicatorConstraints.addConstraints()
+        sheetContentsConstraints.addConstraints()
         
         let sheetTitleConstraints = Constraints(childView: sheetTile, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 0.9, constant: 0),
         ])
         sheetTitleConstraints.addConstraints()
-        NSLayoutConstraint.activate([sheetTile.topAnchor.constraint(equalTo: slideIndicator.bottomAnchor, constant: 20)])
+        NSLayoutConstraint.activate([sheetTile.bottomAnchor.constraint(equalTo: sheetContents.topAnchor, constant: -20)])
         
-        let sheetContentsConstraints = Constraints(childView: sheetContents, parentView: view, constraints: [
+        let slideIndicatorConstraints = Constraints(childView: slideIndicator, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 0.9, constant: 0),
-            Constraint(constraintType: .bottom, multiplier: 1, constant: 20)
+            Constraint(constraintType: .width, multiplier: 1, constant: 60),
+            Constraint(constraintType: .height, multiplier: 1, constant: 4)
         ])
-        sheetContentsConstraints.addConstraints()
-        NSLayoutConstraint.activate([sheetContents.topAnchor.constraint(equalTo: sheetTile.bottomAnchor, constant: 10)])
+        slideIndicatorConstraints.addConstraints()
+        NSLayoutConstraint.activate([slideIndicator.topAnchor.constraint(equalTo: view.topAnchor, constant: 20)])
     }
     
     @objc func slideGestureRecognizer(sender: UIPanGestureRecognizer){

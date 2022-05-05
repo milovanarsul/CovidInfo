@@ -50,6 +50,8 @@ class CardTransitionManager: NSObject {
         return button
     }()
     
+    var cardsTableViewType: CardsTableViewType = .news
+    
     private func addBackgroundViews(to containerView: UIView) {
         blurEffectView.frame = containerView.frame
         blurEffectView.alpha = transition.next.blurAlpha
@@ -80,10 +82,18 @@ extension CardTransitionManager: UIViewControllerAnimatedTransitioning {
         
         addBackgroundViews(to: containerView)
         
-        let fromView = transitionDeorigin ? transitionContext.viewController(forKey: .from) : delegates.tabBar.getCurrentPresentedViewController()
+        var fromView: UIViewController?
+        var toView: UIViewController?
         
-        let toView = transitionDeorigin ? delegates.tabBar.getCurrentPresentedViewController() : transitionContext.viewController(forKey: .to)
-        
+        switch cardsTableViewType {
+        case .news:
+            fromView = transitionDeorigin ? transitionContext.viewController(forKey: .from) : delegates.tabBar.getCurrentPresentedViewController()
+            toView = transitionDeorigin ? delegates.tabBar.getCurrentPresentedViewController() : transitionContext.viewController(forKey: .to)
+        case .variants: ()
+            fromView = transitionDeorigin ? transitionContext.viewController(forKey: .from) : delegates.info.getCardsViewController()
+            toView = transitionDeorigin ? delegates.info.getCardsViewController() : transitionContext.viewController(forKey: .to)
+        }
+    
         guard let cardView = (transition == .presentation) ? (fromView as! NewsViewController).selectedCellCardView() : (toView as! NewsViewController).selectedCellCardView() else {return}
         
         let cardViewCopy = createCardViewCopy(cardView: cardView)

@@ -48,7 +48,7 @@ class EmbedView{
     }
     
     func articleViewController(parent: UIViewController, container: UIView){
-        let child = NewsViewController()
+        let child = NewsViewController(cardsTableViewType: .news)
         delegates.news = child
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
     }
@@ -56,7 +56,11 @@ class EmbedView{
     func infoCardsCollectionViewController(parent: UIViewController, container: UIView){
         let child = InfoCardsCollectionViewController(collectionViewLayout: InfoCardsCollectionViewLayout.init())
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
-        
+    }
+    
+    func variantsViewController(parent: UIViewController, container: UIView){
+        let child = NewsViewController(cardsTableViewType: .variants)
+        embed(parent: parent, container: container, child: child, previous: parent.children.first)
     }
 }
 

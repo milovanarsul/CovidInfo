@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import CoreData
+import Firebase
 
 class NewsViewController: UIViewController {
     
@@ -24,20 +25,21 @@ class NewsViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.registerCell(GenericTableViewCell<CardView>.self)
-        tableView.registerCell(GenericTableViewCell<TrustedSources>.self)
         tableView.cornerRadius = 24
         tableView.backgroundColor = .white
         return tableView
     }()
     
-    let transitionManager = CardTransitionManager()
+    var cardsTableViewType: CardsTableViewType?
+    let transitionManager: CardTransitionManager? = CardTransitionManager()
     var cardsViewData: [Article]?
     
     let trustedSources = NSPredicate(format: "isTrusted == true")
     let untrustedSources = NSPredicate(format: "isTrusted == false")
+    let isVariant = NSPredicate(format: "isVariant == true")
     
     func fetchData(predicate: NSPredicate){
-        
+        cardsViewData?.removeAll()
         let request = Article.fetchRequest() as NSFetchRequest<Article>
         request.predicate = predicate
         
@@ -51,45 +53,82 @@ class NewsViewController: UIViewController {
         }
     }
     
+    init(cardsTableViewType: CardsTableViewType){
+        self.cardsTableViewType = cardsTableViewType
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         delegates.news = self
-        fetchData(predicate: untrustedSources)
+        
+        switch cardsTableViewType {
+        case .news:
+            fetchData(predicate: untrustedSources)
+            transitionManager?.cardsTableViewType = .news
+        case .variants:
+            fetchData(predicate: isVariant)
+            transitionManager?.cardsTableViewType = .variants
+        default: ()
+        }
+        
         setup()
     }
     
     override func viewWillAppear(_ animated: Bool) {}
     
     var trustedSourcesTopConstraint = NSLayoutConstraint()
+    var tableViewTopConstaint = NSLayoutConstraint()
     
     func setup(){
         view.backgroundColor = .clear
         view.addSubview(newsCardsTableView)
         
-        view.addSubviews(views: [trustedSourcesView, newsCardsTableView])
-        
-        let trustedSourcesConstraints = Constraints(childView: trustedSourcesView, parentView: view, constraints: [
-            Constraint(constraintType: .leading, multiplier: 1, constant: 0),
-            Constraint(constraintType: .trailing, multiplier: 1, constant: 0),
-            Constraint(constraintType: .height, multiplier: 1, constant: 120)
-        ])
-        trustedSourcesConstraints.addConstraints()
-        trustedSourcesTopConstraint = NSLayoutConstraint(item: trustedSourcesView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
-        NSLayoutConstraint.activate([trustedSourcesTopConstraint])
-        
-        NSLayoutConstraint.activate([
-            newsCardsTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            newsCardsTableView.widthAnchor.constraint(equalToConstant: view.frame.size.width),
-            newsCardsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            newsCardsTableView.topAnchor.constraint(equalTo: trustedSourcesView.bottomAnchor, constant: -10)
-        ])
+        switch cardsTableViewType {
+        case .news:
+            view.addSubviews(views: [trustedSourcesView, newsCardsTableView])
+            
+            let trustedSourcesConstraints = Constraints(childView: trustedSourcesView, parentView: view, constraints: [
+                Constraint(constraintType: .leading, multiplier: 1, constant: 0),
+                Constraint(constraintType: .trailing, multiplier: 1, constant: 0),
+                Constraint(constraintType: .height, multiplier: 1, constant: 120)
+            ])
+            trustedSourcesConstraints.addConstraints()
+            trustedSourcesTopConstraint = NSLayoutConstraint(item: trustedSourcesView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
+            NSLayoutConstraint.activate([trustedSourcesTopConstraint])
+            
+            NSLayoutConstraint.activate([
+                newsCardsTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+                newsCardsTableView.widthAnchor.constraint(equalToConstant: view.frame.size.width),
+                newsCardsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                newsCardsTableView.topAnchor.constraint(equalTo: trustedSourcesView.bottomAnchor, constant: -10)
+            ])
+        case .variants:
+            view.addSubview(newsCardsTableView)
+            defaultAnchors(childView: newsCardsTableView, parentView: view)
+        default: ()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        delegates.main.tabBarExtension(visibility: .show)
+        switch cardsTableViewType {
+        case .news:
+            delegates.main.tabBarExtension(visibility: .show)
+        case .variants: ()
+        default: ()
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        delegates.main.tabBarExtension(visibility: .hide)
+        switch cardsTableViewType {
+        case .news:
+            delegates.main.tabBarExtension(visibility: .hide)
+        case .variants: ()
+        default: ()
+        }
     }
 }
 
@@ -141,12 +180,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //delegates.main.scrollAnimation(size: scrollView.contentOffset.y)
-        /*
-        if scrollView.contentOffset.y <= 120 {
-            trustedSourcesTopConstraint.constant = -scrollView.contentOffset.y
-        }
-         */
+        
     }
 }
 

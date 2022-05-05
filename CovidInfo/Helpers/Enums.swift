@@ -116,3 +116,13 @@ public enum CardMode: Int16 {
     case full
     case card
 }
+
+enum CardsTableViewType{
+    case news
+    case variants
+}
+
+enum InfoCardsType{
+    case intrebariFrecvente
+    case vaccinare
+}

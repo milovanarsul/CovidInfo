@@ -28,6 +28,7 @@ class DataRefreshManager: NSObject {
                 digi24(articleCount: 40)
                 stiriOficiale()
                 parseStatisticsJSON()
+                fetchVariantsData()
             }
             print("data has been refreshed!")
             defaults.set(Date(), forKey: defaultsKey)

@@ -22,6 +22,7 @@ func digi24(articleCount: Int){
             data.viewMode = .card
             data.backgroundType = .light
             data.isTrusted = false
+            data.isVariant = false
             
             let a = try article.select("a").first()!
             data.title = try a.attr("title")
@@ -73,6 +74,7 @@ func stiriOficiale(){
             data.viewMode = .card
             data.backgroundType = .light
             data.isTrusted = true
+            data.isVariant = false
             
             data.date = try article.select("time").first()!.text()
             

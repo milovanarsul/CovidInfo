@@ -27,9 +27,10 @@ class PresentationController: UIPresentationController {
     }
     
     override var frameOfPresentedViewInContainerView: CGRect {
-        CGRect(origin: CGPoint(x: 0, y: self.containerView!.frame.height * 0.4),
-               size: CGSize(width: self.containerView!.frame.width, height: self.containerView!.frame.height *
-                0.6))
+        let height = delegates.infoCardsCollectionView.getCurrentIndexTextHeight()
+        let safeAreaViewHeight = self.containerView!.frame.height
+        return CGRect(origin: CGPoint(x: 0, y: safeAreaViewHeight - height),
+               size: CGSize(width: self.containerView!.frame.width, height: height))
     }
 
     override func presentationTransitionWillBegin() {

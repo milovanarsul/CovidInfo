@@ -76,3 +76,15 @@ class FirebaseManager{
     }
 }
 
+func fetchVariantsData(){
+    databaseReference.child("Variante").observe(.value) {(snapshot) in
+        for variant in snapshot.children.allObjects as! [DataSnapshot]{
+            let object = variant.value as? [String: AnyObject]
+            let title = object?["title"] as! String
+            let content = object?["content"] as! String
+            let image = object?["image"] as! String
+            customArticle(title: title, contents: content, image: image)
+        }
+    }
+}
+

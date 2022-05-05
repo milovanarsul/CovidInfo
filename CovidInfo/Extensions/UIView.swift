@@ -176,3 +176,16 @@ func removeViewsFromSuperView(views: [UIView]){
         view.removeFromSuperview()
     }
 }
+
+func hideViews(views: [UIView]){
+    for view in views{
+        view.isHidden = true
+    }
+}
+
+func showViews(views: [UIView]){
+    for view in views{
+        view.isHidden = false
+    }
+}
+

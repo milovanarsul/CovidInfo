@@ -23,6 +23,7 @@ class Delegates{
     var news: NewsDelegate! = nil
     var customTabBar: CustomTabBarDelegate! = nil
     var infoCardsCollectionView: InfoCardsCollectionViewDelegate! = nil
+    var info: InfoViewControllerDelegate! = nil
     
     init(){}
 }
@@ -110,4 +111,10 @@ protocol CustomTabBarDelegate{
 
 protocol InfoCardsCollectionViewDelegate{
     func getInfoData(index: Int) -> InfoCardsData
+    func getCurrentIndexTextHeight() -> CGFloat
+    func pullInfoCardsData(type: InfoCardsType)
+}
+
+protocol InfoViewControllerDelegate{
+    func getCardsViewController() -> UIViewController
 }

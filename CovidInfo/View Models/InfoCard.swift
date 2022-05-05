@@ -9,13 +9,11 @@ import Foundation
 import Firebase
 
 class InfoCardsData {
-    var cardID: Int
-    var frontTitle: String
-    var contents: String
+    var title: String
+    var content: String
     
-    init(cardID: Int, frontTitle: String, contents: String){
-        self.cardID = cardID
-        self.frontTitle = frontTitle
-        self.contents = contents
+    init(title: String, content: String){
+        self.title = title
+        self.content = content
     }
 }
