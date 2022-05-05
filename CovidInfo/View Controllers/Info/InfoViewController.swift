@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Firebase
 
 class InfoViewController: UIViewController {
+    
+    var infoCardsDataArray: [InfoCardsData]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +28,29 @@ class InfoViewController: UIViewController {
 
 class InfoCardsCollectionViewController: UICollectionViewController{
     
+    var infoCardsDataArray = [InfoCardsData]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        delegates.infoCardsCollectionView = self
+        pullInfoCardsData()
         initialize()
     }
     
+    func pullInfoCardsData(){
+        databaseReference.child("InfoCards").observe(.value) { (snaphshot) in
+            for card in snaphshot.children.allObjects as! [DataSnapshot]{
+                let object = card.value as? [String: AnyObject]
+                let cardID = object?["cardID"] as! Int
+                let frontTitle = object?["frontTitle"] as! String
+                let contents = object?["contents"] as! String
+                self.infoCardsDataArray.append(InfoCardsData(cardID: cardID, frontTitle: frontTitle, contents: contents))
+            }
+            self.collectionView.reloadData()
+        }
+    }
+
     func initialize(){
         collectionView.collectionViewLayout = InfoCardsCollectionViewLayout()
         collectionView.contentInsetAdjustmentBehavior = .always
@@ -77,5 +97,11 @@ class InfoCardsCollectionViewController: UICollectionViewController{
 extension InfoCardsCollectionViewController: UIViewControllerTransitioningDelegate{
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         PresentationController(presentedViewController: presented, presenting: presenting)
+    }
+}
+
+extension InfoCardsCollectionViewController: InfoCardsCollectionViewDelegate{
+    func getInfoData(index: Int) -> InfoCardsData{
+        return infoCardsDataArray[index]
     }
 }

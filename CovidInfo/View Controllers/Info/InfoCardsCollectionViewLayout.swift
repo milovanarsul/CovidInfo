@@ -62,7 +62,7 @@ class InfoCardsCollectionViewLayout: UICollectionViewFlowLayout {
         for item in 0..<collectionView.numberOfItems(inSection: 0){
             let indexPath = IndexPath(item: item, section: 0)
             
-            let textHeight = infoCardsDataArray[item].frontTitle.height(withConstrainedWidth: columnWidth!, font: boldFont(size: 24))
+            let textHeight = delegates.infoCardsCollectionView.getInfoData(index: item).frontTitle.height(withConstrainedWidth: columnWidth!, font: boldFont(size: 24))
             let height = cellPadding * 2 + textHeight
             let frame = CGRect(x: infoCardsXOffset[column], y: infoCardsYOffset[column], width: columnWidth!, height: height)
             let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)

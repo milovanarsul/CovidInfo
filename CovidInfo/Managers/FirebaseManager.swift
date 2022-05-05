@@ -13,6 +13,9 @@ enum DataType{
     case simptome
 }
 
+var databaseReference = Database.database().reference()
+var storageReference = Storage.storage().reference()
+
 class FirebaseManager{
     var databaseReference = Database.database().reference()
     var storageReference = Storage.storage().reference()

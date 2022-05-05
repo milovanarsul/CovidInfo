@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import Firebase
 
 class InfoCardsData {
+    var cardID: Int
     var frontTitle: String
     var contents: String
     
-    init(frontTitle: String, contents: String){
+    init(cardID: Int, frontTitle: String, contents: String){
+        self.cardID = cardID
         self.frontTitle = frontTitle
         self.contents = contents
     }
 }
-
-let infoCardsDataArray: [InfoCardsData] = []

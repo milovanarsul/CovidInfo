@@ -22,6 +22,7 @@ class Delegates{
     var enrollCertifficate: EnrollCertifficateDelegate! = nil
     var news: NewsDelegate! = nil
     var customTabBar: CustomTabBarDelegate! = nil
+    var infoCardsCollectionView: InfoCardsCollectionViewDelegate! = nil
     
     init(){}
 }
@@ -105,4 +106,8 @@ protocol NewsDelegate{
 protocol CustomTabBarDelegate{
     func increaseBottomConstraint(size: CGFloat)
     func goToTopButtonVisibily(visibily: ViewVisibility)
+}
+
+protocol InfoCardsCollectionViewDelegate{
+    func getInfoData(index: Int) -> InfoCardsData
 }
