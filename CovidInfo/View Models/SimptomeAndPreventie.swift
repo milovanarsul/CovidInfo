@@ -34,6 +34,5 @@ class SimptomeAndPreventie{
 }
 
 
-
 let simptome = SimptomeAndPreventie(cards: simptomeData, staticType: .simptome, borderColor: simptomeBorderColor)
 let preventie = SimptomeAndPreventie(cards: preventieData, staticType: .preventie, borderColor: preventieBorderColor)

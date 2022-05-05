@@ -44,6 +44,17 @@ class HomeViewController: UIViewController {
         return stackView
     }()
     
+    lazy var epidemiologicTrial: UIImageView = {
+        let imageView = UIImageView()
+        /*
+        imageView.image = UIImage(named: "header1")
+        imageView.contentMode = .scaleAspectFit
+        //imageView.cornerRadius = 24
+        */
+        imageView.backgroundColor = .red
+        return imageView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -89,6 +100,15 @@ class HomeViewController: UIViewController {
         ])
         viewShortcutsConstraints.addConstraints()
         NSLayoutConstraint.activate([viewShortcuts.topAnchor.constraint(equalTo: quickGraphs.bottomAnchor, constant: 10)])
+        
+        scrollView.addSubview(epidemiologicTrial)
+        let epidemiologicTrialConstraints = Constraints(childView: epidemiologicTrial, parentView: scrollView, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 0.95, constant: 0),
+            Constraint(constraintType: .height, multiplier: 0.4, constant: 0)
+        ])
+        epidemiologicTrialConstraints.addConstraints()
+        NSLayoutConstraint.activate([epidemiologicTrial.topAnchor.constraint(equalTo: viewShortcuts.bottomAnchor, constant: 10)])
     }
     
     func horizontalViewShortcut(text: String, image: String, action: Selector) -> UIView {

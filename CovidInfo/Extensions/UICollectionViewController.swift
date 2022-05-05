@@ -9,10 +9,13 @@ import Foundation
 import UIKit
 
 extension UICollectionViewController{
-    func setup(dataSource: UICollectionViewDataSource, layout: UICollectionViewFlowLayout, cell: UICollectionViewCell.Type, cellIdentifier: String) -> UICollectionView{
+    func setup(dataSource: UICollectionViewDataSource? = nil, layout: UICollectionViewFlowLayout, cell: UICollectionViewCell.Type, cellIdentifier: String) -> UICollectionView{
         guard let collectionView = collectionView else {fatalError()}
         
-        collectionView.dataSource = dataSource
+        if let dataSource = dataSource {
+            collectionView.dataSource = dataSource
+        }
+        
         collectionView.collectionViewLayout = layout
         collectionView.contentInsetAdjustmentBehavior = .always
         collectionView.register(cell.self, forCellWithReuseIdentifier: cellIdentifier)
