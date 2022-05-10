@@ -17,7 +17,6 @@ class DataRefreshManager: NSObject {
         DispatchQueue.main.async {
             digi24(articleCount: 40)
             stiriOficiale()
-            parseStatisticsJSON()
         }
     }
     
@@ -27,7 +26,6 @@ class DataRefreshManager: NSObject {
             DispatchQueue.global(qos: .background).async {
                 digi24(articleCount: 40)
                 stiriOficiale()
-                parseStatisticsJSON()
                 fetchVariantsData()
             }
             print("data has been refreshed!")

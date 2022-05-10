@@ -21,27 +21,62 @@
         <attribute name="totalTesteAntigen" optional="YES" attributeType="String"/>
         <attribute name="totalTestePCR" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="StatisticsData" representedClassName="StatisticsData" syncable="YES">
-        <attribute name="allTimeConfirmedCasesValues" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
-        <attribute name="allTimeCuredCasesValues" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
-        <attribute name="allTimeMortalitiesValues" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
-        <attribute name="casesForTheLastSevenDays" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
-        <attribute name="casesForThePastMonth" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
-        <attribute name="deathsForTheLastSevenDays" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
-        <attribute name="deathsForThePastMonth" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
-        <attribute name="incidence" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
-        <attribute name="sevenDaysConfirmedCasesWithDates" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
-        <attribute name="sevenDaysDeathsWithDates" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
-        <attribute name="todaysNewCases" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="todaysNewDeaths" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="todaysRecovered" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="totalNumberCured" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="totalNumberDeceased" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="totalNumberOfCases" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    <entity name="OWIDStatistics" representedClassName="OWIDStatistics" syncable="YES">
+        <attribute name="continent" optional="YES" attributeType="String"/>
+        <attribute name="excess_mortality" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="excess_mortality_cumulative" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="excess_mortality_cumulative_absolute" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="excess_mortality_cumulative_per_million" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="hosp_patients" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="hosp_patients_per_million" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="icu_patients" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="icu_patients_per_million" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="last_updated_date" optional="YES" attributeType="String"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="new_cases" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="new_cases_per_million" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="new_cases_smoothed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="new_cases_smoothed_per_million" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="new_deaths" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="new_deaths_per_million" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="new_deaths_smoothed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="new_deaths_smoothed_per_million" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="new_people_vaccinated_smoothed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="new_people_vaccinated_smoothed_per_hundred" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="new_tests" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="new_tests_per_thousand" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="new_tests_smoothed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="new_tests_smoothed_per_thousand" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="new_vaccinations" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="new_vaccinations_smoothed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="new_vaccinations_smoothed_per_million" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="people_fully_vaccinated" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="people_fully_vaccinated_per_hundred" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="people_vaccinated" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="people_vaccinated_per_hundred" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="positive_rate" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="reproduction_rate" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="stringency_index" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="tests_per_case" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="tests_units" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="total_boosters" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="total_boosters_per_hundred" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="total_cases" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="total_cases_per_million" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="total_deaths" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="total_deaths_per_million" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="total_tests" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="total_tests_per_thousand" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="total_vaccinations" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="total_vaccinations_per_hundred" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="weekly_hosp_admissions" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="weekly_hosp_admissions_per_million" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="weekly_icu_admissions" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="weekly_icu_admissions_per_million" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <elements>
         <element name="Article" positionX="-63" positionY="-18" width="128" height="179"/>
         <element name="MSPressBulettin" positionX="-63" positionY="54" width="128" height="134"/>
-        <element name="StatisticsData" positionX="-54" positionY="81" width="128" height="269"/>
+        <element name="OWIDStatistics" positionX="-63" positionY="72" width="128" height="794"/>
     </elements>
 </model>

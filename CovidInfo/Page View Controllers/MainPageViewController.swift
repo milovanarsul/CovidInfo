@@ -35,10 +35,7 @@ class MainPageViewController: UIPageViewController {
         pages.append(newsViewController)
         
         let statisticsViewController = UIViewController()
-        let graphsView = Graphs().environment(\.managedObjectContext, context)
-        statisticsViewController.addSubSwiftUIView(graphsView, to: statisticsViewController.view)
-        statisticsViewController.view.backgroundColor = UIColor("#f2f2f7")
-        statisticsViewController.view.cornerRadius = 24
+        
         pages.append(statisticsViewController)
     }
 }

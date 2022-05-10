@@ -30,8 +30,7 @@ class HomeViewController: UIViewController {
     
     lazy var quickGraphs: UIView = {
         let view = UIView()
-        let quickGraphs = QuickGraphs().environment(\.managedObjectContext, context)
-        addSubSwiftUIView(quickGraphs, to: view)
+        
         view.backgroundColor = .clear
         return view
     }()
