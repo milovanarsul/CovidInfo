@@ -11,12 +11,10 @@ import UIKit
 func imageViewRounded(image: UIImage) -> UIImageView{
     let imageView = UIImageView()
     imageView.image = image
-    imageView.contentMode = .scaleAspectFit
+    imageView.contentMode = .scaleAspectFill
     
     imageView.layer.cornerRadius = 29.5
     imageView.clipsToBounds = true
-    imageView.layer.borderWidth = 5
-    imageView.layer.borderColor = UIColor.lightGray.cgColor
     
     return imageView
 }

@@ -51,6 +51,12 @@ class MainViewController: UIViewController {
         return view
     }()
     
+    lazy var countryPicker: UIView = {
+        let view = UIView()
+        embed.countryPicker(parent: self, container: view)
+        return view
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -146,7 +152,7 @@ extension MainViewController: MainDelegate{
     func animateContentView(size: CGFloat){
         contentViewTopConstraint.constant = size
         
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.4, animations: {
             self.contentView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         })
@@ -296,6 +302,19 @@ extension MainViewController: MainDelegate{
             self.view.layoutIfNeeded()
             self.tabBar.layoutIfNeeded()
         })
+    }
+    
+    func countryPickerEnabler(){
+        view.addSubview(countryPicker)
+        view.sendSubviewToBack(countryPicker)
+        
+        let countryPickerConstraints = Constraints(childView: countryPicker, parentView: view, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
+        ])
+        countryPickerConstraints.addConstraints()
+        NSLayoutConstraint.activate([countryPicker.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 5)])
     }
 }
 

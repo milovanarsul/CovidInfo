@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import UIKit
 
-class CountryCell {
-    var image: String
-    var name: String
+class CountryModel {
+    var image: String?
+    var name: String?
     
     init(image: String, name: String){
         self.image = image

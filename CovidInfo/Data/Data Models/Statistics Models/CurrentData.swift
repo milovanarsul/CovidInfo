@@ -56,7 +56,6 @@ class CurrentData: Codable{
     var new_people_vaccinated_smoothed: Double?
     var new_people_vaccinated_smoothed_per_hundred: Double?
     var stringency_index: Double?
-    //
     var population: Double?
     var population_density: Double?
     var median_age: Double?
@@ -72,7 +71,6 @@ class CurrentData: Codable{
     var hospital_beds_per_thousand: Double?
     var life_expectancy: Double?
     var human_development_index: Double?
-    //
     var excess_mortality_cumulative_absolute: Double?
     var excess_mortality_cumulative: Double?
     var excess_mortality: Double?

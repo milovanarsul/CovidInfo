@@ -9,6 +9,7 @@ import Foundation
 
 var showOnboarding: Bool = false
 var articlesViewControllerHasBeenPresented = false
+var countryPickerAdded: Bool = false
 
 let defaults = UserDefaults.standard
 

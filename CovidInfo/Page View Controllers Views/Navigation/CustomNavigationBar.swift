@@ -158,7 +158,7 @@ class CustomNavigationBar: UIView {
     @objc func locationButtonTapped(_ sender: UIButton){
         switch resetsLocationButton{
         case false:
-            delegates.main.animateContentView(size: 150)
+            delegates.main.animateContentView(size: 650)
             locationButton.initialize(title: "", titleColor: .white, cornerRadius: 100, font: boldFont(size: 30), backgroundColor: UIColor("D04545"), image: UIImage(systemName: "x.circle"))
             resetsLocationButton = true
         case true:

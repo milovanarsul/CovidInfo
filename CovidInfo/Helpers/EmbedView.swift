@@ -62,6 +62,11 @@ class EmbedView{
         let child = NewsViewController(cardsTableViewType: .variants)
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
     }
+    
+    func countryPicker(parent: UIViewController, container: UIView){
+        let child = CountryPickerViewController()
+        embed(parent: parent, container: container, child: child, previous: parent.children.first)
+    }
 }
 
 let embed = EmbedView()

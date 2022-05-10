@@ -47,4 +47,7 @@ class GenericTableViewCell<View: UIView>: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError()
     }
+    
+    override func prepareForReuse() { 
+    }
 }

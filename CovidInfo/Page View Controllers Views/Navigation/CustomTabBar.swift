@@ -98,6 +98,9 @@ class CustomTabBar: UIView {
     
     @objc func statisticsButtonPressed(_ sender: UIButton) {
         buttonSetup(button: .statistics)
+        if countryPickerAdded == false {
+            delegates.main.countryPickerEnabler()
+        }
     }
     
     @objc func goToTopButtonPressed(_ sender: UIButton) {
