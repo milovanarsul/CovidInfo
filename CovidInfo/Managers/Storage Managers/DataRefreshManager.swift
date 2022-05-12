@@ -22,7 +22,7 @@ class DataRefreshManager: NSObject {
     
     func loadDataIfNeeded(){
         if isRefreshRequired(){
-            deleteAllCustomEntityObjects(context: context)
+            deleteAllCustomEntityObjects(context: AppDelegate.context)
             DispatchQueue.global(qos: .background).async {
                 digi24(articleCount: 40)
                 stiriOficiale()

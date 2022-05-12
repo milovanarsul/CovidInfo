@@ -24,7 +24,8 @@ class Delegates{
     var customTabBar: CustomTabBarDelegate! = nil
     var infoCardsCollectionView: InfoCardsCollectionViewDelegate! = nil
     var info: InfoViewControllerDelegate! = nil
-    var countriesPickerCell: CountriesPickerTableViewCellDelegate! = nil
+    var countryPicker: CountryPickerDelegate! = nil
+    var statistics: StatisticsViewControllerDelegate! = nil
     
     init(){}
 }
@@ -121,6 +122,10 @@ protocol InfoViewControllerDelegate{
     func getCardsViewController() -> UIViewController
 }
 
-protocol CountriesPickerTableViewCellDelegate{
-    func cellIsSelected()
+protocol CountryPickerDelegate{
+    func locationPicker(description: String)
+}
+
+protocol StatisticsViewControllerDelegate {
+    func contentViewVisibility(visibility: Bool)
 }

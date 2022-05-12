@@ -17,7 +17,7 @@ func digi24(articleCount: Int){
         
         for index in 0...articleCount{
             let article: Element = articlesArray[index]
-            let data = Article(context: context)
+            let data = Article(context: AppDelegate.context)
             
             data.viewMode = .card
             data.backgroundType = .light
@@ -52,7 +52,7 @@ func digi24(articleCount: Int){
             let date = try span.text()
             data.date = date
             
-            try context.save()
+            try AppDelegate.context.save()
         }
     } catch Exception.Error(let type, let message) {
         print(message, type)
@@ -69,7 +69,7 @@ func stiriOficiale(){
         let articlesArray = document.array()
         
         for article in articlesArray {
-            let data = Article(context: context)
+            let data = Article(context: AppDelegate.context)
             
             data.viewMode = .card
             data.backgroundType = .light
@@ -96,7 +96,7 @@ func stiriOficiale(){
             }
             data.articleDescription = description
             
-            try context.save()
+            try AppDelegate.context.save()
         }
     } catch Exception.Error(let type, let message) {
         print(message, type)
@@ -128,7 +128,7 @@ func parseMSPDF() -> [String.SubSequence]?{
 
 func getMSPressBulletin(){
     let pdfContent = parseMSPDF()!
-    let bulletin = MSPressBulettin(context: context)
+    let bulletin = MSPressBulettin(context: AppDelegate.context)
     
     bulletin.pacientiReinfectati = String(pdfContent[8])
     bulletin.numarPersoaneInternate = String(pdfContent[286])
@@ -138,6 +138,6 @@ func getMSPressBulletin(){
     bulletin.totalTestePCR = String(pdfContent[290])
     bulletin.totalTesteAntigen = String(pdfContent[291])
     
-    try! context.save()
+    try! AppDelegate.context.save()
 }
 

@@ -15,7 +15,7 @@ public class Article: NSManagedObject {
 }
 
 func customArticle(title: String, contents: String, image: String){
-    let article = Article(context: context)
+    let article = Article(context: AppDelegate.context)
     article.viewMode = .card
     article.backgroundType = .light
     article.isTrusted = false
@@ -27,5 +27,5 @@ func customArticle(title: String, contents: String, image: String){
     article.date = nil
     article.isVariant = true
     
-    try! context.save()
+    try! AppDelegate.context.save()
 }

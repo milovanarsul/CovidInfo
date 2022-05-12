@@ -34,8 +34,7 @@ class MainPageViewController: UIPageViewController {
         let newsViewController = NewsViewController(cardsTableViewType: .news)
         pages.append(newsViewController)
         
-        let statisticsViewController = UIViewController()
-        
+        let statisticsViewController = StatisticsViewController()
         pages.append(statisticsViewController)
     }
 }

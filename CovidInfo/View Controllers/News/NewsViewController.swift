@@ -44,7 +44,7 @@ class NewsViewController: UIViewController {
         request.predicate = predicate
         
         do {
-            self.cardsViewData = try context.fetch(request)
+            self.cardsViewData = try AppDelegate.context.fetch(request)
             DispatchQueue.main.async {
                 self.newsCardsTableView.reloadData()
             }

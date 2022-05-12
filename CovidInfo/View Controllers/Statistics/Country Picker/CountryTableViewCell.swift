@@ -9,7 +9,7 @@ import UIKit
 
 class CountryTableViewCell: UITableViewCell {
     
-    var country: CountryModel? {
+    var country: Country? {
         didSet {
             guard let countryItem = country else {return}
             if let flag = countryItem.image {
@@ -33,14 +33,6 @@ class CountryTableViewCell: UITableViewCell {
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         return label
-    }()
-    
-    lazy var isCellSelected: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "")
-        imageView.contentMode = .scaleAspectFit
-        imageView.isHidden = true
-        return imageView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -69,11 +61,39 @@ class CountryTableViewCell: UITableViewCell {
         nameLabelConstraints.addConstraints()
         NSLayoutConstraint.activate([nameLabel.leadingAnchor.constraint(equalTo: flagImageView.trailingAnchor, constant: 24)])
     }
+}
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        print("this got selected")
+class CountryTableViewHeader: UITableViewHeaderFooterView {
+    
+    var title: String? {
+        didSet{
+            titleLabel.initialize(text: title!, color: .black, font: boldFont(size: 24), alignment: .left, lines: 1)
+        }
     }
-
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    override init(reuseIdentifier: String?){
+        super.init(reuseIdentifier: reuseIdentifier)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    func setup(){
+        contentView.addSubview(titleLabel)
+        
+        let titleConstraints = Constraints(childView: titleLabel, parentView: contentView, constraints: [
+            Constraint(constraintType: .leading, multiplier: 1, constant: 24),
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .top, multiplier: 1, constant: 15),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 15)
+        ])
+        titleConstraints.addConstraints()
+    }
 }
