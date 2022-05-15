@@ -10,11 +10,10 @@ import UIKit
 class LocationPickerView: UIView {
     
     var location: String?
-    var isLocationDisabled: Bool?
     
     lazy var mainLabel: UILabel = {
         let label = UILabel()
-        let text = isLocationDisabled! ? "Locatie manuala" : "Locatie automata"
+        let text = defaults.bool(forKey: "automaticLocation") ? "Locatie automata" : "Locatie manuala"
         label.initialize(text: text, color: .black, font: boldFont(size: 16), alignment: .left, lines: 0)
         return label
     }()
@@ -29,7 +28,7 @@ class LocationPickerView: UIView {
         let stackView = UIStackView()
         stackView.initalize(axis: .vertical, alignment: .fill, distribution: .fillEqually, spacing: 5)
         stackView.addArrangedSubview(mainLabel)
-        isLocationDisabled! ? () : stackView.addArrangedSubview(desriptionLabel)
+        defaults.bool(forKey: "automaticLocation") ? stackView.addArrangedSubview(desriptionLabel) : ()
         return stackView
     }()
     
@@ -37,7 +36,7 @@ class LocationPickerView: UIView {
         let locationSwitch = UISwitch()
         locationSwitch.onTintColor = signatureDarkBlue
         locationSwitch.preferredStyle = .sliding
-        locationSwitch.isOn = !isLocationDisabled!
+        locationSwitch.isOn = defaults.bool(forKey: "automaticLocation")
         locationSwitch.addTarget(self, action: #selector(switchAction), for: .valueChanged)
         return locationSwitch
     }()
@@ -45,7 +44,6 @@ class LocationPickerView: UIView {
     init(location: String){
         self.location = location
         super.init(frame: .zero)
-        isLocationDisabled = locationDisabled()
         setup()
     }
     
@@ -75,18 +73,13 @@ class LocationPickerView: UIView {
             delegates.main.animateContentView(size: 650)
             self.desriptionLabel.isHidden = true
             delegates.statistics.contentViewVisibility(visibility: true)
+            defaults.set(sender.isOn, forKey: "automaticLocation")
         } else {
             delegates.main.animateContentView(size: 100)
             self.desriptionLabel.isHidden = false
             delegates.statistics.contentViewVisibility(visibility: false)
+            defaults.set(sender.isOn, forKey: "automaticLocation")
+            delegates.statistics.setupCountry()
         }
     }
-    
-    func locationDisabled() -> Bool{
-        if location == ""{
-            return true
-        }
-        return false
-    }
-
 }

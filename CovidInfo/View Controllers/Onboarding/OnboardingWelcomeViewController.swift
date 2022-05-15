@@ -191,6 +191,7 @@ class OnboardingWelcomeViewController: UIViewController {
     @objc func skipTutorial(_ sender: UIButton) {
         awaitDataDownload()
         DispatchQueue.main.async {
+            parseCurrentData()
             digi24(articleCount: 40)
             stiriOficiale()
             

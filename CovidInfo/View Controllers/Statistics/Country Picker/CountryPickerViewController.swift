@@ -49,22 +49,14 @@ class CountryPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        delegates.countryPicker = self
+    
         setup()
         formatedData = data
     }
     
     func setup(){
-        view.addSubviews(views: [locationPickerView,tableView, searchBar])
         
-        let locationPickerViewConstraints = Constraints(childView: locationPickerView, parentView: view, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 0.9, constant: 0),
-            Constraint(constraintType: .proportionalHeight, multiplier: 0.1, constant: 0),
-            Constraint(constraintType: .top, multiplier: 1, constant: 10)
-        ])
-        locationPickerViewConstraints.addConstraints()
+        view.addSubviews(views: [tableView, searchBar])
         
         let searchBarConstraints = Constraints(childView: searchBar, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
@@ -72,7 +64,22 @@ class CountryPickerViewController: UIViewController {
             Constraint(constraintType: .height, multiplier: 1, constant: 44)
         ])
         searchBarConstraints.addConstraints()
-        NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: locationPickerView.bottomAnchor, constant: 10)])
+        
+        if defaults.bool(forKey: "automaticLocation") || defaults.string(forKey: "manualCountry") != nil{
+            view.addSubview(locationPickerView)
+            
+            let locationPickerViewConstraints = Constraints(childView: locationPickerView, parentView: view, constraints: [
+                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+                Constraint(constraintType: .proportionalWidth, multiplier: 0.9, constant: 0),
+                Constraint(constraintType: .proportionalHeight, multiplier: 0.1, constant: 0),
+                Constraint(constraintType: .top, multiplier: 1, constant: 10)
+            ])
+            locationPickerViewConstraints.addConstraints()
+            
+            NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: locationPickerView.bottomAnchor, constant: 10)])
+        } else {
+            NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 10)])
+        }
         
         let tableViewConstraints = Constraints(childView: tableView, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
@@ -139,18 +146,16 @@ extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSourc
         }
         sections.insert(sectionTitle, at: 0)
         
+        defaults.set(currentCountry![indexPath.row].name!, forKey: "manualCountry")
+        delegates.statistics.setupCountry()
+        
         let top = CGPoint(x: 0, y: -tableView.contentInset.top)
         tableView.setContentOffset(top, animated: true)
         tableView.reloadData()
+        
+        delegates.main.animateContentView(size: 320)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        
-    }
-}
-
-extension CountryPickerViewController: CountryPickerDelegate{
-    func locationPicker(description: String){
-        print(description)
     }
 }

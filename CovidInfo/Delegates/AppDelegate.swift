@@ -66,7 +66,9 @@ extension AppDelegate: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .denied, .restricted, .notDetermined:
-          print("LocationManager failed")
+            if defaults.string(forKey: "manualCountry") == nil{
+                defaults.set(false, forKey: "automaticLocation")
+            }
         case .authorizedWhenInUse:
           locationManager.requestLocation()
         case .authorizedAlways:
@@ -86,6 +88,10 @@ extension AppDelegate: CLLocationManagerDelegate{
                     }
                 }
                 AppDelegate.locationCountry = country
+                
+                if defaults.string(forKey: "manualCountry") == nil{
+                    defaults.set(true, forKey: "automaticLocation")
+                }
             }
         }
     }

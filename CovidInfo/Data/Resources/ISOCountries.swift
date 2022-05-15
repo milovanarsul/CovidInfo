@@ -374,3 +374,13 @@ let enISOCountries: [String: String] = [
     "ZMB" : "Zambia",
     "ZWE" : "Zimbabwe",
 ]
+
+let roContients: [String : String] = [
+    "Asia" : "Asia",
+    "Europe" : "Europa",
+    "Africa" : "Africa",
+    "North America" : "America de Nord",
+    "Oceania" : "Oceania",
+    "South America" : "America de Sud",
+    "Antarctica" : "Antarctica"
+]

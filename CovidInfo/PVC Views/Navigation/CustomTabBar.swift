@@ -155,7 +155,7 @@ class CustomTabBar: UIView {
         case .news:
             buttonSliderLeadingConstraint.constant = 192
         case .statistics:
-            buttonSliderLeadingConstraint.constant = 278
+            buttonSliderLeadingConstraint.constant = 276
         }
         
         UIView.animate(withDuration: 0.3, animations: {

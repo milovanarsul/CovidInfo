@@ -70,6 +70,8 @@
 		B278D50727A2848600511BB2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50627A2848600511BB2 /* MainViewController.swift */; };
 		B278D50927A2851A00511BB2 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50827A2851A00511BB2 /* UserDefaults.swift */; };
 		B279E863282D5F0D00A59F7B /* CountryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279E862282D5F0D00A59F7B /* CountryCardView.swift */; };
+		B279E86A282D97E200A59F7B /* CountryData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279E868282D97E200A59F7B /* CountryData+CoreDataClass.swift */; };
+		B279E86B282D97E200A59F7B /* CountryData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279E869282D97E200A59F7B /* CountryData+CoreDataProperties.swift */; };
 		B27AB17D27B66007009A2323 /* LottieAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AB17C27B66007009A2323 /* LottieAnimationView.swift */; };
 		B27BE1972825C4C100DB8D11 /* CurrentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27BE1962825C4C100DB8D11 /* CurrentData.swift */; };
 		B281283527A5A69700DE7DB8 /* UIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281283427A5A69700DE7DB8 /* UIPageViewController.swift */; };
@@ -200,6 +202,8 @@
 		B278D50627A2848600511BB2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B278D50827A2851A00511BB2 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		B279E862282D5F0D00A59F7B /* CountryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCardView.swift; sourceTree = "<group>"; };
+		B279E868282D97E200A59F7B /* CountryData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B279E869282D97E200A59F7B /* CountryData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B27AB17C27B66007009A2323 /* LottieAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationView.swift; sourceTree = "<group>"; };
 		B27BE1962825C4C100DB8D11 /* CurrentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentData.swift; sourceTree = "<group>"; };
 		B281283427A5A69700DE7DB8 /* UIPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPageViewController.swift; sourceTree = "<group>"; };
@@ -605,6 +609,8 @@
 			isa = PBXGroup;
 			children = (
 				B2BF961B28143270002493EE /* DataModel.xcdatamodeld */,
+				B279E868282D97E200A59F7B /* CountryData+CoreDataClass.swift */,
+				B279E869282D97E200A59F7B /* CountryData+CoreDataProperties.swift */,
 				B236E15C2825B08300AB0116 /* Article+CoreDataClass.swift */,
 				B236E15D2825B08300AB0116 /* Article+CoreDataProperties.swift */,
 				B2ECF83E28170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift */,
@@ -879,6 +885,7 @@
 				B2F48DE227AD25BC005EE116 /* EmbedView.swift in Sources */,
 				B236E1642825B1B400AB0116 /* HistoricData.swift in Sources */,
 				B2124F1E2823EF4900F20662 /* PresentationControler.swift in Sources */,
+				B279E86B282D97E200A59F7B /* CountryData+CoreDataProperties.swift in Sources */,
 				B266A12D27EF71AF003806E7 /* UIWindow.swift in Sources */,
 				B2AE2B9F282BFBAE007C440A /* LocationPickerView.swift in Sources */,
 				B2D0724327CB81A600FA4BC6 /* UIDefaults.swift in Sources */,
@@ -901,6 +908,7 @@
 				B2049E4527FA325100303C6A /* ArticlesWebScraperManager.swift in Sources */,
 				B2DF4F3027D8A15D0035D5B7 /* CertifficateView.swift in Sources */,
 				B25BA9372817027A00C89F14 /* FirebaseManager.swift in Sources */,
+				B279E86A282D97E200A59F7B /* CountryData+CoreDataClass.swift in Sources */,
 				B2B758E228100BE600E9D078 /* ViewModelsData.swift in Sources */,
 				B25BA935281694E600C89F14 /* InfoViewController.swift in Sources */,
 				B2DABD1827EB6D7700ECA4EB /* UIImage.swift in Sources */,

@@ -12,6 +12,16 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="viewMode" attributeType="Integer 16" valueTransformerName="NSSecureUnarchiveFromDataTransofrmerName" defaultValueString="1" usesScalarValueType="YES" customClassName=".CardMode"/>
     </entity>
+    <entity name="CountryData" representedClassName="CountryData" syncable="YES">
+        <attribute name="cardiovasc_death_rate" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="continent" optional="YES" attributeType="String"/>
+        <attribute name="countryISO" optional="YES" attributeType="String"/>
+        <attribute name="diabetes_prevalence" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="hospital_beds_per_thousand" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="median_age" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="population" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="MSPressBulettin" representedClassName="MSPressBulettin" syncable="YES">
         <attribute name="antigen" optional="YES" attributeType="String"/>
         <attribute name="ati" optional="YES" attributeType="String"/>
@@ -24,5 +34,6 @@
     <elements>
         <element name="Article" positionX="-63" positionY="-18" width="128" height="179"/>
         <element name="MSPressBulettin" positionX="-63" positionY="54" width="128" height="134"/>
+        <element name="CountryData" positionX="-63" positionY="72" width="128" height="149"/>
     </elements>
 </model>

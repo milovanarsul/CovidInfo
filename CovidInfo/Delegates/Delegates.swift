@@ -24,7 +24,6 @@ class Delegates{
     var customTabBar: CustomTabBarDelegate! = nil
     var infoCardsCollectionView: InfoCardsCollectionViewDelegate! = nil
     var info: InfoViewControllerDelegate! = nil
-    var countryPicker: CountryPickerDelegate! = nil
     var statistics: StatisticsViewControllerDelegate! = nil
     
     init(){}
@@ -128,4 +127,5 @@ protocol CountryPickerDelegate{
 
 protocol StatisticsViewControllerDelegate {
     func contentViewVisibility(visibility: Bool)
+    func setupCountry()
 }

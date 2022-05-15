@@ -10,8 +10,7 @@ import UIKit
 
 class CountryCardView: UIView {
     
-    var isoCountry: String?
-    var data: CurrentData?
+    var data: CountryData!
     
     lazy var shadowView: UIView = {
         let view = UIView()
@@ -25,7 +24,12 @@ class CountryCardView: UIView {
         return view
     }()
     
-    lazy var contentView: UIView = {
+    lazy var parentView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white.withAlphaComponent(0.20)
@@ -36,7 +40,7 @@ class CountryCardView: UIView {
     
     lazy var countryFlag: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: isoCountry!)!
+        imageView.image = UIImage(named: (data!.countryISO)!)!
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
@@ -47,16 +51,19 @@ class CountryCardView: UIView {
         
         lazy var countryName: UILabel = {
             let label = UILabel()
-            label.initialize(text: (data?.location)!, color: .black, font: boldFont(size: 24), alignment: .left, lines: 0)
+            label.initialize(text: roISOCountries[(data!.countryISO)!]!, color: .black, font: boldFont(size: 24), alignment: .left, lines: 0)
             return label
         }()
         
         lazy var horizontalStackView: UIStackView = {
+            let continent = roContients[data!.continent!]
+            let formattedPopulation = String(format: "%.0f", locale: Locale.current, data!.population)
+            
             let stackView = UIStackView()
             stackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fillEqually, spacing: 10)
             stackView.addAranagedSubviews(views: [
-                iconText(icon: "globe.europe.africa", text: (data?.continent)!),
-                iconText(icon: "person.2", text: String((data?.population)!) + " locuitori")
+                iconText(icon: "globe.europe.africa", text: continent!),
+                iconText(icon: "person.2", text: formattedPopulation + " locuitori")
             ])
             return stackView
         }()
@@ -88,23 +95,28 @@ class CountryCardView: UIView {
     
     lazy var informationStackView: UIStackView = {
         
-        let view1 = iconTextData(icon: "person", text: "Media de varsta", data: String((data?.median_age)!) + " ani")
-        let view2 = iconTextData(icon: "waveform.path.ecg", text: "Risc de atac\ncardiovascular", data: String((data?.cardiovasc_death_rate)!))
-        let view3 = iconTextData(icon: "staroflife", text: "Risc diabet", data: String((data?.diabetes_prevalence)!))
-        let view4 = iconTextData(icon: "cross", text: "Paturi de spital\nper mia de locuitori", data: String((data?.hospital_beds_per_thousand)!))
+        let medianAge: Bool = (data!.median_age != 0.0)
+        let cardiovasc_death_rate: Bool = (data!.cardiovasc_death_rate != 0.0)
+        let diabetes_prevalence: Bool = (data!.diabetes_prevalence != 0.0)
+        let hopsital_beds_per_thousand: Bool = (data!.hospital_beds_per_thousand != 0.0)
+        
+        let view1 = iconTextData(icon: "person", text: "Media de varsta", data: String((data!.median_age)) + " ani")
+        let view2 = iconTextData(icon: "waveform.path.ecg", text: "Risc atac cardiovascular", data: String((data!.cardiovasc_death_rate)))
+        let view3 = iconTextData(icon: "staroflife", text: "Risc diabet", data: String((data!.diabetes_prevalence)))
+        let view4 = iconTextData(icon: "cross", text: "Paturi de spital\nper mia de locuitori", data: String((data!.hospital_beds_per_thousand)))
         
         let stackView = UIStackView()
         stackView.initalize(axis: .vertical, alignment: .fill, distribution: .fillEqually, spacing: 15)
+        
         stackView.addAranagedSubviews(views: [
-            iconTextDataHorizontalStackView(view1: view1, view2: view2),
-            iconTextDataHorizontalStackView(view1: view3, view2: view4)
+            iconTextDataHorizontalStackView(view1: (view1, medianAge), view2: (view2, cardiovasc_death_rate)),
+            iconTextDataHorizontalStackView(view1: (view3, diabetes_prevalence), view2: (view4, hopsital_beds_per_thousand))
         ])
     
         return stackView
     }()
     
-    init(isoCountry: String, data: CurrentData){
-        self.isoCountry = isoCountry
+    init(data: CountryData){
         self.data = data
         super.init(frame: .zero)
         
@@ -117,13 +129,23 @@ class CountryCardView: UIView {
     
     func setup(){
         
-        addSubviews(views: [shadowView, contentView])
-        defaultAnchors(childView: shadowView, parentView: contentView)
-        defaultConstraints(childView: contentView, parentView: self)
+        addSubview(parentView)
         
-        contentView.addSubviews(views: [countryFlag, countryDescription, separator, informationStackView])
+        let parentViewConstraints = Constraints(childView: parentView, parentView: self, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 0.95, constant: 0),
+            Constraint(constraintType: .proportionalHeight, multiplier: 1, constant: 0),
+            Constraint(constraintType: .top, multiplier: 1, constant: 20)
+        ])
+        parentViewConstraints.addConstraints()
         
-        let countryFlagConstraints = Constraints(childView: countryFlag, parentView: contentView, constraints: [
+        parentView.addSubviews(views: [shadowView, containerView])
+        defaultAnchors(childView: shadowView, parentView: parentView)
+        defaultConstraints(childView: containerView, parentView: parentView)
+        
+        containerView.addSubviews(views: [countryFlag, countryDescription, separator, informationStackView])
+        
+        let countryFlagConstraints = Constraints(childView: countryFlag, parentView: containerView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalHeight, multiplier: 0.4, constant: 0),
@@ -131,7 +153,7 @@ class CountryCardView: UIView {
         ])
         countryFlagConstraints.addConstraints()
         
-        let countryDescriptionConstraints = Constraints(childView: countryDescription, parentView: contentView, constraints: [
+        let countryDescriptionConstraints = Constraints(childView: countryDescription, parentView: containerView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalHeight, multiplier: 0.25, constant: 0)
@@ -139,15 +161,15 @@ class CountryCardView: UIView {
         countryDescriptionConstraints.addConstraints()
         NSLayoutConstraint.activate([countryDescription.topAnchor.constraint(equalTo: countryFlag.bottomAnchor, constant: 0)])
         
-        let separatorConstraints = Constraints(childView: separator, parentView: contentView, constraints: [
+        let separatorConstraints = Constraints(childView: separator, parentView: containerView, constraints: [
             Constraint(constraintType: .leading, multiplier: 1, constant: 20),
             Constraint(constraintType: .trailing, multiplier: 1, constant: -20),
-            Constraint(constraintType: .height, multiplier: 1, constant: 2)
+            Constraint(constraintType: .height, multiplier: 1, constant: 1)
         ])
         separatorConstraints.addConstraints()
         NSLayoutConstraint.activate([separator.topAnchor.constraint(equalTo: countryDescription.bottomAnchor, constant: 5)])
         
-        let informationStackViewConstraints = Constraints(childView: informationStackView, parentView: contentView, constraints: [
+        let informationStackViewConstraints = Constraints(childView: informationStackView, parentView: containerView, constraints: [
             Constraint(constraintType: .leading, multiplier: 1, constant: 10),
             Constraint(constraintType: .trailing, multiplier: 1, constant: -10),
             Constraint(constraintType: .bottom, multiplier: 1, constant: 5)
@@ -246,13 +268,21 @@ class CountryCardView: UIView {
         return contentView
     }
     
-    func iconTextDataHorizontalStackView(view1: UIView, view2: UIView) -> UIStackView{
-        lazy var stackView: UIStackView = {
-            let stackView = UIStackView()
-            stackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fillEqually, spacing: 10)
-            stackView.addAranagedSubviews(views: [view1, view2])
-            return stackView
-        }()
+    func iconTextDataHorizontalStackView(view1: (UIView, Bool), view2: (UIView, Bool)) -> UIStackView{
+        
+        let stackView = UIStackView()
+        stackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fillEqually, spacing: -5)
+        
+        switch (view1.1, view2.1){
+        case (true, true):
+            stackView.addAranagedSubviews(views: [view1.0, view2.0])
+        case (true, false):
+            stackView.addSubview(view1.0)
+        case (false, true):
+            stackView.addSubview(view1.0)
+        case (false, false):
+            ()
+        }
         
         return stackView
     }
