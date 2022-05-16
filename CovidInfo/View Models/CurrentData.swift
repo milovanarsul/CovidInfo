@@ -17,4 +17,3 @@ class CurrentData: Codable{
     var diabetes_prevalence: Double? //
     var hospital_beds_per_thousand: Double? //
 }
-

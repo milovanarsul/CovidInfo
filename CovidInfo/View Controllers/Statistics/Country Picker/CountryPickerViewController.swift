@@ -104,6 +104,10 @@ extension CountryPickerViewController: UISearchBarDelegate{
 
         tableView.reloadData()
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        formatedData = data
+    }
 }
 
 extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSource {
