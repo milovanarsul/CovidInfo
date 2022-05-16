@@ -62,7 +62,7 @@ def parseJSON(jsonFile):
     return parsedJSON
 
 def resultedJSON(parsedJSON):
-    with open('data.json', 'w') as outfile:
+    with open('Data/data.json', 'w') as outfile:
         json.dump(parsedJSON, outfile)
 
 def main():
