@@ -152,6 +152,7 @@ extension OnboardingViewController: OnboardingSubDelegate{
             stiriOficiale()
 
             self.finishDataDownload()
+            defaults.set(Date(), forKey: "lastRefresh")
         }
     }
     

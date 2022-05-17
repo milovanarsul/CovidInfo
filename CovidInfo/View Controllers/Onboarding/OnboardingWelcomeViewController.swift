@@ -197,6 +197,7 @@ class OnboardingWelcomeViewController: UIViewController {
             stiriOficiale()
             
             self.finishDataDownload()
+            defaults.set(Date(), forKey: "lastRefresh")
         }
     }
 }

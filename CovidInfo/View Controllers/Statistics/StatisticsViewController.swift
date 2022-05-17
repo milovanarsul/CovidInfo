@@ -11,6 +11,7 @@ import CoreData
 class StatisticsViewController: UIViewController {
     
     var currentData: [CurrentData]?
+    var historicData: [HistoricData]?
     
     lazy var locationNotSelected: UIImageView = {
         let imageView = UIImageView()
@@ -30,10 +31,12 @@ class StatisticsViewController: UIViewController {
     }
     
     func fetchData(){
-        let request = CurrentData.fetchRequest() as NSFetchRequest<CurrentData>
+        let currentDataRequest = CurrentData.fetchRequest() as NSFetchRequest<CurrentData>
+        let historicDataRequest = HistoricData.fetchRequest() as NSFetchRequest<HistoricData>
         
         do {
-            self.currentData = try AppDelegate.context.fetch(request)
+            self.currentData = try AppDelegate.context.fetch(currentDataRequest)
+            self.historicData = try AppDelegate.context.fetch(historicDataRequest)
         } catch {
             fatalError()
         }
