@@ -95,16 +95,16 @@ def parseValues(jsonFile, country):
     buffer = {}
 
     buffer['cases'] = parseData(jsonFile, country, 'new_cases')
-    #buffer['sevenDaysCases'] = parseDataForWeek(jsonFile, country, 'new_cases')
+    buffer['sevenDaysCases'] = parseDataForWeek(jsonFile, country, 'new_cases')
     buffer['deaths'] = parseData(jsonFile, country, 'new_deaths')
-    #buffer['sevenDaysDeaths'] = parseDataForWeek(jsonFile, country, 'new_deaths')
+    buffer['sevenDaysDeaths'] = parseDataForWeek(jsonFile, country, 'new_deaths')
     buffer['icu'] = parseData(jsonFile, country, 'icu_patients')
     buffer['hospital'] = parseData(jsonFile, country, 'hosp_patients')
     buffer['tests'] = parseData(jsonFile, country, 'new_tests')
-    #buffer['sevenDaysTests'] = parseDataForWeek(jsonFile, country, 'new_tests')
-    #buffer['sevenDaysPositiveRate'] = parseDataForWeek(jsonFile, country, 'positive_rate')
+    buffer['sevenDaysTests'] = parseDataForWeek(jsonFile, country, 'new_tests')
+    buffer['sevenDaysPositiveRate'] = parseDataForWeek(jsonFile, country, 'positive_rate')
     buffer['vaccinations'] = parseData(jsonFile, country, 'new_vaccinations')
-    #buffer['sevenDaysVaccinations'] = parseDataForWeek(jsonFile, country, 'new_vaccinations')
+    buffer['sevenDaysVaccinations'] = parseDataForWeek(jsonFile, country, 'new_vaccinations')
     buffer['icu'] = parseData(jsonFile, country, 'icu_patients')
     
     return buffer
