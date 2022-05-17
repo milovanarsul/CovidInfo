@@ -57,7 +57,9 @@ def parseDataForMonth(dataList, month, dataKey):
     
     return buffer
     
+    
 def parseData(jsonFile, country, dataKey):
+    month = {}
     statistic = {}
     buffer = {}
 
@@ -65,13 +67,14 @@ def parseData(jsonFile, country, dataKey):
     dataList = list(key['data'])
 
     for (key,value) in roMonths.items():
-        buffer[value] = parseDataForMonth(dataList, key, dataKey)
+        month[value] = parseDataForMonth(dataList, key, dataKey)
 
     for data in dataList:
         if dataKey in data:
             date = datetime.strptime(data['date'], '%Y-%m-%d').strftime('%d-%m-%y')
             statistic[date] = data[dataKey]
 
+    buffer['perMonth'] = month
     buffer['All'] = statistic
     return buffer
 
@@ -122,7 +125,7 @@ def parseJSON(jsonFile):
     return parsedJSON
 
 def resultedJSON(parsedJSON):
-    with open('Data/data2022.json', 'w') as outfile:
+    with open('data2022.json', 'w') as outfile:
         json.dump(parsedJSON, outfile)
 
 def main():
