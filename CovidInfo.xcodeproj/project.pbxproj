@@ -14,7 +14,6 @@
 		B206B62627B64D9100C371B2 /* OnboardingWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B206B62427B64D9100C371B2 /* OnboardingWelcomeViewController.swift */; };
 		B206B62A27B6539400C371B2 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B206B62827B6539400C371B2 /* OnboardingViewController.swift */; };
 		B206DD0B2833FBFD0073E17D /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = B206DD0A2833FBFD0073E17D /* SwiftUICharts */; };
-		B206DD0D2833FCF10073E17D /* StatisticsCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B206DD0C2833FCF10073E17D /* StatisticsCharts.swift */; };
 		B2124F1C2823EA3D00F20662 /* InfoBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2124F1B2823EA3D00F20662 /* InfoBottomSheetView.swift */; };
 		B2124F1E2823EF4900F20662 /* PresentationControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2124F1D2823EF4900F20662 /* PresentationControler.swift */; };
 		B2124F2628245E4D00F20662 /* InfoCardsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2124F2528245E4D00F20662 /* InfoCardsCollectionViewController.swift */; };
@@ -75,6 +74,9 @@
 		B281283527A5A69700DE7DB8 /* UIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281283427A5A69700DE7DB8 /* UIPageViewController.swift */; };
 		B282BFF52813098E007ADE2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B282BFF42813098E007ADE2F /* GoogleService-Info.plist */; };
 		B289059427DA80720019205D /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289059327DA80720019205D /* LocalStorageManager.swift */; };
+		B289344C283440C70020D5BB /* data2020.json in Resources */ = {isa = PBXBuildFile; fileRef = B289344A283440C70020D5BB /* data2020.json */; };
+		B289344D283440C70020D5BB /* data2021.json in Resources */ = {isa = PBXBuildFile; fileRef = B289344B283440C70020D5BB /* data2021.json */; };
+		B289344F2834422E0020D5BB /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289344E2834422E0020D5BB /* JSONManager.swift */; };
 		B289F89027B9582A00E756EF /* TriajPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289F88F27B9582A00E756EF /* TriajPageViewController.swift */; };
 		B29683962815E720006B6D57 /* loadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = B29683952815E720006B6D57 /* loadingAnimation.json */; };
 		B2976FD427B94F53006E4859 /* TriajActions.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2976FD327B94F53006E4859 /* TriajActions.xib */; };
@@ -148,7 +150,6 @@
 		B20623FA27DA555400CD985E /* EnrollCertifficateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnrollCertifficateViewController.xib; sourceTree = "<group>"; };
 		B206B62427B64D9100C371B2 /* OnboardingWelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeViewController.swift; sourceTree = "<group>"; };
 		B206B62827B6539400C371B2 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		B206DD0C2833FCF10073E17D /* StatisticsCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCharts.swift; sourceTree = "<group>"; };
 		B2124F1B2823EA3D00F20662 /* InfoBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBottomSheetView.swift; sourceTree = "<group>"; };
 		B2124F1D2823EF4900F20662 /* PresentationControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationControler.swift; sourceTree = "<group>"; };
 		B2124F2528245E4D00F20662 /* InfoCardsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardsCollectionViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +207,9 @@
 		B281283427A5A69700DE7DB8 /* UIPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPageViewController.swift; sourceTree = "<group>"; };
 		B282BFF42813098E007ADE2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B289059327DA80720019205D /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
+		B289344A283440C70020D5BB /* data2020.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data2020.json; path = Data/data2020.json; sourceTree = SOURCE_ROOT; };
+		B289344B283440C70020D5BB /* data2021.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data2021.json; path = Data/data2021.json; sourceTree = SOURCE_ROOT; };
+		B289344E2834422E0020D5BB /* JSONManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		B289F88F27B9582A00E756EF /* TriajPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriajPageViewController.swift; sourceTree = "<group>"; };
 		B29683952815E720006B6D57 /* loadingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingAnimation.json; sourceTree = "<group>"; };
 		B2976FD327B94F53006E4859 /* TriajActions.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TriajActions.xib; sourceTree = "<group>"; };
@@ -391,10 +395,11 @@
 		B23DC42027902EB800051C6C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B2F65127278F329000E1BB58 /* Fonts */,
+				B2893449283440370020D5BB /* Historic Covid Data */,
+				B2B5A9A72790904600FC4E61 /* Lottie Animations */,
 				B2F650FE278F2BDB00E1BB58 /* Assets.xcassets */,
 				B2188D2F2825B6E800CF9087 /* ISOCountries.swift */,
-				B2F65127278F329000E1BB58 /* Fonts */,
-				B2B5A9A72790904600FC4E61 /* Lottie Animations */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -451,7 +456,6 @@
 			isa = PBXGroup;
 			children = (
 				B2BF962228143555002493EE /* Data Models */,
-				B2A7CC222832E73300F57CA5 /* Statistics Data Models */,
 				B23DC42027902EB800051C6C /* Resources */,
 				B278D50827A2851A00511BB2 /* UserDefaults.swift */,
 				B2D0724227CB81A600FA4BC6 /* UIDefaults.swift */,
@@ -475,8 +479,10 @@
 				B2124F282824608C00F20662 /* Storage Managers */,
 				B2049E4427FA325100303C6A /* ArticlesWebScraperManager.swift */,
 				B266A0F527EF12D0003806E7 /* CardTableViewTransitionManager.swift */,
+				B2AE2BAE282C75BF007C440A /* CurrentDataManager.swift */,
+				B2A24CB42833954800DC8DE8 /* HistoricalDataManager.swift */,
 				B2C2E90827DA356B00A79D93 /* QRCodeManager.swift */,
-				B2A24CB32833952100DC8DE8 /* Statistics Managers */,
+				B289344E2834422E0020D5BB /* JSONManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -541,27 +547,26 @@
 				B2E9C91B282C789E00BE6C31 /* StatisticsViewController.swift */,
 				B279E862282D5F0D00A59F7B /* CountryCardView.swift */,
 				B2339510282AFD8200E17F5B /* Country Picker */,
-				B206DD0C2833FCF10073E17D /* StatisticsCharts.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
 		};
-		B2A24CB32833952100DC8DE8 /* Statistics Managers */ = {
+		B2893449283440370020D5BB /* Historic Covid Data */ = {
 			isa = PBXGroup;
 			children = (
-				B2AE2BAE282C75BF007C440A /* CurrentDataManager.swift */,
-				B2A24CB42833954800DC8DE8 /* HistoricalDataManager.swift */,
+				B289344A283440C70020D5BB /* data2020.json */,
+				B289344B283440C70020D5BB /* data2021.json */,
 			);
-			path = "Statistics Managers";
+			path = "Historic Covid Data";
 			sourceTree = "<group>";
 		};
-		B2A7CC222832E73300F57CA5 /* Statistics Data Models */ = {
+		B2A7CC222832E73300F57CA5 /* Statistics Core Data Models */ = {
 			isa = PBXGroup;
 			children = (
 				B236E1632825B1B400AB0116 /* HistoricData.swift */,
 				B27BE1962825C4C100DB8D11 /* CurrentData.swift */,
 			);
-			path = "Statistics Data Models";
+			path = "Statistics Core Data Models";
 			sourceTree = "<group>";
 		};
 		B2B5A9A72790904600FC4E61 /* Lottie Animations */ = {
@@ -615,6 +620,7 @@
 		B2BF962228143555002493EE /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
+				B2A7CC222832E73300F57CA5 /* Statistics Core Data Models */,
 				B2BF961B28143270002493EE /* DataModel.xcdatamodeld */,
 				B236E15C2825B08300AB0116 /* Article+CoreDataClass.swift */,
 				B236E15D2825B08300AB0116 /* Article+CoreDataProperties.swift */,
@@ -819,6 +825,7 @@
 				B21B3F1927F851B0004171C6 /* TestViewTest.xib in Resources */,
 				B282BFF52813098E007ADE2F /* GoogleService-Info.plist in Resources */,
 				B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */,
+				B289344C283440C70020D5BB /* data2020.json in Resources */,
 				B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */,
 				B2E1938727BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib in Resources */,
 				B23DE46827B3D02400FD2E10 /* simptome3.json in Resources */,
@@ -827,6 +834,7 @@
 				B23DE46427B3D01700FD2E10 /* preventie1.json in Resources */,
 				B23DE46127B3D01700FD2E10 /* preventie4.json in Resources */,
 				B2F65142278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */,
+				B289344D283440C70020D5BB /* data2021.json in Resources */,
 				B2976FD427B94F53006E4859 /* TriajActions.xib in Resources */,
 				B20623FB27DA555400CD985E /* EnrollCertifficateViewController.xib in Resources */,
 				B2B5A9B52790939500FC4E61 /* onboarding4.json in Resources */,
@@ -958,6 +966,7 @@
 				B2D0724727CB85A500FA4BC6 /* FontsManager.swift in Sources */,
 				B266A12F27EF7278003806E7 /* UITableView.swift in Sources */,
 				B206B62627B64D9100C371B2 /* OnboardingWelcomeViewController.swift in Sources */,
+				B289344F2834422E0020D5BB /* JSONManager.swift in Sources */,
 				B217D45727B9454500DBDED9 /* UIStackView.swift in Sources */,
 				B256B0FD2822608800793A7E /* InfoCardsCollectionViewLayout.swift in Sources */,
 				B2DABD1427EB27DD00ECA4EB /* TrustedSourcesView.swift in Sources */,
@@ -966,7 +975,6 @@
 				B2E6741B27A52A8F00F283B7 /* Onboarding.swift in Sources */,
 				B2AE2BAF282C75BF007C440A /* CurrentDataManager.swift in Sources */,
 				B2DC74C227B793F700078245 /* OnboardingCell.swift in Sources */,
-				B206DD0D2833FCF10073E17D /* StatisticsCharts.swift in Sources */,
 				B266A12B27EF25CC003806E7 /* CardView.swift in Sources */,
 				B279E863282D5F0D00A59F7B /* CountryCardView.swift in Sources */,
 				B278D50727A2848600511BB2 /* MainViewController.swift in Sources */,
