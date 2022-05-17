@@ -11,6 +11,8 @@ import CoreData
 func deleteAllCustomEntityObjects(context: NSManagedObjectContext){
     deleteAllEntityObjects(context: context, entityName: "Article")
     deleteAllEntityObjects(context: context, entityName: "MSPressBulettin")
+    deleteAllEntityObjects(context: context, entityName: "CurrentData")
+    deleteAllEntityObjects(context: context, entityName: "HistoricData")
 }
 
 func deleteAllEntityObjects(context: NSManagedObjectContext, entityName: String){

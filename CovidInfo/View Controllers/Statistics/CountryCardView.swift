@@ -10,7 +10,7 @@ import UIKit
 
 class CountryCardView: UIView {
     
-    var data: CountryData!
+    var data: CurrentData!
     
     lazy var shadowView: UIView = {
         let view = UIView()
@@ -116,7 +116,7 @@ class CountryCardView: UIView {
         return stackView
     }()
     
-    init(data: CountryData){
+    init(data: CurrentData){
         self.data = data
         super.init(frame: .zero)
         

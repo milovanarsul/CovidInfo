@@ -147,6 +147,7 @@ extension OnboardingViewController: OnboardingSubDelegate{
         awaitDataDownload()
         DispatchQueue.main.async {
             parseCurrentData()
+            parseHistoricalData()
             digi24(articleCount: 40)
             stiriOficiale()
 

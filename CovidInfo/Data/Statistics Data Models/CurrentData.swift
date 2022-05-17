@@ -1,18 +1,16 @@
 //
-//  HistoricData.swift
+//  CurrentData.swift
 //  CovidInfo
 //
-//  Created by Milovan Arsul on 06.05.2022.
+//  Created by Milovan Arsul on 07.05.2022.
 //
 
 import Foundation
 
-class HistoricData: Codable{
-    var data: [HistoricData]
-}
-
-class HistoricDataData: Codable {
-    var date: String?
+class DailyData: Codable{
+    var continent: String?
+    var location: String?
+    var last_updated_date: String?
     var total_cases: Double?
     var new_cases: Double?
     var new_cases_smoothed: Double?
@@ -41,8 +39,7 @@ class HistoricDataData: Codable {
     var new_tests_smoothed: Double?
     var new_tests_smoothed_per_thousand: Double?
     var positive_rate: Double?
-    var tests_per_case: Double?
-    var tests_units: String?
+    var tests_per_case:Double?
     var total_vaccinations: Double?
     var people_vaccinated: Double?
     var people_fully_vaccinated: Double?
@@ -57,24 +54,16 @@ class HistoricDataData: Codable {
     var new_people_vaccinated_smoothed: Double?
     var new_people_vaccinated_smoothed_per_hundred: Double?
     var stringency_index: Double?
-    var excess_mortality_cumulative_absolute: Double?
-    var excess_mortality_cumulative: Double?
-    var excess_mortality: Double?
-    var excess_mortality_cumulative_per_million: Double?
-}
-
-func parseHistoricDataJSON() -> [String : HistoricData]?{
-    do {
-        if let filePath = Bundle.main.path(forResource: "historicalData-shrinked", ofType: "json"){
-            let fileURL = URL(fileURLWithPath: filePath)
-            let data = try Data(contentsOf: fileURL)
-            let stats = try JSONDecoder().decode([String : HistoricData].self, from: data)
-            return stats
-        }
-    }
-    catch{
-        print(error)
-    }
-    
-    return nil
+    var population: Double?
+    var population_density: Double?
+    var median_age: Double?
+    var aged_65_older: Double?
+    var aged_70_older: Double?
+    var gdp_per_capita: Double?
+    var cardiovasc_death_rate: Double?
+    var diabetes_prevalence: Double?
+    var female_smokers: Double?
+    var male_smokers: Double?
+    var hospital_beds_per_thousand: Double?
+    var life_expectancy: Double?
 }

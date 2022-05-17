@@ -10,7 +10,7 @@ import CoreData
 
 class StatisticsViewController: UIViewController {
     
-    var countryData: [CountryData]?
+    var currentData: [CurrentData]?
     
     lazy var locationNotSelected: UIImageView = {
         let imageView = UIImageView()
@@ -30,10 +30,10 @@ class StatisticsViewController: UIViewController {
     }
     
     func fetchData(){
-        let request = CountryData.fetchRequest() as NSFetchRequest<CountryData>
+        let request = CurrentData.fetchRequest() as NSFetchRequest<CurrentData>
         
         do {
-            self.countryData = try AppDelegate.context.fetch(request)
+            self.currentData = try AppDelegate.context.fetch(request)
         } catch {
             fatalError()
         }
@@ -72,10 +72,10 @@ class StatisticsViewController: UIViewController {
         }
     }
     
-    func getCountry(name: String) -> CountryData{
-        var currentCountry: CountryData?
+    func getCountry(name: String) -> CurrentData{
+        var currentCountry: CurrentData?
         
-        for country in countryData! {
+        for country in currentData! {
             if country.location == name{
                 currentCountry = country
             }

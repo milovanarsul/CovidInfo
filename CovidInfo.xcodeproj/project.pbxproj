@@ -65,13 +65,10 @@
 		B26CB67828148AF900345812 /* DataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26CB67728148AF900345812 /* DataTypes.swift */; };
 		B26EEDB0282AFDF100000781 /* CountryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26EEDAF282AFDF100000781 /* CountryPickerViewController.swift */; };
 		B26EEDB2282B000300000781 /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26EEDB1282B000300000781 /* CountryTableViewCell.swift */; };
-		B2725F36282A5D66008B0CEB /* historicalData-shrinked.json in Resources */ = {isa = PBXBuildFile; fileRef = B2725F35282A5D66008B0CEB /* historicalData-shrinked.json */; };
 		B2725F3D282A95B2008B0CEB /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2725F3C282A95B2008B0CEB /* Country.swift */; };
 		B278D50727A2848600511BB2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50627A2848600511BB2 /* MainViewController.swift */; };
 		B278D50927A2851A00511BB2 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50827A2851A00511BB2 /* UserDefaults.swift */; };
 		B279E863282D5F0D00A59F7B /* CountryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279E862282D5F0D00A59F7B /* CountryCardView.swift */; };
-		B279E86A282D97E200A59F7B /* CountryData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279E868282D97E200A59F7B /* CountryData+CoreDataClass.swift */; };
-		B279E86B282D97E200A59F7B /* CountryData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279E869282D97E200A59F7B /* CountryData+CoreDataProperties.swift */; };
 		B27AB17D27B66007009A2323 /* LottieAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AB17C27B66007009A2323 /* LottieAnimationView.swift */; };
 		B27BE1972825C4C100DB8D11 /* CurrentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27BE1962825C4C100DB8D11 /* CurrentData.swift */; };
 		B281283527A5A69700DE7DB8 /* UIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281283427A5A69700DE7DB8 /* UIPageViewController.swift */; };
@@ -81,9 +78,10 @@
 		B29683962815E720006B6D57 /* loadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = B29683952815E720006B6D57 /* loadingAnimation.json */; };
 		B2976FD427B94F53006E4859 /* TriajActions.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2976FD327B94F53006E4859 /* TriajActions.xib */; };
 		B2976FD627B94F6C006E4859 /* TriajActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2976FD527B94F6C006E4859 /* TriajActions.swift */; };
+		B2A24CB52833954800DC8DE8 /* HistoricalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A24CB42833954800DC8DE8 /* HistoricalDataManager.swift */; };
 		B2A389F427A442820005F9FD /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A389F327A442820005F9FD /* CustomNavigationBar.swift */; };
 		B2AE2B9F282BFBAE007C440A /* LocationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE2B9E282BFBAE007C440A /* LocationPickerView.swift */; };
-		B2AE2BAF282C75BF007C440A /* OWIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE2BAE282C75BF007C440A /* OWIDManager.swift */; };
+		B2AE2BAF282C75BF007C440A /* CurrentDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE2BAE282C75BF007C440A /* CurrentDataManager.swift */; };
 		B2B03FAA27BEB36200A0F634 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B03FA927BEB36200A0F634 /* UIViewController.swift */; };
 		B2B45D1A27B2F34B00788918 /* SimptomeAndPreventieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B45D1927B2F34B00788918 /* SimptomeAndPreventieCollectionViewCell.swift */; };
 		B2B5A9B02790939500FC4E61 /* onboarding2.json in Resources */ = {isa = PBXBuildFile; fileRef = B2B5A9A92790939500FC4E61 /* onboarding2.json */; };
@@ -197,13 +195,10 @@
 		B26CB67728148AF900345812 /* DataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypes.swift; sourceTree = "<group>"; };
 		B26EEDAF282AFDF100000781 /* CountryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerViewController.swift; sourceTree = "<group>"; };
 		B26EEDB1282B000300000781 /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
-		B2725F35282A5D66008B0CEB /* historicalData-shrinked.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "historicalData-shrinked.json"; path = "Scripts/historicalData-shrinked.json"; sourceTree = SOURCE_ROOT; };
 		B2725F3C282A95B2008B0CEB /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		B278D50627A2848600511BB2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B278D50827A2851A00511BB2 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		B279E862282D5F0D00A59F7B /* CountryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCardView.swift; sourceTree = "<group>"; };
-		B279E868282D97E200A59F7B /* CountryData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryData+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B279E869282D97E200A59F7B /* CountryData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B27AB17C27B66007009A2323 /* LottieAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationView.swift; sourceTree = "<group>"; };
 		B27BE1962825C4C100DB8D11 /* CurrentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentData.swift; sourceTree = "<group>"; };
 		B281283427A5A69700DE7DB8 /* UIPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPageViewController.swift; sourceTree = "<group>"; };
@@ -213,9 +208,10 @@
 		B29683952815E720006B6D57 /* loadingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingAnimation.json; sourceTree = "<group>"; };
 		B2976FD327B94F53006E4859 /* TriajActions.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TriajActions.xib; sourceTree = "<group>"; };
 		B2976FD527B94F6C006E4859 /* TriajActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriajActions.swift; sourceTree = "<group>"; };
+		B2A24CB42833954800DC8DE8 /* HistoricalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalDataManager.swift; sourceTree = "<group>"; };
 		B2A389F327A442820005F9FD /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		B2AE2B9E282BFBAE007C440A /* LocationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerView.swift; sourceTree = "<group>"; };
-		B2AE2BAE282C75BF007C440A /* OWIDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWIDManager.swift; sourceTree = "<group>"; };
+		B2AE2BAE282C75BF007C440A /* CurrentDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDataManager.swift; sourceTree = "<group>"; };
 		B2B03FA927BEB36200A0F634 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		B2B45D1927B2F34B00788918 /* SimptomeAndPreventieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventieCollectionViewCell.swift; sourceTree = "<group>"; };
 		B2B5A9A92790939500FC4E61 /* onboarding2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding2.json; sourceTree = "<group>"; };
@@ -390,20 +386,11 @@
 			path = "Country Picker";
 			sourceTree = "<group>";
 		};
-		B236E1602825B11D00AB0116 /* Files */ = {
-			isa = PBXGroup;
-			children = (
-				B2725F35282A5D66008B0CEB /* historicalData-shrinked.json */,
-			);
-			path = Files;
-			sourceTree = "<group>";
-		};
 		B23DC42027902EB800051C6C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				B2F650FE278F2BDB00E1BB58 /* Assets.xcassets */,
 				B2188D2F2825B6E800CF9087 /* ISOCountries.swift */,
-				B236E1602825B11D00AB0116 /* Files */,
 				B2F65127278F329000E1BB58 /* Fonts */,
 				B2B5A9A72790904600FC4E61 /* Lottie Animations */,
 			);
@@ -462,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				B2BF962228143555002493EE /* Data Models */,
+				B2A7CC222832E73300F57CA5 /* Statistics Data Models */,
 				B23DC42027902EB800051C6C /* Resources */,
 				B278D50827A2851A00511BB2 /* UserDefaults.swift */,
 				B2D0724227CB81A600FA4BC6 /* UIDefaults.swift */,
@@ -486,7 +474,7 @@
 				B2049E4427FA325100303C6A /* ArticlesWebScraperManager.swift */,
 				B266A0F527EF12D0003806E7 /* CardTableViewTransitionManager.swift */,
 				B2C2E90827DA356B00A79D93 /* QRCodeManager.swift */,
-				B2AE2BAE282C75BF007C440A /* OWIDManager.swift */,
+				B2A24CB32833952100DC8DE8 /* Statistics Managers */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -555,6 +543,24 @@
 			path = Statistics;
 			sourceTree = "<group>";
 		};
+		B2A24CB32833952100DC8DE8 /* Statistics Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B2AE2BAE282C75BF007C440A /* CurrentDataManager.swift */,
+				B2A24CB42833954800DC8DE8 /* HistoricalDataManager.swift */,
+			);
+			path = "Statistics Managers";
+			sourceTree = "<group>";
+		};
+		B2A7CC222832E73300F57CA5 /* Statistics Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				B236E1632825B1B400AB0116 /* HistoricData.swift */,
+				B27BE1962825C4C100DB8D11 /* CurrentData.swift */,
+			);
+			path = "Statistics Data Models";
+			sourceTree = "<group>";
+		};
 		B2B5A9A72790904600FC4E61 /* Lottie Animations */ = {
 			isa = PBXGroup;
 			children = (
@@ -590,8 +596,6 @@
 				B2E6741A27A52A8F00F283B7 /* Onboarding.swift */,
 				B21C965627B2CADA00C88A50 /* SimptomeAndPreventie.swift */,
 				B23DE46D27B41F2B00FD2E10 /* Triaj.swift */,
-				B236E1632825B1B400AB0116 /* HistoricData.swift */,
-				B27BE1962825C4C100DB8D11 /* CurrentData.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -609,8 +613,6 @@
 			isa = PBXGroup;
 			children = (
 				B2BF961B28143270002493EE /* DataModel.xcdatamodeld */,
-				B279E868282D97E200A59F7B /* CountryData+CoreDataClass.swift */,
-				B279E869282D97E200A59F7B /* CountryData+CoreDataProperties.swift */,
 				B236E15C2825B08300AB0116 /* Article+CoreDataClass.swift */,
 				B236E15D2825B08300AB0116 /* Article+CoreDataProperties.swift */,
 				B2ECF83E28170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift */,
@@ -816,7 +818,6 @@
 				B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */,
 				B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */,
 				B2E1938727BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib in Resources */,
-				B2725F36282A5D66008B0CEB /* historicalData-shrinked.json in Resources */,
 				B23DE46827B3D02400FD2E10 /* simptome3.json in Resources */,
 				B23DE46A27B3D02400FD2E10 /* simptome2.json in Resources */,
 				B29683962815E720006B6D57 /* loadingAnimation.json in Resources */,
@@ -885,7 +886,6 @@
 				B2F48DE227AD25BC005EE116 /* EmbedView.swift in Sources */,
 				B236E1642825B1B400AB0116 /* HistoricData.swift in Sources */,
 				B2124F1E2823EF4900F20662 /* PresentationControler.swift in Sources */,
-				B279E86B282D97E200A59F7B /* CountryData+CoreDataProperties.swift in Sources */,
 				B266A12D27EF71AF003806E7 /* UIWindow.swift in Sources */,
 				B2AE2B9F282BFBAE007C440A /* LocationPickerView.swift in Sources */,
 				B2D0724327CB81A600FA4BC6 /* UIDefaults.swift in Sources */,
@@ -908,7 +908,6 @@
 				B2049E4527FA325100303C6A /* ArticlesWebScraperManager.swift in Sources */,
 				B2DF4F3027D8A15D0035D5B7 /* CertifficateView.swift in Sources */,
 				B25BA9372817027A00C89F14 /* FirebaseManager.swift in Sources */,
-				B279E86A282D97E200A59F7B /* CountryData+CoreDataClass.swift in Sources */,
 				B2B758E228100BE600E9D078 /* ViewModelsData.swift in Sources */,
 				B25BA935281694E600C89F14 /* InfoViewController.swift in Sources */,
 				B2DABD1827EB6D7700ECA4EB /* UIImage.swift in Sources */,
@@ -951,6 +950,7 @@
 				B2CCB59227DB9D160076A52A /* HomeViewController.swift in Sources */,
 				B2F01E202807734B00D0AD6C /* CountiesEnums.swift in Sources */,
 				B23DE46C27B3FC4D00FD2E10 /* UIColor.swift in Sources */,
+				B2A24CB52833954800DC8DE8 /* HistoricalDataManager.swift in Sources */,
 				B2188D302825B6E800CF9087 /* ISOCountries.swift in Sources */,
 				B2D0724727CB85A500FA4BC6 /* FontsManager.swift in Sources */,
 				B266A12F27EF7278003806E7 /* UITableView.swift in Sources */,
@@ -961,7 +961,7 @@
 				B2E1938927BC248200D0F057 /* PreventieAndSimptomeShortcut.swift in Sources */,
 				B27BE1972825C4C100DB8D11 /* CurrentData.swift in Sources */,
 				B2E6741B27A52A8F00F283B7 /* Onboarding.swift in Sources */,
-				B2AE2BAF282C75BF007C440A /* OWIDManager.swift in Sources */,
+				B2AE2BAF282C75BF007C440A /* CurrentDataManager.swift in Sources */,
 				B2DC74C227B793F700078245 /* OnboardingCell.swift in Sources */,
 				B266A12B27EF25CC003806E7 /* CardView.swift in Sources */,
 				B279E863282D5F0D00A59F7B /* CountryCardView.swift in Sources */,

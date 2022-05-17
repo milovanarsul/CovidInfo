@@ -17,6 +17,8 @@ class DataRefreshManager: NSObject {
         DispatchQueue.main.async {
             digi24(articleCount: 40)
             stiriOficiale()
+            parseCurrentData()
+            parseHistoricalData()
         }
     }
     
@@ -27,6 +29,8 @@ class DataRefreshManager: NSObject {
                 digi24(articleCount: 40)
                 stiriOficiale()
                 fetchVariantsData()
+                parseCurrentData()
+                parseHistoricalData()
             }
             print("data has been refreshed!")
             defaults.set(Date(), forKey: defaultsKey)
