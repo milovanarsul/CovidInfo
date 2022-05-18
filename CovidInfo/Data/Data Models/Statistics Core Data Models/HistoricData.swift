@@ -7,9 +7,14 @@
 
 import Foundation
 
+public class ObjcHistoricalDataContents: NSObject {
+    var perMonth: [String : [String : Double]]?
+    var All: [String : Double]?
+}
+
 public class HistoricalDataContents: NSObject, Codable{
-    var perMonth: [String : [String : Double]]
-    var All: [String : Double]
+    var perMonth: [String : [String : Double]]?
+    var All: [String : Double]?
 }
 
 class HistoricalData: Codable{
@@ -17,9 +22,9 @@ class HistoricalData: Codable{
     var sevenDaysCases: [String : Double]?
     var deaths: HistoricalDataContents?
     var sevenDaysDeaths: [String : Double]?
-    var icu: [String : [String : Double]]?
-    var hospital: [String : [String : Double]]?
-    var tests: [String : [String : Double]]?
+    var icu: HistoricalDataContents?
+    var hospital: HistoricalDataContents?
+    var tests: HistoricalDataContents?
     var sevenDaysTest: [String : Double]?
     var sevenDaysPositiveRate: [String : Double]?
     var vaccinations: HistoricalDataContents?

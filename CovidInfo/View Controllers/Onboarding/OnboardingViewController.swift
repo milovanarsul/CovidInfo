@@ -148,6 +148,8 @@ extension OnboardingViewController: OnboardingSubDelegate{
         DispatchQueue.main.async {
             parseCurrentData()
             parseHistoricalData()
+            parseOldHistoricalData(json: .date2021)
+            parseOldHistoricalData(json: .date2020)
             digi24(articleCount: 40)
             stiriOficiale()
 

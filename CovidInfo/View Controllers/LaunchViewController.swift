@@ -40,7 +40,6 @@ class LaunchViewController: UIViewController {
         #if targetEnvironment(simulator)
             defaults.set(true, forKey: "certifficateEnrolled")
         #endif
-        parseHistoricalData()
     }
     
     override func viewWillAppear(_ animated: Bool) {

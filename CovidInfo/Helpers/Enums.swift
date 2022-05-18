@@ -127,13 +127,8 @@ enum InfoCardsType{
     case vaccinare
 }
 
-enum JSONLocation {
-    case local
-    case online
-}
-
 enum JSONFile: String{
     case date2022 = "https://raw.githubusercontent.com/milovanarsul/CovidInfo/main/Data/data2022.json"
     case date2021 = "data2021"
-    case date2020 = "data2022"
+    case date2020 = "data2020"
 }

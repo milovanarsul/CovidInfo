@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import SwiftUI
-import SwiftUICharts
+//import SwiftUICharts
 
 extension UIViewController{
     func presentView(view: UIViewController, animated: Bool, presentationStyle: UIModalPresentationStyle, dismissPrevious: Bool){
