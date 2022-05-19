@@ -136,4 +136,5 @@ protocol LaunchViewControllerDelegate {
     func getHistoricCountry(name: String) -> HistoricData
     func getCurrentData() -> [CurrentData]
     func getHistoricData() -> [HistoricData]
+    func fetch()
 }

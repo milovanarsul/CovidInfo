@@ -115,8 +115,8 @@
     <elements>
         <element name="Article" positionX="-63" positionY="-18" width="128" height="179"/>
         <element name="CurrentData" positionX="-63" positionY="72" width="128" height="914"/>
-        <element name="MSPressBulettin" positionX="-63" positionY="54" width="128" height="134"/>
         <element name="HistoricData" positionX="-54" positionY="144" width="128" height="224"/>
+        <element name="MSPressBulettin" positionX="-63" positionY="54" width="128" height="134"/>
         <element name="OldHistoricData" positionX="-45" positionY="153" width="128" height="224"/>
     </elements>
 </model>

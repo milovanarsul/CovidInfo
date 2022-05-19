@@ -48,13 +48,12 @@
 		B23DE46E27B41F2C00FD2E10 /* Triaj.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE46D27B41F2B00FD2E10 /* Triaj.swift */; };
 		B23DE47A27B44E3D00FD2E10 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE47927B44E3D00FD2E10 /* UILabel.swift */; };
 		B24DE3CC2834ECAE00D216A8 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = B24DE3CB2834ECAE00D216A8 /* SwiftUICharts */; };
-		B25342A12835D11E00EBE80F /* FirstCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25342A02835D11E00EBE80F /* FirstCategory.swift */; };
-		B25342A42835D55300EBE80F /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25342A32835D55300EBE80F /* Components.swift */; };
 		B256059A27B2AF8000FB039F /* SimptomeAndPreventieCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256059927B2AF8000FB039F /* SimptomeAndPreventieCollectionViewController.swift */; };
 		B256059C27B2AFB500FB039F /* CollectionViewLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256059B27B2AFB500FB039F /* CollectionViewLayouts.swift */; };
 		B256B0F92822571D00793A7E /* InfoCardCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256B0F82822571D00793A7E /* InfoCardCellCollectionViewCell.swift */; };
 		B256B0FB2822583400793A7E /* InfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256B0FA2822583400793A7E /* InfoCard.swift */; };
 		B256B0FD2822608800793A7E /* InfoCardsCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256B0FC2822608800793A7E /* InfoCardsCollectionViewLayout.swift */; };
+		B2586B3A2835EF48005C9AD5 /* TodaysCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2586B392835EF48005C9AD5 /* TodaysCharts.swift */; };
 		B259BF8527B6DFA5001F78A6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259BF8427B6DFA5001F78A6 /* LaunchViewController.swift */; };
 		B25AD33927A30B50009EAD38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33827A30B50009EAD38 /* UIView.swift */; };
 		B25BA935281694E600C89F14 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25BA934281694E600C89F14 /* InfoViewController.swift */; };
@@ -73,6 +72,7 @@
 		B278D50927A2851A00511BB2 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50827A2851A00511BB2 /* UserDefaults.swift */; };
 		B279E863282D5F0D00A59F7B /* CountryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279E862282D5F0D00A59F7B /* CountryCardView.swift */; };
 		B27AB17D27B66007009A2323 /* LottieAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AB17C27B66007009A2323 /* LottieAnimationView.swift */; };
+		B27BA67928360C11009532E9 /* HistoricCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27BA67828360C11009532E9 /* HistoricCharts.swift */; };
 		B27BE1972825C4C100DB8D11 /* CurrentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27BE1962825C4C100DB8D11 /* CurrentData.swift */; };
 		B281283527A5A69700DE7DB8 /* UIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281283427A5A69700DE7DB8 /* UIPageViewController.swift */; };
 		B282BFF52813098E007ADE2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B282BFF42813098E007ADE2F /* GoogleService-Info.plist */; };
@@ -105,7 +105,6 @@
 		B2C2E90D27DA4D3E00A79D93 /* EnrollCertifficateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2E90C27DA4D3E00A79D93 /* EnrollCertifficateViewController.swift */; };
 		B2C59C2127A869340094A984 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C59C2027A869340094A984 /* MainPageViewController.swift */; };
 		B2C6F9BC2835074B00B6DBA8 /* CovidData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C6F9BB2835074B00B6DBA8 /* CovidData.swift */; };
-		B2CCA48928359E1600947A0C /* StatisticsCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCA48828359E1600947A0C /* StatisticsCharts.swift */; };
 		B2CCA48C2835C8B300947A0C /* SwiftUITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCA48B2835C8B300947A0C /* SwiftUITestView.swift */; };
 		B2CCB58927DB969E0076A52A /* HeaderPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCB58827DB969E0076A52A /* HeaderPageViewController.swift */; };
 		B2CCB58B27DB9A9D0076A52A /* HomeHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCB58A27DB9A9D0076A52A /* HomeHeaders.swift */; };
@@ -187,13 +186,12 @@
 		B23DE46B27B3FC4D00FD2E10 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B23DE46D27B41F2B00FD2E10 /* Triaj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triaj.swift; sourceTree = "<group>"; };
 		B23DE47927B44E3D00FD2E10 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
-		B25342A02835D11E00EBE80F /* FirstCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCategory.swift; sourceTree = "<group>"; };
-		B25342A32835D55300EBE80F /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		B256059927B2AF8000FB039F /* SimptomeAndPreventieCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventieCollectionViewController.swift; sourceTree = "<group>"; };
 		B256059B27B2AFB500FB039F /* CollectionViewLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayouts.swift; sourceTree = "<group>"; };
 		B256B0F82822571D00793A7E /* InfoCardCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		B256B0FA2822583400793A7E /* InfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCard.swift; sourceTree = "<group>"; };
 		B256B0FC2822608800793A7E /* InfoCardsCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardsCollectionViewLayout.swift; sourceTree = "<group>"; };
+		B2586B392835EF48005C9AD5 /* TodaysCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysCharts.swift; sourceTree = "<group>"; };
 		B259BF8427B6DFA5001F78A6 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		B25AD33827A30B50009EAD38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B25BA934281694E600C89F14 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +210,7 @@
 		B278D50827A2851A00511BB2 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		B279E862282D5F0D00A59F7B /* CountryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCardView.swift; sourceTree = "<group>"; };
 		B27AB17C27B66007009A2323 /* LottieAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationView.swift; sourceTree = "<group>"; };
+		B27BA67828360C11009532E9 /* HistoricCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricCharts.swift; sourceTree = "<group>"; };
 		B27BE1962825C4C100DB8D11 /* CurrentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentData.swift; sourceTree = "<group>"; };
 		B281283427A5A69700DE7DB8 /* UIPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPageViewController.swift; sourceTree = "<group>"; };
 		B282BFF42813098E007ADE2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -244,7 +243,6 @@
 		B2C2E90C27DA4D3E00A79D93 /* EnrollCertifficateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollCertifficateViewController.swift; sourceTree = "<group>"; };
 		B2C59C2027A869340094A984 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		B2C6F9BB2835074B00B6DBA8 /* CovidData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidData.swift; sourceTree = "<group>"; };
-		B2CCA48828359E1600947A0C /* StatisticsCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCharts.swift; sourceTree = "<group>"; };
 		B2CCA48B2835C8B300947A0C /* SwiftUITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestView.swift; sourceTree = "<group>"; };
 		B2CCB58827DB969E0076A52A /* HeaderPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPageViewController.swift; sourceTree = "<group>"; };
 		B2CCB58A27DB9A9D0076A52A /* HomeHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaders.swift; sourceTree = "<group>"; };
@@ -519,7 +517,6 @@
 			isa = PBXGroup;
 			children = (
 				B20C937728354325009E6313 /* CountryCardComponents.swift */,
-				B25342A32835D55300EBE80F /* Components.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -570,12 +567,20 @@
 			isa = PBXGroup;
 			children = (
 				B2E9C91B282C789E00BE6C31 /* StatisticsViewController.swift */,
-				B2CCA48828359E1600947A0C /* StatisticsCharts.swift */,
-				B25342A02835D11E00EBE80F /* FirstCategory.swift */,
+				B27BA67728360BE3009532E9 /* Categories */,
 				B25342A22835D4FC00EBE80F /* Components */,
 				B2339510282AFD8200E17F5B /* Country Picker */,
 			);
 			path = Statistics;
+			sourceTree = "<group>";
+		};
+		B27BA67728360BE3009532E9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B2586B392835EF48005C9AD5 /* TodaysCharts.swift */,
+				B27BA67828360C11009532E9 /* HistoricCharts.swift */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		B2A7CC222832E73300F57CA5 /* Statistics Core Data Models */ = {
@@ -928,7 +933,6 @@
 				B2B8555C27EF7A6100793FC5 /* NewsViewController.swift in Sources */,
 				B23935C128144DD400F4E0AA /* CoreData.swift in Sources */,
 				B289059427DA80720019205D /* LocalStorageManager.swift in Sources */,
-				B25342A12835D11E00EBE80F /* FirstCategory.swift in Sources */,
 				B2DABD1627EB2A2500ECA4EB /* News.swift in Sources */,
 				B2BB039F27A998F700D4801B /* NavigationBar.swift in Sources */,
 				B2CCB58B27DB9A9D0076A52A /* HomeHeaders.swift in Sources */,
@@ -936,6 +940,7 @@
 				B2976FD627B94F6C006E4859 /* TriajActions.swift in Sources */,
 				B218CDC227F849580080CD55 /* TestViewController.swift in Sources */,
 				B256B0F92822571D00793A7E /* InfoCardCellCollectionViewCell.swift in Sources */,
+				B2586B3A2835EF48005C9AD5 /* TodaysCharts.swift in Sources */,
 				B2ECF84228170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift in Sources */,
 				B2C59C2127A869340094A984 /* MainPageViewController.swift in Sources */,
 				B23DE45A27B3BC4700FD2E10 /* Constraints.swift in Sources */,
@@ -948,12 +953,10 @@
 				B25BA9372817027A00C89F14 /* FirebaseManager.swift in Sources */,
 				B2B758E228100BE600E9D078 /* ViewModelsData.swift in Sources */,
 				B25BA935281694E600C89F14 /* InfoViewController.swift in Sources */,
-				B25342A42835D55300EBE80F /* Components.swift in Sources */,
 				B2DABD1827EB6D7700ECA4EB /* UIImage.swift in Sources */,
 				B2BB039B27A9466700D4801B /* CustomTabBar.swift in Sources */,
 				B236E15E2825B08300AB0116 /* Article+CoreDataClass.swift in Sources */,
 				B256B0FB2822583400793A7E /* InfoCard.swift in Sources */,
-				B2CCA48928359E1600947A0C /* StatisticsCharts.swift in Sources */,
 				B2B758DF2810091500E9D078 /* XIB.swift in Sources */,
 				B2F48DE027AD249A005EE116 /* Enums.swift in Sources */,
 				B27AB17D27B66007009A2323 /* LottieAnimationView.swift in Sources */,
@@ -963,6 +966,7 @@
 				B21C965727B2CADA00C88A50 /* SimptomeAndPreventie.swift in Sources */,
 				B217D44F27B93DC500DBDED9 /* TriajViewController.swift in Sources */,
 				B2BF961D28143270002493EE /* DataModel.xcdatamodeld in Sources */,
+				B27BA67928360C11009532E9 /* HistoricCharts.swift in Sources */,
 				B2C2E90927DA356B00A79D93 /* QRCodeManager.swift in Sources */,
 				B266A12927EF1682003806E7 /* FullScreenCardView.swift in Sources */,
 				B2F48DDE27AD2453005EE116 /* Delegates.swift in Sources */,
@@ -1156,6 +1160,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1176,6 +1181,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlvn.CovidInfo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1188,6 +1194,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1208,6 +1215,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlvn.CovidInfo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

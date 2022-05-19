@@ -48,7 +48,10 @@ class LaunchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         delegates.launch = self
-        fetchStatistics()
+        if defaults.bool(forKey: "statisticsFetched"){
+            fetchStatistics()
+            historicManualData = parseHistoricalData()
+        }
         setup()
         isFirstLaunch()
         showOnboarding ? startOnboarding() : goTomain()
@@ -149,6 +152,7 @@ extension LaunchViewController: LaunchViewControllerDelegate{
     }
     
     func getHistoricCountry(name: String) -> HistoricData{
+        print(name)
         var historicCountry: HistoricData?
         
         for country in historicData! {
@@ -166,5 +170,9 @@ extension LaunchViewController: LaunchViewControllerDelegate{
     
     func getHistoricData() -> [HistoricData] {
         return historicData!
+    }
+    
+    func fetch(){
+        fetchStatistics()
     }
 }

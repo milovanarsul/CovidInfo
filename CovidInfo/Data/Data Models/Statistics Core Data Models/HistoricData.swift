@@ -12,7 +12,7 @@ public class ObjcHistoricalDataContents: NSObject {
     var All: [String : Double]?
 }
 
-public class HistoricalDataContents: NSObject, Codable{
+public class HistoricalDataContents: Codable{
     var perMonth: [String : [String : Double]]?
     var All: [String : Double]?
 }

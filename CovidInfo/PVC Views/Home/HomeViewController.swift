@@ -60,7 +60,7 @@ class HomeViewController: UIViewController {
     
     lazy var quickGraphs: UIView = {
         let view = UIView()
-        //self.addSubSwiftUIView(QuickCharts(currentData: currentData!, historicData: historicData!), to: view)
+        self.addSubSwiftUIView(QuickCharts(currentData: currentData!, historicData: historicData!), to: view)
         view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: 180).isActive = true
@@ -100,7 +100,7 @@ class HomeViewController: UIViewController {
         scrollView.addSubview(contentView)
         defaultAutoResizingMask(childView: contentView, parentView: scrollView, width: true)
         
-        contentView.addSubviews(views: [headerView, statisticsLabel])
+        contentView.addSubviews(views: [headerView, statisticsLabel, quickGraphs, viewShortcuts])
         
         let headerViewConstraints = Constraints(childView: headerView, parentView: contentView, constraints: [
             Constraint(constraintType: .leading, multiplier: 1, constant: 12),
@@ -118,20 +118,18 @@ class HomeViewController: UIViewController {
         statisticsLabelConstraints.addConstraints()
         statisticsLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10).isActive = true
         
-        /*
         let quickGraphsConstraints = Constraints(childView: quickGraphs, parentView: contentView, constraints: [
             Constraint(constraintType: .leading, multiplier: 1, constant: 12),
             Constraint(constraintType: .trailing, multiplier: 1, constant: -12)
         ])
         quickGraphsConstraints.addConstraints()
-        quickGraphs.topAnchor.constraint(equalTo: statisticsLabel.bottomAnchor).isActive = true
+        quickGraphs.topAnchor.constraint(equalTo: statisticsLabel.bottomAnchor, constant: 5).isActive = true
         
         let viewShorcutsConstraints = Constraints(childView: viewShortcuts, parentView: contentView, constraints: [
             Constraint(constraintType: .leading, multiplier: 1, constant: 12),
             Constraint(constraintType: .trailing, multiplier: 1, constant: -12)
         ])
         viewShorcutsConstraints.addConstraints()
-        viewShortcuts.topAnchor.constraint(equalTo: quickGraphs.bottomAnchor, constant: 30).isActive = true
-        */
+        viewShortcuts.topAnchor.constraint(equalTo: quickGraphs.bottomAnchor, constant: 40).isActive = true
     }
 }
