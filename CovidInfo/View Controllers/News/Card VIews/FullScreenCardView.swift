@@ -56,7 +56,7 @@ class FullScreenCardView: UIViewController, UIScrollViewDelegate {
     }
     
     private let article: Article
-    private(set) var cardView: CardView?
+    private(set) var cardView: NewsCardView?
     
     init(article: Article) {
         self.article = article
@@ -106,7 +106,7 @@ extension FullScreenCardView {
     func configureCardView() {
         let cardModel = article
         article.viewMode = .full
-        cardView = CardView(article: cardModel)
+        cardView = NewsCardView(article: cardModel)
         cardView?.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(cardView!)
         

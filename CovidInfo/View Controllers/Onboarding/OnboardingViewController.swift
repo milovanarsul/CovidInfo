@@ -152,7 +152,7 @@ extension OnboardingViewController: OnboardingSubDelegate{
             parseOldHistoricalData(json: .date2020)
             digi24(articleCount: 40)
             stiriOficiale()
-
+            
             self.finishDataDownload()
             defaults.set(Date(), forKey: "lastRefresh")
         }

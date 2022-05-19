@@ -75,6 +75,7 @@ class MainViewController: UIViewController {
     var contentViewTopConstraint = NSLayoutConstraint()
     
     func setup(){
+        
         view.backgroundColor = .white
         view.addSubviews(views: [navigationBar, contentView, certifficateButton, tabBar])
         
@@ -86,6 +87,17 @@ class MainViewController: UIViewController {
         navigationBarConstraints.addConstraints()
         navigationBarTopConstraint = NSLayoutConstraint(item: navigationBar, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
         NSLayoutConstraint.activate([navigationBarTopConstraint])
+        
+        view.addSubview(countryPicker)
+        view.sendSubviewToBack(countryPicker)
+        
+        let countryPickerConstraints = Constraints(childView: countryPicker, parentView: view, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
+        ])
+        countryPickerConstraints.addConstraints()
+        NSLayoutConstraint.activate([countryPicker.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 5)])
         
         let contentViewConstraints = Constraints(childView: contentView, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
@@ -302,19 +314,6 @@ extension MainViewController: MainDelegate{
             self.view.layoutIfNeeded()
             self.tabBar.layoutIfNeeded()
         })
-    }
-    
-    func countryPickerEnabler(){
-        view.addSubview(countryPicker)
-        view.sendSubviewToBack(countryPicker)
-        
-        let countryPickerConstraints = Constraints(childView: countryPicker, parentView: view, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
-            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
-        ])
-        countryPickerConstraints.addConstraints()
-        NSLayoutConstraint.activate([countryPicker.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 5)])
     }
 }
 

@@ -10,6 +10,8 @@ import CoreLocation
 
 class CountryPickerViewController: UIViewController {
     
+    var currentData: CurrentData?
+    
     lazy var locationPickerView: UIView = {
         let location = AppDelegate.locationCountry
         let view: UIView?
@@ -54,6 +56,8 @@ class CountryPickerViewController: UIViewController {
         formatedData = data
     }
     
+    var currentCountry: UIView?
+    
     func setup(){
         
         view.addSubviews(views: [tableView, searchBar])
@@ -66,19 +70,19 @@ class CountryPickerViewController: UIViewController {
         searchBarConstraints.addConstraints()
         
         if defaults.bool(forKey: "automaticLocation") || defaults.string(forKey: "manualCountry") != nil{
-            view.addSubview(locationPickerView)
             
+            view.addSubview(locationPickerView)
             let locationPickerViewConstraints = Constraints(childView: locationPickerView, parentView: view, constraints: [
                 Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
                 Constraint(constraintType: .proportionalWidth, multiplier: 0.9, constant: 0),
                 Constraint(constraintType: .proportionalHeight, multiplier: 0.1, constant: 0),
-                Constraint(constraintType: .top, multiplier: 1, constant: 10)
             ])
             locationPickerViewConstraints.addConstraints()
+            locationPickerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
             
-            NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: locationPickerView.bottomAnchor, constant: 10)])
+            NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: locationPickerView.bottomAnchor, constant: 0)])
         } else {
-            NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 10)])
+            NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 5)])
         }
         
         let tableViewConstraints = Constraints(childView: tableView, parentView: view, constraints: [

@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
 private var onboardingCompleted: Bool = false
 
 class LaunchViewController: UIViewController {
+    
+    var currentData: [CurrentData]?
+    var historicData: [HistoricData]?
     
     lazy var backgroundImage: UIImageView = {
         let imageView = UIImageView()
@@ -43,10 +47,24 @@ class LaunchViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        delegates.launch = self
+        fetchStatistics()
         setup()
         isFirstLaunch()
         showOnboarding ? startOnboarding() : goTomain()
         onboardingCompleted ? skipOnboarding() : ()
+    }
+    
+    func fetchStatistics(){
+        let currentDataRequest = CurrentData.fetchRequest() as NSFetchRequest<CurrentData>
+        let historicDataRequest = HistoricData.fetchRequest() as NSFetchRequest<HistoricData>
+        
+        do {
+            self.currentData = try AppDelegate.context.fetch(currentDataRequest)
+            self.historicData = try AppDelegate.context.fetch(historicDataRequest)
+        } catch {
+            fatalError()
+        }
     }
     
     var launchViewWidthConstraint = NSLayoutConstraint()
@@ -113,5 +131,40 @@ class LaunchViewController: UIViewController {
             self.view.layoutIfNeeded()
             self.removeFromParent()
         })
+    }
+}
+
+extension LaunchViewController: LaunchViewControllerDelegate{
+    
+    func getCurrentCountry(name: String) -> CurrentData{
+        var currentCountry: CurrentData?
+        
+        for country in currentData! {
+            if country.location == name{
+                currentCountry = country
+            }
+        }
+        
+        return currentCountry!
+    }
+    
+    func getHistoricCountry(name: String) -> HistoricData{
+        var historicCountry: HistoricData?
+        
+        for country in historicData! {
+            if country.location == name{
+                historicCountry = country
+            }
+        }
+
+        return historicCountry!
+    }
+    
+    func getCurrentData() -> [CurrentData] {
+        return currentData!
+    }
+    
+    func getHistoricData() -> [HistoricData] {
+        return historicData!
     }
 }

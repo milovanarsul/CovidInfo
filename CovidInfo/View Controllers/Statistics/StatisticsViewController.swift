@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import BetterSegmentedControl
 import CoreData
 
 class StatisticsViewController: UIViewController {
     
-    var currentData: [CurrentData]?
-    var historicData: [HistoricData]?
+    var currentData: CurrentData?
+    var historicData: HistoricData?
     
     lazy var locationNotSelected: UIImageView = {
         let imageView = UIImageView()
@@ -20,30 +21,32 @@ class StatisticsViewController: UIViewController {
         return imageView
     }()
     
-    var countryCard: UIView?
+    lazy var categories: BetterSegmentedControl = {
+        let regularFont = UIFont(name: "IBMPLexSans-Regular", size: 14)!
+        let categories = BetterSegmentedControl(frame: .zero, segments: LabelSegment.segments(withTitles: ["Astazi", "Vaccinare", "Variante"], normalFont: regularFont, normalTextColor: .black, selectedFont: regularFont ,selectedTextColor: .white), options: [.backgroundColor(.white), .indicatorViewBackgroundColor(.black), .cornerRadius(16), .animationSpringDamping(1.0)])
+        //categories.addTarget(self, action: #selector(categoriesTapped(_:)), for: .valueChanged)
+        return categories
+    }()
+    
+    lazy var contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var firstViewController: UIView = {
+        let view = FirstCategory(parentViewController: self, currentData: currentData!, historicData: historicData!)
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchData()
         delegates.statistics = self
         setup()
     }
     
-    func fetchData(){
-        let currentDataRequest = CurrentData.fetchRequest() as NSFetchRequest<CurrentData>
-        let historicDataRequest = HistoricData.fetchRequest() as NSFetchRequest<HistoricData>
-        
-        do {
-            self.currentData = try AppDelegate.context.fetch(currentDataRequest)
-            self.historicData = try AppDelegate.context.fetch(historicDataRequest)
-        } catch {
-            fatalError()
-        }
-    }
-    
     func setup(){
-        
         let automaticCountry: Bool = (AppDelegate.locationCountry != nil)
         let manualCountry: Bool = (defaults.string(forKey: "manualCountry") != nil)
         
@@ -60,45 +63,41 @@ class StatisticsViewController: UIViewController {
         }
         
         if automaticCountry || manualCountry{
+            currentData = defaults.bool(forKey: "automaticLocation") ? delegates.launch.getCurrentCountry(name: AppDelegate.locationCountry!): delegates.launch.getCurrentCountry(name: defaults.string(forKey: "manualCountry")!)
+            historicData = defaults.bool(forKey: "automaticLocation") ? delegates.launch.getHistoricCountry(name: AppDelegate.locationCountry!): delegates.launch.getHistoricCountry(name: defaults.string(forKey: "manualCountry")!)
             
-            let currentLocation = defaults.bool(forKey: "automaticLocation") ? getCountry(name: AppDelegate.locationCountry!): getCountry(name: defaults.string(forKey: "manualCountry")!)
-            countryCard = CountryCardView(data: currentLocation)
-            view.addSubview(countryCard!)
-            
-            let countryCardConstraints = Constraints(childView: countryCard!, parentView: view, constraints: [
-                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-                Constraint(constraintType: .proportionalWidth, multiplier: 0.95, constant: 0),
-                Constraint(constraintType: .height, multiplier: 1, constant: 400),
-                Constraint(constraintType: .top, multiplier: 1, constant: 5)
-            ])
-            countryCardConstraints.addConstraints()
+            contentSetup()
         }
     }
     
-    func getCountry(name: String) -> CurrentData{
-        var currentCountry: CurrentData?
+    func contentSetup(){
+        view.addSubviews(views: [categories, contentView])
         
-        for country in currentData! {
-            if country.location == name{
-                currentCountry = country
-            }
-        }
+        let categoriesConstraints = Constraints(childView: categories, parentView: view, constraints: [
+            Constraint(constraintType: .leading, multiplier: 1, constant: 12),
+            Constraint(constraintType: .trailing, multiplier: 1, constant: -12),
+            Constraint(constraintType: .top, multiplier: 1, constant: 10),
+            Constraint(constraintType: .height, multiplier: 1, constant: 30)
+        ])
+        categoriesConstraints.addConstraints()
         
-        return currentCountry!
+        let contentViewConstraints = Constraints(childView: contentView, parentView: view, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
+        ])
+        contentViewConstraints.addConstraints()
+        contentView.topAnchor.constraint(equalTo: categories.bottomAnchor, constant: 10).isActive = true
+        
+        contentView.addSubviews(views: [firstViewController])
+        defaultConstraints(childView: firstViewController, parentView: contentView)
     }
 }
 
 extension StatisticsViewController: StatisticsViewControllerDelegate {
-    
     func setupCountry(){
-        
         if locationNotSelected.isDescendant(of: view){
             locationNotSelected.removeFromSuperview()
-        }
-        
-        if let cCard = countryCard {
-            cCard.removeFromSuperview()
-            cCard.layoutIfNeeded()
         }
         
         setup()
@@ -106,9 +105,9 @@ extension StatisticsViewController: StatisticsViewControllerDelegate {
     
     func contentViewVisibility(visibility: Bool){
         locationNotSelected.isHidden = visibility
-        
-        if let cCard = countryCard {
-            cCard.isHidden = visibility
-        }
     }
+}
+
+extension StatisticsViewController: UIScrollViewDelegate{
+    
 }

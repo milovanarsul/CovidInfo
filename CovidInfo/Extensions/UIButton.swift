@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 
 extension UIButton{
-    func initialize(title: String, titleColor: UIColor, cornerRadius: CGFloat, font: UIFont, backgroundColor: UIColor, contentInsets: NSDirectionalEdgeInsets? = nil, image: UIImage? = nil){
+    func initialize(title: String, titleColor: UIColor, cornerRadius: CGFloat, font: UIFont, backgroundColor: UIColor, contentInsets: NSDirectionalEdgeInsets? = nil, image: UIImage? = nil, imagePlacement: NSDirectionalRectEdge? = nil){
         
         var buttonAttributeContainer: AttributeContainer{
             var container = AttributeContainer()
             container.font = font
-            container.foregroundColor = .white
+            container.foregroundColor = titleColor
             
             return container
         }
@@ -27,9 +27,14 @@ extension UIButton{
         
         if let image = image {
             configuration.image = image
-            configuration.image?.withTintColor(.white)
+            configuration.image?.withTintColor(titleColor)
             configuration.imagePadding = 10
-            configuration.imagePlacement = .leading
+            
+            if let imgPlacement = imagePlacement {
+                configuration.imagePlacement = imgPlacement
+            } else {
+                configuration.imagePlacement = .leading
+            }
         }
         
         if let contentInsets = contentInsets {
@@ -37,7 +42,7 @@ extension UIButton{
         }
         
         self.configuration = configuration
-        self.tintColor = .white
+        self.tintColor = titleColor
     }
     
     func initializeIcon(image: UIImage? = nil, backgroundImage: UIImage? = nil,  backgroundColor: UIColor? = .clear, contentInsets: NSDirectionalEdgeInsets? = nil){

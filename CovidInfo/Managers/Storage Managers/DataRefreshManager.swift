@@ -51,3 +51,20 @@ class DataRefreshManager: NSObject {
         }
     }
 }
+
+func loadData() -> (CurrentData, HistoricData){
+    let automaticCountry: Bool = (AppDelegate.locationCountry != nil)
+    let manualCountry: Bool = (defaults.string(forKey: "manualCountry") != nil)
+    
+    var currentData: CurrentData?
+    var historicData: HistoricData?
+    
+    if automaticCountry || manualCountry{
+        currentData = defaults.bool(forKey: "automaticLocation") ? delegates.launch.getCurrentCountry(name: AppDelegate.locationCountry!): delegates.launch.getCurrentCountry(name: defaults.string(forKey: "manualCountry")!)
+        historicData = defaults.bool(forKey: "automaticLocation") ? delegates.launch.getHistoricCountry(name: AppDelegate.locationCountry!): delegates.launch.getHistoricCountry(name: defaults.string(forKey: "manualCountry")!)
+    }
+    
+    //delegates.navigationBar.countrySubtitle(country: (currentData?.location)!, flag: (currentData?.countryISO)!)
+    
+    return (currentData!, historicData!)
+}

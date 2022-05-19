@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class Delegates{
+    var launch: LaunchViewControllerDelegate! = nil
     var onboarding: OnboardingDelegate! = nil
     var onboardingSub: OnboardingSubDelegate! = nil
     var main: MainDelegate! = nil
@@ -56,7 +57,6 @@ protocol MainDelegate{
     func tabAnimation(visibility: ViewVisibility)
     func tabBarExtension(visibility: ViewVisibility)
     func animateContentView(size: CGFloat)
-    func countryPickerEnabler()
 }
 
 protocol NavigationBarDelegate{
@@ -109,6 +109,7 @@ protocol NewsDelegate{
 protocol CustomTabBarDelegate{
     func increaseBottomConstraint(size: CGFloat)
     func goToTopButtonVisibily(visibily: ViewVisibility)
+    func goToPage(index: Int)
 }
 
 protocol InfoCardsCollectionViewDelegate{
@@ -128,4 +129,11 @@ protocol CountryPickerDelegate{
 protocol StatisticsViewControllerDelegate {
     func contentViewVisibility(visibility: Bool)
     func setupCountry()
+}
+
+protocol LaunchViewControllerDelegate {
+    func getCurrentCountry(name: String) -> CurrentData
+    func getHistoricCountry(name: String) -> HistoricData
+    func getCurrentData() -> [CurrentData]
+    func getHistoricData() -> [HistoricData]
 }

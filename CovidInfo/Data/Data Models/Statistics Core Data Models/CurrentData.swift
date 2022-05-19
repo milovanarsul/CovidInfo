@@ -8,19 +8,19 @@
 import Foundation
 
 class DailyData: Codable{
-    var continent: String?
-    var location: String?
-    var last_updated_date: String?
-    var total_cases: Double?
-    var new_cases: Double?
+    var continent: String? //
+    var location: String? //
+    var last_updated_date: String? //
+    var total_cases: Double? //
+    var new_cases: Double? //
     var new_cases_smoothed: Double?
-    var total_deaths: Double?
-    var new_deaths: Double?
+    var total_deaths: Double? //
+    var new_deaths: Double? //
     var new_deaths_smoothed: Double?
-    var total_cases_per_million: Double?
+    var total_cases_per_million: Double? //
     var new_cases_per_million: Double?
     var new_cases_smoothed_per_million: Double?
-    var total_deaths_per_million: Double?
+    var total_deaths_per_million: Double? //
     var new_deaths_per_million: Double?
     var new_deaths_smoothed_per_million: Double?
     var reproduction_rate: Double?
@@ -32,24 +32,24 @@ class DailyData: Codable{
     var weekly_icu_admissions_per_million: Double?
     var weekly_hosp_admissions: Double?
     var weekly_hosp_admissions_per_million: Double?
-    var total_tests: Double?
+    var total_tests: Double? //
     var new_tests: Double?
-    var total_tests_per_thousand: Double?
+    var total_tests_per_thousand: Double? //
     var new_tests_per_thousand: Double?
     var new_tests_smoothed: Double?
     var new_tests_smoothed_per_thousand: Double?
     var positive_rate: Double?
     var tests_per_case:Double?
-    var total_vaccinations: Double?
+    var total_vaccinations: Double? //
     var people_vaccinated: Double?
     var people_fully_vaccinated: Double?
-    var total_boosters: Double?
+    var total_boosters: Double? //
     var new_vaccinations: Double?
     var new_vaccinations_smoothed: Double?
-    var total_vaccinations_per_hundred: Double?
+    var total_vaccinations_per_hundred: Double?//
     var people_vaccinated_per_hundred: Double?
     var people_fully_vaccinated_per_hundred: Double?
-    var total_boosters_per_hundred: Double?
+    var total_boosters_per_hundred: Double?//
     var new_vaccinations_smoothed_per_million: Double?
     var new_people_vaccinated_smoothed: Double?
     var new_people_vaccinated_smoothed_per_hundred: Double?

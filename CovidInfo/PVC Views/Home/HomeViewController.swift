@@ -10,6 +10,8 @@ import UIKit
 import SwiftUI
 
 class HomeViewController: UIViewController {
+    @Published var currentData: CurrentData?
+    @Published var historicData: HistoricData?
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -21,41 +23,70 @@ class HomeViewController: UIViewController {
         return scrollView
     }()
     
+    lazy var contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var headerView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
         CovidInfo.embed.headerPageViewController(parent: self, container: view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 190).isActive = true
         return view
     }()
     
+    lazy var statisticsLabel: UIStackView = {
+        let label = UILabel()
+        label.initialize(text: "Statistici", color: .black, font: boldFont(size: 20), alignment: .left, lines: 1)
+        
+        let button = UIButton()
+        button.initialize(title: "Mai mult", titleColor: signatureDarkBlue, cornerRadius: 0, font: boldFont(size: 18), backgroundColor: .clear, image: UIImage(systemName: "arrow.forward"), imagePlacement: NSDirectionalRectEdge.trailing)
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        
+        let stackView = UIStackView()
+        stackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fill, spacing: 0)
+        stackView.addAranagedSubviews(views: [label, button])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    @objc func buttonAction(_ sender: UIButton){
+        delegates.tabBar.goToPage(pageIndex: 3, direction: .forward)
+        delegates.customTabBar.goToPage(index: 3)
+    }
+    
     lazy var quickGraphs: UIView = {
         let view = UIView()
-        
+        //self.addSubSwiftUIView(QuickCharts(currentData: currentData!, historicData: historicData!), to: view)
         view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 180).isActive = true
         return view
     }()
     
     lazy var viewShortcuts: UIStackView = {
-        let stackView = UIStackView()
-        stackView.initalize(axis: .vertical, alignment: .fill, distribution: .fillEqually, spacing: 10)
-        stackView.addArrangedSubview(horizontalViewShortcut(text: "Simptome", image: "SimptomeHomeShortcut", action: #selector(simptomeShortcutAction)))
-        stackView.addArrangedSubview(horizontalViewShortcut(text: "Preventie ", image: "PreventieHomeShortcut", action: #selector(preventieShortcutAction)))
+        let stackView = HomePreventieandSimptomeShortcut()
+        stackView.heightAnchor.constraint(equalToConstant: 130).isActive = true
         return stackView
     }()
     
-    lazy var epidemiologicTrial: UIImageView = {
-        let imageView = UIImageView()
-        /*
-        imageView.image = UIImage(named: "header1")
-        imageView.contentMode = .scaleAspectFit
-        //imageView.cornerRadius = 24
-        */
-        imageView.backgroundColor = .red
-        return imageView
+    lazy var cardView: UIView = {
+        let view = CountryCardView(data: currentData!)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 400).isActive = true
+        return view
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let data = loadData()
+        currentData = data.0
+        historicData = data.1
+        
         setup()
     }
     
@@ -64,87 +95,43 @@ class HomeViewController: UIViewController {
         view.layer.cornerRadius = 24
         
         view.addSubview(scrollView)
-        let scrollViewConstraints = Constraints(childView: scrollView, parentView: view, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
-            Constraint(constraintType: .top, multiplier: 1, constant: 0),
-            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
-        ])
-        scrollViewConstraints.addConstraints()
+        defaultAutoResizingMask(childView: scrollView, parentView: view, width: false)
         
-        scrollView.addSubview(headerView)
+        scrollView.addSubview(contentView)
+        defaultAutoResizingMask(childView: contentView, parentView: scrollView, width: true)
         
-        let headerViewConstraints = Constraints(childView: headerView, parentView: scrollView, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 0.95, constant: 0),
+        contentView.addSubviews(views: [headerView, statisticsLabel])
+        
+        let headerViewConstraints = Constraints(childView: headerView, parentView: contentView, constraints: [
+            Constraint(constraintType: .leading, multiplier: 1, constant: 12),
+            Constraint(constraintType: .trailing, multiplier: 1, constant: -12),
             Constraint(constraintType: .proportionalHeight, multiplier: 0.24, constant: 0),
             Constraint(constraintType: .top, multiplier: 1, constant: 18)
         ])
         headerViewConstraints.addConstraints()
         
-        scrollView.addSubview(quickGraphs)
-        let quickGraphsConstraints = Constraints(childView: quickGraphs, parentView: scrollView, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 0.9, constant: 0),
-            Constraint(constraintType: .proportionalHeight, multiplier: 0.35, constant: 0)
+        let statisticsLabelConstraints = Constraints(childView: statisticsLabel, parentView: contentView, constraints: [
+            Constraint(constraintType: .leading, multiplier: 1, constant: 12),
+            Constraint(constraintType: .trailing, multiplier: 1, constant: -12),
+            Constraint(constraintType: .height, multiplier: 1, constant: 80)
+        ])
+        statisticsLabelConstraints.addConstraints()
+        statisticsLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10).isActive = true
+        
+        /*
+        let quickGraphsConstraints = Constraints(childView: quickGraphs, parentView: contentView, constraints: [
+            Constraint(constraintType: .leading, multiplier: 1, constant: 12),
+            Constraint(constraintType: .trailing, multiplier: 1, constant: -12)
         ])
         quickGraphsConstraints.addConstraints()
-        NSLayoutConstraint.activate([quickGraphs.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 8)])
+        quickGraphs.topAnchor.constraint(equalTo: statisticsLabel.bottomAnchor).isActive = true
         
-        scrollView.addSubview(viewShortcuts)
-        let viewShortcutsConstraints = Constraints(childView: viewShortcuts, parentView: scrollView, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 0.95, constant: 0),
-            Constraint(constraintType: .proportionalHeight, multiplier: 0.17, constant: 0)
+        let viewShorcutsConstraints = Constraints(childView: viewShortcuts, parentView: contentView, constraints: [
+            Constraint(constraintType: .leading, multiplier: 1, constant: 12),
+            Constraint(constraintType: .trailing, multiplier: 1, constant: -12)
         ])
-        viewShortcutsConstraints.addConstraints()
-        NSLayoutConstraint.activate([viewShortcuts.topAnchor.constraint(equalTo: quickGraphs.bottomAnchor, constant: 10)])
-        
-        scrollView.addSubview(epidemiologicTrial)
-        let epidemiologicTrialConstraints = Constraints(childView: epidemiologicTrial, parentView: scrollView, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 0.95, constant: 0),
-            Constraint(constraintType: .height, multiplier: 0.4, constant: 0)
-        ])
-        epidemiologicTrialConstraints.addConstraints()
-        NSLayoutConstraint.activate([epidemiologicTrial.topAnchor.constraint(equalTo: viewShortcuts.bottomAnchor, constant: 10)])
-    }
-    
-    func horizontalViewShortcut(text: String, image: String, action: Selector) -> UIView {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.layer.cornerRadius = 14
-        view.layer.masksToBounds = true
-        
-        let backgroundImage = UIImageView()
-        backgroundImage.image = UIImage(named: image)
-        backgroundImage.contentMode = .scaleAspectFill
-        view.addSubview(backgroundImage)
-        defaultConstraints(childView: backgroundImage, parentView: view)
-        
-        let label = UILabel()
-        label.initialize(text: text, color: .black, font: boldFont(size: 26), alignment: .left, lines: 1)
-        view.addSubview(label)
-        let labelConstraints = Constraints(childView: label, parentView: view, constraints: [
-            Constraint(constraintType: .leading, multiplier: 1, constant: 20),
-            Constraint(constraintType: .vertical, multiplier: 1, constant: 0)
-        ])
-        labelConstraints.addConstraints()
-        
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: action))
-        
-        return view
-    }
-    
-    @objc func simptomeShortcutAction(){
-        delegates.homePage.goToPage(pageIndex: 2, direction: .forward)
-        delegates.homePage.updateNavigationBar(page: Page(mainPage: .home, childType: .simptome))
-        delegates.main.tabAnimation(visibility: .hide)
-    }
-    
-    @objc func preventieShortcutAction(){
-        delegates.homePage.goToPage(pageIndex: 3, direction: .forward)
-        delegates.homePage.updateNavigationBar(page: Page(mainPage: .home, childType: .preventie))
-        delegates.main.tabAnimation(visibility: .hide)
+        viewShorcutsConstraints.addConstraints()
+        viewShortcuts.topAnchor.constraint(equalTo: quickGraphs.bottomAnchor, constant: 30).isActive = true
+        */
     }
 }

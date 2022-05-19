@@ -13,11 +13,11 @@ import CoreLocation
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     let locationManager = CLLocationManager()
+    
     static let geoCoder = CLGeocoder()
     static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     static var locationCountry: String?
     
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         

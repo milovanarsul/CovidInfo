@@ -138,6 +138,19 @@ func defaultAnchors(childView: UIView, parentView: UIView){
     constraints.addConstraints()
 }
 
+func defaultAutoResizingMask(childView: UIView, parentView: UIView, width: Bool){
+    childView.translatesAutoresizingMaskIntoConstraints = false
+    
+    childView.leadingAnchor.constraint(equalTo: parentView.leadingAnchor).isActive = true
+    childView.trailingAnchor.constraint(equalTo: parentView.trailingAnchor).isActive = true
+    childView.topAnchor.constraint(equalTo: parentView.topAnchor).isActive = true
+    childView.bottomAnchor.constraint(equalTo: parentView.bottomAnchor).isActive = true
+    
+    if width {
+        childView.widthAnchor.constraint(equalTo: parentView.widthAnchor).isActive = true
+    }
+}
+
 func xyConstraints(childView: UIView, parentView: UIView){
     let constraints = Constraints(childView: childView, parentView: parentView, constraints: [
         Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),

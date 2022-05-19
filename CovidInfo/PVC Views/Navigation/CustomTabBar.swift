@@ -98,9 +98,6 @@ class CustomTabBar: UIView {
     
     @objc func statisticsButtonPressed(_ sender: UIButton) {
         buttonSetup(button: .statistics)
-        if countryPickerAdded == false {
-            delegates.main.countryPickerEnabler()
-        }
     }
     
     @objc func goToTopButtonPressed(_ sender: UIButton) {
@@ -187,6 +184,23 @@ class CustomTabBar: UIView {
             return 3
         }
     }
+    
+    func tabBarButton(index: Int) -> MainPages{
+        switch index{
+        case 0:
+            return .home
+        case 1:
+            return .info
+        case 2:
+            return .news
+        case 3:
+            return .statistics
+        default:
+            ()
+        }
+        
+        return .home
+    }
 }
 
 extension CustomTabBar: CustomTabBarDelegate{
@@ -207,5 +221,9 @@ extension CustomTabBar: CustomTabBarDelegate{
         case .hide:
             goToTopButton.isHidden = true
         }
+    }
+    
+    func goToPage(index: Int){
+        buttonSetup(button: tabBarButton(index: index))
     }
 }
