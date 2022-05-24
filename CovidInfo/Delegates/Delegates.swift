@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class Delegates{
-    var launch: LaunchViewControllerDelegate! = nil
     var onboarding: OnboardingDelegate! = nil
     var onboardingSub: OnboardingSubDelegate! = nil
     var main: MainDelegate! = nil
@@ -129,12 +128,4 @@ protocol CountryPickerDelegate{
 protocol StatisticsViewControllerDelegate {
     func contentViewVisibility(visibility: Bool)
     func setupCountry()
-}
-
-protocol LaunchViewControllerDelegate {
-    func getCurrentCountry(name: String) -> CurrentData
-    func getHistoricCountry(name: String) -> HistoricData
-    func getCurrentData() -> [CurrentData]
-    func getHistoricData() -> [HistoricData]
-    func fetch()
 }

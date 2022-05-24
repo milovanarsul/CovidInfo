@@ -8,17 +8,6 @@
 import Foundation
 import UIKit
 
-func imageViewRounded(image: UIImage) -> UIImageView{
-    let imageView = UIImageView()
-    imageView.image = image
-    imageView.contentMode = .scaleAspectFill
-    
-    imageView.layer.cornerRadius = 29.5
-    imageView.clipsToBounds = true
-    
-    return imageView
-}
-
 extension UIImageView {
     func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
         contentMode = mode

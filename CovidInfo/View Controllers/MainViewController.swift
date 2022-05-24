@@ -88,6 +88,7 @@ class MainViewController: UIViewController {
         navigationBarTopConstraint = NSLayoutConstraint(item: navigationBar, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
         NSLayoutConstraint.activate([navigationBarTopConstraint])
         
+        /*
         view.addSubview(countryPicker)
         view.sendSubviewToBack(countryPicker)
         
@@ -98,6 +99,7 @@ class MainViewController: UIViewController {
         ])
         countryPickerConstraints.addConstraints()
         NSLayoutConstraint.activate([countryPicker.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 5)])
+        */
         
         let contentViewConstraints = Constraints(childView: contentView, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),

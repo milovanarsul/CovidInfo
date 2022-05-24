@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import CoreData
 
 public class TrustedSourceData{
     var image: String

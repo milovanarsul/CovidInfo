@@ -145,19 +145,8 @@ class OnboardingViewController: UIViewController {
 extension OnboardingViewController: OnboardingSubDelegate{
     func finishOnboarding() {
         awaitDataDownload()
-        DispatchQueue.main.async {
-            parseCurrentData()
-            parseHistoricalData()
-            parseOldHistoricalData(json: .date2021)
-            parseOldHistoricalData(json: .date2020)
-            digi24(articleCount: 40)
-            stiriOficiale()
-            
-            self.finishDataDownload()
-            defaults.set(Date(), forKey: "lastRefresh")
-            defaults.set(true, forKey: "statisticsFetched")
-            delegates.launch.fetch()
-        }
+        DataManager.forceLoadData()
+        finishDataDownload()
     }
     
     func setPageControl(){

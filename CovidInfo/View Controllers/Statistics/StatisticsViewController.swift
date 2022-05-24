@@ -11,9 +11,6 @@ import CoreData
 
 class StatisticsViewController: UIViewController {
     
-    @Published var currentData: CurrentData?
-    @Published var historicData: HistoricData?
-    
     lazy var locationNotSelected: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "locationRestricted")!
@@ -43,11 +40,6 @@ class StatisticsViewController: UIViewController {
                 Constraint(constraintType: .aspectRatio, multiplier: (1.0 / 1.0), constant: 0)
             ])
             locationNotSelectedConstraints.addConstraints()
-        }
-        
-        if automaticCountry || manualCountry{
-            currentData = defaults.bool(forKey: "automaticLocation") ? delegates.launch.getCurrentCountry(name: AppDelegate.locationCountry!): delegates.launch.getCurrentCountry(name: defaults.string(forKey: "manualCountry")!)
-            historicData = defaults.bool(forKey: "automaticLocation") ? delegates.launch.getHistoricCountry(name: AppDelegate.locationCountry!): delegates.launch.getHistoricCountry(name: defaults.string(forKey: "manualCountry")!)
         }
     }
 }

@@ -24,7 +24,7 @@ class TriajPageViewController: UIPageViewController {
     
     fileprivate func createViews(){
         for triaj in triajData{
-            pages.append(Triaj(data: triaj))
+            pages.append(TriajViewController(data: triaj))
         }
     }
 }

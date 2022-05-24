@@ -10,8 +10,33 @@ import AVFoundation
 import Lottie
 
 class EnrollCertifficateViewController: UIViewController{
-    @IBOutlet weak var videoLayer: UIView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    lazy var videoLayer: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        activityIndicator.isHidden = true
+        return activityIndicator
+    }()
+    
+    func setup(){
+        view.addSubview(videoLayer)
+        
+        let videoLayerConstraints = Constraints(childView: videoLayer, parentView: view, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalHeight, multiplier: 0.65, constant: 0),
+            Constraint(constraintType: .top, multiplier: 1, constant: 30)
+        ])
+        videoLayerConstraints.addConstraints()
+        
+        videoLayer.addSubview(activityIndicator)
+        xyConstraints(childView: activityIndicator, parentView: videoLayer)
+    }
     
     private var label = UILabel()
     private var animationView: AnimationView!
@@ -21,6 +46,7 @@ class EnrollCertifficateViewController: UIViewController{
     
     override func viewDidLoad(){
         delegates.enrollCertifficate = self
+        setup()
         initalSetup()
         QRCodeReader(parentViewController: self, videoLayer: videoLayer, captureSession: captureSession)
         captureSession.startRunning()

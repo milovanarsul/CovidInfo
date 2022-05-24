@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         if OnboardingManager.shared.isFirstLaunch == false{
-            let dataRefreshManager = DataRefreshManager.shared
-            dataRefreshManager.loadDataIfNeeded()
+            print("enters here")
+            DataManager.loadDataIfNeeded()
         }
         
         locationManager.delegate = self
@@ -92,6 +92,9 @@ extension AppDelegate: CLLocationManagerDelegate{
                 if defaults.string(forKey: "manualCountry") == nil{
                     defaults.set(true, forKey: "automaticLocation")
                 }
+                
+                DataManager.fetchData()
+                DataManager.countryData()
             }
         }
     }
