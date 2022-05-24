@@ -53,7 +53,6 @@
 		B256B0F92822571D00793A7E /* InfoCardCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256B0F82822571D00793A7E /* InfoCardCellCollectionViewCell.swift */; };
 		B256B0FB2822583400793A7E /* InfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256B0FA2822583400793A7E /* InfoCard.swift */; };
 		B256B0FD2822608800793A7E /* InfoCardsCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256B0FC2822608800793A7E /* InfoCardsCollectionViewLayout.swift */; };
-		B2586B3A2835EF48005C9AD5 /* TodaysCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2586B392835EF48005C9AD5 /* TodaysCharts.swift */; };
 		B259BF8527B6DFA5001F78A6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259BF8427B6DFA5001F78A6 /* LaunchViewController.swift */; };
 		B25AD33927A30B50009EAD38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25AD33827A30B50009EAD38 /* UIView.swift */; };
 		B25BA935281694E600C89F14 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25BA934281694E600C89F14 /* InfoViewController.swift */; };
@@ -72,7 +71,6 @@
 		B278D50927A2851A00511BB2 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50827A2851A00511BB2 /* UserDefaults.swift */; };
 		B279E863282D5F0D00A59F7B /* CountryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279E862282D5F0D00A59F7B /* CountryCardView.swift */; };
 		B27AB17D27B66007009A2323 /* LottieAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AB17C27B66007009A2323 /* LottieAnimationView.swift */; };
-		B27BA67928360C11009532E9 /* HistoricCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27BA67828360C11009532E9 /* HistoricCharts.swift */; };
 		B27BE1972825C4C100DB8D11 /* CurrentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27BE1962825C4C100DB8D11 /* CurrentData.swift */; };
 		B281283527A5A69700DE7DB8 /* UIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B281283427A5A69700DE7DB8 /* UIPageViewController.swift */; };
 		B282BFF52813098E007ADE2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B282BFF42813098E007ADE2F /* GoogleService-Info.plist */; };
@@ -191,7 +189,6 @@
 		B256B0F82822571D00793A7E /* InfoCardCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		B256B0FA2822583400793A7E /* InfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCard.swift; sourceTree = "<group>"; };
 		B256B0FC2822608800793A7E /* InfoCardsCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardsCollectionViewLayout.swift; sourceTree = "<group>"; };
-		B2586B392835EF48005C9AD5 /* TodaysCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysCharts.swift; sourceTree = "<group>"; };
 		B259BF8427B6DFA5001F78A6 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		B25AD33827A30B50009EAD38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B25BA934281694E600C89F14 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -210,7 +207,6 @@
 		B278D50827A2851A00511BB2 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		B279E862282D5F0D00A59F7B /* CountryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCardView.swift; sourceTree = "<group>"; };
 		B27AB17C27B66007009A2323 /* LottieAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationView.swift; sourceTree = "<group>"; };
-		B27BA67828360C11009532E9 /* HistoricCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricCharts.swift; sourceTree = "<group>"; };
 		B27BE1962825C4C100DB8D11 /* CurrentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentData.swift; sourceTree = "<group>"; };
 		B281283427A5A69700DE7DB8 /* UIPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPageViewController.swift; sourceTree = "<group>"; };
 		B282BFF42813098E007ADE2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -381,7 +377,7 @@
 				B25BA934281694E600C89F14 /* InfoViewController.swift */,
 				B2124F2528245E4D00F20662 /* InfoCardsCollectionViewController.swift */,
 				B2124F1B2823EA3D00F20662 /* InfoBottomSheetView.swift */,
-				B279E862282D5F0D00A59F7B /* CountryCardView.swift */,
+				B243E849283D05F500DC4A48 /* Country Card */,
 				B2124F2228245C4E00F20662 /* CollectionView */,
 			);
 			path = Info;
@@ -513,12 +509,13 @@
 			path = Triaj;
 			sourceTree = "<group>";
 		};
-		B25342A22835D4FC00EBE80F /* Components */ = {
+		B243E849283D05F500DC4A48 /* Country Card */ = {
 			isa = PBXGroup;
 			children = (
 				B20C937728354325009E6313 /* CountryCardComponents.swift */,
+				B279E862282D5F0D00A59F7B /* CountryCardView.swift */,
 			);
-			path = Components;
+			path = "Country Card";
 			sourceTree = "<group>";
 		};
 		B256058827B2A1E000FB039F /* Simptome & Preventie */ = {
@@ -567,20 +564,9 @@
 			isa = PBXGroup;
 			children = (
 				B2E9C91B282C789E00BE6C31 /* StatisticsViewController.swift */,
-				B27BA67728360BE3009532E9 /* Categories */,
-				B25342A22835D4FC00EBE80F /* Components */,
 				B2339510282AFD8200E17F5B /* Country Picker */,
 			);
 			path = Statistics;
-			sourceTree = "<group>";
-		};
-		B27BA67728360BE3009532E9 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				B2586B392835EF48005C9AD5 /* TodaysCharts.swift */,
-				B27BA67828360C11009532E9 /* HistoricCharts.swift */,
-			);
-			path = Categories;
 			sourceTree = "<group>";
 		};
 		B2A7CC222832E73300F57CA5 /* Statistics Core Data Models */ = {
@@ -940,7 +926,6 @@
 				B2976FD627B94F6C006E4859 /* TriajActions.swift in Sources */,
 				B218CDC227F849580080CD55 /* TestViewController.swift in Sources */,
 				B256B0F92822571D00793A7E /* InfoCardCellCollectionViewCell.swift in Sources */,
-				B2586B3A2835EF48005C9AD5 /* TodaysCharts.swift in Sources */,
 				B2ECF84228170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift in Sources */,
 				B2C59C2127A869340094A984 /* MainPageViewController.swift in Sources */,
 				B23DE45A27B3BC4700FD2E10 /* Constraints.swift in Sources */,
@@ -966,7 +951,6 @@
 				B21C965727B2CADA00C88A50 /* SimptomeAndPreventie.swift in Sources */,
 				B217D44F27B93DC500DBDED9 /* TriajViewController.swift in Sources */,
 				B2BF961D28143270002493EE /* DataModel.xcdatamodeld in Sources */,
-				B27BA67928360C11009532E9 /* HistoricCharts.swift in Sources */,
 				B2C2E90927DA356B00A79D93 /* QRCodeManager.swift in Sources */,
 				B266A12927EF1682003806E7 /* FullScreenCardView.swift in Sources */,
 				B2F48DDE27AD2453005EE116 /* Delegates.swift in Sources */,

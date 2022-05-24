@@ -38,48 +38,6 @@ class HomeViewController: UIViewController {
         return view
     }()
     
-    lazy var statisticsLabel: UIStackView = {
-        let label = UILabel()
-        label.initialize(text: "Statistici", color: .black, font: boldFont(size: 20), alignment: .left, lines: 1)
-        
-        let button = UIButton()
-        button.initialize(title: "Mai mult", titleColor: signatureDarkBlue, cornerRadius: 0, font: boldFont(size: 18), backgroundColor: .clear, image: UIImage(systemName: "arrow.forward"), imagePlacement: NSDirectionalRectEdge.trailing)
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        
-        let stackView = UIStackView()
-        stackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fill, spacing: 0)
-        stackView.addAranagedSubviews(views: [label, button])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
-    @objc func buttonAction(_ sender: UIButton){
-        delegates.tabBar.goToPage(pageIndex: 3, direction: .forward)
-        delegates.customTabBar.goToPage(index: 3)
-    }
-    
-    lazy var quickGraphs: UIView = {
-        let view = UIView()
-        self.addSubSwiftUIView(QuickCharts(currentData: currentData!, historicData: historicData!), to: view)
-        view.backgroundColor = .clear
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 180).isActive = true
-        return view
-    }()
-    
-    lazy var viewShortcuts: UIStackView = {
-        let stackView = HomePreventieandSimptomeShortcut()
-        stackView.heightAnchor.constraint(equalToConstant: 130).isActive = true
-        return stackView
-    }()
-    
-    lazy var cardView: UIView = {
-        let view = CountryCardView(data: currentData!)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 400).isActive = true
-        return view
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -100,7 +58,7 @@ class HomeViewController: UIViewController {
         scrollView.addSubview(contentView)
         defaultAutoResizingMask(childView: contentView, parentView: scrollView, width: true)
         
-        contentView.addSubviews(views: [headerView, statisticsLabel, quickGraphs, viewShortcuts])
+        contentView.addSubviews(views: [headerView])
         
         let headerViewConstraints = Constraints(childView: headerView, parentView: contentView, constraints: [
             Constraint(constraintType: .leading, multiplier: 1, constant: 12),
@@ -109,27 +67,5 @@ class HomeViewController: UIViewController {
             Constraint(constraintType: .top, multiplier: 1, constant: 18)
         ])
         headerViewConstraints.addConstraints()
-        
-        let statisticsLabelConstraints = Constraints(childView: statisticsLabel, parentView: contentView, constraints: [
-            Constraint(constraintType: .leading, multiplier: 1, constant: 12),
-            Constraint(constraintType: .trailing, multiplier: 1, constant: -12),
-            Constraint(constraintType: .height, multiplier: 1, constant: 80)
-        ])
-        statisticsLabelConstraints.addConstraints()
-        statisticsLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10).isActive = true
-        
-        let quickGraphsConstraints = Constraints(childView: quickGraphs, parentView: contentView, constraints: [
-            Constraint(constraintType: .leading, multiplier: 1, constant: 12),
-            Constraint(constraintType: .trailing, multiplier: 1, constant: -12)
-        ])
-        quickGraphsConstraints.addConstraints()
-        quickGraphs.topAnchor.constraint(equalTo: statisticsLabel.bottomAnchor, constant: 5).isActive = true
-        
-        let viewShorcutsConstraints = Constraints(childView: viewShortcuts, parentView: contentView, constraints: [
-            Constraint(constraintType: .leading, multiplier: 1, constant: 12),
-            Constraint(constraintType: .trailing, multiplier: 1, constant: -12)
-        ])
-        viewShorcutsConstraints.addConstraints()
-        viewShortcuts.topAnchor.constraint(equalTo: quickGraphs.bottomAnchor, constant: 40).isActive = true
     }
 }

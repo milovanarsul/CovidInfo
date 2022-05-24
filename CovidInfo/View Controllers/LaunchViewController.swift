@@ -48,10 +48,7 @@ class LaunchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         delegates.launch = self
-        if defaults.bool(forKey: "statisticsFetched"){
-            fetchStatistics()
-            historicManualData = parseHistoricalData()
-        }
+        fetchStatistics()
         setup()
         isFirstLaunch()
         showOnboarding ? startOnboarding() : goTomain()
@@ -62,11 +59,13 @@ class LaunchViewController: UIViewController {
         let currentDataRequest = CurrentData.fetchRequest() as NSFetchRequest<CurrentData>
         let historicDataRequest = HistoricData.fetchRequest() as NSFetchRequest<HistoricData>
         
-        do {
-            self.currentData = try AppDelegate.context.fetch(currentDataRequest)
-            self.historicData = try AppDelegate.context.fetch(historicDataRequest)
-        } catch {
-            fatalError()
+        if defaults.bool(forKey: "statisticsFetched"){
+            do {
+                self.currentData = try AppDelegate.context.fetch(currentDataRequest)
+                self.historicData = try AppDelegate.context.fetch(historicDataRequest)
+            } catch {
+                fatalError()
+            }
         }
     }
     

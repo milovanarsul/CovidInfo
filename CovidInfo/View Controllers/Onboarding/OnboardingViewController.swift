@@ -155,6 +155,8 @@ extension OnboardingViewController: OnboardingSubDelegate{
             
             self.finishDataDownload()
             defaults.set(Date(), forKey: "lastRefresh")
+            defaults.set(true, forKey: "statisticsFetched")
+            delegates.launch.fetch()
         }
     }
     

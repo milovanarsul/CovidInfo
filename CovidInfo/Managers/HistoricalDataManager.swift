@@ -7,23 +7,7 @@
 
 import Foundation
 
-var historicManualData: [Dictionary<String, HistoricalData>.Element]?
-
-func getManualHistoricCountry(name: String) -> HistoricalData{
-    var result: HistoricalData?
-    
-    for (key, value) in historicManualData! {
-        if roISOCountries[key] == name{
-            result = value
-        }
-    }
-    
-    return result!
-}
-
-func parseHistoricalData() -> [Dictionary<String, HistoricalData>.Element]?{
-    var statsData: [Dictionary<String, HistoricalData>.Element]?
-    
+func parseHistoricalData(){
     if let url = URL(string: "https://raw.githubusercontent.com/milovanarsul/CovidInfo/main/Data/data2022.json"){
         if let data = try? Data(contentsOf: url){
             do{
@@ -34,8 +18,8 @@ func parseHistoricalData() -> [Dictionary<String, HistoricalData>.Element]?{
                     }
                 }
                 
-                statsData = stats.sorted {$0.key < $1.key}
-                for(key, value) in statsData! {
+                let sortedStats = stats.sorted {$0.key < $1.key}
+                for(key, value) in sortedStats {
                     let data: HistoricData = HistoricData(context: AppDelegate.context)
                     
                     data.countryISO = key
@@ -98,11 +82,9 @@ func parseHistoricalData() -> [Dictionary<String, HistoricalData>.Element]?{
             }
         }
     }
-    
-    return statsData
 }
 
-func parseOldHistoricalData(json: JSONFile) -> [Dictionary<String, HistoricalData>.Element]?{
+func parseOldHistoricalData(json: JSONFile){
     do {
         if let bundlePath = Bundle.main.path(forResource: json.rawValue, ofType: "json"),
            let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8){
@@ -115,8 +97,6 @@ func parseOldHistoricalData(json: JSONFile) -> [Dictionary<String, HistoricalDat
                 }
                 
                 let sortedStats = stats.sorted {$0.key < $1.key}
-                return sortedStats
-                /*
                 for(key, value) in sortedStats {
                     let data = OldHistoricData(context: AppDelegate.context)
                     
@@ -175,11 +155,8 @@ func parseOldHistoricalData(json: JSONFile) -> [Dictionary<String, HistoricalDat
                     
                     try AppDelegate.context.save()
                 }
-                */
             }
         } catch {
         print(error)
     }
-    
-    return nil
 }

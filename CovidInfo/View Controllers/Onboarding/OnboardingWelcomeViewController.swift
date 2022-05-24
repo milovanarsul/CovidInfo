@@ -192,9 +192,9 @@ class OnboardingWelcomeViewController: UIViewController {
         awaitDataDownload()
         DispatchQueue.main.async {
             parseCurrentData()
-            historicManualData = parseHistoricalData()
-            //parseOldHistoricalData(json: .date2021)
-            //parseOldHistoricalData(json: .date2020)
+            parseHistoricalData()
+            parseOldHistoricalData(json: .date2021)
+            parseOldHistoricalData(json: .date2020)
             digi24(articleCount: 40)
             stiriOficiale()
             
