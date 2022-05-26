@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "triajEpidemiologic@1x.png",
+      "filename" : "locationDisabledHome@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "triajEpidemiologic@2x.png",
+      "filename" : "locationDisabledHome@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "triajEpidemiologic@3x.png",
+      "filename" : "locationDisabledHome@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

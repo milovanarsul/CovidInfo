@@ -265,4 +265,8 @@ extension CustomNavigationBar: NavigationBarDelegate{
     func changeContainerViewBottomConstraint(visibility: Bool){
         containerView.isHidden = visibility
     }
+    
+    func externalTapLocationButton(){
+        locationButtonTapped(.init())
+    }
 }

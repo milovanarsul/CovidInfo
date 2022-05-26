@@ -12,7 +12,6 @@
 		B2049E4527FA325100303C6A /* NewsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2049E4427FA325100303C6A /* NewsParser.swift */; };
 		B206B62627B64D9100C371B2 /* OnboardingWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B206B62427B64D9100C371B2 /* OnboardingWelcomeViewController.swift */; };
 		B206B62A27B6539400C371B2 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B206B62827B6539400C371B2 /* OnboardingViewController.swift */; };
-		B20C93762835332A009E6313 /* HomePreventieandSimptomeShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20C93752835332A009E6313 /* HomePreventieandSimptomeShortcut.swift */; };
 		B20C937828354325009E6313 /* CountryCardComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20C937728354325009E6313 /* CountryCardComponents.swift */; };
 		B2124F1C2823EA3D00F20662 /* InfoBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2124F1B2823EA3D00F20662 /* InfoBottomSheetView.swift */; };
 		B2124F1E2823EF4900F20662 /* CustomPresentationControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2124F1D2823EF4900F20662 /* CustomPresentationControler.swift */; };
@@ -74,7 +73,7 @@
 		B29683962815E720006B6D57 /* loadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = B29683952815E720006B6D57 /* loadingAnimation.json */; };
 		B2976FD427B94F53006E4859 /* TriajActions.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2976FD327B94F53006E4859 /* TriajActions.xib */; };
 		B2976FD627B94F6C006E4859 /* TriajActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2976FD527B94F6C006E4859 /* TriajActions.swift */; };
-		B297B92C283D3DEB005E1291 /* TodaysCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B297B92B283D3DEB005E1291 /* TodaysCharts.swift */; };
+		B297B92C283D3DEB005E1291 /* QuickCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B297B92B283D3DEB005E1291 /* QuickCharts.swift */; };
 		B297B92F283D4214005E1291 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B297B92E283D4214005E1291 /* DataManager.swift */; };
 		B2A24CB52833954800DC8DE8 /* HistoricalDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A24CB42833954800DC8DE8 /* HistoricalDataParser.swift */; };
 		B2A389F427A442820005F9FD /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A389F327A442820005F9FD /* CustomNavigationBar.swift */; };
@@ -147,7 +146,6 @@
 		B2049E4427FA325100303C6A /* NewsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsParser.swift; sourceTree = "<group>"; };
 		B206B62427B64D9100C371B2 /* OnboardingWelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeViewController.swift; sourceTree = "<group>"; };
 		B206B62827B6539400C371B2 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		B20C93752835332A009E6313 /* HomePreventieandSimptomeShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePreventieandSimptomeShortcut.swift; sourceTree = "<group>"; };
 		B20C937728354325009E6313 /* CountryCardComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCardComponents.swift; sourceTree = "<group>"; };
 		B2124F1B2823EA3D00F20662 /* InfoBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBottomSheetView.swift; sourceTree = "<group>"; };
 		B2124F1D2823EF4900F20662 /* CustomPresentationControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentationControler.swift; sourceTree = "<group>"; };
@@ -208,7 +206,7 @@
 		B29683952815E720006B6D57 /* loadingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingAnimation.json; sourceTree = "<group>"; };
 		B2976FD327B94F53006E4859 /* TriajActions.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TriajActions.xib; sourceTree = "<group>"; };
 		B2976FD527B94F6C006E4859 /* TriajActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriajActions.swift; sourceTree = "<group>"; };
-		B297B92B283D3DEB005E1291 /* TodaysCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysCharts.swift; sourceTree = "<group>"; };
+		B297B92B283D3DEB005E1291 /* QuickCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickCharts.swift; sourceTree = "<group>"; };
 		B297B92E283D4214005E1291 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		B2A24CB42833954800DC8DE8 /* HistoricalDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalDataParser.swift; sourceTree = "<group>"; };
 		B2A389F327A442820005F9FD /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
@@ -574,7 +572,7 @@
 		B2AB5687283D64C7004EC66A /* Charts */ = {
 			isa = PBXGroup;
 			children = (
-				B297B92B283D3DEB005E1291 /* TodaysCharts.swift */,
+				B297B92B283D3DEB005E1291 /* QuickCharts.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -690,7 +688,6 @@
 			children = (
 				B2E1938627BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib */,
 				B2E1938827BC248200D0F057 /* PreventieAndSimptomeShortcut.swift */,
-				B20C93752835332A009E6313 /* HomePreventieandSimptomeShortcut.swift */,
 			);
 			path = "View Shortcuts";
 			sourceTree = "<group>";
@@ -968,7 +965,7 @@
 				B2B758DF2810091500E9D078 /* XIB.swift in Sources */,
 				B2F48DE027AD249A005EE116 /* Enums.swift in Sources */,
 				B27AB17D27B66007009A2323 /* LottieAnimationView.swift in Sources */,
-				B297B92C283D3DEB005E1291 /* TodaysCharts.swift in Sources */,
+				B297B92C283D3DEB005E1291 /* QuickCharts.swift in Sources */,
 				B278D50927A2851A00511BB2 /* UserDefaults.swift in Sources */,
 				B26EEDB2282B000300000781 /* CountryTableViewCell.swift in Sources */,
 				B21C965727B2CADA00C88A50 /* SimptomeAndPreventie.swift in Sources */,
@@ -1015,7 +1012,6 @@
 				B2E6741B27A52A8F00F283B7 /* Onboarding.swift in Sources */,
 				B2AE2BAF282C75BF007C440A /* CurrentDataParser.swift in Sources */,
 				B2DC74C227B793F700078245 /* OnboardingCell.swift in Sources */,
-				B20C93762835332A009E6313 /* HomePreventieandSimptomeShortcut.swift in Sources */,
 				B266A12B27EF25CC003806E7 /* NewsCardView.swift in Sources */,
 				B279E863282D5F0D00A59F7B /* CountryCardView.swift in Sources */,
 				B2C6F9BC2835074B00B6DBA8 /* DataRefactoring.swift in Sources */,

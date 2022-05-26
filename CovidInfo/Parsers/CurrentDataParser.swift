@@ -20,7 +20,8 @@ func parseCurrentData(){
                     }
                 }
                 
-                let sortedStats = stats.sorted {$0.key < $1.key}
+                var sortedStats = stats.sorted {$0.key < $1.key}
+                stats.removeAll()
                 for(key, value) in sortedStats {
                     let data = CurrentData(context: AppDelegate.context)
                     
@@ -257,6 +258,7 @@ func parseCurrentData(){
                     
                     try AppDelegate.context.save()
                 }
+                sortedStats.removeAll()
             } catch {
                 print(error)
             }

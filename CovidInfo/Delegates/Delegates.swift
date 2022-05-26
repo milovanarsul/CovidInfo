@@ -64,6 +64,7 @@ protocol NavigationBarDelegate{
     func certifficateButtonAnimation(visibility: ViewVisibility)
     func changeContainerViewBottomConstraint(visibility: Bool)
     func locationButtonAnimation(visibility: ViewVisibility)
+    func externalTapLocationButton()
 }
 
 protocol TabBarDelegate{
@@ -103,6 +104,7 @@ protocol EnrollCertifficateDelegate{
 protocol NewsDelegate{
     func scrollToTop()
     func refreshData()
+    func externalSourceArticleTap(index: Int)
 }
 
 protocol CustomTabBarDelegate{

@@ -12,6 +12,8 @@ private var onboardingCompleted: Bool = false
 
 class LaunchViewController: UIViewController {
     
+    var dataLoadNeeded: Bool = DataManager.isRefreshRequired()
+    
     lazy var backgroundImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "FirstOnboarding")
@@ -25,7 +27,32 @@ class LaunchViewController: UIViewController {
         view.cornerRadius = 24
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.isHidden = dataLoadNeeded
         return view
+    }()
+    
+    lazy var dataLoadingView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.dropShadow = true
+        view.cornerRadius = 24
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityInidcator = UIActivityIndicatorView()
+        activityInidcator.style = .large
+        activityInidcator.startAnimating()
+        activityInidcator.translatesAutoresizingMaskIntoConstraints = false
+        return activityInidcator
+    }()
+    
+    lazy var loadingLabel: UILabel = {
+        let label = UILabel()
+        label.initialize(text: "Reactualizam datele...", color: .black, font: boldFont(size: 16), alignment: .center, lines: 0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     lazy var onboardingView: UIView = {
@@ -44,33 +71,82 @@ class LaunchViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setup()
         isFirstLaunch()
-        showOnboarding ? startOnboarding() : goTomain()
-        onboardingCompleted ? skipOnboarding() : ()
+        setup()
+        
+        if dataLoadNeeded {
+            dataLoading()
+            print("Data has been automatically refreshed!")
+        } else {
+            showOnboarding ? startOnboarding() : goTomain()
+            onboardingCompleted ? skipOnboarding() : ()
+        }
     }
     
     var launchViewWidthConstraint = NSLayoutConstraint()
     var launchViewHeightConstraint = NSLayoutConstraint()
     var launchViewVerticalConstraint = NSLayoutConstraint()
+    
     var onboardingViewWidthConstraint = NSLayoutConstraint()
     var onboardingViewHeightConstraint = NSLayoutConstraint()
     var onboardingViewVerticalConstraint = NSLayoutConstraint()
     
+    var dataLoadingViewWidthConstraint = NSLayoutConstraint()
+    var dataLoadingViewHeightConstraint = NSLayoutConstraint()
+    var dataLoadingViewVerticalConstraint = NSLayoutConstraint()
+    
     func setup(){
         view.addSubviews(views: [backgroundImage, launchView, onboardingView])
-        
         defaultConstraints(childView: backgroundImage, parentView: view)
-    
-        launchViewVerticalConstraint = Constraint(childView: launchView, parentView: view, constraintType: .vertical, multiplier: 1, constant: 0).setConstraint()
-        launchViewWidthConstraint = Constraint(childView: launchView, parentView: view, constraintType: .proportionalWidth, multiplier: 1, constant: 0).setConstraint()
-        launchViewHeightConstraint = Constraint(childView: launchView, parentView: view, constraintType: .proportionalHeight, multiplier: 0.124, constant: 0).setConstraint()
-        NSLayoutConstraint.activate([launchViewWidthConstraint, launchViewHeightConstraint, launchViewVerticalConstraint, Constraint(childView: launchView, parentView: view, constraintType: .horizontal, multiplier: 1, constant: 0).setConstraint()])
         
-        onboardingViewWidthConstraint = Constraint(childView: onboardingView, parentView: view, constraintType: .proportionalWidth, multiplier: 1, constant: 0).setConstraint()
-        onboardingViewHeightConstraint = Constraint(childView: onboardingView, parentView: view, constraintType: .proportionalHeight, multiplier: 0.124, constant: 0).setConstraint()
-        onboardingViewVerticalConstraint = Constraint(childView: onboardingView, parentView: view, constraintType: .vertical, multiplier: 1, constant: 0).setConstraint()
-        NSLayoutConstraint.activate([onboardingViewWidthConstraint, onboardingViewHeightConstraint, onboardingViewVerticalConstraint, Constraint(childView: onboardingView, parentView: view, constraintType: .horizontal, multiplier: 1, constant: 0).setConstraint()])
+        if dataLoadNeeded == false {
+            launchViewWidthConstraint = launchView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: 0)
+            launchViewHeightConstraint = launchView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.124, constant: 0)
+        } else {
+            launchViewWidthConstraint = launchView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: onboardingWidth, constant: 0)
+            launchViewHeightConstraint = launchView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: onboardingHeight, constant: 0)
+        }
+        
+        launchViewVerticalConstraint = launchView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        launchView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        NSLayoutConstraint.activate([launchViewWidthConstraint, launchViewHeightConstraint, launchViewVerticalConstraint])
+        
+        onboardingViewWidthConstraint = onboardingView.widthAnchor.constraint(equalTo: view.widthAnchor)
+        onboardingViewHeightConstraint = onboardingView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.124, constant: 0)
+        onboardingViewVerticalConstraint = onboardingView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        onboardingView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        NSLayoutConstraint.activate([onboardingViewWidthConstraint, onboardingViewHeightConstraint, onboardingViewVerticalConstraint])
+    }
+    
+    func dataLoading(){
+        view.addSubview(dataLoadingView)
+        
+        dataLoadingViewWidthConstraint = dataLoadingView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: 0)
+        dataLoadingViewHeightConstraint = dataLoadingView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.124, constant: 0)
+        dataLoadingViewVerticalConstraint = dataLoadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        dataLoadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        NSLayoutConstraint.activate([dataLoadingViewWidthConstraint, dataLoadingViewHeightConstraint, dataLoadingViewVerticalConstraint])
+        
+        animateConstraints(constraints: [(dataLoadingViewWidthConstraint, onboardingWidth, .multiplier),(dataLoadingViewHeightConstraint, onboardingHeight, .multiplier)])
+        
+        UIView.animate(withDuration: defaultAnimationDuration, animations: {
+            self.dataLoadingView.layoutIfNeeded()
+        }, completion: {(finished: Bool) in
+            self.dataLoadingComponents()
+            DispatchQueue.main.async {
+                DataManager.fetchData()
+                self.dataLoadingView.removeFromSuperview()
+                self.goTomain()
+            }
+        })
+    }
+    
+    func dataLoadingComponents(){
+        dataLoadingView.addSubviews(views: [activityIndicator, loadingLabel])
+        
+        xyConstraints(childView: activityIndicator, parentView: dataLoadingView)
+        loadingLabel.centerXAnchor.constraint(equalTo: dataLoadingView.centerXAnchor).isActive = true
+        loadingLabel.topAnchor.constraint(equalTo: activityIndicator.bottomAnchor, constant: 10).isActive = true
     }
 
     func startOnboarding(){
@@ -103,12 +179,14 @@ class LaunchViewController: UIViewController {
     }
     
     func goTomain(){
+        self.launchView.isHidden = false
         animateConstraints(constraints: [(launchViewWidthConstraint, 1, .multiplier),(launchViewHeightConstraint, 0.89, .multiplier)])
         NSLayoutConstraint.deactivate([launchViewVerticalConstraint])
         NSLayoutConstraint.activate([Constraint(childView: launchView, parentView: view, constraintType: .bottom, multiplier: 1, constant: 0).setConstraint()])
         
         UIView.animate(withDuration: defaultAnimationDuration, animations: {
             self.launchView.layoutIfNeeded()
+            //self.view.layoutIfNeeded()
         }, completion: { (finished: Bool) in
             self.presentView(view: MainViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: true)
             self.view.layoutIfNeeded()

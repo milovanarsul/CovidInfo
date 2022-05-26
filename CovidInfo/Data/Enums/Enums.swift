@@ -132,3 +132,8 @@ enum JSONFile: String{
     case date2021 = "data2021"
     case date2020 = "data2020"
 }
+
+enum NewsType{
+    case trused
+    case untrusted
+}

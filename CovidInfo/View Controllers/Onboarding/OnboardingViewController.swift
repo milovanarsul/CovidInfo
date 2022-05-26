@@ -144,9 +144,11 @@ class OnboardingViewController: UIViewController {
 
 extension OnboardingViewController: OnboardingSubDelegate{
     func finishOnboarding() {
-        awaitDataDownload()
-        DataManager.forceLoadData()
-        finishDataDownload()
+        self.awaitDataDownload()
+        DispatchQueue.main.async {
+            DataManager.fetchData()
+            self.finishDataDownload()
+        }
     }
     
     func setPageControl(){

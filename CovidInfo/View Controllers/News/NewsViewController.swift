@@ -38,21 +38,6 @@ class NewsViewController: UIViewController {
     let untrustedSources = NSPredicate(format: "isTrusted == false")
     let isVariant = NSPredicate(format: "isVariant == true")
     
-    func fetchData(predicate: NSPredicate){
-        cardsViewData?.removeAll()
-        let request = Article.fetchRequest() as NSFetchRequest<Article>
-        request.predicate = predicate
-        
-        do {
-            self.cardsViewData = try AppDelegate.context.fetch(request)
-            DispatchQueue.main.async {
-                self.newsCardsTableView.reloadData()
-            }
-        } catch {
-            fatalError()
-        }
-    }
-    
     init(cardsTableViewType: CardsTableViewType){
         self.cardsTableViewType = cardsTableViewType
         super.init(nibName: nil, bundle: nil)
@@ -67,10 +52,14 @@ class NewsViewController: UIViewController {
         
         switch cardsTableViewType {
         case .news:
-            fetchData(predicate: untrustedSources)
+            DataManager.fetchNews(predicate: untrustedSources)
+            cardsViewData = DataManager.news
+            newsCardsTableView.reloadData()
             transitionManager?.cardsTableViewType = .news
         case .variants:
-            fetchData(predicate: isVariant)
+            DataManager.fetchNews(predicate: isVariant)
+            cardsViewData = DataManager.news
+            newsCardsTableView.reloadData()
             transitionManager?.cardsTableViewType = .variants
         default: ()
         }
@@ -192,9 +181,19 @@ extension NewsViewController: NewsDelegate{
     func refreshData(){
         switch trusted {
         case true:
-            fetchData(predicate: trustedSources)
+            DataManager.fetchNews(predicate: trustedSources)
+            cardsViewData = DataManager.news
+            newsCardsTableView.reloadData()
         case false:
-            fetchData(predicate: untrustedSources)
+            DataManager.fetchNews(predicate: untrustedSources)
+            cardsViewData = DataManager.news
+            newsCardsTableView.reloadData()
         }
+    }
+    
+    func externalSourceArticleTap(index: Int){
+        let indexPath = IndexPath(row: 0, section: 0)
+        newsCardsTableView.selectRow(at: indexPath, animated: false, scrollPosition: .top)
+        newsCardsTableView.delegate?.tableView?(newsCardsTableView, didSelectRowAt: indexPath)
     }
 }

@@ -189,8 +189,10 @@ class OnboardingWelcomeViewController: UIViewController {
     }
     
     @objc func skipTutorial(_ sender: UIButton) {
-        awaitDataDownload()
-        DataManager.forceLoadData()
-        finishDataDownload()
+        self.awaitDataDownload()
+        DispatchQueue.main.async {
+            DataManager.fetchData()
+            self.finishDataDownload()
+        }
     }
 }
