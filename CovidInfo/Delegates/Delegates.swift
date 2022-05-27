@@ -26,6 +26,7 @@ class Delegates{
     var infoCardsCollectionView: InfoCardsCollectionViewDelegate! = nil
     var info: InfoViewControllerDelegate! = nil
     var statistics: StatisticsViewControllerDelegate! = nil
+    var tripPlanner: TripPlannerDelegate! = nil
     
     init(){}
 }
@@ -57,6 +58,7 @@ protocol MainDelegate{
     func tabAnimation(visibility: ViewVisibility)
     func tabBarExtension(visibility: ViewVisibility)
     func animateContentView(size: CGFloat)
+    func planTripButtonAnimation(visibility: ViewVisibility)
 }
 
 protocol NavigationBarDelegate{
@@ -135,4 +137,9 @@ protocol CountryPickerDelegate{
 protocol StatisticsViewControllerDelegate {
     func contentViewVisibility(visibility: Bool)
     func setupCountry()
+}
+
+protocol TripPlannerDelegate{
+    func animateDepartureView()
+    func animateArrivalView()
 }

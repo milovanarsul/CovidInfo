@@ -137,3 +137,13 @@ enum NewsType{
     case trused
     case untrusted
 }
+
+enum ImageType{
+    case custom
+    case system
+}
+
+enum TripViewType{
+    case arrival
+    case departure
+}

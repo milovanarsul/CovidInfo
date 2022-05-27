@@ -163,7 +163,4 @@ extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSourc
         
         delegates.main.animateContentView(size: 320)
     }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-    }
 }

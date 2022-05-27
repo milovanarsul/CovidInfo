@@ -12,7 +12,7 @@ class InfoCardCellCollectionViewCell: UICollectionViewCell {
     lazy var containerView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 8
-        view.backgroundColor = UIColor("#f2f2f7")
+        view.backgroundColor = .white
         view.layer.masksToBounds = true
         return view
     }()

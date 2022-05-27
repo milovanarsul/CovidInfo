@@ -96,6 +96,10 @@
 		B2B758DF2810091500E9D078 /* XIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B758DE2810091500E9D078 /* XIB.swift */; };
 		B2B758E228100BE600E9D078 /* ViewModelsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B758E128100BE600E9D078 /* ViewModelsData.swift */; };
 		B2B8555C27EF7A6100793FC5 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8555B27EF7A6100793FC5 /* NewsViewController.swift */; };
+		B2B9EC932840AD5F00D77B8D /* CountryTravelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9EC922840AD5F00D77B8D /* CountryTravelTableViewCell.swift */; };
+		B2B9EC952840AE8000D77B8D /* CountryTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9EC942840AE8000D77B8D /* CountryTravel.swift */; };
+		B2B9EC992840B54700D77B8D /* Amadeus in Frameworks */ = {isa = PBXBuildFile; productRef = B2B9EC982840B54700D77B8D /* Amadeus */; };
+		B2B9EC9B2840B8C700D77B8D /* AmadeusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9EC9A2840B8C700D77B8D /* AmadeusManager.swift */; };
 		B2BB039B27A9466700D4801B /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB039A27A9466700D4801B /* CustomTabBar.swift */; };
 		B2BB039F27A998F700D4801B /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB039E27A998F700D4801B /* NavigationBar.swift */; };
 		B2BF961D28143270002493EE /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2BF961B28143270002493EE /* DataModel.xcdatamodeld */; };
@@ -106,6 +110,7 @@
 		B2CCA48C2835C8B300947A0C /* SwiftUITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCA48B2835C8B300947A0C /* SwiftUITestView.swift */; };
 		B2CCB58B27DB9A9D0076A52A /* HomeHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCB58A27DB9A9D0076A52A /* HomeHeaders.swift */; };
 		B2CCB59227DB9D160076A52A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCB59027DB9D160076A52A /* HomeViewController.swift */; };
+		B2CD902A2840F47700528D1F /* TravelAdvice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CD90292840F47700528D1F /* TravelAdvice.swift */; };
 		B2D0724327CB81A600FA4BC6 /* UIDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0724227CB81A600FA4BC6 /* UIDefaults.swift */; };
 		B2D0724727CB85A500FA4BC6 /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0724627CB85A500FA4BC6 /* FontsManager.swift */; };
 		B2DABD1427EB27DD00ECA4EB /* TrustedSourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DABD1327EB27DD00ECA4EB /* TrustedSourcesView.swift */; };
@@ -119,6 +124,8 @@
 		B2ECF84228170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ECF83E28170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift */; };
 		B2ECF84328170BAC00D36217 /* MSPressBulettin+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ECF83F28170BAC00D36217 /* MSPressBulettin+CoreDataProperties.swift */; };
 		B2F01E202807734B00D0AD6C /* CountiesEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F01E1F2807734B00D0AD6C /* CountiesEnums.swift */; };
+		B2F1E2B2284168FF007099C2 /* TripPlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F1E2B1284168FF007099C2 /* TripPlannerViewController.swift */; };
+		B2F1E2B52841725F007099C2 /* TripPlannerCountryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F1E2B42841725F007099C2 /* TripPlannerCountryPickerView.swift */; };
 		B2F48DDB27AD1D37005EE116 /* HomePagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F48DD927AD1D37005EE116 /* HomePagePageViewController.swift */; };
 		B2F48DDE27AD2453005EE116 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F48DDD27AD2453005EE116 /* Delegates.swift */; };
 		B2F48DE027AD249A005EE116 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F48DDF27AD249A005EE116 /* Enums.swift */; };
@@ -228,6 +235,9 @@
 		B2B758DE2810091500E9D078 /* XIB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XIB.swift; sourceTree = "<group>"; };
 		B2B758E128100BE600E9D078 /* ViewModelsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelsData.swift; sourceTree = "<group>"; };
 		B2B8555B27EF7A6100793FC5 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		B2B9EC922840AD5F00D77B8D /* CountryTravelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTravelTableViewCell.swift; sourceTree = "<group>"; };
+		B2B9EC942840AE8000D77B8D /* CountryTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTravel.swift; sourceTree = "<group>"; };
+		B2B9EC9A2840B8C700D77B8D /* AmadeusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmadeusManager.swift; sourceTree = "<group>"; };
 		B2BB039A27A9466700D4801B /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		B2BB039E27A998F700D4801B /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		B2BF961C28143270002493EE /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -238,6 +248,7 @@
 		B2CCA48B2835C8B300947A0C /* SwiftUITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestView.swift; sourceTree = "<group>"; };
 		B2CCB58A27DB9A9D0076A52A /* HomeHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaders.swift; sourceTree = "<group>"; };
 		B2CCB59027DB9D160076A52A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B2CD90292840F47700528D1F /* TravelAdvice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelAdvice.swift; sourceTree = "<group>"; };
 		B2D0724227CB81A600FA4BC6 /* UIDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDefaults.swift; sourceTree = "<group>"; };
 		B2D0724627CB85A500FA4BC6 /* FontsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsManager.swift; sourceTree = "<group>"; };
 		B2DABD1327EB27DD00ECA4EB /* TrustedSourcesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedSourcesView.swift; sourceTree = "<group>"; };
@@ -251,6 +262,8 @@
 		B2ECF83E28170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MSPressBulettin+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B2ECF83F28170BAC00D36217 /* MSPressBulettin+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MSPressBulettin+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B2F01E1F2807734B00D0AD6C /* CountiesEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountiesEnums.swift; sourceTree = "<group>"; };
+		B2F1E2B1284168FF007099C2 /* TripPlannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerViewController.swift; sourceTree = "<group>"; };
+		B2F1E2B42841725F007099C2 /* TripPlannerCountryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerCountryPickerView.swift; sourceTree = "<group>"; };
 		B2F48DD927AD1D37005EE116 /* HomePagePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePagePageViewController.swift; sourceTree = "<group>"; };
 		B2F48DDD27AD2453005EE116 /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 		B2F48DDF27AD249A005EE116 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -276,6 +289,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2B9EC992840B54700D77B8D /* Amadeus in Frameworks */,
 				8C3127B2AFC78370A5578084 /* libPods-CovidInfo.a in Frameworks */,
 				B24DE3CC2834ECAE00D216A8 /* SwiftUICharts in Frameworks */,
 			);
@@ -305,14 +319,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B2124F2228245C4E00F20662 /* CollectionView */ = {
+		B2124F2228245C4E00F20662 /* Questions Collection View Cell */ = {
 			isa = PBXGroup;
 			children = (
 				B2124F2528245E4D00F20662 /* InfoCardsCollectionViewController.swift */,
 				B256B0F82822571D00793A7E /* InfoCardCellCollectionViewCell.swift */,
 				B256B0FC2822608800793A7E /* InfoCardsCollectionViewLayout.swift */,
+				B2124F1B2823EA3D00F20662 /* InfoBottomSheetView.swift */,
 			);
-			path = CollectionView;
+			path = "Questions Collection View Cell";
 			sourceTree = "<group>";
 		};
 		B21C965827B2CAFF00C88A50 /* Simptome */ = {
@@ -351,8 +366,7 @@
 			children = (
 				B25BA934281694E600C89F14 /* InfoViewController.swift */,
 				B243E849283D05F500DC4A48 /* Country Travel */,
-				B2124F2228245C4E00F20662 /* CollectionView */,
-				B2124F1B2823EA3D00F20662 /* InfoBottomSheetView.swift */,
+				B2124F2228245C4E00F20662 /* Questions Collection View Cell */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -461,6 +475,7 @@
 		B23DC43B2790709400051C6C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				B2B9EC9A2840B8C700D77B8D /* AmadeusManager.swift */,
 				B297B92E283D4214005E1291 /* DataManager.swift */,
 				B25BA9362817027A00C89F14 /* FirebaseManager.swift */,
 				B289059327DA80720019205D /* LocalStorageManager.swift */,
@@ -483,8 +498,9 @@
 			isa = PBXGroup;
 			children = (
 				B23DF36F283FDC3700E54101 /* CountryViewController.swift */,
-				B279E862282D5F0D00A59F7B /* CountryCardView.swift */,
-				B20C937728354325009E6313 /* CountryCardComponents.swift */,
+				B2B9EC922840AD5F00D77B8D /* CountryTravelTableViewCell.swift */,
+				B2F1E2B328417218007099C2 /* Trip Planner */,
+				B2B9EC962840B47800D77B8D /* Country Card */,
 			);
 			path = "Country Travel";
 			sourceTree = "<group>";
@@ -554,6 +570,7 @@
 			children = (
 				B236E1632825B1B400AB0116 /* HistoricData.swift */,
 				B27BE1962825C4C100DB8D11 /* CurrentData.swift */,
+				B2CD90292840F47700528D1F /* TravelAdvice.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -630,6 +647,7 @@
 			isa = PBXGroup;
 			children = (
 				B2725F3C282A95B2008B0CEB /* Country.swift */,
+				B2B9EC942840AE8000D77B8D /* CountryTravel.swift */,
 				B2CCB58A27DB9A9D0076A52A /* HomeHeaders.swift */,
 				B256B0FA2822583400793A7E /* InfoCard.swift */,
 				B2BB039E27A998F700D4801B /* NavigationBar.swift */,
@@ -639,6 +657,15 @@
 				B23DE46D27B41F2B00FD2E10 /* Triaj.swift */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		B2B9EC962840B47800D77B8D /* Country Card */ = {
+			isa = PBXGroup;
+			children = (
+				B279E862282D5F0D00A59F7B /* CountryCardView.swift */,
+				B20C937728354325009E6313 /* CountryCardComponents.swift */,
+			);
+			path = "Country Card";
 			sourceTree = "<group>";
 		};
 		B2BF2C2D27EF78B9008C1FC5 /* Card VIews */ = {
@@ -679,6 +706,15 @@
 				B2C2E90C27DA4D3E00A79D93 /* EnrollCertifficateViewController.swift */,
 			);
 			path = Certifficate;
+			sourceTree = "<group>";
+		};
+		B2F1E2B328417218007099C2 /* Trip Planner */ = {
+			isa = PBXGroup;
+			children = (
+				B2F1E2B1284168FF007099C2 /* TripPlannerViewController.swift */,
+				B2F1E2B42841725F007099C2 /* TripPlannerCountryPickerView.swift */,
+			);
+			path = "Trip Planner";
 			sourceTree = "<group>";
 		};
 		B2F48DE327AD32C0005EE116 /* Page View Controllers */ = {
@@ -787,6 +823,7 @@
 			name = CovidInfo;
 			packageProductDependencies = (
 				B24DE3CB2834ECAE00D216A8 /* SwiftUICharts */,
+				B2B9EC982840B54700D77B8D /* Amadeus */,
 			);
 			productName = CovidInfo;
 			productReference = B2F650EF278F2BD900E1BB58 /* CovidInfo.app */;
@@ -818,6 +855,7 @@
 			mainGroup = B2F650E6278F2BD900E1BB58;
 			packageReferences = (
 				B24DE3CA2834ECAE00D216A8 /* XCRemoteSwiftPackageReference "ChartView" */,
+				B2B9EC972840B54700D77B8D /* XCRemoteSwiftPackageReference "amadeus-ios" */,
 			);
 			productRefGroup = B2F650F0278F2BD900E1BB58 /* Products */;
 			projectDirPath = "";
@@ -919,6 +957,9 @@
 				B2F650F3278F2BD900E1BB58 /* AppDelegate.swift in Sources */,
 				B2F48DE227AD25BC005EE116 /* EmbedView.swift in Sources */,
 				B236E1642825B1B400AB0116 /* HistoricData.swift in Sources */,
+				B2CD902A2840F47700528D1F /* TravelAdvice.swift in Sources */,
+				B2B9EC9B2840B8C700D77B8D /* AmadeusManager.swift in Sources */,
+				B2B9EC952840AE8000D77B8D /* CountryTravel.swift in Sources */,
 				B2124F1E2823EF4900F20662 /* CustomPresentationControler.swift in Sources */,
 				B266A12D27EF71AF003806E7 /* UIWindow.swift in Sources */,
 				B2AE2B9F282BFBAE007C440A /* LocationPickerView.swift in Sources */,
@@ -957,6 +998,7 @@
 				B27AB17D27B66007009A2323 /* LottieAnimationView.swift in Sources */,
 				B297B92C283D3DEB005E1291 /* QuickCharts.swift in Sources */,
 				B278D50927A2851A00511BB2 /* UserDefaults.swift in Sources */,
+				B2F1E2B52841725F007099C2 /* TripPlannerCountryPickerView.swift in Sources */,
 				B26EEDB2282B000300000781 /* CountryTableViewCell.swift in Sources */,
 				B21C965727B2CADA00C88A50 /* SimptomeAndPreventie.swift in Sources */,
 				B217D44F27B93DC500DBDED9 /* TriajViewController.swift in Sources */,
@@ -969,6 +1011,7 @@
 				B2AB5685283D6368004EC66A /* Various.swift in Sources */,
 				B259BF8527B6DFA5001F78A6 /* LaunchViewController.swift in Sources */,
 				B2AB5690283D6E83004EC66A /* SimptomeAndPreventieViewController.swift in Sources */,
+				B2F1E2B2284168FF007099C2 /* TripPlannerViewController.swift in Sources */,
 				B2B03FAA27BEB36200A0F634 /* UIViewController.swift in Sources */,
 				B2725F3D282A95B2008B0CEB /* Country.swift in Sources */,
 				B2E9C91C282C789E00BE6C31 /* StatisticsViewController.swift in Sources */,
@@ -980,6 +1023,7 @@
 				B2DABD1A27EB790F00ECA4EB /* SafariWebView.swift in Sources */,
 				B25EAE5427F76DD400860B2F /* TabBarExtenstion.swift in Sources */,
 				B2C2E90D27DA4D3E00A79D93 /* EnrollCertifficateViewController.swift in Sources */,
+				B2B9EC932840AD5F00D77B8D /* CountryTravelTableViewCell.swift in Sources */,
 				B26EEDB0282AFDF100000781 /* CountryPickerViewController.swift in Sources */,
 				B266A11527EF12D0003806E7 /* CardTableViewTransition.swift in Sources */,
 				B2124F1C2823EA3D00F20662 /* InfoBottomSheetView.swift in Sources */,
@@ -1246,6 +1290,14 @@
 				version = 1.5.5;
 			};
 		};
+		B2B9EC972840B54700D77B8D /* XCRemoteSwiftPackageReference "amadeus-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/amadeus4dev/amadeus-ios.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1253,6 +1305,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B24DE3CA2834ECAE00D216A8 /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
+		};
+		B2B9EC982840B54700D77B8D /* Amadeus */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2B9EC972840B54700D77B8D /* XCRemoteSwiftPackageReference "amadeus-ios" */;
+			productName = Amadeus;
 		};
 /* End XCSwiftPackageProductDependency section */
 

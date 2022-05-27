@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "header1@1x.png",
+      "filename" : "planTrip@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "header1@2x.png",
+      "filename" : "planTrip@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "header1@3x.png",
+      "filename" : "planTrip@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

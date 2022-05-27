@@ -34,6 +34,7 @@ class InfoCardsCollectionViewController: UICollectionViewController{
     }
 
     func initialize(){
+        collectionView.backgroundColor = UIColor("#f2f2f7")
         collectionView.collectionViewLayout = InfoCardsCollectionViewLayout()
         collectionView.contentInsetAdjustmentBehavior = .always
         collectionView.register(InfoCardCellCollectionViewCell.self, forCellWithReuseIdentifier: "InfoCard")

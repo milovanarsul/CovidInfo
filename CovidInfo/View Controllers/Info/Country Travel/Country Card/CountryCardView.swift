@@ -8,21 +8,9 @@
 import Foundation
 import UIKit
 
-class CountryCardView: UIView {
+class CountryCardView: UITableViewCell {
     
     var data: CurrentData!
-    
-    lazy var shadowView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
-        view.layer.cornerRadius = 20
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOpacity = 0.2
-        view.layer.shadowRadius = 10
-        view.layer.shadowOffset = CGSize(width: -1, height: 2)
-        return view
-    }()
     
     lazy var parentView: UIView = {
         let view = UIView()
@@ -32,7 +20,7 @@ class CountryCardView: UIView {
     lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white.withAlphaComponent(0.20)
+        view.backgroundColor = .white
         view.layer.cornerRadius = 24
         view.layer.masksToBounds = true
         return view
@@ -106,6 +94,7 @@ class CountryCardView: UIView {
         let view4 = iconTextData(icon: "cross", text: "Paturi de spital\nper mia de locuitori", data: String((data!.hospital_beds_per_thousand)))
         
         let stackView = UIStackView()
+        stackView.backgroundColor = .white
         stackView.initalize(axis: .vertical, alignment: .fill, distribution: .fillEqually, spacing: 15)
         
         stackView.addAranagedSubviews(views: [
@@ -116,31 +105,28 @@ class CountryCardView: UIView {
         return stackView
     }()
     
-    init(data: CurrentData){
-        self.data = data
-        super.init(frame: .zero)
-        
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
     }
     
-    required init?(coder aDecoder: NSCoder){
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     func setup(){
+        data = (DataManager.currentData?.first)!
+        contentView.addSubview(parentView)
         
-        addSubview(parentView)
-        
-        let parentViewConstraints = Constraints(childView: parentView, parentView: self, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 0.95, constant: 0),
-            Constraint(constraintType: .proportionalHeight, multiplier: 1, constant: 0),
-            Constraint(constraintType: .top, multiplier: 1, constant: 20)
+        let parentViewConstraints = Constraints(childView: parentView, parentView: contentView, constraints: [
+            Constraint(constraintType: .leading, multiplier: 1, constant: 12),
+            Constraint(constraintType: .trailing, multiplier: 1, constant: -12),
+            Constraint(constraintType: .top, multiplier: 1, constant: 8),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 8)
         ])
         parentViewConstraints.addConstraints()
         
-        parentView.addSubviews(views: [shadowView, containerView])
-        defaultAnchors(childView: shadowView, parentView: parentView)
+        parentView.addSubview(containerView)
         defaultConstraints(childView: containerView, parentView: parentView)
         
         containerView.addSubviews(views: [countryFlag, countryDescription, separator, informationStackView])

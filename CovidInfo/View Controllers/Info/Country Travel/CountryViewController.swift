@@ -8,9 +8,19 @@
 import UIKit
 
 class CountryViewController: UIViewController {
-    lazy var countryCard: UIView = {
-        let view = CountryCardView(data: (DataManager.currentData?.first)!)
-        return view
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorStyle = .none
+        tableView.separatorInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        tableView.register(CountryTravelTableViewCell.self, forCellReuseIdentifier: "countryTravel")
+        tableView.register(CountryCardView.self, forCellReuseIdentifier: "countryCardView")
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .clear
+        tableView.layer.cornerRadius = 24
+        tableView.clipsToBounds = true
+        return tableView
     }()
 
     override func viewDidLoad() {
@@ -20,14 +30,42 @@ class CountryViewController: UIViewController {
     }
     
     func setup(){
-        view.addSubviews(views: [countryCard])
+        view.backgroundColor = UIColor("#f2f2f7")
+        view.addSubviews(views: [tableView])
+        defaultConstraints(childView: tableView, parentView: view)
+    }
+}
+
+extension CountryViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return AmadeusManager.countryTravelData!.count + 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var height: CGFloat?
         
-        let countryCardConstraints = Constraints(childView: countryCard, parentView: view, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalHeight, multiplier: 0.5, constant: 0),
-            Constraint(constraintType: .top, multiplier: 1, constant: 0)
-        ])
-        countryCardConstraints.addConstraints()
+        if indexPath.row == 0{
+            height = 400
+        } else {
+            height = AmadeusManager.countryTravelData![indexPath.row - 1].height
+        }
+        
+        return height!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let countryCardCell = tableView.dequeueReusableCell(withIdentifier: "countryCardView") as! CountryCardView
+        let countryTravelCell = tableView.dequeueReusableCell(withIdentifier: "countryTravel") as! CountryTravelTableViewCell
+        
+        if indexPath.row == 0 {
+            countryCardCell.setup()
+            countryCardCell.backgroundColor = .clear
+            return countryCardCell
+        } else {
+            let currentData = AmadeusManager.countryTravelData![indexPath.row - 1]
+            countryTravelCell.data = currentData
+            countryTravelCell.backgroundColor = .clear
+            return countryTravelCell
+        }
     }
 }

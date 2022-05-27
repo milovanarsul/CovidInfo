@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static var locationCountry: String?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         FirebaseApp.configure()
         
         locationManager.delegate = self
@@ -31,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             DataManager.fetchNews()
             DataManager.fetchCovidData()
         }
+        
+        AmadeusManager.getData(country: "ROU")
         
         return true
     }

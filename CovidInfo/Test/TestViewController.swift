@@ -10,180 +10,122 @@
 //  Created by Milovan Arsul on 12.04.2022.
 //
 
-/*
-import SwiftUI
-import SwiftUICharts
-import CoreData
+import UIKit
 
-struct QuickGraphs: View {
-    @Environment(\.managedObjectContext) var context
+class TestViewController: UIViewController {
     
-    var body: some View{
+    var data: CountryTravelModel?
+    
+    lazy var iconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = data?.icon
+        imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = .black
+        return imageView
+    }()
+    
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.initialize(text: (data?.title)!, color: .black, font: boldFont(size: 18), alignment: .left, lines: 0)
+        return label
+    }()
+    
+    lazy var subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.initialize(text: data!.subtitle!.0, color: data!.subtitle!.1, font: boldFont(size: 14), alignment: .left, lines: 0)
+        return label
+    }()
+    
+    lazy var titleSubtitleStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.initalize(axis: .vertical, alignment: .fill, distribution: .fill, spacing: 0)
+        stackView.addAranagedSubviews(views: [titleLabel, subtitleLabel])
+        return stackView
+    }()
+    
+    lazy var testView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    init(data: CountryTravelModel){
+        self.data = data
+        super.init(nibName: nil, bundle: nil)
         
-        let request = StatisticsData.fetchRequest() as NSFetchRequest<StatisticsData>
-        let response = try! context.fetch(request)
-        let statisticsData = response[0]
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    func setup(){
+        view.backgroundColor = .black
+        view.addSubview(testView)
         
-        HStack{
-            LineChartView(data: statisticsData.casesForTheLastSevenDays!, title: "Cazuri noi", legend: "Astazi: \(statisticsData.todaysNewCases)", style: ChartStyle(backgroundColor: .white, accentColor: .white, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .white), rateValue: getPercentage(array: statisticsData.casesForTheLastSevenDays!), dropShadow: false)
-            LineChartView(data: statisticsData.deathsForTheLastSevenDays!, title: "Decese", legend: "Astazi: \(statisticsData.todaysNewDeaths)", style: ChartStyle(backgroundColor: .white, accentColor: .yellow, secondGradientColor: .green, textColor: .black, legendTextColor: .black, dropShadowColor: .white), rateValue: getPercentage(array: statisticsData.deathsForTheLastSevenDays!), dropShadow: false)
+        let testViewConstraints = Constraints(childView: testView, parentView: view, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
+            Constraint(constraintType: .height, multiplier: 1, constant: 100),
+            Constraint(constraintType: .proportionalWidth, multiplier: 0.8, constant: 0)
+        ])
+        testViewConstraints.addConstraints()
+        
+        testView.layer.cornerRadius = 8
+        testView.clipsToBounds = true
+        testView.backgroundColor = signatureLightBlue
+        
+        testView.addSubviews(views: [iconImageView, titleSubtitleStackView])
+        
+        if (data?.text) == nil {
+            let iconImageViewConstraints = Constraints(childView: iconImageView, parentView: testView, constraints: [
+                Constraint(constraintType: .leading, multiplier: 1, constant: 12),
+                Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
+                Constraint(constraintType: .proportionalHeight, multiplier: 0.9, constant: 0),
+                Constraint(constraintType: .aspectRatio, multiplier: ( 1.0 / 1.0), constant: 0)
+            ])
+            iconImageViewConstraints.addConstraints()
+        } else {
+            let iconImageViewConstraints = Constraints(childView: iconImageView, parentView: testView, constraints: [
+                Constraint(constraintType: .leading, multiplier: 1, constant: 12),
+                Constraint(constraintType: .top, multiplier: 1, constant: 10),
+                Constraint(constraintType: .proportionalHeight, multiplier: 0.4, constant: 0),
+                Constraint(constraintType: .aspectRatio, multiplier: ( 1.0 / 1.0), constant: 0)
+            ])
+            iconImageViewConstraints.addConstraints()
+        }
+        
+        let titleSubtitleStackViewConstraints = Constraints(childView: titleSubtitleStackView, parentView: testView, constraints: [
+            Constraint(constraintType: .top, multiplier: 1, constant: 10),
+            Constraint(constraintType: .trailing, multiplier: 1, constant: -12)
+        ])
+        titleSubtitleStackViewConstraints.addConstraints()
+        titleSubtitleStackView.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 12).isActive = true
+        titleSubtitleStackView.heightAnchor.constraint(equalTo: iconImageView.heightAnchor).isActive = true
+        
+        if let text = data?.text {
+            textSetup(text: text)
         }
     }
-}
-
-struct Graphs: View {
     
-    @Environment(\.managedObjectContext) var context
-    
-    init(){
-        UITableView.appearance().backgroundColor = .clear
-        UITableViewCell.appearance().backgroundColor = .white
-    }
-    
-    var body: some View {
+    func textSetup(text: String){
+        lazy var textLabel: UILabel = {
+            let label = UILabel()
+            label.initialize(text: text, color: .black, font: UIFont(name: "IBMPlexSans-Regular", size: 12)!, alignment: .left, lines: 0)
+            label.translatesAutoresizingMaskIntoConstraints = false
+            return label
+        }()
         
-        let request = StatisticsData.fetchRequest() as NSFetchRequest<StatisticsData>
-        let response = try! context.fetch(request)
-        let statisticsData = response[0]
+        testView.addSubview(textLabel)
         
-        ScrollView(axes: .vertical, showsIndicators: false, offsetChanged: {delegates.main.scrollAnimation(size: -$0.y)}){
-            VStack(spacing: 15){
-                Text("Astazi")
-                    .font(.title)
-                    .bold()
-                    .foregroundColor(.black)
-                    .offset(x: -130, y: 10)
-                
-                QuickGraphs()
-                
-                Text("Ultimele 7 zile")
-                    .font(.title)
-                    .bold()
-                    .foregroundColor(.black)
-                    .offset(x: -85, y: 3)
-                
-                let sevenDaysConfirmedCasesWithDates = dictionaryToTuple(array: statisticsData.sevenDaysConfirmedCasesWithDates!)
-                let sevenDaysDeathsWithDates = dictionaryToTuple(array: statisticsData.sevenDaysDeathsWithDates!)
-                
-                BarChartView(data: ChartData(values: sevenDaysConfirmedCasesWithDates), title: "Cazuri", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .white), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
-                
-                BarChartView(data: ChartData(values: sevenDaysDeathsWithDates), title: "Decese", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.green, textColor: .black, legendTextColor: .black, dropShadowColor: .white), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
-                
-                Text("Luna Aprilie")
-                    .font(.title)
-                    .bold()
-                    .foregroundColor(.black)
-                    .offset(x: -97, y: 3)
-                
-                let casesForThePastMonth = dictionaryToTuple(array: statisticsData.casesForThePastMonth!)
-                let deathsForThePastMonth = dictionaryToTuple(array: statisticsData.deathsForThePastMonth!)
-                                
-                BarChartView(data: ChartData(values: casesForThePastMonth), title: "Cazuri", style: ChartStyle(backgroundColor: .white, accentColor: .green, gradientColor: GradientColors.blue, textColor: .black, legendTextColor: .black, dropShadowColor: .white), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
-                
-                BarChartView(data: ChartData(values: deathsForThePastMonth), title: "Decese", style: ChartStyle(backgroundColor: .white, accentColor: .green, gradientColor: GradientColors.purple, textColor: .black, legendTextColor: .black, dropShadowColor: .white), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
-                
-                Text("Incidenta in ultimele 14 zile")
-                    .font(.title)
-                    .bold()
-                    .foregroundColor(.black)
-                    .offset(x: 0, y: 3)
-                
-                ZStack{
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(.white)
-                        .frame(width: 360, height: 520, alignment: .center)
-                    List{
-                        HStack(alignment: .center){
-                            Text("Judet")
-                                .font(.title2)
-                                .bold()
-                                .foregroundColor(.black)
-                            
-                            Spacer()
-                            
-                            Text("Incidenta")
-                                .font(.title2)
-                                .bold()
-                                .foregroundColor(.black)
-                            
-                        }
-                        ForEach(statisticsData.incidence!.sorted(by: {$0.0 < $1.0}), id: \.key) { key, value in
-                            HStack{
-                                Text(key)
-                                    .font(.title3)
-                                    .bold()
-                                    .foregroundColor(.black)
-                                
-                                _HSpacer()
-                                
-                                Text("\(value, specifier: "%.2f")")
-                                    .font(.title3)
-                                    .bold()
-                                    .foregroundColor(.black)
-                            }
-                        }
-                    }
-                    .background(.clear)
-                    .frame(width: 360, alignment: .center)
-                    .listRowInsets(EdgeInsets())
-                    .menuIndicator(.hidden)
-                }
-            }
-            .offset(y: 0)
-            
-            Text("De la inceputul pandemiei")
-                .font(.title)
-                .bold()
-                .foregroundColor(.black)
-                .offset(x: -3, y: 3)
-            
-            VStack(alignment: .leading){
-                HStack{
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(.white)
-                            .frame(width: 180, height: 150, alignment: .center)
-                        Text("Cazuri\n\(statisticsData.totalNumberOfCases)")
-                            .font(.title)
-                            .bold()
-                            .foregroundColor(.black)
-                    }
-                    
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(.white)
-                            .frame(width: 180, height: 150, alignment: .center)
-                        Text("Decese\n\(statisticsData.totalNumberDeceased)")
-                            .font(.title)
-                            .bold()
-                            .foregroundColor(.black)
-                    }
-                }
-                
-                ZStack{
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(.white)
-                        .frame(width: 180, height: 150, alignment: .center)
-                    Text("Vindecati\n\(statisticsData.totalNumberCured)")
-                        .font(.title)
-                        .bold()
-                        .foregroundColor(.black)
-                }
-            }
-        }
-        .background(Color.clear)
-        .cornerRadius(24)
-        .edgesIgnoringSafeArea(.all)
-        .frame(minWidth: 0, maxWidth: .infinity)
+        let textLabelConstraints = Constraints(childView: textLabel, parentView: testView, constraints: [
+            Constraint(constraintType: .trailing, multiplier: 1, constant: -12),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 5)
+        ])
+        textLabelConstraints.addConstraints()
+        
+        textLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 12).isActive = true
+        textLabel.topAnchor.constraint(equalTo: titleSubtitleStackView.bottomAnchor, constant: 5).isActive = true
     }
+    
 }
-
-struct StatisticsGraphs_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            Graphs()
-            QuickGraphs()
-        }
-    }
-}
-*/

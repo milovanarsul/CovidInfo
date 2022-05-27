@@ -16,7 +16,7 @@ class InfoViewController: UIViewController {
     lazy var categories: BetterSegmentedControl = {
         let categories = BetterSegmentedControl(frame: .zero,
                                                 segments: LabelSegment.segments(withTitles: ["Calatorie","Intrebari frecvente", "Vaccinare", "Variante"], normalFont: boldFont(size: 14), normalTextColor: .black, selectedFont: boldFont(size: 14) ,selectedTextColor: .white),
-                                                options: [.backgroundColor(.white), .indicatorViewBackgroundColor(signatureLightBlue), .cornerRadius(16), .animationSpringDamping(1.0),])
+                                                options: [.backgroundColor(.clear), .indicatorViewBackgroundColor(signatureLightBlue), .cornerRadius(16), .animationSpringDamping(1.0),])
         categories.segmentPadding = 2.0
         categories.panningDisabled = true
         categories.addTarget(self, action: #selector(categoriesTapped(_:)), for: .valueChanged)
@@ -38,6 +38,7 @@ class InfoViewController: UIViewController {
         scrollView.delegate = self
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.backgroundColor = UIColor("#f2f2f7")
         
         return scrollView
     }()
@@ -60,6 +61,7 @@ class InfoViewController: UIViewController {
     func setup(){
         view.layer.cornerRadius = 24
         view.layer.masksToBounds = true
+        view.backgroundColor = UIColor("#f2f2f7")
         
         view.addSubviews(views: [categoriesScrollView, infoPageViewController])
                 
@@ -92,12 +94,16 @@ class InfoViewController: UIViewController {
         switch sender.index {
         case 0:
             delegates.infoPage.goToPage(pageIndex: 0, direction: scrollDirection!)
+            delegates.main.planTripButtonAnimation(visibility: .show)
         case 1:
             delegates.infoPage.goToPage(pageIndex: 1, direction: scrollDirection!)
+            delegates.main.planTripButtonAnimation(visibility: .hide)
         case 2:
             delegates.infoPage.goToPage(pageIndex: 2, direction: scrollDirection!)
+            delegates.main.planTripButtonAnimation(visibility: .hide)
         case 3:
             delegates.infoPage.goToPage(pageIndex: 3, direction: scrollDirection!)
+            delegates.main.planTripButtonAnimation(visibility: .hide)
         default: ()
         }
         

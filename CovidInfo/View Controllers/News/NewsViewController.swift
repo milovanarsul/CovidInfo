@@ -73,7 +73,7 @@ class NewsViewController: UIViewController {
     var tableViewTopConstaint = NSLayoutConstraint()
     
     func setup(){
-        view.backgroundColor = .clear
+        view.backgroundColor = UIColor("#f2f2f7")
         view.addSubview(newsCardsTableView)
         
         switch cardsTableViewType {

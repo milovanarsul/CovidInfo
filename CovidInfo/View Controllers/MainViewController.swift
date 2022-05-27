@@ -9,6 +9,8 @@ import UIKit
 import Lottie
 import BetterSegmentedControl
 
+var tripPlannerPresentationShouldDismiss = true
+
 class MainViewController: UIViewController {
     
     lazy var navigationBar: UIView = {
@@ -31,6 +33,14 @@ class MainViewController: UIViewController {
         let button = UIButton()
         button.initialize(title: "Certificatul tau", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "qrcode.viewfinder"))
         button.addTarget(self, action: #selector(certifficateButtonTapped(_:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var planTripButton: UIButton = {
+        let button = UIButton()
+        button.initialize(title: "Planifica-ti calatoria", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "globe.europe.africa"))
+        button.addTarget(self, action: #selector(planTripButtonTapped(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -73,11 +83,12 @@ class MainViewController: UIViewController {
     var certifficateButtonVerticalConstraint = NSLayoutConstraint()
     var navigationBarTopConstraint = NSLayoutConstraint()
     var contentViewTopConstraint = NSLayoutConstraint()
+    var planTripButtonVerticalConstraint = NSLayoutConstraint()
     
     func setup(){
         
         view.backgroundColor = .white
-        view.addSubviews(views: [navigationBar, contentView, certifficateButton, tabBar])
+        view.addSubviews(views: [navigationBar, contentView, certifficateButton, planTripButton, tabBar])
         
         let navigationBarConstraints = Constraints(childView: navigationBar, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
@@ -122,6 +133,12 @@ class MainViewController: UIViewController {
         
         certifficateButtonVerticalConstraint = NSLayoutConstraint(item: tabBar, attribute: .top, relatedBy: .equal, toItem: certifficateButton, attribute: .bottom, multiplier: 1, constant: -45)
         NSLayoutConstraint.activate([Constraint(childView: certifficateButton, parentView: view, constraintType: .horizontal, multiplier: 1, constant: 0).setConstraint(), certifficateButtonVerticalConstraint])
+        
+        planTripButtonVerticalConstraint = tabBar.topAnchor.constraint(equalTo: planTripButton.bottomAnchor, constant: -45)
+        NSLayoutConstraint.activate([
+            planTripButtonVerticalConstraint,
+            planTripButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
     }
     
     var tabBarExtensionBottomConstraint = NSLayoutConstraint()
@@ -159,6 +176,18 @@ class MainViewController: UIViewController {
         defaults.bool(forKey: "certifficateEnrolled") ? certifficateModal() : enrollCertifficate()
     }
     
+    @objc func planTripButtonTapped(_ sender: UIButton){
+        let modal = TripPlannerViewController()
+        modal.modalPresentationStyle = .formSheet
+        modal.transitioningDelegate = self
+        
+        if let sheet = modal.sheetPresentationController {
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 24
+        }
+        present(modal, animated: true, completion: nil)
+    }
+    
     var scrollViewScrollUp: Bool = false
 }
 
@@ -191,6 +220,19 @@ extension MainViewController: MainDelegate{
         
         UIView.animate(withDuration: 0.6, animations: {
             self.certifficateButton.layoutIfNeeded()
+        })
+    }
+    
+    func planTripButtonAnimation(visibility: ViewVisibility){
+        switch visibility {
+        case .show:
+            planTripButtonVerticalConstraint.constant = 10
+        case .hide:
+            planTripButtonVerticalConstraint.constant = -45
+        }
+        
+        UIView.animate(withDuration: 0.6, animations: {
+            self.planTripButton.layoutIfNeeded()
         })
     }
     
@@ -283,7 +325,6 @@ extension MainViewController: MainDelegate{
             self.navigationBar.layoutIfNeeded()
             self.view.layoutIfNeeded()
         })
-        
     }
     
     func tabBarScrollAnimation(visibility: ViewVisibility, resetsAnimation: Bool){
@@ -316,12 +357,19 @@ extension MainViewController: MainDelegate{
             self.view.layoutIfNeeded()
             self.tabBar.layoutIfNeeded()
         })
+        
     }
 }
 
 extension MainViewController: UIViewControllerTransitioningDelegate {
+    func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
+        return tripPlannerPresentationShouldDismiss
+    }
+    
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        delegates.enrollCertifficate.stopCapture()
+        if dismissed is EnrollCertifficateViewController {
+            delegates.enrollCertifficate.stopCapture()
+        }
         return nil
     }
 }

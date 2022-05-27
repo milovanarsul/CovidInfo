@@ -28,3 +28,12 @@ func countryModelData() -> [String : [Country]]{
     data["Alege o tara"] = countryData.sorted {$0.name! < $1.name!}
     return data
 }
+
+func simpleCountryData() -> [Country]{
+    var countryData = [Country]()
+    for(key, value) in roISOCountries{
+        countryData.append(Country(image: key, name: value))
+    }
+    
+    return countryData.sorted {$0.name! < $1.name!}
+}
