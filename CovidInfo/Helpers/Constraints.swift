@@ -138,7 +138,7 @@ func defaultAnchors(childView: UIView, parentView: UIView){
     constraints.addConstraints()
 }
 
-func defaultAutoResizingMask(childView: UIView, parentView: UIView, width: Bool){
+func defaultAutoResizingMask(childView: UIView, parentView: UIView, width: Bool, height: CGFloat? = nil){
     childView.translatesAutoresizingMaskIntoConstraints = false
     
     childView.leadingAnchor.constraint(equalTo: parentView.leadingAnchor).isActive = true

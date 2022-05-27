@@ -42,6 +42,8 @@
 		B23DE46C27B3FC4D00FD2E10 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE46B27B3FC4D00FD2E10 /* UIColor.swift */; };
 		B23DE46E27B41F2C00FD2E10 /* Triaj.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE46D27B41F2B00FD2E10 /* Triaj.swift */; };
 		B23DE47A27B44E3D00FD2E10 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE47927B44E3D00FD2E10 /* UILabel.swift */; };
+		B23DF370283FDC3700E54101 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DF36F283FDC3700E54101 /* CountryViewController.swift */; };
+		B23DF372283FDD8B00E54101 /* InfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DF371283FDD8B00E54101 /* InfoPageViewController.swift */; };
 		B24DE3CC2834ECAE00D216A8 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = B24DE3CB2834ECAE00D216A8 /* SwiftUICharts */; };
 		B256059A27B2AF8000FB039F /* SimptomeAndPreventieCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256059927B2AF8000FB039F /* SimptomeAndPreventieCollectionViewController.swift */; };
 		B256059C27B2AFB500FB039F /* SimptomeAndPreventieCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256059B27B2AFB500FB039F /* SimptomeAndPreventieCollectionViewLayout.swift */; };
@@ -102,7 +104,6 @@
 		B2C59C2127A869340094A984 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C59C2027A869340094A984 /* MainPageViewController.swift */; };
 		B2C6F9BC2835074B00B6DBA8 /* DataRefactoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C6F9BB2835074B00B6DBA8 /* DataRefactoring.swift */; };
 		B2CCA48C2835C8B300947A0C /* SwiftUITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCA48B2835C8B300947A0C /* SwiftUITestView.swift */; };
-		B2CCB58927DB969E0076A52A /* HeaderPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCB58827DB969E0076A52A /* HeaderPageViewController.swift */; };
 		B2CCB58B27DB9A9D0076A52A /* HomeHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCB58A27DB9A9D0076A52A /* HomeHeaders.swift */; };
 		B2CCB59227DB9D160076A52A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCB59027DB9D160076A52A /* HomeViewController.swift */; };
 		B2D0724327CB81A600FA4BC6 /* UIDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0724227CB81A600FA4BC6 /* UIDefaults.swift */; };
@@ -113,8 +114,6 @@
 		B2DABD1A27EB790F00ECA4EB /* SafariWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DABD1927EB790F00ECA4EB /* SafariWebView.swift */; };
 		B2DC74C227B793F700078245 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DC74C027B793F700078245 /* OnboardingCell.swift */; };
 		B2DF4F3027D8A15D0035D5B7 /* CertifficateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF4F2F27D8A15D0035D5B7 /* CertifficateView.swift */; };
-		B2E1938727BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E1938627BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib */; };
-		B2E1938927BC248200D0F057 /* PreventieAndSimptomeShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E1938827BC248200D0F057 /* PreventieAndSimptomeShortcut.swift */; };
 		B2E6741B27A52A8F00F283B7 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6741A27A52A8F00F283B7 /* Onboarding.swift */; };
 		B2E9C91C282C789E00BE6C31 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E9C91B282C789E00BE6C31 /* StatisticsViewController.swift */; };
 		B2ECF84228170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ECF83E28170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift */; };
@@ -176,6 +175,8 @@
 		B23DE46B27B3FC4D00FD2E10 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B23DE46D27B41F2B00FD2E10 /* Triaj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triaj.swift; sourceTree = "<group>"; };
 		B23DE47927B44E3D00FD2E10 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		B23DF36F283FDC3700E54101 /* CountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
+		B23DF371283FDD8B00E54101 /* InfoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPageViewController.swift; sourceTree = "<group>"; };
 		B256059927B2AF8000FB039F /* SimptomeAndPreventieCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventieCollectionViewController.swift; sourceTree = "<group>"; };
 		B256059B27B2AFB500FB039F /* SimptomeAndPreventieCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventieCollectionViewLayout.swift; sourceTree = "<group>"; };
 		B256B0F82822571D00793A7E /* InfoCardCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardCellCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -235,7 +236,6 @@
 		B2C59C2027A869340094A984 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		B2C6F9BB2835074B00B6DBA8 /* DataRefactoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRefactoring.swift; sourceTree = "<group>"; };
 		B2CCA48B2835C8B300947A0C /* SwiftUITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestView.swift; sourceTree = "<group>"; };
-		B2CCB58827DB969E0076A52A /* HeaderPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPageViewController.swift; sourceTree = "<group>"; };
 		B2CCB58A27DB9A9D0076A52A /* HomeHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaders.swift; sourceTree = "<group>"; };
 		B2CCB59027DB9D160076A52A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B2D0724227CB81A600FA4BC6 /* UIDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDefaults.swift; sourceTree = "<group>"; };
@@ -246,8 +246,6 @@
 		B2DABD1927EB790F00ECA4EB /* SafariWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebView.swift; sourceTree = "<group>"; };
 		B2DC74C027B793F700078245 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
 		B2DF4F2F27D8A15D0035D5B7 /* CertifficateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertifficateView.swift; sourceTree = "<group>"; };
-		B2E1938627BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreventieAndSimptomeShortcut.xib; sourceTree = "<group>"; };
-		B2E1938827BC248200D0F057 /* PreventieAndSimptomeShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventieAndSimptomeShortcut.swift; sourceTree = "<group>"; };
 		B2E6741A27A52A8F00F283B7 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		B2E9C91B282C789E00BE6C31 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		B2ECF83E28170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MSPressBulettin+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -310,8 +308,9 @@
 		B2124F2228245C4E00F20662 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				B256B0FC2822608800793A7E /* InfoCardsCollectionViewLayout.swift */,
+				B2124F2528245E4D00F20662 /* InfoCardsCollectionViewController.swift */,
 				B256B0F82822571D00793A7E /* InfoCardCellCollectionViewCell.swift */,
+				B256B0FC2822608800793A7E /* InfoCardsCollectionViewLayout.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -351,10 +350,9 @@
 			isa = PBXGroup;
 			children = (
 				B25BA934281694E600C89F14 /* InfoViewController.swift */,
-				B2124F2528245E4D00F20662 /* InfoCardsCollectionViewController.swift */,
-				B2124F1B2823EA3D00F20662 /* InfoBottomSheetView.swift */,
-				B243E849283D05F500DC4A48 /* Country Card */,
+				B243E849283D05F500DC4A48 /* Country Travel */,
 				B2124F2228245C4E00F20662 /* CollectionView */,
+				B2124F1B2823EA3D00F20662 /* InfoBottomSheetView.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -481,13 +479,14 @@
 			path = Triaj;
 			sourceTree = "<group>";
 		};
-		B243E849283D05F500DC4A48 /* Country Card */ = {
+		B243E849283D05F500DC4A48 /* Country Travel */ = {
 			isa = PBXGroup;
 			children = (
-				B20C937728354325009E6313 /* CountryCardComponents.swift */,
+				B23DF36F283FDC3700E54101 /* CountryViewController.swift */,
 				B279E862282D5F0D00A59F7B /* CountryCardView.swift */,
+				B20C937728354325009E6313 /* CountryCardComponents.swift */,
 			);
-			path = "Country Card";
+			path = "Country Travel";
 			sourceTree = "<group>";
 		};
 		B256058827B2A1E000FB039F /* Simptome & Preventie */ = {
@@ -523,7 +522,6 @@
 			isa = PBXGroup;
 			children = (
 				B2CCB59027DB9D160076A52A /* HomeViewController.swift */,
-				B2E1938527BC240600D0F057 /* View Shortcuts */,
 				B23DE46F27B4206A00FD2E10 /* Triaj */,
 				B256058827B2A1E000FB039F /* Simptome & Preventie */,
 			);
@@ -683,15 +681,6 @@
 			path = Certifficate;
 			sourceTree = "<group>";
 		};
-		B2E1938527BC240600D0F057 /* View Shortcuts */ = {
-			isa = PBXGroup;
-			children = (
-				B2E1938627BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib */,
-				B2E1938827BC248200D0F057 /* PreventieAndSimptomeShortcut.swift */,
-			);
-			path = "View Shortcuts";
-			sourceTree = "<group>";
-		};
 		B2F48DE327AD32C0005EE116 /* Page View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -699,7 +688,7 @@
 				B2C59C2027A869340094A984 /* MainPageViewController.swift */,
 				B2F48DD927AD1D37005EE116 /* HomePagePageViewController.swift */,
 				B289F88F27B9582A00E756EF /* TriajPageViewController.swift */,
-				B2CCB58827DB969E0076A52A /* HeaderPageViewController.swift */,
+				B23DF371283FDD8B00E54101 /* InfoPageViewController.swift */,
 			);
 			path = "Page View Controllers";
 			sourceTree = "<group>";
@@ -863,7 +852,6 @@
 				B2B5A9B12790939500FC4E61 /* onboarding4.1.json in Resources */,
 				B237B543283461AB000F73A8 /* data2020.json in Resources */,
 				B2B5A9B42790939500FC4E61 /* onboarding4.2.json in Resources */,
-				B2E1938727BC245B00D0F057 /* PreventieAndSimptomeShortcut.xib in Resources */,
 				B23DE46827B3D02400FD2E10 /* simptome3.json in Resources */,
 				B23DE46A27B3D02400FD2E10 /* simptome2.json in Resources */,
 				B29683962815E720006B6D57 /* loadingAnimation.json in Resources */,
@@ -941,6 +929,7 @@
 				B289059427DA80720019205D /* LocalStorageManager.swift in Sources */,
 				B2DABD1627EB2A2500ECA4EB /* News.swift in Sources */,
 				B2BB039F27A998F700D4801B /* NavigationBar.swift in Sources */,
+				B23DF372283FDD8B00E54101 /* InfoPageViewController.swift in Sources */,
 				B2CCB58B27DB9A9D0076A52A /* HomeHeaders.swift in Sources */,
 				B281283527A5A69700DE7DB8 /* UIPageViewController.swift in Sources */,
 				B2976FD627B94F6C006E4859 /* TriajActions.swift in Sources */,
@@ -961,6 +950,7 @@
 				B2DABD1827EB6D7700ECA4EB /* UIImage.swift in Sources */,
 				B2BB039B27A9466700D4801B /* CustomTabBar.swift in Sources */,
 				B236E15E2825B08300AB0116 /* Article+CoreDataClass.swift in Sources */,
+				B23DF370283FDC3700E54101 /* CountryViewController.swift in Sources */,
 				B256B0FB2822583400793A7E /* InfoCard.swift in Sources */,
 				B2B758DF2810091500E9D078 /* XIB.swift in Sources */,
 				B2F48DE027AD249A005EE116 /* Enums.swift in Sources */,
@@ -1007,7 +997,6 @@
 				B217D45727B9454500DBDED9 /* UIStackView.swift in Sources */,
 				B256B0FD2822608800793A7E /* InfoCardsCollectionViewLayout.swift in Sources */,
 				B2DABD1427EB27DD00ECA4EB /* TrustedSourcesView.swift in Sources */,
-				B2E1938927BC248200D0F057 /* PreventieAndSimptomeShortcut.swift in Sources */,
 				B27BE1972825C4C100DB8D11 /* CurrentData.swift in Sources */,
 				B2E6741B27A52A8F00F283B7 /* Onboarding.swift in Sources */,
 				B2AE2BAF282C75BF007C440A /* CurrentDataParser.swift in Sources */,
@@ -1022,7 +1011,6 @@
 				B2B758DD2810086A00E9D078 /* UICollectionViewController.swift in Sources */,
 				B289F89027B9582A00E756EF /* TriajPageViewController.swift in Sources */,
 				B213E3F127CE5BF000A4E303 /* UIButton.swift in Sources */,
-				B2CCB58927DB969E0076A52A /* HeaderPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

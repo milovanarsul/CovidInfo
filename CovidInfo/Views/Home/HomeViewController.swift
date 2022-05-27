@@ -18,15 +18,17 @@ class HomeViewController: UIViewController {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = .clear
+        scrollView.layer.cornerRadius = 24
+        scrollView.clipsToBounds = true
         return scrollView
     }()
     
     lazy var contentView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 24
+        view.clipsToBounds = true
         return view
     }()
     
@@ -37,9 +39,35 @@ class HomeViewController: UIViewController {
             return label
         }()
         
-        lazy var simptomeAndPreventie: UIView = {
-            let view = PreventieAndSimptomeShortcut()
-            return view
+        lazy var simptomeAndPreventie: UIStackView = {
+            lazy var preventieImageView: UIImageView = {
+                let imageView = UIImageView()
+                imageView.image = UIImage(named: "cumSaTeProtejezi")!
+                imageView.contentMode = .scaleAspectFill
+                imageView.layer.cornerRadius = 24
+                imageView.clipsToBounds = true
+                imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(preventieShortcutTapped)))
+                imageView.isUserInteractionEnabled = true
+                return imageView
+            }()
+            
+            lazy var simptomeImageView: UIImageView = {
+                let imageView = UIImageView()
+                imageView.image = UIImage(named: "ceSimptomeApar")!
+                imageView.contentMode = .scaleAspectFill
+                imageView.layer.cornerRadius = 24
+                imageView.clipsToBounds = true
+                imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(simptomeShortcutTapped)))
+                imageView.isUserInteractionEnabled = true
+                return imageView
+            }()
+            
+            let stackView = UIStackView()
+            stackView.initalize(axis: .horizontal, alignment: .center, distribution: .fillProportionally, spacing: 10)
+            stackView.addAranagedSubviews(views: [preventieImageView, simptomeImageView])
+            stackView.layer.cornerRadius = 24
+            stackView.clipsToBounds = true
+            return stackView
         }()
         
         let parentView = UIView()
@@ -112,12 +140,13 @@ class HomeViewController: UIViewController {
             defaultConstraints(childView: locationImageView, parentView: parentView)
             
             let locationLabelConstraints = Constraints(childView: locationLabel, parentView: parentView, constraints: [
+                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
                 Constraint(constraintType: .vertical, multiplier: 1, constant: 0)
             ])
             locationLabelConstraints.addConstraints()
             
             let buttonConstraints = Constraints(childView: locationButton, parentView: parentView, constraints: [
-                Constraint(constraintType: .vertical, multiplier: 1, constant: 0)
+                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0)
             ])
             buttonConstraints.addConstraints()
             locationButton.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 10).isActive = true
@@ -166,11 +195,6 @@ class HomeViewController: UIViewController {
         }
         
         return parentView
-    }()
-    
-    lazy var travelRestricitons: UIView = {
-        let view = UIView()
-        return view
     }()
     
     lazy var latestNews: UIView = {
@@ -295,6 +319,113 @@ class HomeViewController: UIViewController {
         return parentView
     }()
     
+    lazy var infoShorcuts: UIView = {
+        
+        lazy var label: UILabel = {
+            let label = UILabel()
+            label.initialize(text: "Informatii", color: .black, font: boldFont(size: 16), alignment: .left, lines: 0)
+            return label
+        }()
+        
+        lazy var button: UIButton = {
+            let button = UIButton()
+            button.initialize(title: "Mai mult", titleColor: signatureDarkBlue, cornerRadius: 0, font: boldFont(size: 16), backgroundColor: .clear, image: UIImage(systemName: "arrow.forward"), imagePlacement: NSDirectionalRectEdge.trailing)
+            button.addTarget(self, action: #selector(statisticsAction), for: .touchUpInside)
+            return button
+        }()
+        
+        lazy var shortcuts: UIStackView = {
+            lazy var firstStackView: UIStackView = {
+                lazy var sfaturiDeCalatorie: UIImageView = {
+                    let imageView = UIImageView()
+                    imageView.image = UIImage(named: "sfaturiDeCalatorie")!
+                    imageView.contentMode = .scaleAspectFill
+                    imageView.layer.cornerRadius = 24
+                    imageView.clipsToBounds = true
+                    return imageView
+                }()
+                
+                lazy var intrebariFrecvente: UIImageView = {
+                    let imageView = UIImageView()
+                    imageView.image = UIImage(named: "intrebariFrecvente")!
+                    imageView.contentMode = .scaleAspectFill
+                    imageView.layer.cornerRadius = 24
+                    imageView.clipsToBounds = true
+                    return imageView
+                }()
+                
+                let firstParentStackView = UIStackView()
+                firstParentStackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fillEqually, spacing: 10)
+                firstParentStackView.addAranagedSubviews(views: [sfaturiDeCalatorie, intrebariFrecvente])
+                firstParentStackView.layer.cornerRadius = 24
+                firstParentStackView.clipsToBounds = true
+                return firstParentStackView
+            }()
+            
+            lazy var secondStackView: UIStackView = {
+                lazy var vaccinare: UIImageView = {
+                    let imageView = UIImageView()
+                    imageView.image = UIImage(named: "vaccinare")!
+                    imageView.contentMode = .scaleAspectFill
+                    imageView.layer.cornerRadius = 24
+                    imageView.clipsToBounds = true
+                    return imageView
+                }()
+                
+                lazy var variante: UIImageView = {
+                    let imageView = UIImageView()
+                    imageView.image = UIImage(named: "variante")!
+                    imageView.contentMode = .scaleAspectFill
+                    imageView.layer.cornerRadius = 24
+                    imageView.clipsToBounds = true
+                    return imageView
+                }()
+                
+                let secondParentStackView = UIStackView()
+                secondParentStackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fill, spacing: 10)
+                secondParentStackView.addAranagedSubviews(views: [vaccinare, variante])
+                secondParentStackView.layer.cornerRadius = 24
+                secondParentStackView.clipsToBounds = true
+                return secondParentStackView
+            }()
+            
+            let stackView = UIStackView()
+            stackView.contentMode = .scaleAspectFit
+            stackView.initalize(axis: .vertical, alignment: .fill, distribution: .fillProportionally, spacing: 10)
+            stackView.addAranagedSubviews(views: [firstStackView, secondStackView])
+            stackView.layer.cornerRadius = 24
+            stackView.clipsToBounds = true
+            return stackView
+        }()
+        
+        let parentView = UIView()
+        parentView.translatesAutoresizingMaskIntoConstraints = false
+        parentView.heightAnchor.constraint(equalToConstant: 350).isActive = true
+        parentView.addSubviews(views: [label, button, shortcuts])
+        
+        let labelConstraints = Constraints(childView: label, parentView: parentView, constraints: [
+            Constraint(constraintType: .leading, multiplier: 1, constant: 12),
+            Constraint(constraintType: .top, multiplier: 1, constant: 0),
+        ])
+        labelConstraints.addConstraints()
+        
+        let buttonConstraints = Constraints(childView: button, parentView: parentView, constraints: [
+            Constraint(constraintType: .trailing, multiplier: 1, constant: -12),
+            Constraint(constraintType: .top, multiplier: 1, constant: -5)
+        ])
+        buttonConstraints.addConstraints()
+        
+        let shorcutsConstraints = Constraints(childView: shortcuts, parentView: parentView, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .leading, multiplier: 1, constant: 0),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
+        ])
+        shorcutsConstraints.addConstraints()
+        shortcuts.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10).isActive = true
+        
+        return parentView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -305,16 +436,30 @@ class HomeViewController: UIViewController {
     
     func setup(){
         view.backgroundColor = UIColor("#f2f2f7")
-        view.addSubview(scrollView)
-        defaultAutoResizingMask(childView: scrollView, parentView: view, width: false)
-        scrollView.addSubview(contentView)
-        defaultAutoResizingMask(childView: contentView, parentView: scrollView, width: true)
         
-        contentView.addSubviews(views: [simptomeAndPreventie, quickCharts, latestNews, triajEpidemiologic])
+        view.addSubview(scrollView)
+        let scrollViewConstraints = Constraints(childView: scrollView, parentView: view, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .top, multiplier: 1, constant: 0),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
+        ])
+        scrollViewConstraints.addConstraints()
+        
+        scrollView.addSubview(contentView)
+        let contentViewConstraints = Constraints(childView: contentView, parentView: scrollView, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .top, multiplier: 1, constant: 0),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
+        ])
+        contentViewConstraints.addConstraints()
+        
+        contentView.addSubviews(views: [simptomeAndPreventie, quickCharts, latestNews, infoShorcuts, triajEpidemiologic])
         
         let siptomeAndPreventieConstraints = Constraints(childView: simptomeAndPreventie, parentView: contentView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 0.96, constant: 0),
             Constraint(constraintType: .top, multiplier: 1, constant: 10),
             Constraint(constraintType: .proportionalHeight, multiplier: 0.24, constant: 0)
         ])
@@ -334,12 +479,29 @@ class HomeViewController: UIViewController {
         latestNewsConstraints.addConstraints()
         latestNews.topAnchor.constraint(equalTo: quickCharts.bottomAnchor, constant: 50).isActive = true
         
+        let infoShortcutsConstraints = Constraints(childView: infoShorcuts, parentView: contentView, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 0.96, constant: 0),
+        ])
+        infoShortcutsConstraints.addConstraints()
+        infoShorcuts.topAnchor.constraint(equalTo: latestNews.bottomAnchor, constant: 10).isActive = true
+        
         let triajEpidemiologicConstraints = Constraints(childView: triajEpidemiologic, parentView: contentView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 0.96, constant: 0)
         ])
         triajEpidemiologicConstraints.addConstraints()
-        triajEpidemiologic.topAnchor.constraint(equalTo: latestNews.bottomAnchor, constant: 10).isActive = true
+        triajEpidemiologic.topAnchor.constraint(equalTo: infoShorcuts.bottomAnchor, constant: 10).isActive = true
+    }
+    
+    @objc func preventieShortcutTapped(){
+        delegates.homePage.goToPage(pageIndex: 3, direction: .forward)
+        delegates.homePage.updateNavigationBar(page: Page(mainPage: .home, childType: .preventie))
+    }
+    
+    @objc func simptomeShortcutTapped(){
+        delegates.homePage.goToPage(pageIndex: 2, direction: .forward)
+        delegates.homePage.updateNavigationBar(page: Page(mainPage: .home, childType: .simptome))
     }
     
     @objc func statisticsAction(_ sender: UIButton){

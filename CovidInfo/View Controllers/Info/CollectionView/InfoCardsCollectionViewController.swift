@@ -11,14 +11,25 @@ import UIKit
 
 class InfoCardsCollectionViewController: UICollectionViewController{
     
+    var infoCardsType: InfoCardsType?
+    
     var infoCardsDataArray = [InfoCardsData]()
     var currentIndex: Int!
+    
+    init(infoCardsType: InfoCardsType){
+        self.infoCardsType = infoCardsType
+        super.init(collectionViewLayout: InfoCardsCollectionViewLayout.init())
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         delegates.infoCardsCollectionView = self
-        pullInfoCardsData(type: .intrebariFrecvente)
+        pullInfoCardsData()
         initialize()
     }
 
@@ -84,15 +95,17 @@ extension InfoCardsCollectionViewController: InfoCardsCollectionViewDelegate{
         return titleHeight + contentHeight - 100
     }
     
-    func pullInfoCardsData(type: InfoCardsType){
+    func pullInfoCardsData(){
         
         var childName: String?
         
-        switch type {
+        switch infoCardsType {
         case .intrebariFrecvente:
             childName = "IntrebariFrecvente"
         case .vaccinare:
             childName = "Vaccinare"
+        case .none:
+            ()
         }
         
         infoCardsDataArray.removeAll()

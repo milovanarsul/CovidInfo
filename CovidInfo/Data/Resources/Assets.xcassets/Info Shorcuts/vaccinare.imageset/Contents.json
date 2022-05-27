@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "PreventieHomeShortcut@1x.png",
+      "filename" : "vaccinare@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "PreventieHomeShortcut@2x.png",
+      "filename" : "vaccinare@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "PreventieHomeShortcut@3x.png",
+      "filename" : "vaccinare@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

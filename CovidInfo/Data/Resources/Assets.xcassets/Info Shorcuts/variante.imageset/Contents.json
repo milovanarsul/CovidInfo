@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "SimptomeHomeShortcut@1x.png",
+      "filename" : "variante@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "SimptomeHomeShortcut@2x.png",
+      "filename" : "variante@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "SimptomeHomeShortcut@3x.png",
+      "filename" : "variante@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

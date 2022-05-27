@@ -22,6 +22,7 @@ class Delegates{
     var enrollCertifficate: EnrollCertifficateDelegate! = nil
     var news: NewsDelegate! = nil
     var customTabBar: CustomTabBarDelegate! = nil
+    var infoPage: InfoPageViewControllerDelegate! = nil
     var infoCardsCollectionView: InfoCardsCollectionViewDelegate! = nil
     var info: InfoViewControllerDelegate! = nil
     var statistics: StatisticsViewControllerDelegate! = nil
@@ -113,10 +114,14 @@ protocol CustomTabBarDelegate{
     func goToPage(index: Int)
 }
 
+protocol InfoPageViewControllerDelegate{
+    func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection)
+}
+
 protocol InfoCardsCollectionViewDelegate{
     func getInfoData(index: Int) -> InfoCardsData
     func getCurrentIndexTextHeight() -> CGFloat
-    func pullInfoCardsData(type: InfoCardsType)
+    func pullInfoCardsData()
 }
 
 protocol InfoViewControllerDelegate{

@@ -42,29 +42,24 @@ class EmbedView{
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
     }
     
-    func headerPageViewController(parent: UIViewController, container: UIView){
-        let child = HeaderPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        embed(parent: parent, container: container, child: child, previous: parent.children.first)
-    }
-    
     func articleViewController(parent: UIViewController, container: UIView){
         let child = NewsViewController(cardsTableViewType: .news)
         delegates.news = child
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
     }
     
-    func infoCardsCollectionViewController(parent: UIViewController, container: UIView){
-        let child = InfoCardsCollectionViewController(collectionViewLayout: InfoCardsCollectionViewLayout.init())
-        embed(parent: parent, container: container, child: child, previous: parent.children.first)
-    }
-    
-    func variantsViewController(parent: UIViewController, container: UIView){
-        let child = NewsViewController(cardsTableViewType: .variants)
+    func infoPageViewController(parent: UIViewController, container: UIView){
+        let child = InfoPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
     }
     
     func countryPicker(parent: UIViewController, container: UIView){
         let child = CountryPickerViewController()
+        embed(parent: parent, container: container, child: child, previous: parent.children.first)
+    }
+    
+    func countryViewController(parent: UIViewController, container: UIView){
+        let child = CountryViewController()
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
     }
 }

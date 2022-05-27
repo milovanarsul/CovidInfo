@@ -43,6 +43,7 @@ class TriajViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         setup()
+        delegates.triajSub = self
     }
     
     required init?(coder: NSCoder) {
@@ -51,8 +52,6 @@ class TriajViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        delegates.triajSub = self
     }
     
     var containerViewWidthConstraint: NSLayoutConstraint?
