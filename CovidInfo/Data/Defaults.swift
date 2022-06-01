@@ -11,6 +11,7 @@ import UIKit
 var showOnboarding: Bool = false
 var articlesViewControllerHasBeenPresented = false
 var countryPickerAdded: Bool = false
+var dataDownloadFinished: Bool = true
 
 let defaults = UserDefaults.standard
 

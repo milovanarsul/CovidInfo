@@ -54,12 +54,9 @@ class NewsViewController: UIViewController {
         case .news:
             DataManager.fetchNews(predicate: untrustedSources)
             cardsViewData = DataManager.news
-            newsCardsTableView.reloadData()
             transitionManager?.cardsTableViewType = .news
         case .variants:
-            DataManager.fetchNews(predicate: isVariant)
-            cardsViewData = DataManager.news
-            newsCardsTableView.reloadData()
+            cardsViewData = FirebaseManager.variantsData
             transitionManager?.cardsTableViewType = .variants
         default: ()
         }

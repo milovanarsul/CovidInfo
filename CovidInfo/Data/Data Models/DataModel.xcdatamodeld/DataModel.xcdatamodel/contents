@@ -5,12 +5,19 @@
         <attribute name="author" optional="YES" attributeType="String"/>
         <attribute name="backgroundImage" optional="YES" attributeType="String"/>
         <attribute name="backgroundType" attributeType="Integer 16" valueTransformerName="NSSecureUnarchiveFromDataTransofrmerName" defaultValueString="0" usesScalarValueType="YES" customClassName="BackgroundType"/>
-        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="Date"/>
         <attribute name="isTrusted" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isVariant" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="link" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="viewMode" attributeType="Integer 16" valueTransformerName="NSSecureUnarchiveFromDataTransofrmerName" defaultValueString="1" usesScalarValueType="YES" customClassName=".CardMode"/>
+    </entity>
+    <entity name="CountryTravel" representedClassName="CountryTravel" syncable="YES">
+        <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="icon" optional="YES" attributeType="String"/>
+        <attribute name="subtitle" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : UIColor]"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <entity name="CurrentData" representedClassName="CurrentData" syncable="YES" codeGenerationType="class">
         <attribute name="aged_65_older" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -118,5 +125,6 @@
         <element name="HistoricData" positionX="-54" positionY="144" width="128" height="224"/>
         <element name="MSPressBulettin" positionX="-63" positionY="54" width="128" height="134"/>
         <element name="OldHistoricData" positionX="-45" positionY="153" width="128" height="224"/>
+        <element name="CountryTravel" positionX="-54" positionY="144" width="128" height="104"/>
     </elements>
 </model>

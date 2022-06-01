@@ -13,7 +13,7 @@ class CountryTravelTableViewCell: UITableViewCell {
         didSet {
             guard let data = data else { return }
             if let icon = data.icon {
-                iconImageView.image = icon
+                iconImageView.image = UIImage(systemName: icon)!
             }
             
             if let title = data.title {
@@ -21,7 +21,7 @@ class CountryTravelTableViewCell: UITableViewCell {
             }
             
             if let subtitle = data.subtitle {
-                subtitleLabel.initialize(text: subtitle.0, color: subtitle.1, font: boldFont(size: 16), alignment: .left, lines: 0)
+                subtitleLabel.initialize(text: subtitle.first!.key, color: subtitle.first!.value, font: boldFont(size: 16), alignment: .left, lines: 0)
             }
             
             if let text = data.text {

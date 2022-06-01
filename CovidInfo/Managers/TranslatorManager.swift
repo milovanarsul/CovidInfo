@@ -32,12 +32,11 @@ class TranslatorManager{
         request.httpBody = postData as Data
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if error != nil {
-                completion(nil)
+            if let error = error {
+                print(error)
             } else {
                 let translation = try! JSONDecoder().decode(Translate.self, from: data!)
                 let translatedText = translation.result
-                print("Translation successful!")
                 completion(translatedText)
             }
         }.resume()

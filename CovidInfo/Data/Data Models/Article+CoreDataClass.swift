@@ -13,19 +13,3 @@ import CoreData
 public class Article: NSManagedObject {
 
 }
-
-func customArticle(title: String, contents: String, image: String){
-    let article = Article(context: AppDelegate.context)
-    article.viewMode = .card
-    article.backgroundType = .light
-    article.isTrusted = false
-    article.title = title
-    article.link = nil
-    article.backgroundImage = image
-    article.articleDescription = contents
-    article.author = nil
-    article.date = nil
-    article.isVariant = true
-    
-    try! AppDelegate.context.save()
-}

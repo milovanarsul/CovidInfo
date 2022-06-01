@@ -50,7 +50,7 @@ func digi24(articleCount: Int){
             let timeDiv: Element = try articleDocument.select("div.author-meta").first()!
             let span = try timeDiv.select("span").first()!
             let date = try span.text()
-            data.date = date
+            data.date = stringToDate(string: date)
             
             try AppDelegate.context.save()
         }
@@ -76,7 +76,8 @@ func stiriOficiale(){
             data.isTrusted = true
             data.isVariant = false
             
-            data.date = try article.select("time").first()!.text()
+            let stringDate = try article.select("time").first()!.text()
+            data.date = stringToDate(string: stringDate)
             
             let h1 = try article.select("a").first()!
             let articleLink = try h1.attr("href")

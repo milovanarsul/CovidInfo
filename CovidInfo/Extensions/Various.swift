@@ -50,3 +50,11 @@ extension String {
         return words
     }
 }
+
+func stringToDate(string: String) -> Date{
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = Locale(identifier: "ro_RO")
+    dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+    let date = dateFormatter.date(from: string)
+    return date!
+}

@@ -127,7 +127,7 @@ extension InfoViewController: UIScrollViewDelegate {
 
 extension InfoViewController: InfoViewControllerDelegate{
     func getCardsViewController() -> UIViewController{
-        return self.children[1]
+        return self.children[0].children[0]
     }
     
     func viewsVisibility(visibility: Bool){

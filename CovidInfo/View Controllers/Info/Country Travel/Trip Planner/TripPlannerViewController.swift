@@ -110,6 +110,19 @@ class TripPlannerViewController: UIViewController {
         return view
     }()
     
+    lazy var resultTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorStyle = .none
+        tableView.register(TripPlannerCountryResultView.self, forCellReuseIdentifier: "departureResultCell")
+        tableView.register(TripPlannerCountryResultView.self, forCellReuseIdentifier: "arrivalResultCell")
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = UIColor("#f2f2f7")
+        tableView.clipsToBounds = true
+        return tableView
+    }()
+    
     lazy var activityIndicator: UIActivityIndicatorView = {
         let activityInidcator = UIActivityIndicatorView()
         activityInidcator.style = .large
@@ -117,6 +130,12 @@ class TripPlannerViewController: UIViewController {
         activityInidcator.translatesAutoresizingMaskIntoConstraints = false
         return activityInidcator
     }()
+    
+    var dataArray = [[CountryTravelModel]]()
+    var countryArray = [String]()
+    var tripViewType: [TripViewType] = [.departure, .arrival]
+    var cellIdentifiers = ["departureResultCell", "arrivalResultCell"]
+    var expandedIndexSet: IndexSet = []
     
     var screenWidth: CGFloat = UIScreen.main.bounds.width
     var departureViewBottomConstraint = NSLayoutConstraint()
@@ -174,26 +193,28 @@ class TripPlannerViewController: UIViewController {
     }
     
     @objc func departureButtonTapped(_ sender: UIButton){
-        animateLocationView(locationView: departureTableView, bottomConstraint: departureViewBottomConstraint, visibility: .show)
+        animateLocationTableView(locationView: departureTableView, bottomConstraint: departureViewBottomConstraint, visibility: .show)
         tripPlannerPresentationShouldDismiss = false
     }
     
     @objc func arrivalButtonTapped(_ sender: UIButton){
-        animateLocationView(locationView: arrivalTableView, bottomConstraint: arrivalViewBottomConstraint, visibility: .show)
+        animateLocationTableView(locationView: arrivalTableView, bottomConstraint: arrivalViewBottomConstraint, visibility: .show)
         tripPlannerPresentationShouldDismiss = false
     }
     
     @objc func redoResultTapped(_ sender: UIButton){
         view.viewWithTag(2)?.isHidden = true
-        view.viewWithTag(3)!.removeFromSuperview()
         view.backgroundColor = .white
+        topBar.backgroundColor = .white
+        resultTableView.removeFromSuperview()
         onboardingView.isHidden = false
         
         arrivalCountry = nil
         departureCountry = nil
+        countryArray.removeAll()
     }
     
-    func animateLocationView(locationView: UIView, bottomConstraint: NSLayoutConstraint, visibility: ViewVisibility) {
+    func animateLocationTableView(locationView: UIView, bottomConstraint: NSLayoutConstraint, visibility: ViewVisibility) {
         switch visibility {
         case .show:
             bottomConstraint.constant = 0
@@ -210,11 +231,11 @@ class TripPlannerViewController: UIViewController {
 
 extension TripPlannerViewController: TripPlannerDelegate{
     func animateDepartureView(){
-        animateLocationView(locationView: departureTableView, bottomConstraint: departureViewBottomConstraint, visibility: .hide)
+        animateLocationTableView(locationView: departureTableView, bottomConstraint: departureViewBottomConstraint, visibility: .hide)
     }
     
     func animateArrivalView(){
-        animateLocationView(locationView: arrivalTableView, bottomConstraint: arrivalViewBottomConstraint, visibility: .hide)
+        animateLocationTableView(locationView: arrivalTableView, bottomConstraint: arrivalViewBottomConstraint, visibility: .hide)
     }
     
     func result(){
@@ -227,35 +248,74 @@ extension TripPlannerViewController: TripPlannerDelegate{
         
         let arrivalCountryISO = countryToISO(country: arrivalCountry!.name!, dictionary: roISOCountries)
         let departureCountryISO = countryToISO(country: departureCountry!.name!, dictionary: roISOCountries)
-        var arrivalCountryDataArray: [CountryTravelModel]?
-        var departureCountryDataArray: [CountryTravelModel]?
-        
-        AmadeusManager.loadData(country: arrivalCountryISO!){ result in
-            arrivalCountryDataArray = result
-        }
+        countryArray.append(departureCountry!.name!)
+        countryArray.append(arrivalCountry!.name!)
         
         AmadeusManager.loadData(country: departureCountryISO!) { result in
-            departureCountryDataArray = result
+            self.dataArray.append(result!)
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
+        AmadeusManager.loadData(country: arrivalCountryISO!){ result in
+            self.dataArray.append(result!)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) { [self] in
             activityIndicator.removeFromSuperview()
             view.viewWithTag(2)?.isHidden = false
-            let resultView = TripPlannerResultView(arrivalData: arrivalCountryDataArray!, departureData: departureCountryDataArray!)
-            resultView.tag = 3
-            view.addSubviews(views: [resultView])
+            view.addSubview(resultTableView)
             
-            let resultViewConstraints = Constraints(childView: resultView, parentView: view, constraints: [
+            let resultViewConstraints = Constraints(childView: resultTableView, parentView: view, constraints: [
                 Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
                 Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
                 Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
             ])
             resultViewConstraints.addConstraints()
-            resultView.topAnchor.constraint(equalTo: topBar.bottomAnchor, constant: 10).isActive = true
-            
-            departureCountry = nil
-            arrivalCountry = nil
+            resultTableView.topAnchor.constraint(equalTo: topBar.bottomAnchor, constant: 30).isActive = true
         }
     }
+    
+    func expandCell(type: TripViewType){
+        let cellIndex: IndexPath?
+        switch type {
+        case .arrival:
+            cellIndex = IndexPath(row: 1, section: 0)
+        case .departure:
+            cellIndex = IndexPath(row: 0, section: 0)
+        }
+        
+        if expandedIndexSet.contains(cellIndex!.row) {
+            expandedIndexSet.remove(cellIndex!.row)
+        } else {
+            expandedIndexSet.insert(cellIndex!.row)
+        }
+        
+        resultTableView.reloadRows(at: [cellIndex!], with: .automatic)
+    }
 }
+
+extension TripPlannerViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if expandedIndexSet.contains(indexPath.row) {
+            return 600
+        }
+        
+        return 340
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifiers[indexPath.row]) as! TripPlannerCountryResultView
+        cell.countryTravelData = dataArray[indexPath.row]
+        cell.data = DataManager.getCurrentCountry(name: countryArray[indexPath.row])
+        cell.type = tripViewType[indexPath.row]
+        cell.setup()
+        cell.backgroundColor = UIColor("#f2f2f7")
+        return cell
+    }
+}
+
 

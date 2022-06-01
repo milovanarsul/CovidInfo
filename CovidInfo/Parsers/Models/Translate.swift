@@ -8,33 +8,30 @@
 import Foundation
 
 struct Translate: Codable {
-    let err: JSONNull?
     let result: String
 }
 
-// MARK: - Encode/decode helpers
+/*
+ extension Article {
 
-class JSONNull: Codable, Hashable {
+     @nonobjc public class func fetchRequest() -> NSFetchRequest<Article> {
+         return NSFetchRequest<Article>(entityName: "Article")
+     }
 
-    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-        return true
-    }
+     @NSManaged public var articleDescription: String?
+     @NSManaged public var author: String?
+     @NSManaged public var backgroundImage: String?
+     @NSManaged public var backgroundType: BackgroundType
+     @NSManaged public var date: String?
+     @NSManaged public var isTrusted: Bool
+     @NSManaged public var link: String?
+     @NSManaged public var title: String?
+     @NSManaged public var viewMode: CardMode
+     @NSManaged public var isVariant: Bool
 
-    public var hashValue: Int {
-        return 0
-    }
+ }
 
-    public init() {}
+ extension Article : Identifiable {
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
-    }
-}
+ }
+ */

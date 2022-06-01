@@ -21,8 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        FirebaseManager.loadData()
         if defaults.bool(forKey: "notFirstLaunch") {
             DataManager.fetchCoreData()
+            
         }
         
         locationManager.delegate = self

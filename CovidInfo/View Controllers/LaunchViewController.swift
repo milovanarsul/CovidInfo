@@ -77,14 +77,8 @@ class LaunchViewController: UIViewController {
             dataLoading()
             print("Data has been automatically refreshed!")
         } else {
-            DataManager.fetchCoreData()
-            AmadeusManager.loadData(country: "ROU") {result in
-                AmadeusManager.currentCountryTravelData = result
-                DispatchQueue.main.async { [self] in
-                    notFirstLaunch ? goTomain() : startOnboarding()
-                    onboardingCompleted ? skipOnboarding() : ()
-                }
-            }
+            notFirstLaunch ? goTomain() : startOnboarding()
+            onboardingCompleted ? skipOnboarding() : ()
         }
         
         if defaults.bool(forKey: "notFirstLaunch") == false{
@@ -144,6 +138,7 @@ class LaunchViewController: UIViewController {
             self.dataLoadingComponents()
             DispatchQueue.main.async {
                 DataManager.fetchData()
+                FirebaseManager.loadData()
                 AmadeusManager.loadData(country: "ROU") {result in
                     AmadeusManager.currentCountryTravelData = result
                     self.dataLoadingView.removeFromSuperview()

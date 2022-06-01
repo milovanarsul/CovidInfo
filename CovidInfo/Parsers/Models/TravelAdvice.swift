@@ -77,27 +77,23 @@ let greenColor = UIColor("#4aa47a")
 let redColor = UIColor("#c0504a")
 let yellowColor = UIColor("#f2bf57")
 
-let risks: [String : (String, UIColor)] = [
-    "Extreme" : ("Extrem", redColor),
-    "High" : ("Ridicat", redColor),
-    "Medium" : ("Mediu", yellowColor),
-    "Moderate" : ("Moderat", greenColor),
-    "Low" : ("Scazut", greenColor)
+let risksLocalizable: [String : [String : UIColor]] = [
+    "Extreme" : ["Extrem" : redColor],
+    "High" : ["Ridicat": redColor],
+    "Medium" : ["Mediu": yellowColor],
+    "Moderate" : ["Moderat": greenColor],
+    "Low" : ["Scazut": greenColor],
+    "Lockdown" : ["Carantina": redColor],
+    "Curfew" : ["Restrictii de circulatie" : redColor],
+    "Distancing" : ["Distantare sociala" : signatureDarkBlue],
+    "None" : ["Nu este cazul" : greenColor],
+    "Partial" : ["Partial" : yellowColor],
+    "Partial Measures" : ["Masuri partiale" : yellowColor],
+    "Opening" : ["Restrictii relaxate" : yellowColor],
+    "Closing" : ["Restrictii inasprite" : redColor],
+    "Open" : ["Circulatie libera" : greenColor],
+    "Yes" : ["Da" : redColor],
+    "No": ["Nu" : greenColor],
+    "no": ["Nu" : greenColor],
+    "Recommended" : ["Recomandat" : signatureDarkBlue]
 ]
-
-let status: [String : (String, UIColor)] = [
-    "Lockdown" : ("Carantina", redColor),
-    "Curfew" : ("Restrictii de circulatie", redColor),
-    "Distancing" : ("Distantare sociala", signatureDarkBlue),
-    "None" : ("Niciuna", greenColor),
-    "Partial" : ("Partial", yellowColor),
-    "Opening" : ("Restrictii diminuate", yellowColor),
-    "Closing" : ("Restrictii inasprite", redColor),
-    "Open" : ("Fara restrictii", greenColor)
-]
-
-let affirmative: [String : (String, UIColor)] = [
-    "Yes" : ("Necesara", redColor),
-    "No": ("Nu este necesara", greenColor)
-]
-

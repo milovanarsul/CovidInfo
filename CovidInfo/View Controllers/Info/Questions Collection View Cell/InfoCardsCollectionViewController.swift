@@ -12,7 +12,6 @@ import UIKit
 class InfoCardsCollectionViewController: UICollectionViewController{
     
     var infoCardsType: InfoCardsType?
-    
     var infoCardsDataArray = [InfoCardsData]()
     var currentIndex: Int!
     
@@ -29,7 +28,14 @@ class InfoCardsCollectionViewController: UICollectionViewController{
         super.viewDidLoad()
         
         delegates.infoCardsCollectionView = self
-        pullInfoCardsData()
+        
+        switch infoCardsType! {
+        case .intrebariFrecvente:
+            infoCardsDataArray = FirebaseManager.faqData
+        case .vaccinare:
+            infoCardsDataArray = FirebaseManager.vaccinationData
+        }
+        
         initialize()
     }
 
@@ -94,31 +100,5 @@ extension InfoCardsCollectionViewController: InfoCardsCollectionViewDelegate{
         let titleHeight = data.title.height(withConstrainedWidth: view.frame.width, font: UIFont(name: "IBMPlexSans-Bold", size: 20)!)
         let contentHeight = data.content.height(withConstrainedWidth: view.frame.width, font: UIFont(name: "IBMPlexSans-Regular", size: 14)!)
         return titleHeight + contentHeight - 100
-    }
-    
-    func pullInfoCardsData(){
-        
-        var childName: String?
-        
-        switch infoCardsType {
-        case .intrebariFrecvente:
-            childName = "IntrebariFrecvente"
-        case .vaccinare:
-            childName = "Vaccinare"
-        case .none:
-            ()
-        }
-        
-        infoCardsDataArray.removeAll()
-        databaseReference.child(childName!).observe(.value) { (snaphshot) in
-            for card in snaphshot.children.allObjects as! [DataSnapshot]{
-                let object = card.value as? [String: AnyObject]
-                let title = object?["title"] as! String
-                let content = object?["content"] as! String
-                self.infoCardsDataArray.append(InfoCardsData(title: title, content: content))
-            }
-            self.infoCardsDataArray.reverse()
-            self.collectionView.reloadData()
-        }
     }
 }

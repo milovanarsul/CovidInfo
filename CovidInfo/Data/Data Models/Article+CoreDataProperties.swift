@@ -20,7 +20,7 @@ extension Article {
     @NSManaged public var author: String?
     @NSManaged public var backgroundImage: String?
     @NSManaged public var backgroundType: BackgroundType
-    @NSManaged public var date: String?
+    @NSManaged public var date: Date?
     @NSManaged public var isTrusted: Bool
     @NSManaged public var link: String?
     @NSManaged public var title: String?

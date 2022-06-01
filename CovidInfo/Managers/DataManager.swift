@@ -30,6 +30,7 @@ class DataManager{
     
     //load parsers, webscrapers and fetch data from core data
     static func fetchData(){
+        deleteAllCustomEntityObjects(context: AppDelegate.context)
         DataManager.loadData()
         DataManager.fetchNews()
         DataManager.fetchCovidData()
@@ -118,6 +119,7 @@ class DataManager{
         
         do {
             self.news = try AppDelegate.context.fetch(request)
+            self.news = self.news?.sorted(by: {$0.date!.compare($1.date!) == .orderedDescending})
         } catch {
             fatalError()
         }

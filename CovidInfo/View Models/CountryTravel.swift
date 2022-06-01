@@ -9,16 +9,23 @@ import Foundation
 import UIKit
 
 class CountryTravelModel {
-    var icon: UIImage?
+    var icon: String?
     var title: String?
-    var subtitle: (String, UIColor)?
+    var subtitle: [String : UIColor]?
     var text: String?
     var height: CGFloat?
     
-    init(icon: UIImage, title: String, subtitle: (String, UIColor), text: String? = nil){
+    init(icon: String, title: String, subtitle: String, text: String? = nil){
         self.icon = icon
         self.title = title
-        self.subtitle = subtitle
+        
+        if let subtitleText = risksLocalizable[subtitle]{
+            self.subtitle = subtitleText
+        } else {
+            TranslatorManager.translate(text: subtitle) { translation in
+                self.subtitle = [translation! : signatureDarkBlue]
+            }
+        }
         
         if let text = text {
             TranslatorManager.translate(text: text) { translation in

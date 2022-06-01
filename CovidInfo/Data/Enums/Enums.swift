@@ -138,6 +138,12 @@ enum NewsType{
     case untrusted
 }
 
+enum DataType{
+    case preventie
+    case simptome
+}
+
+
 enum ImageType{
     case custom
     case system

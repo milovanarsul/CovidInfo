@@ -13,6 +13,8 @@ func deleteAllCustomEntityObjects(context: NSManagedObjectContext){
     deleteAllEntityObjects(context: context, entityName: "MSPressBulettin")
     deleteAllEntityObjects(context: context, entityName: "CurrentData")
     deleteAllEntityObjects(context: context, entityName: "HistoricData")
+    deleteAllEntityObjects(context: context, entityName: "CountryTravel")
+    deleteAllEntityObjects(context: context, entityName: "OldHistoricData")
 }
 
 func deleteAllEntityObjects(context: NSManagedObjectContext, entityName: String){

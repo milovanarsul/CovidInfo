@@ -18,7 +18,7 @@ class TestViewController: UIViewController {
     
     lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = data?.icon
+        imageView.image = UIImage(systemName: (data?.icon)!)!
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .black
         return imageView
@@ -32,7 +32,7 @@ class TestViewController: UIViewController {
     
     lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.initialize(text: data!.subtitle!.0, color: data!.subtitle!.1, font: boldFont(size: 14), alignment: .left, lines: 0)
+        label.initialize(text: data!.subtitle!.first!.key, color: data!.subtitle!.first!.value, font: boldFont(size: 14), alignment: .left, lines: 0)
         return label
     }()
     

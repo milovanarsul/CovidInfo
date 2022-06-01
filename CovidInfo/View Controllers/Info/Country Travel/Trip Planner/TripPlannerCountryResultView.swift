@@ -8,10 +8,12 @@
 import Foundation
 import UIKit
 
-class TripPlannerCountryResultView: UIView {
+var expandButtonTapped: Bool = false
+
+class TripPlannerCountryResultView: UITableViewCell {
     var countryTravelData: [CountryTravelModel]?
     var data: CurrentData!
-    var resultType: TripViewType?
+    var type: TripViewType?
     
     lazy var parentView: UIView = {
         let view = UIView()
@@ -48,7 +50,6 @@ class TripPlannerCountryResultView: UIView {
         tableView.separatorStyle = .singleLine
         tableView.separatorColor = .gray
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
-        tableView.register(CountryTravelTableViewCell.self, forCellReuseIdentifier: "countryTravelCustom")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
         tableView.clipsToBounds = true
@@ -57,19 +58,26 @@ class TripPlannerCountryResultView: UIView {
     
     lazy var bottomButton: UIButton = {
         let button = UIButton()
-        button.initialize(title: "Mai mult", titleColor: signatureDarkBlue, cornerRadius: 0, font: boldFont(size: 14), backgroundColor: .clear, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "arrow.down.circle.fill"))
+        switch expandButtonTapped {
+        case false:
+            button.initialize(title: "Mai mult", titleColor: signatureDarkBlue, cornerRadius: 0, font: boldFont(size: 14), backgroundColor: .clear, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "arrow.down.circle.fill"))
+        case true:
+            button.initialize(title: "Mai putin", titleColor: signatureDarkBlue, cornerRadius: 0, font: boldFont(size: 14), backgroundColor: .clear, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "arrow.up.circle.fill"))
+        }
+        
         button.addTarget(self, action: #selector(bottomButtonTapped(_:)), for: .touchUpInside)
         return button
     }()
     
     func setup(){
-        addSubview(parentView)
         
-        let parentViewConstraints = Constraints(childView: parentView, parentView: self, constraints: [
+        contentView.addSubview(parentView)
+        
+        let parentViewConstraints = Constraints(childView: parentView, parentView: contentView, constraints: [
             Constraint(constraintType: .leading, multiplier: 1, constant: 12),
             Constraint(constraintType: .trailing, multiplier: 1, constant: -12),
             Constraint(constraintType: .top, multiplier: 1, constant: 0),
-            Constraint(constraintType: .bottom, multiplier: 1, constant: 8)
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 10)
         ])
         parentViewConstraints.addConstraints()
         
@@ -107,31 +115,22 @@ class TripPlannerCountryResultView: UIView {
         tableView.bottomAnchor.constraint(equalTo: bottomButton.topAnchor, constant: -10).isActive = true
     }
     
-    init(countryTravelData: [CountryTravelModel], data: CurrentData, resultType: TripViewType){
-        self.countryTravelData = countryTravelData
-        self.data = data
-        self.resultType = resultType
-        super.init(frame: .zero)
-        
-        setup()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    var buttonTapped: Bool = false
     @objc func bottomButtonTapped(_ sender: UIButton){
-        switch buttonTapped {
+        switch expandButtonTapped {
         case false:
-            bottomButton.initialize(title: "Mai putin", titleColor: signatureDarkBlue, cornerRadius: 0, font: boldFont(size: 14), backgroundColor: .clear, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "arrow.up.circle.fill"))
-            delegates.tripResult.extendResult(resultType: resultType!, height: 713)
-            buttonTapped = true
+            expandButtonTapped = true
         case true:
-            bottomButton.initialize(title: "Mai mult", titleColor: signatureDarkBlue, cornerRadius: 0, font: boldFont(size: 14), backgroundColor: .clear, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "arrow.down.circle.fill"))
-            delegates.tripResult.extendResult(resultType: resultType!, height: 340)
-            buttonTapped = false
+            expandButtonTapped = false
         }
+        delegates.tripPlanner.expandCell(type: type!)
     }
 }
 
@@ -145,7 +144,7 @@ extension TripPlannerCountryResultView: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "countryTravelCustom") as! CountryTravelTableViewCell
+        let cell = CountryTravelTableViewCell()
         let currentData = countryTravelData![indexPath.row]
         cell.setup(data: currentData, type: .custom)
         return cell
