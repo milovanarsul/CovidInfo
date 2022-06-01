@@ -169,6 +169,10 @@ extension UIView {
         
         return image
     }
+    
+    func constraintWithIdentifier(_ identifier: String) -> NSLayoutConstraint? {
+        return self.constraints.first { $0.identifier == identifier }
+    }
 }
 
 func removeViewsFromSuperView(views: [UIView]){

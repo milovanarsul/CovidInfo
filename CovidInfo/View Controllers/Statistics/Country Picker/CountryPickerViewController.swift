@@ -60,12 +60,12 @@ class CountryPickerViewController: UIViewController {
     
     func setup(){
         
-        view.addSubviews(views: [tableView, searchBar])
+        view.addSubviews(views: [searchBar, tableView])
         
         let searchBarConstraints = Constraints(childView: searchBar, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 0.9, constant: 0),
-            Constraint(constraintType: .height, multiplier: 1, constant: 44)
+            Constraint(constraintType: .height, multiplier: 1, constant: 44),
         ])
         searchBarConstraints.addConstraints()
         
@@ -155,7 +155,7 @@ extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSourc
         sections.insert(sectionTitle, at: 0)
         
         defaults.set(currentCountry![indexPath.row].name!, forKey: "manualCountry")
-        delegates.statistics.setupCountry()
+        //delegates.statistics.setupCountry()
         
         let top = CGPoint(x: 0, y: -tableView.contentInset.top)
         tableView.setContentOffset(top, animated: true)

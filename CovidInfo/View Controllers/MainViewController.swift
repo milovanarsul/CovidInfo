@@ -88,7 +88,8 @@ class MainViewController: UIViewController {
     func setup(){
         
         view.backgroundColor = .white
-        view.addSubviews(views: [navigationBar, contentView, certifficateButton, planTripButton, tabBar])
+        view.addSubviews(views: [navigationBar, contentView, certifficateButton, planTripButton, tabBar, countryPicker])
+        view.sendSubviewToBack(countryPicker)
         
         let navigationBarConstraints = Constraints(childView: navigationBar, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
@@ -99,10 +100,6 @@ class MainViewController: UIViewController {
         navigationBarTopConstraint = NSLayoutConstraint(item: navigationBar, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
         NSLayoutConstraint.activate([navigationBarTopConstraint])
         
-        /*
-        view.addSubview(countryPicker)
-        view.sendSubviewToBack(countryPicker)
-        
         let countryPickerConstraints = Constraints(childView: countryPicker, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
@@ -110,8 +107,7 @@ class MainViewController: UIViewController {
         ])
         countryPickerConstraints.addConstraints()
         NSLayoutConstraint.activate([countryPicker.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 5)])
-        */
-        
+         
         let contentViewConstraints = Constraints(childView: contentView, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
@@ -180,9 +176,10 @@ class MainViewController: UIViewController {
         let modal = TripPlannerViewController()
         modal.modalPresentationStyle = .formSheet
         modal.transitioningDelegate = self
+        modal.isModalInPresentation = true
         
         if let sheet = modal.sheetPresentationController {
-            sheet.prefersGrabberVisible = true
+            sheet.prefersGrabberVisible = false
             sheet.preferredCornerRadius = 24
         }
         present(modal, animated: true, completion: nil)
@@ -362,10 +359,6 @@ extension MainViewController: MainDelegate{
 }
 
 extension MainViewController: UIViewControllerTransitioningDelegate {
-    func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
-        return tripPlannerPresentationShouldDismiss
-    }
-    
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if dismissed is EnrollCertifficateViewController {
             delegates.enrollCertifficate.stopCapture()

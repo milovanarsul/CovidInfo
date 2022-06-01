@@ -635,3 +635,13 @@ let roContients: [String : String] = [
     "South America" : "America de Sud",
     "Antarctica" : "Antarctica"
 ]
+
+func countryToISO(country: String, dictionary: [String : String]) -> String?{
+    for (key, value) in dictionary {
+        if value == country{
+            return key
+        }
+    }
+    
+    return nil
+}

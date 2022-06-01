@@ -115,7 +115,6 @@ class CountryCardView: UITableViewCell {
     }
     
     func setup(){
-        data = (DataManager.currentData?.first)!
         contentView.addSubview(parentView)
         
         let parentViewConstraints = Constraints(childView: parentView, parentView: contentView, constraints: [
@@ -130,6 +129,7 @@ class CountryCardView: UITableViewCell {
         defaultConstraints(childView: containerView, parentView: parentView)
         
         containerView.addSubviews(views: [countryFlag, countryDescription, separator, informationStackView])
+        
         
         let countryFlagConstraints = Constraints(childView: countryFlag, parentView: containerView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),

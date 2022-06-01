@@ -82,32 +82,40 @@ class InfoViewController: UIViewController {
         infoPageViewController.topAnchor.constraint(equalTo: categoriesScrollView.bottomAnchor, constant: 10).isActive = true
     }
     
-    @objc func categoriesTapped(_ sender: BetterSegmentedControl){
+    func categoriesActions(index: Int){
         var scrollDirection: UIPageViewController.NavigationDirection?
         
-        if sender.index < currentIndex {
+        if index < currentIndex {
             scrollDirection = .reverse
         } else {
             scrollDirection = .forward
         }
         
-        switch sender.index {
+        switch index {
         case 0:
             delegates.infoPage.goToPage(pageIndex: 0, direction: scrollDirection!)
             delegates.main.planTripButtonAnimation(visibility: .show)
+            delegates.navigationBar.locationButtonAnimation(visibility: .show)
         case 1:
             delegates.infoPage.goToPage(pageIndex: 1, direction: scrollDirection!)
             delegates.main.planTripButtonAnimation(visibility: .hide)
+            delegates.navigationBar.locationButtonAnimation(visibility: .hide)
         case 2:
             delegates.infoPage.goToPage(pageIndex: 2, direction: scrollDirection!)
             delegates.main.planTripButtonAnimation(visibility: .hide)
+            delegates.navigationBar.locationButtonAnimation(visibility: .hide)
         case 3:
             delegates.infoPage.goToPage(pageIndex: 3, direction: scrollDirection!)
             delegates.main.planTripButtonAnimation(visibility: .hide)
+            delegates.navigationBar.locationButtonAnimation(visibility: .hide)
         default: ()
         }
         
-        currentIndex = sender.index
+        currentIndex = index
+    }
+    
+    @objc func categoriesTapped(_ sender: BetterSegmentedControl){
+        categoriesActions(index: sender.index)
     }
 }
 
@@ -120,6 +128,16 @@ extension InfoViewController: UIScrollViewDelegate {
 extension InfoViewController: InfoViewControllerDelegate{
     func getCardsViewController() -> UIViewController{
         return self.children[1]
+    }
+    
+    func viewsVisibility(visibility: Bool){
+        categoriesScrollView.isHidden = visibility
+        infoPageViewController.isHidden = visibility
+    }
+    
+    func setCategoriesIndex(index: Int){
+        categories.setIndex(index)
+        categoriesActions(index: index)
     }
 }
 

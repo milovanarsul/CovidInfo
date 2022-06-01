@@ -8,6 +8,7 @@
 import UIKit
 
 class CountryTravelTableViewCell: UITableViewCell {
+    
     var data: CountryTravelModel? {
         didSet {
             guard let data = data else { return }
@@ -31,6 +32,8 @@ class CountryTravelTableViewCell: UITableViewCell {
             }
         }
     }
+    
+    
     
     lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -64,33 +67,40 @@ class CountryTravelTableViewCell: UITableViewCell {
     
     lazy var containerview: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 8
-        view.clipsToBounds = true
         view.backgroundColor = .white
         return view
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setup()
+        //setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    func setup(){
+    func setup(data: CountryTravelModel, type: CountryTravelTableViewCellType?){
         contentView.backgroundColor = .clear
         contentView.addSubview(containerview)
-        let containerViewConstraints = Constraints(childView: containerview, parentView: contentView, constraints: [
-            Constraint(constraintType: .leading, multiplier: 1, constant: 12),
-            Constraint(constraintType: .trailing, multiplier: 1, constant: -12),
-            Constraint(constraintType: .top, multiplier: 1, constant: 8),
-            Constraint(constraintType: .bottom, multiplier: 1, constant: 8)
-        ])
-        containerViewConstraints.addConstraints()
+        
+        if type == .normal {
+            containerview.layer.cornerRadius = 8
+            containerview.clipsToBounds = true
+            
+            let containerViewConstraints = Constraints(childView: containerview, parentView: contentView, constraints: [
+                Constraint(constraintType: .leading, multiplier: 1, constant: 12),
+                Constraint(constraintType: .trailing, multiplier: 1, constant: -12),
+                Constraint(constraintType: .top, multiplier: 1, constant: 8),
+                Constraint(constraintType: .bottom, multiplier: 1, constant: 8)
+            ])
+            containerViewConstraints.addConstraints()
+        } else {
+            defaultConstraints(childView: containerview, parentView: contentView)
+        }
         
         containerview.addSubviews(views: [iconImageView, titleSubtitleStackView])
+        self.data = data
     }
     
     func textIsNotPresent(){

@@ -13,7 +13,7 @@ class CountryTravelModel {
     var title: String?
     var subtitle: (String, UIColor)?
     var text: String?
-    var height: CGFloat
+    var height: CGFloat?
     
     init(icon: UIImage, title: String, subtitle: (String, UIColor), text: String? = nil){
         self.icon = icon
@@ -21,8 +21,11 @@ class CountryTravelModel {
         self.subtitle = subtitle
         
         if let text = text {
+            TranslatorManager.translate(text: text) { translation in
+                self.text = translation
+            }
             self.text = text
-            self.height = text.height(withConstrainedWidth: UIScreen.main.bounds.width - 24, font: UIFont(name: "IBMPlexSans-Regular", size: 12)!) - 30
+            self.height = self.text!.height(withConstrainedWidth: UIScreen.main.bounds.width - 24, font: UIFont(name: "IBMPlexSans-Regular", size: 12)!) - 30
         } else {
             self.height = 80
         }

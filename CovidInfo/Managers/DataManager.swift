@@ -16,6 +16,7 @@ class DataManager{
     static var currentCountryData: CurrentData?
     static var historicCountryData: HistoricData?
     
+    //load parsers and webscrapers
     static func loadData(){
         parseCurrentData()
         parseHistoricalData()
@@ -27,8 +28,16 @@ class DataManager{
         defaults.set(true, forKey: "statisticsFetched")
     }
     
+    //load parsers, webscrapers and fetch data from core data
     static func fetchData(){
         DataManager.loadData()
+        DataManager.fetchNews()
+        DataManager.fetchCovidData()
+        DataManager.countryData()
+    }
+    
+    //fetch data from coredata
+    static func fetchCoreData(){
         DataManager.fetchNews()
         DataManager.fetchCovidData()
         DataManager.countryData()

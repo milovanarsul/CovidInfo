@@ -7,7 +7,10 @@
 
 import UIKit
 
-class TripPlannerCountryPickerView: UIView {
+var departureCountry: Country?
+var arrivalCountry: Country?
+
+class TripPlannerCountryPickerTableView: UIView {
     
     var viewType: TripViewType?
     
@@ -91,12 +94,28 @@ class TripPlannerCountryPickerView: UIView {
         self.viewType = viewType
         super.init(frame: .zero)
         
+        tableViewData()
         setup()
-        formatedData = data
     }
     
     required init?(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)
+    }
+    
+    func tableViewData(){
+        var indexToBeDeleted: Int?
+        
+        if departureCountry != nil {
+            for index in 0..<data.count {
+                if data[index].name == departureCountry?.name {
+                    indexToBeDeleted = index
+                }
+            }
+            
+            data.remove(at: indexToBeDeleted!)
+        }
+        
+        formatedData = data
     }
     
     func setup(){
@@ -160,7 +179,7 @@ class TripPlannerCountryPickerView: UIView {
     }
 }
 
-extension TripPlannerCountryPickerView: UISearchBarDelegate{
+extension TripPlannerCountryPickerTableView: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
             formatedData = data
@@ -178,7 +197,7 @@ extension TripPlannerCountryPickerView: UISearchBarDelegate{
     }
 }
 
-extension TripPlannerCountryPickerView: UITableViewDelegate, UITableViewDataSource {
+extension TripPlannerCountryPickerTableView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return formatedData.count
@@ -195,6 +214,19 @@ extension TripPlannerCountryPickerView: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch viewType{
+        case .departure:
+            departureCountry = formatedData[indexPath.row]
+        case .arrival:
+            arrivalCountry = formatedData[indexPath.row]
+        case .none:
+            ()
+        }
         
+        closeButtonTapped()
+        
+        if departureCountry != nil && arrivalCountry != nil{
+            delegates.tripPlanner.result()
+        }
     }
 }

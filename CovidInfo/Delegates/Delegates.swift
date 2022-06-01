@@ -27,6 +27,7 @@ class Delegates{
     var info: InfoViewControllerDelegate! = nil
     var statistics: StatisticsViewControllerDelegate! = nil
     var tripPlanner: TripPlannerDelegate! = nil
+    var tripResult: TripPlannerResultViewDelegate! = nil
     
     init(){}
 }
@@ -128,6 +129,8 @@ protocol InfoCardsCollectionViewDelegate{
 
 protocol InfoViewControllerDelegate{
     func getCardsViewController() -> UIViewController
+    func setCategoriesIndex(index: Int)
+    func viewsVisibility(visibility: Bool)
 }
 
 protocol CountryPickerDelegate{
@@ -142,4 +145,9 @@ protocol StatisticsViewControllerDelegate {
 protocol TripPlannerDelegate{
     func animateDepartureView()
     func animateArrivalView()
+    func result()
+}
+
+protocol TripPlannerResultViewDelegate {
+    func extendResult(resultType: TripViewType, height: CGFloat)
 }

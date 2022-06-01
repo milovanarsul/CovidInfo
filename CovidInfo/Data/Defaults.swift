@@ -8,6 +8,12 @@
 import Foundation
 import UIKit
 
+var showOnboarding: Bool = false
+var articlesViewControllerHasBeenPresented = false
+var countryPickerAdded: Bool = false
+
+let defaults = UserDefaults.standard
+
 /// UNIVERSAL
 let signatureDarkBlue = UIColor("28429E")
 let signatureLightBlue = UIColor("91B3FA")

@@ -8,6 +8,16 @@
 import UIKit
 
 class CountryViewController: UIViewController {
+    
+    var data: CurrentData?
+    
+    lazy var locationNotSelected: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "locationRestricted")!
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
@@ -30,15 +40,32 @@ class CountryViewController: UIViewController {
     }
     
     func setup(){
-        view.backgroundColor = UIColor("#f2f2f7")
-        view.addSubviews(views: [tableView])
-        defaultConstraints(childView: tableView, parentView: view)
+        data = DataManager.currentCountryData
+        
+        let automaticCountry: Bool = (AppDelegate.locationCountry != nil)
+        let manualCountry: Bool = (defaults.string(forKey: "manualCountry") != nil)
+        
+        if automaticCountry == false && manualCountry == false{
+            view.backgroundColor = .white
+            view.addSubview(locationNotSelected)
+            let locationNotSelectedConstraints = Constraints(childView: locationNotSelected, parentView: view, constraints: [
+                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+                Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
+                Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+                Constraint(constraintType: .aspectRatio, multiplier: (1.0 / 1.0), constant: 0)
+            ])
+            locationNotSelectedConstraints.addConstraints()
+        } else {
+            view.backgroundColor = UIColor("#f2f2f7")
+            view.addSubview(tableView)
+            defaultConstraints(childView: tableView, parentView: view)
+        }
     }
 }
 
 extension CountryViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AmadeusManager.countryTravelData!.count + 1
+        return AmadeusManager.currentCountryTravelData!.count + 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -47,7 +74,7 @@ extension CountryViewController: UITableViewDelegate, UITableViewDataSource{
         if indexPath.row == 0{
             height = 400
         } else {
-            height = AmadeusManager.countryTravelData![indexPath.row - 1].height
+            height = AmadeusManager.currentCountryTravelData![indexPath.row - 1].height
         }
         
         return height!
@@ -58,13 +85,14 @@ extension CountryViewController: UITableViewDelegate, UITableViewDataSource{
         let countryTravelCell = tableView.dequeueReusableCell(withIdentifier: "countryTravel") as! CountryTravelTableViewCell
         
         if indexPath.row == 0 {
+            countryCardCell.data = data!
             countryCardCell.setup()
             countryCardCell.backgroundColor = .clear
             return countryCardCell
         } else {
-            let currentData = AmadeusManager.countryTravelData![indexPath.row - 1]
-            countryTravelCell.data = currentData
+            let currentData = AmadeusManager.currentCountryTravelData![indexPath.row - 1]
             countryTravelCell.backgroundColor = .clear
+            countryTravelCell.setup(data: currentData, type: .normal)
             return countryTravelCell
         }
     }

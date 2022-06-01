@@ -158,20 +158,24 @@ class CustomNavigationBar: UIView {
     @objc func locationButtonTapped(_ sender: UIButton){
         switch resetsLocationButton{
         case false:
-            
             if defaults.bool(forKey: "automaticLocation") == true{
-                delegates.main.animateContentView(size: 100)
+                delegates.main.animateContentView(size: 80)
             } else {
                 delegates.statistics.contentViewVisibility(visibility: true)
                 delegates.main.animateContentView(size: 650)
             }
             
             locationButton.initialize(title: "", titleColor: .white, cornerRadius: 100, font: boldFont(size: 30), backgroundColor: UIColor("D04545"), image: UIImage(systemName: "x.circle"))
+            
+            delegates.main.planTripButtonAnimation(visibility: .hide)
             resetsLocationButton = true
         case true:
             delegates.main.animateContentView(size: 5)
             locationButton.initialize(title: "", titleColor: .white, cornerRadius: 100, font: boldFont(size: 30), backgroundColor: UIColor("00A777"), image: UIImage(systemName: "location.circle"))
-            delegates.statistics.contentViewVisibility(visibility: false)
+            
+            delegates.info.viewsVisibility(visibility: false)
+            //delegates.navigationBar.locationButtonAnimation(visibility: .show)
+            delegates.main.planTripButtonAnimation(visibility: .show)
             resetsLocationButton = false
         }
     }

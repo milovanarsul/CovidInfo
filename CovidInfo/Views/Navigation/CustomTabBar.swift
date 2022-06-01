@@ -131,7 +131,7 @@ class CustomTabBar: UIView {
             delegates.main.planTripButtonAnimation(visibility: .show)
             delegates.main.certifficateButtonAnimation(visibility: .hide)
             delegates.navigationBar.certifficateButtonAnimation(visibility: .show)
-            delegates.navigationBar.locationButtonAnimation(visibility: .hide)
+            delegates.navigationBar.locationButtonAnimation(visibility: .show)
         default:
             delegates.main.planTripButtonAnimation(visibility: .hide)
             delegates.main.certifficateButtonAnimation(visibility: .hide)

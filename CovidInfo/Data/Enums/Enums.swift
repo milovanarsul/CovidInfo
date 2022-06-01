@@ -147,3 +147,8 @@ enum TripViewType{
     case arrival
     case departure
 }
+
+enum CountryTravelTableViewCellType {
+    case normal
+    case custom
+}

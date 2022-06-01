@@ -21,20 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        if defaults.bool(forKey: "notFirstLaunch") {
+            DataManager.fetchCoreData()
+        }
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        
-        print(OnboardingManager.shared.isFirstLaunch)
-        if OnboardingManager.shared.isFirstLaunch {
-            defaults.set(Date(), forKey: "lastRefresh")
-        } else if DataManager.isRefreshRequired() == false{
-            DataManager.fetchNews()
-            DataManager.fetchCovidData()
-        }
-        
-        AmadeusManager.getData(country: "ROU")
-        
+
         return true
     }
 
@@ -99,7 +92,7 @@ extension AppDelegate: CLLocationManagerDelegate{
                     defaults.set(true, forKey: "automaticLocation")
                 }
                 
-                if OnboardingManager.shared.isFirstLaunch == false && DataManager.isRefreshRequired() == false{
+                if defaults.bool(forKey: "isNotFirstLaunch") == true && DataManager.isRefreshRequired() == false{
                     DataManager.countryData()
                 }
             }

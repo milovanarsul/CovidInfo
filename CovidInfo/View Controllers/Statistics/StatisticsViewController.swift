@@ -31,6 +31,7 @@ class StatisticsViewController: UIViewController {
         let manualCountry: Bool = (defaults.string(forKey: "manualCountry") != nil)
         
         if automaticCountry == false && manualCountry == false{
+            view.backgroundColor = .white
             view.addSubview(locationNotSelected)
             
             let locationNotSelectedConstraints = Constraints(childView: locationNotSelected, parentView: view, constraints: [

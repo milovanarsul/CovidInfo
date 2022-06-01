@@ -56,14 +56,14 @@ class LocationPickerView: UIView {
         
         let locationStackViewConstraints = Constraints(childView: locationStackView, parentView: self, constraints: [
             Constraint(constraintType: .leading, multiplier: 1, constant: 12),
-            Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
+            Constraint(constraintType: .top, multiplier: 1, constant: 10),
             Constraint(constraintType: .proportionalWidth, multiplier: 0.7, constant: 0)
         ])
         locationStackViewConstraints.addConstraints()
         
         let locationSwitchConstraints = Constraints(childView: locationSwitch, parentView: self, constraints: [
-            Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
-            Constraint(constraintType: .trailing, multiplier: 1, constant: -24)
+            Constraint(constraintType: .trailing, multiplier: 1, constant: -24),
+            Constraint(constraintType: .top, multiplier: 1, constant: 10)
         ])
         locationSwitchConstraints.addConstraints()
     }
@@ -72,14 +72,16 @@ class LocationPickerView: UIView {
         if sender.isOn == false{
             delegates.main.animateContentView(size: 650)
             self.desriptionLabel.isHidden = true
-            delegates.statistics.contentViewVisibility(visibility: true)
+            //delegates.statistics.contentViewVisibility(visibility: true)
             defaults.set(sender.isOn, forKey: "automaticLocation")
+            delegates.info.viewsVisibility(visibility: true)
         } else {
-            delegates.main.animateContentView(size: 100)
+            delegates.main.animateContentView(size: 80)
             self.desriptionLabel.isHidden = false
-            delegates.statistics.contentViewVisibility(visibility: false)
+            delegates.info.viewsVisibility(visibility: false)
+            //delegates.statistics.contentViewVisibility(visibility: false)
             defaults.set(sender.isOn, forKey: "automaticLocation")
-            delegates.statistics.setupCountry()
+            //delegates.statistics.setupCountry()
         }
     }
 }

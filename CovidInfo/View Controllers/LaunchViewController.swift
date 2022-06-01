@@ -12,8 +12,6 @@ private var onboardingCompleted: Bool = false
 
 class LaunchViewController: UIViewController {
     
-    var dataLoadNeeded: Bool = DataManager.isRefreshRequired()
-    
     lazy var backgroundImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "FirstOnboarding")
@@ -27,7 +25,7 @@ class LaunchViewController: UIViewController {
         view.cornerRadius = 24
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.isHidden = dataLoadNeeded
+        view.isHidden = DataManager.isRefreshRequired()
         return view
     }()
     
@@ -71,15 +69,26 @@ class LaunchViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        isFirstLaunch()
         setup()
         
-        if dataLoadNeeded {
+        let notFirstLaunch = defaults.bool(forKey: "notFirstLaunch")
+
+        if DataManager.isRefreshRequired() && notFirstLaunch == true{
             dataLoading()
             print("Data has been automatically refreshed!")
         } else {
-            showOnboarding ? startOnboarding() : goTomain()
-            onboardingCompleted ? skipOnboarding() : ()
+            DataManager.fetchCoreData()
+            AmadeusManager.loadData(country: "ROU") {result in
+                AmadeusManager.currentCountryTravelData = result
+                DispatchQueue.main.async { [self] in
+                    notFirstLaunch ? goTomain() : startOnboarding()
+                    onboardingCompleted ? skipOnboarding() : ()
+                }
+            }
+        }
+        
+        if defaults.bool(forKey: "notFirstLaunch") == false{
+            defaults.set(true, forKey: "notFirstLaunch")
         }
     }
     
@@ -99,7 +108,7 @@ class LaunchViewController: UIViewController {
         view.addSubviews(views: [backgroundImage, launchView, onboardingView])
         defaultConstraints(childView: backgroundImage, parentView: view)
         
-        if dataLoadNeeded == false {
+        if DataManager.isRefreshRequired() == false {
             launchViewWidthConstraint = launchView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: 0)
             launchViewHeightConstraint = launchView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.124, constant: 0)
         } else {
@@ -135,8 +144,11 @@ class LaunchViewController: UIViewController {
             self.dataLoadingComponents()
             DispatchQueue.main.async {
                 DataManager.fetchData()
-                self.dataLoadingView.removeFromSuperview()
-                self.goTomain()
+                AmadeusManager.loadData(country: "ROU") {result in
+                    AmadeusManager.currentCountryTravelData = result
+                    self.dataLoadingView.removeFromSuperview()
+                    self.goTomain()
+                }
             }
         })
     }
