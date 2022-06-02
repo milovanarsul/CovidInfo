@@ -90,7 +90,7 @@ class HomeViewTableViewCell: UITableViewCell {
         
         lazy var charts: UIView = {
             let view = UIView()
-            parentViewController!.addSubSwiftUIView(QuickCharts(currentData: currentData!, historicData: historicData!), to: view)
+            parentViewController!.addSubSwiftUIView(CasesAndDeaths(currentData: currentData!, historicData: historicData!), to: view)
             return view
         }()
         

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 import BetterSegmentedControl
 
 class InfoViewController: UIViewController {

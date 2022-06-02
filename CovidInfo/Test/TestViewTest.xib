@@ -51,6 +51,12 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="137.68115942028987" y="617.74553571428567"/>
         </view>
+        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" id="3TP-S5-2Zw">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+            <locale key="locale" localeIdentifier="ro"/>
+            <point key="canvasLocation" x="-201" y="119"/>
+        </datePicker>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">

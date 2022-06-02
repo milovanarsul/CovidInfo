@@ -14,7 +14,8 @@ func deleteAllCustomEntityObjects(context: NSManagedObjectContext){
     deleteAllEntityObjects(context: context, entityName: "CurrentData")
     deleteAllEntityObjects(context: context, entityName: "HistoricData")
     deleteAllEntityObjects(context: context, entityName: "CountryTravel")
-    deleteAllEntityObjects(context: context, entityName: "OldHistoricData")
+    deleteAllEntityObjects(context: context, entityName: "Old2021HistoricData")
+    deleteAllEntityObjects(context: context, entityName: "Old2020HistoricData")
 }
 
 func deleteAllEntityObjects(context: NSManagedObjectContext, entityName: String){

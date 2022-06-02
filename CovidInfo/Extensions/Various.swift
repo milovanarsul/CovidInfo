@@ -58,3 +58,14 @@ func stringToDate(string: String) -> Date{
     let date = dateFormatter.date(from: string)
     return date!
 }
+
+func createDate(day: Int, month: Int, year: Int) -> Date{
+    var dateComponents = DateComponents()
+    dateComponents.day = day
+    dateComponents.month = month
+    dateComponents.year = year
+    
+    let userCalendar = Calendar(identifier: .gregorian)
+    let date = userCalendar.date(from: dateComponents)
+    return date!
+}

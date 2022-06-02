@@ -45,6 +45,31 @@ class MainViewController: UIViewController {
         return button
     }()
     
+    lazy var filterButton: UIButton = {
+        let button = UIButton()
+        button.initialize(title: "Filtreaza datele", titleColor: .white, cornerRadius: 24, font: boldFont(size: 13), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10), image: UIImage(systemName: "slider.vertical.3"))
+        button.addTarget(self, action: #selector(filterButtonTapped(_:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var compareCountries: UIButton = {
+        let button = UIButton()
+        button.initialize(title: "Compara tari", titleColor: .white, cornerRadius: 24, font: boldFont(size: 13), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10), image: UIImage(systemName: "chart.pie"))
+        button.addTarget(self, action: #selector(compareCountriesButtonTapped(_:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var statisticsActions: UIStackView = {
+        let stackView = UIStackView()
+        stackView.backgroundColor = .clear
+        stackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fill, spacing: 10)
+        stackView.addAranagedSubviews(views: [filterButton, compareCountries])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
     lazy var tabBar: UIView = {
         let view = CustomTabBar()
         view.setup()
@@ -84,11 +109,12 @@ class MainViewController: UIViewController {
     var navigationBarTopConstraint = NSLayoutConstraint()
     var contentViewTopConstraint = NSLayoutConstraint()
     var planTripButtonVerticalConstraint = NSLayoutConstraint()
+    var statisticsActionsVerticalConstraint = NSLayoutConstraint()
     
     func setup(){
         
         view.backgroundColor = .white
-        view.addSubviews(views: [navigationBar, contentView, certifficateButton, planTripButton, tabBar, countryPicker])
+        view.addSubviews(views: [navigationBar, contentView, certifficateButton, planTripButton, statisticsActions ,tabBar, countryPicker])
         view.sendSubviewToBack(countryPicker)
         
         let navigationBarConstraints = Constraints(childView: navigationBar, parentView: view, constraints: [
@@ -135,6 +161,14 @@ class MainViewController: UIViewController {
             planTripButtonVerticalConstraint,
             planTripButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+        
+        statisticsActionsVerticalConstraint = tabBar.topAnchor.constraint(equalTo: statisticsActions.bottomAnchor, constant: -45)
+        NSLayoutConstraint.activate([
+            statisticsActionsVerticalConstraint,
+            statisticsActions.widthAnchor.constraint(equalTo: tabBar.widthAnchor, multiplier: 0.9, constant: 0),
+            statisticsActions.heightAnchor.constraint(equalTo: tabBar.heightAnchor, multiplier: 0.7, constant: 0),
+            statisticsActions.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
     }
     
     var tabBarExtensionBottomConstraint = NSLayoutConstraint()
@@ -177,6 +211,32 @@ class MainViewController: UIViewController {
         modal.modalPresentationStyle = .formSheet
         modal.transitioningDelegate = self
         modal.isModalInPresentation = true
+        
+        if let sheet = modal.sheetPresentationController {
+            sheet.prefersGrabberVisible = false
+            sheet.preferredCornerRadius = 24
+        }
+        present(modal, animated: true, completion: nil)
+    }
+    
+    @objc func filterButtonTapped(_ sender: UIButton){
+        let modal = FilterDataViewController()
+        modal.view.backgroundColor = .white
+    
+        if let sheet = modal.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 24
+        }
+        
+        present(modal, animated: true, completion: nil)
+    }
+    
+    @objc func compareCountriesButtonTapped(_ sender: UIButton){
+        let modal = UIViewController()
+        modal.view.backgroundColor = .white
+        modal.modalPresentationStyle = .formSheet
+        modal.transitioningDelegate = self
         
         if let sheet = modal.sheetPresentationController {
             sheet.prefersGrabberVisible = false
@@ -230,6 +290,20 @@ extension MainViewController: MainDelegate{
         
         UIView.animate(withDuration: 0.6, animations: {
             self.planTripButton.layoutIfNeeded()
+        })
+    }
+    
+    func statisticsActionsAnimation(visibility: ViewVisibility){
+        switch visibility {
+        case .show:
+            statisticsActionsVerticalConstraint.constant = 15
+        case .hide:
+            statisticsActionsVerticalConstraint.constant = -45
+        }
+        
+        UIView.animate(withDuration: 0.6, animations: {
+            self.statisticsActions.layoutIfNeeded()
+            self.view.layoutIfNeeded()
         })
     }
     

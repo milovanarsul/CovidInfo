@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-var showOnboarding: Bool = false
+var showOnboarding: Bool = true
 var articlesViewControllerHasBeenPresented = false
 var countryPickerAdded: Bool = false
 var dataDownloadFinished: Bool = true

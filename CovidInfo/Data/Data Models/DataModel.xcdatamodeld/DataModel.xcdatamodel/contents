@@ -104,7 +104,22 @@
         <attribute name="totalTesteAntigen" optional="YES" attributeType="String"/>
         <attribute name="totalTestePCR" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="OldHistoricData" representedClassName="OldHistoricData" syncable="YES" codeGenerationType="class">
+    <entity name="Old2020HistoricData" representedClassName="Old2020HistoricData" syncable="YES" codeGenerationType="class">
+        <attribute name="cases" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="ObjcHistoricalDataContents"/>
+        <attribute name="countryISO" optional="YES" attributeType="String"/>
+        <attribute name="deaths" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="ObjcHistoricalDataContents"/>
+        <attribute name="hospital" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="ObjcHistoricalDataContents"/>
+        <attribute name="icu" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="ObjcHistoricalDataContents"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="sevenDaysCases" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
+        <attribute name="sevenDaysDeaths" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
+        <attribute name="sevenDaysPositiveRate" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
+        <attribute name="sevenDaysTests" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
+        <attribute name="sevenDaysVaccinations" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String : Double]"/>
+        <attribute name="tests" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="ObjcHistoricalDataContents"/>
+        <attribute name="vaccinations" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="ObjcHistoricalDataContents"/>
+    </entity>
+    <entity name="Old2021HistoricData" representedClassName="Old2021HistoricData" syncable="YES" codeGenerationType="class">
         <attribute name="cases" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="ObjcHistoricalDataContents"/>
         <attribute name="countryISO" optional="YES" attributeType="String"/>
         <attribute name="deaths" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="ObjcHistoricalDataContents"/>
@@ -121,10 +136,11 @@
     </entity>
     <elements>
         <element name="Article" positionX="-63" positionY="-18" width="128" height="179"/>
+        <element name="CountryTravel" positionX="-54" positionY="144" width="128" height="104"/>
         <element name="CurrentData" positionX="-63" positionY="72" width="128" height="914"/>
         <element name="HistoricData" positionX="-54" positionY="144" width="128" height="224"/>
         <element name="MSPressBulettin" positionX="-63" positionY="54" width="128" height="134"/>
-        <element name="OldHistoricData" positionX="-45" positionY="153" width="128" height="224"/>
-        <element name="CountryTravel" positionX="-54" positionY="144" width="128" height="104"/>
+        <element name="Old2021HistoricData" positionX="-45" positionY="153" width="128" height="224"/>
+        <element name="Old2020HistoricData" positionX="-54" positionY="144" width="128" height="224"/>
     </elements>
 </model>

@@ -59,6 +59,7 @@ protocol MainDelegate{
     func tabBarExtension(visibility: ViewVisibility)
     func animateContentView(size: CGFloat)
     func planTripButtonAnimation(visibility: ViewVisibility)
+    func statisticsActionsAnimation(visibility: ViewVisibility)
 }
 
 protocol NavigationBarDelegate{
@@ -137,8 +138,7 @@ protocol CountryPickerDelegate{
 }
 
 protocol StatisticsViewControllerDelegate {
-    func contentViewVisibility(visibility: Bool)
-    func setupCountry()
+    func refreshTableView()
 }
 
 protocol TripPlannerDelegate{

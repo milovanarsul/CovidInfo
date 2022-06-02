@@ -74,7 +74,7 @@ class LocationPickerView: UIView {
             self.desriptionLabel.isHidden = true
             //delegates.statistics.contentViewVisibility(visibility: true)
             defaults.set(sender.isOn, forKey: "automaticLocation")
-            delegates.info.viewsVisibility(visibility: true)
+            //delegates.info.viewsVisibility(visibility: true)
         } else {
             delegates.main.animateContentView(size: 80)
             self.desriptionLabel.isHidden = false

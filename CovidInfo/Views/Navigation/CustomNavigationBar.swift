@@ -161,7 +161,6 @@ class CustomNavigationBar: UIView {
             if defaults.bool(forKey: "automaticLocation") == true{
                 delegates.main.animateContentView(size: 80)
             } else {
-                delegates.statistics.contentViewVisibility(visibility: true)
                 delegates.main.animateContentView(size: 650)
             }
             

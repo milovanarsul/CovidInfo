@@ -30,3 +30,5 @@ class HistoricalData: Codable{
     var vaccinations: HistoricalDataContents?
     var sevenDaysVaccinations: [String : Double]?
 }
+
+
