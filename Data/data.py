@@ -17,7 +17,7 @@ roDays = {
 roMonths = {
     "January" : "Ianuarie",
     "February" : "Februarie",
-    "March" : "Matie",
+    "March" : "Martie",
     "April" : "Aprilie",
     "May" : "Mai",
     "June" : "Iunie",
