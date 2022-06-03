@@ -57,7 +57,7 @@ def parseDataForMonth(dataList, month, dataKey):
     
     return buffer
     
-    
+
 def parseData(jsonFile, country, dataKey):
     month = {}
     statistic = {}

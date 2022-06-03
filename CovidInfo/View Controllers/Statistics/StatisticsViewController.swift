@@ -20,7 +20,9 @@ class StatisticsViewController: UIViewController {
     
     lazy var date: UILabel = {
         let label = UILabel()
-        label.initialize(text: "Astazi, 2 Iunie 2022", color: .black, font: boldFont(size: 20), alignment: .left, lines: 1)
+        let date = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        let month = romanianMonths[date.month!]
+        label.initialize(text: "Astazi, \(date.day!) \(month!) \(date.year!)", color: .black, font: boldFont(size: 20), alignment: .left, lines: 1)
         return label
     }()
     
@@ -45,7 +47,6 @@ class StatisticsViewController: UIViewController {
     }
     
     func setup(){
-        /*
         if DataManager.isLocationEnabled() == false {
             view.backgroundColor = .white
             view.addSubview(locationNotSelected)
@@ -58,29 +59,24 @@ class StatisticsViewController: UIViewController {
             ])
             locationNotSelectedConstraints.addConstraints()
         } else {
-            view.backgroundColor = UIColor("#efeff0")
-            view.addSubview(pageViewController)
-            defaultConstraints(childView: pageViewController, parentView: view)
+             view.addSubviews(views: [date, tableView])
+             
+             let dateConstraints = Constraints(childView: date, parentView: view, constraints: [
+                 Constraint(constraintType: .top, multiplier: 1, constant: 15),
+                 Constraint(constraintType: .leading, multiplier: 1, constant: 25),
+                 Constraint(constraintType: .trailing, multiplier: 1, constant: -25),
+                 Constraint(constraintType: .height, multiplier: 1, constant: 30)
+             ])
+             dateConstraints.addConstraints()
+             
+             let tableViewConstraints = Constraints(childView: tableView, parentView: view, constraints: [
+                 Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+                 Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+                 Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
+             ])
+             tableViewConstraints.addConstraints()
+             tableView.topAnchor.constraint(equalTo: date.bottomAnchor, constant: 10).isActive = true
         }
-        */
-        
-        view.addSubviews(views: [date, tableView])
-        
-        let dateConstraints = Constraints(childView: date, parentView: view, constraints: [
-            Constraint(constraintType: .top, multiplier: 1, constant: 15),
-            Constraint(constraintType: .leading, multiplier: 1, constant: 25),
-            Constraint(constraintType: .trailing, multiplier: 1, constant: -25),
-            Constraint(constraintType: .height, multiplier: 1, constant: 30)
-        ])
-        dateConstraints.addConstraints()
-        
-        let tableViewConstraints = Constraints(childView: tableView, parentView: view, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
-            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
-        ])
-        tableViewConstraints.addConstraints()
-        tableView.topAnchor.constraint(equalTo: date.bottomAnchor, constant: 10).isActive = true
     }
 }
 
@@ -97,18 +93,19 @@ extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
         if showHistoricData == false {
             let cell = CurrentDataTableViewCell()
             cell.parentViewController = self
-            cell.currentData = DataManager.getCurrentCountry(name: "România")
-            cell.historicData = DataManager.getHistoricCountry(name: "România")
+            cell.currentData = DataManager.currentCountryData!
+            cell.historicData = DataManager.historicCountryData!
             cell.setup()
             cell.backgroundColor = UIColor("#efeff0")
             return cell
         } else {
             let cell = HistoricalDataTableViewCell()
             cell.parentViewController = self
-            cell.historic2022Data = DataManager.getHistoricCountry(name: "România")
-            cell.historic2021Data = DataManager.getHistoric2021Country(name: "România")
-            cell.historic2020Data = DataManager.getHistoric2020Country(name: "România")
+            cell.historic2022Data = DataManager.historicCountryData!
+            cell.historic2021Data = DataManager.currentHistoric2021Data!
+            cell.historic2020Data = DataManager.currentHistoric2020Data!
             cell.setup()
+            cell.backgroundColor = UIColor("#efeff0")
             return cell
         }
     }
@@ -117,5 +114,9 @@ extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
 extension StatisticsViewController: StatisticsViewControllerDelegate {
     func refreshTableView(){
         tableView.reloadData()
+    }
+    
+    func updateDate(text: String){
+        date.initialize(text: text, color: .black, font: boldFont(size: 20), alignment: .left, lines: 1)
     }
 }

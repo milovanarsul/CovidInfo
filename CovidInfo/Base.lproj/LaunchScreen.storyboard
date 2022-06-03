@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,7 +36,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="nYN-hW-fLF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="17X-fm-9iL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nYN-hW-fLF" secondAttribute="bottom" id="Gd4-XU-FRW"/>
+                            <constraint firstAttribute="bottom" secondItem="nYN-hW-fLF" secondAttribute="bottom" constant="34" id="Gd4-XU-FRW"/>
                             <constraint firstItem="3DW-vj-s4h" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Kud-fb-05p"/>
                             <constraint firstItem="nYN-hW-fLF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="TbE-VC-ezw"/>
                             <constraint firstItem="1m7-VY-U4Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Uzg-hH-n8k"/>

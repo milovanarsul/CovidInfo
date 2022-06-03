@@ -10,7 +10,7 @@ import SwiftUICharts
 
 struct CasesAndDeaths: View {
     @ObservedObject var currentData: CurrentData
-    @ObservedObject var historicData: HistoricData
+    @ObservedObject var historicData: HistoricalData
 
     var body: some View{
     let sevenDaysCases = dictionaryToDoubleArray(dictionary: historicData.sevenDaysCases!)
@@ -34,12 +34,11 @@ struct CasesAndDeaths: View {
 
 struct SevenDaysCharts: View {
     @ObservedObject var currentData: CurrentData
-    @ObservedObject var historicData: HistoricData
+    @ObservedObject var historicData: HistoricalData
     
     var body: some View{
         let sevenDaysCases = dictionaryToTuple(dictionary: historicData.sevenDaysCases!)
         let sevenDaysDeaths = dictionaryToTuple(dictionary: historicData.sevenDaysDeaths!)
-        let sevenDaysVaccinations = dictionaryToDoubleArray(dictionary: historicData.sevenDaysVaccinations!)
         
         VStack{
             BarChartView(data: ChartData(values: sevenDaysCases), title: "Cazuri in ultimele 7 zile", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)

@@ -8,91 +8,92 @@
 import SwiftUI
 import SwiftUICharts
 
+
 struct Historic2022Charts: View {
-    @ObservedObject var historicData: HistoricData
+    @ObservedObject var historicData: HistoricalData
     
     var body: some View {
      
-        let casesPerMonth = dictionaryToTuple(dictionary:(historicData.cases?.perMonth![month!])!)
-        let deathsPerMonth = dictionaryToTuple(dictionary:(historicData.deaths?.perMonth![month!])!)
-        let icuPerMonth = dictionaryToTuple(dictionary:(historicData.icu?.perMonth![month!])!)
-        let hospitalPerMonth = dictionaryToTuple(dictionary:(historicData.hospital?.perMonth![month!])!)
-        let testsPerMonth = dictionaryToTuple(dictionary:(historicData.tests?.perMonth![month!])!)
-        let vaccinationsPerMonth = dictionaryToTuple(dictionary:(historicData.vaccinations?.perMonth![month!])!)
+        let casesPerMonth = dictionaryToTuple(dictionary: (historicData.cases?.perMonth![selectedMonth!])!)
+        let deathsPerMonth = dictionaryToTuple(dictionary:(historicData.deaths?.perMonth![selectedMonth!])!)
+        let icuPerMonth = dictionaryToTuple(dictionary:(historicData.icu?.perMonth![selectedMonth!])!)
+        let hospitalPerMonth = dictionaryToTuple(dictionary:(historicData.hospital?.perMonth![selectedMonth!])!)
+        let testsPerMonth = dictionaryToTuple(dictionary:(historicData.tests?.perMonth![selectedMonth!])!)
+        let vaccinationsPerMonth = dictionaryToTuple(dictionary:(historicData.vaccinations?.perMonth![selectedMonth!])!)
         
         ScrollView(.vertical, showsIndicators: false){
             VStack(alignment: .center, spacing: 20){
-                BarChartView(data: ChartData(values: casesPerMonth), title: "Cazuri in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: casesPerMonth), title: "Cazuri in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
-                BarChartView(data: ChartData(values: deathsPerMonth), title: "Decese in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: deathsPerMonth), title: "Decese in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
-                BarChartView(data: ChartData(values: icuPerMonth), title: "Pacienti ATI in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: icuPerMonth), title: "Pacienti ATI in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
-                BarChartView(data: ChartData(values: hospitalPerMonth), title: "Pacienti internati in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: hospitalPerMonth), title: "Pacienti internati in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
-                BarChartView(data: ChartData(values: testsPerMonth), title: "Teste realizate in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: testsPerMonth), title: "Teste realizate in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
-                BarChartView(data: ChartData(values: vaccinationsPerMonth), title: "Vaccinari in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: vaccinationsPerMonth), title: "Vaccinari in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
             }
         }
     }
 }
 
 struct Historic2021Charts: View {
-    @ObservedObject var historicData: Old2021HistoricData
+    @ObservedObject var historicData: OldHistoricalData
     
     var body: some View {
      
-        let casesPerMonth = dictionaryToTuple(dictionary:(historicData.cases?.perMonth![month!])!)
-        let deathsPerMonth = dictionaryToTuple(dictionary:(historicData.deaths?.perMonth![month!])!)
-        let icuPerMonth = dictionaryToTuple(dictionary:(historicData.icu?.perMonth![month!])!)
-        let hospitalPerMonth = dictionaryToTuple(dictionary:(historicData.hospital?.perMonth![month!])!)
-        let testsPerMonth = dictionaryToTuple(dictionary:(historicData.tests?.perMonth![month!])!)
-        let vaccinationsPerMonth = dictionaryToTuple(dictionary:(historicData.vaccinations?.perMonth![month!])!)
+        let casesPerMonth = dictionaryToTuple(dictionary: historicData.cases[selectedMonth!]!)
+        let deathsPerMonth = dictionaryToTuple(dictionary: historicData.deaths[selectedMonth!]!)
+        let icuPerMonth = dictionaryToTuple(dictionary: historicData.icu[selectedMonth!]!)
+        let hospitalPerMonth = dictionaryToTuple(dictionary: historicData.hospital[selectedMonth!]!)
+        let testsPerMonth = dictionaryToTuple(dictionary: historicData.tests[selectedMonth!]!)
+        let vaccinationsPerMonth = dictionaryToTuple(dictionary: historicData.vaccinations[selectedMonth!]!)
         
         ScrollView(.vertical, showsIndicators: false){
             VStack(alignment: .center, spacing: 20){
-                BarChartView(data: ChartData(values: casesPerMonth), title: "Cazuri in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: casesPerMonth), title: "Cazuri in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
-                BarChartView(data: ChartData(values: deathsPerMonth), title: "Decese in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: deathsPerMonth), title: "Decese in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
-                BarChartView(data: ChartData(values: icuPerMonth), title: "Pacienti ATI in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: icuPerMonth), title: "Pacienti ATI in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
-                BarChartView(data: ChartData(values: hospitalPerMonth), title: "Pacienti internati in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: hospitalPerMonth), title: "Pacienti internati in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
-                BarChartView(data: ChartData(values: testsPerMonth), title: "Teste realizate in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: testsPerMonth), title: "Teste realizate in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
-                BarChartView(data: ChartData(values: vaccinationsPerMonth), title: "Vaccinari in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: vaccinationsPerMonth), title: "Vaccinari in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
             }
         }
     }
 }
 
 struct Historic2020Charts: View {
-    @ObservedObject var historicData: Old2020HistoricData
+    @ObservedObject var historicData: OldHistoricalData
     
     var body: some View {
      
-        let casesPerMonth = dictionaryToTuple(dictionary:(historicData.cases?.perMonth![month!])!)
-        let deathsPerMonth = dictionaryToTuple(dictionary:(historicData.deaths?.perMonth![month!])!)
-        let icuPerMonth = dictionaryToTuple(dictionary:(historicData.icu?.perMonth![month!])!)
-        let hospitalPerMonth = dictionaryToTuple(dictionary:(historicData.hospital?.perMonth![month!])!)
-        let testsPerMonth = dictionaryToTuple(dictionary:(historicData.tests?.perMonth![month!])!)
-        let vaccinationsPerMonth = dictionaryToTuple(dictionary:(historicData.vaccinations?.perMonth![month!])!)
+        let casesPerMonth = dictionaryToTuple(dictionary: historicData.cases[selectedMonth!]!)
+        let deathsPerMonth = dictionaryToTuple(dictionary: historicData.deaths[selectedMonth!]!)
+        let icuPerMonth = dictionaryToTuple(dictionary: historicData.icu[selectedMonth!]!)
+        let hospitalPerMonth = dictionaryToTuple(dictionary: historicData.hospital[selectedMonth!]!)
+        let testsPerMonth = dictionaryToTuple(dictionary: historicData.tests[selectedMonth!]!)
+        let vaccinationsPerMonth = dictionaryToTuple(dictionary: historicData.vaccinations[selectedMonth!]!)
         
         ScrollView(.vertical, showsIndicators: false){
             VStack(alignment: .center, spacing: 20){
-                BarChartView(data: ChartData(values: casesPerMonth), title: "Cazuri in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: casesPerMonth), title: "Cazuri in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
-                BarChartView(data: ChartData(values: deathsPerMonth), title: "Decese in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: deathsPerMonth), title: "Decese in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
-                BarChartView(data: ChartData(values: icuPerMonth), title: "Pacienti ATI in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: icuPerMonth), title: "Pacienti ATI in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
-                BarChartView(data: ChartData(values: hospitalPerMonth), title: "Pacienti internati in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: hospitalPerMonth), title: "Pacienti internati in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
-                BarChartView(data: ChartData(values: testsPerMonth), title: "Teste realizate in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: testsPerMonth), title: "Teste realizate in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
                 
-                BarChartView(data: ChartData(values: vaccinationsPerMonth), title: "Vaccinari in luna " + month!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                BarChartView(data: ChartData(values: vaccinationsPerMonth), title: "Vaccinari in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
             }
         }
     }

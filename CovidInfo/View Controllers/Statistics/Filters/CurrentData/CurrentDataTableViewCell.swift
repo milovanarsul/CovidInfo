@@ -10,7 +10,7 @@ import UIKit
 class CurrentDataTableViewCell: UITableViewCell {
     
     @Published var currentData: CurrentData?
-    @Published var historicData: HistoricData?
+    @Published var historicData: HistoricalData?
     
     var parentViewController: UIViewController?
     var statisticsResumeData: [(String, String)]?

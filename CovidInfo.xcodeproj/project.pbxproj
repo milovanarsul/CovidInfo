@@ -29,7 +29,7 @@
 		B232BBE22845692B0082C626 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B232BBE12845692B0082C626 /* Translate.swift */; };
 		B236E15E2825B08300AB0116 /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E15C2825B08300AB0116 /* Article+CoreDataClass.swift */; };
 		B236E15F2825B08300AB0116 /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E15D2825B08300AB0116 /* Article+CoreDataProperties.swift */; };
-		B236E1642825B1B400AB0116 /* HistoricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E1632825B1B400AB0116 /* HistoricData.swift */; };
+		B236E1642825B1B400AB0116 /* HistoricalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E1632825B1B400AB0116 /* HistoricalData.swift */; };
 		B237B543283461AB000F73A8 /* data2020.json in Resources */ = {isa = PBXBuildFile; fileRef = B237B541283461AA000F73A8 /* data2020.json */; };
 		B237B544283461AB000F73A8 /* data2021.json in Resources */ = {isa = PBXBuildFile; fileRef = B237B542283461AB000F73A8 /* data2021.json */; };
 		B23935C128144DD400F4E0AA /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23935C028144DD400F4E0AA /* CoreData.swift */; };
@@ -64,9 +64,14 @@
 		B266A12B27EF25CC003806E7 /* NewsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A12A27EF25CC003806E7 /* NewsCardView.swift */; };
 		B266A12D27EF71AF003806E7 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A12C27EF71AF003806E7 /* UIWindow.swift */; };
 		B266A12F27EF7278003806E7 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266A12E27EF7278003806E7 /* UITableView.swift */; };
+		B26D4930284A15C8002E1CC8 /* LaunchScreenLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26D492F284A15C8002E1CC8 /* LaunchScreenLoadingViewController.swift */; };
 		B26EEDB0282AFDF100000781 /* CountryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26EEDAF282AFDF100000781 /* CountryPickerViewController.swift */; };
 		B26EEDB2282B000300000781 /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26EEDB1282B000300000781 /* CountryTableViewCell.swift */; };
 		B2725F3D282A95B2008B0CEB /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2725F3C282A95B2008B0CEB /* Country.swift */; };
+		B27352F42849BB9700D5BCBA /* CompareCountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27352F32849BB9700D5BCBA /* CompareCountriesViewController.swift */; };
+		B27352F62849C19200D5BCBA /* CompareCountriesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27352F52849C19200D5BCBA /* CompareCountriesPickerView.swift */; };
+		B27352F82849C77F00D5BCBA /* CompareCountriesResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27352F72849C77F00D5BCBA /* CompareCountriesResultView.swift */; };
+		B27352FA2849CA6B00D5BCBA /* CompareCountriesPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27352F92849CA6B00D5BCBA /* CompareCountriesPageViewController.swift */; };
 		B2756487284769FC0026CF80 /* TranslatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2756486284769FC0026CF80 /* TranslatorManager.swift */; };
 		B278D50727A2848600511BB2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50627A2848600511BB2 /* MainViewController.swift */; };
 		B279E863282D5F0D00A59F7B /* CountryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279E862282D5F0D00A59F7B /* CountryCardView.swift */; };
@@ -143,6 +148,7 @@
 		B2F6077928495DC600900B56 /* HistoricCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6077828495DC600900B56 /* HistoricCharts.swift */; };
 		B2F6077B284960D000900B56 /* Localizables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6077A284960D000900B56 /* Localizables.swift */; };
 		B2F6077E2849623600900B56 /* HistoricalDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6077D2849623600900B56 /* HistoricalDataTableViewCell.swift */; };
+		B2F6078028497CDA00900B56 /* OldHistoricalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6077F28497CDA00900B56 /* OldHistoricalData.swift */; };
 		B2F650F3278F2BD900E1BB58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F650F2278F2BD900E1BB58 /* AppDelegate.swift */; };
 		B2F650F5278F2BD900E1BB58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F650F4278F2BD900E1BB58 /* SceneDelegate.swift */; };
 		B2F650FF278F2BDB00E1BB58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2F650FE278F2BDB00E1BB58 /* Assets.xcassets */; };
@@ -182,7 +188,7 @@
 		B232BBE12845692B0082C626 /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
 		B236E15C2825B08300AB0116 /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B236E15D2825B08300AB0116 /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		B236E1632825B1B400AB0116 /* HistoricData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricData.swift; sourceTree = "<group>"; };
+		B236E1632825B1B400AB0116 /* HistoricalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalData.swift; sourceTree = "<group>"; };
 		B237B541283461AA000F73A8 /* data2020.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data2020.json; path = Data/data2020.json; sourceTree = SOURCE_ROOT; };
 		B237B542283461AB000F73A8 /* data2021.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data2021.json; path = Data/data2021.json; sourceTree = SOURCE_ROOT; };
 		B23935C028144DD400F4E0AA /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
@@ -216,9 +222,14 @@
 		B266A12A27EF25CC003806E7 /* NewsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardView.swift; sourceTree = "<group>"; };
 		B266A12C27EF71AF003806E7 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		B266A12E27EF7278003806E7 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		B26D492F284A15C8002E1CC8 /* LaunchScreenLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenLoadingViewController.swift; sourceTree = "<group>"; };
 		B26EEDAF282AFDF100000781 /* CountryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerViewController.swift; sourceTree = "<group>"; };
 		B26EEDB1282B000300000781 /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		B2725F3C282A95B2008B0CEB /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		B27352F32849BB9700D5BCBA /* CompareCountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareCountriesViewController.swift; sourceTree = "<group>"; };
+		B27352F52849C19200D5BCBA /* CompareCountriesPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareCountriesPickerView.swift; sourceTree = "<group>"; };
+		B27352F72849C77F00D5BCBA /* CompareCountriesResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareCountriesResultView.swift; sourceTree = "<group>"; };
+		B27352F92849CA6B00D5BCBA /* CompareCountriesPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareCountriesPageViewController.swift; sourceTree = "<group>"; };
 		B2756486284769FC0026CF80 /* TranslatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorManager.swift; sourceTree = "<group>"; };
 		B278D50627A2848600511BB2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B279E862282D5F0D00A59F7B /* CountryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCardView.swift; sourceTree = "<group>"; };
@@ -293,6 +304,7 @@
 		B2F6077828495DC600900B56 /* HistoricCharts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoricCharts.swift; sourceTree = "<group>"; };
 		B2F6077A284960D000900B56 /* Localizables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizables.swift; sourceTree = "<group>"; };
 		B2F6077D2849623600900B56 /* HistoricalDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalDataTableViewCell.swift; sourceTree = "<group>"; };
+		B2F6077F28497CDA00900B56 /* OldHistoricalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldHistoricalData.swift; sourceTree = "<group>"; };
 		B2F650EF278F2BD900E1BB58 /* CovidInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2F650F2278F2BD900E1BB58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2F650F4278F2BD900E1BB58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -577,10 +589,21 @@
 				B2E9C91B282C789E00BE6C31 /* StatisticsViewController.swift */,
 				B243D31F2848B4A5007049B0 /* FilterDataViewController.swift */,
 				B2F607702849380000900B56 /* Filters */,
+				B27352F22849BB7600D5BCBA /* Compare Countries */,
 				B2AB5687283D64C7004EC66A /* Charts */,
 				B2339510282AFD8200E17F5B /* Country Picker */,
 			);
 			path = Statistics;
+			sourceTree = "<group>";
+		};
+		B27352F22849BB7600D5BCBA /* Compare Countries */ = {
+			isa = PBXGroup;
+			children = (
+				B27352F32849BB9700D5BCBA /* CompareCountriesViewController.swift */,
+				B27352F52849C19200D5BCBA /* CompareCountriesPickerView.swift */,
+				B27352F72849C77F00D5BCBA /* CompareCountriesResultView.swift */,
+			);
+			path = "Compare Countries";
 			sourceTree = "<group>";
 		};
 		B297B92D283D41DD005E1291 /* Parsers */ = {
@@ -598,9 +621,10 @@
 			isa = PBXGroup;
 			children = (
 				B27BE1962825C4C100DB8D11 /* CurrentData.swift */,
-				B236E1632825B1B400AB0116 /* HistoricData.swift */,
+				B236E1632825B1B400AB0116 /* HistoricalData.swift */,
 				B232BBE12845692B0082C626 /* Translate.swift */,
 				B2CD90292840F47700528D1F /* TravelAdvice.swift */,
+				B2F6077F28497CDA00900B56 /* OldHistoricalData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -761,6 +785,7 @@
 				B2F48DD927AD1D37005EE116 /* HomePagePageViewController.swift */,
 				B289F88F27B9582A00E756EF /* TriajPageViewController.swift */,
 				B23DF371283FDD8B00E54101 /* InfoPageViewController.swift */,
+				B27352F92849CA6B00D5BCBA /* CompareCountriesPageViewController.swift */,
 			);
 			path = "Page View Controllers";
 			sourceTree = "<group>";
@@ -839,6 +864,7 @@
 				B2F65100278F2BDB00E1BB58 /* LaunchScreen.storyboard */,
 				B282BFF42813098E007ADE2F /* GoogleService-Info.plist */,
 				B2F65103278F2BDB00E1BB58 /* Info.plist */,
+				B26D492F284A15C8002E1CC8 /* LaunchScreenLoadingViewController.swift */,
 			);
 			path = CovidInfo;
 			sourceTree = "<group>";
@@ -1013,13 +1039,15 @@
 			files = (
 				B2F650F3278F2BD900E1BB58 /* AppDelegate.swift in Sources */,
 				B2F48DE227AD25BC005EE116 /* EmbedView.swift in Sources */,
-				B236E1642825B1B400AB0116 /* HistoricData.swift in Sources */,
+				B236E1642825B1B400AB0116 /* HistoricalData.swift in Sources */,
 				B2CD902A2840F47700528D1F /* TravelAdvice.swift in Sources */,
+				B27352F82849C77F00D5BCBA /* CompareCountriesResultView.swift in Sources */,
 				B2B9EC9B2840B8C700D77B8D /* AmadeusManager.swift in Sources */,
 				B2B9EC952840AE8000D77B8D /* CountryTravel.swift in Sources */,
 				B2124F1E2823EF4900F20662 /* CustomPresentationControler.swift in Sources */,
 				B266A12D27EF71AF003806E7 /* UIWindow.swift in Sources */,
 				B2AE2B9F282BFBAE007C440A /* LocationPickerView.swift in Sources */,
+				B27352FA2849CA6B00D5BCBA /* CompareCountriesPageViewController.swift in Sources */,
 				B2D0724327CB81A600FA4BC6 /* Defaults.swift in Sources */,
 				B2F48DDB27AD1D37005EE116 /* HomePagePageViewController.swift in Sources */,
 				B2B8555C27EF7A6100793FC5 /* NewsViewController.swift in Sources */,
@@ -1043,6 +1071,7 @@
 				B2CCA48C2835C8B300947A0C /* SwiftUITestView.swift in Sources */,
 				B256059A27B2AF8000FB039F /* SimptomeAndPreventieCollectionViewController.swift in Sources */,
 				B20C937828354325009E6313 /* CountryCardComponents.swift in Sources */,
+				B27352F62849C19200D5BCBA /* CompareCountriesPickerView.swift in Sources */,
 				B2049E4527FA325100303C6A /* NewsParser.swift in Sources */,
 				B2DF4F3027D8A15D0035D5B7 /* CertifficateView.swift in Sources */,
 				B2A4A9552847FB0600C10732 /* CountryTravel+CoreDataClass.swift in Sources */,
@@ -1097,6 +1126,7 @@
 				B2CCB59227DB9D160076A52A /* HomeViewController.swift in Sources */,
 				B2F01E202807734B00D0AD6C /* CountiesEnums.swift in Sources */,
 				B23DE46C27B3FC4D00FD2E10 /* UIColor.swift in Sources */,
+				B2F6078028497CDA00900B56 /* OldHistoricalData.swift in Sources */,
 				B2A24CB52833954800DC8DE8 /* HistoricalDataParser.swift in Sources */,
 				B2188D302825B6E800CF9087 /* ISOCountries.swift in Sources */,
 				B2D0724727CB85A500FA4BC6 /* FontsManager.swift in Sources */,
@@ -1109,6 +1139,7 @@
 				B27BE1972825C4C100DB8D11 /* CurrentData.swift in Sources */,
 				B2E6741B27A52A8F00F283B7 /* Onboarding.swift in Sources */,
 				B2F6077E2849623600900B56 /* HistoricalDataTableViewCell.swift in Sources */,
+				B27352F42849BB9700D5BCBA /* CompareCountriesViewController.swift in Sources */,
 				B2AE2BAF282C75BF007C440A /* CurrentDataParser.swift in Sources */,
 				B2DC74C227B793F700078245 /* OnboardingCell.swift in Sources */,
 				B266A12B27EF25CC003806E7 /* NewsCardView.swift in Sources */,
@@ -1118,6 +1149,7 @@
 				B278D50727A2848600511BB2 /* MainViewController.swift in Sources */,
 				B25AD33927A30B50009EAD38 /* UIView.swift in Sources */,
 				B217D45527B940F600DBDED9 /* TriajSubviews.swift in Sources */,
+				B26D4930284A15C8002E1CC8 /* LaunchScreenLoadingViewController.swift in Sources */,
 				B2F6077428493E4200900B56 /* StatisticsResumeTableViewCell.swift in Sources */,
 				B201DD3327B8E89600C34C41 /* OnboardingPageViewController.swift in Sources */,
 				B2B758DD2810086A00E9D078 /* UICollectionViewController.swift in Sources */,

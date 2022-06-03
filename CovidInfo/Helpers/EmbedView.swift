@@ -62,6 +62,11 @@ class EmbedView{
         let child = CountryViewController()
         embed(parent: parent, container: container, child: child, previous: parent.children.first)
     }
+    
+    func compareCountriesPageViewController(parent: UIViewController, container: UIView){
+        let child = CompareCountriesPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        embed(parent: parent, container: container, child: child, previous: parent.children.first)
+    }
 }
 
 let embed = EmbedView()

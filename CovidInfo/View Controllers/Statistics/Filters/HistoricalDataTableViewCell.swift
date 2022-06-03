@@ -9,16 +9,16 @@ import UIKit
 
 class HistoricalDataTableViewCell: UITableViewCell {
     
-    @Published var historic2022Data: HistoricData?
-    @Published var historic2021Data: Old2021HistoricData?
-    @Published var historic2020Data: Old2020HistoricData?
+    @Published var historic2022Data: HistoricalData?
+    @Published var historic2021Data: OldHistoricalData?
+    @Published var historic2020Data: OldHistoricalData?
     
     var parentViewController: UIViewController?
     
     lazy var chartView: UIView = {
         let view = UIView()
         
-        switch year {
+        switch selectedYear {
         case 2022:
             parentViewController!.addSubSwiftUIView(Historic2022Charts(historicData: historic2022Data!), to: view)
         case 2021:
@@ -33,7 +33,14 @@ class HistoricalDataTableViewCell: UITableViewCell {
     
     func setup(){
         contentView.addSubview(chartView)
-        defaultConstraints(childView: chartView, parentView: contentView)
+        
+        let chartViewConstraints = Constraints(childView: chartView, parentView: contentView, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .top, multiplier: 1, constant: 10),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
+        ])
+        chartViewConstraints.addConstraints()
     }
 
 }

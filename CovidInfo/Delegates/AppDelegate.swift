@@ -88,13 +88,14 @@ extension AppDelegate: CLLocationManagerDelegate{
                         country = roISOCountries[key]!
                     }
                 }
-                AppDelegate.locationCountry = country
+                
+                DataManager.automaticLocation = country
                 
                 if defaults.string(forKey: "manualCountry") == nil{
                     defaults.set(true, forKey: "automaticLocation")
                 }
                 
-                if defaults.bool(forKey: "isNotFirstLaunch") == true && DataManager.isRefreshRequired() == false{
+                if defaults.bool(forKey: "isNotFirstLaunch") == false && DataManager.isRefreshRequired() == false{
                     DataManager.countryData()
                 }
             }

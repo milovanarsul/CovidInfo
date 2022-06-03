@@ -10,8 +10,8 @@ import MonthYearWheelPicker
 
 var showFilterResetButton: Bool = false
 var showHistoricData: Bool = false
-var month: String?
-var year: Int?
+var selectedMonth: String?
+var selectedYear: Int?
 
 class FilterDataViewController: UIViewController {
     
@@ -37,6 +37,23 @@ class FilterDataViewController: UIViewController {
         button.addTarget(self, action: #selector(filterButtonTapped(_:)), for: .touchUpInside)
         return button
     }()
+    
+    lazy var resetFilterButton: UIButton = {
+        let button = UIButton()
+        button.initialize(title: "Resteaza filtrele", titleColor: .white, cornerRadius: 24, font: boldFont(size: 13), backgroundColor: UIColor("D04545"), contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "x.circle"))
+        button.addTarget(self, action: #selector(resetFilterButtonTapped(_:)), for: .touchUpInside)
+        button.isHidden = true
+        return button
+    }()
+    
+    lazy var buttonsStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.backgroundColor = .clear
+        stackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fill, spacing: 10)
+        stackView.addAranagedSubviews(views: [filterButton, resetFilterButton])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +62,7 @@ class FilterDataViewController: UIViewController {
     }
     
     func setup(){
-        view.addSubviews(views: [label, datePicker, filterButton])
+        view.addSubviews(views: [label, datePicker, buttonsStackView])
         
         let labelConstraints = Constraints(childView: label, parentView: view, constraints: [
             Constraint(constraintType: .leading, multiplier: 1, constant: 24),
@@ -54,11 +71,17 @@ class FilterDataViewController: UIViewController {
         ])
         labelConstraints.addConstraints()
         
-        let filterButtonConstraints = Constraints(childView: filterButton, parentView: view, constraints: [
+        let filterButtonConstraints = Constraints(childView: buttonsStackView, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .bottom, multiplier: 1, constant: 25)
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 25),
+            Constraint(constraintType: .proportionalWidth, multiplier: 0.8, constant: 0),
+            Constraint(constraintType: .height, multiplier: 1, constant: 35)
         ])
         filterButtonConstraints.addConstraints()
+        
+        if showHistoricData {
+            resetFilterButton.isHidden = false
+        }
         
         defaultConstraints(childView: datePicker, parentView: view)
     }
@@ -66,12 +89,24 @@ class FilterDataViewController: UIViewController {
     @objc func filterButtonTapped(_ sender: UIButton){
         showHistoricData = true
         delegates.statistics.refreshTableView()
+        delegates.statistics.updateDate(text: "\(selectedMonth!) \(selectedYear!)")
+        delegates.main.dimissModal(completion: {})
+    }
+    
+    @objc func resetFilterButtonTapped(_ sender: UIButton){
+        showHistoricData = false
+        delegates.statistics.refreshTableView()
+        
+        let date = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        let month = romanianMonths[date.month!]
+        delegates.statistics.updateDate(text: "Astazi, \(date.day!) \(month!) \(date.year!)")
+        
         delegates.main.dimissModal(completion: {})
     }
     
     @objc func monthYearWheelPickerDidChange() {
         let date = Calendar.current.dateComponents([.year, .month], from: datePicker.date)
-        month = romanianMonths[date.month!]
-        year = date.year
+        selectedMonth = romanianMonths[date.month!]
+        selectedYear = date.year
     }
 }

@@ -155,6 +155,7 @@ extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSourc
         sections.insert(sectionTitle, at: 0)
         
         defaults.set(currentCountry![indexPath.row].name!, forKey: "manualCountry")
+        DataManager.switchLocation(key: "manualCountry")
         //delegates.statistics.setupCountry()
         
         let top = CGPoint(x: 0, y: -tableView.contentInset.top)

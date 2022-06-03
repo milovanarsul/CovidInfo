@@ -10,7 +10,7 @@ import UIKit
 
 class HomeViewTableViewCell: UITableViewCell {
     @Published var currentData: CurrentData?
-    @Published var historicData: HistoricData?
+    @Published var historicData: HistoricalData?
     var parentViewController: UIViewController?
     
     lazy var simptomeAndPreventie: UIView = {
@@ -154,7 +154,7 @@ class HomeViewTableViewCell: UITableViewCell {
         ])
         buttonConstraints.addConstraints()
         
-        if currentData == nil && historicData == nil{
+        if DataManager.isLocationEnabled() == false{
             parentView.addSubview(locationDisabled)
             
             let locationDisabledConstraints = Constraints(childView: locationDisabled, parentView: parentView, constraints: [

@@ -11,8 +11,8 @@ import SwiftUI
 
 class HomeViewController: UIViewController {
     
-    @Published var currentData: CurrentData?
-    @Published var historicData: HistoricData?
+    @Published var currentData: CurrentData = DataManager.currentCountryData!
+    @Published var historicData: HistoricalData = DataManager.historicCountryData!
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -30,8 +30,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentData = DataManager.currentCountryData
-        historicData = DataManager.historicCountryData
+        delegates.home = self
         setup()
     }
     
@@ -58,6 +57,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         cell.parentViewController = self
         cell.setup()
         return cell
+    }
+}
+
+extension HomeViewController: HomeViewControllerDelegate{
+    func refreshTableView(){
+        tableView.reloadData()
     }
 }
 

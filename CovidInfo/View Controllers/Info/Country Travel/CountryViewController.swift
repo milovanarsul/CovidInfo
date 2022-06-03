@@ -9,7 +9,7 @@ import UIKit
 
 class CountryViewController: UIViewController {
     
-    var data: CurrentData?
+    var data: CurrentData = DataManager.currentCountryData!
     
     lazy var locationNotSelected: UIImageView = {
         let imageView = UIImageView()
@@ -36,11 +36,12 @@ class CountryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        delegates.countryController = self
         setup()
     }
     
     func setup(){
-        data = DataManager.currentCountryData
+        //data = DataManager.currentCountryData
         
         if DataManager.isLocationEnabled() == false{
             view.backgroundColor = .white
@@ -82,7 +83,7 @@ extension CountryViewController: UITableViewDelegate, UITableViewDataSource{
         let countryTravelCell = tableView.dequeueReusableCell(withIdentifier: "countryTravel") as! CountryTravelTableViewCell
         
         if indexPath.row == 0 {
-            countryCardCell.data = data!
+            countryCardCell.data = data
             countryCardCell.setup()
             countryCardCell.backgroundColor = .clear
             return countryCardCell
@@ -92,5 +93,11 @@ extension CountryViewController: UITableViewDelegate, UITableViewDataSource{
             countryTravelCell.setup(data: currentData, type: .normal)
             return countryTravelCell
         }
+    }
+}
+
+extension CountryViewController: CountryViewControllerDelegate {
+    func refreshTableView(){
+        tableView.reloadData()
     }
 }

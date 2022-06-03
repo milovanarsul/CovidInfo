@@ -27,6 +27,10 @@ class Delegates{
     var info: InfoViewControllerDelegate! = nil
     var statistics: StatisticsViewControllerDelegate! = nil
     var tripPlanner: TripPlannerDelegate! = nil
+    var compareCountries: CompareCountries! = nil
+    var compareCountriesPVC: CompareCountriesPageViewControllerDeleagate! = nil
+    var countryController: CountryViewControllerDelegate! = nil
+    var home: HomeViewControllerDelegate! = nil
     
     init(){}
 }
@@ -60,6 +64,7 @@ protocol MainDelegate{
     func animateContentView(size: CGFloat)
     func planTripButtonAnimation(visibility: ViewVisibility)
     func statisticsActionsAnimation(visibility: ViewVisibility)
+    func waitingModal()
 }
 
 protocol NavigationBarDelegate{
@@ -139,6 +144,7 @@ protocol CountryPickerDelegate{
 
 protocol StatisticsViewControllerDelegate {
     func refreshTableView()
+    func updateDate(text: String)
 }
 
 protocol TripPlannerDelegate{
@@ -146,4 +152,22 @@ protocol TripPlannerDelegate{
     func animateArrivalView()
     func result()
     func expandCell(type: TripViewType)
+}
+
+protocol CompareCountries {
+    func animateCountry1()
+    func animateCountry2()
+    func result()
+}
+
+protocol CompareCountriesPageViewControllerDeleagate{
+    func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection)
+}
+
+protocol CountryViewControllerDelegate{
+    func refreshTableView()
+}
+
+protocol HomeViewControllerDelegate {
+    func refreshTableView()
 }

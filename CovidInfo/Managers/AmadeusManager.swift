@@ -13,12 +13,12 @@ import UIKit
 class AmadeusManager{
     static var currentCountryTravelData: [CountryTravelModel]?
     
-    private static let clientID = "oRXgYZAox826YRrLHspBMNQkDQr2S8q8"
-    private static let clientSecret = "pl1gf8QjvluJD4dq"
+    private static let clientID = "yIwCyLu1t9Y87fDAFhAqJI4pGi7f2jPQ"
+    private static let clientSecret = "nBQylhPVq9HAUmZM"
     
     private static let amadeus: Amadeus = Amadeus(client_id: clientID, client_secret: clientSecret)
     
-    static func loadData(country: String, completion: @escaping ([CountryTravelModel]?) -> ()){
+    static func loadData(country: String,completion: @escaping ([CountryTravelModel]?) -> ()){
         let iso2Country = ISO3ToISO2[country]
         
         amadeus.client.get(path: "/v1/duty-of-care/diseases/covid19-area-report",

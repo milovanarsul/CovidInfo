@@ -233,10 +233,11 @@ class MainViewController: UIViewController {
     }
     
     @objc func compareCountriesButtonTapped(_ sender: UIButton){
-        let modal = UIViewController()
+        let modal = CompareCountriesViewController()
         modal.view.backgroundColor = .white
         modal.modalPresentationStyle = .formSheet
         modal.transitioningDelegate = self
+        modal.isModalInPresentation = true
         
         if let sheet = modal.sheetPresentationController {
             sheet.prefersGrabberVisible = false
@@ -344,6 +345,28 @@ extension MainViewController: MainDelegate{
             sheet.preferredCornerRadius = 24
         }
         present(modal, animated: true, completion: nil)
+    }
+    
+    func waitingModal(){
+        let modal = UIViewController()
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        modal.view.addSubview(activityIndicator)
+        xyConstraints(childView: activityIndicator, parentView: modal.view)
+        
+        modal.view.backgroundColor = .white.withAlphaComponent(0.1)
+        modal.modalPresentationStyle = .fullScreen
+        modal.transitioningDelegate = self
+        modal.isModalInPresentation = true
+        
+        if let sheet = modal.sheetPresentationController {
+            sheet.prefersGrabberVisible = false
+            sheet.preferredCornerRadius = 24
+        }
+        
+        activityIndicator.startAnimating()
+        present(modal, animated: false, completion: nil)
+        
     }
     
     func dimissModal(completion: @escaping (() -> Void)) {

@@ -36,7 +36,7 @@ class StatisticsResumeTableViewCell: UITableViewCell {
         contentView.addSubview(stackView)
         
         let stackViewConstraints = Constraints(childView: stackView, parentView: contentView, constraints: [
-            Constraint(constraintType: .leading, multiplier: 1, constant: 12),
+            Constraint(constraintType: .leading, multiplier: 1, constant: 20),
             Constraint(constraintType: .trailing, multiplier: 1, constant: -12),
             Constraint(constraintType: .top, multiplier: 1, constant: 5),
             Constraint(constraintType: .bottom, multiplier: 1, constant: 5)

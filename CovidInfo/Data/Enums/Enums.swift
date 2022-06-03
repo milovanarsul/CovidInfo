@@ -143,7 +143,6 @@ enum DataType{
     case simptome
 }
 
-
 enum ImageType{
     case custom
     case system
@@ -157,4 +156,9 @@ enum TripViewType{
 enum CountryTravelTableViewCellType {
     case normal
     case custom
+}
+
+enum CountryCompare{
+    case country1
+    case country2
 }
