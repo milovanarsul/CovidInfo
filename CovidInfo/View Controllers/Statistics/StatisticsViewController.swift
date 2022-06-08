@@ -47,36 +47,23 @@ class StatisticsViewController: UIViewController {
     }
     
     func setup(){
-        if DataManager.isLocationEnabled() == false {
-            view.backgroundColor = .white
-            view.addSubview(locationNotSelected)
-            
-            let locationNotSelectedConstraints = Constraints(childView: locationNotSelected, parentView: view, constraints: [
-                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-                Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
-                Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
-                Constraint(constraintType: .aspectRatio, multiplier: (1.0 / 1.0), constant: 0)
-            ])
-            locationNotSelectedConstraints.addConstraints()
-        } else {
-             view.addSubviews(views: [date, tableView])
-             
-             let dateConstraints = Constraints(childView: date, parentView: view, constraints: [
-                 Constraint(constraintType: .top, multiplier: 1, constant: 15),
-                 Constraint(constraintType: .leading, multiplier: 1, constant: 25),
-                 Constraint(constraintType: .trailing, multiplier: 1, constant: -25),
-                 Constraint(constraintType: .height, multiplier: 1, constant: 30)
-             ])
-             dateConstraints.addConstraints()
-             
-             let tableViewConstraints = Constraints(childView: tableView, parentView: view, constraints: [
-                 Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-                 Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
-                 Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
-             ])
-             tableViewConstraints.addConstraints()
-             tableView.topAnchor.constraint(equalTo: date.bottomAnchor, constant: 10).isActive = true
-        }
+        view.addSubviews(views: [date, tableView])
+        
+        let dateConstraints = Constraints(childView: date, parentView: view, constraints: [
+            Constraint(constraintType: .top, multiplier: 1, constant: 15),
+            Constraint(constraintType: .leading, multiplier: 1, constant: 25),
+            Constraint(constraintType: .trailing, multiplier: 1, constant: -25),
+            Constraint(constraintType: .height, multiplier: 1, constant: 30)
+        ])
+        dateConstraints.addConstraints()
+        
+        let tableViewConstraints = Constraints(childView: tableView, parentView: view, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
+        ])
+        tableViewConstraints.addConstraints()
+        tableView.topAnchor.constraint(equalTo: date.bottomAnchor, constant: 10).isActive = true
     }
 }
 

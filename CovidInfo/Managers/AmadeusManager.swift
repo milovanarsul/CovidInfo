@@ -18,8 +18,9 @@ class AmadeusManager{
     
     private static let amadeus: Amadeus = Amadeus(client_id: clientID, client_secret: clientSecret)
     
-    static func loadData(country: String,completion: @escaping ([CountryTravelModel]?) -> ()){
-        let iso2Country = ISO3ToISO2[country]
+    static func loadData(country: String, completion: @escaping (_ finished: Bool) -> Void){
+        let iso3Country = countryToISO(country: country, dictionary: roISOCountries)
+        let iso2Country = ISO3ToISO2[iso3Country!]
         
         amadeus.client.get(path: "/v1/duty-of-care/diseases/covid19-area-report",
                           params: ["countryCode" : iso2Country!],
@@ -39,15 +40,16 @@ class AmadeusManager{
                    let testing = CountryTravelModel(icon: "heart.text.square", title: "Testare necesara", subtitle: data.areaAccessRestriction!.diseaseTesting!.isRequired!)
                    let mask = CountryTravelModel(icon: "facemask", title: "Masca necesara", subtitle: data.areaAccessRestriction!.mask!.isRequired!, text: data.areaAccessRestriction!.mask!.text!)
                    
-                   completion([diseaseRiskLevel, diseaseInfection, areaPolicy, entry, quarantine, vaccination, testing, mask])
+                   AmadeusManager.currentCountryTravelData = [diseaseRiskLevel, diseaseInfection, areaPolicy, entry, quarantine, vaccination, testing, mask]
                    print("Amadeus Manager loaded data!")
+                   completion(true)
                } catch {
                    print(error)
-                   completion(nil)
+                   completion(false)
                }
            case .failure(let error):
                print(error)
-               completion(nil)
+               completion(false)
            }
         })
     }

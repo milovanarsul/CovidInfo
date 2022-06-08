@@ -22,10 +22,10 @@ class CompareCountriesPageViewController: UIPageViewController {
     }
     
     fileprivate func createViewControllers(){
-        let country1Result = CompareCountriesResultViewController(data: DataManager.getCurrentCountry(name: country1!.name!))
+        let country1Result = CompareCountriesResultViewController(data: DataManager.getCurrentCountry())
         pages.append(country1Result)
         
-        let country2Result = CompareCountriesResultViewController(data: DataManager.getCurrentCountry(name: country2!.name!))
+        let country2Result = CompareCountriesResultViewController(data: DataManager.getCurrentCountry())
         pages.append(country2Result)
     }
 }

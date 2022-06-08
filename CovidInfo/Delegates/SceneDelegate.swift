@@ -7,6 +7,8 @@
 
 import UIKit
 
+var appDidLoad: Bool = false
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -18,15 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = LaunchScreenLoadingViewController()
+        window.rootViewController = LaunchViewController()
         self.window = window
         window.makeKeyAndVisible()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0){
-            window.rootViewController = LaunchViewController()
-            self.window = window
-            window.makeKeyAndVisible()
-        }
+        appDidLoad = true
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

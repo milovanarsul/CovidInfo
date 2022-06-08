@@ -251,6 +251,7 @@ extension TripPlannerViewController: TripPlannerDelegate{
         countryArray.append(departureCountry!.name!)
         countryArray.append(arrivalCountry!.name!)
         
+        /*
         AmadeusManager.loadData(country: departureCountryISO!) { result in
             self.dataArray.append(result!)
         }
@@ -258,6 +259,7 @@ extension TripPlannerViewController: TripPlannerDelegate{
         AmadeusManager.loadData(country: arrivalCountryISO!){ result in
             self.dataArray.append(result!)
         }
+        */
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) { [self] in
             activityIndicator.removeFromSuperview()
@@ -310,7 +312,7 @@ extension TripPlannerViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifiers[indexPath.row]) as! TripPlannerCountryResultView
         cell.countryTravelData = dataArray[indexPath.row]
-        cell.data = DataManager.getCurrentCountry(name: countryArray[indexPath.row])
+        cell.data = DataManager.getCurrentCountry()
         cell.type = tripViewType[indexPath.row]
         cell.setup()
         cell.backgroundColor = UIColor("#f2f2f7")

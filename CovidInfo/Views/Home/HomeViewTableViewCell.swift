@@ -154,27 +154,15 @@ class HomeViewTableViewCell: UITableViewCell {
         ])
         buttonConstraints.addConstraints()
         
-        if DataManager.isLocationEnabled() == false{
-            parentView.addSubview(locationDisabled)
-            
-            let locationDisabledConstraints = Constraints(childView: locationDisabled, parentView: parentView, constraints: [
-                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-                Constraint(constraintType: .leading, multiplier: 1, constant: 0),
-                Constraint(constraintType: .bottom, multiplier: 1, constant: 5)
-            ])
-            locationDisabledConstraints.addConstraints()
-            locationDisabled.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 30).isActive = true
-        } else {
-            parentView.addSubview(charts)
-            
-            let chartsConstraints = Constraints(childView: charts, parentView: parentView, constraints: [
-                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-                Constraint(constraintType: .leading, multiplier: 1, constant: 0),
-                Constraint(constraintType: .bottom, multiplier: 1, constant: 5)
-            ])
-            chartsConstraints.addConstraints()
-            charts.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 50).isActive = true
-        }
+        parentView.addSubview(charts)
+        
+        let chartsConstraints = Constraints(childView: charts, parentView: parentView, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .leading, multiplier: 1, constant: 0),
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 5)
+        ])
+        chartsConstraints.addConstraints()
+        charts.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 50).isActive = true
         
         return parentView
     }()

@@ -24,6 +24,7 @@ class EnrollCertifficateViewController: UIViewController{
     }()
     
     func setup(){
+        view.backgroundColor = .white
         view.addSubview(videoLayer)
         
         let videoLayerConstraints = Constraints(childView: videoLayer, parentView: view, constraints: [
@@ -50,6 +51,15 @@ class EnrollCertifficateViewController: UIViewController{
         initalSetup()
         QRCodeReader(parentViewController: self, videoLayer: videoLayer, captureSession: captureSession)
         captureSession.startRunning()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if isBeingDismissed{
+            captureSession.stopRunning()
+            delegates.onboarding.dimissModal(completion: {})
+        }
     }
 }
 
@@ -100,7 +110,7 @@ extension EnrollCertifficateViewController {
                 })
                 delegates.main.updateCertifficateButton()
             } else {
-                delegates.onboarding.dismissModal?()
+                //delegates.onboarding.dismissModal?()
             }
         })
     }

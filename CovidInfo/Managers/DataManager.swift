@@ -23,10 +23,9 @@ class DataManager{
     static var currentHistoric2021Data: OldHistoricalData?
     static var currentHistoric2020Data: OldHistoricalData?
     
-    static var automaticLocation: String?
+    static var currentCountry: String?
     
-    //load parsers and webscrapers
-    static func loadData(){
+    static func parseData(){
         parseCurrentData()
         parseHistoricalData()
         parseOld2021HistoricalData()
@@ -34,25 +33,39 @@ class DataManager{
         digi24(articleCount: 40)
         stiriOficiale()
         defaults.set(Date(), forKey: "lastRefresh")
-        defaults.set(true, forKey: "statisticsFetched")
     }
     
-    //load parsers, webscrapers and fetch data from core data
-    static func fetchData(){
-        deleteAllCustomEntityObjects(context: AppDelegate.context)
-        DataManager.loadData()
+    static func fetchCoreData(){
         DataManager.fetchNews()
         DataManager.fetchCovidData()
-        DataManager.countryData()
     }
     
-    //fetch data from coredata
-    static func fetchCoreData(){
+    static func loadAllData(completion: @escaping (_ finished: Bool) -> Void){
+        DataManager.setCurrentCountry()
+        DataManager.parseData()
+        DataManager.fetchCoreData()
+        DataManager.countryData()
+        FirebaseManager.loadData()
+        AmadeusManager.loadData(country: DataManager.currentCountry!, completion: { finished in
+            if finished{
+                completion(true)
+            }
+        })
+    }
+    
+    static func loadData(completion: @escaping (_ finished: Bool) -> Void){
+        DataManager.setCurrentCountry()
         parseHistoricalData()
         parseOld2021HistoricalData()
         parseOld2020HistoricalData()
-        DataManager.fetchNews()
-        DataManager.fetchCovidData()
+        fetchCoreData()
+        DataManager.countryData()
+        FirebaseManager.loadData()
+        AmadeusManager.loadData(country: DataManager.currentCountry!, completion: { finished in
+            if finished{
+                completion(true)
+            }
+        })
     }
     
     static func fetchCovidData(){
@@ -65,16 +78,19 @@ class DataManager{
         }
     }
     
-    static func countryData(){
-        let automaticCountry: Bool = (automaticLocation != nil)
-        let manualCountry: Bool = (defaults.string(forKey: "manualCountry") != nil)
-        
-        if automaticCountry || manualCountry{
-            currentCountryData = defaults.bool(forKey: "automaticLocation") ? getCurrentCountry(name: automaticLocation!): getCurrentCountry(name: defaults.string(forKey: "manualCountry")!)
-            historicCountryData = defaults.bool(forKey: "automaticLocation") ? getHistoricCountry(name: automaticLocation!): getHistoricCountry(name: defaults.string(forKey: "manualCountry")!)
-            currentHistoric2021Data = defaults.bool(forKey: "automaticLocation") ? getHistoric2021Country(name: automaticLocation!): getHistoric2021Country(name: defaults.string(forKey: "manualCountry")!)
-            currentHistoric2020Data = defaults.bool(forKey: "automaticLocation") ? getHistoric2020Country(name: automaticLocation!): getHistoric2020Country(name: defaults.string(forKey: "manualCountry")!)
+    static func setCurrentCountry(){
+        if defaults.bool(forKey: "useAutomaticLocation"){
+            DataManager.currentCountry = defaults.string(forKey: "automaticCountry")
+        } else {
+            DataManager.currentCountry = defaults.string(forKey: "manualCountry")
         }
+    }
+    
+    static func countryData(){
+        currentCountryData = getCurrentCountry()
+        historicCountryData = getHistoricCountry()
+        currentHistoric2021Data = getHistoric2021Country()
+        currentHistoric2020Data = getHistoric2020Country()
     }
     
     static func isRefreshRequired() -> Bool {
@@ -90,58 +106,13 @@ class DataManager{
     }
     
     static func switchLocation(key: String){
-        delegates.main.waitingModal()
-        let location = defaults.string(forKey: key)
         
-        currentCountryData = getCurrentCountry(name: location!)
-        historicCountryData = getHistoricCountry(name: location!)
-        currentHistoric2021Data = getHistoric2021Country(name: location!)
-        currentHistoric2020Data = getHistoric2020Country(name: location!)
-        
-        AmadeusManager.loadData(country:  countryToISO(country: location!, dictionary: roISOCountries)!){data in
-            AmadeusManager.currentCountryTravelData = data
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0){
-            let currentViewController = delegates.tabBar.getCurrentPresentedViewController()
-            print(currentViewController)
-            
-            if currentViewController is HomeViewController {
-                
-            }
-            
-            if currentViewController is StatisticsViewController {
-                delegates.statistics.refreshTableView()
-            }
-            
-            if currentViewController is InfoViewController {
-                print("enters here")
-                let presentedViewController = delegates.info.getCardsViewController()
-                print(presentedViewController)
-                if presentedViewController is CountryViewController {
-                    print("enters here too")
-                    delegates.countryController.refreshTableView()
-                }
-            }
-            delegates.main.dimissModal(completion: {})
-        }
     }
     
-    static func isLocationEnabled() -> Bool{
-        let automaticCountry: Bool = (automaticLocation != nil)
-        let manualCountry: Bool = (defaults.string(forKey: "manualCountry") != nil)
-        
-        if automaticCountry == false && manualCountry == false{
-            return false
-        }
-        
-        return true
-    }
-    
-    static func getCurrentCountry(name: String) -> CurrentData{
+    static func getCurrentCountry() -> CurrentData{
         var currentCountry: CurrentData?
         for country in currentData! {
-            if country.location == name{
+            if country.location == DataManager.currentCountry!{
                 currentCountry = country
             }
         }
@@ -149,9 +120,9 @@ class DataManager{
         return currentCountry!
     }
     
-    static func getHistoricCountry(name: String) -> HistoricalData{
+    static func getHistoricCountry() -> HistoricalData{
         var historicCountry: HistoricalData?
-        let location = countryToISO(country: name, dictionary: roISOCountries)
+        let location = countryToISO(country: DataManager.currentCountry!, dictionary: roISOCountries)
         
         for (key, value) in historicData! {
             if key == location{
@@ -162,9 +133,9 @@ class DataManager{
         return historicCountry!
     }
     
-    static func getHistoric2021Country(name: String) -> OldHistoricalData {
+    static func getHistoric2021Country() -> OldHistoricalData {
         var historic2021Country: OldHistoricalData?
-        let location = countryToISO(country: name, dictionary: roISOCountries)
+        let location = countryToISO(country: DataManager.currentCountry!, dictionary: roISOCountries)
         
         for (key, value) in historic2021Data! {
             if key == location{
@@ -175,9 +146,9 @@ class DataManager{
         return historic2021Country!
     }
     
-    static func getHistoric2020Country(name: String) -> OldHistoricalData {
+    static func getHistoric2020Country() -> OldHistoricalData {
         var historic2020Country: OldHistoricalData?
-        let location = countryToISO(country: name, dictionary: roISOCountries)
+        let location = countryToISO(country: DataManager.currentCountry!, dictionary: roISOCountries)
         
         for (key, value) in historic2021Data! {
             if key == location{

@@ -9,8 +9,10 @@ import Foundation
 import UIKit
 
 class Delegates{
+    var onboardingPVC: OnboardingPageViewControllerDelegate! = nil
     var onboarding: OnboardingDelegate! = nil
-    var onboardingSub: OnboardingSubDelegate! = nil
+    var onboardingView: OnboardingViewDelegate! = nil
+    var onboardingDownload: OnboardingDownload! = nil
     var main: MainDelegate! = nil
     var navigationBar: NavigationBarDelegate! = nil
     var tabBar: TabBarDelegate! = nil
@@ -37,17 +39,29 @@ class Delegates{
 
 let delegates: Delegates = Delegates()
 
-@objc protocol OnboardingDelegate{
+@objc protocol OnboardingPageViewControllerDelegate{
     @objc optional func nextPage()
-    @objc optional func modalView()
-    @objc optional func dismissModal()
     @objc optional func getCurrentIndex() -> Int
+    func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection)
 }
 
-protocol OnboardingSubDelegate{
-    func finishOnboarding()
+protocol OnboardingDelegate{
+    func startTutorial()
+    func skipTutorial()
     func setPageControl()
-    func setupAnimation(animationName: String)
+    func enrollCertifficate()
+    func dimissModal(completion: @escaping (() -> Void))
+    func pageControlVisibility(visibility: Bool)
+    func downloadData(dataRequest: DataRequest)
+    func goToMain()
+}
+
+protocol OnboardingViewDelegate{
+    func hideNextButton()
+}
+
+protocol OnboardingDownload{
+    func downloadData(dataRequest: DataRequest)
 }
 
 protocol MainDelegate{

@@ -162,3 +162,9 @@ enum CountryCompare{
     case country1
     case country2
 }
+
+enum DataRequest{
+    case all
+    case refresh
+    case load
+}

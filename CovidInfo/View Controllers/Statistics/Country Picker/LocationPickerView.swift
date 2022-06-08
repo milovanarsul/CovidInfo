@@ -82,7 +82,7 @@ class LocationPickerView: UIView {
             //delegates.statistics.contentViewVisibility(visibility: false)
             //defaults.set(sender.isOn, forKey: "automaticLocation")
             //delegates.statistics.setupCountry()
-            DataManager.switchLocation(key: DataManager.automaticLocation!)
+            //DataManager.switchLocation(key: DataManager.automaticLocation!)
         }
     }
 }

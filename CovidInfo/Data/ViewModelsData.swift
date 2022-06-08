@@ -8,12 +8,6 @@
 import Foundation
 import UIKit
 
-let headersData = [
-    HeadersData(image: UIImage(named: "header1")!),
-    HeadersData(image: UIImage(named: "header2")!),
-    HeadersData(image: UIImage(named: "header3")!)
-]
-
 let trustedSourcesData = [
     TrustedSourceData(image: "datelazi", text: "Date la zi", url: "https://datelazi.ro"),
     TrustedSourceData(image: "ecdc", text: "ECDC", url: "https://www.ecdc.europa.eu/en"),
@@ -25,12 +19,12 @@ let trustedSourcesData = [
 ]
 
 let onboardingDataArray = [
-    OnboardingData(lottieAnimation: "onboarding1", labelText: "Afla cum sa te protejezi si ce simptome pot aparea, ultimele stiri si de unde sa te informezi", isModalNext: false),
-    OnboardingData(lottieAnimation: "onboarding2", labelText: "Vizualizeaza ultimele statistici si afla evolutia Pandemiei in Romania", isModalNext: false),
-    OnboardingData(lottieAnimation: "onboarding3", labelText: "Afla mai multe despre vaccinurile aprobate si cum poti spune stop pandemiei", isModalNext: false),
-    OnboardingData(lottieAnimation: "onboarding4", labelText: "Iti poti inrola certificatul pentru a-l avea la indemana", isModalNext: true),
-    OnboardingData(lottieAnimation: "", labelText: "Certificatul tau a fost inrolat cu succes!", isModalNext: true),
-    //OnboardingData(lottieAnimation: "onboarding5", labelText: "Poti crea un cont pentru a-ti salva datele intr-un loc sigur", isModalNext: true)
+    OnboardingData(image: "onboarding1", labelText: "Afla cum sa te protejezi si ce simptome pot aparea, ultimele stiri si de unde sa te informezi", isSkipEnabled: false),
+    OnboardingData(image: "onboarding2", labelText: "Planifica-ti calatoria tinand cont de masurile impuse", isSkipEnabled: false),
+    OnboardingData(image: "onboarding3", labelText: "Vizualizeaza ultimele statistici si afla evolutia pandemiei", isSkipEnabled: false),
+    OnboardingData(image: "onboarding4", labelText: "Afla mai multe despre vaccinurile aprobate si cum poti spune stop pandemiei", isSkipEnabled: false),
+    OnboardingData(image: "onboarding5", labelText: "Iti poti inrola certificatul pentru a-l avea la indemana", isSkipEnabled: true),
+    OnboardingData(image: "onboarding6", labelText: "Pentru a-ti oferi date revelvante avem nevoie de locatia ta.\nSelecteaza tipul de locatie pe care doresti s-o utilizezi", isSkipEnabled: true, nextButtonText: "Locatie automata", skipButtonText: "Locatie manuala")
 ]
 
 let preventieData = [

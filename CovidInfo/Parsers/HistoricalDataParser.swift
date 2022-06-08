@@ -21,11 +21,6 @@ func parseHistoricalData(){
                 let sortedStats = stats.sorted {$0.key < $1.key}
                 DataManager.historicData = sortedStats
                 
-                let amadeusCountry = defaults.bool(forKey: "automaticLocation") ? DataManager.automaticLocation : defaults.string(forKey: "manualCountry")!
-                AmadeusManager.loadData(country:  countryToISO(country: amadeusCountry!, dictionary: roISOCountries)!){data in
-                    AmadeusManager.currentCountryTravelData = data
-                }
-                
             } catch {
                 print(error.localizedDescription)
             }

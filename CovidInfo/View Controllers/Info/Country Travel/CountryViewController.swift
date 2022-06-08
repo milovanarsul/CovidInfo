@@ -41,23 +41,9 @@ class CountryViewController: UIViewController {
     }
     
     func setup(){
-        //data = DataManager.currentCountryData
-        
-        if DataManager.isLocationEnabled() == false{
-            view.backgroundColor = .white
-            view.addSubview(locationNotSelected)
-            let locationNotSelectedConstraints = Constraints(childView: locationNotSelected, parentView: view, constraints: [
-                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-                Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
-                Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
-                Constraint(constraintType: .aspectRatio, multiplier: (1.0 / 1.0), constant: 0)
-            ])
-            locationNotSelectedConstraints.addConstraints()
-        } else {
-            view.backgroundColor = UIColor("#f2f2f7")
-            view.addSubview(tableView)
-            defaultConstraints(childView: tableView, parentView: view)
-        }
+        view.backgroundColor = UIColor("#f2f2f7")
+        view.addSubview(tableView)
+        defaultConstraints(childView: tableView, parentView: view)
     }
 }
 

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIWindow {
-    private class var key: UIWindow {
+    public class var key: UIWindow {
         
         if #available(iOS 13.0, *) {
             guard let keyWindow = UIApplication.shared.connectedScenes
@@ -29,7 +29,7 @@ extension UIWindow {
         }
     }
   
-    private class var keySafeAreaInsets: UIEdgeInsets {
+    public class var keySafeAreaInsets: UIEdgeInsets {
         guard #available(iOS 11.0, *) else { return .zero }
         return UIWindow.key.safeAreaInsets
     }
@@ -40,5 +40,11 @@ extension UIWindow {
     
     class var bottomPadding: CGFloat {
         return UIWindow.keySafeAreaInsets.bottom
+    }
+}
+
+extension UIApplication {
+    func topMostViewController() -> UIViewController? {
+        return UIWindow.key.rootViewController?.topMostViewController()
     }
 }

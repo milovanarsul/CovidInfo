@@ -8,22 +8,25 @@
 import Foundation
 
 public class OnboardingData{
-    private var lottieAnimation: String
-    private var labelText: String
-    var isModalNext: Bool
+    var image: String
+    var labelText: String
+    var isSkipEnabled: Bool
     
-    init(lottieAnimation: String, labelText: String, isModalNext: Bool){
-        self.lottieAnimation = lottieAnimation
+    var nextButtonText: String = "Mai departe"
+    var skipButtonText: String = "Mai tarziu"
+    
+    init(image: String, labelText: String, isSkipEnabled: Bool, nextButtonText: String? = nil, skipButtonText: String? = nil){
+        self.image = image
         self.labelText = labelText
-        self.isModalNext = isModalNext
-    }
-    
-    public func getLottieAnimation() -> String{
-        return lottieAnimation
-    }
-    
-    public func getLabelText() -> String{
-        return labelText
+        self.isSkipEnabled = isSkipEnabled
+        
+        if let nextButtonText = nextButtonText {
+            self.nextButtonText = nextButtonText
+        }
+        
+        if let skipButtonText = skipButtonText {
+            self.skipButtonText = skipButtonText
+        }
     }
 }
 

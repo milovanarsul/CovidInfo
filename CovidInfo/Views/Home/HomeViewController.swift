@@ -11,8 +11,8 @@ import SwiftUI
 
 class HomeViewController: UIViewController {
     
-    @Published var currentData: CurrentData = DataManager.currentCountryData!
-    @Published var historicData: HistoricalData = DataManager.historicCountryData!
+    @Published var currentData: CurrentData? = DataManager.currentCountryData!
+    @Published var historicData: HistoricalData? = DataManager.historicCountryData!
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()

@@ -172,7 +172,7 @@ class CustomNavigationBar: UIView {
             delegates.main.animateContentView(size: 5)
             locationButton.initialize(title: "", titleColor: .white, cornerRadius: 100, font: boldFont(size: 30), backgroundColor: UIColor("00A777"), image: UIImage(systemName: "location.circle"))
             
-            delegates.info.viewsVisibility(visibility: false)
+            //delegates.info.viewsVisibility(visibility: false)
             //delegates.navigationBar.locationButtonAnimation(visibility: .show)
             delegates.main.planTripButtonAnimation(visibility: .show)
             resetsLocationButton = false

@@ -12,7 +12,7 @@ import CoreLocation
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    let locationManager = CLLocationManager()
+    static let locationManager = CLLocationManager()
     
     static let geoCoder = CLGeocoder()
     static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -22,13 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         FirebaseManager.loadData()
-        if defaults.bool(forKey: "notFirstLaunch") {
-            DataManager.fetchCoreData()
-            
-        }
         
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
+        AppDelegate.locationManager.delegate = self
 
         return true
     }
@@ -67,15 +62,15 @@ extension AppDelegate: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .denied, .restricted, .notDetermined:
-            if defaults.string(forKey: "manualCountry") == nil{
-                defaults.set(false, forKey: "automaticLocation")
+            print("Location denied")
+            if appDidLoad{
+                if UIApplication.shared.topMostViewController() is OnboardingViewController && delegates.onboardingPVC.getCurrentIndex?() == 6{
+                    delegates.onboardingPVC.goToPage(pageIndex: 7, direction: .forward)
+                }
             }
-        case .authorizedWhenInUse:
-          locationManager.requestLocation()
-        case .authorizedAlways:
-          locationManager.requestLocation()
         default:
-          ()
+            AppDelegate.locationManager.requestLocation()
+            print("Location authorized")
         }
     }
     
@@ -86,26 +81,28 @@ extension AppDelegate: CLLocationManagerDelegate{
                 for (key,value) in enISOCountries{
                     if value == place{
                         country = roISOCountries[key]!
+                        
+                        defaults.set(country, forKey: "automaticCountry")
+                        defaults.set(true, forKey: "useAutomaticLocation")
+                        if UIApplication.shared.topMostViewController() is OnboardingViewController && delegates.onboardingPVC.getCurrentIndex?() == 6{
+                            delegates.onboarding.downloadData(dataRequest: .all)
+                        }
                     }
-                }
-                
-                DataManager.automaticLocation = country
-                
-                if defaults.string(forKey: "manualCountry") == nil{
-                    defaults.set(true, forKey: "automaticLocation")
-                }
-                
-                if defaults.bool(forKey: "isNotFirstLaunch") == false && DataManager.isRefreshRequired() == false{
-                    DataManager.countryData()
                 }
             }
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("LocationManager didFailWithError \(error.localizedDescription)")
         if let error = error as? CLError, error.code == .denied {
-           locationManager.stopMonitoringSignificantLocationChanges()
+            AppDelegate.locationManager.stopMonitoringSignificantLocationChanges()
+            
+            if appDidLoad{
+                if UIApplication.shared.topMostViewController() is OnboardingViewController && delegates.onboardingPVC.getCurrentIndex?() == 6{
+                    delegates.onboardingView.hideNextButton()
+                    delegates.onboardingPVC.goToPage(pageIndex: 7, direction: .forward)
+                }
+            }
            return
         }
     }
