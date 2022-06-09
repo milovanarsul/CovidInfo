@@ -26,3 +26,33 @@ func dictionaryToDoubleArray(dictionary: [String:Double]) -> [Double] {
     
     return doubleArray
 }
+
+func countryToISO(country: String, dictionary: [String : String]) -> String?{
+    for (key, value) in dictionary {
+        if value == country{
+            return key
+        }
+    }
+    
+    return nil
+}
+
+func monthToNumber(month: String) -> Int{
+    for (key, value) in romanianMonths{
+        if value == month{
+            return key
+        }
+    }
+    
+    return 0
+}
+
+func dayToNumber(day: String) -> Int{
+    for (key, value) in weekDays{
+        if value == day {
+            return key
+        }
+    }
+    
+    return 0
+}

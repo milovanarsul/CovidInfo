@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension MSPressBulettin {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<MSPressBulettin> {

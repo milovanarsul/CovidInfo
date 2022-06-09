@@ -11,28 +11,21 @@ import UIKit
 class Constraints{
     private var childView: UIView
     private var parentView: UIView
-    private var secondView: UIView!
     private var constraints: [Constraint]
     
-    init(childView: UIView, parentView: UIView, secondView: UIView? = nil, constraints: [Constraint]){
+    init(childView: UIView, parentView: UIView, constraints: [Constraint]){
         self.childView = childView
         self.parentView = parentView
         self.constraints = constraints
-        
-        if let secondView = secondView {
-            self.secondView = secondView
-        }
     }
     
     func addConstraints(){
         var constraints = [NSLayoutConstraint]()
-        
         self.childView.translatesAutoresizingMaskIntoConstraints = false
         
         for constraint in self.constraints{
             constraint.parentView = self.parentView
             constraint.childView = self.childView
-            constraint.secondView = self.secondView
             
             constraints.append(constraint.setConstraint())
         }
@@ -45,19 +38,10 @@ class Constraint{
     private var constraintType: ConstraintType
     var childView: UIView!
     var parentView: UIView!
-    var secondView: UIView!
     private var multiplier: CGFloat
     private var constant: CGFloat
     
     init(constraintType: ConstraintType, multiplier: CGFloat, constant: CGFloat){
-        self.constraintType = constraintType
-        self.multiplier = multiplier
-        self.constant = constant
-    }
-    
-    init(childView: UIView, parentView: UIView, constraintType: ConstraintType, multiplier: CGFloat, constant: CGFloat){
-        self.childView = childView
-        self.parentView = parentView
         self.constraintType = constraintType
         self.multiplier = multiplier
         self.constant = constant
@@ -77,8 +61,6 @@ class Constraint{
             return NSLayoutConstraint(item: self.childView!, attribute: .top, relatedBy: .equal, toItem: self.parentView, attribute: .top, multiplier: self.multiplier, constant: self.constant)
         case.bottom:
             return NSLayoutConstraint(item: self.parentView!, attribute: .bottom, relatedBy: .equal, toItem: self.childView, attribute: .bottom, multiplier: self.multiplier, constant: self.constant)
-        case .bottomReverse:
-            return NSLayoutConstraint(item: self.childView!, attribute: .bottom, relatedBy: .equal, toItem: self.parentView, attribute: .bottom, multiplier: self.multiplier, constant: self.constant)
         case .horizontal:
             return NSLayoutConstraint(item: self.childView!, attribute: .centerX, relatedBy: .equal, toItem: self.parentView, attribute: .centerX, multiplier: 1, constant: self.constant)
         case .vertical:
@@ -89,31 +71,6 @@ class Constraint{
             return NSLayoutConstraint(item: self.childView!, attribute: .height, relatedBy: .equal, toItem: self.parentView, attribute: .height, multiplier: self.multiplier, constant: self.constant)
         case .proportionalWidth:
             return NSLayoutConstraint(item: self.childView!, attribute: .width, relatedBy: .equal, toItem: self.parentView, attribute: .width, multiplier: self.multiplier, constant: self.constant)
-        case .verticalSpacing:
-            return NSLayoutConstraint(item: self.childView!, attribute: .top, relatedBy: .equal, toItem: self.secondView, attribute: .bottom, multiplier: self.multiplier, constant: self.constant)
-        case .horizontalSpacing:
-            return NSLayoutConstraint(item: self.childView!, attribute: .leading, relatedBy: .equal, toItem: self.secondView, attribute: .trailing, multiplier: self.multiplier, constant: self.constant)
-        }
-    }
-}
-
-func assignConstraints(childView: UIView, parentView: UIView, constraints: [(variable: NSLayoutConstraint?, type: ConstraintType, constraintType: SetConstraintType, value: CGFloat)]){
-    
-    childView.translatesAutoresizingMaskIntoConstraints = false
-    for var constraint in constraints {
-        var constraintToBeSet = NSLayoutConstraint()
-        switch constraint.constraintType {
-            case .multiplier:
-                constraintToBeSet = Constraint(childView: childView, parentView: parentView, constraintType: constraint.type, multiplier: constraint.value, constant: 0).setConstraint()
-            case .constant:
-                constraintToBeSet = Constraint(childView: childView, parentView: parentView, constraintType: constraint.type, multiplier: 1, constant: constraint.value).setConstraint()
-        }
-        
-        if constraint.variable != nil {
-            constraint.variable = constraintToBeSet
-            NSLayoutConstraint.activate([constraint.variable!])
-        } else {
-            NSLayoutConstraint.activate([constraintToBeSet])
         }
     }
 }

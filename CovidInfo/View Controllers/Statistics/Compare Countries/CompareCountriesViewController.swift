@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import BetterSegmentedControl
 
 class CompareCountriesViewController: UIViewController {
     
@@ -74,17 +75,9 @@ class CompareCountriesViewController: UIViewController {
                 return button
             }()
             
-            lazy var automaticButton: UIButton = {
-                let button = UIButton()
-                button.initialize(title: "Comparatie automata", titleColor: .white, cornerRadius: 8, font: boldFont(size: 18), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "a.circle"))
-                button.contentHorizontalAlignment = .left
-                button.addTarget(self, action: #selector(automaticButtonTapped(_:)), for: .touchUpInside)
-                return button
-            }()
-            
             let stackView = UIStackView()
             stackView.initalize(axis: .vertical, alignment: .fill, distribution: .fillEqually, spacing: 20)
-            stackView.addAranagedSubviews(views: [country1Button, country2Button, automaticButton])
+            stackView.addAranagedSubviews(views: [country1Button, country2Button])
             return stackView
         }()
         
@@ -102,7 +95,7 @@ class CompareCountriesViewController: UIViewController {
         let locationButtonsConstraints = Constraints(childView: locationButtons, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 0.7, constant: 0),
-            Constraint(constraintType: .proportionalHeight, multiplier: 0.25, constant: 0)
+            Constraint(constraintType: .proportionalHeight, multiplier: 0.15, constant: 0)
         ])
         locationButtonsConstraints.addConstraints()
         locationButtons.topAnchor.constraint(equalTo: onboardingImageView.bottomAnchor, constant: 30).isActive = true
@@ -121,47 +114,18 @@ class CompareCountriesViewController: UIViewController {
     }()
     
     lazy var resultView: UIView = {
-        lazy var countriesTitleResultView: UIView = {
-            lazy var country1ResultButton: UIButton = {
-                let button = UIButton()
-                button.initialize(title: country1!.name!, titleColor: .black, cornerRadius: 0, font: boldFont(size: 30), backgroundColor: .clear)
-                button.tag = 4
-                button.addTarget(self, action: #selector(country1ResultButtonTapped(_:)), for: .touchUpInside)
-                return button
-            }()
-            
-            lazy var comparatorLabel: UILabel = {
-                let label = UILabel()
-                label.initialize(text: ">", color: .black, font: boldFont(size: 27), alignment: .left, lines: 0)
-                label.translatesAutoresizingMaskIntoConstraints = false
-                return label
-            }()
-            
-            lazy var country2ResultButton: UIButton = {
-                let button = UIButton()
-                button.initialize(title: country2!.name!, titleColor: .black, cornerRadius: 0, font: boldFont(size: 27), backgroundColor: .clear)
-                button.translatesAutoresizingMaskIntoConstraints = false
-                button.tag = 5
-                button.addTarget(self, action: #selector(country2ResultButtonTapped(_:)), for: .touchUpInside)
-                return button
-            }()
-            
-            let view = UIView()
-            view.addSubviews(views: [country1ResultButton, comparatorLabel, country2ResultButton])
-            
-            let country1ResultButtonConstraints = Constraints(childView: country1ResultButton, parentView: view, constraints: [
-                Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
-                Constraint(constraintType: .leading, multiplier: 1, constant: 24)
-            ])
-            country1ResultButtonConstraints.addConstraints()
-            
-            comparatorLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-            comparatorLabel.leadingAnchor.constraint(equalTo: country1ResultButton.trailingAnchor, constant: 5).isActive = true
-            
-            country2ResultButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-            country2ResultButton.leadingAnchor.constraint(equalTo: comparatorLabel.trailingAnchor, constant: 5).isActive = true
-            
-            return view
+        lazy var countriesTitleResultView: BetterSegmentedControl = {
+            let categories = BetterSegmentedControl(frame: .zero,
+                                                    segments: LabelSegment.segments(withTitles: [country1!.name!, country2!.name!], normalFont: boldFont(size: 30), normalTextColor: .black, selectedFont: boldFont(size: 30) ,selectedTextColor: .black),
+                                                    options: [.backgroundColor(.clear),
+                                                              .indicatorViewBorderColor(.black),
+                                                              .indicatorViewBorderWidth(2),
+                                                              .indicatorViewInset(40),
+                                                              .indicatorViewBackgroundColor(.clear), .cornerRadius(16), .animationSpringDamping(1.0),])
+            categories.segmentPadding = 2.0
+            categories.panningDisabled = true
+            categories.addTarget(self, action: #selector(countryResultTitleTapped(_:)), for: .valueChanged)
+            return categories
         }()
         
         lazy var pageViewController: UIView = {
@@ -176,7 +140,7 @@ class CompareCountriesViewController: UIViewController {
         let countriesTitlesResultViewConstraints = Constraints(childView: countriesTitleResultView, parentView: parentView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
-            Constraint(constraintType: .height, multiplier: 1, constant: 30),
+            Constraint(constraintType: .height, multiplier: 1, constant: 50),
             Constraint(constraintType: .top, multiplier: 1, constant: 0)
         ])
         countriesTitlesResultViewConstraints.addConstraints()
@@ -283,16 +247,15 @@ class CompareCountriesViewController: UIViewController {
         country2 = nil
     }
     
-    @objc func country1ResultButtonTapped(_ sender: UIButton){
-        (view.viewWithTag(4) as! UIButton).initialize(title: country1!.name!, titleColor: .black, cornerRadius: 0, font: boldFont(size: 30), backgroundColor: .clear)
-        (view.viewWithTag(5) as! UIButton).initialize(title: country2!.name!, titleColor: .black, cornerRadius: 0, font: boldFont(size: 27), backgroundColor: .clear)
-        delegates.compareCountriesPVC.goToPage(pageIndex: 0, direction: .reverse)
-    }
-    
-    @objc func country2ResultButtonTapped(_ sender: UIButton){
-        (view.viewWithTag(4) as! UIButton).initialize(title: country1!.name!, titleColor: .black, cornerRadius: 0, font: boldFont(size: 27), backgroundColor: .clear)
-        (view.viewWithTag(5) as! UIButton).initialize(title: country2!.name!, titleColor: .black, cornerRadius: 0, font: boldFont(size: 30), backgroundColor: .clear)
-        delegates.compareCountriesPVC.goToPage(pageIndex: 1, direction: .forward)
+    @objc func countryResultTitleTapped(_ sender: BetterSegmentedControl){
+        switch sender.index{
+        case 0:
+            delegates.compareCountriesPVC.goToPage(pageIndex: 0, direction: .reverse)
+        case 1:
+            delegates.compareCountriesPVC.goToPage(pageIndex: 1, direction: .forward)
+        default:
+            ()
+        }
     }
 }
 

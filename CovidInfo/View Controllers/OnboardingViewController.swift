@@ -153,7 +153,7 @@ extension OnboardingViewController: OnboardingDelegate {
         present(modal, animated: true, completion: nil)
     }
     
-    func dimissModal(completion: @escaping (() -> Void)) {
+    func dismissModal(completion: @escaping (() -> Void)) {
         dismiss(animated: true, completion: completion)
     }
     

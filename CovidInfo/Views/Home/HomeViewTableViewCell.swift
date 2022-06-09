@@ -57,7 +57,7 @@ class HomeViewTableViewCell: UITableViewCell {
         parentView.addSubviews(views: [label, simptomeAndPreventie])
         
         let labelConstraints = Constraints(childView: label, parentView: parentView, constraints: [
-            Constraint(constraintType: .leading, multiplier: 1, constant: 12),
+            Constraint(constraintType: .leading, multiplier: 1, constant: 4),
             Constraint(constraintType: .top, multiplier: 1, constant: 10)
         ])
         labelConstraints.addConstraints()
@@ -94,47 +94,6 @@ class HomeViewTableViewCell: UITableViewCell {
             return view
         }()
         
-        lazy var locationDisabled: UIView = {
-            lazy var locationImageView: UIImageView = {
-                let imageView = UIImageView()
-                imageView.image = UIImage(named: "locationDisabledHome")!
-                imageView.contentMode = .scaleAspectFill
-                return imageView
-            }()
-            
-            lazy var locationLabel: UILabel = {
-                let label = UILabel()
-                label.initialize(text: "Locatia automata este dezactivata!", color: .black, font: boldFont(size: 18), alignment: .left, lines: 0)
-                return label
-            }()
-            
-            lazy var locationButton: UIButton = {
-                let button = UIButton()
-                button.initialize(title: "Selecteaza o locatie manuala", titleColor: .white, cornerRadius: 8, font: boldFont(size: 14), backgroundColor: signatureLightBlue)
-                button.addTarget(self, action: #selector(homeLocationDisabled), for: .touchUpInside)
-                return button
-            }()
-            
-            let parentView = UIView()
-            parentView.addSubviews(views: [locationImageView, locationLabel, locationButton])
-            
-            defaultConstraints(childView: locationImageView, parentView: parentView)
-            
-            let locationLabelConstraints = Constraints(childView: locationLabel, parentView: parentView, constraints: [
-                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-                Constraint(constraintType: .vertical, multiplier: 1, constant: 0)
-            ])
-            locationLabelConstraints.addConstraints()
-            
-            let buttonConstraints = Constraints(childView: locationButton, parentView: parentView, constraints: [
-                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0)
-            ])
-            buttonConstraints.addConstraints()
-            locationButton.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 10).isActive = true
-            
-            return parentView
-        }()
-        
         let parentView = UIView()
         parentView.translatesAutoresizingMaskIntoConstraints = false
         parentView.heightAnchor.constraint(equalToConstant: 250).isActive = true
@@ -150,7 +109,7 @@ class HomeViewTableViewCell: UITableViewCell {
         
         let buttonConstraints = Constraints(childView: button, parentView: parentView, constraints: [
             Constraint(constraintType: .trailing, multiplier: 1, constant: -12),
-            Constraint(constraintType: .top, multiplier: 1, constant: -5)
+            Constraint(constraintType: .top, multiplier: 1, constant: -10)
         ])
         buttonConstraints.addConstraints()
         
@@ -413,7 +372,6 @@ class HomeViewTableViewCell: UITableViewCell {
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 0.96, constant: 0),
             Constraint(constraintType: .top, multiplier: 1, constant: 10),
-            //Constraint(constraintType: .proportionalHeight, multiplier: 0.24, constant: 0)
         ])
         siptomeAndPreventieConstraints.addConstraints()
         
@@ -429,14 +387,14 @@ class HomeViewTableViewCell: UITableViewCell {
             Constraint(constraintType: .proportionalWidth, multiplier: 0.98, constant: 0)
         ])
         latestNewsConstraints.addConstraints()
-        latestNews.topAnchor.constraint(equalTo: quickCharts.bottomAnchor, constant: 50).isActive = true
+        latestNews.topAnchor.constraint(equalTo: quickCharts.bottomAnchor, constant: 40).isActive = true
         
         let infoShortcutsConstraints = Constraints(childView: infoShorcuts, parentView: contentView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 0.96, constant: 0),
         ])
         infoShortcutsConstraints.addConstraints()
-        infoShorcuts.topAnchor.constraint(equalTo: latestNews.bottomAnchor, constant: 10).isActive = true
+        infoShorcuts.topAnchor.constraint(equalTo: latestNews.bottomAnchor, constant: 20).isActive = true
         
         let triajEpidemiologicConstraints = Constraints(childView: triajEpidemiologic, parentView: contentView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
@@ -464,7 +422,7 @@ class HomeViewTableViewCell: UITableViewCell {
     @objc func homeLocationDisabled(_ sender: UIButton){
         delegates.tabBar.goToPage(pageIndex: 3, direction: .forward)
         delegates.customTabBar.goToPage(index: 3)
-        delegates.navigationBar.externalTapLocationButton()
+        //delegates.navigationBar.externalTapLocationButton()
     }
     
     @objc func newsAction(_ sender: UIButton){

@@ -18,13 +18,13 @@
 		B217D44F27B93DC500DBDED9 /* TriajViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B217D44D27B93DC500DBDED9 /* TriajViewController.swift */; };
 		B217D45527B940F600DBDED9 /* TriajSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B217D45427B940F600DBDED9 /* TriajSubviews.swift */; };
 		B217D45727B9454500DBDED9 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B217D45627B9454500DBDED9 /* UIStackView.swift */; };
-		B2188D302825B6E800CF9087 /* ISOCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2188D2F2825B6E800CF9087 /* ISOCountries.swift */; };
 		B218CDC227F849580080CD55 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218CDC127F849570080CD55 /* TestViewController.swift */; };
 		B218E732284F98C40074FA70 /* OnboardingLocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218E731284F98C40074FA70 /* OnboardingLocationPicker.swift */; };
 		B218E734284FC4DF0074FA70 /* OnboardingDownloadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218E733284FC4DF0074FA70 /* OnboardingDownloadData.swift */; };
 		B21A25432843C82400C73F01 /* TripPlannerCountryResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21A25422843C82400C73F01 /* TripPlannerCountryResultView.swift */; };
 		B21B3F1927F851B0004171C6 /* TestViewTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21B3F1827F851B0004171C6 /* TestViewTest.xib */; };
 		B21C965727B2CADA00C88A50 /* SimptomeAndPreventie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C965627B2CADA00C88A50 /* SimptomeAndPreventie.swift */; };
+		B224D0BB2852839F00F9F852 /* onboarding4.2.json in Resources */ = {isa = PBXBuildFile; fileRef = B224D0BA2852839F00F9F852 /* onboarding4.2.json */; };
 		B232BBE22845692B0082C626 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B232BBE12845692B0082C626 /* Translate.swift */; };
 		B236E15E2825B08300AB0116 /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E15C2825B08300AB0116 /* Article+CoreDataClass.swift */; };
 		B236E15F2825B08300AB0116 /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E15D2825B08300AB0116 /* Article+CoreDataProperties.swift */; };
@@ -96,6 +96,8 @@
 		B2AE2B9F282BFBAE007C440A /* LocationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE2B9E282BFBAE007C440A /* LocationPickerView.swift */; };
 		B2AE2BAF282C75BF007C440A /* CurrentDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE2BAE282C75BF007C440A /* CurrentDataParser.swift */; };
 		B2B03FAA27BEB36200A0F634 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B03FA927BEB36200A0F634 /* UIViewController.swift */; };
+		B2B21B4028522B8000AB8CFC /* PageViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B21B3F28522B8000AB8CFC /* PageViewControllerDataSource.swift */; };
+		B2B21B4228522BCC00AB8CFC /* GenericTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B21B4128522BCC00AB8CFC /* GenericTableViewCell.swift */; };
 		B2B45D1A27B2F34B00788918 /* SimptomeAndPreventieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B45D1927B2F34B00788918 /* SimptomeAndPreventieCollectionViewCell.swift */; };
 		B2B758DD2810086A00E9D078 /* UICollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B758DC2810086A00E9D078 /* UICollectionViewController.swift */; };
 		B2B758DF2810091500E9D078 /* XIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B758DE2810091500E9D078 /* XIB.swift */; };
@@ -113,7 +115,6 @@
 		B2C59C2127A869340094A984 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C59C2027A869340094A984 /* MainPageViewController.swift */; };
 		B2C6F9BC2835074B00B6DBA8 /* DataRefactoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C6F9BB2835074B00B6DBA8 /* DataRefactoring.swift */; };
 		B2CCA48C2835C8B300947A0C /* SwiftUITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCA48B2835C8B300947A0C /* SwiftUITestView.swift */; };
-		B2CCB58B27DB9A9D0076A52A /* HomeHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCB58A27DB9A9D0076A52A /* HomeHeaders.swift */; };
 		B2CCB59227DB9D160076A52A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCB59027DB9D160076A52A /* HomeViewController.swift */; };
 		B2CD902A2840F47700528D1F /* TravelAdvice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CD90292840F47700528D1F /* TravelAdvice.swift */; };
 		B2D0724327CB81A600FA4BC6 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0724227CB81A600FA4BC6 /* Defaults.swift */; };
@@ -127,7 +128,6 @@
 		B2E9C91C282C789E00BE6C31 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E9C91B282C789E00BE6C31 /* StatisticsViewController.swift */; };
 		B2ECF84228170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ECF83E28170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift */; };
 		B2ECF84328170BAC00D36217 /* MSPressBulettin+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ECF83F28170BAC00D36217 /* MSPressBulettin+CoreDataProperties.swift */; };
-		B2F01E202807734B00D0AD6C /* CountiesEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F01E1F2807734B00D0AD6C /* CountiesEnums.swift */; };
 		B2F1E2B2284168FF007099C2 /* TripPlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F1E2B1284168FF007099C2 /* TripPlannerViewController.swift */; };
 		B2F1E2B52841725F007099C2 /* TripPlannerCountryPickerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F1E2B42841725F007099C2 /* TripPlannerCountryPickerTableView.swift */; };
 		B2F48DDB27AD1D37005EE116 /* HomePagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F48DD927AD1D37005EE116 /* HomePagePageViewController.swift */; };
@@ -169,13 +169,13 @@
 		B217D44D27B93DC500DBDED9 /* TriajViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriajViewController.swift; sourceTree = "<group>"; };
 		B217D45427B940F600DBDED9 /* TriajSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriajSubviews.swift; sourceTree = "<group>"; };
 		B217D45627B9454500DBDED9 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
-		B2188D2F2825B6E800CF9087 /* ISOCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISOCountries.swift; sourceTree = "<group>"; };
 		B218CDC127F849570080CD55 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		B218E731284F98C40074FA70 /* OnboardingLocationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLocationPicker.swift; sourceTree = "<group>"; };
 		B218E733284FC4DF0074FA70 /* OnboardingDownloadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDownloadData.swift; sourceTree = "<group>"; };
 		B21A25422843C82400C73F01 /* TripPlannerCountryResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerCountryResultView.swift; sourceTree = "<group>"; };
 		B21B3F1827F851B0004171C6 /* TestViewTest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewTest.xib; sourceTree = "<group>"; };
 		B21C965627B2CADA00C88A50 /* SimptomeAndPreventie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventie.swift; sourceTree = "<group>"; };
+		B224D0BA2852839F00F9F852 /* onboarding4.2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding4.2.json; sourceTree = "<group>"; };
 		B232BBE12845692B0082C626 /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
 		B236E15C2825B08300AB0116 /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B236E15D2825B08300AB0116 /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -246,6 +246,8 @@
 		B2AE2B9E282BFBAE007C440A /* LocationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerView.swift; sourceTree = "<group>"; };
 		B2AE2BAE282C75BF007C440A /* CurrentDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDataParser.swift; sourceTree = "<group>"; };
 		B2B03FA927BEB36200A0F634 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		B2B21B3F28522B8000AB8CFC /* PageViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewControllerDataSource.swift; sourceTree = "<group>"; };
+		B2B21B4128522BCC00AB8CFC /* GenericTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewCell.swift; sourceTree = "<group>"; };
 		B2B45D1927B2F34B00788918 /* SimptomeAndPreventieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventieCollectionViewCell.swift; sourceTree = "<group>"; };
 		B2B758DC2810086A00E9D078 /* UICollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewController.swift; sourceTree = "<group>"; };
 		B2B758DE2810091500E9D078 /* XIB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XIB.swift; sourceTree = "<group>"; };
@@ -262,7 +264,6 @@
 		B2C59C2027A869340094A984 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		B2C6F9BB2835074B00B6DBA8 /* DataRefactoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRefactoring.swift; sourceTree = "<group>"; };
 		B2CCA48B2835C8B300947A0C /* SwiftUITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestView.swift; sourceTree = "<group>"; };
-		B2CCB58A27DB9A9D0076A52A /* HomeHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaders.swift; sourceTree = "<group>"; };
 		B2CCB59027DB9D160076A52A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B2CD90292840F47700528D1F /* TravelAdvice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelAdvice.swift; sourceTree = "<group>"; };
 		B2D0724227CB81A600FA4BC6 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
@@ -276,7 +277,6 @@
 		B2E9C91B282C789E00BE6C31 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		B2ECF83E28170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MSPressBulettin+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B2ECF83F28170BAC00D36217 /* MSPressBulettin+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MSPressBulettin+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		B2F01E1F2807734B00D0AD6C /* CountiesEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountiesEnums.swift; sourceTree = "<group>"; };
 		B2F1E2B1284168FF007099C2 /* TripPlannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerViewController.swift; sourceTree = "<group>"; };
 		B2F1E2B42841725F007099C2 /* TripPlannerCountryPickerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerCountryPickerTableView.swift; sourceTree = "<group>"; };
 		B2F48DD927AD1D37005EE116 /* HomePagePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePagePageViewController.swift; sourceTree = "<group>"; };
@@ -418,8 +418,6 @@
 				B237B54028346145000F73A8 /* Historic Covid Data */,
 				B2F65127278F329000E1BB58 /* Fonts */,
 				B2B5A9A72790904600FC4E61 /* Lottie Animations */,
-				B2F650FE278F2BDB00E1BB58 /* Assets.xcassets */,
-				B2188D2F2825B6E800CF9087 /* ISOCountries.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -438,13 +436,13 @@
 		B23DC42427902F1E00051C6C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B28DFB89284F786600DC1845 /* OnboardingViewController.swift */,
 				B259BF8427B6DFA5001F78A6 /* LaunchViewController.swift */,
+				B28DFB89284F786600DC1845 /* OnboardingViewController.swift */,
 				B278D50627A2848600511BB2 /* MainViewController.swift */,
 				B22B20EE28205D64000693B7 /* Info */,
 				B2F48DE827AD3543005EE116 /* News */,
 				B26CB67928148F7D00345812 /* Statistics */,
-				B2AB5689283D658D004EC66A /* Various */,
+				B2124F1D2823EF4900F20662 /* CustomPresentationControler.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -466,6 +464,8 @@
 				B23935C028144DD400F4E0AA /* CoreData.swift */,
 				B2C6F9BB2835074B00B6DBA8 /* DataRefactoring.swift */,
 				B2F48DE127AD25BC005EE116 /* EmbedView.swift */,
+				B2B21B4128522BCC00AB8CFC /* GenericTableViewCell.swift */,
+				B2B21B3F28522B8000AB8CFC /* PageViewControllerDataSource.swift */,
 				B2DABD1927EB790F00ECA4EB /* SafariWebView.swift */,
 				B2B758DE2810091500E9D078 /* XIB.swift */,
 			);
@@ -478,6 +478,7 @@
 				B2AB5686283D63C7004EC66A /* Enums */,
 				B2BF962228143555002493EE /* Data Models */,
 				B23DC42027902EB800051C6C /* Resources */,
+				B2F650FE278F2BDB00E1BB58 /* Assets.xcassets */,
 				B2D0724227CB81A600FA4BC6 /* Defaults.swift */,
 				B2B758E128100BE600E9D078 /* ViewModelsData.swift */,
 			);
@@ -608,9 +609,9 @@
 			children = (
 				B27BE1962825C4C100DB8D11 /* CurrentData.swift */,
 				B236E1632825B1B400AB0116 /* HistoricalData.swift */,
+				B2F6077F28497CDA00900B56 /* OldHistoricalData.swift */,
 				B232BBE12845692B0082C626 /* Translate.swift */,
 				B2CD90292840F47700528D1F /* TravelAdvice.swift */,
-				B2F6077F28497CDA00900B56 /* OldHistoricalData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -619,7 +620,6 @@
 			isa = PBXGroup;
 			children = (
 				B2F48DDF27AD249A005EE116 /* Enums.swift */,
-				B2F01E1F2807734B00D0AD6C /* CountiesEnums.swift */,
 				B2F6077A284960D000900B56 /* Localizables.swift */,
 			);
 			path = Enums;
@@ -644,14 +644,6 @@
 			path = "Collection View";
 			sourceTree = "<group>";
 		};
-		B2AB5689283D658D004EC66A /* Various */ = {
-			isa = PBXGroup;
-			children = (
-				B2124F1D2823EF4900F20662 /* CustomPresentationControler.swift */,
-			);
-			path = Various;
-			sourceTree = "<group>";
-		};
 		B2AB568E283D6E3B004EC66A /* Actions */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,6 +656,7 @@
 		B2B5A9A72790904600FC4E61 /* Lottie Animations */ = {
 			isa = PBXGroup;
 			children = (
+				B224D0BA2852839F00F9F852 /* onboarding4.2.json */,
 				B21C965A27B2CB0E00C88A50 /* Simptome and Preventie */,
 			);
 			path = "Lottie Animations";
@@ -674,7 +667,6 @@
 			children = (
 				B2725F3C282A95B2008B0CEB /* Country.swift */,
 				B2B9EC942840AE8000D77B8D /* CountryTravel.swift */,
-				B2CCB58A27DB9A9D0076A52A /* HomeHeaders.swift */,
 				B256B0FA2822583400793A7E /* InfoCard.swift */,
 				B2BB039E27A998F700D4801B /* NavigationBar.swift */,
 				B2DABD1527EB2A2500ECA4EB /* News.swift */,
@@ -922,6 +914,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2F65139278F32B000E1BB58 /* IBMPlexSans-Light.ttf in Resources */,
+				B224D0BB2852839F00F9F852 /* onboarding4.2.json in Resources */,
 				B2F65145278F32B000E1BB58 /* IBMPlexSans-SemiBold.ttf in Resources */,
 				B2F65102278F2BDB00E1BB58 /* LaunchScreen.storyboard in Resources */,
 				B23DE46327B3D01700FD2E10 /* preventie5.json in Resources */,
@@ -1013,11 +1006,11 @@
 				B23935C128144DD400F4E0AA /* CoreData.swift in Sources */,
 				B289059427DA80720019205D /* LocalStorageManager.swift in Sources */,
 				B2A4A9562847FB0600C10732 /* CountryTravel+CoreDataProperties.swift in Sources */,
+				B2B21B4228522BCC00AB8CFC /* GenericTableViewCell.swift in Sources */,
 				B2DABD1627EB2A2500ECA4EB /* News.swift in Sources */,
 				B218E732284F98C40074FA70 /* OnboardingLocationPicker.swift in Sources */,
 				B2BB039F27A998F700D4801B /* NavigationBar.swift in Sources */,
 				B23DF372283FDD8B00E54101 /* InfoPageViewController.swift in Sources */,
-				B2CCB58B27DB9A9D0076A52A /* HomeHeaders.swift in Sources */,
 				B281283527A5A69700DE7DB8 /* UIPageViewController.swift in Sources */,
 				B2976FD627B94F6C006E4859 /* TriajActions.swift in Sources */,
 				B243D3202848B4A5007049B0 /* FilterDataViewController.swift in Sources */,
@@ -1080,16 +1073,15 @@
 				B26EEDB0282AFDF100000781 /* CountryPickerViewController.swift in Sources */,
 				B266A11527EF12D0003806E7 /* CardTableViewTransition.swift in Sources */,
 				B2124F1C2823EA3D00F20662 /* InfoBottomSheetView.swift in Sources */,
+				B2B21B4028522B8000AB8CFC /* PageViewControllerDataSource.swift in Sources */,
 				B218E734284FC4DF0074FA70 /* OnboardingDownloadData.swift in Sources */,
 				B2A389F427A442820005F9FD /* CustomNavigationBar.swift in Sources */,
 				B23DE47A27B44E3D00FD2E10 /* UILabel.swift in Sources */,
 				B256059C27B2AFB500FB039F /* SimptomeAndPreventieCollectionViewLayout.swift in Sources */,
 				B2CCB59227DB9D160076A52A /* HomeViewController.swift in Sources */,
-				B2F01E202807734B00D0AD6C /* CountiesEnums.swift in Sources */,
 				B23DE46C27B3FC4D00FD2E10 /* UIColor.swift in Sources */,
 				B2F6078028497CDA00900B56 /* OldHistoricalData.swift in Sources */,
 				B2A24CB52833954800DC8DE8 /* HistoricalDataParser.swift in Sources */,
-				B2188D302825B6E800CF9087 /* ISOCountries.swift in Sources */,
 				B2A0020E284F837200D0C7BD /* OnboardingView.swift in Sources */,
 				B2D0724727CB85A500FA4BC6 /* FontsManager.swift in Sources */,
 				B266A12F27EF7278003806E7 /* UITableView.swift in Sources */,

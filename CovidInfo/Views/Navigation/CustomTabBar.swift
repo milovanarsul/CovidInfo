@@ -105,7 +105,7 @@ class CustomTabBar: UIView {
     }
     
     func buttonSetup(button: MainPages){
-        delegates.main.tabBarScrollAnimation(visibility: .hide, resetsAnimation: true)
+        delegates.main.animateContentView(size: 5)
         tabBarButtonSetup(tabBarButton: button)
         tabBarPageSliderDirection(tabBarButton: button)
         delegates.navigationBar.setup(page: Page(mainPage: button, childType: .none))
@@ -122,25 +122,21 @@ class CustomTabBar: UIView {
             delegates.main.planTripButtonAnimation(visibility: .hide)
             delegates.main.statisticsActionsAnimation(visibility: .hide)
             delegates.navigationBar.certifficateButtonAnimation(visibility: .hide)
-            delegates.navigationBar.locationButtonAnimation(visibility: .hide)
-        case .statistics:
-            delegates.navigationBar.certifficateButtonAnimation(visibility: .show)
-            delegates.main.certifficateButtonAnimation(visibility: .hide)
-            delegates.main.planTripButtonAnimation(visibility: .hide)
-            delegates.main.statisticsActionsAnimation(visibility: .show)
-            delegates.navigationBar.locationButtonAnimation(visibility: .show)
         case .info:
             delegates.main.planTripButtonAnimation(visibility: .show)
             delegates.main.certifficateButtonAnimation(visibility: .hide)
             delegates.main.statisticsActionsAnimation(visibility: .hide)
             delegates.navigationBar.certifficateButtonAnimation(visibility: .show)
-            delegates.navigationBar.locationButtonAnimation(visibility: .show)
+        case .statistics:
+            delegates.navigationBar.certifficateButtonAnimation(visibility: .show)
+            delegates.main.certifficateButtonAnimation(visibility: .hide)
+            delegates.main.planTripButtonAnimation(visibility: .hide)
+            delegates.main.statisticsActionsAnimation(visibility: .show)
         default:
             delegates.main.planTripButtonAnimation(visibility: .hide)
             delegates.main.certifficateButtonAnimation(visibility: .hide)
             delegates.main.statisticsActionsAnimation(visibility: .hide)
             delegates.navigationBar.certifficateButtonAnimation(visibility: .show)
-            delegates.navigationBar.locationButtonAnimation(visibility: .hide)
         }
     }
     

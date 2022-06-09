@@ -6,12 +6,12 @@ from datetime import date
 
 roDays = {
     "Monday" : "Luni",
-    "Tuesday" : "Marti",
+    "Tuesday" : "Marți",
     "Wednesday" : "Miercuri",
     "Thursday" : "Joi",
     "Friday" : "Vineri",
-    "Saturday" : "Sambata",
-    "Sunday" : "Duminica"
+    "Saturday" : "Sâmbătă",
+    "Sunday" : "Duminică"
 }
 
 roMonths = {
@@ -45,7 +45,7 @@ def downloadJSON():
     return file
 
 def parseDataForMonth(dataList, month, dataKey):
-    buffer = {}
+    buffer = []
 
     for data in dataList:
         if dataKey in data:
@@ -53,33 +53,34 @@ def parseDataForMonth(dataList, month, dataKey):
             dataMonth = datetime.strptime(date, '%d-%m-%y').strftime('%B')
 
             if month == dataMonth and data[dataKey] != None:
-                buffer[date] = data[dataKey]
+                buffer.append({date : data[dataKey]})
     
     return buffer
     
 
 def parseData(jsonFile, country, dataKey):
-    month = {}
-    statistic = {}
+    month = []
+    statistic = []
     buffer = {}
 
     key = jsonFile[country]
     dataList = list(key['data'])
 
     for (key,value) in roMonths.items():
-        month[value] = parseDataForMonth(dataList, key, dataKey)
+        month.append({value : parseDataForMonth(dataList, key, dataKey)})
 
     for data in dataList:
         if dataKey in data:
             date = datetime.strptime(data['date'], '%Y-%m-%d').strftime('%d-%m-%y')
-            statistic[date] = data[dataKey]
+            statistic.append({date : data[dataKey]})
 
     buffer['perMonth'] = month
     buffer['All'] = statistic
+
     return buffer
 
 def parseDataForWeek(jsonFile, country, dataKey):
-    buffer = {}
+    buffer = []
 
     key = jsonFile[country]
     dataList = list(key['data'])
@@ -90,7 +91,7 @@ def parseDataForWeek(jsonFile, country, dataKey):
             data = dataList[index]
             if dataKey in data:
                 day = roDays[datetime.strptime(data['date'], '%Y-%m-%d').strftime('%A')]
-                buffer[day] = data[dataKey]
+                buffer.append({day : data[dataKey]})
     
     return buffer
 

@@ -12,7 +12,13 @@ struct CasesAndDeaths: View {
     @ObservedObject var currentData: CurrentData
     @ObservedObject var historicData: HistoricalData
 
+    
     var body: some View{
+        
+        ScrollView(.vertical, showsIndicators: false){
+        }
+    
+    /*
     let sevenDaysCases = dictionaryToDoubleArray(dictionary: historicData.sevenDaysCases!)
     let sevenDaysDeaths = dictionaryToDoubleArray(dictionary: historicData.sevenDaysDeaths!)
 
@@ -29,6 +35,7 @@ struct CasesAndDeaths: View {
                    style: ChartStyle(backgroundColor: .white, accentColor: .white, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), dropShadow: true)
         .disabled(true)
         }
+       */
     }
 }
 
@@ -37,6 +44,11 @@ struct SevenDaysCharts: View {
     @ObservedObject var historicData: HistoricalData
     
     var body: some View{
+        
+        ScrollView(.vertical, showsIndicators: false){
+        }
+        
+        /*
         let sevenDaysCases = dictionaryToTuple(dictionary: historicData.sevenDaysCases!)
         let sevenDaysDeaths = dictionaryToTuple(dictionary: historicData.sevenDaysDeaths!)
         
@@ -47,5 +59,6 @@ struct SevenDaysCharts: View {
         }
         .background(.clear)
         .padding(EdgeInsets(top: 0, leading: -7, bottom: 0, trailing: -7))
+         */
     }
 }

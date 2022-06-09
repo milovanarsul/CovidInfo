@@ -32,8 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-    }
+    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {}
 
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
         let container = NSPersistentCloudKitContainer(name: "DataModel")
@@ -66,6 +65,7 @@ extension AppDelegate: CLLocationManagerDelegate{
             if appDidLoad{
                 if UIApplication.shared.topMostViewController() is OnboardingViewController && delegates.onboardingPVC.getCurrentIndex?() == 6{
                     delegates.onboardingPVC.goToPage(pageIndex: 7, direction: .forward)
+                    defaults.set(true, forKey: "locationPermissionDenied")
                 }
             }
         default:
@@ -83,8 +83,8 @@ extension AppDelegate: CLLocationManagerDelegate{
                         country = roISOCountries[key]!
                         
                         defaults.set(country, forKey: "automaticCountry")
-                        defaults.set(true, forKey: "useAutomaticLocation")
                         if UIApplication.shared.topMostViewController() is OnboardingViewController && delegates.onboardingPVC.getCurrentIndex?() == 6{
+                            defaults.set(true, forKey: "useAutomaticLocation")
                             delegates.onboarding.downloadData(dataRequest: .all)
                         }
                     }

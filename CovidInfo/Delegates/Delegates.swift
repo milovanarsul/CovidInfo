@@ -50,7 +50,7 @@ protocol OnboardingDelegate{
     func skipTutorial()
     func setPageControl()
     func enrollCertifficate()
-    func dimissModal(completion: @escaping (() -> Void))
+    func dismissModal(completion: @escaping (() -> Void))
     func pageControlVisibility(visibility: Bool)
     func downloadData(dataRequest: DataRequest)
     func goToMain()
@@ -66,19 +66,18 @@ protocol OnboardingDownload{
 
 protocol MainDelegate{
     func certifficateButtonAnimation(visibility: ViewVisibility)
+    func tabAnimation(visibility: ViewVisibility)
     func tabBarVisibility(tabBarVisibility: ViewVisibility)
     func certifficateModal()
     func enrollCertifficate()
     func dimissModal(completion: @escaping (() -> Void))
     func updateCertifficateButton()
-    func scrollAnimation(size: CGFloat)
-    func tabBarScrollAnimation(visibility: ViewVisibility, resetsAnimation: Bool)
-    func tabAnimation(visibility: ViewVisibility)
-    func tabBarExtension(visibility: ViewVisibility)
     func animateContentView(size: CGFloat)
     func planTripButtonAnimation(visibility: ViewVisibility)
     func statisticsActionsAnimation(visibility: ViewVisibility)
-    func waitingModal()
+    func refreshData()
+    func countryPickerActionsAnimaiton(visibility: ViewVisibility)
+    func contentViewVisibility(visibility: ViewVisibility)
 }
 
 protocol NavigationBarDelegate{
@@ -87,12 +86,13 @@ protocol NavigationBarDelegate{
     func certifficateButtonAnimation(visibility: ViewVisibility)
     func changeContainerViewBottomConstraint(visibility: Bool)
     func locationButtonAnimation(visibility: ViewVisibility)
-    func externalTapLocationButton()
+    func locationButtonContentAnimation(visibility: ViewVisibility)
 }
 
 protocol TabBarDelegate{
     func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection)
     func getCurrentPresentedViewController() -> UIViewController
+    func getCurrentIndex() -> Int
 }
 
 protocol HomePageDelegate{
@@ -143,7 +143,6 @@ protocol InfoPageViewControllerDelegate{
 protocol InfoCardsCollectionViewDelegate{
     func getInfoData(index: Int) -> InfoCardsData
     func getCurrentIndexTextHeight() -> CGFloat
-
 }
 
 protocol InfoViewControllerDelegate{

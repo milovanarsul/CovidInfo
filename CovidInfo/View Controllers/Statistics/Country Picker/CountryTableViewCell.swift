@@ -25,7 +25,7 @@ class CountryTableViewCell: UITableViewCell {
     lazy var flagImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 29.5
+        imageView.layer.cornerRadius = 27
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -89,10 +89,8 @@ class CountryTableViewHeader: UITableViewHeaderFooterView {
         contentView.addSubview(titleLabel)
         
         let titleConstraints = Constraints(childView: titleLabel, parentView: contentView, constraints: [
-            Constraint(constraintType: .leading, multiplier: 1, constant: 24),
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .top, multiplier: 1, constant: 15),
-            Constraint(constraintType: .bottom, multiplier: 1, constant: 15)
+            Constraint(constraintType: .leading, multiplier: 1, constant: 14),
+            Constraint(constraintType: .vertical, multiplier: 1, constant: 0)
         ])
         titleConstraints.addConstraints()
     }

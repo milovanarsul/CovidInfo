@@ -17,9 +17,7 @@ func parseHistoricalData(){
                         stats.removeValue(forKey: key)
                     }
                 }
-                
-                let sortedStats = stats.sorted {$0.key < $1.key}
-                DataManager.historicData = sortedStats
+                DataManager.historicData = stats.sorted {$0.key < $1.key}
                 
             } catch {
                 print(error.localizedDescription)

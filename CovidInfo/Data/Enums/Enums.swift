@@ -15,14 +15,11 @@ enum ConstraintType{
     case trailing
     case top
     case bottom
-    case bottomReverse
     case horizontal
     case vertical
     case aspectRatio
     case proportionalHeight
     case proportionalWidth
-    case verticalSpacing
-    case horizontalSpacing
 }
 
 enum SetConstraintType{
@@ -128,7 +125,6 @@ enum InfoCardsType{
 }
 
 enum JSONFile: String{
-    case date2022 = "https://raw.githubusercontent.com/milovanarsul/CovidInfo/main/Data/data2022.json"
     case date2021 = "data2021"
     case date2020 = "data2020"
 }

@@ -55,4 +55,8 @@ extension MainPageViewController: TabBarDelegate{
     func getCurrentPresentedViewController() -> UIViewController{
         return (viewControllers?.first)!
     }
+    
+    func getCurrentIndex() -> Int {
+        return getCurrentIndex(views: pages)
+    }
 }

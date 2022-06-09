@@ -49,9 +49,10 @@ class LocalStorageManager{
         return documentURL.appendingPathComponent(key + ".png")
     }
     
-    public func save(image: UIImage, key: String){
-        DispatchQueue.global(qos: .background).async {
+    public func save(image: UIImage, key: String, completion: @escaping (_ finished: Bool) -> Void){
+        DispatchQueue.main.async {
             self.storeImage(image: image, forKey: key, withStorageType: .fileSystem)
+            completion(true)
         }
     }
     

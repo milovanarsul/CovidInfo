@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import SwiftUI
 
 class EmbedView{
     func embed(parent: UIViewController, container: UIView, child: Any, previous: UIViewController?){

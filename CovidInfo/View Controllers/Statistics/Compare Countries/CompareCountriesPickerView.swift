@@ -157,8 +157,6 @@ class CompareCountriesPickerView: UIView {
             delegates.compareCountries.animateCountry1()
         case .none: ()
         }
-        
-        tripPlannerPresentationShouldDismiss = true
     }
 }
 

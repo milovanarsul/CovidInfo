@@ -37,7 +37,7 @@ class CountryPickerViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .singleLine
         tableView.separatorColor = .gray
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+        tableView.separatorInset = UIEdgeInsets(top: 10, left: 12, bottom: 10, right: 12)
         tableView.register(CountryTableViewCell.self, forCellReuseIdentifier: "countryCell")
         tableView.register(CountryTableViewHeader.self, forHeaderFooterViewReuseIdentifier: "countryTableViewHeader")
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -65,33 +65,28 @@ class CountryPickerViewController: UIViewController {
         let searchBarConstraints = Constraints(childView: searchBar, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 0.9, constant: 0),
-            Constraint(constraintType: .height, multiplier: 1, constant: 44),
         ])
         searchBarConstraints.addConstraints()
         
-        if defaults.bool(forKey: "automaticLocation") || defaults.string(forKey: "manualCountry") != nil{
-            
+        if defaults.bool(forKey: "locationPermissionDenied") == false{
             view.addSubview(locationPickerView)
             let locationPickerViewConstraints = Constraints(childView: locationPickerView, parentView: view, constraints: [
                 Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
                 Constraint(constraintType: .proportionalWidth, multiplier: 0.9, constant: 0),
-                Constraint(constraintType: .proportionalHeight, multiplier: 0.1, constant: 0),
+                Constraint(constraintType: .height, multiplier: 1, constant: 50),
             ])
             locationPickerViewConstraints.addConstraints()
             locationPickerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
             
-            NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: locationPickerView.bottomAnchor, constant: 0)])
+            NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: locationPickerView.bottomAnchor, constant: -10)])
         } else {
             NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 5)])
         }
         
-        let tableViewConstraints = Constraints(childView: tableView, parentView: view, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 0.86, constant: 0),
-            Constraint(constraintType: .bottom, multiplier: 1, constant: 0),
-        ])
-        tableViewConstraints.addConstraints()
-        NSLayoutConstraint.activate([tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10)])
+        tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        tableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.88).isActive = true
+        tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 0).isActive = true
+        tableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1).isActive = true
     }
 }
 
@@ -113,6 +108,8 @@ extension CountryPickerViewController: UISearchBarDelegate{
         formatedData = data
     }
 }
+
+var auxManualLocation: String?
 
 extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -138,6 +135,10 @@ extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSourc
         return view
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
@@ -154,14 +155,12 @@ extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSourc
         }
         sections.insert(sectionTitle, at: 0)
         
-        defaults.set(currentCountry![indexPath.row].name!, forKey: "manualCountry")
-        DataManager.switchLocation(key: "manualCountry")
-        //delegates.statistics.setupCountry()
+        auxManualLocation = currentCountry![indexPath.row].name!
         
         let top = CGPoint(x: 0, y: -tableView.contentInset.top)
         tableView.setContentOffset(top, animated: true)
         tableView.reloadData()
         
-        delegates.main.animateContentView(size: 320)
+        delegates.main.countryPickerActionsAnimaiton(visibility: .show)
     }
 }

@@ -51,10 +51,16 @@ extension String {
     }
 }
 
-func stringToDate(string: String) -> Date{
+func stringToDate(string: String, format: String? = nil) -> Date{
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale(identifier: "ro_RO")
-    dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+    
+    if let format = format {
+        dateFormatter.dateFormat = format
+    } else {
+        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+    }
+    
     let date = dateFormatter.date(from: string)
     return date!
 }

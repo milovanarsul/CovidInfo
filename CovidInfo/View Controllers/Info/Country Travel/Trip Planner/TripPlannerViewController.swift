@@ -194,12 +194,10 @@ class TripPlannerViewController: UIViewController {
     
     @objc func departureButtonTapped(_ sender: UIButton){
         animateLocationTableView(locationView: departureTableView, bottomConstraint: departureViewBottomConstraint, visibility: .show)
-        tripPlannerPresentationShouldDismiss = false
     }
     
     @objc func arrivalButtonTapped(_ sender: UIButton){
         animateLocationTableView(locationView: arrivalTableView, bottomConstraint: arrivalViewBottomConstraint, visibility: .show)
-        tripPlannerPresentationShouldDismiss = false
     }
     
     @objc func redoResultTapped(_ sender: UIButton){
@@ -246,33 +244,36 @@ extension TripPlannerViewController: TripPlannerDelegate{
         xyConstraints(childView: activityIndicator, parentView: view)
         activityIndicator.startAnimating()
         
-        let arrivalCountryISO = countryToISO(country: arrivalCountry!.name!, dictionary: roISOCountries)
-        let departureCountryISO = countryToISO(country: departureCountry!.name!, dictionary: roISOCountries)
         countryArray.append(departureCountry!.name!)
         countryArray.append(arrivalCountry!.name!)
         
-        /*
-        AmadeusManager.loadData(country: departureCountryISO!) { result in
-            self.dataArray.append(result!)
-        }
         
-        AmadeusManager.loadData(country: arrivalCountryISO!){ result in
-            self.dataArray.append(result!)
-        }
-        */
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) { [self] in
-            activityIndicator.removeFromSuperview()
-            view.viewWithTag(2)?.isHidden = false
-            view.addSubview(resultTableView)
-            
-            let resultViewConstraints = Constraints(childView: resultTableView, parentView: view, constraints: [
-                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-                Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
-                Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
-            ])
-            resultViewConstraints.addConstraints()
-            resultTableView.topAnchor.constraint(equalTo: topBar.bottomAnchor, constant: 30).isActive = true
+        AmadeusManager.loadData(country: arrivalCountry!.name!, type: .arrival){ arrivalCompletion in
+            if arrivalCompletion{
+                AmadeusManager.loadData(country: departureCountry!.name!, type: .departure){ departureCompletion in
+                    if departureCompletion{
+                        self.dataArray.append(AmadeusManager.departureCountryTravelData!)
+                        self.dataArray.append(AmadeusManager.arrivalCountryTravelData!)
+                        
+                        DispatchQueue.main.async { [self] in
+                            activityIndicator.removeFromSuperview()
+                            view.viewWithTag(2)?.isHidden = false
+                            view.addSubview(resultTableView)
+                            
+                            let resultViewConstraints = Constraints(childView: resultTableView, parentView: view, constraints: [
+                                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+                                Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+                                Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
+                            ])
+                            resultViewConstraints.addConstraints()
+                            resultTableView.topAnchor.constraint(equalTo: topBar.bottomAnchor, constant: 30).isActive = true
+
+                        }
+                    }
+                    
+                }
+            }
         }
     }
     
@@ -312,7 +313,7 @@ extension TripPlannerViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifiers[indexPath.row]) as! TripPlannerCountryResultView
         cell.countryTravelData = dataArray[indexPath.row]
-        cell.data = DataManager.getCurrentCountry()
+        cell.data = DataManager.getCurrentCountry(customLocation: countryArray[indexPath.row])
         cell.type = tripViewType[indexPath.row]
         cell.setup()
         cell.backgroundColor = UIColor("#f2f2f7")

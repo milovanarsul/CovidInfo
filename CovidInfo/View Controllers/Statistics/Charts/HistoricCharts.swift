@@ -13,7 +13,11 @@ struct Historic2022Charts: View {
     @ObservedObject var historicData: HistoricalData
     
     var body: some View {
-     
+        
+        ScrollView(.vertical, showsIndicators: false){
+        }
+        
+        /*
         let casesPerMonth = dictionaryToTuple(dictionary: (historicData.cases?.perMonth![selectedMonth!])!)
         let deathsPerMonth = dictionaryToTuple(dictionary:(historicData.deaths?.perMonth![selectedMonth!])!)
         let icuPerMonth = dictionaryToTuple(dictionary:(historicData.icu?.perMonth![selectedMonth!])!)
@@ -36,6 +40,7 @@ struct Historic2022Charts: View {
                 BarChartView(data: ChartData(values: vaccinationsPerMonth), title: "Vaccinari in luna " + selectedMonth!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
             }
         }
+        */
     }
 }
 

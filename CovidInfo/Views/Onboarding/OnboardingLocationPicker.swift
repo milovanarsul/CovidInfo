@@ -49,6 +49,8 @@ class OnboardingLocationPicker: UIViewController {
             searchBar.searchBarStyle = .minimal
             searchBar.delegate = self
             searchBar.translatesAutoresizingMaskIntoConstraints = false
+            searchBar.showsCancelButton = true
+            searchBar.tag = 4
             return searchBar
         }()
         
@@ -110,69 +112,6 @@ class OnboardingLocationPicker: UIViewController {
         return view
     }()
     
-    lazy var resultView: UIView = {
-        lazy var countryFlag: UIImageView = {
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: (onboardingManualCountry?.image)!)!
-            imageView.contentMode = .scaleAspectFill
-            imageView.layer.cornerRadius = 50
-            imageView.clipsToBounds = true
-            return imageView
-        }()
-        
-        lazy var countryName: UILabel = {
-            let label = UILabel()
-            label.initialize(text: (onboardingManualCountry?.name!)!, color: .black, font: boldFont(size: 25), alignment: .center, lines: 0)
-            label.translatesAutoresizingMaskIntoConstraints = false
-            return label
-        }()
-        
-        lazy var buttonStack: UIStackView = {
-            lazy var editButton: UIButton = {
-                let button = UIButton()
-                button.initialize(title: "Schimba locatia", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                button.addTarget(self, action: #selector(editLocationTapped), for: .touchUpInside)
-                return button
-            }()
-            
-            lazy var skipButton: UIButton = {
-                let button = UIButton()
-                button.initialize(title: "Mai departe", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: greenColor, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                button.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
-                return button
-            }()
-            
-            let stackView = UIStackView()
-            stackView.initalize(axis: .vertical, alignment: .fill, distribution: .fill, spacing: 18)
-            stackView.addAranagedSubviews(views: [editButton, skipButton])
-            stackView.tag = 1
-            return stackView
-        }()
-        
-        let view = UIView()
-        view.addSubviews(views: [countryFlag, countryName,buttonStack])
-        
-        let countryFlagConstraints = Constraints(childView: countryFlag, parentView: view, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
-            Constraint(constraintType: .height, multiplier: 1, constant: 100),
-            Constraint(constraintType: .aspectRatio, multiplier: (1.0 / 1.0), constant: 0)
-        ])
-        countryFlagConstraints.addConstraints()
-        
-        countryName.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        countryName.topAnchor.constraint(equalTo: countryFlag.bottomAnchor, constant: 30).isActive = true
-        
-        let buttonStackConstraints = Constraints(childView: buttonStack, parentView: view, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 0.5, constant: 0),
-        ])
-        buttonStackConstraints.addConstraints()
-        buttonStack.topAnchor.constraint(equalTo: countryName.bottomAnchor, constant: 50).isActive = true
-        
-        return view
-    }()
-    
     var data: [Country] = simpleCountryData()
     var formatedData: [Country]!
     
@@ -202,7 +141,7 @@ class OnboardingLocationPicker: UIViewController {
     func animateLocationPicker(visibilty: ViewVisibility){
         switch visibilty {
         case .show:
-            self.resultView.removeFromSuperview()
+            view.viewWithTag(1)?.removeFromSuperview()
             delegates.onboarding.pageControlVisibility(visibility: true)
             locationPickerBottomConstraint.constant = 0
         case .hide:
@@ -224,19 +163,84 @@ class OnboardingLocationPicker: UIViewController {
     }
     
     func locationPickerResult(){
+        let resultView: UIView = {
+            lazy var countryFlag: UIImageView = {
+                let imageView = UIImageView()
+                imageView.image = UIImage(named: (onboardingManualCountry?.image)!)!
+                imageView.contentMode = .scaleAspectFill
+                imageView.layer.cornerRadius = 50
+                imageView.clipsToBounds = true
+                return imageView
+            }()
+            
+            lazy var countryName: UILabel = {
+                let label = UILabel()
+                label.initialize(text: (onboardingManualCountry?.name!)!, color: .black, font: boldFont(size: 25), alignment: .center, lines: 0)
+                label.translatesAutoresizingMaskIntoConstraints = false
+                return label
+            }()
+            
+            lazy var buttonStack: UIStackView = {
+                lazy var editButton: UIButton = {
+                    let button = UIButton()
+                    button.initialize(title: "Schimba locatia", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                    button.addTarget(self, action: #selector(editLocationTapped), for: .touchUpInside)
+                    return button
+                }()
+                
+                lazy var skipButton: UIButton = {
+                    let button = UIButton()
+                    button.initialize(title: "Mai departe", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: greenColor, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                    button.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+                    return button
+                }()
+                
+                let stackView = UIStackView()
+                stackView.initalize(axis: .vertical, alignment: .fill, distribution: .fill, spacing: 18)
+                stackView.addAranagedSubviews(views: [editButton, skipButton])
+                stackView.tag = 1
+                return stackView
+            }()
+            
+            let view = UIView()
+            view.addSubviews(views: [countryFlag, countryName,buttonStack])
+            
+            let countryFlagConstraints = Constraints(childView: countryFlag, parentView: view, constraints: [
+                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+                Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
+                Constraint(constraintType: .height, multiplier: 1, constant: 100),
+                Constraint(constraintType: .aspectRatio, multiplier: (1.0 / 1.0), constant: 0)
+            ])
+            countryFlagConstraints.addConstraints()
+            
+            countryName.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            countryName.topAnchor.constraint(equalTo: countryFlag.bottomAnchor, constant: 30).isActive = true
+            
+            let buttonStackConstraints = Constraints(childView: buttonStack, parentView: view, constraints: [
+                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+                Constraint(constraintType: .proportionalWidth, multiplier: 0.5, constant: 0),
+            ])
+            buttonStackConstraints.addConstraints()
+            buttonStack.topAnchor.constraint(equalTo: countryName.bottomAnchor, constant: 50).isActive = true
+            
+            view.tag = 1
+            return view
+        }()
+        
         view.addSubview(resultView)
         defaultConstraints(childView: resultView, parentView: view)
     }
     
     @objc func editLocationTapped(){
         animateLocationPicker(visibilty: .show)
+        view.viewWithTag(1)?.removeFromSuperview()
     }
     
     @objc func nextButtonTapped(){
         defaults.setValue(onboardingManualCountry?.name, forKey: "manualCountry")
         defaults.set(false, forKey: "useAutomaticLocation")
         locationPickerView.removeFromSuperview()
-        resultView.removeFromSuperview()
+        view.viewWithTag(1)?.removeFromSuperview()
         delegates.onboarding.downloadData(dataRequest: .all)
     }
 }
@@ -255,6 +259,7 @@ extension OnboardingLocationPicker: UISearchBarDelegate{
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
         formatedData = data
     }
 }
@@ -276,7 +281,10 @@ extension OnboardingLocationPicker: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        (locationPickerView.viewWithTag(4) as! UISearchBar).endEditing(true)
         onboardingManualCountry = formatedData[indexPath.row]
         animateLocationPicker(visibilty: .hide)
+        formatedData = data
+        tableView.reloadData()
     }
 }

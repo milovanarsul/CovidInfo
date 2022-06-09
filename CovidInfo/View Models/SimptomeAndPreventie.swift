@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Firebase
 import UIKit
 
 class SimptomeAndPreventieData{
@@ -23,8 +22,6 @@ class SimptomeAndPreventie{
     var cards: [SimptomeAndPreventieData]
     var staticType: StaticType
     var borderColor: UIColor
-    
-    let databaseReference = Database.database().reference()
     
     init(cards: [SimptomeAndPreventieData], staticType: StaticType, borderColor: UIColor){
         self.cards = cards

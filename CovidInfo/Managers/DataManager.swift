@@ -9,8 +9,8 @@ import Foundation
 import CoreData
 
 class DataManager{
-    ///COVID DATA
-    static private let calendar = Calendar.current
+    static var currentCountry: String?
+    
     static var currentData: [CurrentData]?
     static var historicData: [Dictionary<String, HistoricalData>.Element]?
     
@@ -22,8 +22,6 @@ class DataManager{
     
     static var currentHistoric2021Data: OldHistoricalData?
     static var currentHistoric2020Data: OldHistoricalData?
-    
-    static var currentCountry: String?
     
     static func parseData(){
         parseCurrentData()
@@ -94,6 +92,7 @@ class DataManager{
     }
     
     static func isRefreshRequired() -> Bool {
+        let calendar = Calendar.current
         guard let lastRefreshDate = defaults.object(forKey: "lastRefresh") as? Date else {
             return true
         }
@@ -105,14 +104,29 @@ class DataManager{
         }
     }
     
-    static func switchLocation(key: String){
+    static func changeManualLocation(completion: @escaping (_ finished: Bool) -> Void){
+        DataManager.setCurrentCountry()
+        DataManager.countryData()
+        AmadeusManager.loadData(country: DataManager.currentCountry!, completion: { finished in
+            if finished{
+                completion(true)
+            }
+        })
         
     }
     
-    static func getCurrentCountry() -> CurrentData{
+    static func getCurrentCountry(customLocation: String? = nil) -> CurrentData{
+        let location: String?
+        
+        if let customLocation = customLocation {
+            location = customLocation
+        } else{
+            location = DataManager.currentCountry!
+        }
+        
         var currentCountry: CurrentData?
         for country in currentData! {
-            if country.location == DataManager.currentCountry!{
+            if country.location == location!{
                 currentCountry = country
             }
         }
@@ -120,7 +134,7 @@ class DataManager{
         return currentCountry!
     }
     
-    static func getHistoricCountry() -> HistoricalData{
+    static func getHistoricCountry(customLocation: String? = nil) -> HistoricalData{
         var historicCountry: HistoricalData?
         let location = countryToISO(country: DataManager.currentCountry!, dictionary: roISOCountries)
         
@@ -133,7 +147,7 @@ class DataManager{
         return historicCountry!
     }
     
-    static func getHistoric2021Country() -> OldHistoricalData {
+    static func getHistoric2021Country(customLocation: String? = nil) -> OldHistoricalData {
         var historic2021Country: OldHistoricalData?
         let location = countryToISO(country: DataManager.currentCountry!, dictionary: roISOCountries)
         
@@ -146,7 +160,7 @@ class DataManager{
         return historic2021Country!
     }
     
-    static func getHistoric2020Country() -> OldHistoricalData {
+    static func getHistoric2020Country(customLocation: String? = nil) -> OldHistoricalData {
         var historic2020Country: OldHistoricalData?
         let location = countryToISO(country: DataManager.currentCountry!, dictionary: roISOCountries)
         

@@ -18,6 +18,9 @@ let defaults = UserDefaults.standard
 /// UNIVERSAL
 let signatureDarkBlue = UIColor("28429E")
 let signatureLightBlue = UIColor("91B3FA")
+let greenColor = UIColor("#4aa47a")
+let redColor = UIColor("#c0504a")
+let yellowColor = UIColor("#f2bf57")
 
 /// SIMPTOME & PREVENTIE
 let simptomeBorderColor = UIColor("FF3A6C")
@@ -72,3 +75,25 @@ let presentationSizes: [PresentationSize:CGFloat] = [
     .large: 0.9,
     .fullScreen: 1
 ]
+
+let risksLocalizable: [String : [String : UIColor]] = [
+    "Extreme" : ["Extrem" : redColor],
+    "High" : ["Ridicat": redColor],
+    "Medium" : ["Mediu": yellowColor],
+    "Moderate" : ["Moderat": greenColor],
+    "Low" : ["Scazut": greenColor],
+    "Lockdown" : ["Carantina": redColor],
+    "Curfew" : ["Restrictii de circulatie" : redColor],
+    "Distancing" : ["Distantare sociala" : signatureDarkBlue],
+    "None" : ["Nu este cazul" : greenColor],
+    "Partial" : ["Partial" : yellowColor],
+    "Partial Measures" : ["Masuri partiale" : yellowColor],
+    "Opening" : ["Restrictii relaxate" : yellowColor],
+    "Closing" : ["Restrictii inasprite" : redColor],
+    "Open" : ["Circulatie libera" : greenColor],
+    "Yes" : ["Da" : redColor],
+    "No": ["Nu" : greenColor],
+    "no": ["Nu" : greenColor],
+    "Recommended" : ["Recomandat" : signatureDarkBlue]
+]
+

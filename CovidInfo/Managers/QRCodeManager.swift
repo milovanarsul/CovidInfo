@@ -40,9 +40,15 @@ func QRCodeReader(parentViewController: UIViewController, videoLayer: UIView, ca
         
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        videoPreviewLayer?.frame = videoLayer.frame
         videoLayer.layer.addSublayer(videoPreviewLayer!)
         
+        DispatchQueue.main.async {
+            videoPreviewLayer?.frame = videoLayer.bounds
+        }
+        
         captureSession.startRunning()
-    } catch {return}
+    } catch {
+        print(error)
+        return
+    }
 }

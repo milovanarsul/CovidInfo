@@ -50,16 +50,6 @@ class EnrollCertifficateViewController: UIViewController{
         setup()
         initalSetup()
         QRCodeReader(parentViewController: self, videoLayer: videoLayer, captureSession: captureSession)
-        captureSession.startRunning()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        if isBeingDismissed{
-            captureSession.stopRunning()
-            delegates.onboarding.dimissModal(completion: {})
-        }
     }
 }
 
@@ -82,12 +72,14 @@ extension EnrollCertifficateViewController {
         activityIndicator.startAnimating()
         
         let qrCode: UIImage = generateQRCode(stringToEncode: metaDataObject.stringValue!)!
-        localStorageManager.save(image: qrCode, key: "QRCode")
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7){
-            defaults.set(true, forKey: "certifficateEnrolled")
-            self.videoLayer.removeFromSuperview()
-            self.mainCaptureSuccess()
+        localStorageManager.save(image: qrCode, key: "QRCode"){ completion in
+            if completion{
+                DispatchQueue.main.async {
+                    defaults.set(true, forKey: "certifficateEnrolled")
+                    self.videoLayer.removeFromSuperview()
+                    self.mainCaptureSuccess()
+                }
+            }
         }
     }
     
@@ -110,7 +102,8 @@ extension EnrollCertifficateViewController {
                 })
                 delegates.main.updateCertifficateButton()
             } else {
-                //delegates.onboarding.dismissModal?()
+                delegates.onboarding.dismissModal(completion: {})
+                delegates.onboardingPVC.nextPage?()
             }
         })
     }

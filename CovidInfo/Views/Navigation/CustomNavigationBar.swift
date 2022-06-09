@@ -32,11 +32,68 @@ class CustomNavigationBar: UIView {
         return button
     }()
     
-    lazy var locationButton: UIButton = {
-        let button = UIButton()
-        button.initialize(title: "", titleColor: .white, cornerRadius: 100, font: boldFont(size: 30), backgroundColor: UIColor("00A777"), image: UIImage(systemName: "location.circle"))
-        button.addTarget(self, action: #selector(locationButtonTapped(_:)), for: .touchUpInside)
-        return button
+    lazy var locationButton: UIView = {
+        lazy var locationIcon: UIImageView = {
+            let imageView = UIImageView()
+            imageView.image = UIImage(systemName: "location.circle")!
+            imageView.contentMode = .scaleAspectFit
+            imageView.tintColor = .white
+            imageView.tag = 1
+            return imageView
+        }()
+        
+        lazy var flagAndName: UIView = {
+            let currentCountry = countryToISO(country: DataManager.currentCountry!, dictionary: roISOCountries)
+            
+            lazy var flagImageView: UIImageView = {
+                let imageView = UIImageView()
+                imageView.image = UIImage(named: currentCountry!)!
+                imageView.contentMode = .scaleAspectFill
+                imageView.layer.cornerRadius = 13
+                imageView.clipsToBounds = true
+                return imageView
+            }()
+            
+            lazy var countryName: UILabel = {
+                let label = UILabel()
+                label.initialize(text: currentCountry!, color: .white, font: boldFont(size: 16), alignment: .center, lines: 1)
+                label.translatesAutoresizingMaskIntoConstraints = false
+                return label
+            }()
+            
+            let view = UIView()
+            view.isHidden = true
+            view.tag = 2
+            view.addSubviews(views: [flagImageView, countryName])
+            
+            let flagImageViewConstraints = Constraints(childView: flagImageView, parentView: view, constraints: [
+                Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
+                Constraint(constraintType: .leading, multiplier: 1, constant: 10),
+                Constraint(constraintType: .proportionalHeight, multiplier: 0.6, constant: 0),
+                Constraint(constraintType: .aspectRatio, multiplier: (1.0 / 1.0), constant: 0)
+            ])
+            flagImageViewConstraints.addConstraints()
+            
+            countryName.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+            countryName.leadingAnchor.constraint(equalTo: flagImageView.trailingAnchor, constant: 5).isActive = true
+            
+            return view
+        }()
+        
+        let view = UIView()
+        view.isHidden = true
+        view.backgroundColor = greenColor
+        view.layer.cornerRadius = 20
+        view.clipsToBounds = true
+        
+        view.addSubviews(views: [locationIcon, flagAndName])
+        defaultConstraints(childView: locationIcon, parentView: view)
+        defaultConstraints(childView: flagAndName, parentView: view)
+        
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(locationButtonTapped)))
+        
+        return view
     }()
     
     lazy var containerView: UIView = {
@@ -50,6 +107,7 @@ class CustomNavigationBar: UIView {
     var childPageButtonLeadingConstraint = NSLayoutConstraint()
     var certifficateButtonTrailingConstraint = NSLayoutConstraint()
     var locationButtonTrailingConstraint = NSLayoutConstraint()
+    var locationButtonWidthConstraint = NSLayoutConstraint()
     var containerViewBottomConstraint = NSLayoutConstraint()
     
     func setup(){
@@ -63,9 +121,11 @@ class CustomNavigationBar: UIView {
         ])
         containerViewConstraints.addConstraints()
         
-        parentPageButtonLeadingConstraint = Constraint(childView: parentPageButton, parentView: containerView, constraintType: .leading, multiplier: 1, constant: 0).setConstraint()
-        childPageButtonLeadingConstraint = Constraint(childView: childPageButton, parentView: containerView, constraintType:.leading, multiplier: 1, constant: -300).setConstraint()
-        NSLayoutConstraint.activate([childPageButtonLeadingConstraint, Constraint(childView: childPageButton, parentView: containerView, constraintType: .vertical, multiplier: 1, constant: 0).setConstraint(), parentPageButtonLeadingConstraint, Constraint(childView: parentPageButton, parentView: containerView, constraintType: .vertical, multiplier: 1, constant: 0).setConstraint()])
+        parentPageButtonLeadingConstraint = parentPageButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor)
+        childPageButtonLeadingConstraint = childPageButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: -300)
+        NSLayoutConstraint.activate([parentPageButtonLeadingConstraint, childPageButtonLeadingConstraint])
+        childPageButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        parentPageButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
         
         let certifficateButtonConstraints = Constraints(childView: certifficateButton, parentView: containerView, constraints: [
             Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
@@ -73,18 +133,17 @@ class CustomNavigationBar: UIView {
             Constraint(constraintType: .height, multiplier: 1, constant: 40),
         ])
         certifficateButtonConstraints.addConstraints()
-        certifficateButtonTrailingConstraint = Constraint(childView: certifficateButton, parentView: containerView, constraintType: .trailing, multiplier: 1, constant: 70).setConstraint()
-        NSLayoutConstraint.activate([certifficateButtonTrailingConstraint])
+        certifficateButtonTrailingConstraint = certifficateButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 70)
+        certifficateButtonTrailingConstraint.isActive = true
         
         let locationButtonConstraints = Constraints(childView: locationButton, parentView: containerView, constraints: [
             Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
-            Constraint(constraintType: .width, multiplier: 1, constant: 40),
             Constraint(constraintType: .height, multiplier: 1, constant: 40)
         ])
         locationButtonConstraints.addConstraints()
-        locationButtonTrailingConstraint = Constraint(childView: locationButton, parentView: containerView, constraintType: .trailing, multiplier: 1, constant: 70).setConstraint()
-        NSLayoutConstraint.activate([locationButtonTrailingConstraint])
-        
+        locationButtonWidthConstraint = locationButton.widthAnchor.constraint(equalToConstant: 40)
+        locationButtonTrailingConstraint = locationButton.leadingAnchor.constraint(equalTo: certifficateButton.leadingAnchor, constant: 0)
+        NSLayoutConstraint.activate([locationButtonWidthConstraint, locationButtonTrailingConstraint])
     }
     
     func slideOutParentPageButton(){
@@ -155,26 +214,62 @@ class CustomNavigationBar: UIView {
         defaults.bool(forKey: "certifficateEnrolled") ? delegates.main.certifficateModal() : delegates.main.enrollCertifficate()
     }
     
-    @objc func locationButtonTapped(_ sender: UIButton){
+    @objc func locationButtonTapped(){
+        let pageControllerIndex = delegates.tabBar.getCurrentIndex()
+        let automaticLocation = defaults.bool(forKey: "useAutomaticLocation")
+        print(automaticLocation)
+        
         switch resetsLocationButton{
         case false:
-            if defaults.bool(forKey: "automaticLocation") == true{
-                delegates.main.animateContentView(size: 80)
+            if automaticLocation{
+                delegates.main.animateContentView(size: 65)
             } else {
                 delegates.main.animateContentView(size: 650)
             }
             
-            locationButton.initialize(title: "", titleColor: .white, cornerRadius: 100, font: boldFont(size: 30), backgroundColor: UIColor("D04545"), image: UIImage(systemName: "x.circle"))
+            switch pageControllerIndex{
+            case 0:
+                ()
+            case 1:
+                delegates.main.planTripButtonAnimation(visibility: .hide)
+            case 2:
+                ()
+            case 3:
+                delegates.main.statisticsActionsAnimation(visibility: .hide)
+            default:
+                ()
+            }
             
-            delegates.main.planTripButtonAnimation(visibility: .hide)
+            locationButtonContentAnimation(visibility: .hide)
+            (locationButton.viewWithTag(1) as! UIImageView).image = UIImage(systemName: "x.circle")!
+            locationButton.backgroundColor = redColor
+            delegates.main.contentViewVisibility(visibility: .hide)
             resetsLocationButton = true
         case true:
             delegates.main.animateContentView(size: 5)
-            locationButton.initialize(title: "", titleColor: .white, cornerRadius: 100, font: boldFont(size: 30), backgroundColor: UIColor("00A777"), image: UIImage(systemName: "location.circle"))
             
-            //delegates.info.viewsVisibility(visibility: false)
-            //delegates.navigationBar.locationButtonAnimation(visibility: .show)
-            delegates.main.planTripButtonAnimation(visibility: .show)
+            switch pageControllerIndex{
+            case 0:
+                ()
+            case 1:
+                delegates.main.planTripButtonAnimation(visibility: .show)
+            case 2:
+                ()
+            case 3:
+                delegates.main.countryPickerActionsAnimaiton(visibility: .hide)
+                delegates.main.statisticsActionsAnimation(visibility: .show)
+            default:
+                ()
+            }
+            
+            (locationButton.viewWithTag(1) as! UIImageView).image = UIImage(systemName: "location.circle")!
+            locationButton.backgroundColor = greenColor
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0){
+                self.locationButtonContentAnimation(visibility: .show)
+            }
+            
+            delegates.main.contentViewVisibility(visibility: .show)
             resetsLocationButton = false
         }
     }
@@ -242,6 +337,15 @@ extension CustomNavigationBar: NavigationBarDelegate{
         }, completion: {(finished: Bool) in
             if visibility == .hide{
                 self.certifficateButton.isHidden = true
+                self.locationButtonAnimation(visibility: .hide)
+            }
+            
+            if visibility == .show && delegates.tabBar.getCurrentIndex() != 2{
+                self.locationButtonAnimation(visibility: .show)
+            }
+            
+            if visibility == .show && delegates.tabBar.getCurrentIndex() == 2{
+                self.locationButtonAnimation(visibility: .hide)
             }
         })
     }
@@ -250,9 +354,10 @@ extension CustomNavigationBar: NavigationBarDelegate{
         switch visibility {
         case .show:
             locationButton.isHidden = false
-            locationButtonTrailingConstraint.constant = -70
+            locationButtonTrailingConstraint.constant = -50
         case .hide:
-            locationButtonTrailingConstraint.constant = -20
+            locationButtonContentAnimation(visibility: .hide)
+            locationButtonTrailingConstraint.constant = 0
         }
         
         UIView.animate(withDuration: 0.6, animations: {
@@ -261,15 +366,38 @@ extension CustomNavigationBar: NavigationBarDelegate{
         }, completion: {(finished: Bool) in
             if visibility == .hide{
                 self.locationButton.isHidden = true
+            } else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+                    self.locationButtonContentAnimation(visibility: .show)
+                }
             }
+        })
+    }
+    
+    func locationButtonContentAnimation(visibility: ViewVisibility){
+        let duration: TimeInterval?
+        
+        switch visibility {
+        case .show:
+            locationButtonTrailingConstraint.constant = -90
+            locationButton.viewWithTag(1)?.isHidden = true
+            locationButton.viewWithTag(2)?.isHidden = false
+            locationButtonWidthConstraint.constant = 80
+            duration = 0.4
+        case .hide:
+            locationButtonTrailingConstraint.constant = -50
+            locationButton.viewWithTag(2)?.isHidden = true
+            locationButtonWidthConstraint.constant = 40
+            locationButton.viewWithTag(1)?.isHidden = false
+            duration = 0
+        }
+        
+        UIView.animate(withDuration: duration!, animations: {
+            self.locationButton.layoutIfNeeded()
         })
     }
     
     func changeContainerViewBottomConstraint(visibility: Bool){
         containerView.isHidden = visibility
-    }
-    
-    func externalTapLocationButton(){
-        locationButtonTapped(.init())
     }
 }

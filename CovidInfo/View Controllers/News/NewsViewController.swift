@@ -98,24 +98,6 @@ class NewsViewController: UIViewController {
         default: ()
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        switch cardsTableViewType {
-        case .news:
-            delegates.main.tabBarExtension(visibility: .show)
-        case .variants: ()
-        default: ()
-        }
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        switch cardsTableViewType {
-        case .news:
-            delegates.main.tabBarExtension(visibility: .hide)
-        case .variants: ()
-        default: ()
-        }
-    }
 }
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource{

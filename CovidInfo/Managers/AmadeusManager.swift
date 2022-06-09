@@ -12,13 +12,15 @@ import UIKit
 
 class AmadeusManager{
     static var currentCountryTravelData: [CountryTravelModel]?
+    static var departureCountryTravelData: [CountryTravelModel]?
+    static var arrivalCountryTravelData: [CountryTravelModel]?
     
     private static let clientID = "yIwCyLu1t9Y87fDAFhAqJI4pGi7f2jPQ"
     private static let clientSecret = "nBQylhPVq9HAUmZM"
     
     private static let amadeus: Amadeus = Amadeus(client_id: clientID, client_secret: clientSecret)
     
-    static func loadData(country: String, completion: @escaping (_ finished: Bool) -> Void){
+    static func loadData(country: String, type: TripViewType? = nil, completion: @escaping (_ finished: Bool) -> Void){
         let iso3Country = countryToISO(country: country, dictionary: roISOCountries)
         let iso2Country = ISO3ToISO2[iso3Country!]
         
@@ -40,7 +42,17 @@ class AmadeusManager{
                    let testing = CountryTravelModel(icon: "heart.text.square", title: "Testare necesara", subtitle: data.areaAccessRestriction!.diseaseTesting!.isRequired!)
                    let mask = CountryTravelModel(icon: "facemask", title: "Masca necesara", subtitle: data.areaAccessRestriction!.mask!.isRequired!, text: data.areaAccessRestriction!.mask!.text!)
                    
-                   AmadeusManager.currentCountryTravelData = [diseaseRiskLevel, diseaseInfection, areaPolicy, entry, quarantine, vaccination, testing, mask]
+                   if let type = type {
+                       switch type {
+                       case .arrival:
+                           AmadeusManager.arrivalCountryTravelData = [diseaseRiskLevel, diseaseInfection, areaPolicy, entry, quarantine, vaccination, testing, mask]
+                       case .departure:
+                           AmadeusManager.departureCountryTravelData = [diseaseRiskLevel, diseaseInfection, areaPolicy, entry, quarantine, vaccination, testing, mask]
+                       }
+                   } else {
+                       AmadeusManager.currentCountryTravelData = [diseaseRiskLevel, diseaseInfection, areaPolicy, entry, quarantine, vaccination, testing, mask]
+                   }
+
                    print("Amadeus Manager loaded data!")
                    completion(true)
                } catch {
@@ -52,19 +64,5 @@ class AmadeusManager{
                completion(false)
            }
         })
-    }
-    
-    static func saveData(){
-        for travelData in currentCountryTravelData! {
-            let data = CountryTravel(context: AppDelegate.context)
-            
-            data.icon = travelData.icon
-            data.title = travelData.title
-            data.subtitle = travelData.subtitle
-            data.text = travelData.text
-            data.height = Float(travelData.height!)
-            
-            try! AppDelegate.context.save()
-        }
     }
 }

@@ -13,30 +13,16 @@ class LocationPickerView: UIView {
     
     lazy var mainLabel: UILabel = {
         let label = UILabel()
-        let text = defaults.bool(forKey: "automaticLocation") ? "Locatie automata" : "Locatie manuala"
+        let text = "Locatie automata"
         label.initialize(text: text, color: .black, font: boldFont(size: 16), alignment: .left, lines: 0)
         return label
-    }()
-    
-    lazy var desriptionLabel: UILabel = {
-        let label = UILabel()
-        label.initialize(text: location!, color: .gray, font: UIFont(name: "IBMPlexSans-Regular", size: 14)!, alignment: .left, lines: 0)
-        return label
-    }()
-    
-    lazy var locationStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.initalize(axis: .vertical, alignment: .fill, distribution: .fillEqually, spacing: 5)
-        stackView.addArrangedSubview(mainLabel)
-        defaults.bool(forKey: "automaticLocation") ? stackView.addArrangedSubview(desriptionLabel) : ()
-        return stackView
     }()
     
     lazy var locationSwitch: UISwitch = {
         let locationSwitch = UISwitch()
         locationSwitch.onTintColor = signatureDarkBlue
         locationSwitch.preferredStyle = .sliding
-        locationSwitch.isOn = defaults.bool(forKey: "automaticLocation")
+        locationSwitch.isOn = defaults.bool(forKey: "useAutomaticLocation")
         locationSwitch.addTarget(self, action: #selector(switchAction), for: .valueChanged)
         return locationSwitch
     }()
@@ -52,18 +38,17 @@ class LocationPickerView: UIView {
     }
     
     func setup(){
-        addSubviews(views: [locationStackView, locationSwitch])
+        addSubviews(views: [mainLabel, locationSwitch])
         
-        let locationStackViewConstraints = Constraints(childView: locationStackView, parentView: self, constraints: [
+        let locationStackViewConstraints = Constraints(childView: mainLabel, parentView: self, constraints: [
             Constraint(constraintType: .leading, multiplier: 1, constant: 12),
-            Constraint(constraintType: .top, multiplier: 1, constant: 10),
-            Constraint(constraintType: .proportionalWidth, multiplier: 0.7, constant: 0)
+            Constraint(constraintType: .vertical, multiplier: 1, constant: 0)
         ])
         locationStackViewConstraints.addConstraints()
         
         let locationSwitchConstraints = Constraints(childView: locationSwitch, parentView: self, constraints: [
             Constraint(constraintType: .trailing, multiplier: 1, constant: -24),
-            Constraint(constraintType: .top, multiplier: 1, constant: 10)
+            Constraint(constraintType: .vertical, multiplier: 1, constant: 0)
         ])
         locationSwitchConstraints.addConstraints()
     }
@@ -71,18 +56,11 @@ class LocationPickerView: UIView {
     @objc func switchAction(sender: UISwitch!){
         if sender.isOn == false{
             delegates.main.animateContentView(size: 650)
-            self.desriptionLabel.isHidden = true
-            //delegates.statistics.contentViewVisibility(visibility: true)
-            //defaults.set(sender.isOn, forKey: "automaticLocation")
-            //delegates.info.viewsVisibility(visibility: true)
+            delegates.main.contentViewVisibility(visibility: .hide)
         } else {
-            delegates.main.animateContentView(size: 80)
-            self.desriptionLabel.isHidden = false
-            delegates.info.viewsVisibility(visibility: false)
-            //delegates.statistics.contentViewVisibility(visibility: false)
-            //defaults.set(sender.isOn, forKey: "automaticLocation")
-            //delegates.statistics.setupCountry()
-            //DataManager.switchLocation(key: DataManager.automaticLocation!)
+            delegates.main.animateContentView(size: 65)
+            delegates.main.contentViewVisibility(visibility: .show)
+            delegates.main.countryPickerActionsAnimaiton(visibility: .hide)
         }
     }
 }

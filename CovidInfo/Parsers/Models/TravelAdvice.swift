@@ -16,8 +16,6 @@ class TravelAdvice: Codable{
     var diseaseRiskLevel: String?
 }
 
-///------------------------------Area Access Restrictions------------------------------
-
 class TravelAdivce_AreaAccessRestriction: Codable {
     var diseaseVaccination: TravelAdivce_AreaAccessRestriction_DiseaseVaccination?
     var exit: TravelAdivce_AreaAccessRestriction_Exit?
@@ -56,8 +54,6 @@ class TravelAdivce_AreaAccessRestriction_DiseaseTesting: Codable{
     var isRequired: String?
 }
 
-
-
 class TravelAdvice_DiseasesCases: Codable{
     var deaths: Int?
     var confirmed: Int?
@@ -72,28 +68,3 @@ class TravelAdvice_DiseaseInfection: Codable{
     var level: String?
     var rate: Double?
 }
-
-let greenColor = UIColor("#4aa47a")
-let redColor = UIColor("#c0504a")
-let yellowColor = UIColor("#f2bf57")
-
-let risksLocalizable: [String : [String : UIColor]] = [
-    "Extreme" : ["Extrem" : redColor],
-    "High" : ["Ridicat": redColor],
-    "Medium" : ["Mediu": yellowColor],
-    "Moderate" : ["Moderat": greenColor],
-    "Low" : ["Scazut": greenColor],
-    "Lockdown" : ["Carantina": redColor],
-    "Curfew" : ["Restrictii de circulatie" : redColor],
-    "Distancing" : ["Distantare sociala" : signatureDarkBlue],
-    "None" : ["Nu este cazul" : greenColor],
-    "Partial" : ["Partial" : yellowColor],
-    "Partial Measures" : ["Masuri partiale" : yellowColor],
-    "Opening" : ["Restrictii relaxate" : yellowColor],
-    "Closing" : ["Restrictii inasprite" : redColor],
-    "Open" : ["Circulatie libera" : greenColor],
-    "Yes" : ["Da" : redColor],
-    "No": ["Nu" : greenColor],
-    "no": ["Nu" : greenColor],
-    "Recommended" : ["Recomandat" : signatureDarkBlue]
-]

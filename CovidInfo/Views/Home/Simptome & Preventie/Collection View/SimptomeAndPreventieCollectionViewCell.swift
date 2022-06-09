@@ -43,13 +43,13 @@ class SimptomeAndPreventieCollectionViewCell: UICollectionViewCell {
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(textLabel)
         
-        let constraints = Constraints(childView: textLabel, parentView: self.contentView, secondView: self.lottieAnimation, constraints: [
+        let constraints = Constraints(childView: textLabel, parentView: self.contentView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .leading, multiplier: 1, constant: 30),
             Constraint(constraintType: .bottom, multiplier: 1, constant: -20),
-            Constraint(constraintType: .verticalSpacing, multiplier: 1, constant: 0)
         ])
         constraints.addConstraints()
+        textLabel.topAnchor.constraint(equalTo: lottieAnimation.bottomAnchor).isActive = true
     }
     
     func setupContentView(){

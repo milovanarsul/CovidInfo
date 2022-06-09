@@ -9,10 +9,7 @@ import UIKit
 import Lottie
 import BetterSegmentedControl
 
-var tripPlannerPresentationShouldDismiss = true
-
 class MainViewController: UIViewController {
-    
     lazy var navigationBar: UIView = {
         let view = CustomNavigationBar()
         view.setup()
@@ -21,11 +18,22 @@ class MainViewController: UIViewController {
         return view
     }()
     
+    lazy var contentViewContent: UIView = {
+        let view = UIView()
+        CovidInfo.embed.mainPageViewController(parent: self, container: view)
+        return view
+    }()
+    
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        return activityIndicator
+    }()
+    
     lazy var contentView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.dropShadow = true
-        CovidInfo.embed.mainPageViewController(parent: self, container: view)
         return view
     }()
     
@@ -34,6 +42,7 @@ class MainViewController: UIViewController {
         button.initialize(title: "Certificatul tau", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "qrcode.viewfinder"))
         button.addTarget(self, action: #selector(certifficateButtonTapped(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.isHidden = true
         return button
     }()
     
@@ -42,6 +51,7 @@ class MainViewController: UIViewController {
         button.initialize(title: "Planifica-ti calatoria", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "globe.europe.africa"))
         button.addTarget(self, action: #selector(planTripButtonTapped(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.isHidden = true
         return button
     }()
     
@@ -61,12 +71,39 @@ class MainViewController: UIViewController {
         return button
     }()
     
+    lazy var confirmButton: UIButton = {
+        let button = UIButton()
+        button.initialize(title: "Confirma", titleColor: .white, cornerRadius: 24, font: boldFont(size: 13), backgroundColor: greenColor)
+        button.addTarget(self, action: #selector(confirmButtonTapped(_:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        button.initialize(title: "Anuleaza", titleColor: .white, cornerRadius: 24, font: boldFont(size: 13), backgroundColor: redColor)
+        button.addTarget(self, action: #selector(cancelButtonTapped(_:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     lazy var statisticsActions: UIStackView = {
         let stackView = UIStackView()
         stackView.backgroundColor = .clear
         stackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fill, spacing: 10)
         stackView.addAranagedSubviews(views: [filterButton, compareCountries])
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.isHidden = true
+        return stackView
+    }()
+    
+    lazy var countryPickerActions: UIStackView = {
+        let stackView = UIStackView()
+        stackView.backgroundColor = .clear
+        stackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fill, spacing: 10)
+        stackView.addAranagedSubviews(views: [confirmButton, cancelButton])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.isHidden = true
         return stackView
     }()
     
@@ -92,7 +129,6 @@ class MainViewController: UIViewController {
         return view
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -110,11 +146,11 @@ class MainViewController: UIViewController {
     var contentViewTopConstraint = NSLayoutConstraint()
     var planTripButtonVerticalConstraint = NSLayoutConstraint()
     var statisticsActionsVerticalConstraint = NSLayoutConstraint()
+    var countryPickerActionsVerticalConstraints = NSLayoutConstraint()
     
     func setup(){
-        
         view.backgroundColor = .white
-        view.addSubviews(views: [navigationBar, contentView, certifficateButton, planTripButton, statisticsActions ,tabBar, countryPicker])
+        view.addSubviews(views: [navigationBar, contentView, certifficateButton, planTripButton, statisticsActions ,countryPickerActions, tabBar, countryPicker])
         view.sendSubviewToBack(countryPicker)
         
         let navigationBarConstraints = Constraints(childView: navigationBar, parentView: view, constraints: [
@@ -123,8 +159,8 @@ class MainViewController: UIViewController {
             Constraint(constraintType: .height, multiplier: 1, constant: 90),
         ])
         navigationBarConstraints.addConstraints()
-        navigationBarTopConstraint = NSLayoutConstraint(item: navigationBar, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
-        NSLayoutConstraint.activate([navigationBarTopConstraint])
+        navigationBarTopConstraint = navigationBar.topAnchor.constraint(equalTo: view.topAnchor)
+        navigationBarTopConstraint.isActive = true
         
         let countryPickerConstraints = Constraints(childView: countryPicker, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
@@ -132,7 +168,7 @@ class MainViewController: UIViewController {
             Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
         ])
         countryPickerConstraints.addConstraints()
-        NSLayoutConstraint.activate([countryPicker.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 5)])
+        countryPicker.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 5).isActive = true
          
         let contentViewConstraints = Constraints(childView: contentView, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
@@ -140,21 +176,25 @@ class MainViewController: UIViewController {
             Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
         ])
         contentViewConstraints.addConstraints()
-        contentViewTopConstraint = NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal, toItem: navigationBar, attribute: .bottom, multiplier: 1, constant: 5)
-        NSLayoutConstraint.activate([contentViewTopConstraint])
+        contentViewTopConstraint = contentView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 5)
+        contentViewTopConstraint.isActive = true
+        
+        contentView.addSubview(contentViewContent)
+        defaultConstraints(childView: contentViewContent, parentView: contentView)
         
         let tabBarConstraints = Constraints(childView: tabBar, parentView: view, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0)
         ])
         tabBarConstraints.addConstraints()
         
-        tabBarHeightConstraint = Constraint(childView: tabBar, parentView: view, constraintType: .height, multiplier: 1, constant: 50).setConstraint()
-        tabBarWidthConstraint = Constraint(childView: tabBar, parentView: view, constraintType: .proportionalWidth, multiplier: 0.85, constant: 0).setConstraint()
-        tabBarBottomConstraint = Constraint(childView: tabBar, parentView: view, constraintType: .bottom, multiplier: 1, constant: -100).setConstraint()
+        tabBarHeightConstraint = tabBar.heightAnchor.constraint(equalToConstant: 50)
+        tabBarWidthConstraint = tabBar.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85)
+        tabBarBottomConstraint = view.bottomAnchor.constraint(equalTo: tabBar.bottomAnchor, constant: -100)
         NSLayoutConstraint.activate([tabBarWidthConstraint,tabBarHeightConstraint,tabBarBottomConstraint])
         
-        certifficateButtonVerticalConstraint = NSLayoutConstraint(item: tabBar, attribute: .top, relatedBy: .equal, toItem: certifficateButton, attribute: .bottom, multiplier: 1, constant: -45)
-        NSLayoutConstraint.activate([Constraint(childView: certifficateButton, parentView: view, constraintType: .horizontal, multiplier: 1, constant: 0).setConstraint(), certifficateButtonVerticalConstraint])
+        certifficateButtonVerticalConstraint = tabBar.topAnchor.constraint(equalTo: certifficateButton.bottomAnchor, constant: -45)
+        certifficateButtonVerticalConstraint.isActive = true
+        certifficateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         planTripButtonVerticalConstraint = tabBar.topAnchor.constraint(equalTo: planTripButton.bottomAnchor, constant: -45)
         NSLayoutConstraint.activate([
@@ -169,37 +209,28 @@ class MainViewController: UIViewController {
             statisticsActions.heightAnchor.constraint(equalTo: tabBar.heightAnchor, multiplier: 0.7, constant: 0),
             statisticsActions.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-    }
-    
-    var tabBarExtensionBottomConstraint = NSLayoutConstraint()
-    
-    func tabBarExtensionSetup(){
-        view.insertSubview(tabBarExtension, belowSubview: tabBar)
         
-        tabBarExtensionBottomConstraint = NSLayoutConstraint(item: tabBar, attribute: .top, relatedBy: .equal, toItem: tabBarExtension, attribute: .bottom, multiplier: 1, constant: -44)
-        NSLayoutConstraint.activate([tabBarExtensionBottomConstraint, Constraint(childView: tabBarExtension, parentView: view, constraintType: .horizontal, multiplier: 1, constant: 0).setConstraint(), NSLayoutConstraint(item: tabBarExtension, attribute: .width, relatedBy: .equal, toItem: tabBar, attribute: .width, multiplier: 1, constant: 0), Constraint(childView: tabBarExtension, parentView: view, constraintType: .height, multiplier: 1, constant: 45).setConstraint()])
+        countryPickerActionsVerticalConstraints = tabBar.topAnchor.constraint(equalTo: countryPickerActions.bottomAnchor, constant: -45)
+        NSLayoutConstraint.activate([
+            countryPickerActionsVerticalConstraints,
+            countryPickerActions.widthAnchor.constraint(equalTo: tabBar.widthAnchor, multiplier: 0.9, constant: 0),
+            countryPickerActions.heightAnchor.constraint(equalTo: tabBar.heightAnchor, multiplier: 0.7, constant: 0),
+            countryPickerActions.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
     }
     
-    func tabBarExtensionAnimation(visibility: ViewVisibility){
+    func navigationBarAnimation(visibility: ViewVisibility){
         switch visibility {
         case .show:
-            tabBarExtensionBottomConstraint.constant = -7
+            navigationBarTopConstraint.constant = 0
         case .hide:
-            tabBarExtensionBottomConstraint.constant = -44
+            navigationBarTopConstraint.constant = -100
         }
         
-        UIView.animate(withDuration: 0.5, animations: {
-        }, completion: {(finished: Bool) in
-            self.view.bringSubviewToFront(self.tabBarExtension)
-            if visibility == .hide{
-                self.tabBarExtension.removeFromSuperview()
-            }
+        UIView.animate(withDuration: 0.4, animations: {
+            self.navigationBar.layoutIfNeeded()
+            self.view.layoutIfNeeded()
         })
-    }
-    
-    func tabAnimation(visibility: ViewVisibility){
-        tabBarVisibility(tabBarVisibility: visibility)
-        certifficateButtonAnimation(visibility: visibility)
     }
     
     @objc func certifficateButtonTapped(_ sender: UIButton) {
@@ -246,10 +277,68 @@ class MainViewController: UIViewController {
         present(modal, animated: true, completion: nil)
     }
     
-    var scrollViewScrollUp: Bool = false
+    @objc func confirmButtonTapped(_ sender: UIButton){
+        defaults.setValue(auxManualLocation, forKey: "manualCountry")
+        defaults.set(false, forKey: "useAutomaticLocation")
+        
+        countryPickerActionsAnimaiton(visibility: .hide)
+        animateContentView(size: 5)
+        tabAnimation(visibility: .hide)
+        navigationBarAnimation(visibility: .hide)
+        refreshData()
+    }
+    
+    @objc func cancelButtonTapped(_ sender: UIButton){
+        
+    }
 }
 
 extension MainViewController: MainDelegate{
+    func tabAnimation(visibility: ViewVisibility){
+        tabBarVisibility(tabBarVisibility: visibility)
+        certifficateButtonAnimation(visibility: visibility)
+    }
+    
+    func refreshData(){
+        contentViewContent.removeFromSuperview()
+        contentView.addSubview(activityIndicator)
+        xyConstraints(childView: activityIndicator, parentView: contentView)
+        activityIndicator.startAnimating()
+        
+        DataManager.changeManualLocation(){ [self] finished in
+            if finished{
+                DispatchQueue.main.async { [self] in
+                    activityIndicator.removeFromSuperview()
+                    contentView.addSubview(contentViewContent)
+                    defaultConstraints(childView: contentViewContent, parentView: contentView)
+                    tabAnimation(visibility: .show)
+                    navigationBarAnimation(visibility: .show)
+                    contentViewVisibility(visibility: .show)
+                    certifficateButtonAnimation(visibility: .hide)
+                    
+                    let currentIndex = delegates.tabBar.getCurrentIndex()
+                    switch currentIndex{
+                    case 1:
+                        planTripButtonAnimation(visibility: .show)
+                    case 3:
+                        statisticsActionsAnimation(visibility: .show)
+                    default:
+                        ()
+                    }
+                }
+            }
+        }
+    }
+    
+    func contentViewVisibility(visibility: ViewVisibility){
+        switch visibility {
+        case .show:
+            contentViewContent.isHidden = false
+        case .hide:
+            contentViewContent.isHidden = true
+        }
+    }
+    
     func animateContentView(size: CGFloat){
         contentViewTopConstraint.constant = size
         
@@ -259,20 +348,13 @@ extension MainViewController: MainDelegate{
         })
     }
     
-    func tabBarExtension(visibility: ViewVisibility){
-        tabBarExtensionSetup()
-        tabBarExtensionAnimation(visibility: visibility)
-        
-        if visibility == .hide {
-            tabBarExtension.removeFromSuperview()
-        }
-    }
-    
     func certifficateButtonAnimation(visibility: ViewVisibility){
         switch visibility {
         case .show:
+            certifficateButton.isHidden = false
             certifficateButtonVerticalConstraint.constant = 10
         case .hide:
+            certifficateButton.isHidden = true
             certifficateButtonVerticalConstraint.constant = -45
         }
         
@@ -284,8 +366,10 @@ extension MainViewController: MainDelegate{
     func planTripButtonAnimation(visibility: ViewVisibility){
         switch visibility {
         case .show:
+            planTripButton.isHidden = false
             planTripButtonVerticalConstraint.constant = 10
         case .hide:
+            planTripButton.isHidden = true
             planTripButtonVerticalConstraint.constant = -45
         }
         
@@ -297,13 +381,31 @@ extension MainViewController: MainDelegate{
     func statisticsActionsAnimation(visibility: ViewVisibility){
         switch visibility {
         case .show:
+            statisticsActions.isHidden = false
             statisticsActionsVerticalConstraint.constant = 15
         case .hide:
+            statisticsActions.isHidden = true
             statisticsActionsVerticalConstraint.constant = -45
         }
         
         UIView.animate(withDuration: 0.6, animations: {
             self.statisticsActions.layoutIfNeeded()
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    func countryPickerActionsAnimaiton(visibility: ViewVisibility){
+        switch visibility {
+        case .show:
+            countryPickerActions.isHidden = false
+            countryPickerActionsVerticalConstraints.constant = 15
+        case .hide:
+            countryPickerActions.isHidden = true
+            countryPickerActionsVerticalConstraints.constant = -45
+        }
+        
+        UIView.animate(withDuration: 0.6, animations: {
+            self.countryPickerActions.layoutIfNeeded()
             self.view.layoutIfNeeded()
         })
     }
@@ -347,111 +449,12 @@ extension MainViewController: MainDelegate{
         present(modal, animated: true, completion: nil)
     }
     
-    func waitingModal(){
-        let modal = UIViewController()
-        let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.style = .large
-        modal.view.addSubview(activityIndicator)
-        xyConstraints(childView: activityIndicator, parentView: modal.view)
-        
-        modal.view.backgroundColor = .white.withAlphaComponent(0.1)
-        modal.modalPresentationStyle = .fullScreen
-        modal.transitioningDelegate = self
-        modal.isModalInPresentation = true
-        
-        if let sheet = modal.sheetPresentationController {
-            sheet.prefersGrabberVisible = false
-            sheet.preferredCornerRadius = 24
-        }
-        
-        activityIndicator.startAnimating()
-        present(modal, animated: false, completion: nil)
-        
-    }
-    
     func dimissModal(completion: @escaping (() -> Void)) {
         dismiss(animated: true, completion: completion)
     }
     
     func updateCertifficateButton(){
         self.certifficateButton.initialize(title: defaults.bool(forKey: "certifficateEnrolled") ? "Certificatul tau" : "Inroleaza certificat", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: defaults.bool(forKey: "certifficateEnrolled") ? signatureDarkBlue : .red, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "qrcode.viewfinder"))
-    }
-    
-    func scrollAnimation(size: CGFloat){
-        let scrollLengthForTabBarExtension = size/10
-        
-        if scrollLengthForTabBarExtension < 44 && scrollLengthForTabBarExtension > 6 {
-            tabBarExtensionBottomConstraint.constant = -scrollLengthForTabBarExtension
-            view.bringSubviewToFront(tabBar)
-            certifficateButton.isHidden = true
-        } else if scrollLengthForTabBarExtension < 5 {
-            tabBarExtensionBottomConstraint.constant = -7
-            view.bringSubviewToFront(tabBarExtension)
-            certifficateButton.isHidden = false
-        }
-        
-        if scrollLengthForTabBarExtension == 43 {
-            tabBarExtension.isHidden = true
-        } else{
-            tabBarExtension.isHidden = false
-        }
-        
-        if scrollLengthForTabBarExtension > 47{
-            tabBarScrollAnimation(visibility: .show, resetsAnimation: false)
-            navigationBarScrollAnimation(visibility: .hide)
-        } else if scrollViewScrollUp == true && scrollLengthForTabBarExtension < 46 {
-            tabBarScrollAnimation(visibility: .hide, resetsAnimation: false)
-            navigationBarScrollAnimation(visibility: .show)
-        }
-    }
-    
-    func navigationBarScrollAnimation(visibility: ViewVisibility){
-        switch visibility {
-        case .show:
-            delegates.navigationBar.changeContainerViewBottomConstraint(visibility: false)
-            navigationBarTopConstraint.constant = 0
-        case .hide:
-            delegates.navigationBar.changeContainerViewBottomConstraint(visibility: true)
-            navigationBarTopConstraint.constant = -50
-        }
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            self.navigationBar.layoutIfNeeded()
-            self.view.layoutIfNeeded()
-        })
-    }
-    
-    func tabBarScrollAnimation(visibility: ViewVisibility, resetsAnimation: Bool){
-        switch visibility {
-        case .show:
-            scrollViewScrollUp = true
-            tabBarWidthConstraint.changeMultiplier(multiplier: 1)
-            tabBarHeightConstraint.constant = 70
-            tabBarBottomConstraint.constant = 0
-            delegates.customTabBar.increaseBottomConstraint(size: 30)
-            delegates.customTabBar.goToTopButtonVisibily(visibily: .show)
-        case .hide:
-            scrollViewScrollUp = false
-            NSLayoutConstraint.deactivate([tabBarWidthConstraint])
-            NSLayoutConstraint.activate([tabBarWidthConstraint])
-            tabBarHeightConstraint.constant = 50
-            tabBarBottomConstraint.constant = 30
-            delegates.customTabBar.increaseBottomConstraint(size: 10)
-            delegates.customTabBar.goToTopButtonVisibily(visibily: .hide)
-        }
-        
-        if resetsAnimation == true {
-            navigationBarTopConstraint.constant = 30
-            certifficateButton.isHidden = false
-            navigationBarTopConstraint.constant = 0
-            delegates.navigationBar.changeContainerViewBottomConstraint(visibility: false)
-        }
-        
-        UIView.animate(withDuration: 0.5, delay: 0, animations: {
-            self.view.layoutIfNeeded()
-            self.tabBar.layoutIfNeeded()
-        })
-        
     }
 }
 

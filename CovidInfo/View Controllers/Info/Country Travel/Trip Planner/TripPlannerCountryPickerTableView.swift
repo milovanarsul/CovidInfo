@@ -174,8 +174,6 @@ class TripPlannerCountryPickerTableView: UIView {
             delegates.tripPlanner.animateDepartureView()
         case .none: ()
         }
-        
-        tripPlannerPresentationShouldDismiss = true
     }
 }
 
