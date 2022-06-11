@@ -53,15 +53,15 @@ let tabBarHeight = 0.0558036
 
 
 let mainPages: [MainPages:[String:[ChildPages:String]]] = [
-    MainPages.info: ["Informatii":[:]],
-    MainPages.home: ["Acasa":homePages],
-    MainPages.news: ["Stiri":stiriPages],
+    MainPages.info: ["Informații":[:]],
+    MainPages.home: ["Acasă":homePages],
+    MainPages.news: ["Știri":stiriPages],
     MainPages.statistics: ["Statistici":statisticiPages],
 ]
 
 let homePages: [ChildPages:String] = [
     ChildPages.triaj: "> Triaj",
-    ChildPages.preventie: "> Preventie",
+    ChildPages.preventie: "> Prevenție",
     ChildPages.simptome: "> Simptome"
 ]
 
@@ -81,16 +81,16 @@ let risksLocalizable: [String : [String : UIColor]] = [
     "High" : ["Ridicat": redColor],
     "Medium" : ["Mediu": yellowColor],
     "Moderate" : ["Moderat": greenColor],
-    "Low" : ["Scazut": greenColor],
-    "Lockdown" : ["Carantina": redColor],
-    "Curfew" : ["Restrictii de circulatie" : redColor],
-    "Distancing" : ["Distantare sociala" : signatureDarkBlue],
+    "Low" : ["Scăzut": greenColor],
+    "Lockdown" : ["Carantină": redColor],
+    "Curfew" : ["Restricții de circulație" : redColor],
+    "Distancing" : ["Distanțare socială" : signatureDarkBlue],
     "None" : ["Nu este cazul" : greenColor],
-    "Partial" : ["Partial" : yellowColor],
-    "Partial Measures" : ["Masuri partiale" : yellowColor],
-    "Opening" : ["Restrictii relaxate" : yellowColor],
-    "Closing" : ["Restrictii inasprite" : redColor],
-    "Open" : ["Circulatie libera" : greenColor],
+    "Partial" : ["Parțial" : yellowColor],
+    "Partial Measures" : ["Măsuri parțiale" : yellowColor],
+    "Opening" : ["Restricții relaxate" : yellowColor],
+    "Closing" : ["Restricții îăasprite" : redColor],
+    "Open" : ["Circulație liberă" : greenColor],
     "Yes" : ["Da" : redColor],
     "No": ["Nu" : greenColor],
     "no": ["Nu" : greenColor],

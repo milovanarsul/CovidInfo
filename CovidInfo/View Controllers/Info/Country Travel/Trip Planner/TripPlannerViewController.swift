@@ -12,7 +12,7 @@ class TripPlannerViewController: UIViewController {
     lazy var topBar: UIView = {
         lazy var redoResultButton: UIButton = {
             let button = UIButton()
-            button.initialize(title: "Inapoi", titleColor: .black, cornerRadius: 0, font: boldFont(size: 18), backgroundColor: .clear, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "arrow.backward.circle.fill"))
+            button.initialize(title: "Înapoi", titleColor: .black, cornerRadius: 0, font: boldFont(size: 18), backgroundColor: .clear, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "arrow.backward.circle.fill"))
             button.addTarget(self, action: #selector(redoResultTapped(_:)), for: .touchUpInside)
             button.isHidden = true
             button.tag = 2
@@ -67,7 +67,7 @@ class TripPlannerViewController: UIViewController {
             
             lazy var arrivalButton: UIButton = {
                 let button = UIButton()
-                button.initialize(title: "Destinatie", titleColor: .white, cornerRadius: 8, font: boldFont(size: 18), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "airplane.arrival"))
+                button.initialize(title: "Destinație", titleColor: .white, cornerRadius: 8, font: boldFont(size: 18), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "airplane.arrival"))
                 button.addTarget(self, action: #selector(arrivalButtonTapped(_:)), for: .touchUpInside)
                 return button
             }()

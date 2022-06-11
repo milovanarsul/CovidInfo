@@ -100,7 +100,6 @@ extension InfoCardsCollectionViewController: UIViewControllerTransitioningDelega
 
 extension InfoCardsCollectionViewController: InfoCardsCollectionViewDelegate{
     func getInfoData(index: Int) -> InfoCardsData{
-        //print(index)
         return infoCardsDataArray[index]
     }
     

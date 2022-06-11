@@ -13,7 +13,7 @@ class StatisticsViewController: UIViewController {
         let label = UILabel()
         let date = Calendar.current.dateComponents([.year, .month, .day], from: Date())
         let month = romanianMonths[date.month!]
-        label.initialize(text: "Astazi, \(date.day!) \(month!) \(date.year!)", color: .black, font: boldFont(size: 20), alignment: .left, lines: 1)
+        label.initialize(text: "Astăzi, \(date.day!) \(month!) \(date.year!)", color: .black, font: boldFont(size: 20), alignment: .left, lines: 1)
         return label
     }()
     
@@ -90,11 +90,11 @@ extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if scrollView.contentOffset.y > 797{
-            updateDate(text: "De la inceputul pandemiei")
+            updateDate(text: "De la începutul pandemiei")
         } else {
             let date = Calendar.current.dateComponents([.year, .month, .day], from: Date())
             let month = romanianMonths[date.month!]
-            updateDate(text: "Astazi, \(date.day!) \(month!) \(date.year!)")
+            updateDate(text: "Astăzi, \(date.day!) \(month!) \(date.year!)")
         }
     }
 }

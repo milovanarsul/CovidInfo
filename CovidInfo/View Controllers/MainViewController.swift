@@ -40,7 +40,7 @@ class MainViewController: UIViewController {
     
     lazy var certifficateButton: UIButton = {
         let button = UIButton()
-        button.initialize(title: "Certificatul tau", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "qrcode.viewfinder"))
+        button.initialize(title: "Certificatul tău", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "qrcode.viewfinder"))
         button.addTarget(self, action: #selector(certifficateButtonTapped(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isHidden = true
@@ -49,7 +49,7 @@ class MainViewController: UIViewController {
     
     lazy var planTripButton: UIButton = {
         let button = UIButton()
-        button.initialize(title: "Planifica-ti calatoria", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "globe.europe.africa"))
+        button.initialize(title: "Planifică-ți călătoria", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "globe.europe.africa"))
         button.addTarget(self, action: #selector(planTripButtonTapped(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isHidden = true
@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
     
     lazy var filterButton: UIButton = {
         let button = UIButton()
-        button.initialize(title: "Filtreaza datele", titleColor: .white, cornerRadius: 24, font: boldFont(size: 13), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10), image: UIImage(systemName: "slider.vertical.3"))
+        button.initialize(title: "Filtrează datele", titleColor: .white, cornerRadius: 24, font: boldFont(size: 13), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10), image: UIImage(systemName: "slider.vertical.3"))
         button.addTarget(self, action: #selector(filterButtonTapped(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -66,7 +66,7 @@ class MainViewController: UIViewController {
     
     lazy var compareCountries: UIButton = {
         let button = UIButton()
-        button.initialize(title: "Compara tari", titleColor: .white, cornerRadius: 24, font: boldFont(size: 13), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10), image: UIImage(systemName: "chart.pie"))
+        button.initialize(title: "Compară țări", titleColor: .white, cornerRadius: 24, font: boldFont(size: 13), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10), image: UIImage(systemName: "chart.pie"))
         button.addTarget(self, action: #selector(compareCountriesButtonTapped(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -74,16 +74,8 @@ class MainViewController: UIViewController {
     
     lazy var confirmButton: UIButton = {
         let button = UIButton()
-        button.initialize(title: "Confirma", titleColor: .white, cornerRadius: 24, font: boldFont(size: 13), backgroundColor: greenColor)
+        button.initialize(title: "Confirmă", titleColor: .white, cornerRadius: 24, font: boldFont(size: 13), backgroundColor: greenColor)
         button.addTarget(self, action: #selector(confirmButtonTapped(_:)), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    lazy var cancelButton: UIButton = {
-        let button = UIButton()
-        button.initialize(title: "Anuleaza", titleColor: .white, cornerRadius: 24, font: boldFont(size: 13), backgroundColor: redColor)
-        button.addTarget(self, action: #selector(cancelButtonTapped(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -102,7 +94,7 @@ class MainViewController: UIViewController {
         let stackView = UIStackView()
         stackView.backgroundColor = .clear
         stackView.initalize(axis: .horizontal, alignment: .fill, distribution: .fill, spacing: 10)
-        stackView.addAranagedSubviews(views: [confirmButton, cancelButton])
+        stackView.addAranagedSubviews(views: [confirmButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.isHidden = true
         return stackView
@@ -465,7 +457,7 @@ extension MainViewController: MainDelegate{
     }
     
     func updateCertifficateButton(){
-        self.certifficateButton.initialize(title: defaults.bool(forKey: "certifficateEnrolled") ? "Certificatul tau" : "Inroleaza certificat", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: defaults.bool(forKey: "certifficateEnrolled") ? signatureDarkBlue : .red, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "qrcode.viewfinder"))
+        self.certifficateButton.initialize(title: defaults.bool(forKey: "certifficateEnrolled") ? "Certificatul tău" : "Înrolează certificat", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: defaults.bool(forKey: "certifficateEnrolled") ? signatureDarkBlue : .red, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "qrcode.viewfinder"))
     }
     
     func tabBarActionsVisibility(visibility: ViewVisibility){
@@ -534,7 +526,7 @@ extension MainViewController: MainDelegate{
     }
     
     func locationDenied(){
-        let alert = UIAlertController(title: "Accesul la locatie a fost restrictionat", message: "Reactiveaza accesul la locatie din Setari > CovidInfo > Localizare > La utilizarea aplicatiei", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Accesul la locație a fost restricționat", message: "Reactivează accesul la locație din Setări > CovidInfo > Localizare > La utilizarea aplicației", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
             self.presentedViewController?.dismiss(animated: true)
         }))

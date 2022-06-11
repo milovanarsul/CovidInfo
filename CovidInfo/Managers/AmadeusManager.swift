@@ -15,8 +15,8 @@ class AmadeusManager{
     static var departureCountryTravelData: [CountryTravelModel]?
     static var arrivalCountryTravelData: [CountryTravelModel]?
     
-    private static let clientID = "HzjvYUkfAyCr54lTTCdV5w77JNdPyHlM"
-    private static let clientSecret = "UfburRqbRJrHRVn4"
+    private static let clientID = "axLcR08gUUELBV448V35t31AbCF7GGcE"
+    private static let clientSecret = "t6MSG27MLO1kGA5d"
     
     private static let amadeus: Amadeus = Amadeus(client_id: clientID, client_secret: clientSecret)
     
@@ -33,14 +33,14 @@ class AmadeusManager{
                    let json = try response.data.rawData()
                    let data = try JSONDecoder().decode(TravelAdvice.self, from: json)
                    
-                   let diseaseRiskLevel = CountryTravelModel(icon: "cross", title: "Risc de calatorie", subtitle: data.diseaseRiskLevel!)
-                   let diseaseInfection = CountryTravelModel(icon: "allergens", title: "Risc de imbolnavire", subtitle: data.diseaseInfection!.level!, text: "Rata de imbolnavire: \(data.diseaseInfection!.rate!)")
-                   let areaPolicy = CountryTravelModel(icon: "exclamationmark.triangle", title: "Restrictii", subtitle: data.areaPolicy!.status!, text: data.areaPolicy!.text!)
-                   let entry = CountryTravelModel(icon: "arrow.forward.square", title: "Reguli de intrare in tara", subtitle: data.areaAccessRestriction!.entry!.ban!, text: data.areaAccessRestriction!.entry!.text!)
-                   let quarantine = CountryTravelModel(icon: "pills", title: "Carantina necesara", subtitle: data.areaAccessRestriction!.quarantineModality!.eligiblePerson!)
-                   let vaccination = CountryTravelModel(icon: "bandage", title: "Vaccinare necesara", subtitle: data.areaAccessRestriction!.diseaseVaccination!.isRequired!, text:  data.areaAccessRestriction!.diseaseVaccination!.text!)
-                   let testing = CountryTravelModel(icon: "heart.text.square", title: "Testare necesara", subtitle: data.areaAccessRestriction!.diseaseTesting!.isRequired!)
-                   let mask = CountryTravelModel(icon: "facemask", title: "Masca necesara", subtitle: data.areaAccessRestriction!.mask!.isRequired!, text: data.areaAccessRestriction!.mask!.text!)
+                   let diseaseRiskLevel = CountryTravelModel(icon: "cross", title: "Risc de călătorie", subtitle: data.diseaseRiskLevel!)
+                   let diseaseInfection = CountryTravelModel(icon: "allergens", title: "Risc de îmbolnăvire", subtitle: data.diseaseInfection!.level!, text: "Rata de imbolnavire: \(data.diseaseInfection!.rate!)")
+                   let areaPolicy = CountryTravelModel(icon: "exclamationmark.triangle", title: "Restricții", subtitle: data.areaPolicy!.status!, text: data.areaPolicy!.text!)
+                   let entry = CountryTravelModel(icon: "arrow.forward.square", title: "Reguli de intrare în țară", subtitle: data.areaAccessRestriction!.entry!.ban!, text: data.areaAccessRestriction!.entry!.text!)
+                   let quarantine = CountryTravelModel(icon: "pills", title: "Carantină necesară", subtitle: data.areaAccessRestriction!.quarantineModality!.eligiblePerson!)
+                   let vaccination = CountryTravelModel(icon: "bandage", title: "Vaccinare necesară", subtitle: data.areaAccessRestriction!.diseaseVaccination!.isRequired!, text:  data.areaAccessRestriction!.diseaseVaccination!.text!)
+                   let testing = CountryTravelModel(icon: "heart.text.square", title: "Testare necesară", subtitle: data.areaAccessRestriction!.diseaseTesting!.isRequired!)
+                   let mask = CountryTravelModel(icon: "facemask", title: "Mască necesară", subtitle: data.areaAccessRestriction!.mask!.isRequired!, text: data.areaAccessRestriction!.mask!.text!)
                    
                    if let type = type {
                        switch type {

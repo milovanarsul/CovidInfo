@@ -22,7 +22,7 @@ class SimptomeAndPreventieViewController: UIViewController {
         
         lazy var label: UILabel = {
             let label = UILabel()
-            label.initialize(text: "Pentru a afla mai multe informatii accesati cetrebuiesafac.ro", color: .black, font: boldFont(size: 14), alignment: .left, lines: 0)
+            label.initialize(text: "Pentru a afla mai multe informații accesați cetrebuiesafac.ro", color: .black, font: boldFont(size: 14), alignment: .left, lines: 0)
             return label
         }()
         

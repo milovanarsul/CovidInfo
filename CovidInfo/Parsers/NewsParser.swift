@@ -76,7 +76,6 @@ func stiriOficiale(){
             data.isTrusted = true
             data.isVariant = false
             
-            //let stringDate = try article.select("time").first()!.text()
             data.date = stringToDate(string: "01.01.2020 00:00")
             
             let h1 = try article.select("a").first()!

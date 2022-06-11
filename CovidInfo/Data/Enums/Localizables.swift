@@ -24,39 +24,13 @@ let romanianMonths: [Int : String] = [
 
 let weekDays: [Int : String] = [
     1 : "Luni",
-    2 : "Marti",
+    2 : "Marți",
     3 : "Miercuri",
     4 : "Joi",
     5 : "Vineri",
-    6 : "Sambata",
-    7 : "Duminica"
+    6 : "Sâmbătă",
+    7 : "Duminică"
 ]
-
-//"ATG" : "Antigua și Barbuda",
-//"BHR" : "Bahrain",
-//"BLR" : "Belarus",
-//"BTN" : "Bhutan",
-//"BFA" : "Burkina Faso",
-//"CPV" : "Republica Capului Verde",
-//"CAF" : "Republica Centrafricană",
-//"COM" : "Comore",
-//"COD" : "Republica Democrată Congo",
-//"SWZ" : "Eswatini",
-//"FJI" : "Fiji",
-//"FRA" : "Franța",
-//"KGZ" : "Kârgâzstan",
-//"MDV" : "Maldive",
-//"MCO" : "Monaco",
-//"MNE" : "Muntenegru",
-//"KNA" : "Sfântul Kitts și Nevis",
-//"KNA" : "Sfântul Kitts și Nevis",
-//"VCT" : "Sfântul Vincent și Grenadine",
-//"STP" : "Sao Tome și Principe",
-//"SRB" : "Serbia",
-//"SSD" : "Sudanul de Sud",
-//"SYR" : "Siria",
-//"TLS" : "Timorul de Est",
-//"TTO" : "Trinidad și Tobago",
 
 let roISOCountries: [String : String] = [
     "AFG" : "Afganistan",

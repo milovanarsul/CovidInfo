@@ -13,7 +13,7 @@ class CompareCountriesViewController: UIViewController {
     lazy var topBar: UIView = {
         lazy var redoResultButton: UIButton = {
             let button = UIButton()
-            button.initialize(title: "Inapoi", titleColor: .black, cornerRadius: 0, font: boldFont(size: 18), backgroundColor: .clear, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "arrow.backward.circle.fill"))
+            button.initialize(title: "Înapoi", titleColor: .black, cornerRadius: 0, font: boldFont(size: 18), backgroundColor: .clear, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "arrow.backward.circle.fill"))
             button.addTarget(self, action: #selector(redoResultTapped(_:)), for: .touchUpInside)
             button.isHidden = true
             button.tag = 2
@@ -61,7 +61,7 @@ class CompareCountriesViewController: UIViewController {
         lazy var locationButtons: UIStackView = {
             lazy var country1Button: UIButton = {
                 let button = UIButton()
-                button.initialize(title: "Selecteaza tara 1", titleColor: .white, cornerRadius: 8, font: boldFont(size: 18), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "1.circle"))
+                button.initialize(title: "Selectează țara 1", titleColor: .white, cornerRadius: 8, font: boldFont(size: 18), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "1.circle"))
                 button.contentHorizontalAlignment = .left
                 button.addTarget(self, action: #selector(country1Tapped(_:)), for: .touchUpInside)
                 return button
@@ -69,7 +69,7 @@ class CompareCountriesViewController: UIViewController {
             
             lazy var country2Button: UIButton = {
                 let button = UIButton()
-                button.initialize(title: "Selecteaza tara 2", titleColor: .white, cornerRadius: 8, font: boldFont(size: 18), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "2.circle"))
+                button.initialize(title: "Selectează țara 2", titleColor: .white, cornerRadius: 8, font: boldFont(size: 18), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "2.circle"))
                 button.contentHorizontalAlignment = .left
                 button.addTarget(self, action: #selector(country2Tapped(_:)), for: .touchUpInside)
                 return button

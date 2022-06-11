@@ -88,7 +88,7 @@ class CountryCardView: UITableViewCell {
         let diabetes_prevalence: Bool = (data!.diabetes_prevalence != 0.0)
         let hopsital_beds_per_thousand: Bool = (data!.hospital_beds_per_thousand != 0.0)
         
-        let view1 = iconTextData(icon: "person", text: "Media de varsta", data: String((data!.median_age)) + " ani")
+        let view1 = iconTextData(icon: "person", text: "Media de vârstă", data: String((data!.median_age)) + " ani")
         let view2 = iconTextData(icon: "waveform.path.ecg", text: "Risc atac cardiovascular", data: String((data!.cardiovasc_death_rate)))
         let view3 = iconTextData(icon: "staroflife", text: "Risc diabet", data: String((data!.diabetes_prevalence)))
         let view4 = iconTextData(icon: "cross", text: "Paturi de spital\nper mia de locuitori", data: String((data!.hospital_beds_per_thousand)))

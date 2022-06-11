@@ -13,7 +13,7 @@ class LocationPickerView: UIView {
     
     lazy var mainLabel: UILabel = {
         let label = UILabel()
-        let text = "Locatie automata"
+        let text = "Locatie automată"
         label.initialize(text: text, color: .black, font: boldFont(size: 16), alignment: .left, lines: 0)
         return label
     }()

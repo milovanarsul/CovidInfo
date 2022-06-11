@@ -44,9 +44,9 @@ class TripPlannerCountryPickerTableView: UIView {
         var title: String?
         switch viewType{
         case .arrival:
-            title = "Selecteaza o destinatie"
+            title = "Selectează o destinație"
         case .departure:
-            title = "Selecteaza o locatie de plecare"
+            title = "Selectează o locație de plecare"
         case .none:
             ()
         }

@@ -16,11 +16,9 @@
 		B2124F2628245E4D00F20662 /* InfoCardsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2124F2528245E4D00F20662 /* InfoCardsCollectionViewController.swift */; };
 		B213E3F127CE5BF000A4E303 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B213E3F027CE5BF000A4E303 /* UIButton.swift */; };
 		B217D45727B9454500DBDED9 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B217D45627B9454500DBDED9 /* UIStackView.swift */; };
-		B218CDC227F849580080CD55 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218CDC127F849570080CD55 /* TestViewController.swift */; };
 		B218E732284F98C40074FA70 /* OnboardingLocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218E731284F98C40074FA70 /* OnboardingLocationPicker.swift */; };
 		B218E734284FC4DF0074FA70 /* OnboardingDownloadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218E733284FC4DF0074FA70 /* OnboardingDownloadData.swift */; };
 		B21A25432843C82400C73F01 /* TripPlannerCountryResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21A25422843C82400C73F01 /* TripPlannerCountryResultView.swift */; };
-		B21B3F1927F851B0004171C6 /* TestViewTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21B3F1827F851B0004171C6 /* TestViewTest.xib */; };
 		B21C965727B2CADA00C88A50 /* SimptomeAndPreventie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C965627B2CADA00C88A50 /* SimptomeAndPreventie.swift */; };
 		B224D0BB2852839F00F9F852 /* onboarding4.2.json in Resources */ = {isa = PBXBuildFile; fileRef = B224D0BA2852839F00F9F852 /* onboarding4.2.json */; };
 		B224D0BE2852B60700F9F852 /* data2020.json in Resources */ = {isa = PBXBuildFile; fileRef = B224D0BC2852B60700F9F852 /* data2020.json */; };
@@ -112,7 +110,6 @@
 		B2C2E90D27DA4D3E00A79D93 /* EnrollCertifficateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2E90C27DA4D3E00A79D93 /* EnrollCertifficateViewController.swift */; };
 		B2C59C2127A869340094A984 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C59C2027A869340094A984 /* MainPageViewController.swift */; };
 		B2C6F9BC2835074B00B6DBA8 /* DataRefactoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C6F9BB2835074B00B6DBA8 /* DataRefactoring.swift */; };
-		B2CCA48C2835C8B300947A0C /* SwiftUITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCA48B2835C8B300947A0C /* SwiftUITestView.swift */; };
 		B2CCB59227DB9D160076A52A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCB59027DB9D160076A52A /* HomeViewController.swift */; };
 		B2CD902A2840F47700528D1F /* TravelAdvice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CD90292840F47700528D1F /* TravelAdvice.swift */; };
 		B2D0724327CB81A600FA4BC6 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0724227CB81A600FA4BC6 /* Defaults.swift */; };
@@ -170,11 +167,9 @@
 		B2124F2528245E4D00F20662 /* InfoCardsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardsCollectionViewController.swift; sourceTree = "<group>"; };
 		B213E3F027CE5BF000A4E303 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		B217D45627B9454500DBDED9 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
-		B218CDC127F849570080CD55 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		B218E731284F98C40074FA70 /* OnboardingLocationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLocationPicker.swift; sourceTree = "<group>"; };
 		B218E733284FC4DF0074FA70 /* OnboardingDownloadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDownloadData.swift; sourceTree = "<group>"; };
 		B21A25422843C82400C73F01 /* TripPlannerCountryResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerCountryResultView.swift; sourceTree = "<group>"; };
-		B21B3F1827F851B0004171C6 /* TestViewTest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewTest.xib; sourceTree = "<group>"; };
 		B21C965627B2CADA00C88A50 /* SimptomeAndPreventie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventie.swift; sourceTree = "<group>"; };
 		B224D0BA2852839F00F9F852 /* onboarding4.2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding4.2.json; sourceTree = "<group>"; };
 		B224D0BC2852B60700F9F852 /* data2020.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data2020.json; path = Data/data2020.json; sourceTree = SOURCE_ROOT; };
@@ -264,7 +259,6 @@
 		B2C2E90C27DA4D3E00A79D93 /* EnrollCertifficateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollCertifficateViewController.swift; sourceTree = "<group>"; };
 		B2C59C2027A869340094A984 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		B2C6F9BB2835074B00B6DBA8 /* DataRefactoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRefactoring.swift; sourceTree = "<group>"; };
-		B2CCA48B2835C8B300947A0C /* SwiftUITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestView.swift; sourceTree = "<group>"; };
 		B2CCB59027DB9D160076A52A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B2CD90292840F47700528D1F /* TravelAdvice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelAdvice.swift; sourceTree = "<group>"; };
 		B2D0724227CB81A600FA4BC6 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
@@ -699,16 +693,6 @@
 			path = "Data Models";
 			sourceTree = "<group>";
 		};
-		B2CCA48A2835C89D00947A0C /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				B218CDC127F849570080CD55 /* TestViewController.swift */,
-				B21B3F1827F851B0004171C6 /* TestViewTest.xib */,
-				B2CCA48B2835C8B300947A0C /* SwiftUITestView.swift */,
-			);
-			path = Test;
-			sourceTree = "<group>";
-		};
 		B2DF4F2E27D8A12F0035D5B7 /* Certifficate */ = {
 			isa = PBXGroup;
 			children = (
@@ -822,7 +806,6 @@
 				B2F48DE327AD32C0005EE116 /* Page View Controllers */,
 				B23DC42427902F1E00051C6C /* View Controllers */,
 				B23DC42327902F0500051C6C /* Views */,
-				B2CCA48A2835C89D00947A0C /* Test */,
 				B2F65100278F2BDB00E1BB58 /* LaunchScreen.storyboard */,
 				B282BFF42813098E007ADE2F /* GoogleService-Info.plist */,
 				B2F65103278F2BDB00E1BB58 /* Info.plist */,
@@ -927,7 +910,6 @@
 				B2F65154278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */,
 				B23DE46027B3D01700FD2E10 /* preventie3.json in Resources */,
 				B2F650FF278F2BDB00E1BB58 /* Assets.xcassets in Resources */,
-				B21B3F1927F851B0004171C6 /* TestViewTest.xib in Resources */,
 				B282BFF52813098E007ADE2F /* GoogleService-Info.plist in Resources */,
 				B224D0BE2852B60700F9F852 /* data2020.json in Resources */,
 				B23DE46827B3D02400FD2E10 /* simptome3.json in Resources */,
@@ -1016,14 +998,12 @@
 				B23DF372283FDD8B00E54101 /* InfoPageViewController.swift in Sources */,
 				B281283527A5A69700DE7DB8 /* UIPageViewController.swift in Sources */,
 				B243D3202848B4A5007049B0 /* FilterDataViewController.swift in Sources */,
-				B218CDC227F849580080CD55 /* TestViewController.swift in Sources */,
 				B256B0F92822571D00793A7E /* InfoCardCellCollectionViewCell.swift in Sources */,
 				B2ECF84228170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift in Sources */,
 				B2C59C2127A869340094A984 /* MainPageViewController.swift in Sources */,
 				B23DE45A27B3BC4700FD2E10 /* Constraints.swift in Sources */,
 				B2F650F5278F2BD900E1BB58 /* SceneDelegate.swift in Sources */,
 				B21A25432843C82400C73F01 /* TripPlannerCountryResultView.swift in Sources */,
-				B2CCA48C2835C8B300947A0C /* SwiftUITestView.swift in Sources */,
 				B256059A27B2AF8000FB039F /* SimptomeAndPreventieCollectionViewController.swift in Sources */,
 				B20C937828354325009E6313 /* CountryCardComponents.swift in Sources */,
 				B27352F62849C19200D5BCBA /* CompareCountriesPickerView.swift in Sources */,
@@ -1260,9 +1240,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CovidInfo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CovidInfo;
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access the camera to able to scan the QR code";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Avem nevoie de locatia ta pentru a-ti oferi statistici relevate";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Avem nevoie de locatia ta pentru a-ti oferi statistici relevate";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Avem nevoie de cameră pentru a scana codul QR";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Avem nevoie de locația ta pentru a-ți oferi statistici relevate";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Avem nevoie de locația ta pentru a-ți oferi statistici relevate";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1297,9 +1277,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CovidInfo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CovidInfo;
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access the camera to able to scan the QR code";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Avem nevoie de locatia ta pentru a-ti oferi statistici relevate";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Avem nevoie de locatia ta pentru a-ti oferi statistici relevate";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Avem nevoie de cameră pentru a scana codul QR";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Avem nevoie de locația ta pentru a-ți oferi statistici relevate";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Avem nevoie de locația ta pentru a-ți oferi statistici relevate";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

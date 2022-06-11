@@ -17,7 +17,7 @@ class FilterDataViewController: UIViewController {
     
     lazy var label: UILabel = {
         let label = UILabel()
-        label.initialize(text: "Selecteaza o data", color: .black, font: boldFont(size: 20), alignment: .left, lines: 0)
+        label.initialize(text: "Selectează o dată", color: .black, font: boldFont(size: 20), alignment: .left, lines: 0)
         return label
     }()
     
@@ -33,14 +33,14 @@ class FilterDataViewController: UIViewController {
     
     lazy var filterButton: UIButton = {
         let button = UIButton()
-        button.initialize(title: "Filtreaza", titleColor: .white, cornerRadius: 24, font: boldFont(size: 13), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "slider.vertical.3"))
+        button.initialize(title: "Filtrează", titleColor: .white, cornerRadius: 24, font: boldFont(size: 13), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "slider.vertical.3"))
         button.addTarget(self, action: #selector(filterButtonTapped(_:)), for: .touchUpInside)
         return button
     }()
     
     lazy var resetFilterButton: UIButton = {
         let button = UIButton()
-        button.initialize(title: "Resteaza filtrele", titleColor: .white, cornerRadius: 24, font: boldFont(size: 13), backgroundColor: UIColor("D04545"), contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "x.circle"))
+        button.initialize(title: "Restează filtrele", titleColor: .white, cornerRadius: 24, font: boldFont(size: 13), backgroundColor: UIColor("D04545"), contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "x.circle"))
         button.addTarget(self, action: #selector(resetFilterButtonTapped(_:)), for: .touchUpInside)
         button.isHidden = true
         return button

@@ -61,7 +61,3 @@ func createCountryCompareData(h2022: [[String: Double]], h2021: [[String: Double
     let historic2022 = dictionaryToTuple(dictionary: h2022)
     return [historic2020, historic2021, historic2022].flatMap {$0}
 }
-
-//2820
-
-//3590

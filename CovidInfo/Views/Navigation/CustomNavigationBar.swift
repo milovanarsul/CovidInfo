@@ -233,7 +233,7 @@ class CustomNavigationBar: UIView {
             }
             
             (locationButton.viewWithTag(1) as! UIImageView).image = UIImage(systemName: "x.circle")
-            (locationButton.viewWithTag(2) as! UILabel).initialize(text: "Inchide", color: .white, font: boldFont(size: 16), alignment: .center, lines: 1)
+            (locationButton.viewWithTag(2) as! UILabel).initialize(text: "Închide", color: .white, font: boldFont(size: 16), alignment: .center, lines: 1)
             locationButtonTapExtend(visbility: .show)
             locationButton.backgroundColor = redColor
             resetsLocationButton = true

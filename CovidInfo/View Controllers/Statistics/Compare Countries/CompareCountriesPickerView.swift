@@ -43,9 +43,9 @@ class CompareCountriesPickerView: UIView {
         var title: String?
         switch viewType{
         case .country1:
-            title = "Selecteaza tara 1"
+            title = "Selectează țara 1"
         case .country2:
-            title = "Selecteaza tara 2"
+            title = "Selectează țara 2"
         case .none:
             ()
         }

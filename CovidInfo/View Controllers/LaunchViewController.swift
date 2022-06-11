@@ -114,7 +114,6 @@ class LaunchViewController: UIViewController {
         
         UIView.animate(withDuration: 0.6, animations: {
             self.launchView.layoutIfNeeded()
-            //self.view.layoutIfNeeded()
         }, completion: {(finished: Bool) in
             DispatchQueue.main.async { [self] in
                 self.presentView(view: OnboardingViewController(), animated: false, presentationStyle: .fullScreen, dismissPrevious: false)

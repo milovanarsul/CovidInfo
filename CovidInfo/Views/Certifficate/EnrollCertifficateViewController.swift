@@ -55,7 +55,7 @@ class EnrollCertifficateViewController: UIViewController{
 
 extension EnrollCertifficateViewController {
     func initalSetup(){
-        label.initialize(text: "Pozitioneaza codul QR in interior", color: .black, font: boldFont(size: 17), alignment: .center, lines: 0)
+        label.initialize(text: "Poziționează codul QR în interior", color: .black, font: boldFont(size: 17), alignment: .center, lines: 0)
         self.view.addSubview(label)
         
         let labelConstraints = Constraints(childView: label, parentView: view, constraints: [Constraint(constraintType: .horizontal, multiplier: 1, constant: 0)])

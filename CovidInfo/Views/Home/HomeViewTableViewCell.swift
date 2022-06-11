@@ -14,7 +14,7 @@ class HomeViewTableViewCell: UITableViewCell {
     lazy var simptomeAndPreventie: UIView = {
         lazy var label: UILabel = {
             let label = UILabel()
-            label.initialize(text: "Simptome si preventie", color: .black, font: boldFont(size: 16), alignment: .left, lines: 0)
+            label.initialize(text: "Simptome și prevenție", color: .black, font: boldFont(size: 16), alignment: .left, lines: 0)
             return label
         }()
         
@@ -103,7 +103,7 @@ class HomeViewTableViewCell: UITableViewCell {
         
         lazy var label: UILabel = {
             let label = UILabel()
-            label.initialize(text: "Ultima stire", color: .black, font: boldFont(size: 16), alignment: .left, lines: 0)
+            label.initialize(text: "Ultima știre", color: .black, font: boldFont(size: 16), alignment: .left, lines: 0)
             return label
         }()
         
@@ -224,7 +224,7 @@ class HomeViewTableViewCell: UITableViewCell {
         
         lazy var label: UILabel = {
             let label = UILabel()
-            label.initialize(text: "Informatii", color: .black, font: boldFont(size: 16), alignment: .left, lines: 0)
+            label.initialize(text: "Informații", color: .black, font: boldFont(size: 16), alignment: .left, lines: 0)
             return label
         }()
         

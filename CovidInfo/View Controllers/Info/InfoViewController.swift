@@ -14,7 +14,7 @@ class InfoViewController: UIViewController {
     
     lazy var categories: BetterSegmentedControl = {
         let categories = BetterSegmentedControl(frame: .zero,
-                                                segments: LabelSegment.segments(withTitles: ["Calatorie","Intrebari frecvente", "Vaccinare", "Variante"], normalFont: boldFont(size: 14), normalTextColor: .black, selectedFont: boldFont(size: 14) ,selectedTextColor: .white),
+                                                segments: LabelSegment.segments(withTitles: ["Călătorie","Întrebări frecvente", "Vaccinare", "Variante"], normalFont: boldFont(size: 14), normalTextColor: .black, selectedFont: boldFont(size: 14) ,selectedTextColor: .white),
                                                 options: [.backgroundColor(.clear), .indicatorViewBackgroundColor(signatureLightBlue), .cornerRadius(16), .animationSpringDamping(1.0),])
         categories.segmentPadding = 2.0
         categories.panningDisabled = true

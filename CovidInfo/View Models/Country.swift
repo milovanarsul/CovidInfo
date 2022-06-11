@@ -25,7 +25,7 @@ func countryModelData() -> [String : [Country]]{
         countryData.append(Country(image: key, name: value))
     }
     
-    data["Alege o tara"] = countryData.sorted {$0.name! < $1.name!}
+    data["Alege o țară"] = countryData.sorted {$0.name! < $1.name!}
     return data
 }
 

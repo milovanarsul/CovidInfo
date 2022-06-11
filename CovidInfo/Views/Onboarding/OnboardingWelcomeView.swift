@@ -17,14 +17,14 @@ class OnboardingWelcomeView: UIView {
     
     lazy var subtitleLabel: UILabel = {
         let label = UILabel()
-        label.initialize(text: "Suntem incantati de cunostinta", color: .black, font: boldFont(size: 20), alignment: .center, lines: 1)
+        label.initialize(text: "Suntem încântați de cunoștință", color: .black, font: boldFont(size: 20), alignment: .center, lines: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var instructionsLabel: UILabel = {
         let label = UILabel()
-        label.initialize(text: "In urmatoarele momente iti vom\nprezenta functionalitatiile\naplicatiei", color: .black, font: boldFont(size: 16), alignment: .center, lines: 0)
+        label.initialize(text: "În următoarele momente îți vom\nprezenta funcționalitățiile\naplicației", color: .black, font: boldFont(size: 16), alignment: .center, lines: 0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

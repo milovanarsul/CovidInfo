@@ -31,7 +31,7 @@ class CurrentDataTableViewCell: UITableViewCell {
         
         lazy var label: UILabel = {
             let label = UILabel()
-            label.initialize(text: "De la inceputul pandemiei", color: .black, font: boldFont(size: 16), alignment: .left, lines: 0)
+            label.initialize(text: "De la începutul pandemiei", color: .black, font: boldFont(size: 16), alignment: .left, lines: 0)
             return label
         }()
 

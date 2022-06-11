@@ -40,7 +40,7 @@ class OnboardingLocationPicker: UIViewController {
         
         lazy var titleLabel: UILabel = {
             let label = UILabel()
-            label.initialize(text: "Selecteaza o locatie manuala", color: .black, font: boldFont(size: 18), alignment: .left, lines: 1)
+            label.initialize(text: "Selectează o locație manuală", color: .black, font: boldFont(size: 18), alignment: .left, lines: 1)
             return label
         }()
         
@@ -184,7 +184,7 @@ class OnboardingLocationPicker: UIViewController {
             lazy var buttonStack: UIStackView = {
                 lazy var editButton: UIButton = {
                     let button = UIButton()
-                    button.initialize(title: "Schimba locatia", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                    button.initialize(title: "Schimbă locația", titleColor: .white, cornerRadius: 24, font: boldFont(size: 14), backgroundColor: signatureDarkBlue, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                     button.addTarget(self, action: #selector(editLocationTapped), for: .touchUpInside)
                     return button
                 }()

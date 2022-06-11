@@ -60,7 +60,7 @@ class TripPlannerCountryResultView: UITableViewCell {
         case false:
             button.initialize(title: "Mai mult", titleColor: signatureDarkBlue, cornerRadius: 0, font: boldFont(size: 14), backgroundColor: .clear, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "arrow.down.circle.fill"))
         case true:
-            button.initialize(title: "Mai putin", titleColor: signatureDarkBlue, cornerRadius: 0, font: boldFont(size: 14), backgroundColor: .clear, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "arrow.up.circle.fill"))
+            button.initialize(title: "Mai puțin", titleColor: signatureDarkBlue, cornerRadius: 0, font: boldFont(size: 14), backgroundColor: .clear, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20), image: UIImage(systemName: "arrow.up.circle.fill"))
         }
         
         button.addTarget(self, action: #selector(bottomButtonTapped(_:)), for: .touchUpInside)

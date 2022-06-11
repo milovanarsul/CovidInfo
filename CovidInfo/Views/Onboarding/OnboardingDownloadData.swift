@@ -17,7 +17,7 @@ class OnboardingDownloadData: UIView {
     
     lazy var label: UILabel = {
         let label = UILabel()
-        label.initialize(text: "Pregatim datele pentru tine\n Dureaza cateva momente...", color: .black, font: boldFont(size: 16), alignment: .center, lines: 0)
+        label.initialize(text: "Pregătim datele pentru tine\n Durează câteva momente...", color: .black, font: boldFont(size: 16), alignment: .center, lines: 0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

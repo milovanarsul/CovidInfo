@@ -13,7 +13,7 @@ public class OnboardingData{
     var isSkipEnabled: Bool
     
     var nextButtonText: String = "Mai departe"
-    var skipButtonText: String = "Mai tarziu"
+    var skipButtonText: String = "Mai târziu"
     
     init(image: String, labelText: String, isSkipEnabled: Bool, nextButtonText: String? = nil, skipButtonText: String? = nil){
         self.image = image

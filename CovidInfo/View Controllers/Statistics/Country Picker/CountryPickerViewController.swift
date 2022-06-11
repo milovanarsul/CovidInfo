@@ -49,7 +49,7 @@ class CountryPickerViewController: UIViewController {
     
     var data: [String: [Country]] = countryModelData()
     var formatedData: [String: [Country]]!
-    var sections = ["Alege o tara"]
+    var sections = ["Alege o țară"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +94,7 @@ extension CountryPickerViewController: UISearchBarDelegate{
         if searchText == "" {
             formatedData = data
         } else {
-            let searchableSection = "Alege o tara"
+            let searchableSection = "Alege o țară"
             formatedData[searchableSection] = data[searchableSection]!.filter {(countryData: Country) -> Bool in
                 return countryData.name!.lowercased().contains(searchText.lowercased())
             }
@@ -145,7 +145,7 @@ extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         searchBar.endEditing(true)
-        let sectionTitle = "Tara aleasa"
+        let sectionTitle = "Țara aleasă"
         
         let currentSection = sections[indexPath.section]
         let currentCountry = formatedData[currentSection]

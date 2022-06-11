@@ -27,7 +27,7 @@ struct AllHistoricData: View {
                 }
                 
                 if countryCompare.vaccinations.shouldShow{
-                    LineView(data: countryCompare.vaccinations.data, xAxisData: countryCompare.vaccinations.axisData, title: "Vaccinari", legend: "Total: \(countryCompare.vaccinations.total!)", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), shouldAnimate: false)
+                    LineView(data: countryCompare.vaccinations.data, xAxisData: countryCompare.vaccinations.axisData, title: "Vaccinări", legend: "Total: \(countryCompare.vaccinations.total!)", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), shouldAnimate: false)
                         .frame(width: 360, height: 450)
                 }
                 
@@ -37,12 +37,12 @@ struct AllHistoricData: View {
                 }
                 
                 if countryCompare.hospital.shouldShow{
-                    LineView(data: countryCompare.hospital.data, xAxisData: countryCompare.hospital.axisData, title: "Hospitalizari", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), shouldAnimate: false)
+                    LineView(data: countryCompare.hospital.data, xAxisData: countryCompare.hospital.axisData, title: "Spitalizări", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), shouldAnimate: false)
                         .frame(width: 360, height: 450)
                 }
                 
                 if countryCompare.icu.shouldShow{
-                    LineView(data: countryCompare.icu.data, xAxisData: countryCompare.icu.axisData, title: "Terapie intensiva", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), shouldAnimate: false)
+                    LineView(data: countryCompare.icu.data, xAxisData: countryCompare.icu.axisData, title: "Terapie intensivă", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), shouldAnimate: false)
                         .frame(width: 360, height: 450)
                 }
             }
