@@ -10,10 +10,6 @@ import UIKit
 import SwiftUI
 
 class HomeViewController: UIViewController {
-    
-    @Published var currentData: CurrentData? = DataManager.currentCountryData!
-    @Published var historicData: HistoricalData? = DataManager.historicCountryData!
-    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
@@ -52,11 +48,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeViewCell") as! HomeViewTableViewCell
-        cell.currentData = currentData
-        cell.historicData = historicData
         cell.parentViewController = self
         cell.setup()
         return cell
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 50 {
+            delegates.main.tabBarScrollAnimation(visibility: .hide)
+        } else {
+            delegates.main.tabBarScrollAnimation(visibility: .show)
+        }
     }
 }
 

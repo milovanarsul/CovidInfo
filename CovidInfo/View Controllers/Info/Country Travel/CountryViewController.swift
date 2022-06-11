@@ -9,27 +9,17 @@ import UIKit
 
 class CountryViewController: UIViewController {
     
-    var data: CurrentData = DataManager.currentCountryData!
-    
-    lazy var locationNotSelected: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "locationRestricted")!
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.separatorInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        tableView.register(CountryTravelTableViewCell.self, forCellReuseIdentifier: "countryTravel")
-        tableView.register(CountryCardView.self, forCellReuseIdentifier: "countryCardView")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
         tableView.layer.cornerRadius = 24
         tableView.clipsToBounds = true
+        tableView.tag = 1
         return tableView
     }()
 
@@ -65,11 +55,11 @@ extension CountryViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let countryCardCell = tableView.dequeueReusableCell(withIdentifier: "countryCardView") as! CountryCardView
-        let countryTravelCell = tableView.dequeueReusableCell(withIdentifier: "countryTravel") as! CountryTravelTableViewCell
+        let countryCardCell = CountryCardView()
+        let countryTravelCell = CountryTravelTableViewCell()
         
         if indexPath.row == 0 {
-            countryCardCell.data = data
+            countryCardCell.data = DataManager.currentCountryData!
             countryCardCell.setup()
             countryCardCell.backgroundColor = .clear
             return countryCardCell
@@ -78,6 +68,16 @@ extension CountryViewController: UITableViewDelegate, UITableViewDataSource{
             countryTravelCell.backgroundColor = .clear
             countryTravelCell.setup(data: currentData, type: .normal)
             return countryTravelCell
+        }
+        
+        
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 50 {
+            delegates.main.tabBarScrollAnimation(visibility: .hide)
+        } else {
+            delegates.main.tabBarScrollAnimation(visibility: .show)
         }
     }
 }

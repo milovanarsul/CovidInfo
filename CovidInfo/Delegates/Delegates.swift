@@ -78,6 +78,8 @@ protocol MainDelegate{
     func refreshData()
     func countryPickerActionsAnimaiton(visibility: ViewVisibility)
     func contentViewVisibility(visibility: ViewVisibility)
+    func tabBarExtensionAnimation(visibility: ViewVisibility)
+    func tabBarScrollAnimation(visibility: ViewVisibility)
 }
 
 protocol NavigationBarDelegate{
@@ -87,12 +89,14 @@ protocol NavigationBarDelegate{
     func changeContainerViewBottomConstraint(visibility: Bool)
     func locationButtonAnimation(visibility: ViewVisibility)
     func locationButtonContentAnimation(visibility: ViewVisibility)
+    func simulateLocationButtonTap(viewVisibility: ViewVisibility)
 }
 
 protocol TabBarDelegate{
     func goToPage(pageIndex: Int, direction: UIPageViewController.NavigationDirection)
     func getCurrentPresentedViewController() -> UIViewController
     func getCurrentIndex() -> Int
+    func refresh()
 }
 
 protocol HomePageDelegate{
@@ -134,6 +138,8 @@ protocol CustomTabBarDelegate{
     func increaseBottomConstraint(size: CGFloat)
     func goToTopButtonVisibily(visibily: ViewVisibility)
     func goToPage(index: Int)
+    func currentButtonSliderAnimation()
+    func tabBarScroll(visibility: ViewVisibility)
 }
 
 protocol InfoPageViewControllerDelegate{
@@ -149,6 +155,8 @@ protocol InfoViewControllerDelegate{
     func getCardsViewController() -> UIViewController
     func setCategoriesIndex(index: Int)
     func viewsVisibility(visibility: Bool)
+    func variantsScroll()
+    func getCategoriesCurrentIndex() -> Int
 }
 
 protocol CountryPickerDelegate{
@@ -165,6 +173,7 @@ protocol TripPlannerDelegate{
     func animateArrivalView()
     func result()
     func expandCell(type: TripViewType)
+    func refreshTableView()
 }
 
 protocol CompareCountries {

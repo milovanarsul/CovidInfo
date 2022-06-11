@@ -51,16 +51,10 @@ extension String {
     }
 }
 
-func stringToDate(string: String, format: String? = nil) -> Date{
+func stringToDate(string: String) -> Date{
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale(identifier: "ro_RO")
-    
-    if let format = format {
-        dateFormatter.dateFormat = format
-    } else {
-        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
-    }
-    
+    dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
     let date = dateFormatter.date(from: string)
     return date!
 }
@@ -74,4 +68,14 @@ func createDate(day: Int, month: Int, year: Int) -> Date{
     let userCalendar = Calendar(identifier: .gregorian)
     let date = userCalendar.date(from: dateComponents)
     return date!
+}
+
+func percentageIncrease(value1: Int, value2: Int) -> Int{
+    let finalValue: Float = Float((value1 - value2)) / Float(abs(value1))
+    
+    if finalValue.isNaN || finalValue.isInfinite{
+        return 0
+    } else {
+        return Int(finalValue * 100)
+    }
 }

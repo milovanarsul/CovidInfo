@@ -20,6 +20,7 @@ class MainPageViewController: UIPageViewController {
         delegate = self
         createViewControllers()
         initialize(pages: pages, scroll: false)
+        self.view.dropShadow = true
     }
     
     fileprivate func createViewControllers(){
@@ -58,5 +59,11 @@ extension MainPageViewController: TabBarDelegate{
     
     func getCurrentIndex() -> Int {
         return getCurrentIndex(views: pages)
+    }
+    
+    func refresh(){
+        dataSource = nil
+        let pageViewControllerDataSource = PageViewControllerDataSource(pages: pages)
+        dataSource = pageViewControllerDataSource
     }
 }

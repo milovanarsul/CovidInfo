@@ -15,19 +15,19 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iIx-NQ-YSQ">
-                    <rect key="frame" x="0.0" y="108" width="414" height="788"/>
+                    <rect key="frame" x="0.0" y="816" width="414" height="50"/>
                     <color key="backgroundColor" systemColor="systemBrownColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="788" id="tHC-xS-iWp"/>
+                        <constraint firstAttribute="height" constant="50" id="IgT-KK-7RN"/>
+                        <constraint firstAttribute="width" constant="414" id="KOt-em-S4o"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="LAL-xz-eOz"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="iIx-NQ-YSQ" firstAttribute="width" secondItem="Fur-VS-AzV" secondAttribute="width" id="CDM-87-8Hu"/>
-                <constraint firstAttribute="bottom" secondItem="iIx-NQ-YSQ" secondAttribute="bottom" id="bWJ-cH-kHp"/>
-                <constraint firstItem="iIx-NQ-YSQ" firstAttribute="centerX" secondItem="LAL-xz-eOz" secondAttribute="centerX" id="xjO-J3-3tI"/>
+                <constraint firstItem="iIx-NQ-YSQ" firstAttribute="centerX" secondItem="LAL-xz-eOz" secondAttribute="centerX" id="6Ga-Vc-I3W"/>
+                <constraint firstAttribute="bottom" secondItem="iIx-NQ-YSQ" secondAttribute="bottom" constant="30" id="S6d-aC-nnm"/>
             </constraints>
             <point key="canvasLocation" x="-83" y="125"/>
         </view>

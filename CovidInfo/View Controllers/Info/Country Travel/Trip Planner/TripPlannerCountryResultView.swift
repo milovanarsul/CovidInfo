@@ -31,7 +31,6 @@ class TripPlannerCountryResultView: UITableViewCell {
     
     lazy var countryFlag: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: (data!.countryISO)!)!
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .green
         return imageView
@@ -39,7 +38,6 @@ class TripPlannerCountryResultView: UITableViewCell {
     
     lazy var countryName: UILabel = {
         let label = UILabel()
-        label.initialize(text: roISOCountries[(data!.countryISO)!]!, color: .black, font: boldFont(size: 24), alignment: .left, lines: 0)
         return label
     }()
     
@@ -69,8 +67,19 @@ class TripPlannerCountryResultView: UITableViewCell {
         return button
     }()
     
+    func dataSetup(){
+        switch type!{
+        case .arrival:
+            countryTravelData = AmadeusManager.arrivalCountryTravelData!
+            data = DataManager.getCurrentCountry(customLocation: arrivalCountry!.name!)
+        case .departure:
+            countryTravelData = AmadeusManager.departureCountryTravelData!
+            data = DataManager.getCurrentCountry(customLocation: departureCountry!.name!)
+        }
+    }
+    
     func setup(){
-        
+        dataSetup()
         contentView.addSubview(parentView)
         
         let parentViewConstraints = Constraints(childView: parentView, parentView: contentView, constraints: [
@@ -85,6 +94,9 @@ class TripPlannerCountryResultView: UITableViewCell {
         defaultConstraints(childView: containerView, parentView: parentView)
         
         containerView.addSubviews(views: [countryFlag, countryName, tableView, bottomButton])
+        
+        countryFlag.image = UIImage(named: (data!.countryISO)!)!
+        countryName.initialize(text: roISOCountries[(data!.countryISO)!]!, color: .black, font: boldFont(size: 24), alignment: .left, lines: 0)
         
         let countryFlagConstraints = Constraints(childView: countryFlag, parentView: containerView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
@@ -113,6 +125,8 @@ class TripPlannerCountryResultView: UITableViewCell {
         ])
         bottomButtonConstraints.addConstraints()
         tableView.bottomAnchor.constraint(equalTo: bottomButton.topAnchor, constant: -10).isActive = true
+        
+        tableView.reloadData()
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

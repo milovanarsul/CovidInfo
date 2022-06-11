@@ -15,8 +15,6 @@
 		B2124F1E2823EF4900F20662 /* CustomPresentationControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2124F1D2823EF4900F20662 /* CustomPresentationControler.swift */; };
 		B2124F2628245E4D00F20662 /* InfoCardsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2124F2528245E4D00F20662 /* InfoCardsCollectionViewController.swift */; };
 		B213E3F127CE5BF000A4E303 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B213E3F027CE5BF000A4E303 /* UIButton.swift */; };
-		B217D44F27B93DC500DBDED9 /* TriajViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B217D44D27B93DC500DBDED9 /* TriajViewController.swift */; };
-		B217D45527B940F600DBDED9 /* TriajSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B217D45427B940F600DBDED9 /* TriajSubviews.swift */; };
 		B217D45727B9454500DBDED9 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B217D45627B9454500DBDED9 /* UIStackView.swift */; };
 		B218CDC227F849580080CD55 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218CDC127F849570080CD55 /* TestViewController.swift */; };
 		B218E732284F98C40074FA70 /* OnboardingLocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218E731284F98C40074FA70 /* OnboardingLocationPicker.swift */; };
@@ -25,12 +23,12 @@
 		B21B3F1927F851B0004171C6 /* TestViewTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21B3F1827F851B0004171C6 /* TestViewTest.xib */; };
 		B21C965727B2CADA00C88A50 /* SimptomeAndPreventie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21C965627B2CADA00C88A50 /* SimptomeAndPreventie.swift */; };
 		B224D0BB2852839F00F9F852 /* onboarding4.2.json in Resources */ = {isa = PBXBuildFile; fileRef = B224D0BA2852839F00F9F852 /* onboarding4.2.json */; };
+		B224D0BE2852B60700F9F852 /* data2020.json in Resources */ = {isa = PBXBuildFile; fileRef = B224D0BC2852B60700F9F852 /* data2020.json */; };
+		B224D0BF2852B60700F9F852 /* data2021.json in Resources */ = {isa = PBXBuildFile; fileRef = B224D0BD2852B60700F9F852 /* data2021.json */; };
 		B232BBE22845692B0082C626 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B232BBE12845692B0082C626 /* Translate.swift */; };
 		B236E15E2825B08300AB0116 /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E15C2825B08300AB0116 /* Article+CoreDataClass.swift */; };
 		B236E15F2825B08300AB0116 /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E15D2825B08300AB0116 /* Article+CoreDataProperties.swift */; };
 		B236E1642825B1B400AB0116 /* HistoricalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236E1632825B1B400AB0116 /* HistoricalData.swift */; };
-		B237B543283461AB000F73A8 /* data2020.json in Resources */ = {isa = PBXBuildFile; fileRef = B237B541283461AA000F73A8 /* data2020.json */; };
-		B237B544283461AB000F73A8 /* data2021.json in Resources */ = {isa = PBXBuildFile; fileRef = B237B542283461AB000F73A8 /* data2021.json */; };
 		B23935C128144DD400F4E0AA /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23935C028144DD400F4E0AA /* CoreData.swift */; };
 		B23DE45A27B3BC4700FD2E10 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE45927B3BC4700FD2E10 /* Constraints.swift */; };
 		B23DE46027B3D01700FD2E10 /* preventie3.json in Resources */ = {isa = PBXBuildFile; fileRef = B23DE45B27B3D01700FD2E10 /* preventie3.json */; };
@@ -42,7 +40,7 @@
 		B23DE46927B3D02400FD2E10 /* simptome1.json in Resources */ = {isa = PBXBuildFile; fileRef = B23DE46627B3D02400FD2E10 /* simptome1.json */; };
 		B23DE46A27B3D02400FD2E10 /* simptome2.json in Resources */ = {isa = PBXBuildFile; fileRef = B23DE46727B3D02400FD2E10 /* simptome2.json */; };
 		B23DE46C27B3FC4D00FD2E10 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE46B27B3FC4D00FD2E10 /* UIColor.swift */; };
-		B23DE46E27B41F2C00FD2E10 /* Triaj.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE46D27B41F2B00FD2E10 /* Triaj.swift */; };
+		B23DE46E27B41F2C00FD2E10 /* TriajData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE46D27B41F2B00FD2E10 /* TriajData.swift */; };
 		B23DE47A27B44E3D00FD2E10 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE47927B44E3D00FD2E10 /* UILabel.swift */; };
 		B23DF370283FDC3700E54101 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DF36F283FDC3700E54101 /* CountryViewController.swift */; };
 		B23DF372283FDD8B00E54101 /* InfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DF371283FDD8B00E54101 /* InfoPageViewController.swift */; };
@@ -80,8 +78,6 @@
 		B289059427DA80720019205D /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289059327DA80720019205D /* LocalStorageManager.swift */; };
 		B289F89027B9582A00E756EF /* TriajPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289F88F27B9582A00E756EF /* TriajPageViewController.swift */; };
 		B28DFB8A284F786600DC1845 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28DFB89284F786600DC1845 /* OnboardingViewController.swift */; };
-		B2976FD427B94F53006E4859 /* TriajActions.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2976FD327B94F53006E4859 /* TriajActions.xib */; };
-		B2976FD627B94F6C006E4859 /* TriajActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2976FD527B94F6C006E4859 /* TriajActions.swift */; };
 		B297B92C283D3DEB005E1291 /* CurrentCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B297B92B283D3DEB005E1291 /* CurrentCharts.swift */; };
 		B297B92F283D4214005E1291 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B297B92E283D4214005E1291 /* DataManager.swift */; };
 		B2A0020C284F7D4500D0C7BD /* OnboardingWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A0020B284F7D4500D0C7BD /* OnboardingWelcomeView.swift */; };
@@ -109,6 +105,7 @@
 		B2B9EC9B2840B8C700D77B8D /* AmadeusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9EC9A2840B8C700D77B8D /* AmadeusManager.swift */; };
 		B2BB039B27A9466700D4801B /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB039A27A9466700D4801B /* CustomTabBar.swift */; };
 		B2BB039F27A998F700D4801B /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB039E27A998F700D4801B /* NavigationBar.swift */; };
+		B2BD5C162853BD6400950960 /* PreventieAndSimptomeShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BD5C152853BD6400950960 /* PreventieAndSimptomeShortcut.swift */; };
 		B2BF961D28143270002493EE /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2BF961B28143270002493EE /* DataModel.xcdatamodeld */; };
 		B2C2E90927DA356B00A79D93 /* QRCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2E90827DA356B00A79D93 /* QRCodeManager.swift */; };
 		B2C2E90D27DA4D3E00A79D93 /* EnrollCertifficateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2E90C27DA4D3E00A79D93 /* EnrollCertifficateViewController.swift */; };
@@ -124,6 +121,11 @@
 		B2DABD1827EB6D7700ECA4EB /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DABD1727EB6D7700ECA4EB /* UIImage.swift */; };
 		B2DABD1A27EB790F00ECA4EB /* SafariWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DABD1927EB790F00ECA4EB /* SafariWebView.swift */; };
 		B2DF4F3027D8A15D0035D5B7 /* CertifficateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF4F2F27D8A15D0035D5B7 /* CertifficateView.swift */; };
+		B2E12FAD2853BAB4001FF1F8 /* Triaj.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E12FA82853BAB4001FF1F8 /* Triaj.xib */; };
+		B2E12FAE2853BAB4001FF1F8 /* Triaj.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E12FA92853BAB4001FF1F8 /* Triaj.swift */; };
+		B2E12FAF2853BAB4001FF1F8 /* TriajActions.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E12FAA2853BAB4001FF1F8 /* TriajActions.xib */; };
+		B2E12FB02853BAB4001FF1F8 /* TriajSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E12FAB2853BAB4001FF1F8 /* TriajSubviews.swift */; };
+		B2E12FB12853BAB4001FF1F8 /* TriajActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E12FAC2853BAB4001FF1F8 /* TriajActions.swift */; };
 		B2E6741B27A52A8F00F283B7 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6741A27A52A8F00F283B7 /* Onboarding.swift */; };
 		B2E9C91C282C789E00BE6C31 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E9C91B282C789E00BE6C31 /* StatisticsViewController.swift */; };
 		B2ECF84228170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ECF83E28170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift */; };
@@ -166,8 +168,6 @@
 		B2124F1D2823EF4900F20662 /* CustomPresentationControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentationControler.swift; sourceTree = "<group>"; };
 		B2124F2528245E4D00F20662 /* InfoCardsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardsCollectionViewController.swift; sourceTree = "<group>"; };
 		B213E3F027CE5BF000A4E303 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
-		B217D44D27B93DC500DBDED9 /* TriajViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriajViewController.swift; sourceTree = "<group>"; };
-		B217D45427B940F600DBDED9 /* TriajSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriajSubviews.swift; sourceTree = "<group>"; };
 		B217D45627B9454500DBDED9 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		B218CDC127F849570080CD55 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		B218E731284F98C40074FA70 /* OnboardingLocationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLocationPicker.swift; sourceTree = "<group>"; };
@@ -176,12 +176,12 @@
 		B21B3F1827F851B0004171C6 /* TestViewTest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewTest.xib; sourceTree = "<group>"; };
 		B21C965627B2CADA00C88A50 /* SimptomeAndPreventie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventie.swift; sourceTree = "<group>"; };
 		B224D0BA2852839F00F9F852 /* onboarding4.2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding4.2.json; sourceTree = "<group>"; };
+		B224D0BC2852B60700F9F852 /* data2020.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data2020.json; path = Data/data2020.json; sourceTree = SOURCE_ROOT; };
+		B224D0BD2852B60700F9F852 /* data2021.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data2021.json; path = Data/data2021.json; sourceTree = SOURCE_ROOT; };
 		B232BBE12845692B0082C626 /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
 		B236E15C2825B08300AB0116 /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B236E15D2825B08300AB0116 /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B236E1632825B1B400AB0116 /* HistoricalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalData.swift; sourceTree = "<group>"; };
-		B237B541283461AA000F73A8 /* data2020.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data2020.json; path = Data/data2020.json; sourceTree = SOURCE_ROOT; };
-		B237B542283461AB000F73A8 /* data2021.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data2021.json; path = Data/data2021.json; sourceTree = SOURCE_ROOT; };
 		B23935C028144DD400F4E0AA /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		B23DE45927B3BC4700FD2E10 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		B23DE45B27B3D01700FD2E10 /* preventie3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = preventie3.json; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 		B23DE46627B3D02400FD2E10 /* simptome1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simptome1.json; sourceTree = "<group>"; };
 		B23DE46727B3D02400FD2E10 /* simptome2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simptome2.json; sourceTree = "<group>"; };
 		B23DE46B27B3FC4D00FD2E10 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		B23DE46D27B41F2B00FD2E10 /* Triaj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triaj.swift; sourceTree = "<group>"; };
+		B23DE46D27B41F2B00FD2E10 /* TriajData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriajData.swift; sourceTree = "<group>"; };
 		B23DE47927B44E3D00FD2E10 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		B23DF36F283FDC3700E54101 /* CountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
 		B23DF371283FDD8B00E54101 /* InfoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPageViewController.swift; sourceTree = "<group>"; };
@@ -230,8 +230,6 @@
 		B289059327DA80720019205D /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		B289F88F27B9582A00E756EF /* TriajPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriajPageViewController.swift; sourceTree = "<group>"; };
 		B28DFB89284F786600DC1845 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		B2976FD327B94F53006E4859 /* TriajActions.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TriajActions.xib; sourceTree = "<group>"; };
-		B2976FD527B94F6C006E4859 /* TriajActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriajActions.swift; sourceTree = "<group>"; };
 		B297B92B283D3DEB005E1291 /* CurrentCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCharts.swift; sourceTree = "<group>"; };
 		B297B92E283D4214005E1291 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		B2A0020B284F7D4500D0C7BD /* OnboardingWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeView.swift; sourceTree = "<group>"; };
@@ -258,6 +256,7 @@
 		B2B9EC9A2840B8C700D77B8D /* AmadeusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmadeusManager.swift; sourceTree = "<group>"; };
 		B2BB039A27A9466700D4801B /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		B2BB039E27A998F700D4801B /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		B2BD5C152853BD6400950960 /* PreventieAndSimptomeShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventieAndSimptomeShortcut.swift; sourceTree = "<group>"; };
 		B2BF961C28143270002493EE /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		B2C2E90827DA356B00A79D93 /* QRCodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeManager.swift; sourceTree = "<group>"; };
 		B2C2E90C27DA4D3E00A79D93 /* EnrollCertifficateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollCertifficateViewController.swift; sourceTree = "<group>"; };
@@ -273,6 +272,11 @@
 		B2DABD1727EB6D7700ECA4EB /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		B2DABD1927EB790F00ECA4EB /* SafariWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebView.swift; sourceTree = "<group>"; };
 		B2DF4F2F27D8A15D0035D5B7 /* CertifficateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertifficateView.swift; sourceTree = "<group>"; };
+		B2E12FA82853BAB4001FF1F8 /* Triaj.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Triaj.xib; sourceTree = "<group>"; };
+		B2E12FA92853BAB4001FF1F8 /* Triaj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Triaj.swift; sourceTree = "<group>"; };
+		B2E12FAA2853BAB4001FF1F8 /* TriajActions.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TriajActions.xib; sourceTree = "<group>"; };
+		B2E12FAB2853BAB4001FF1F8 /* TriajSubviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriajSubviews.swift; sourceTree = "<group>"; };
+		B2E12FAC2853BAB4001FF1F8 /* TriajActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriajActions.swift; sourceTree = "<group>"; };
 		B2E6741A27A52A8F00F283B7 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		B2E9C91B282C789E00BE6C31 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		B2ECF83E28170BAC00D36217 /* MSPressBulettin+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MSPressBulettin+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -406,8 +410,8 @@
 		B237B54028346145000F73A8 /* Historic Covid Data */ = {
 			isa = PBXGroup;
 			children = (
-				B237B541283461AA000F73A8 /* data2020.json */,
-				B237B542283461AB000F73A8 /* data2021.json */,
+				B224D0BC2852B60700F9F852 /* data2020.json */,
+				B224D0BD2852B60700F9F852 /* data2021.json */,
 			);
 			path = "Historic Covid Data";
 			sourceTree = "<group>";
@@ -498,16 +502,6 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		B23DE46F27B4206A00FD2E10 /* Triaj */ = {
-			isa = PBXGroup;
-			children = (
-				B217D44D27B93DC500DBDED9 /* TriajViewController.swift */,
-				B217D45427B940F600DBDED9 /* TriajSubviews.swift */,
-				B2AB568E283D6E3B004EC66A /* Actions */,
-			);
-			path = Triaj;
-			sourceTree = "<group>";
-		};
 		B243E849283D05F500DC4A48 /* Country Travel */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,6 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				B2AB568F283D6E83004EC66A /* SimptomeAndPreventieViewController.swift */,
+				B2BD5C152853BD6400950960 /* PreventieAndSimptomeShortcut.swift */,
 				B2AB5688283D6515004EC66A /* Collection View */,
 			);
 			path = "Simptome & Preventie";
@@ -553,7 +548,7 @@
 			children = (
 				B2CCB59027DB9D160076A52A /* HomeViewController.swift */,
 				B25A987E2844284C00A3DE58 /* HomeViewTableViewCell.swift */,
-				B23DE46F27B4206A00FD2E10 /* Triaj */,
+				B2E12FA72853BAB4001FF1F8 /* Triaj */,
 				B256058827B2A1E000FB039F /* Simptome & Preventie */,
 			);
 			path = Home;
@@ -644,15 +639,6 @@
 			path = "Collection View";
 			sourceTree = "<group>";
 		};
-		B2AB568E283D6E3B004EC66A /* Actions */ = {
-			isa = PBXGroup;
-			children = (
-				B2976FD527B94F6C006E4859 /* TriajActions.swift */,
-				B2976FD327B94F53006E4859 /* TriajActions.xib */,
-			);
-			path = Actions;
-			sourceTree = "<group>";
-		};
 		B2B5A9A72790904600FC4E61 /* Lottie Animations */ = {
 			isa = PBXGroup;
 			children = (
@@ -672,7 +658,7 @@
 				B2DABD1527EB2A2500ECA4EB /* News.swift */,
 				B2E6741A27A52A8F00F283B7 /* Onboarding.swift */,
 				B21C965627B2CADA00C88A50 /* SimptomeAndPreventie.swift */,
-				B23DE46D27B41F2B00FD2E10 /* Triaj.swift */,
+				B23DE46D27B41F2B00FD2E10 /* TriajData.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -726,6 +712,18 @@
 				B2C2E90C27DA4D3E00A79D93 /* EnrollCertifficateViewController.swift */,
 			);
 			path = Certifficate;
+			sourceTree = "<group>";
+		};
+		B2E12FA72853BAB4001FF1F8 /* Triaj */ = {
+			isa = PBXGroup;
+			children = (
+				B2E12FA82853BAB4001FF1F8 /* Triaj.xib */,
+				B2E12FA92853BAB4001FF1F8 /* Triaj.swift */,
+				B2E12FAA2853BAB4001FF1F8 /* TriajActions.xib */,
+				B2E12FAB2853BAB4001FF1F8 /* TriajSubviews.swift */,
+				B2E12FAC2853BAB4001FF1F8 /* TriajActions.swift */,
+			);
+			path = Triaj;
 			sourceTree = "<group>";
 		};
 		B2F1E2B328417218007099C2 /* Trip Planner */ = {
@@ -919,6 +917,8 @@
 				B2F65102278F2BDB00E1BB58 /* LaunchScreen.storyboard in Resources */,
 				B23DE46327B3D01700FD2E10 /* preventie5.json in Resources */,
 				B2F65157278F32B000E1BB58 /* IBMPlexSans-Medium.ttf in Resources */,
+				B2E12FAF2853BAB4001FF1F8 /* TriajActions.xib in Resources */,
+				B224D0BF2852B60700F9F852 /* data2021.json in Resources */,
 				B2F65148278F32B000E1BB58 /* IBMPlexSans-ExtraLight.ttf in Resources */,
 				B23DE46227B3D01700FD2E10 /* preventie2.json in Resources */,
 				B2F65154278F32B000E1BB58 /* IBMPlexSans-Regular.ttf in Resources */,
@@ -926,14 +926,13 @@
 				B2F650FF278F2BDB00E1BB58 /* Assets.xcassets in Resources */,
 				B21B3F1927F851B0004171C6 /* TestViewTest.xib in Resources */,
 				B282BFF52813098E007ADE2F /* GoogleService-Info.plist in Resources */,
-				B237B543283461AB000F73A8 /* data2020.json in Resources */,
+				B224D0BE2852B60700F9F852 /* data2020.json in Resources */,
 				B23DE46827B3D02400FD2E10 /* simptome3.json in Resources */,
 				B23DE46A27B3D02400FD2E10 /* simptome2.json in Resources */,
 				B23DE46427B3D01700FD2E10 /* preventie1.json in Resources */,
+				B2E12FAD2853BAB4001FF1F8 /* Triaj.xib in Resources */,
 				B23DE46127B3D01700FD2E10 /* preventie4.json in Resources */,
 				B2F65142278F32B000E1BB58 /* IBMPlexSans-Bold.ttf in Resources */,
-				B237B544283461AB000F73A8 /* data2021.json in Resources */,
-				B2976FD427B94F53006E4859 /* TriajActions.xib in Resources */,
 				B23DE46927B3D02400FD2E10 /* simptome1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1001,10 +1000,12 @@
 				B2AE2B9F282BFBAE007C440A /* LocationPickerView.swift in Sources */,
 				B27352FA2849CA6B00D5BCBA /* CompareCountriesPageViewController.swift in Sources */,
 				B2D0724327CB81A600FA4BC6 /* Defaults.swift in Sources */,
+				B2E12FB12853BAB4001FF1F8 /* TriajActions.swift in Sources */,
 				B2F48DDB27AD1D37005EE116 /* HomePagePageViewController.swift in Sources */,
 				B2B8555C27EF7A6100793FC5 /* NewsViewController.swift in Sources */,
 				B23935C128144DD400F4E0AA /* CoreData.swift in Sources */,
 				B289059427DA80720019205D /* LocalStorageManager.swift in Sources */,
+				B2E12FAE2853BAB4001FF1F8 /* Triaj.swift in Sources */,
 				B2A4A9562847FB0600C10732 /* CountryTravel+CoreDataProperties.swift in Sources */,
 				B2B21B4228522BCC00AB8CFC /* GenericTableViewCell.swift in Sources */,
 				B2DABD1627EB2A2500ECA4EB /* News.swift in Sources */,
@@ -1012,7 +1013,6 @@
 				B2BB039F27A998F700D4801B /* NavigationBar.swift in Sources */,
 				B23DF372283FDD8B00E54101 /* InfoPageViewController.swift in Sources */,
 				B281283527A5A69700DE7DB8 /* UIPageViewController.swift in Sources */,
-				B2976FD627B94F6C006E4859 /* TriajActions.swift in Sources */,
 				B243D3202848B4A5007049B0 /* FilterDataViewController.swift in Sources */,
 				B218CDC227F849580080CD55 /* TestViewController.swift in Sources */,
 				B256B0F92822571D00793A7E /* InfoCardCellCollectionViewCell.swift in Sources */,
@@ -1032,6 +1032,7 @@
 				B2A4A9582848023500C10732 /* FrebaseManager.swift in Sources */,
 				B2B758E228100BE600E9D078 /* ViewModelsData.swift in Sources */,
 				B25BA935281694E600C89F14 /* InfoViewController.swift in Sources */,
+				B2BD5C162853BD6400950960 /* PreventieAndSimptomeShortcut.swift in Sources */,
 				B2DABD1827EB6D7700ECA4EB /* UIImage.swift in Sources */,
 				B2BB039B27A9466700D4801B /* CustomTabBar.swift in Sources */,
 				B236E15E2825B08300AB0116 /* Article+CoreDataClass.swift in Sources */,
@@ -1046,12 +1047,12 @@
 				B21C965727B2CADA00C88A50 /* SimptomeAndPreventie.swift in Sources */,
 				B2F6077B284960D000900B56 /* Localizables.swift in Sources */,
 				B25A987F2844284C00A3DE58 /* HomeViewTableViewCell.swift in Sources */,
-				B217D44F27B93DC500DBDED9 /* TriajViewController.swift in Sources */,
 				B2BF961D28143270002493EE /* DataModel.xcdatamodeld in Sources */,
+				B2E12FB02853BAB4001FF1F8 /* TriajSubviews.swift in Sources */,
 				B2C2E90927DA356B00A79D93 /* QRCodeManager.swift in Sources */,
 				B266A12927EF1682003806E7 /* FullScreenCardView.swift in Sources */,
 				B2F48DDE27AD2453005EE116 /* Delegates.swift in Sources */,
-				B23DE46E27B41F2C00FD2E10 /* Triaj.swift in Sources */,
+				B23DE46E27B41F2C00FD2E10 /* TriajData.swift in Sources */,
 				B2ECF84328170BAC00D36217 /* MSPressBulettin+CoreDataProperties.swift in Sources */,
 				B2F6077928495DC600900B56 /* HistoricCharts.swift in Sources */,
 				B2AB5685283D6368004EC66A /* Various.swift in Sources */,
@@ -1101,7 +1102,6 @@
 				B278D50727A2848600511BB2 /* MainViewController.swift in Sources */,
 				B25AD33927A30B50009EAD38 /* UIView.swift in Sources */,
 				B2A0020C284F7D4500D0C7BD /* OnboardingWelcomeView.swift in Sources */,
-				B217D45527B940F600DBDED9 /* TriajSubviews.swift in Sources */,
 				B2F6077428493E4200900B56 /* StatisticsResumeTableViewCell.swift in Sources */,
 				B201DD3327B8E89600C34C41 /* OnboardingPageViewController.swift in Sources */,
 				B2B758DD2810086A00E9D078 /* UICollectionViewController.swift in Sources */,

@@ -120,13 +120,17 @@ class InfoViewController: UIViewController {
 
 extension InfoViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollView.contentOffset.y = 0.0
+        categoriesScrollView.contentOffset.y = 0
     }
 }
 
 extension InfoViewController: InfoViewControllerDelegate{
     func getCardsViewController() -> UIViewController{
         return self.children[0].children[0]
+    }
+    
+    func getCategoriesCurrentIndex() -> Int{
+        return categories.index
     }
     
     func viewsVisibility(visibility: Bool){
@@ -137,6 +141,10 @@ extension InfoViewController: InfoViewControllerDelegate{
     func setCategoriesIndex(index: Int){
         categories.setIndex(index)
         categoriesActions(index: index)
+    }
+    
+    func variantsScroll(){
+        categoriesScrollView.contentOffset.x = 160
     }
 }
 

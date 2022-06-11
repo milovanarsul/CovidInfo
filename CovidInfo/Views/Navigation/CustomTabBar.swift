@@ -65,23 +65,29 @@ class CustomTabBar: UIView {
     var currentPageIndex: Int? = 0
     var buttonSliderLeadingConstraint = NSLayoutConstraint()
     var tabBarBottomConstraint = NSLayoutConstraint()
+    var tabBarTopConstraint = NSLayoutConstraint()
     var buttonSliderWidth = NSLayoutConstraint()
+    var buttonSliderTopConstraint = NSLayoutConstraint()
     
     func setup(){
         delegates.customTabBar = self
         addSubviews(views: [buttonStackView, buttonSlider])
         
         let buttonStackViewConstraints = Constraints(childView: buttonStackView, parentView: self, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .leading, multiplier: 1, constant: 20),
+            Constraint(constraintType: .trailing, multiplier: 1, constant: -20),
             Constraint(constraintType: .height, multiplier: 1, constant: 30)
         ])
         buttonStackViewConstraints.addConstraints()
+        tabBarTopConstraint = buttonStackView.topAnchor.constraint(equalTo: topAnchor, constant: 10)
+        tabBarTopConstraint.isActive = true
+        
         buttonSliderLeadingConstraint = NSLayoutConstraint(item: buttonSlider, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 25)
         tabBarBottomConstraint = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: buttonStackView, attribute: .bottom, multiplier: 1, constant: 10)
         
         buttonSliderWidth = NSLayoutConstraint(item: buttonSlider, attribute: .width, relatedBy: .equal, toItem: homeButton, attribute: .width, multiplier: 0.7, constant: 0)
-        NSLayoutConstraint.activate([buttonSliderLeadingConstraint, buttonSliderWidth, NSLayoutConstraint(item: buttonSlider, attribute: .top, relatedBy: .equal, toItem: homeButton, attribute: .bottom, multiplier: 1, constant: 5),NSLayoutConstraint(item: buttonSlider, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 2), tabBarBottomConstraint])
+        buttonSliderTopConstraint = NSLayoutConstraint(item: buttonSlider, attribute: .top, relatedBy: .equal, toItem: homeButton, attribute: .bottom, multiplier: 1, constant: 5)
+        NSLayoutConstraint.activate([buttonSliderLeadingConstraint, buttonSliderWidth, buttonSliderTopConstraint,NSLayoutConstraint(item: buttonSlider, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 2), tabBarBottomConstraint])
     }
     
     @objc func homeButtonPressed(_ sender: UIButton) {
@@ -106,37 +112,48 @@ class CustomTabBar: UIView {
     
     func buttonSetup(button: MainPages){
         delegates.main.animateContentView(size: 5)
+        delegates.main.tabBarScrollAnimation(visibility: .show)
         tabBarButtonSetup(tabBarButton: button)
         tabBarPageSliderDirection(tabBarButton: button)
         delegates.navigationBar.setup(page: Page(mainPage: button, childType: .none))
+        DataManager.reloadViews()
     }
     
     func tabBarButtonSetup(tabBarButton: MainPages){
         buttons = [homeButton, infoButton, newsButton, statisticsButton]
         fillTabBarButton(tabBarButton: tabBarButton)
         buttonSliderAnimation(tabBarButton: tabBarButton)
+        delegates.navigationBar.simulateLocationButtonTap(viewVisibility: .hide)
         
         switch tabBarButton{
         case .home:
             delegates.main.certifficateButtonAnimation(visibility: .show)
             delegates.main.planTripButtonAnimation(visibility: .hide)
             delegates.main.statisticsActionsAnimation(visibility: .hide)
+            delegates.navigationBar.locationButtonAnimation(visibility: .hide)
             delegates.navigationBar.certifficateButtonAnimation(visibility: .hide)
+            delegates.main.tabBarExtensionAnimation(visibility: .hide)
         case .info:
             delegates.main.planTripButtonAnimation(visibility: .show)
             delegates.main.certifficateButtonAnimation(visibility: .hide)
             delegates.main.statisticsActionsAnimation(visibility: .hide)
+            delegates.navigationBar.locationButtonAnimation(visibility: .show)
             delegates.navigationBar.certifficateButtonAnimation(visibility: .show)
+            delegates.main.tabBarExtensionAnimation(visibility: .hide)
         case .statistics:
+            delegates.navigationBar.locationButtonAnimation(visibility: .show)
             delegates.navigationBar.certifficateButtonAnimation(visibility: .show)
             delegates.main.certifficateButtonAnimation(visibility: .hide)
             delegates.main.planTripButtonAnimation(visibility: .hide)
             delegates.main.statisticsActionsAnimation(visibility: .show)
+            delegates.main.tabBarExtensionAnimation(visibility: .hide)
         default:
             delegates.main.planTripButtonAnimation(visibility: .hide)
             delegates.main.certifficateButtonAnimation(visibility: .hide)
             delegates.main.statisticsActionsAnimation(visibility: .hide)
+            delegates.navigationBar.locationButtonAnimation(visibility: .hide)
             delegates.navigationBar.certifficateButtonAnimation(visibility: .show)
+            delegates.main.tabBarExtensionAnimation(visibility: .show)
         }
     }
     
@@ -156,11 +173,11 @@ class CustomTabBar: UIView {
         case .home:
             buttonSliderLeadingConstraint.constant = 25
         case .info:
-            buttonSliderLeadingConstraint.constant = 109
+            buttonSliderLeadingConstraint.constant = 115
         case .news:
-            buttonSliderLeadingConstraint.constant = 192
+            buttonSliderLeadingConstraint.constant = 202
         case .statistics:
-            buttonSliderLeadingConstraint.constant = 276
+            buttonSliderLeadingConstraint.constant = 290
         }
         
         UIView.animate(withDuration: 0.3, animations: {
@@ -209,6 +226,8 @@ class CustomTabBar: UIView {
         
         return .home
     }
+    
+    var shouldIncreaseLeadingAnchor: Bool = true
 }
 
 extension CustomTabBar: CustomTabBarDelegate{
@@ -231,7 +250,44 @@ extension CustomTabBar: CustomTabBarDelegate{
         }
     }
     
+    func currentButtonSliderAnimation(){
+        let currentIndex = delegates.tabBar.getCurrentIndex()
+        var offset: CGFloat?
+        
+        switch currentIndex {
+        case 0:
+            offset = 4
+        case 1:
+            offset = 18
+        case 2:
+            offset = 35
+        case 3: ()
+            offset = 48
+        default: ()
+        }
+        
+        if shouldIncreaseLeadingAnchor{
+            let currentLeadingAnchor = buttonSliderLeadingConstraint.constant
+            buttonSliderLeadingConstraint.constant = currentLeadingAnchor + offset!
+            shouldIncreaseLeadingAnchor = false
+        }
+    }
+    
     func goToPage(index: Int){
         buttonSetup(button: tabBarButton(index: index))
+    }
+    
+    func tabBarScroll(visibility: ViewVisibility){
+        switch visibility {
+        case .show:
+            tabBarTopConstraint.constant = 10
+            buttonSliderTopConstraint.constant = 5
+            buttonSliderAnimation(tabBarButton: tabBarButton(index: delegates.tabBar.getCurrentIndex()))
+            shouldIncreaseLeadingAnchor = true
+        case .hide:
+            tabBarTopConstraint.constant = -10
+            buttonSliderTopConstraint.constant = -17
+            currentButtonSliderAnimation()
+        }
     }
 }

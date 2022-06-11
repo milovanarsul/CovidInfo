@@ -222,6 +222,7 @@ extension TripPlannerCountryPickerTableView: UITableViewDelegate, UITableViewDat
         }
         
         closeButtonTapped()
+        tableView.deselectRow(at: indexPath, animated: false)
         
         if departureCountry != nil && arrivalCountry != nil{
             delegates.tripPlanner.result()

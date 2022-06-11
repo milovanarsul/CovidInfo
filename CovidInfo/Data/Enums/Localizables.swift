@@ -8,18 +8,18 @@
 import Foundation
 
 let romanianMonths: [Int : String] = [
-    1 : "Ianuarie",
-    2 : "Februarie",
-    3 : "Martie",
-    4 : "Aprilie",
-    5 : "Mai",
-    6 : "Iunie",
-    7 : "Iulie",
-    8 : "August",
-    9 : "Septembrie",
-    10 : "Octombrie",
-    11 : "Noiembrie",
-    12 : "Decembrie"
+    0 : "Ianuarie",
+    1 : "Februarie",
+    2 : "Martie",
+    3 : "Aprilie",
+    4 : "Mai",
+    5 : "Iunie",
+    6 : "Iulie",
+    7 : "August",
+    8 : "Septembrie",
+    9 : "Octombrie",
+    10 : "Noiembrie",
+    11 : "Decembrie"
 ]
 
 let weekDays: [Int : String] = [

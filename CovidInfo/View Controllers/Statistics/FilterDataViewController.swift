@@ -10,7 +10,7 @@ import MonthYearWheelPicker
 
 var showFilterResetButton: Bool = false
 var showHistoricData: Bool = false
-var selectedMonth: String?
+var selectedMonth: Int?
 var selectedYear: Int?
 
 class FilterDataViewController: UIViewController {
@@ -89,7 +89,7 @@ class FilterDataViewController: UIViewController {
     @objc func filterButtonTapped(_ sender: UIButton){
         showHistoricData = true
         delegates.statistics.refreshTableView()
-        delegates.statistics.updateDate(text: "\(selectedMonth!) \(selectedYear!)")
+        delegates.statistics.updateDate(text: "\(romanianMonths[selectedMonth!]!) \(selectedYear!)")
         delegates.main.dimissModal(completion: {})
     }
     
@@ -106,7 +106,8 @@ class FilterDataViewController: UIViewController {
     
     @objc func monthYearWheelPickerDidChange() {
         let date = Calendar.current.dateComponents([.year, .month], from: datePicker.date)
-        selectedMonth = romanianMonths[date.month!]
+        let month = romanianMonths[date.month!]
+        selectedMonth = monthToNumber(month: month!) - 1
         selectedYear = date.year
     }
 }

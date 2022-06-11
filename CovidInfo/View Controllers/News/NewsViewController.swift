@@ -148,7 +148,11 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+        if scrollView.contentOffset.y > 50 {
+            delegates.main.tabBarScrollAnimation(visibility: .hide)
+        } else {
+            delegates.main.tabBarScrollAnimation(visibility: .show)
+        }
     }
 }
 

@@ -112,7 +112,19 @@ class DataManager{
                 completion(true)
             }
         })
-        
+    }
+    
+    static func reloadViews(){
+        switch delegates.tabBar.getCurrentIndex(){
+        case 0:
+            delegates.home.refreshTableView()
+        case 1:
+            delegates.countryController.refreshTableView()
+        case 3:
+            delegates.statistics.refreshTableView()
+        default:
+            ()
+        }
     }
     
     static func getCurrentCountry(customLocation: String? = nil) -> CurrentData{
@@ -190,8 +202,8 @@ class DataManager{
         }
         
         do {
-            self.news = try AppDelegate.context.fetch(request)
-            //self.news = self.news?.sorted(by: {$0.date!.compare($1.date!) == .orderedDescending})
+            DataManager.news = try AppDelegate.context.fetch(request)
+            DataManager.news = DataManager.news?.sorted(by: {$0.date!.compare($1.date!) == .orderedDescending})
         } catch {
             fatalError()
         }

@@ -10,14 +10,6 @@ import BetterSegmentedControl
 import CoreData
 
 class StatisticsViewController: UIViewController {
-    
-    lazy var locationNotSelected: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "locationRestricted")!
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
     lazy var date: UILabel = {
         let label = UILabel()
         let date = Calendar.current.dateComponents([.year, .month, .day], from: Date())
@@ -94,6 +86,14 @@ extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.setup()
             cell.backgroundColor = UIColor("#efeff0")
             return cell
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 50 {
+            delegates.main.tabBarScrollAnimation(visibility: .hide)
+        } else {
+            delegates.main.tabBarScrollAnimation(visibility: .show)
         }
     }
 }

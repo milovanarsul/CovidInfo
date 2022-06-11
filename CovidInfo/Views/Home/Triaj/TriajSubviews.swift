@@ -61,7 +61,7 @@ class TriajIntroSubview: UIView {
         
         imageView.image = UIImage(systemName: image)
         imageView.tintColor = .black
-        label.initialize(text: labelText, color: .black, font: boldFont(size: 10), alignment: .left, lines: 0)
+        label.initialize(text: labelText, color: .black, font: UIFont(name: "IBMPlexSans-Bold", size: 10)!, alignment: .left, lines: 0)
         
         view.addSubview(imageView)
         view.addSubview(label)
@@ -108,7 +108,7 @@ class TriajTextSubview: UIView{
             alignment = .left
         }
         
-        label.initialize(text: subview, color: .black, font: boldFont(size: textSize), alignment: alignment, lines: 0)
+        label.initialize(text: subview, color: .black, font: UIFont(name: "IBMPlexSans-Bold", size: textSize)!, alignment: alignment, lines: 0)
         self.addSubView(parentView: self, childView: label)
         
         let labelConstraints = Constraints(childView: label, parentView: self, constraints: [

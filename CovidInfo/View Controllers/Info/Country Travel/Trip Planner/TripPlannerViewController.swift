@@ -131,8 +131,6 @@ class TripPlannerViewController: UIViewController {
         return activityInidcator
     }()
     
-    var dataArray = [[CountryTravelModel]]()
-    var countryArray = [String]()
     var tripViewType: [TripViewType] = [.departure, .arrival]
     var cellIdentifiers = ["departureResultCell", "arrivalResultCell"]
     var expandedIndexSet: IndexSet = []
@@ -189,6 +187,10 @@ class TripPlannerViewController: UIViewController {
     }
     
     @objc func closeButtonTapped(){
+        arrivalCountry = nil
+        departureCountry = nil
+        AmadeusManager.departureCountryTravelData!.removeAll()
+        AmadeusManager.arrivalCountryTravelData!.removeAll()
         delegates.main.dimissModal(completion: {})
     }
     
@@ -209,7 +211,9 @@ class TripPlannerViewController: UIViewController {
         
         arrivalCountry = nil
         departureCountry = nil
-        countryArray.removeAll()
+        AmadeusManager.departureCountryTravelData!.removeAll()
+        AmadeusManager.arrivalCountryTravelData!.removeAll()
+        resultTableView.reloadData()
     }
     
     func animateLocationTableView(locationView: UIView, bottomConstraint: NSLayoutConstraint, visibility: ViewVisibility) {
@@ -244,22 +248,15 @@ extension TripPlannerViewController: TripPlannerDelegate{
         xyConstraints(childView: activityIndicator, parentView: view)
         activityIndicator.startAnimating()
         
-        countryArray.append(departureCountry!.name!)
-        countryArray.append(arrivalCountry!.name!)
-        
-        
-        
         AmadeusManager.loadData(country: arrivalCountry!.name!, type: .arrival){ arrivalCompletion in
             if arrivalCompletion{
                 AmadeusManager.loadData(country: departureCountry!.name!, type: .departure){ departureCompletion in
                     if departureCompletion{
-                        self.dataArray.append(AmadeusManager.departureCountryTravelData!)
-                        self.dataArray.append(AmadeusManager.arrivalCountryTravelData!)
-                        
                         DispatchQueue.main.async { [self] in
                             activityIndicator.removeFromSuperview()
                             view.viewWithTag(2)?.isHidden = false
                             view.addSubview(resultTableView)
+                            resultTableView.reloadData()
                             
                             let resultViewConstraints = Constraints(childView: resultTableView, parentView: view, constraints: [
                                 Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
@@ -294,6 +291,10 @@ extension TripPlannerViewController: TripPlannerDelegate{
         
         resultTableView.reloadRows(at: [cellIndex!], with: .automatic)
     }
+    
+    func refreshTableView(){
+        resultTableView.reloadData()
+    }
 }
 
 extension TripPlannerViewController: UITableViewDelegate, UITableViewDataSource {
@@ -312,8 +313,6 @@ extension TripPlannerViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifiers[indexPath.row]) as! TripPlannerCountryResultView
-        cell.countryTravelData = dataArray[indexPath.row]
-        cell.data = DataManager.getCurrentCountry(customLocation: countryArray[indexPath.row])
         cell.type = tripViewType[indexPath.row]
         cell.setup()
         cell.backgroundColor = UIColor("#f2f2f7")

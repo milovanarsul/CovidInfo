@@ -92,7 +92,7 @@ class FirebaseManager {
                 article.backgroundImage = image
                 article.articleDescription = content
                 article.author = nil
-                article.date = nil
+                article.date = stringToDate(string: "01.01.1900 00:00")
                 article.isVariant = true
                 
                 variantsData.append(article)

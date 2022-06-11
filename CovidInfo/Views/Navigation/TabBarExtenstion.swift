@@ -18,6 +18,15 @@ class TabBarExtension: UIView {
         return tabBarExtension
     }()
     
+    init(){
+        super.init(frame: .zero)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     func setup(){
         backgroundColor = .white
         addSubview(tabBarExtension)

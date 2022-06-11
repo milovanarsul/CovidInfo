@@ -76,8 +76,8 @@ func stiriOficiale(){
             data.isTrusted = true
             data.isVariant = false
             
-            let stringDate = try article.select("time").first()!.text()
-            data.date = stringToDate(string: stringDate)
+            //let stringDate = try article.select("time").first()!.text()
+            data.date = stringToDate(string: "01.01.2020 00:00")
             
             let h1 = try article.select("a").first()!
             let articleLink = try h1.attr("href")
@@ -125,20 +125,5 @@ func parseMSPDF() -> [String.SubSequence]?{
     }
     
     return nil
-}
-
-func getMSPressBulletin(){
-    let pdfContent = parseMSPDF()!
-    let bulletin = MSPressBulettin(context: AppDelegate.context)
-    
-    bulletin.pacientiReinfectati = String(pdfContent[8])
-    bulletin.numarPersoaneInternate = String(pdfContent[286])
-    bulletin.ati = String(pdfContent[99])
-    bulletin.rtpcr = String(pdfContent[286])
-    bulletin.antigen = String(pdfContent[289])
-    bulletin.totalTestePCR = String(pdfContent[290])
-    bulletin.totalTesteAntigen = String(pdfContent[291])
-    
-    try! AppDelegate.context.save()
 }
 

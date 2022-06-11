@@ -9,8 +9,6 @@ import Foundation
 import UIKit
 
 class HomeViewTableViewCell: UITableViewCell {
-    @Published var currentData: CurrentData?
-    @Published var historicData: HistoricalData?
     var parentViewController: UIViewController?
     
     lazy var simptomeAndPreventie: UIView = {
@@ -21,33 +19,7 @@ class HomeViewTableViewCell: UITableViewCell {
         }()
         
         lazy var simptomeAndPreventie: UIStackView = {
-            lazy var preventieImageView: UIImageView = {
-                let imageView = UIImageView()
-                imageView.image = UIImage(named: "cumSaTeProtejezi")!
-                imageView.contentMode = .scaleAspectFill
-                imageView.layer.cornerRadius = 24
-                imageView.clipsToBounds = true
-                imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(preventieShortcutTapped)))
-                imageView.isUserInteractionEnabled = true
-                return imageView
-            }()
-            
-            lazy var simptomeImageView: UIImageView = {
-                let imageView = UIImageView()
-                imageView.image = UIImage(named: "ceSimptomeApar")!
-                imageView.contentMode = .scaleAspectFill
-                imageView.layer.cornerRadius = 24
-                imageView.clipsToBounds = true
-                imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(simptomeShortcutTapped)))
-                imageView.isUserInteractionEnabled = true
-                return imageView
-            }()
-            
-            let stackView = UIStackView()
-            stackView.initalize(axis: .horizontal, alignment: .center, distribution: .fillProportionally, spacing: 10)
-            stackView.addAranagedSubviews(views: [preventieImageView, simptomeImageView])
-            stackView.layer.cornerRadius = 24
-            stackView.clipsToBounds = true
+            let stackView = PreventieAndSimptomeShortcut()
             return stackView
         }()
         
@@ -90,7 +62,7 @@ class HomeViewTableViewCell: UITableViewCell {
         
         lazy var charts: UIView = {
             let view = UIView()
-            parentViewController!.addSubSwiftUIView(CasesAndDeaths(currentData: currentData!, historicData: historicData!), to: view)
+            parentViewController!.addSubSwiftUIView(CasesAndDeaths(currentData: DataManager.currentCountryData!, historicData: DataManager.historicCountryData!), to: view)
             return view
         }()
         
@@ -404,16 +376,6 @@ class HomeViewTableViewCell: UITableViewCell {
         triajEpidemiologic.topAnchor.constraint(equalTo: infoShorcuts.bottomAnchor, constant: 10).isActive = true
     }
     
-    @objc func preventieShortcutTapped(){
-        delegates.homePage.goToPage(pageIndex: 3, direction: .forward)
-        delegates.homePage.updateNavigationBar(page: Page(mainPage: .home, childType: .preventie))
-    }
-    
-    @objc func simptomeShortcutTapped(){
-        delegates.homePage.goToPage(pageIndex: 2, direction: .forward)
-        delegates.homePage.updateNavigationBar(page: Page(mainPage: .home, childType: .simptome))
-    }
-    
     @objc func statisticsAction(_ sender: UIButton){
         delegates.tabBar.goToPage(pageIndex: 3, direction: .forward)
         delegates.customTabBar.goToPage(index: 3)
@@ -422,7 +384,6 @@ class HomeViewTableViewCell: UITableViewCell {
     @objc func homeLocationDisabled(_ sender: UIButton){
         delegates.tabBar.goToPage(pageIndex: 3, direction: .forward)
         delegates.customTabBar.goToPage(index: 3)
-        //delegates.navigationBar.externalTapLocationButton()
     }
     
     @objc func newsAction(_ sender: UIButton){
@@ -464,5 +425,6 @@ class HomeViewTableViewCell: UITableViewCell {
         delegates.tabBar.goToPage(pageIndex: 1, direction: .forward)
         delegates.customTabBar.goToPage(index: 1)
         delegates.info.setCategoriesIndex(index: 3)
+        delegates.info.variantsScroll()
     }
 }

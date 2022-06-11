@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TriajActions" customModule="CovidInfo" customModuleProvider="target">
+            <connections>
+                <outlet property="buttonStack" destination="2LW-xv-MPA" id="DCR-VG-CvK"/>
+                <outlet property="formButton" destination="JTA-kC-dmN" id="q4u-Hk-fCA"/>
+                <outlet property="fullButton" destination="PfI-2d-W4M" id="jQo-bS-QCR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfI-2d-W4M">
+                    <rect key="frame" x="20" y="10" width="372.5" height="52"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain">
+                        <backgroundConfiguration key="background" cornerRadius="24">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </backgroundConfiguration>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="fullSimpleButtonTapped:" destination="-1" eventType="touchUpInside" id="BUe-zL-Evt"/>
+                    </connections>
+                </button>
+                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2LW-xv-MPA">
+                    <rect key="frame" x="41.5" y="10" width="331" height="52"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4t2-Fb-z9i">
+                            <rect key="frame" x="0.0" y="0.0" width="155.5" height="52"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="buttonDisabled" imagePlacement="leading" title="Da" imagePadding="10">
+                                <backgroundConfiguration key="background" cornerRadius="8">
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </backgroundConfiguration>
+                                <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="16"/>
+                                <directionalEdgeInsets key="contentInsets" top="0.0" leading="10" bottom="0.0" trailing="0.0"/>
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="stackOptionTrueButtonTapped:" destination="-1" eventType="touchUpInside" id="aQX-WA-rrp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kj8-kE-Uj4">
+                            <rect key="frame" x="175.5" y="0.0" width="155.5" height="52"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="buttonDisabled" imagePlacement="leading" title="Nu" imagePadding="10">
+                                <backgroundConfiguration key="background" cornerRadius="8">
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </backgroundConfiguration>
+                                <fontDescription key="titleFontDescription" name="IBMPlexSans-Bold" family="IBM Plex Sans" pointSize="16"/>
+                                <directionalEdgeInsets key="contentInsets" top="0.0" leading="10" bottom="0.0" trailing="0.0"/>
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="stackOptionFalseButtonTapped:" destination="-1" eventType="touchUpInside" id="QbS-en-AEh"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTA-kC-dmN" userLabel="Button Form">
+                    <rect key="frame" x="20" y="10" width="372.5" height="52"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="buttonDisabled" imagePlacement="leading" title="" imagePadding="10">
+                        <backgroundConfiguration key="background" cornerRadius="8">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </backgroundConfiguration>
+                        <directionalEdgeInsets key="contentInsets" top="10" leading="10" bottom="10" trailing="10"/>
+                        <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="fullOptionButtonTapped:" destination="-1" eventType="touchUpInside" id="I6f-I0-sPS"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="JTA-kC-dmN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="44S-MN-trz"/>
+                <constraint firstItem="JTA-kC-dmN" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.9" id="Bc8-X7-yuh"/>
+                <constraint firstItem="PfI-2d-W4M" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.9" id="GtY-6v-yFN"/>
+                <constraint firstItem="JTA-kC-dmN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Gwx-e6-CEO"/>
+                <constraint firstItem="2LW-xv-MPA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="KA2-XG-jzK"/>
+                <constraint firstItem="JTA-kC-dmN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="KSA-kw-hfg"/>
+                <constraint firstItem="PfI-2d-W4M" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="YjL-io-3yu"/>
+                <constraint firstItem="2LW-xv-MPA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="mHT-5o-uXi"/>
+                <constraint firstItem="PfI-2d-W4M" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="oXb-q1-KfT"/>
+                <constraint firstItem="2LW-xv-MPA" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="rN1-J7-g9O"/>
+                <constraint firstItem="PfI-2d-W4M" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="xw2-pr-ieu"/>
+                <constraint firstItem="2LW-xv-MPA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ylm-G6-dMN"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="429.24107142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="buttonDisabled" width="21" height="21"/>
+    </resources>
+</document>
