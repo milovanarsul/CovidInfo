@@ -215,6 +215,7 @@ class CustomNavigationBar: UIView {
             if automaticLocation{
                 delegates.main.animateContentView(size: 65)
             } else {
+                delegates.main.contentViewVisibility(visibility: .hide)
                 delegates.main.animateContentView(size: 650)
             }
             
@@ -235,7 +236,6 @@ class CustomNavigationBar: UIView {
             (locationButton.viewWithTag(2) as! UILabel).initialize(text: "Inchide", color: .white, font: boldFont(size: 16), alignment: .center, lines: 1)
             locationButtonTapExtend(visbility: .show)
             locationButton.backgroundColor = redColor
-            delegates.main.contentViewVisibility(visibility: .hide)
             resetsLocationButton = true
         case true:
             delegates.main.animateContentView(size: 5)
@@ -261,6 +261,7 @@ class CustomNavigationBar: UIView {
             locationButton.backgroundColor = yellowColor
             delegates.main.contentViewVisibility(visibility: .show)
             resetsLocationButton = false
+            delegates.countryPicker.hideKeyboard()
         }
     }
     

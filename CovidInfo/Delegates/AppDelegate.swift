@@ -62,10 +62,11 @@ extension AppDelegate: CLLocationManagerDelegate{
         switch status {
         case .denied, .restricted, .notDetermined:
             print("Location denied")
+            defaults.set(true, forKey: "locationPermissionDenied")
+            
             if appDidLoad{
                 if UIApplication.shared.topMostViewController() is OnboardingViewController && delegates.onboardingPVC.getCurrentIndex?() == 6{
                     delegates.onboardingPVC.goToPage(pageIndex: 7, direction: .forward)
-                    defaults.set(true, forKey: "locationPermissionDenied")
                 }
             }
         default:
@@ -83,6 +84,7 @@ extension AppDelegate: CLLocationManagerDelegate{
                         country = roISOCountries[key]!
                         
                         defaults.set(country, forKey: "automaticCountry")
+                        defaults.set(false, forKey: "locationPermissionDenied")
                         if UIApplication.shared.topMostViewController() is OnboardingViewController && delegates.onboardingPVC.getCurrentIndex?() == 6{
                             defaults.set(true, forKey: "useAutomaticLocation")
                             delegates.onboarding.downloadData(dataRequest: .all)

@@ -33,6 +33,7 @@ class Delegates{
     var compareCountriesPVC: CompareCountriesPageViewControllerDeleagate! = nil
     var countryController: CountryViewControllerDelegate! = nil
     var home: HomeViewControllerDelegate! = nil
+    var countryPicker: CountryPickerViewDelegate! = nil
     
     init(){}
 }
@@ -80,6 +81,8 @@ protocol MainDelegate{
     func contentViewVisibility(visibility: ViewVisibility)
     func tabBarExtensionAnimation(visibility: ViewVisibility)
     func tabBarScrollAnimation(visibility: ViewVisibility)
+    func navigationBarAnimation(visibility: ViewVisibility)
+    func locationDenied()
 }
 
 protocol NavigationBarDelegate{
@@ -135,7 +138,6 @@ protocol NewsDelegate{
 }
 
 protocol CustomTabBarDelegate{
-    func increaseBottomConstraint(size: CGFloat)
     func goToTopButtonVisibily(visibily: ViewVisibility)
     func goToPage(index: Int)
     func currentButtonSliderAnimation()
@@ -149,6 +151,7 @@ protocol InfoPageViewControllerDelegate{
 protocol InfoCardsCollectionViewDelegate{
     func getInfoData(index: Int) -> InfoCardsData
     func getCurrentIndexTextHeight() -> CGFloat
+    func scrollToTop()
 }
 
 protocol InfoViewControllerDelegate{
@@ -166,6 +169,8 @@ protocol CountryPickerDelegate{
 protocol StatisticsViewControllerDelegate {
     func refreshTableView()
     func updateDate(text: String)
+    func scrollToTop()
+    func historicData()
 }
 
 protocol TripPlannerDelegate{
@@ -188,8 +193,18 @@ protocol CompareCountriesPageViewControllerDeleagate{
 
 protocol CountryViewControllerDelegate{
     func refreshTableView()
+    func scrollToTop()
 }
 
 protocol HomeViewControllerDelegate {
     func refreshTableView()
+    func scrollToTop()
+}
+
+protocol CountryPickerViewDelegate{
+    func hideKeyboard()
+}
+
+protocol TripPlannerCountryPickerDelegate{
+    func dismissKeyboard()
 }

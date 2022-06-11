@@ -148,7 +148,13 @@ class DataManager{
     
     static func getHistoricCountry(customLocation: String? = nil) -> HistoricalData{
         var historicCountry: HistoricalData?
-        let location = countryToISO(country: DataManager.currentCountry!, dictionary: roISOCountries)
+        var location: String?
+        
+        if let customLocation = customLocation {
+            location = countryToISO(country: customLocation, dictionary: roISOCountries)
+        } else{
+            location = countryToISO(country: DataManager.currentCountry!, dictionary: roISOCountries)
+        }
         
         for (key, value) in historicData! {
             if key == location{
@@ -161,7 +167,13 @@ class DataManager{
     
     static func getHistoric2021Country(customLocation: String? = nil) -> OldHistoricalData {
         var historic2021Country: OldHistoricalData?
-        let location = countryToISO(country: DataManager.currentCountry!, dictionary: roISOCountries)
+        var location: String?
+        
+        if let customLocation = customLocation {
+            location = countryToISO(country: customLocation, dictionary: roISOCountries)
+        } else{
+            location = countryToISO(country: DataManager.currentCountry!, dictionary: roISOCountries)
+        }
         
         for (key, value) in historic2021Data! {
             if key == location{
@@ -174,9 +186,15 @@ class DataManager{
     
     static func getHistoric2020Country(customLocation: String? = nil) -> OldHistoricalData {
         var historic2020Country: OldHistoricalData?
-        let location = countryToISO(country: DataManager.currentCountry!, dictionary: roISOCountries)
+        var location: String?
         
-        for (key, value) in historic2021Data! {
+        if let customLocation = customLocation {
+            location = countryToISO(country: customLocation, dictionary: roISOCountries)
+        } else{
+            location = countryToISO(country: DataManager.currentCountry!, dictionary: roISOCountries)
+        }
+        
+        for (key, value) in historic2020Data! {
             if key == location{
                 historic2020Country = value
             }
@@ -212,26 +230,18 @@ class DataManager{
     static func dataResume(currentData: CurrentData) -> [(String, String)]{
         var result = [(String, String)]()
         
-        let totalCases = String(format: "%.0f", locale: Locale.current, currentData.total_cases)
-        let totalDeaths = String(format: "%.0f", locale: Locale.current, currentData.total_deaths)
         let totalCasesPerMillion = String(currentData.total_cases_per_million)
         let totalDeathsPerMillion = String(currentData.total_deaths_per_million)
-        let totalTests = String(format: "%.0f", locale: Locale.current, currentData.total_tests)
         let totalTestsPerThousand = String(currentData.total_tests_per_thousand)
-        let totalVaccinations = String(format: "%.0f", locale: Locale.current, currentData.total_vaccinations)
         let totalBoosters = String(format: "%.0f", locale: Locale.current, currentData.total_boosters)
         let totalVaccinationsPerHundred = String(currentData.total_vaccinations_per_hundred)
         let totalBoostersPerHundred = String(currentData.total_boosters_per_hundred)
         
         result = [
-            ("Cazuri totale", totalCases),
-            ("Decese totale", totalDeaths),
             ("Cazuri totale per milion", totalCasesPerMillion),
             ("Decese totale per milion", totalDeathsPerMillion),
-            ("Teste totale", totalTests),
             ("Teste totale per mia de locuitori", totalTestsPerThousand),
-            ("Vaccinari totale", totalVaccinations),
-            ("Vaccinari totale per suta de locuitori", totalVaccinationsPerHundred),
+            ("Vaccinări totale per suta de locuitori", totalVaccinationsPerHundred),
             ("Boostere totale", totalBoosters),
             ("Boostere totale per suta de locuitori", totalBoostersPerHundred)
         ]

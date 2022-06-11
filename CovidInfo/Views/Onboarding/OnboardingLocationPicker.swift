@@ -40,7 +40,7 @@ class OnboardingLocationPicker: UIViewController {
         
         lazy var titleLabel: UILabel = {
             let label = UILabel()
-            label.initialize(text: "Selecteaza o locatie", color: .black, font: boldFont(size: 18), alignment: .left, lines: 1)
+            label.initialize(text: "Selecteaza o locatie manuala", color: .black, font: boldFont(size: 18), alignment: .left, lines: 1)
             return label
         }()
         
@@ -66,6 +66,7 @@ class OnboardingLocationPicker: UIViewController {
             tableView.translatesAutoresizingMaskIntoConstraints = false
             tableView.layer.cornerRadius = 4
             tableView.tag = 3
+            tableView.keyboardDismissMode = .onDrag
             return tableView
         }()
         

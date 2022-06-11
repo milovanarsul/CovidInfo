@@ -7,12 +7,11 @@
 
 import UIKit
 
-class HistoricalDataTableViewCell: UITableViewCell {
+class HistoricalDataView: UIView {
     
-    @Published var historic2022Data: HistoricalData?
-    @Published var historic2021Data: OldHistoricalData?
-    @Published var historic2020Data: OldHistoricalData?
-    
+    var historic2022Data: HistoricalData?
+    var historic2021Data: OldHistoricalData?
+    var historic2020Data: OldHistoricalData?
     var parentViewController: UIViewController?
     
     lazy var chartView: UIView = {
@@ -31,10 +30,27 @@ class HistoricalDataTableViewCell: UITableViewCell {
         return view
     }()
     
-    func setup(){
-        contentView.addSubview(chartView)
+    init(historic2022Data: HistoricalData, historic2021Data: OldHistoricalData, historic2020Data: OldHistoricalData, parentViewController: UIViewController){
+        self.historic2020Data = historic2020Data
+        self.historic2021Data = historic2021Data
+        self.historic2022Data = historic2022Data
+        self.parentViewController = parentViewController
         
-        let chartViewConstraints = Constraints(childView: chartView, parentView: contentView, constraints: [
+        super.init(frame: .zero)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    func setup(){
+        backgroundColor = UIColor("#efeff0")
+        layer.cornerRadius = 24
+        clipsToBounds = true
+        addSubview(chartView)
+        
+        let chartViewConstraints = Constraints(childView: chartView, parentView: self, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
             Constraint(constraintType: .top, multiplier: 1, constant: 10),

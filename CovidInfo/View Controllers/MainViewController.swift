@@ -230,20 +230,6 @@ class MainViewController: UIViewController {
         tabBarExtenstionBottomConstraint.isActive = true
     }
     
-    func navigationBarAnimation(visibility: ViewVisibility){
-        switch visibility {
-        case .show:
-            navigationBarTopConstraint.constant = 0
-        case .hide:
-            navigationBarTopConstraint.constant = -100
-        }
-        
-        UIView.animate(withDuration: 0.4, animations: {
-            self.navigationBar.layoutIfNeeded()
-            self.view.layoutIfNeeded()
-        })
-    }
-    
     @objc func certifficateButtonTapped(_ sender: UIButton) {
         defaults.bool(forKey: "certifficateEnrolled") ? certifficateModal() : enrollCertifficate()
     }
@@ -292,10 +278,6 @@ class MainViewController: UIViewController {
         defaults.setValue(auxManualLocation, forKey: "manualCountry")
         defaults.set(false, forKey: "useAutomaticLocation")
         
-        countryPickerActionsAnimaiton(visibility: .hide)
-        animateContentView(size: 5)
-        tabAnimation(visibility: .hide)
-        navigationBarAnimation(visibility: .hide)
         refreshData()
     }
     
@@ -310,7 +292,25 @@ extension MainViewController: MainDelegate{
         certifficateButtonAnimation(visibility: visibility)
     }
     
+    func navigationBarAnimation(visibility: ViewVisibility){
+        switch visibility {
+        case .show:
+            navigationBarTopConstraint.constant = 0
+        case .hide:
+            navigationBarTopConstraint.constant = -100
+        }
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.navigationBar.layoutIfNeeded()
+            self.view.layoutIfNeeded()
+        })
+    }
+    
     func refreshData(){
+        countryPickerActionsAnimaiton(visibility: .hide)
+        animateContentView(size: 5)
+        tabAnimation(visibility: .hide)
+        navigationBarAnimation(visibility: .hide)
         contentViewContent.isHidden = true
         contentView.addSubview(activityIndicator)
         xyConstraints(childView: activityIndicator, parentView: contentView)
@@ -515,6 +515,7 @@ extension MainViewController: MainDelegate{
             tabBarBottomConstraint.constant = 30
             tabBarActionsVisibility(visibility: .show)
             delegates.customTabBar.tabBarScroll(visibility: .show)
+            delegates.customTabBar.goToTopButtonVisibily(visibily: .hide)
         case .hide:
             tabBarHeightConstraint.constant = 70
             tabBarWidthConstraint.constant = 414
@@ -522,6 +523,7 @@ extension MainViewController: MainDelegate{
             tabBarBottomConstraint.constant = 0
             tabBarActionsVisibility(visibility: .hide)
             delegates.customTabBar.tabBarScroll(visibility: .hide)
+            delegates.customTabBar.goToTopButtonVisibily(visibily: .show)
         }
         
         UIView.animate(withDuration: 0.4, animations: {
@@ -529,6 +531,15 @@ extension MainViewController: MainDelegate{
             self.tabBarExtension.layoutIfNeeded()
             self.view.layoutIfNeeded()
         })
+    }
+    
+    func locationDenied(){
+        let alert = UIAlertController(title: "Accesul la locatie a fost restrictionat", message: "Reactiveaza accesul la locatie din Setari > CovidInfo > Localizare > La utilizarea aplicatiei", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            self.presentedViewController?.dismiss(animated: true)
+        }))
+        
+        present(alert, animated: true)
     }
 }
 

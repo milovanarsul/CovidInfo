@@ -44,8 +44,8 @@
 		B23DE47A27B44E3D00FD2E10 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE47927B44E3D00FD2E10 /* UILabel.swift */; };
 		B23DF370283FDC3700E54101 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DF36F283FDC3700E54101 /* CountryViewController.swift */; };
 		B23DF372283FDD8B00E54101 /* InfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DF371283FDD8B00E54101 /* InfoPageViewController.swift */; };
+		B242D8BA285480CC00277F85 /* AllHistoricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B242D8B9285480CB00277F85 /* AllHistoricData.swift */; };
 		B243D3202848B4A5007049B0 /* FilterDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B243D31F2848B4A5007049B0 /* FilterDataViewController.swift */; };
-		B24DE3CC2834ECAE00D216A8 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = B24DE3CB2834ECAE00D216A8 /* SwiftUICharts */; };
 		B256059A27B2AF8000FB039F /* SimptomeAndPreventieCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256059927B2AF8000FB039F /* SimptomeAndPreventieCollectionViewController.swift */; };
 		B256059C27B2AFB500FB039F /* SimptomeAndPreventieCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256059B27B2AFB500FB039F /* SimptomeAndPreventieCollectionViewLayout.swift */; };
 		B256B0F92822571D00793A7E /* InfoCardCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256B0F82822571D00793A7E /* InfoCardCellCollectionViewCell.swift */; };
@@ -67,7 +67,6 @@
 		B27352F42849BB9700D5BCBA /* CompareCountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27352F32849BB9700D5BCBA /* CompareCountriesViewController.swift */; };
 		B27352F62849C19200D5BCBA /* CompareCountriesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27352F52849C19200D5BCBA /* CompareCountriesPickerView.swift */; };
 		B27352F82849C77F00D5BCBA /* CompareCountriesResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27352F72849C77F00D5BCBA /* CompareCountriesResultView.swift */; };
-		B27352FA2849CA6B00D5BCBA /* CompareCountriesPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27352F92849CA6B00D5BCBA /* CompareCountriesPageViewController.swift */; };
 		B2756487284769FC0026CF80 /* TranslatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2756486284769FC0026CF80 /* TranslatorManager.swift */; };
 		B278D50727A2848600511BB2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B278D50627A2848600511BB2 /* MainViewController.swift */; };
 		B279E863282D5F0D00A59F7B /* CountryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279E862282D5F0D00A59F7B /* CountryCardView.swift */; };
@@ -92,6 +91,8 @@
 		B2AE2B9F282BFBAE007C440A /* LocationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE2B9E282BFBAE007C440A /* LocationPickerView.swift */; };
 		B2AE2BAF282C75BF007C440A /* CurrentDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AE2BAE282C75BF007C440A /* CurrentDataParser.swift */; };
 		B2B03FAA27BEB36200A0F634 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B03FA927BEB36200A0F634 /* UIViewController.swift */; };
+		B2B1EB912854BAA500C5CA6A /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = B2B1EB902854BAA500C5CA6A /* SwiftUICharts */; };
+		B2B1EB932854BD0200C5CA6A /* CountryCompare.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1EB922854BD0200C5CA6A /* CountryCompare.swift */; };
 		B2B21B4028522B8000AB8CFC /* PageViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B21B3F28522B8000AB8CFC /* PageViewControllerDataSource.swift */; };
 		B2B21B4228522BCC00AB8CFC /* GenericTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B21B4128522BCC00AB8CFC /* GenericTableViewCell.swift */; };
 		B2B45D1A27B2F34B00788918 /* SimptomeAndPreventieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B45D1927B2F34B00788918 /* SimptomeAndPreventieCollectionViewCell.swift */; };
@@ -197,6 +198,7 @@
 		B23DE47927B44E3D00FD2E10 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		B23DF36F283FDC3700E54101 /* CountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
 		B23DF371283FDD8B00E54101 /* InfoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPageViewController.swift; sourceTree = "<group>"; };
+		B242D8B9285480CB00277F85 /* AllHistoricData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllHistoricData.swift; sourceTree = "<group>"; };
 		B243D31F2848B4A5007049B0 /* FilterDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDataViewController.swift; sourceTree = "<group>"; };
 		B256059927B2AF8000FB039F /* SimptomeAndPreventieCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventieCollectionViewController.swift; sourceTree = "<group>"; };
 		B256059B27B2AFB500FB039F /* SimptomeAndPreventieCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventieCollectionViewLayout.swift; sourceTree = "<group>"; };
@@ -219,7 +221,6 @@
 		B27352F32849BB9700D5BCBA /* CompareCountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareCountriesViewController.swift; sourceTree = "<group>"; };
 		B27352F52849C19200D5BCBA /* CompareCountriesPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareCountriesPickerView.swift; sourceTree = "<group>"; };
 		B27352F72849C77F00D5BCBA /* CompareCountriesResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareCountriesResultView.swift; sourceTree = "<group>"; };
-		B27352F92849CA6B00D5BCBA /* CompareCountriesPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareCountriesPageViewController.swift; sourceTree = "<group>"; };
 		B2756486284769FC0026CF80 /* TranslatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorManager.swift; sourceTree = "<group>"; };
 		B278D50627A2848600511BB2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B279E862282D5F0D00A59F7B /* CountryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCardView.swift; sourceTree = "<group>"; };
@@ -244,6 +245,7 @@
 		B2AE2B9E282BFBAE007C440A /* LocationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerView.swift; sourceTree = "<group>"; };
 		B2AE2BAE282C75BF007C440A /* CurrentDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDataParser.swift; sourceTree = "<group>"; };
 		B2B03FA927BEB36200A0F634 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		B2B1EB922854BD0200C5CA6A /* CountryCompare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCompare.swift; sourceTree = "<group>"; };
 		B2B21B3F28522B8000AB8CFC /* PageViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewControllerDataSource.swift; sourceTree = "<group>"; };
 		B2B21B4128522BCC00AB8CFC /* GenericTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewCell.swift; sourceTree = "<group>"; };
 		B2B45D1927B2F34B00788918 /* SimptomeAndPreventieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimptomeAndPreventieCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -315,9 +317,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2B9EC992840B54700D77B8D /* Amadeus in Frameworks */,
+				B2B1EB912854BAA500C5CA6A /* SwiftUICharts in Frameworks */,
 				8C3127B2AFC78370A5578084 /* libPods-CovidInfo.a in Frameworks */,
 				B2F607772849549C00900B56 /* MonthYearWheelPicker in Frameworks */,
-				B24DE3CC2834ECAE00D216A8 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +627,7 @@
 			children = (
 				B297B92B283D3DEB005E1291 /* CurrentCharts.swift */,
 				B2F6077828495DC600900B56 /* HistoricCharts.swift */,
+				B242D8B9285480CB00277F85 /* AllHistoricData.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 			isa = PBXGroup;
 			children = (
 				B2725F3C282A95B2008B0CEB /* Country.swift */,
+				B2B1EB922854BD0200C5CA6A /* CountryCompare.swift */,
 				B2B9EC942840AE8000D77B8D /* CountryTravel.swift */,
 				B256B0FA2822583400793A7E /* InfoCard.swift */,
 				B2BB039E27A998F700D4801B /* NavigationBar.swift */,
@@ -744,7 +748,6 @@
 				B2F48DD927AD1D37005EE116 /* HomePagePageViewController.swift */,
 				B289F88F27B9582A00E756EF /* TriajPageViewController.swift */,
 				B23DF371283FDD8B00E54101 /* InfoPageViewController.swift */,
-				B27352F92849CA6B00D5BCBA /* CompareCountriesPageViewController.swift */,
 			);
 			path = "Page View Controllers";
 			sourceTree = "<group>";
@@ -860,9 +863,9 @@
 			);
 			name = CovidInfo;
 			packageProductDependencies = (
-				B24DE3CB2834ECAE00D216A8 /* SwiftUICharts */,
 				B2B9EC982840B54700D77B8D /* Amadeus */,
 				B2F607762849549C00900B56 /* MonthYearWheelPicker */,
+				B2B1EB902854BAA500C5CA6A /* SwiftUICharts */,
 			);
 			productName = CovidInfo;
 			productReference = B2F650EF278F2BD900E1BB58 /* CovidInfo.app */;
@@ -893,9 +896,9 @@
 			);
 			mainGroup = B2F650E6278F2BD900E1BB58;
 			packageReferences = (
-				B24DE3CA2834ECAE00D216A8 /* XCRemoteSwiftPackageReference "ChartView" */,
 				B2B9EC972840B54700D77B8D /* XCRemoteSwiftPackageReference "amadeus-ios" */,
 				B2F607752849549C00900B56 /* XCRemoteSwiftPackageReference "MonthYearWheelPicker" */,
+				B2B1EB8F2854BAA500C5CA6A /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = B2F650F0278F2BD900E1BB58 /* Products */;
 			projectDirPath = "";
@@ -998,7 +1001,6 @@
 				B2124F1E2823EF4900F20662 /* CustomPresentationControler.swift in Sources */,
 				B266A12D27EF71AF003806E7 /* UIWindow.swift in Sources */,
 				B2AE2B9F282BFBAE007C440A /* LocationPickerView.swift in Sources */,
-				B27352FA2849CA6B00D5BCBA /* CompareCountriesPageViewController.swift in Sources */,
 				B2D0724327CB81A600FA4BC6 /* Defaults.swift in Sources */,
 				B2E12FB12853BAB4001FF1F8 /* TriajActions.swift in Sources */,
 				B2F48DDB27AD1D37005EE116 /* HomePagePageViewController.swift in Sources */,
@@ -1055,6 +1057,7 @@
 				B23DE46E27B41F2C00FD2E10 /* TriajData.swift in Sources */,
 				B2ECF84328170BAC00D36217 /* MSPressBulettin+CoreDataProperties.swift in Sources */,
 				B2F6077928495DC600900B56 /* HistoricCharts.swift in Sources */,
+				B2B1EB932854BD0200C5CA6A /* CountryCompare.swift in Sources */,
 				B2AB5685283D6368004EC66A /* Various.swift in Sources */,
 				B259BF8527B6DFA5001F78A6 /* LaunchViewController.swift in Sources */,
 				B2AB5690283D6E83004EC66A /* SimptomeAndPreventieViewController.swift in Sources */,
@@ -1100,6 +1103,7 @@
 				B279E863282D5F0D00A59F7B /* CountryCardView.swift in Sources */,
 				B2C6F9BC2835074B00B6DBA8 /* DataRefactoring.swift in Sources */,
 				B278D50727A2848600511BB2 /* MainViewController.swift in Sources */,
+				B242D8BA285480CC00277F85 /* AllHistoricData.swift in Sources */,
 				B25AD33927A30B50009EAD38 /* UIView.swift in Sources */,
 				B2A0020C284F7D4500D0C7BD /* OnboardingWelcomeView.swift in Sources */,
 				B2F6077428493E4200900B56 /* StatisticsResumeTableViewCell.swift in Sources */,
@@ -1340,12 +1344,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B24DE3CA2834ECAE00D216A8 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+		B2B1EB8F2854BAA500C5CA6A /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/ChartView";
+			repositoryURL = "https://github.com/milovanarsul/ChartView";
 			requirement = {
-				kind = exactVersion;
-				version = 1.5.5;
+				branch = master;
+				kind = branch;
 			};
 		};
 		B2B9EC972840B54700D77B8D /* XCRemoteSwiftPackageReference "amadeus-ios" */ = {
@@ -1367,9 +1371,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B24DE3CB2834ECAE00D216A8 /* SwiftUICharts */ = {
+		B2B1EB902854BAA500C5CA6A /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B24DE3CA2834ECAE00D216A8 /* XCRemoteSwiftPackageReference "ChartView" */;
+			package = B2B1EB8F2854BAA500C5CA6A /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
 		};
 		B2B9EC982840B54700D77B8D /* Amadeus */ = {

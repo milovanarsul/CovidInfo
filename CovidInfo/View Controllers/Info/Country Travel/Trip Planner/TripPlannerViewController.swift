@@ -189,8 +189,15 @@ class TripPlannerViewController: UIViewController {
     @objc func closeButtonTapped(){
         arrivalCountry = nil
         departureCountry = nil
-        AmadeusManager.departureCountryTravelData!.removeAll()
-        AmadeusManager.arrivalCountryTravelData!.removeAll()
+        
+        if AmadeusManager.departureCountryTravelData != nil{
+            AmadeusManager.departureCountryTravelData!.removeAll()
+        }
+        
+        if AmadeusManager.arrivalCountryTravelData != nil{
+            AmadeusManager.arrivalCountryTravelData!.removeAll()
+        }
+        
         delegates.main.dimissModal(completion: {})
     }
     

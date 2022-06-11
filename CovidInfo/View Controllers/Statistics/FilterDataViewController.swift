@@ -90,6 +90,7 @@ class FilterDataViewController: UIViewController {
         showHistoricData = true
         delegates.statistics.refreshTableView()
         delegates.statistics.updateDate(text: "\(romanianMonths[selectedMonth!]!) \(selectedYear!)")
+        delegates.statistics.historicData()
         delegates.main.dimissModal(completion: {})
     }
     
@@ -100,6 +101,7 @@ class FilterDataViewController: UIViewController {
         let date = Calendar.current.dateComponents([.year, .month, .day], from: Date())
         let month = romanianMonths[date.month!]
         delegates.statistics.updateDate(text: "Astazi, \(date.day!) \(month!) \(date.year!)")
+        delegates.statistics.historicData()
         
         delegates.main.dimissModal(completion: {})
     }

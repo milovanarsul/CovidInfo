@@ -34,24 +34,15 @@ class CurrentDataTableViewCell: UITableViewCell {
             label.initialize(text: "De la inceputul pandemiei", color: .black, font: boldFont(size: 16), alignment: .left, lines: 0)
             return label
         }()
-        
-        lazy var tableView: UITableView = {
-            let tableView = UITableView()
-            tableView.dataSource = self
-            tableView.delegate = self
-            tableView.separatorStyle = .singleLine
-            tableView.translatesAutoresizingMaskIntoConstraints = false
-            tableView.separatorColor = .gray
-            tableView.separatorInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
-            tableView.register(StatisticsResumeTableViewCell.self, forCellReuseIdentifier: "statisticsResume")
-            tableView.backgroundColor = .white
-            tableView.layer.cornerRadius = 12
-            tableView.clipsToBounds = true
-            return tableView
+
+        lazy var allHistoricData: UIView = {
+            let view = UIView()
+            parentViewController?.addSubSwiftUIView(AllHistoricData(countryCompare: CountryCompare(currentCountry: currentData!)), to: view)
+            return view
         }()
         
         let view = UIView()
-        view.addSubviews(views: [label, tableView])
+        view.addSubviews(views: [label, allHistoricData])
         
         let labelConstraints = Constraints(childView: label, parentView: view, constraints: [
             Constraint(constraintType: .leading, multiplier: 1, constant: 12),
@@ -59,20 +50,35 @@ class CurrentDataTableViewCell: UITableViewCell {
         ])
         labelConstraints.addConstraints()
         
-        let tableViewConstraints = Constraints(childView: tableView, parentView: view, constraints: [
+        let tableViewConstraints = Constraints(childView: allHistoricData, parentView: view, constraints: [
             Constraint(constraintType: .bottom, multiplier: 1, constant: 0),
-            Constraint(constraintType: .leading, multiplier: 1, constant: 12),
-            Constraint(constraintType: .trailing, multiplier: 1, constant: -12)
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0)
         ])
         tableViewConstraints.addConstraints()
-        tableView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10).isActive = true
+        allHistoricData.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10).isActive = true
         
         return view
     }()
     
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorStyle = .singleLine
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorColor = .gray
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+        tableView.register(StatisticsResumeTableViewCell.self, forCellReuseIdentifier: "statisticsResume")
+        tableView.backgroundColor = .white
+        tableView.layer.cornerRadius = 12
+        tableView.clipsToBounds = true
+        return tableView
+    }()
+    
     func setup(){
         statisticsResumeData = DataManager.dataResume(currentData: currentData!)
-        contentView.addSubviews(views: [casesAndDeaths, sevenDaysCharts, statisticsResume])
+        contentView.addSubviews(views: [casesAndDeaths, sevenDaysCharts, statisticsResume, tableView])
         
         let casesAndDeathsConstraints = Constraints(childView: casesAndDeaths, parentView: contentView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
@@ -93,10 +99,18 @@ class CurrentDataTableViewCell: UITableViewCell {
         let statisticsResumeConstraints = Constraints(childView: statisticsResume, parentView: contentView, constraints: [
             Constraint(constraintType: .leading, multiplier: 1, constant: 0),
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .height, multiplier: 1, constant: CGFloat(statisticsResumeData!.count * 75 + statisticsResumeData!.count * 5))
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
         ])
         statisticsResumeConstraints.addConstraints()
         statisticsResume.topAnchor.constraint(equalTo: sevenDaysCharts.bottomAnchor, constant: 2).isActive = true
+        
+        let tableViewConstraints = Constraints(childView: tableView, parentView: contentView, constraints: [
+            Constraint(constraintType: .bottom, multiplier: 1, constant: 0),
+            Constraint(constraintType: .leading, multiplier: 1, constant: 12),
+            Constraint(constraintType: .trailing, multiplier: 1, constant: -12),
+            Constraint(constraintType: .height, multiplier: 1, constant: CGFloat(statisticsResumeData!.count * 75 + statisticsResumeData!.count * 5))
+        ])
+        tableViewConstraints.addConstraints()
     }
 }
 

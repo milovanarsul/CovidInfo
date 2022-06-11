@@ -11,7 +11,7 @@ var country1: Country?
 var country2: Country?
 
 class CompareCountriesPickerView: UIView {
-    var viewType: CountryCompare?
+    var viewType: CountryCompareType?
     
     lazy var shadowView: UIView = {
         let view = UIView()
@@ -69,6 +69,7 @@ class CompareCountriesPickerView: UIView {
         searchBar.searchBarStyle = .minimal
         searchBar.delegate = self
         searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.showsCancelButton = true
         return searchBar
     }()
     
@@ -83,13 +84,14 @@ class CompareCountriesPickerView: UIView {
         tableView.register(CountryTableViewHeader.self, forHeaderFooterViewReuseIdentifier: "countryTableViewHeader")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.layer.cornerRadius = 4
+        tableView.keyboardDismissMode = .onDrag
         return tableView
     }()
     
     var data: [Country] = simpleCountryData()
     var formatedData: [Country]!
     
-    init(viewType: CountryCompare){
+    init(viewType: CountryCompareType){
         self.viewType = viewType
         super.init(frame: .zero)
         
@@ -150,6 +152,7 @@ class CompareCountriesPickerView: UIView {
     }
     
     @objc func closeButtonTapped(){
+        searchBar.endEditing(true)
         switch viewType{
         case .country2:
             delegates.compareCountries.animateCountry2()
@@ -174,6 +177,7 @@ extension CompareCountriesPickerView: UISearchBarDelegate{
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
         formatedData = data
     }
 }
@@ -204,7 +208,9 @@ extension CompareCountriesPickerView: UITableViewDelegate, UITableViewDataSource
             ()
         }
         
+        searchBar.endEditing(true)
         closeButtonTapped()
+        tableView.deselectRow(at: indexPath, animated: false)
         
         if country1 != nil && country2 != nil{
             delegates.compareCountries.result()

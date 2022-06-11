@@ -22,7 +22,7 @@ class LocationPickerView: UIView {
         let locationSwitch = UISwitch()
         locationSwitch.onTintColor = signatureDarkBlue
         locationSwitch.preferredStyle = .sliding
-        locationSwitch.isOn = defaults.bool(forKey: "useAutomaticLocation")
+        locationSwitch.isOn = !defaults.bool(forKey: "locationPermissionDenied")
         locationSwitch.addTarget(self, action: #selector(switchAction), for: .valueChanged)
         return locationSwitch
     }()
@@ -58,9 +58,15 @@ class LocationPickerView: UIView {
             delegates.main.animateContentView(size: 650)
             delegates.main.contentViewVisibility(visibility: .hide)
         } else {
-            delegates.main.animateContentView(size: 65)
-            delegates.main.contentViewVisibility(visibility: .show)
-            delegates.main.countryPickerActionsAnimaiton(visibility: .hide)
+            if defaults.bool(forKey: "locationPermissionDenied"){
+                delegates.main.locationDenied()
+                locationSwitch.isOn = false
+            } else {
+                DispatchQueue.main.async {
+                    defaults.set(true, forKey: "useAutomaticLocation")
+                    delegates.main.refreshData()
+                }
+            }
         }
     }
 }

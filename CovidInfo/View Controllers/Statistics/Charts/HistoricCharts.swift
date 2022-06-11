@@ -22,17 +22,29 @@ struct Historic2022Charts: View {
         
         ScrollView(.vertical, showsIndicators: false){
             VStack(alignment: .center, spacing: 20){
-                BarChartView(data: ChartData(values: casesPerMonth), title: "Cazuri in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if casesPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: casesPerMonth), title: "Cazuri in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
                 
-                BarChartView(data: ChartData(values: deathsPerMonth), title: "Decese in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if deathsPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: deathsPerMonth), title: "Decese in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
                 
-                BarChartView(data: ChartData(values: icuPerMonth), title: "Pacienti ATI in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if icuPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: icuPerMonth), title: "Pacienti ATI in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
                 
-                BarChartView(data: ChartData(values: hospitalPerMonth), title: "Pacienti internati in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if hospitalPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: hospitalPerMonth), title: "Pacienti internati in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
                 
-                BarChartView(data: ChartData(values: testsPerMonth), title: "Teste realizate in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if testsPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: testsPerMonth), title: "Teste realizate in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
                 
-                BarChartView(data: ChartData(values: vaccinationsPerMonth), title: "Vaccinari in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if vaccinationsPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: vaccinationsPerMonth), title: "Vaccinari in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
             }
         }
     }
@@ -51,17 +63,29 @@ struct Historic2021Charts: View {
         
         ScrollView(.vertical, showsIndicators: false){
             VStack(alignment: .center, spacing: 20){
-                BarChartView(data: ChartData(values: casesPerMonth), title: "Cazuri in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if casesPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: casesPerMonth), title: "Cazuri in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
                 
-                BarChartView(data: ChartData(values: deathsPerMonth), title: "Decese in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if deathsPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: deathsPerMonth), title: "Decese in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
                 
-                BarChartView(data: ChartData(values: icuPerMonth), title: "Pacienti ATI in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if icuPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: icuPerMonth), title: "Pacienti ATI in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
                 
-                BarChartView(data: ChartData(values: hospitalPerMonth), title: "Pacienti internati in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if hospitalPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: hospitalPerMonth), title: "Pacienti internati in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
                 
-                BarChartView(data: ChartData(values: testsPerMonth), title: "Teste realizate in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if testsPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: testsPerMonth), title: "Teste realizate in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
                 
-                BarChartView(data: ChartData(values: vaccinationsPerMonth), title: "Vaccinari in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if vaccinationsPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: vaccinationsPerMonth), title: "Vaccinari in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
             }
         }
     }
@@ -81,17 +105,29 @@ struct Historic2020Charts: View {
         
         ScrollView(.vertical, showsIndicators: false){
             VStack(alignment: .center, spacing: 20){
-                BarChartView(data: ChartData(values: casesPerMonth), title: "Cazuri in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if casesPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: casesPerMonth), title: "Cazuri in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
                 
-                BarChartView(data: ChartData(values: deathsPerMonth), title: "Decese in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if deathsPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: deathsPerMonth), title: "Decese in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
                 
-                BarChartView(data: ChartData(values: icuPerMonth), title: "Pacienti ATI in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if icuPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: icuPerMonth), title: "Pacienti ATI in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
                 
-                BarChartView(data: ChartData(values: hospitalPerMonth), title: "Pacienti internati in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if hospitalPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: hospitalPerMonth), title: "Pacienti internati in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
                 
-                BarChartView(data: ChartData(values: testsPerMonth), title: "Teste realizate in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if testsPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: testsPerMonth), title: "Teste realizate in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
                 
-                BarChartView(data: ChartData(values: vaccinationsPerMonth), title: "Vaccinari in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+                if vaccinationsPerMonth.count > 0{
+                    BarChartView(data: ChartData(values: vaccinationsPerMonth), title: "Vaccinari in luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                }
             }
         }
     }

@@ -100,6 +100,7 @@ extension InfoCardsCollectionViewController: UIViewControllerTransitioningDelega
 
 extension InfoCardsCollectionViewController: InfoCardsCollectionViewDelegate{
     func getInfoData(index: Int) -> InfoCardsData{
+        //print(index)
         return infoCardsDataArray[index]
     }
     
@@ -108,5 +109,9 @@ extension InfoCardsCollectionViewController: InfoCardsCollectionViewDelegate{
         let titleHeight = data.title.height(withConstrainedWidth: view.frame.width, font: UIFont(name: "IBMPlexSans-Bold", size: 20)!)
         let contentHeight = data.content.height(withConstrainedWidth: view.frame.width, font: UIFont(name: "IBMPlexSans-Regular", size: 14)!)
         return titleHeight + contentHeight - 100
+    }
+    
+    func scrollToTop(){
+        collectionView.setContentOffset(.zero, animated: true)
     }
 }

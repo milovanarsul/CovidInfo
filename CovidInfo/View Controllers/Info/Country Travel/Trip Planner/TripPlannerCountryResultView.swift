@@ -161,6 +161,7 @@ extension TripPlannerCountryResultView: UITableViewDelegate, UITableViewDataSour
         let cell = CountryTravelTableViewCell()
         let currentData = countryTravelData![indexPath.row]
         cell.setup(data: currentData, type: .custom)
+        cell.selectionStyle = .none
         return cell
     }
 }

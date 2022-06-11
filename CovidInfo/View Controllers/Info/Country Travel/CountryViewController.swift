@@ -62,15 +62,15 @@ extension CountryViewController: UITableViewDelegate, UITableViewDataSource{
             countryCardCell.data = DataManager.currentCountryData!
             countryCardCell.setup()
             countryCardCell.backgroundColor = .clear
+            countryCardCell.selectionStyle = .none
             return countryCardCell
         } else {
             let currentData = AmadeusManager.currentCountryTravelData![indexPath.row - 1]
             countryTravelCell.backgroundColor = .clear
             countryTravelCell.setup(data: currentData, type: .normal)
+            countryTravelCell.selectionStyle = .none
             return countryTravelCell
         }
-        
-        
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -85,5 +85,9 @@ extension CountryViewController: UITableViewDelegate, UITableViewDataSource{
 extension CountryViewController: CountryViewControllerDelegate {
     func refreshTableView(){
         tableView.reloadData()
+    }
+    
+    func scrollToTop(){
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
 }

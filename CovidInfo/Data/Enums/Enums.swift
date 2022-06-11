@@ -154,7 +154,7 @@ enum CountryTravelTableViewCellType {
     case custom
 }
 
-enum CountryCompare{
+enum CountryCompareType{
     case country1
     case country2
 }

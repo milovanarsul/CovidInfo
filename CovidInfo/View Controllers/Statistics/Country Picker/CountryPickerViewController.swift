@@ -27,6 +27,7 @@ class CountryPickerViewController: UIViewController {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
         searchBar.delegate = self
+        searchBar.showsCancelButton = true
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
     }()
@@ -42,6 +43,7 @@ class CountryPickerViewController: UIViewController {
         tableView.register(CountryTableViewHeader.self, forHeaderFooterViewReuseIdentifier: "countryTableViewHeader")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.layer.cornerRadius = 4
+        tableView.keyboardDismissMode = .onDrag
         return tableView
     }()
     
@@ -52,6 +54,7 @@ class CountryPickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        delegates.countryPicker = self
         setup()
         formatedData = data
     }
@@ -68,20 +71,16 @@ class CountryPickerViewController: UIViewController {
         ])
         searchBarConstraints.addConstraints()
         
-        if defaults.bool(forKey: "locationPermissionDenied") == false{
-            view.addSubview(locationPickerView)
-            let locationPickerViewConstraints = Constraints(childView: locationPickerView, parentView: view, constraints: [
-                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-                Constraint(constraintType: .proportionalWidth, multiplier: 0.9, constant: 0),
-                Constraint(constraintType: .height, multiplier: 1, constant: 50),
-            ])
-            locationPickerViewConstraints.addConstraints()
-            locationPickerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
-            
-            NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: locationPickerView.bottomAnchor, constant: -10)])
-        } else {
-            NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 5)])
-        }
+        view.addSubview(locationPickerView)
+        let locationPickerViewConstraints = Constraints(childView: locationPickerView, parentView: view, constraints: [
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 0.9, constant: 0),
+            Constraint(constraintType: .height, multiplier: 1, constant: 50),
+        ])
+        locationPickerViewConstraints.addConstraints()
+        locationPickerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+        
+        NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: locationPickerView.bottomAnchor, constant: -10)])
         
         tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         tableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.88).isActive = true
@@ -105,6 +104,7 @@ extension CountryPickerViewController: UISearchBarDelegate{
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
         formatedData = data
     }
 }
@@ -144,6 +144,7 @@ extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchBar.endEditing(true)
         let sectionTitle = "Tara aleasa"
         
         let currentSection = sections[indexPath.section]
@@ -162,5 +163,11 @@ extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSourc
         tableView.reloadData()
         
         delegates.main.countryPickerActionsAnimaiton(visibility: .show)
+    }
+}
+
+extension CountryPickerViewController: CountryPickerViewDelegate{
+    func hideKeyboard(){
+        searchBar.endEditing(true)
     }
 }

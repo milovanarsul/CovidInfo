@@ -44,15 +44,10 @@ struct SevenDaysCharts: View {
         let sevenDaysCases = dictionaryToTuple(dictionary: historicData.sevenDaysCases!)
         let sevenDaysDeaths = dictionaryToTuple(dictionary: historicData.sevenDaysDeaths!)
         
-        let test1 = dictionaryToTuple(dictionary: (DataManager.historicData?.first?.value.cases?.all!)!)
-        let test2 = dictionaryToTuple(dictionary: (DataManager.historic2021Data?.first?.value.cases?.all!)!)
-        let test3 = dictionaryToTuple(dictionary: (DataManager.historic2020Data?.first?.value.cases?.all!)!)
-        let test = [test1, test2, test3].flatMap {$0}
-        
         VStack{
-            BarChartView(data: ChartData(values: sevenDaysCases), title: "Cazuri in ultimele 7 zile", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: false)
+            BarChartView(data: ChartData(values: sevenDaysCases), title: "Cazuri in ultimele 7 zile", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
             
-            BarChartView(data: ChartData(values: sevenDaysDeaths), title: "Decese in ultimele 7 zile", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false, animatedToBack: true)
+            BarChartView(data: ChartData(values: sevenDaysDeaths), title: "Decese in ultimele 7 zile", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
         }
         .background(.clear)
         .padding(EdgeInsets(top: 0, leading: -7, bottom: 0, trailing: -7))

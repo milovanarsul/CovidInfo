@@ -116,42 +116,47 @@ class CompareCountriesViewController: UIViewController {
     lazy var resultView: UIView = {
         lazy var countriesTitleResultView: BetterSegmentedControl = {
             let categories = BetterSegmentedControl(frame: .zero,
-                                                    segments: LabelSegment.segments(withTitles: [country1!.name!, country2!.name!], normalFont: boldFont(size: 30), normalTextColor: .black, selectedFont: boldFont(size: 30) ,selectedTextColor: .black),
+                                                    segments: LabelSegment.segments(withTitles: [country1!.name!, country2!.name!], normalFont: semiBoldFont(size: 28), normalTextColor: .black, selectedFont: boldFont(size: 28) ,selectedTextColor: .black),
                                                     options: [.backgroundColor(.clear),
-                                                              .indicatorViewBorderColor(.black),
-                                                              .indicatorViewBorderWidth(2),
-                                                              .indicatorViewInset(40),
-                                                              .indicatorViewBackgroundColor(.clear), .cornerRadius(16), .animationSpringDamping(1.0),])
+                                                              .indicatorViewBorderColor(signatureLightBlue),
+                                                              .indicatorViewBorderWidth(3),
+                                                              .indicatorViewBackgroundColor(.clear), .cornerRadius(24), .animationSpringDamping(1.0)])
             categories.segmentPadding = 2.0
             categories.panningDisabled = true
             categories.addTarget(self, action: #selector(countryResultTitleTapped(_:)), for: .valueChanged)
+            categories.tag = 2
             return categories
         }()
         
-        lazy var pageViewController: UIView = {
-            let view = UIView()
-            embed.compareCountriesPageViewController(parent: self, container: view)
-            return view
+        lazy var resultTableView: UITableView = {
+            let tableView = UITableView()
+            tableView.dataSource = self
+            tableView.delegate = self
+            tableView.separatorStyle = .none
+            tableView.translatesAutoresizingMaskIntoConstraints = false
+            tableView.backgroundColor = .clear
+            tableView.tag = 1
+            return tableView
         }()
         
         let parentView = UIView()
-        parentView.addSubviews(views: [countriesTitleResultView, pageViewController])
+        parentView.addSubviews(views: [countriesTitleResultView, resultTableView])
         
         let countriesTitlesResultViewConstraints = Constraints(childView: countriesTitleResultView, parentView: parentView, constraints: [
-            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
-            Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
+            Constraint(constraintType: .leading, multiplier: 1, constant: 12),
+            Constraint(constraintType: .trailing, multiplier: 1, constant: -12),
             Constraint(constraintType: .height, multiplier: 1, constant: 50),
             Constraint(constraintType: .top, multiplier: 1, constant: 0)
         ])
         countriesTitlesResultViewConstraints.addConstraints()
         
-        let pageViewControllerConstraints = Constraints(childView: pageViewController, parentView: parentView, constraints: [
+        let resultTableViewConstraints = Constraints(childView: resultTableView, parentView: parentView, constraints: [
             Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
             Constraint(constraintType: .proportionalWidth, multiplier: 1, constant: 0),
             Constraint(constraintType: .bottom, multiplier: 1, constant: 0)
         ])
-        pageViewControllerConstraints.addConstraints()
-        pageViewController.topAnchor.constraint(equalTo: countriesTitleResultView.bottomAnchor, constant: 10).isActive = true
+        resultTableViewConstraints.addConstraints()
+        resultTableView.topAnchor.constraint(equalTo: countriesTitleResultView.bottomAnchor, constant: 10).isActive = true
         
         return parentView
         
@@ -160,6 +165,8 @@ class CompareCountriesViewController: UIViewController {
     var screenWidth: CGFloat = UIScreen.main.bounds.width
     var country1BottomConstraint = NSLayoutConstraint()
     var country2BottomConstraint = NSLayoutConstraint()
+    
+    var currentData: CurrentData?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -221,6 +228,9 @@ class CompareCountriesViewController: UIViewController {
     }
     
     @objc func closeButtonTapped(){
+        country1 = nil
+        country2 = nil
+        
         delegates.main.dimissModal(completion: {})
     }
     
@@ -232,27 +242,28 @@ class CompareCountriesViewController: UIViewController {
         animateLocationTableView(locationView: country2TableView, bottomConstraint: country2BottomConstraint, visibility: .show)
     }
     
-    @objc func automaticButtonTapped(_ sender: UIButton){
-        
-    }
-    
     @objc func redoResultTapped(_ sender: UIButton){
+        country1 = nil
+        country2 = nil
+        currentData = nil
+        (resultView.viewWithTag(1) as! UITableView).reloadData()
+        (resultView.viewWithTag(2) as! BetterSegmentedControl).layoutIfNeeded()
+        
         view.viewWithTag(2)?.isHidden = true
         view.backgroundColor = .white
         topBar.backgroundColor = .white
-        //resultTableView.removeFromSuperview()
+        resultView.removeFromSuperview()
         onboardingView.isHidden = false
-        
-        country1 = nil
-        country2 = nil
     }
     
     @objc func countryResultTitleTapped(_ sender: BetterSegmentedControl){
         switch sender.index{
         case 0:
-            delegates.compareCountriesPVC.goToPage(pageIndex: 0, direction: .reverse)
+            currentData = DataManager.getCurrentCountry(customLocation: country1!.name)
+            (resultView.viewWithTag(1) as! UITableView).reloadData()
         case 1:
-            delegates.compareCountriesPVC.goToPage(pageIndex: 1, direction: .forward)
+            currentData = DataManager.getCurrentCountry(customLocation: country2!.name)
+            (resultView.viewWithTag(1) as! UITableView).reloadData()
         default:
             ()
         }
@@ -272,6 +283,9 @@ extension CompareCountriesViewController: CompareCountries{
         onboardingView.isHidden = true
         view.backgroundColor = UIColor("#f2f2f7")
         topBar.backgroundColor = UIColor("#f2f2f7")
+        topBar.viewWithTag(2)?.isHidden = false
+        
+        currentData = DataManager.getCurrentCountry(customLocation: country1!.name)
         
         view.addSubview(resultView)
         let resultViewConstraints = Constraints(childView: resultView, parentView: view, constraints: [
@@ -281,5 +295,30 @@ extension CompareCountriesViewController: CompareCountries{
         ])
         resultViewConstraints.addConstraints()
         resultView.topAnchor.constraint(equalTo: topBar.bottomAnchor, constant: 10).isActive = true
+        
+        (resultView.viewWithTag(2) as! BetterSegmentedControl).segments = LabelSegment.segments(withTitles: [country1!.name!, country2!.name!], normalFont: semiBoldFont(size: 28), normalTextColor: .black, selectedFont: boldFont(size: 28) ,selectedTextColor: .black)
+    }
+}
+
+extension CompareCountriesViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let countryCompare = CountryCompare(currentCountry: currentData!)
+        let statisticsResumeData = DataManager.dataResume(currentData: currentData!)
+        
+        return CGFloat(countryCompare.visibleCellsCount * 470) + CGFloat(statisticsResumeData.count * 75 + statisticsResumeData.count * 5) + 190
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = CompareCountriesResultTableViewCell()
+        cell.data = currentData!
+        cell.parentViewController = self
+        cell.setup()
+        cell.backgroundColor = .clear
+        return cell
+        
     }
 }

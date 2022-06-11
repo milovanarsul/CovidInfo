@@ -19,6 +19,18 @@ func dictionaryToTuple(dictionary: [[String : Double]]) -> [(String, Double)]{
     return tuple
 }
 
+func tupleArrayToArrayTuple(dict: [(String, Double)]) -> ([String], [Double]){
+    var stringArray = [String]()
+    var doubleArray = [Double]()
+    
+    for item in dict{
+        stringArray.append(item.0)
+        doubleArray.append(item.1)
+    }
+    
+    return (stringArray, doubleArray)
+}
+
 func dictionaryToDoubleArray(dictionary: [[String : Double]]) -> [Double] {
     var doubleArray = [Double]()
     
@@ -59,4 +71,9 @@ func dayToNumber(day: String) -> Int{
     }
     
     return 0
+}
+
+func stringFormatter(data: Double) -> String{
+    let result = String(format: "%.0f", locale: Locale.current, data)
+    return result
 }

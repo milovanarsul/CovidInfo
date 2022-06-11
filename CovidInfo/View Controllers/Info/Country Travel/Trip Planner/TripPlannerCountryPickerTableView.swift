@@ -69,6 +69,7 @@ class TripPlannerCountryPickerTableView: UIView {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
         searchBar.delegate = self
+        searchBar.showsCancelButton = true
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
     }()
@@ -84,6 +85,7 @@ class TripPlannerCountryPickerTableView: UIView {
         tableView.register(CountryTableViewHeader.self, forHeaderFooterViewReuseIdentifier: "countryTableViewHeader")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.layer.cornerRadius = 4
+        tableView.keyboardDismissMode = .onDrag
         return tableView
     }()
     
@@ -167,6 +169,7 @@ class TripPlannerCountryPickerTableView: UIView {
     }
     
     @objc func closeButtonTapped(){
+        searchBar.endEditing(true)
         switch viewType{
         case .arrival:
             delegates.tripPlanner.animateArrivalView()
@@ -191,6 +194,7 @@ extension TripPlannerCountryPickerTableView: UISearchBarDelegate{
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
         formatedData = data
     }
 }
@@ -212,6 +216,7 @@ extension TripPlannerCountryPickerTableView: UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchBar.endEditing(true)
         switch viewType{
         case .departure:
             departureCountry = formatedData[indexPath.row]

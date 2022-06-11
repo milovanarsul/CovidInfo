@@ -158,7 +158,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension NewsViewController: NewsDelegate{
     func scrollToTop(){
-        newsCardsTableView.setContentOffset(.zero, animated: true)
+        newsCardsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
     
     func refreshData(){

@@ -40,7 +40,7 @@ class CustomTabBar: UIView {
     
     lazy var goToTopButton: UIButton = {
         let button = UIButton()
-        button.initializeIcon(backgroundImage: UIImage(systemName: "arrow.up.circle"))
+        button.initializeIcon(image: UIImage(systemName: "arrow.up.to.line.circle")!)
         button.isHidden = true
         button.addTarget(self, action: #selector(goToTopButtonPressed(_:)), for: .touchUpInside)
         return button
@@ -64,30 +64,26 @@ class CustomTabBar: UIView {
     var buttons: [UIButton]!
     var currentPageIndex: Int? = 0
     var buttonSliderLeadingConstraint = NSLayoutConstraint()
-    var tabBarBottomConstraint = NSLayoutConstraint()
-    var tabBarTopConstraint = NSLayoutConstraint()
-    var buttonSliderWidth = NSLayoutConstraint()
-    var buttonSliderTopConstraint = NSLayoutConstraint()
     
     func setup(){
         delegates.customTabBar = self
         addSubviews(views: [buttonStackView, buttonSlider])
         
         let buttonStackViewConstraints = Constraints(childView: buttonStackView, parentView: self, constraints: [
-            Constraint(constraintType: .leading, multiplier: 1, constant: 20),
-            Constraint(constraintType: .trailing, multiplier: 1, constant: -20),
-            Constraint(constraintType: .height, multiplier: 1, constant: 30)
+            Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+            Constraint(constraintType: .proportionalWidth, multiplier: 0.8, constant: 0),
+            Constraint(constraintType: .height, multiplier: 1, constant: 30),
+            Constraint(constraintType: .top, multiplier: 1, constant: 10)
         ])
         buttonStackViewConstraints.addConstraints()
-        tabBarTopConstraint = buttonStackView.topAnchor.constraint(equalTo: topAnchor, constant: 10)
-        tabBarTopConstraint.isActive = true
         
-        buttonSliderLeadingConstraint = NSLayoutConstraint(item: buttonSlider, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 25)
-        tabBarBottomConstraint = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: buttonStackView, attribute: .bottom, multiplier: 1, constant: 10)
-        
-        buttonSliderWidth = NSLayoutConstraint(item: buttonSlider, attribute: .width, relatedBy: .equal, toItem: homeButton, attribute: .width, multiplier: 0.7, constant: 0)
-        buttonSliderTopConstraint = NSLayoutConstraint(item: buttonSlider, attribute: .top, relatedBy: .equal, toItem: homeButton, attribute: .bottom, multiplier: 1, constant: 5)
-        NSLayoutConstraint.activate([buttonSliderLeadingConstraint, buttonSliderWidth, buttonSliderTopConstraint,NSLayoutConstraint(item: buttonSlider, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 2), tabBarBottomConstraint])
+        buttonSliderLeadingConstraint = buttonSlider.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 41)
+        NSLayoutConstraint.activate([
+            buttonSliderLeadingConstraint,
+            buttonSlider.widthAnchor.constraint(equalTo: homeButton.widthAnchor, multiplier: 0.7),
+            buttonSlider.topAnchor.constraint(equalTo: buttonStackView.bottomAnchor, constant: 5),
+            buttonSlider.heightAnchor.constraint(equalToConstant: 2)
+        ])
     }
     
     @objc func homeButtonPressed(_ sender: UIButton) {
@@ -107,7 +103,30 @@ class CustomTabBar: UIView {
     }
     
     @objc func goToTopButtonPressed(_ sender: UIButton) {
-        delegates.news.scrollToTop()
+        switch delegates.tabBar.getCurrentIndex(){
+        case 0:
+            delegates.home.scrollToTop()
+        case 1:
+            let currentInfoIndex = delegates.info.getCategoriesCurrentIndex()
+            switch currentInfoIndex{
+            case 0:
+                delegates.countryController.scrollToTop()
+            case 1:
+                delegates.infoCardsCollectionView.scrollToTop()
+            case 2:
+                delegates.infoCardsCollectionView.scrollToTop()
+            case 3:
+                delegates.news.scrollToTop()
+            default:
+                ()
+            }
+        case 2:
+            delegates.news.scrollToTop()
+        case 3:
+            delegates.statistics.scrollToTop()
+        default:
+            ()
+        }
     }
     
     func buttonSetup(button: MainPages){
@@ -171,13 +190,13 @@ class CustomTabBar: UIView {
     func buttonSliderAnimation(tabBarButton: MainPages){
         switch tabBarButton {
         case .home:
-            buttonSliderLeadingConstraint.constant = 25
+            buttonSliderLeadingConstraint.constant = 41
         case .info:
-            buttonSliderLeadingConstraint.constant = 115
+            buttonSliderLeadingConstraint.constant = 121
         case .news:
             buttonSliderLeadingConstraint.constant = 202
         case .statistics:
-            buttonSliderLeadingConstraint.constant = 290
+            buttonSliderLeadingConstraint.constant = 283
         }
         
         UIView.animate(withDuration: 0.3, animations: {
@@ -231,15 +250,6 @@ class CustomTabBar: UIView {
 }
 
 extension CustomTabBar: CustomTabBarDelegate{
-    func increaseBottomConstraint(size: CGFloat) {
-        tabBarBottomConstraint.constant = size
-        
-        if size == 30 {
-            buttonSliderLeadingConstraint.constant = 105
-        } else {
-            buttonSliderLeadingConstraint.constant = 109
-        }
-    }
     
     func goToTopButtonVisibily(visibily: ViewVisibility){
         switch visibily {
@@ -256,13 +266,13 @@ extension CustomTabBar: CustomTabBarDelegate{
         
         switch currentIndex {
         case 0:
-            offset = 4
+            offset = 5
         case 1:
-            offset = 18
+            offset = 0
         case 2:
-            offset = 35
+            offset = -6
         case 3: ()
-            offset = 48
+            offset = -13
         default: ()
         }
         
@@ -280,13 +290,10 @@ extension CustomTabBar: CustomTabBarDelegate{
     func tabBarScroll(visibility: ViewVisibility){
         switch visibility {
         case .show:
-            tabBarTopConstraint.constant = 10
-            buttonSliderTopConstraint.constant = 5
             buttonSliderAnimation(tabBarButton: tabBarButton(index: delegates.tabBar.getCurrentIndex()))
             shouldIncreaseLeadingAnchor = true
         case .hide:
-            tabBarTopConstraint.constant = -10
-            buttonSliderTopConstraint.constant = -17
+            ()
             currentButtonSliderAnimation()
         }
     }
