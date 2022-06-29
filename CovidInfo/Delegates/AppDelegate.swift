@@ -13,8 +13,8 @@ import CoreLocation
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     static let locationManager = CLLocationManager()
-    
     static let geoCoder = CLGeocoder()
+    
     static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     static var locationCountry: String?
     

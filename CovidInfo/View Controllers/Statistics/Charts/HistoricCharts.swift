@@ -106,7 +106,7 @@ struct Historic2020Charts: View {
         ScrollView(.vertical, showsIndicators: false){
             VStack(alignment: .center, spacing: 20){
                 if casesPerMonth.count > 0{
-                    BarChartView(data: ChartData(values: casesPerMonth), title: "Cazuri ăn luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+                    BarChartView(data: ChartData(values: casesPerMonth), title: "Cazuri în luna " + romanianMonths[selectedMonth!]!, style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
                 }
                 
                 if deathsPerMonth.count > 0{

@@ -13,7 +13,7 @@ class LocationPickerView: UIView {
     
     lazy var mainLabel: UILabel = {
         let label = UILabel()
-        let text = "Locatie automată"
+        let text = "Locație automată"
         label.initialize(text: text, color: .black, font: boldFont(size: 16), alignment: .left, lines: 0)
         return label
     }()
@@ -22,7 +22,7 @@ class LocationPickerView: UIView {
         let locationSwitch = UISwitch()
         locationSwitch.onTintColor = signatureDarkBlue
         locationSwitch.preferredStyle = .sliding
-        locationSwitch.isOn = !defaults.bool(forKey: "locationPermissionDenied")
+        locationSwitch.isOn = defaults.bool(forKey: "useAutomaticLocation")
         locationSwitch.addTarget(self, action: #selector(switchAction), for: .valueChanged)
         return locationSwitch
     }()

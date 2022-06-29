@@ -115,6 +115,7 @@ class DataManager{
     }
     
     static func reloadViews(){
+        delegates.countryPicker.reloadTable()
         switch delegates.tabBar.getCurrentIndex(){
         case 0:
             delegates.home.refreshTableView()

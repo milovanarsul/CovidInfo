@@ -27,7 +27,7 @@ class SimptomeAndPreventieViewController: UIViewController {
         }()
         
         let view = UIView()
-        view.backgroundColor = .clear
+        view.backgroundColor = .white
         view.addSubviews(views: [imageView, label])
         
         let imageViewConstraints = Constraints(childView: imageView, parentView: view, constraints: [
@@ -51,7 +51,7 @@ class SimptomeAndPreventieViewController: UIViewController {
     
     lazy var collectionView: UIView = {
         let view = UIView()
-        view.backgroundColor = .clear
+        view.backgroundColor = .white
         return view
     }()
     
@@ -73,6 +73,7 @@ class SimptomeAndPreventieViewController: UIViewController {
     }
     
     func setup(){
+        view.backgroundColor = .white
         view.addSubviews(views: [topView, collectionView])
         
         let topViewConstraints = Constraints(childView: topView, parentView: view, constraints: [

@@ -313,6 +313,7 @@ extension MainViewController: MainDelegate{
                 DispatchQueue.main.async { [self] in
                     activityIndicator.removeFromSuperview()
                     DataManager.reloadViews()
+                    delegates.countryController.refreshTableView()
                     contentView.isHidden = false
                     tabAnimation(visibility: .show)
                     delegates.navigationBar.simulateLocationButtonTap(viewVisibility: .hide)

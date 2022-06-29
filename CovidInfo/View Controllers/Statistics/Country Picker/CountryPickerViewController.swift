@@ -27,6 +27,7 @@ class CountryPickerViewController: UIViewController {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
         searchBar.delegate = self
+        searchBar.searchTextField.delegate = self
         searchBar.showsCancelButton = true
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
@@ -104,8 +105,27 @@ extension CountryPickerViewController: UISearchBarDelegate{
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
         formatedData = data
+        
+        let sectionTitle = "Alege o țară"
+        sections.removeAll()
+        sections.append(sectionTitle)
+        
+        tableView.reloadData()
+        searchBar.endEditing(true)
+    }
+}
+
+extension CountryPickerViewController: UITextFieldDelegate {
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        formatedData = data
+        
+        let sectionTitle = "Alege o țară"
+        sections.removeAll()
+        sections.append(sectionTitle)
+        
+        tableView.reloadData()
+        return true
     }
 }
 
@@ -169,5 +189,16 @@ extension CountryPickerViewController: UITableViewDelegate, UITableViewDataSourc
 extension CountryPickerViewController: CountryPickerViewDelegate{
     func hideKeyboard(){
         searchBar.endEditing(true)
+    }
+    
+    func reloadTable(){
+        formatedData = data
+        
+        let sectionTitle = "Alege o țară"
+        sections.removeAll()
+        sections.append(sectionTitle)
+        
+        searchBar.endEditing(true)
+        tableView.reloadData()
     }
 }

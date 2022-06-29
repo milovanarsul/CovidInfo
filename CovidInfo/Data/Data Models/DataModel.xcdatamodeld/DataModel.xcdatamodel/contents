@@ -113,12 +113,12 @@
         <attribute name="vaccinations" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[String: [String: Int]]"/>
     </entity>
     <elements>
-        <element name="Article" positionX="-63" positionY="-18" width="128" height="179"/>
-        <element name="CountryTravel" positionX="-54" positionY="144" width="128" height="104"/>
-        <element name="CurrentData" positionX="-63" positionY="72" width="128" height="914"/>
-        <element name="HistoricData" positionX="-54" positionY="144" width="128" height="44"/>
-        <element name="MSPressBulettin" positionX="-63" positionY="54" width="128" height="134"/>
-        <element name="Old2020HistoricData" positionX="-45" positionY="153" width="128" height="149"/>
-        <element name="Old2021HistoricData" positionX="-45" positionY="153" width="128" height="149"/>
+        <element name="Article" positionX="-394.90234375" positionY="39.6796875" width="128" height="179"/>
+        <element name="CountryTravel" positionX="-245.4453125" positionY="42.2578125" width="128" height="104"/>
+        <element name="CurrentData" positionX="-393.3203125" positionY="239.77734375" width="128" height="928"/>
+        <element name="HistoricData" positionX="-244.59375" positionY="161.09375" width="128" height="44"/>
+        <element name="MSPressBulettin" positionX="-249.01953125" positionY="550.328125" width="128" height="134"/>
+        <element name="Old2020HistoricData" positionX="-247.2421875" positionY="385.07421875" width="128" height="149"/>
+        <element name="Old2021HistoricData" positionX="-245.890625" positionY="222.15234375" width="128" height="149"/>
     </elements>
 </model>

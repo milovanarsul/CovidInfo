@@ -21,14 +21,14 @@ struct CasesAndDeaths: View {
         LineChartView(data: sevenDaysCases,
                    title: "Cazuri noi",
                    legend: "Astăzi: " + String(Int(currentData.new_cases)),
-                      style: ChartStyle(backgroundColor: .white, accentColor: .white, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), rateValue: percentageIncrease(value1: Int(currentData.new_cases), value2: Int(sevenDaysCases.first!)), dropShadow: true)
+                      style: ChartStyle(backgroundColor: .white, accentColor: .white, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), rateValue: nil, dropShadow: true)
         .disabled(true)
 
         LineChartView(data: sevenDaysDeaths,
                    title: "Decese noi",
                    legend: "Astăzi: " + String(Int(currentData.new_deaths)) ,
                       style: ChartStyle(backgroundColor: .white, accentColor: .white, gradientColor: GradientColors.green, textColor: .black, legendTextColor: .black, dropShadowColor: .clear),
-                      rateValue: percentageIncrease(value1: Int(currentData.new_cases), value2: Int(sevenDaysDeaths.first!)),
+                      rateValue: nil,
                       dropShadow: true)
         .disabled(true)
         }
@@ -45,9 +45,13 @@ struct SevenDaysCharts: View {
         let sevenDaysDeaths = dictionaryToTuple(dictionary: historicData.sevenDaysDeaths!)
         
         VStack{
-            BarChartView(data: ChartData(values: sevenDaysCases), title: "Cazuri în ultimele 7 zile", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+            if sevenDaysCases.count > 0 {
+                BarChartView(data: ChartData(values: sevenDaysCases), title: "Cazuri în ultimele 7 zile", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+            }
             
-            BarChartView(data: ChartData(values: sevenDaysDeaths), title: "Decese în ultimele 7 zile", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+            if sevenDaysDeaths.count > 0 {
+                BarChartView(data: ChartData(values: sevenDaysDeaths), title: "Decese în ultimele 7 zile", style: ChartStyle(backgroundColor: .white, accentColor: .red, gradientColor: GradientColors.orange, textColor: .black, legendTextColor: .black, dropShadowColor: .clear), form: ChartForm.extraLarge, dropShadow: false)
+            }
         }
         .background(.clear)
         .padding(EdgeInsets(top: 0, leading: -7, bottom: 0, trailing: -7))

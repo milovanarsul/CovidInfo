@@ -34,7 +34,7 @@ class Triaj: UIViewController {
         
         self.containerView.addSubView(parentView: self.containerView, childView: TriajSubview(type: data.subViewType, subview: data.subView!))
         self.actionsView.addSubView(parentView: self.actionsView, childView: TriajActions(actionType: data.actionType, actionTitle: data.actionTitle, actionForegorund: data.actionForeground, actionColour: data.actionColour))
-        self.actionsView.backgroundColor = .black
+        self.actionsView.backgroundColor = .clear
     }
     
     @IBOutlet var containerViewWidthConstraint: NSLayoutConstraint!

@@ -203,6 +203,7 @@ protocol HomeViewControllerDelegate {
 
 protocol CountryPickerViewDelegate{
     func hideKeyboard()
+    func reloadTable()
 }
 
 protocol TripPlannerCountryPickerDelegate{
