@@ -15,8 +15,8 @@ class AmadeusManager{
     static var departureCountryTravelData: [CountryTravelModel]?
     static var arrivalCountryTravelData: [CountryTravelModel]?
     
-    private static let clientID = "axLcR08gUUELBV448V35t31AbCF7GGcE"
-    private static let clientSecret = "t6MSG27MLO1kGA5d"
+    private static let clientID = "8fc1s6hE2ApE8CoAPABSnJHYAMIfWUhn"
+    private static let clientSecret = "icKkUdaDBtGhBzdE"
     
     private static let amadeus: Amadeus = Amadeus(client_id: clientID, client_secret: clientSecret)
     

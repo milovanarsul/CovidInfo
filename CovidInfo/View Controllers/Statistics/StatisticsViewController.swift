@@ -12,7 +12,7 @@ class StatisticsViewController: UIViewController {
     lazy var date: UILabel = {
         let label = UILabel()
         let date = Calendar.current.dateComponents([.year, .month, .day], from: Date())
-        let month = romanianMonths[date.month!]
+        let month = romanianMonths[date.month! - 1]
         label.initialize(text: "Astăzi, \(date.day!) \(month!) \(date.year!)", color: .black, font: boldFont(size: 20), alignment: .left, lines: 1)
         return label
     }()
