@@ -93,7 +93,7 @@ extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
             updateDate(text: "De la începutul pandemiei")
         } else {
             let date = Calendar.current.dateComponents([.year, .month, .day], from: Date())
-            let month = romanianMonths[date.month!]
+            let month = romanianMonths[date.month! - 1]
             updateDate(text: "Astăzi, \(date.day!) \(month!) \(date.year!)")
         }
     }

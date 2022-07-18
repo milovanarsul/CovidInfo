@@ -47,12 +47,12 @@ class PreventieAndSimptomeShortcut: UIStackView {
     }
     
     @objc func preventieShortcutTapped(){
-        delegates.homePage.goToPage(pageIndex: 3, direction: .forward)
+        delegates.homePage.goToPage(pageIndex: 2, direction: .forward)
         delegates.homePage.updateNavigationBar(page: Page(mainPage: .home, childType: .preventie))
     }
     
     @objc func simptomeShortcutTapped(){
-        delegates.homePage.goToPage(pageIndex: 2, direction: .forward)
+        delegates.homePage.goToPage(pageIndex: 3, direction: .forward)
         delegates.homePage.updateNavigationBar(page: Page(mainPage: .home, childType: .simptome))
     }
 }

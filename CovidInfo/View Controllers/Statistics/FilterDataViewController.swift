@@ -99,7 +99,7 @@ class FilterDataViewController: UIViewController {
         delegates.statistics.refreshTableView()
         
         let date = Calendar.current.dateComponents([.year, .month, .day], from: Date())
-        let month = romanianMonths[date.month!]
+        let month = romanianMonths[date.month! - 1]
         delegates.statistics.updateDate(text: "Astazi, \(date.day!) \(month!) \(date.year!)")
         delegates.statistics.historicData()
         
