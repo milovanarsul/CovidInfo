@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34A0749428AF8CFD00A2DEF4 /* Amadeus in Frameworks */ = {isa = PBXBuildFile; productRef = 34A0749328AF8CFD00A2DEF4 /* Amadeus */; };
 		8C3127B2AFC78370A5578084 /* libPods-CovidInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85B96E91060584C3BD08BA11 /* libPods-CovidInfo.a */; };
 		B201DD3327B8E89600C34C41 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B201DD3227B8E89600C34C41 /* OnboardingPageViewController.swift */; };
 		B2049E4527FA325100303C6A /* NewsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2049E4427FA325100303C6A /* NewsParser.swift */; };
@@ -100,7 +101,6 @@
 		B2B8555C27EF7A6100793FC5 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8555B27EF7A6100793FC5 /* NewsViewController.swift */; };
 		B2B9EC932840AD5F00D77B8D /* CountryTravelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9EC922840AD5F00D77B8D /* CountryTravelTableViewCell.swift */; };
 		B2B9EC952840AE8000D77B8D /* CountryTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9EC942840AE8000D77B8D /* CountryTravel.swift */; };
-		B2B9EC992840B54700D77B8D /* Amadeus in Frameworks */ = {isa = PBXBuildFile; productRef = B2B9EC982840B54700D77B8D /* Amadeus */; };
 		B2B9EC9B2840B8C700D77B8D /* AmadeusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B9EC9A2840B8C700D77B8D /* AmadeusManager.swift */; };
 		B2BB039B27A9466700D4801B /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB039A27A9466700D4801B /* CustomTabBar.swift */; };
 		B2BB039F27A998F700D4801B /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BB039E27A998F700D4801B /* NavigationBar.swift */; };
@@ -310,10 +310,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2B9EC992840B54700D77B8D /* Amadeus in Frameworks */,
 				B2B1EB912854BAA500C5CA6A /* SwiftUICharts in Frameworks */,
 				8C3127B2AFC78370A5578084 /* libPods-CovidInfo.a in Frameworks */,
 				B2F607772849549C00900B56 /* MonthYearWheelPicker in Frameworks */,
+				34A0749428AF8CFD00A2DEF4 /* Amadeus in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,9 +846,9 @@
 			);
 			name = CovidInfo;
 			packageProductDependencies = (
-				B2B9EC982840B54700D77B8D /* Amadeus */,
 				B2F607762849549C00900B56 /* MonthYearWheelPicker */,
 				B2B1EB902854BAA500C5CA6A /* SwiftUICharts */,
+				34A0749328AF8CFD00A2DEF4 /* Amadeus */,
 			);
 			productName = CovidInfo;
 			productReference = B2F650EF278F2BD900E1BB58 /* CovidInfo.app */;
@@ -879,9 +879,9 @@
 			);
 			mainGroup = B2F650E6278F2BD900E1BB58;
 			packageReferences = (
-				B2B9EC972840B54700D77B8D /* XCRemoteSwiftPackageReference "amadeus-ios" */,
 				B2F607752849549C00900B56 /* XCRemoteSwiftPackageReference "MonthYearWheelPicker" */,
 				B2B1EB8F2854BAA500C5CA6A /* XCRemoteSwiftPackageReference "ChartView" */,
+				34A0749228AF8CFD00A2DEF4 /* XCRemoteSwiftPackageReference "amadeus-ios" */,
 			);
 			productRefGroup = B2F650F0278F2BD900E1BB58 /* Products */;
 			projectDirPath = "";
@@ -1326,20 +1326,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		34A0749228AF8CFD00A2DEF4 /* XCRemoteSwiftPackageReference "amadeus-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/amadeus4dev/amadeus-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		B2B1EB8F2854BAA500C5CA6A /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/milovanarsul/ChartView";
 			requirement = {
 				branch = master;
 				kind = branch;
-			};
-		};
-		B2B9EC972840B54700D77B8D /* XCRemoteSwiftPackageReference "amadeus-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/amadeus4dev/amadeus-ios.git";
-			requirement = {
-				kind = exactVersion;
-				version = 2.0.0;
 			};
 		};
 		B2F607752849549C00900B56 /* XCRemoteSwiftPackageReference "MonthYearWheelPicker" */ = {
@@ -1353,15 +1353,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		34A0749328AF8CFD00A2DEF4 /* Amadeus */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34A0749228AF8CFD00A2DEF4 /* XCRemoteSwiftPackageReference "amadeus-ios" */;
+			productName = Amadeus;
+		};
 		B2B1EB902854BAA500C5CA6A /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B2B1EB8F2854BAA500C5CA6A /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
-		};
-		B2B9EC982840B54700D77B8D /* Amadeus */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B2B9EC972840B54700D77B8D /* XCRemoteSwiftPackageReference "amadeus-ios" */;
-			productName = Amadeus;
 		};
 		B2F607762849549C00900B56 /* MonthYearWheelPicker */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -527,12 +527,68 @@ extension MainViewController: MainDelegate{
     }
     
     func locationDenied(){
-        let alert = UIAlertController(title: "Accesul la locație a fost restricționat", message: "Reactivează accesul la locație din Setări > CovidInfo > Localizare > La utilizarea aplicației", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            self.presentedViewController?.dismiss(animated: true)
-        }))
         
-        present(alert, animated: true)
+        #if targetEnvironment(simulator)
+            errorModal(text: "Locața automată este disponibilă doar\n pe un dispozitiv fizic.\nSelectează o locație manuală.")
+        #else
+        errorModal(text: "Accesul la locație a fost restricționat!\nReactivează accesul la locație\nSetări > CovidInfo > Localizare > La utilizarea aplicației", icon: "location.slash")
+        #endif
+    }
+    
+    func errorModal(text: String, icon: String? = nil){
+        lazy var simulator: UIView = {
+            lazy var warning: UIImageView = {
+                let imageView = UIImageView()
+    
+                if let icon = icon {
+                    imageView.image = UIImage(systemName: icon)
+                } else {
+                    imageView.image = UIImage(systemName: "exclamationmark.triangle")
+                }
+                
+                imageView.contentMode = .scaleAspectFit
+                imageView.tintColor = .red
+                imageView.translatesAutoresizingMaskIntoConstraints = false
+                return imageView
+            }()
+            
+            lazy var text: UILabel = {
+                let label = UILabel()
+                label.initialize(text: text, color: .black, font: boldFont(size: 14), alignment: .center, lines: 0)
+                label.translatesAutoresizingMaskIntoConstraints = false
+                return label
+            }()
+            
+            let view = UIView()
+            view.addSubviews(views: [warning, text])
+            view.backgroundColor = .white
+            
+            let warningConstraints = Constraints(childView: warning, parentView: view, constraints: [
+                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+                Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
+                Constraint(constraintType: .aspectRatio, multiplier: (1.0 / 1.0), constant: 0),
+                Constraint(constraintType: .proportionalWidth, multiplier: 0.2, constant: 0)
+            ])
+            warningConstraints.addConstraints()
+            
+            NSLayoutConstraint.activate([
+                text.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                text.topAnchor.constraint(equalTo: warning.bottomAnchor, constant: 20)
+            ])
+            
+            return view
+        }()
+        
+        let modal = UIViewController()
+        modal.view = simulator
+        
+        if let sheet = modal.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 24
+        }
+        
+        present(modal, animated: true, completion: nil)
     }
 }
 

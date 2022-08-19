@@ -153,6 +153,19 @@ extension OnboardingViewController: OnboardingDelegate {
         present(modal, animated: true, completion: nil)
     }
     
+    func presentModal(view: UIView){
+        let modal = UIViewController()
+        modal.view = view
+        
+        if let sheet = modal.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 24
+        }
+        
+        present(modal, animated: true, completion: nil)
+    }
+    
     func dismissModal(completion: @escaping (() -> Void)) {
         dismiss(animated: true, completion: completion)
     }

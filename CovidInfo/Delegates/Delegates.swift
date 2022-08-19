@@ -55,6 +55,7 @@ protocol OnboardingDelegate{
     func pageControlVisibility(visibility: Bool)
     func downloadData(dataRequest: DataRequest)
     func goToMain()
+    func presentModal(view: UIView)
 }
 
 protocol OnboardingViewDelegate{
@@ -63,6 +64,7 @@ protocol OnboardingViewDelegate{
 
 protocol OnboardingDownload{
     func downloadData(dataRequest: DataRequest)
+    func dataError()
 }
 
 protocol MainDelegate{

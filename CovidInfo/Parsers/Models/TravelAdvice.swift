@@ -8,63 +8,125 @@
 import Foundation
 import UIKit
 
-class TravelAdvice: Codable{
-    var areaAccessRestriction: TravelAdivce_AreaAccessRestriction?
-    var diseaseCases: TravelAdvice_DiseasesCases?
-    var areaPolicy: TravelAdvice_AreaPolicy?
-    var diseaseInfection: TravelAdvice_DiseaseInfection?
-    var diseaseRiskLevel: String?
+class TravelAdvice: Codable {
+    let areaAccessRestriction: AreaAccessRestriction?
+    let areaPolicy: AreaPolicy?
+    let diseaseCases: DiseaseCases?
+    let diseaseRiskLevel: DiseaseRiskLevel?
+    let diseaseInfection: DiseaseInfection?
 }
 
-class TravelAdivce_AreaAccessRestriction: Codable {
-    var diseaseVaccination: TravelAdivce_AreaAccessRestriction_DiseaseVaccination?
-    var exit: TravelAdivce_AreaAccessRestriction_Exit?
-    var quarantineModality: TravelAdivce_AreaAccessRestriction_QuarantineModality?
-    var entry: TravelAdivce_AreaAccessRestriction_Entry?
-    var mask: TravelAdivce_AreaAccessRestriction_Mask?
-    var diseaseTesting: TravelAdivce_AreaAccessRestriction_DiseaseTesting?
+// MARK: - AreaAccessRestriction
+class AreaAccessRestriction: Codable {
+    var exit: Exit? = nil
+    let travelVaccination: TravelVaccination?
+    let masks, tracingApplication, declarationDocuments: DeclarationDocuments?
+    let areaHealthPass: AreaHealthPass?
+    let entry: Entry?
+    let travelQuarantineModality: TravelQuarantineModality?
+    let travelTest: TravelTest?
 }
 
-class TravelAdivce_AreaAccessRestriction_DiseaseVaccination: Codable {
-    var text: String?
-    var isRequired: String?
-    var qualifiedVaccines: [String]?
+// MARK: - AreaHealthPass
+class AreaHealthPass: Codable {
+    let lastUpdate: String?
+    let referenceLink: String?
+    let isRequired, applicationGuidance, obtentionMethods: String?
 }
 
-class TravelAdivce_AreaAccessRestriction_Exit: Codable{
-    var specialRequirements: String?
-    var isBanned: String?
+// MARK: - DeclarationDocuments
+class DeclarationDocuments: Codable {
+    let lastUpdate, isRequired, text: String?
 }
 
-class TravelAdivce_AreaAccessRestriction_QuarantineModality: Codable{
-    var eligiblePerson: String?
+// MARK: - Entry
+class Entry: Codable {
+    let text, lastUpdate: String?
+    let referenceLink: String?
+    let borderBan: [BorderBan]?
+    let ban: String?
 }
 
-class TravelAdivce_AreaAccessRestriction_Entry: Codable {
-    var text: String?
-    var ban: String?
+// MARK: - BorderBan
+class BorderBan: Codable {
+    let borderType, status: String?
 }
 
-class TravelAdivce_AreaAccessRestriction_Mask: Codable {
-    var isRequired: String?
-    var text: String?
+// MARK: - Exit
+class Exit: Codable {
+    let isBanned, lastUpdate, specialRequirements: String?
 }
 
-class TravelAdivce_AreaAccessRestriction_DiseaseTesting: Codable{
-    var isRequired: String?
+// MARK: - Transportation
+class Transportation: Codable {
+    let text, lastUpdate, isBanned, transportationType: String?
+    let throughDate: String?
 }
 
-class TravelAdvice_DiseasesCases: Codable{
-    var deaths: Int?
-    var confirmed: Int?
+// MARK: - TravelQuarantineModality
+class TravelQuarantineModality: Codable {
+    let mandateList: String?
+    let lastUpdate, eligiblePerson: String?
 }
 
-class TravelAdvice_AreaPolicy: Codable{
-    var status: String?
-    var text: String?
+// MARK: - TravelTest
+class TravelTest: Codable {
+    let lastUpdate, isRequired: String?
 }
 
-class TravelAdvice_DiseaseInfection: Codable{
-    var level: String?
-    var rate: Double?
+// MARK: - TravelVaccination
+class TravelVaccination: Codable {
+    let qualifiedVaccines: [QualifiedVaccine]?
+    let vaccinatedTravellers: VaccinatedTravellers?
+    let referenceLink: String?
+    let details, isRequired, lastUpdate: String?
+}
+
+// MARK: - QualifiedVaccine
+class QualifiedVaccine: Codable {
+    let numberOfDoses: Int?
+    let boosterExpiration, expiration: Expiration?
+    let validity: Validity?
+    let supportedVaccineProducts: String?
+    let boosterRequired: String?
+}
+
+// MARK: - Expiration
+class Expiration: Codable {
+    let expiresAfter: String?
+}
+
+// MARK: - Validity
+class Validity: Codable {
+    let delay: String?
+}
+
+// MARK: - VaccinatedTravellers
+class VaccinatedTravellers: Codable {
+    let policy: String?
+}
+
+// MARK: - AreaPolicy
+class AreaPolicy: Codable {
+    let startDate, status, lastUpdate: String?
+    let referenceLink: String?
+    let endDate, text: String?
+}
+
+// MARK: - DiseaseCases
+class DiseaseCases: Codable {
+    let deaths: Int?
+    let lastUpdate: String?
+    let confirmed: Int?
+}
+
+// MARK: - DiseaseInfection
+class DiseaseInfection: Codable {
+    let lastUpdate, level, trend: String?
+    let rate: Double?
+}
+
+// MARK: - DiseaseRiskLevel
+class DiseaseRiskLevel: Codable {
+    let text: String?
 }

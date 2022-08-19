@@ -132,4 +132,13 @@ class FirebaseManager {
         }
     }
     
+    static func fetchCredentials(type: clientType, completion: @escaping (_ finished: (String, String)) -> Void){
+        databaseReference.child(type.rawValue).observeSingleEvent(of: .value, with: { (snapshot) in
+            let object = snapshot.value as? [String:AnyObject]
+            let clientID = object?["clientID"] as! String
+            let clientSecret = object?["clientSecret"] as! String
+            
+            completion((clientID, clientSecret))
+        })
+    }
 }

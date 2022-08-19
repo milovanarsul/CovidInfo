@@ -164,3 +164,8 @@ enum DataRequest{
     case refresh
     case load
 }
+
+enum clientType: String{
+    case amadeus = "Amadeus"
+    case translateAPI = "TranslateAPI"
+}

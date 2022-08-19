@@ -105,12 +105,20 @@ class OnboardingView: UIView {
         
         switch currentIndex{
         case 5:
-            delegates.onboarding.enrollCertifficate()
+            #if targetEnvironment(simulator)
+                simulatorModal(text: "Înrolarea certificatului este disponibilă doar\n pe un dispozitiv fizic")
+            #else
+                delegates.onboarding.enrollCertifficate()
+            #endif
         case 6:
-            AppDelegate.locationManager.requestWhenInUseAuthorization()
-            buttonStack.isHidden = true
-            activityView.isHidden = false
-            activityView.startAnimating()
+            #if targetEnvironment(simulator)
+                simulatorModal(text: "Locața automată este disponibilă doar\n pe un dispozitiv fizic.\nSelectează o locație manuală.")
+            #else
+                AppDelegate.locationManager.requestWhenInUseAuthorization()
+                buttonStack.isHidden = true
+                activityView.isHidden = false
+                activityView.startAnimating()
+            #endif
         default:
             delegates.onboardingPVC.nextPage!()
         }
@@ -118,6 +126,47 @@ class OnboardingView: UIView {
     
     @objc func skipButtonTapped(){
         delegates.onboardingPVC.nextPage!()
+    }
+    
+    func simulatorModal(text: String){
+        lazy var simulator: UIView = {
+            lazy var warning: UIImageView = {
+                let imageView = UIImageView()
+                imageView.image = UIImage(systemName: "exclamationmark.triangle")
+                imageView.contentMode = .scaleAspectFit
+                imageView.tintColor = .red
+                imageView.translatesAutoresizingMaskIntoConstraints = false
+                return imageView
+            }()
+            
+            lazy var text: UILabel = {
+                let label = UILabel()
+                label.initialize(text: text, color: .black, font: boldFont(size: 14), alignment: .center, lines: 0)
+                label.translatesAutoresizingMaskIntoConstraints = false
+                return label
+            }()
+            
+            let view = UIView()
+            view.addSubviews(views: [warning, text])
+            view.backgroundColor = .white
+            
+            let warningConstraints = Constraints(childView: warning, parentView: view, constraints: [
+                Constraint(constraintType: .horizontal, multiplier: 1, constant: 0),
+                Constraint(constraintType: .vertical, multiplier: 1, constant: 0),
+                Constraint(constraintType: .aspectRatio, multiplier: (1.0 / 1.0), constant: 0),
+                Constraint(constraintType: .proportionalWidth, multiplier: 0.2, constant: 0)
+            ])
+            warningConstraints.addConstraints()
+            
+            NSLayoutConstraint.activate([
+                text.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                text.topAnchor.constraint(equalTo: warning.bottomAnchor, constant: 20)
+            ])
+            
+            return view
+        }()
+        
+        delegates.onboarding.presentModal(view: simulator)
     }
 }
 

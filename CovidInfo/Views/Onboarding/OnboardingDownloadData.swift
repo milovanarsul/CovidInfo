@@ -71,4 +71,11 @@ extension OnboardingDownloadData: OnboardingDownload{
             }
         }
     }
+    
+    func dataError(){
+        DispatchQueue.main.async {
+            self.activityIndicator.isHidden = true
+            self.label.initialize(text: "Întâmpinăm erori...\n Reîncearcă mai târziu.", color: .black, font: boldFont(size: 16), alignment: .center, lines: 0)
+        }
+    }
 }
