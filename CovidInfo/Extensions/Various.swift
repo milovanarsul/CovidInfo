@@ -56,6 +56,11 @@ func stringToDate(string: String) -> Date{
     dateFormatter.locale = Locale(identifier: "ro_RO")
     dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
     let date = dateFormatter.date(from: string)
+    
+    if date == nil {
+        return Date()
+    }
+    
     return date!
 }
 
