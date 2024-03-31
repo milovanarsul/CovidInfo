@@ -2,6 +2,8 @@
 
 # CovidInfo
 
+-- Covid-Data is not maintained anymore -- 
+
 iOS App built using Swift, UIKit, SwiftUI, CoreData, Firebase.
 
 For the best results, run on a physical iPhone 12, 13 or later, running iOS 15 or later.
